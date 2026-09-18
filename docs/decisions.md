@@ -56,3 +56,21 @@ The synaptic-dynamics diagnostic keeps the conservative `0.05 mV/synapse`
 coupling fixed and tests gains `1`, `3`, `6`, and `12` in both legacy mode and
 the `5 ms` exponential-decay mode. This isolates the effect of gain and
 temporal current persistence from the earlier coupling experiment.
+
+## Input-to-output circuit story
+
+The circuit-story diagnostic is separate from the pathway-slice production
+baseline. It reuses the deterministic traced
+`vnc_sensory -> vnc_intrinsic -> descending_neuron` selector, stimulates only
+the selected sensory source, and keeps native transmitter signs,
+`synaptic_gain=1.0`, and `synaptic_tau_ms=None`. It compares the existing
+coupling probes while holding timestep, membrane parameters, pulse timing,
+and topology fixed.
+
+Its purpose is explanatory: show where a real connectome-backed signal dies or
+propagates, with the selected neurons, signed edges, spike times, and key
+voltage/current traces in one small report. The first complete path condition
+is selected for comparison automatically; if none exists, the highest tested
+coupling is used instead. Coupling values remain calibration probes for this
+simplified model, not biological synaptic-strength estimates. The diagnostic
+does not claim to reproduce a named behavior or provide FlyDoom I/O.

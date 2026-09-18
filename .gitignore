@@ -48,6 +48,14 @@ outputs/*
 !outputs/pathway-slice/edge_contributions.csv
 !outputs/pathway-slice/runs.csv
 !outputs/pathway-slice/summary.json
+!outputs/circuit-story/
+!outputs/circuit-story/story.md
+!outputs/circuit-story/summary.json
+!outputs/circuit-story/nodes.csv
+!outputs/circuit-story/edges.csv
+!outputs/circuit-story/runs.csv
+!outputs/circuit-story/key_traces.csv
+!outputs/circuit-story/key_edge_contributions.csv
 
 # Explicitly local-only simulation traces.
 outputs/**/spikes.csv

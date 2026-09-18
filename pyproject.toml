@@ -23,6 +23,7 @@ flytest-verify = "flytest.verify:main"
 flytest-propagation-diagnostic = "flytest.propagation_diagnostic:main"
 flytest-pathway-slice = "flytest.pathway_slice:main"
 flytest-synaptic-dynamics = "flytest.synaptic_dynamics_diagnostic:main"
+flytest-circuit-story = "flytest.circuit_story:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]

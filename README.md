@@ -89,6 +89,24 @@ These coupling values are calibration probes for this simplified LIF model,
 not biological parameter estimates. This command does not run behavioral or
 FlyDoom simulation.
 
+## Tell the circuit story
+
+The separate circuit-story diagnostic turns the same three-neuron pathway into
+a plain-language input-to-output experiment:
+
+```powershell
+.\.venv\Scripts\python.exe -m flytest.circuit_story
+```
+
+It uses the native transmitter signs and production-compatible synaptic
+settings, stimulates only the selected sensory neuron, and compares the same
+five coupling probes. It writes `story.md`, compact node/edge/run tables, and
+detailed traces for the lowest-coupling condition plus the first condition
+that produces a complete source-to-target path. A complete path means the
+source, intrinsic, and descending neurons spike one timestep apart. The report
+is an interpretable diagnostic, not a claim that the selected path is a
+complete biological behavior circuit.
+
 ## Compare synaptic dynamics
 
 The simulator defaults to the original one-step synaptic current. The separate

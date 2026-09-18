@@ -1,0 +1,253 @@
+{
+  "coupling_values_mv_per_synapse": [
+    0.05,
+    0.5,
+    1.5,
+    3.0,
+    4.0
+  ],
+  "dataset": {
+    "data_dir": "data\\working\\male-cns-v1.0",
+    "name": "FlyEM Male CNS",
+    "release": "v1.0",
+    "source_manifest": "data/metadata/source_manifest.json"
+  },
+  "edge_count": 4,
+  "experiment": "native-sign input-to-output circuit story",
+  "fixed_parameters": {
+    "dt_ms": 1.0,
+    "duration_ms": 40.0,
+    "input_current_mv": 80.0,
+    "input_duration_ms": 5.0,
+    "input_start_ms": 5.0,
+    "refractory_ms": 2.0,
+    "reset_mv": -65.0,
+    "rest_mv": -65.0,
+    "tau_ms": 20.0,
+    "threshold_mv": -50.0
+  },
+  "node_count": 3,
+  "notes": [
+    "Only the selected source neuron receives external input.",
+    "Every induced edge among the selected nodes is retained, including reverse or inhibitory edges.",
+    "Coupling values are calibration probes for this simplified LIF model, not biological parameter estimates.",
+    "This experiment does not model behavior, muscles, or FlyDoom inputs and outputs."
+  ],
+  "outputs": {
+    "edges": "outputs\\circuit-story\\edges.csv",
+    "key_edge_contributions": "outputs\\circuit-story\\key_edge_contributions.csv",
+    "key_traces": "outputs\\circuit-story\\key_traces.csv",
+    "nodes": "outputs\\circuit-story\\nodes.csv",
+    "runs": "outputs\\circuit-story\\runs.csv",
+    "story": "outputs\\circuit-story\\story.md",
+    "summary": "outputs\\circuit-story\\summary.json"
+  },
+  "path": {
+    "intermediate_id": 800225,
+    "path_edge_keys": [
+      [
+        806745,
+        800225,
+        137
+      ],
+      [
+        800225,
+        22012,
+        73
+      ]
+    ],
+    "source_id": 806745,
+    "target_id": 22012
+  },
+  "runs": [
+    {
+      "complete_path": false,
+      "coupling_mv_per_synapse": 0.05,
+      "intermediate_first_spike_ms": null,
+      "intermediate_id": 800225,
+      "intermediate_spike_count": 0,
+      "intermediate_to_target_one_step": false,
+      "source_first_spike_ms": 9.0,
+      "source_id": 806745,
+      "source_spike_count": 1,
+      "source_to_intermediate_one_step": false,
+      "spike_events": [
+        {
+          "body_id": 806745,
+          "neuron_index": 2,
+          "time_ms": 9.0
+        }
+      ],
+      "target_first_spike_ms": null,
+      "target_id": 22012,
+      "target_peak_synaptic_current": 0.15000000000000002,
+      "target_peak_voltage_mv": -64.9925,
+      "target_spike_count": 0,
+      "total_spikes": 1
+    },
+    {
+      "complete_path": false,
+      "coupling_mv_per_synapse": 0.5,
+      "intermediate_first_spike_ms": null,
+      "intermediate_id": 800225,
+      "intermediate_spike_count": 0,
+      "intermediate_to_target_one_step": false,
+      "source_first_spike_ms": 9.0,
+      "source_id": 806745,
+      "source_spike_count": 1,
+      "source_to_intermediate_one_step": false,
+      "spike_events": [
+        {
+          "body_id": 806745,
+          "neuron_index": 2,
+          "time_ms": 9.0
+        }
+      ],
+      "target_first_spike_ms": null,
+      "target_id": 22012,
+      "target_peak_synaptic_current": 1.5,
+      "target_peak_voltage_mv": -64.925,
+      "target_spike_count": 0,
+      "total_spikes": 1
+    },
+    {
+      "complete_path": false,
+      "coupling_mv_per_synapse": 1.5,
+      "intermediate_first_spike_ms": null,
+      "intermediate_id": 800225,
+      "intermediate_spike_count": 0,
+      "intermediate_to_target_one_step": false,
+      "source_first_spike_ms": 9.0,
+      "source_id": 806745,
+      "source_spike_count": 1,
+      "source_to_intermediate_one_step": false,
+      "spike_events": [
+        {
+          "body_id": 806745,
+          "neuron_index": 2,
+          "time_ms": 9.0
+        }
+      ],
+      "target_first_spike_ms": null,
+      "target_id": 22012,
+      "target_peak_synaptic_current": 4.5,
+      "target_peak_voltage_mv": -64.775,
+      "target_spike_count": 0,
+      "total_spikes": 1
+    },
+    {
+      "complete_path": false,
+      "coupling_mv_per_synapse": 3.0,
+      "intermediate_first_spike_ms": 10.0,
+      "intermediate_id": 800225,
+      "intermediate_spike_count": 1,
+      "intermediate_to_target_one_step": false,
+      "source_first_spike_ms": 9.0,
+      "source_id": 806745,
+      "source_spike_count": 1,
+      "source_to_intermediate_one_step": true,
+      "spike_events": [
+        {
+          "body_id": 806745,
+          "neuron_index": 2,
+          "time_ms": 9.0
+        },
+        {
+          "body_id": 800225,
+          "neuron_index": 1,
+          "time_ms": 10.0
+        }
+      ],
+      "target_first_spike_ms": null,
+      "target_id": 22012,
+      "target_peak_synaptic_current": 219.0,
+      "target_peak_voltage_mv": -53.622499999999995,
+      "target_spike_count": 0,
+      "total_spikes": 2
+    },
+    {
+      "complete_path": true,
+      "coupling_mv_per_synapse": 4.0,
+      "intermediate_first_spike_ms": 10.0,
+      "intermediate_id": 800225,
+      "intermediate_spike_count": 1,
+      "intermediate_to_target_one_step": true,
+      "source_first_spike_ms": 9.0,
+      "source_id": 806745,
+      "source_spike_count": 1,
+      "source_to_intermediate_one_step": true,
+      "spike_events": [
+        {
+          "body_id": 806745,
+          "neuron_index": 2,
+          "time_ms": 9.0
+        },
+        {
+          "body_id": 800225,
+          "neuron_index": 1,
+          "time_ms": 10.0
+        },
+        {
+          "body_id": 22012,
+          "neuron_index": 0,
+          "time_ms": 11.0
+        }
+      ],
+      "target_first_spike_ms": 11.0,
+      "target_id": 22012,
+      "target_peak_synaptic_current": 292.0,
+      "target_peak_voltage_mv": -64.4,
+      "target_spike_count": 1,
+      "total_spikes": 3
+    }
+  ],
+  "selection": {
+    "candidate_count": 1305,
+    "chosen_path": {
+      "intermediate_id": 800225,
+      "intermediate_to_target_weight": 73,
+      "score": 10001,
+      "source_id": 806745,
+      "source_to_intermediate_weight": 137,
+      "target_id": 22012,
+      "weakest_edge_weight": 73,
+      "weight_sum": 210
+    },
+    "induced_edge_count": 4,
+    "intermediate_superclass": "vnc_intrinsic",
+    "min_weight": 3,
+    "path_edge_keys": [
+      [
+        806745,
+        800225,
+        137
+      ],
+      [
+        800225,
+        22012,
+        73
+      ]
+    ],
+    "ranking": "weight_product, weakest_edge_weight, weight_sum, ascending body IDs",
+    "source_superclass": "vnc_sensory",
+    "target_superclass": "descending_neuron",
+    "traced_only": true
+  },
+  "synaptic_parameters": {
+    "sign_mode": "native stored signs",
+    "synaptic_gain": 1.0,
+    "synaptic_tau_ms": null
+  },
+  "trace_selection": [
+    {
+      "coupling_mv_per_synapse": 0.05,
+      "label": "conservative_reference",
+      "run_index": 0
+    },
+    {
+      "coupling_mv_per_synapse": 4.0,
+      "label": "first_complete_path",
+      "run_index": 4
+    }
+  ]
+}

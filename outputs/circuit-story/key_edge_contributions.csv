@@ -1,0 +1,7 @@
+condition_label,coupling_mv_per_synapse,source_spike_time_ms,arrival_time_ms,body_pre,body_post,weight,transmitter_pre,sign,synaptic_current,euler_voltage_increment_mv,is_path_edge,path_leg
+conservative_reference,0.05,9.0,10.0,806745,22012,3,acetylcholine,1.0,0.15000000000000002,0.0075000000000000015,False,
+conservative_reference,0.05,9.0,10.0,806745,800225,137,acetylcholine,1.0,6.8500000000000005,0.3425,True,source_to_intermediate
+first_complete_path,4.0,9.0,10.0,806745,22012,3,acetylcholine,1.0,12.0,0.6000000000000001,False,
+first_complete_path,4.0,9.0,10.0,806745,800225,137,acetylcholine,1.0,548.0,27.400000000000002,True,source_to_intermediate
+first_complete_path,4.0,10.0,11.0,800225,22012,73,acetylcholine,1.0,292.0,14.600000000000001,True,intermediate_to_target
+first_complete_path,4.0,11.0,12.0,22012,800225,49,gaba,-1.0,-196.0,-9.8,False,

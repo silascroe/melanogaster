@@ -1,0 +1,5 @@
+body_pre,body_post,weight,transmitter_pre,sign,signed_weight,is_path_edge,path_leg
+22012,800225,49,gaba,-1.0,-49.0,False,
+800225,22012,73,acetylcholine,1.0,73.0,True,intermediate_to_target
+806745,22012,3,acetylcholine,1.0,3.0,False,
+806745,800225,137,acetylcholine,1.0,137.0,True,source_to_intermediate

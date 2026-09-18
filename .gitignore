@@ -1,0 +1,55 @@
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Local/editor files and secrets
+.vscode/
+.idea/
+*.log
+.env
+.env.*
+!.env.example
+
+# The official release files are intentionally kept locally, not committed.
+# The placeholders and source manifest remain version-controlled.
+data/original-data/*
+data/working/*
+!data/original-data/.gitkeep
+!data/working/.gitkeep
+
+# The duplicate clean backup is a local recovery copy, not repository history.
+backups/
+
+# Generated outputs are ignored by default. Compact, reproducible reports are
+# explicitly unignored below; bulky per-timestep traces stay local.
+outputs/*
+!outputs/.gitkeep
+!outputs/verification.json
+!outputs/inspection/
+!outputs/inspection/dataset_report.json
+!outputs/baseline/
+!outputs/baseline/selected_neurons.csv
+!outputs/baseline/selected_edges.csv
+!outputs/baseline/summary.json
+!outputs/diagnostics/
+!outputs/diagnostics/propagation_matrix.csv
+!outputs/diagnostics/propagation_matrix.json
+!outputs/diagnostics/synaptic_dynamics_matrix.csv
+!outputs/diagnostics/synaptic_dynamics_matrix.json
+!outputs/pathway-slice/
+!outputs/pathway-slice/nodes.csv
+!outputs/pathway-slice/edges.csv
+!outputs/pathway-slice/edge_contributions.csv
+!outputs/pathway-slice/runs.csv
+!outputs/pathway-slice/summary.json
+
+# Explicitly local-only simulation traces.
+outputs/**/spikes.csv
+outputs/**/voltages.csv
+outputs/**/synaptic_dynamics_traces.csv

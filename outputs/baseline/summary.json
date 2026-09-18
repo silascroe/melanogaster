@@ -1,0 +1,439 @@
+{
+  "data_dir": "data\\working\\male-cns-v1.0",
+  "edge_count": 377,
+  "input_nodes": [
+    12781,
+    556329
+  ],
+  "node_count": 66,
+  "outputs": {
+    "edges": "outputs\\baseline\\selected_edges.csv",
+    "neurons": "outputs\\baseline\\selected_neurons.csv",
+    "spikes": "outputs\\baseline\\spikes.csv",
+    "voltages": "outputs\\baseline\\voltages.csv"
+  },
+  "seed_ids": [
+    12781,
+    556329
+  ],
+  "selection": {
+    "eligible_nodes": 165122,
+    "max_edges": null,
+    "min_weight": 3,
+    "neighbor_limit": 64,
+    "ranked_neighbor_count": 2418,
+    "selected_neighbors": [
+      {
+        "body_id": 522822,
+        "incident_edges": 2,
+        "incident_weight": 313
+      },
+      {
+        "body_id": 15884,
+        "incident_edges": 3,
+        "incident_weight": 271
+      },
+      {
+        "body_id": 27797,
+        "incident_edges": 2,
+        "incident_weight": 249
+      },
+      {
+        "body_id": 25185,
+        "incident_edges": 2,
+        "incident_weight": 228
+      },
+      {
+        "body_id": 66518,
+        "incident_edges": 1,
+        "incident_weight": 223
+      },
+      {
+        "body_id": 513052,
+        "incident_edges": 2,
+        "incident_weight": 202
+      },
+      {
+        "body_id": 800402,
+        "incident_edges": 1,
+        "incident_weight": 193
+      },
+      {
+        "body_id": 801202,
+        "incident_edges": 1,
+        "incident_weight": 191
+      },
+      {
+        "body_id": 11466,
+        "incident_edges": 2,
+        "incident_weight": 173
+      },
+      {
+        "body_id": 56630,
+        "incident_edges": 2,
+        "incident_weight": 173
+      },
+      {
+        "body_id": 16510,
+        "incident_edges": 2,
+        "incident_weight": 158
+      },
+      {
+        "body_id": 10732,
+        "incident_edges": 1,
+        "incident_weight": 158
+      },
+      {
+        "body_id": 58725,
+        "incident_edges": 1,
+        "incident_weight": 158
+      },
+      {
+        "body_id": 10223,
+        "incident_edges": 1,
+        "incident_weight": 153
+      },
+      {
+        "body_id": 10141,
+        "incident_edges": 2,
+        "incident_weight": 144
+      },
+      {
+        "body_id": 18050,
+        "incident_edges": 1,
+        "incident_weight": 139
+      },
+      {
+        "body_id": 60372,
+        "incident_edges": 1,
+        "incident_weight": 135
+      },
+      {
+        "body_id": 800919,
+        "incident_edges": 1,
+        "incident_weight": 135
+      },
+      {
+        "body_id": 29450,
+        "incident_edges": 2,
+        "incident_weight": 132
+      },
+      {
+        "body_id": 11687,
+        "incident_edges": 1,
+        "incident_weight": 132
+      },
+      {
+        "body_id": 10967,
+        "incident_edges": 2,
+        "incident_weight": 127
+      },
+      {
+        "body_id": 800651,
+        "incident_edges": 1,
+        "incident_weight": 120
+      },
+      {
+        "body_id": 12218,
+        "incident_edges": 1,
+        "incident_weight": 118
+      },
+      {
+        "body_id": 37743,
+        "incident_edges": 2,
+        "incident_weight": 110
+      },
+      {
+        "body_id": 25047,
+        "incident_edges": 2,
+        "incident_weight": 105
+      },
+      {
+        "body_id": 903446,
+        "incident_edges": 1,
+        "incident_weight": 104
+      },
+      {
+        "body_id": 801780,
+        "incident_edges": 1,
+        "incident_weight": 102
+      },
+      {
+        "body_id": 1054499659,
+        "incident_edges": 1,
+        "incident_weight": 102
+      },
+      {
+        "body_id": 72215,
+        "incident_edges": 2,
+        "incident_weight": 101
+      },
+      {
+        "body_id": 162471,
+        "incident_edges": 2,
+        "incident_weight": 101
+      },
+      {
+        "body_id": 800098,
+        "incident_edges": 1,
+        "incident_weight": 98
+      },
+      {
+        "body_id": 801308,
+        "incident_edges": 1,
+        "incident_weight": 96
+      },
+      {
+        "body_id": 805181,
+        "incident_edges": 2,
+        "incident_weight": 93
+      },
+      {
+        "body_id": 515758,
+        "incident_edges": 2,
+        "incident_weight": 84
+      },
+      {
+        "body_id": 21763,
+        "incident_edges": 1,
+        "incident_weight": 84
+      },
+      {
+        "body_id": 86646,
+        "incident_edges": 2,
+        "incident_weight": 83
+      },
+      {
+        "body_id": 802274,
+        "incident_edges": 1,
+        "incident_weight": 82
+      },
+      {
+        "body_id": 809623,
+        "incident_edges": 2,
+        "incident_weight": 81
+      },
+      {
+        "body_id": 810576,
+        "incident_edges": 2,
+        "incident_weight": 81
+      },
+      {
+        "body_id": 1055278121,
+        "incident_edges": 1,
+        "incident_weight": 81
+      },
+      {
+        "body_id": 12222,
+        "incident_edges": 1,
+        "incident_weight": 80
+      },
+      {
+        "body_id": 800721,
+        "incident_edges": 2,
+        "incident_weight": 78
+      },
+      {
+        "body_id": 104738,
+        "incident_edges": 2,
+        "incident_weight": 74
+      },
+      {
+        "body_id": 22728,
+        "incident_edges": 2,
+        "incident_weight": 73
+      },
+      {
+        "body_id": 30088,
+        "incident_edges": 1,
+        "incident_weight": 72
+      },
+      {
+        "body_id": 808666,
+        "incident_edges": 2,
+        "incident_weight": 71
+      },
+      {
+        "body_id": 12179,
+        "incident_edges": 1,
+        "incident_weight": 70
+      },
+      {
+        "body_id": 800632,
+        "incident_edges": 2,
+        "incident_weight": 69
+      },
+      {
+        "body_id": 809018,
+        "incident_edges": 2,
+        "incident_weight": 69
+      },
+      {
+        "body_id": 10968,
+        "incident_edges": 1,
+        "incident_weight": 69
+      },
+      {
+        "body_id": 519410,
+        "incident_edges": 1,
+        "incident_weight": 65
+      },
+      {
+        "body_id": 804151,
+        "incident_edges": 2,
+        "incident_weight": 64
+      },
+      {
+        "body_id": 800026,
+        "incident_edges": 1,
+        "incident_weight": 64
+      },
+      {
+        "body_id": 807178,
+        "incident_edges": 2,
+        "incident_weight": 63
+      },
+      {
+        "body_id": 808828,
+        "incident_edges": 2,
+        "incident_weight": 63
+      },
+      {
+        "body_id": 14628,
+        "incident_edges": 2,
+        "incident_weight": 62
+      },
+      {
+        "body_id": 805509,
+        "incident_edges": 2,
+        "incident_weight": 61
+      },
+      {
+        "body_id": 10071,
+        "incident_edges": 2,
+        "incident_weight": 60
+      },
+      {
+        "body_id": 806053,
+        "incident_edges": 2,
+        "incident_weight": 60
+      },
+      {
+        "body_id": 808809,
+        "incident_edges": 2,
+        "incident_weight": 59
+      },
+      {
+        "body_id": 809413,
+        "incident_edges": 2,
+        "incident_weight": 59
+      },
+      {
+        "body_id": 904849,
+        "incident_edges": 2,
+        "incident_weight": 59
+      },
+      {
+        "body_id": 804104,
+        "incident_edges": 2,
+        "incident_weight": 58
+      },
+      {
+        "body_id": 808591,
+        "incident_edges": 2,
+        "incident_weight": 58
+      }
+    ],
+    "traced_only": true
+  },
+  "sign_counts_by_node": {
+    "-1.0": 30,
+    "0.0": 1,
+    "1.0": 35
+  },
+  "simulation": {
+    "config": {
+      "dt_ms": 1.0,
+      "duration_ms": 100.0,
+      "input_current_mv": 80.0,
+      "input_duration_ms": 5.0,
+      "input_start_ms": 5.0,
+      "mv_per_synapse": 0.05,
+      "refractory_ms": 2.0,
+      "reset_mv": -65.0,
+      "rest_mv": -65.0,
+      "tau_ms": 20.0,
+      "threshold_mv": -50.0
+    },
+    "spike_counts": {
+      "10071": 0,
+      "10141": 0,
+      "10223": 0,
+      "104738": 0,
+      "1054499659": 0,
+      "1055278121": 0,
+      "10732": 0,
+      "10967": 0,
+      "10968": 0,
+      "11466": 0,
+      "11687": 0,
+      "12179": 0,
+      "12218": 0,
+      "12222": 0,
+      "12781": 1,
+      "14628": 0,
+      "15884": 0,
+      "162471": 0,
+      "16510": 0,
+      "18050": 0,
+      "21763": 0,
+      "22728": 0,
+      "25047": 0,
+      "25185": 0,
+      "27797": 0,
+      "29450": 0,
+      "30088": 0,
+      "37743": 0,
+      "513052": 0,
+      "515758": 0,
+      "519410": 0,
+      "522822": 0,
+      "556329": 1,
+      "56630": 0,
+      "58725": 0,
+      "60372": 0,
+      "66518": 0,
+      "72215": 0,
+      "800026": 0,
+      "800098": 0,
+      "800402": 0,
+      "800632": 0,
+      "800651": 0,
+      "800721": 0,
+      "800919": 0,
+      "801202": 0,
+      "801308": 0,
+      "801780": 0,
+      "802274": 0,
+      "804104": 0,
+      "804151": 0,
+      "805181": 0,
+      "805509": 0,
+      "806053": 0,
+      "807178": 0,
+      "808591": 0,
+      "808666": 0,
+      "808809": 0,
+      "808828": 0,
+      "809018": 0,
+      "809413": 0,
+      "809623": 0,
+      "810576": 0,
+      "86646": 0,
+      "903446": 0,
+      "904849": 0
+    },
+    "steps": 100,
+    "total_spikes": 2
+  }
+}

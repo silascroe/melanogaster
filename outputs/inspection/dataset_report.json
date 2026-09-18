@@ -1,0 +1,561 @@
+{
+  "annotations": {
+    "columns": [
+      "assignedOlHex1",
+      "assignedOlHex2",
+      "bodyId",
+      "flywireType",
+      "group",
+      "instance",
+      "somaSide",
+      "statusLabel",
+      "superclass",
+      "type",
+      "vfbId",
+      "hemibrainType",
+      "itoleeHl",
+      "supertype",
+      "birthtime",
+      "mancBodyid",
+      "mancGroup",
+      "mancType",
+      "subclass",
+      "synonyms",
+      "class",
+      "rootSide",
+      "somaNeuromere",
+      "trumanHl",
+      "dimorphism",
+      "matchingNotes",
+      "entryNerve",
+      "mancSerial",
+      "mcnsSerial",
+      "serialMotif",
+      "fruDsx",
+      "exitNerve",
+      "receptorType",
+      "somaLocation",
+      "tosomaLocation",
+      "status"
+    ],
+    "rows": 211577,
+    "status_counts": [
+      {
+        "count": 165122,
+        "value": "Traced"
+      },
+      {
+        "count": 15925,
+        "value": "Orphan"
+      },
+      {
+        "count": 11864,
+        "value": "Glia"
+      },
+      {
+        "count": 10751,
+        "value": "Unimportant"
+      },
+      {
+        "count": 5472,
+        "value": null
+      },
+      {
+        "count": 1832,
+        "value": "Assign"
+      },
+      {
+        "count": 611,
+        "value": "Anchor"
+      }
+    ],
+    "superclass_counts_top": [
+      {
+        "count": 89403,
+        "value": "ol_intrinsic"
+      },
+      {
+        "count": 44877,
+        "value": null
+      },
+      {
+        "count": 32164,
+        "value": "cb_intrinsic"
+      },
+      {
+        "count": 13161,
+        "value": "vnc_intrinsic"
+      },
+      {
+        "count": 9201,
+        "value": "visual_projection"
+      },
+      {
+        "count": 6370,
+        "value": "vnc_sensory"
+      },
+      {
+        "count": 6098,
+        "value": "ol_sensory"
+      },
+      {
+        "count": 4868,
+        "value": "cb_sensory"
+      },
+      {
+        "count": 1846,
+        "value": "ascending_neuron"
+      },
+      {
+        "count": 1314,
+        "value": "descending_neuron"
+      },
+      {
+        "count": 708,
+        "value": "vnc_motor"
+      },
+      {
+        "count": 563,
+        "value": "visual_centrifugal"
+      },
+      {
+        "count": 537,
+        "value": "sensory_ascending"
+      },
+      {
+        "count": 107,
+        "value": "cb_motor"
+      },
+      {
+        "count": 94,
+        "value": "vnc_efferent"
+      },
+      {
+        "count": 72,
+        "value": "cb_endocrine"
+      },
+      {
+        "count": 50,
+        "value": "ENS"
+      },
+      {
+        "count": 38,
+        "value": "vnc_tbc"
+      },
+      {
+        "count": 36,
+        "value": "vnc_sensory_tbc"
+      },
+      {
+        "count": 22,
+        "value": "vnc_endocrine"
+      }
+    ],
+    "type_counts_top": [
+      {
+        "count": 47071,
+        "value": null
+      },
+      {
+        "count": 3377,
+        "value": "R1-R6"
+      },
+      {
+        "count": 2054,
+        "value": "Tm3"
+      },
+      {
+        "count": 1940,
+        "value": "T3"
+      },
+      {
+        "count": 1872,
+        "value": "T2a"
+      },
+      {
+        "count": 1787,
+        "value": "L5"
+      },
+      {
+        "count": 1779,
+        "value": "C3"
+      },
+      {
+        "count": 1779,
+        "value": "L2"
+      },
+      {
+        "count": 1778,
+        "value": "T4c"
+      },
+      {
+        "count": 1777,
+        "value": "T1"
+      },
+      {
+        "count": 1777,
+        "value": "Tm1"
+      },
+      {
+        "count": 1776,
+        "value": "L1"
+      },
+      {
+        "count": 1775,
+        "value": "Mi9"
+      },
+      {
+        "count": 1773,
+        "value": "Mi1"
+      },
+      {
+        "count": 1772,
+        "value": "L3"
+      },
+      {
+        "count": 1772,
+        "value": "Mi4"
+      },
+      {
+        "count": 1771,
+        "value": "Tm9"
+      },
+      {
+        "count": 1770,
+        "value": "L4"
+      },
+      {
+        "count": 1766,
+        "value": "Tm2"
+      },
+      {
+        "count": 1762,
+        "value": "Tm20"
+      }
+    ]
+  },
+  "dataset": "MaleCNS",
+  "neurotransmitters": {
+    "body_distinct": 1835518,
+    "columns": [
+      "body",
+      "cell_type",
+      "predicted_nt",
+      "predicted_nt_confidence",
+      "consensus_nt",
+      "total_nt_predictions"
+    ],
+    "consensus_counts": [
+      {
+        "count": 1671117,
+        "value": "unclear"
+      },
+      {
+        "count": 104193,
+        "value": "acetylcholine"
+      },
+      {
+        "count": 29443,
+        "value": "glutamate"
+      },
+      {
+        "count": 22196,
+        "value": "gaba"
+      },
+      {
+        "count": 8024,
+        "value": "histamine"
+      },
+      {
+        "count": 396,
+        "value": "dopamine"
+      },
+      {
+        "count": 101,
+        "value": "octopamine"
+      },
+      {
+        "count": 48,
+        "value": "serotonin"
+      }
+    ],
+    "predicted_counts": [
+      {
+        "count": 1684226,
+        "value": "unclear"
+      },
+      {
+        "count": 95420,
+        "value": "acetylcholine"
+      },
+      {
+        "count": 28199,
+        "value": "glutamate"
+      },
+      {
+        "count": 20358,
+        "value": "gaba"
+      },
+      {
+        "count": 4447,
+        "value": "dopamine"
+      },
+      {
+        "count": 2259,
+        "value": "histamine"
+      },
+      {
+        "count": 483,
+        "value": "serotonin"
+      },
+      {
+        "count": 126,
+        "value": "octopamine"
+      }
+    ],
+    "rows": 1835518
+  },
+  "notes": [
+    "Raw weights are segment-to-segment and include uncurated endpoint IDs.",
+    "The filtered graph keeps both endpoints in annotation rows with status == 'Traced'.",
+    "Weight is retained as a positive synapse-count magnitude; transmitter sign is applied separately."
+  ],
+  "release": "v1.0",
+  "schemas": [
+    {
+      "columns": [
+        {
+          "name": "assignedOlHex1",
+          "type": "double"
+        },
+        {
+          "name": "assignedOlHex2",
+          "type": "double"
+        },
+        {
+          "name": "bodyId",
+          "type": "int64"
+        },
+        {
+          "name": "flywireType",
+          "type": "string"
+        },
+        {
+          "name": "group",
+          "type": "double"
+        },
+        {
+          "name": "instance",
+          "type": "string"
+        },
+        {
+          "name": "somaSide",
+          "type": "string"
+        },
+        {
+          "name": "statusLabel",
+          "type": "dictionary<values=string, indices=int8, ordered=1>"
+        },
+        {
+          "name": "superclass",
+          "type": "string"
+        },
+        {
+          "name": "type",
+          "type": "string"
+        },
+        {
+          "name": "vfbId",
+          "type": "string"
+        },
+        {
+          "name": "hemibrainType",
+          "type": "string"
+        },
+        {
+          "name": "itoleeHl",
+          "type": "string"
+        },
+        {
+          "name": "supertype",
+          "type": "string"
+        },
+        {
+          "name": "birthtime",
+          "type": "string"
+        },
+        {
+          "name": "mancBodyid",
+          "type": "double"
+        },
+        {
+          "name": "mancGroup",
+          "type": "double"
+        },
+        {
+          "name": "mancType",
+          "type": "string"
+        },
+        {
+          "name": "subclass",
+          "type": "string"
+        },
+        {
+          "name": "synonyms",
+          "type": "string"
+        },
+        {
+          "name": "class",
+          "type": "string"
+        },
+        {
+          "name": "rootSide",
+          "type": "string"
+        },
+        {
+          "name": "somaNeuromere",
+          "type": "string"
+        },
+        {
+          "name": "trumanHl",
+          "type": "string"
+        },
+        {
+          "name": "dimorphism",
+          "type": "string"
+        },
+        {
+          "name": "matchingNotes",
+          "type": "string"
+        },
+        {
+          "name": "entryNerve",
+          "type": "string"
+        },
+        {
+          "name": "mancSerial",
+          "type": "double"
+        },
+        {
+          "name": "mcnsSerial",
+          "type": "double"
+        },
+        {
+          "name": "serialMotif",
+          "type": "string"
+        },
+        {
+          "name": "fruDsx",
+          "type": "string"
+        },
+        {
+          "name": "exitNerve",
+          "type": "string"
+        },
+        {
+          "name": "receptorType",
+          "type": "string"
+        },
+        {
+          "name": "somaLocation",
+          "type": "list<item: int64>"
+        },
+        {
+          "name": "tosomaLocation",
+          "type": "list<item: int64>"
+        },
+        {
+          "name": "status",
+          "type": "string"
+        }
+      ],
+      "path": "data\\working\\male-cns-v1.0\\body-annotations-male-cns-v1.0-minconf-0.5.feather",
+      "rows": 211577
+    },
+    {
+      "columns": [
+        {
+          "name": "body",
+          "type": "int64"
+        },
+        {
+          "name": "cell_type",
+          "type": "string"
+        },
+        {
+          "name": "total_nt_predictions",
+          "type": "int32"
+        },
+        {
+          "name": "predicted_nt_confidence",
+          "type": "double"
+        },
+        {
+          "name": "predicted_nt",
+          "type": "string"
+        },
+        {
+          "name": "ground_truth",
+          "type": "string"
+        },
+        {
+          "name": "celltype_total_nt_predictions",
+          "type": "int32"
+        },
+        {
+          "name": "celltype_predicted_nt",
+          "type": "string"
+        },
+        {
+          "name": "celltype_predicted_nt_confidence",
+          "type": "double"
+        },
+        {
+          "name": "consensus_nt",
+          "type": "string"
+        }
+      ],
+      "path": "data\\working\\male-cns-v1.0\\body-neurotransmitters-male-cns-v1.0.feather",
+      "rows": 1835518
+    },
+    {
+      "columns": [
+        {
+          "name": "body_pre",
+          "type": "int64"
+        },
+        {
+          "name": "body_post",
+          "type": "int64"
+        },
+        {
+          "name": "weight",
+          "type": "int64"
+        }
+      ],
+      "path": "data\\working\\male-cns-v1.0\\connectome-weights-male-cns-v1.0-minconf-0.5.feather",
+      "rows": 151856684
+    }
+  ],
+  "weights": {
+    "eligible_nodes": 165122,
+    "filtered": {
+      "max_weight": 2591,
+      "mean_weight": 4.851703251357802,
+      "min_weight": 1,
+      "rows": 25563197,
+      "sum_weight": 124025046,
+      "unique_post": 164463,
+      "unique_pre": 163539
+    },
+    "raw": {
+      "max_weight": 2591,
+      "mean_weight": 2.053470646046769,
+      "min_weight": 1,
+      "rows": 151856684,
+      "sum_weight": 311833243,
+      "unique_post": 0,
+      "unique_pre": 0
+    }
+  }
+}

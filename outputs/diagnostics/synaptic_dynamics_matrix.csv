@@ -1,0 +1,17 @@
+topology,node_count,edge_count,source_id,intermediate_id,target_id,mv_per_synapse,synaptic_gain,synaptic_tau_ms,synaptic_mode,source_spike_count,intermediate_spike_count,target_spike_count,source_first_spike_ms,intermediate_first_spike_ms,target_first_spike_ms,one_step_target_spike,complete_path,target_peak_voltage_mv,target_peak_synaptic_current,total_spikes
+DNpe056_edge_10732_to_10968,66,377,10732,,10968,0.05,1.0,,legacy_one_step,1,,0,9.0,,,False,,-64.415,11.700000000000001,1
+DNpe056_edge_10732_to_10968,66,377,10732,,10968,0.05,1.0,5.0,exponential,1,,0,9.0,,,False,,-62.927952955798936,11.700000000000001,1
+DNpe056_edge_10732_to_10968,66,377,10732,,10968,0.05,3.0,,legacy_one_step,1,,0,9.0,,,False,,-63.245,35.1,1
+DNpe056_edge_10732_to_10968,66,377,10732,,10968,0.05,3.0,5.0,exponential,1,,0,9.0,,,False,,-58.78385886739678,35.1,1
+DNpe056_edge_10732_to_10968,66,377,10732,,10968,0.05,6.0,,legacy_one_step,1,,0,9.0,,,False,,-61.49,70.2,1
+DNpe056_edge_10732_to_10968,66,377,10732,,10968,0.05,6.0,5.0,exponential,1,,0,9.0,,,False,,-52.567717734793575,70.2,1
+DNpe056_edge_10732_to_10968,66,377,10732,,10968,0.05,12.0,,legacy_one_step,1,,0,9.0,,,False,,-57.98,140.4,1
+DNpe056_edge_10732_to_10968,66,377,10732,,10968,0.05,12.0,5.0,exponential,1,,1,9.0,,12.0,False,,-52.58351011339256,140.4,3
+native_pathway_806745_to_800225_to_22012,3,4,806745,800225,22012,0.05,1.0,,legacy_one_step,1,0,0,9.0,,,False,False,-64.9925,0.15000000000000002,1
+native_pathway_806745_to_800225_to_22012,3,4,806745,800225,22012,0.05,1.0,5.0,exponential,1,0,0,9.0,,,False,False,-64.97343529430513,0.15000000000000002,1
+native_pathway_806745_to_800225_to_22012,3,4,806745,800225,22012,0.05,3.0,,legacy_one_step,1,0,0,9.0,,,False,False,-64.9775,0.45000000000000007,1
+native_pathway_806745_to_800225_to_22012,3,4,806745,800225,22012,0.05,3.0,5.0,exponential,1,0,0,9.0,,,False,False,-64.92030588291534,0.45000000000000007,1
+native_pathway_806745_to_800225_to_22012,3,4,806745,800225,22012,0.05,6.0,,legacy_one_step,1,0,0,9.0,,,False,False,-64.955,0.9000000000000001,1
+native_pathway_806745_to_800225_to_22012,3,4,806745,800225,22012,0.05,6.0,5.0,exponential,1,0,0,9.0,,,False,False,-64.84061176583069,0.9000000000000001,1
+native_pathway_806745_to_800225_to_22012,3,4,806745,800225,22012,0.05,12.0,,legacy_one_step,1,0,0,9.0,,,False,False,-64.91,1.8000000000000003,1
+native_pathway_806745_to_800225_to_22012,3,4,806745,800225,22012,0.05,12.0,5.0,exponential,1,0,0,9.0,,,False,False,-64.68122353166139,1.8000000000000003,1

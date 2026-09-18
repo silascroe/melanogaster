@@ -1,0 +1,4 @@
+body_id,type,instance,status,superclass,soma_side,consensus_nt,predicted_nt,nt_confidence,fast_sign,is_seed,class,role
+22012,DNxl114,DNxl114_R,Traced,descending_neuron,R,gaba,gaba,0.8773034594804319,-1.0,False,,target
+800225,IN23B009,IN23B009_R,Traced,vnc_intrinsic,R,acetylcholine,acetylcholine,0.964102603079582,1.0,False,,intermediate
+806745,SNta30,,Traced,vnc_sensory,,acetylcholine,acetylcholine,0.968792104780533,1.0,True,mechanosensory_tactile,source

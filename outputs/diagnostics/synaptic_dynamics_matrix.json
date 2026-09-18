@@ -1,0 +1,542 @@
+{
+  "experiment": "legacy versus exponential synaptic dynamics",
+  "fixed_parameters": {
+    "dt_ms": 1.0,
+    "duration_ms": 40.0,
+    "input_current_mv": 80.0,
+    "input_duration_ms": 5.0,
+    "input_start_ms": 5.0,
+    "mv_per_synapse": 0.05,
+    "refractory_ms": 2.0,
+    "reset_mv": -65.0,
+    "rest_mv": -65.0,
+    "tau_ms": 20.0,
+    "threshold_mv": -50.0
+  },
+  "gain_values": [
+    1.0,
+    3.0,
+    6.0,
+    12.0
+  ],
+  "interpretation": [
+    "synaptic_gain multiplies the existing raw-count current; no weight normalization is introduced.",
+    "None synaptic tau is the legacy one-step current mode.",
+    "Positive synaptic tau uses exponential decay while preserving the one-step spike delay.",
+    "All conditions use native stored signs and the same topology, pulse, timestep, and membrane parameters."
+  ],
+  "results": [
+    {
+      "all_spike_events": [
+        {
+          "body_id": 10732,
+          "neuron_index": 3,
+          "time_ms": 9.0
+        }
+      ],
+      "complete_path": null,
+      "edge_count": 377,
+      "intermediate_first_spike_ms": null,
+      "intermediate_id": null,
+      "intermediate_spike_count": null,
+      "mv_per_synapse": 0.05,
+      "node_count": 66,
+      "one_step_target_spike": false,
+      "source_first_spike_ms": 9.0,
+      "source_id": 10732,
+      "source_spike_count": 1,
+      "synaptic_gain": 1.0,
+      "synaptic_mode": "legacy_one_step",
+      "synaptic_tau_ms": null,
+      "target_first_spike_ms": null,
+      "target_id": 10968,
+      "target_peak_synaptic_current": 11.700000000000001,
+      "target_peak_voltage_mv": -64.415,
+      "target_spike_count": 0,
+      "topology": "DNpe056_edge_10732_to_10968",
+      "total_spikes": 1
+    },
+    {
+      "all_spike_events": [
+        {
+          "body_id": 10732,
+          "neuron_index": 3,
+          "time_ms": 9.0
+        }
+      ],
+      "complete_path": null,
+      "edge_count": 377,
+      "intermediate_first_spike_ms": null,
+      "intermediate_id": null,
+      "intermediate_spike_count": null,
+      "mv_per_synapse": 0.05,
+      "node_count": 66,
+      "one_step_target_spike": false,
+      "source_first_spike_ms": 9.0,
+      "source_id": 10732,
+      "source_spike_count": 1,
+      "synaptic_gain": 1.0,
+      "synaptic_mode": "exponential",
+      "synaptic_tau_ms": 5.0,
+      "target_first_spike_ms": null,
+      "target_id": 10968,
+      "target_peak_synaptic_current": 11.700000000000001,
+      "target_peak_voltage_mv": -62.927952955798936,
+      "target_spike_count": 0,
+      "topology": "DNpe056_edge_10732_to_10968",
+      "total_spikes": 1
+    },
+    {
+      "all_spike_events": [
+        {
+          "body_id": 10732,
+          "neuron_index": 3,
+          "time_ms": 9.0
+        }
+      ],
+      "complete_path": null,
+      "edge_count": 377,
+      "intermediate_first_spike_ms": null,
+      "intermediate_id": null,
+      "intermediate_spike_count": null,
+      "mv_per_synapse": 0.05,
+      "node_count": 66,
+      "one_step_target_spike": false,
+      "source_first_spike_ms": 9.0,
+      "source_id": 10732,
+      "source_spike_count": 1,
+      "synaptic_gain": 3.0,
+      "synaptic_mode": "legacy_one_step",
+      "synaptic_tau_ms": null,
+      "target_first_spike_ms": null,
+      "target_id": 10968,
+      "target_peak_synaptic_current": 35.1,
+      "target_peak_voltage_mv": -63.245,
+      "target_spike_count": 0,
+      "topology": "DNpe056_edge_10732_to_10968",
+      "total_spikes": 1
+    },
+    {
+      "all_spike_events": [
+        {
+          "body_id": 10732,
+          "neuron_index": 3,
+          "time_ms": 9.0
+        }
+      ],
+      "complete_path": null,
+      "edge_count": 377,
+      "intermediate_first_spike_ms": null,
+      "intermediate_id": null,
+      "intermediate_spike_count": null,
+      "mv_per_synapse": 0.05,
+      "node_count": 66,
+      "one_step_target_spike": false,
+      "source_first_spike_ms": 9.0,
+      "source_id": 10732,
+      "source_spike_count": 1,
+      "synaptic_gain": 3.0,
+      "synaptic_mode": "exponential",
+      "synaptic_tau_ms": 5.0,
+      "target_first_spike_ms": null,
+      "target_id": 10968,
+      "target_peak_synaptic_current": 35.1,
+      "target_peak_voltage_mv": -58.78385886739678,
+      "target_spike_count": 0,
+      "topology": "DNpe056_edge_10732_to_10968",
+      "total_spikes": 1
+    },
+    {
+      "all_spike_events": [
+        {
+          "body_id": 10732,
+          "neuron_index": 3,
+          "time_ms": 9.0
+        }
+      ],
+      "complete_path": null,
+      "edge_count": 377,
+      "intermediate_first_spike_ms": null,
+      "intermediate_id": null,
+      "intermediate_spike_count": null,
+      "mv_per_synapse": 0.05,
+      "node_count": 66,
+      "one_step_target_spike": false,
+      "source_first_spike_ms": 9.0,
+      "source_id": 10732,
+      "source_spike_count": 1,
+      "synaptic_gain": 6.0,
+      "synaptic_mode": "legacy_one_step",
+      "synaptic_tau_ms": null,
+      "target_first_spike_ms": null,
+      "target_id": 10968,
+      "target_peak_synaptic_current": 70.2,
+      "target_peak_voltage_mv": -61.49,
+      "target_spike_count": 0,
+      "topology": "DNpe056_edge_10732_to_10968",
+      "total_spikes": 1
+    },
+    {
+      "all_spike_events": [
+        {
+          "body_id": 10732,
+          "neuron_index": 3,
+          "time_ms": 9.0
+        }
+      ],
+      "complete_path": null,
+      "edge_count": 377,
+      "intermediate_first_spike_ms": null,
+      "intermediate_id": null,
+      "intermediate_spike_count": null,
+      "mv_per_synapse": 0.05,
+      "node_count": 66,
+      "one_step_target_spike": false,
+      "source_first_spike_ms": 9.0,
+      "source_id": 10732,
+      "source_spike_count": 1,
+      "synaptic_gain": 6.0,
+      "synaptic_mode": "exponential",
+      "synaptic_tau_ms": 5.0,
+      "target_first_spike_ms": null,
+      "target_id": 10968,
+      "target_peak_synaptic_current": 70.2,
+      "target_peak_voltage_mv": -52.567717734793575,
+      "target_spike_count": 0,
+      "topology": "DNpe056_edge_10732_to_10968",
+      "total_spikes": 1
+    },
+    {
+      "all_spike_events": [
+        {
+          "body_id": 10732,
+          "neuron_index": 3,
+          "time_ms": 9.0
+        }
+      ],
+      "complete_path": null,
+      "edge_count": 377,
+      "intermediate_first_spike_ms": null,
+      "intermediate_id": null,
+      "intermediate_spike_count": null,
+      "mv_per_synapse": 0.05,
+      "node_count": 66,
+      "one_step_target_spike": false,
+      "source_first_spike_ms": 9.0,
+      "source_id": 10732,
+      "source_spike_count": 1,
+      "synaptic_gain": 12.0,
+      "synaptic_mode": "legacy_one_step",
+      "synaptic_tau_ms": null,
+      "target_first_spike_ms": null,
+      "target_id": 10968,
+      "target_peak_synaptic_current": 140.4,
+      "target_peak_voltage_mv": -57.98,
+      "target_spike_count": 0,
+      "topology": "DNpe056_edge_10732_to_10968",
+      "total_spikes": 1
+    },
+    {
+      "all_spike_events": [
+        {
+          "body_id": 10732,
+          "neuron_index": 3,
+          "time_ms": 9.0
+        },
+        {
+          "body_id": 10968,
+          "neuron_index": 5,
+          "time_ms": 12.0
+        },
+        {
+          "body_id": 556329,
+          "neuron_index": 36,
+          "time_ms": 13.0
+        }
+      ],
+      "complete_path": null,
+      "edge_count": 377,
+      "intermediate_first_spike_ms": null,
+      "intermediate_id": null,
+      "intermediate_spike_count": null,
+      "mv_per_synapse": 0.05,
+      "node_count": 66,
+      "one_step_target_spike": false,
+      "source_first_spike_ms": 9.0,
+      "source_id": 10732,
+      "source_spike_count": 1,
+      "synaptic_gain": 12.0,
+      "synaptic_mode": "exponential",
+      "synaptic_tau_ms": 5.0,
+      "target_first_spike_ms": 12.0,
+      "target_id": 10968,
+      "target_peak_synaptic_current": 140.4,
+      "target_peak_voltage_mv": -52.58351011339256,
+      "target_spike_count": 1,
+      "topology": "DNpe056_edge_10732_to_10968",
+      "total_spikes": 3
+    },
+    {
+      "all_spike_events": [
+        {
+          "body_id": 806745,
+          "neuron_index": 2,
+          "time_ms": 9.0
+        }
+      ],
+      "complete_path": false,
+      "edge_count": 4,
+      "intermediate_first_spike_ms": null,
+      "intermediate_id": 800225,
+      "intermediate_spike_count": 0,
+      "mv_per_synapse": 0.05,
+      "node_count": 3,
+      "one_step_target_spike": false,
+      "source_first_spike_ms": 9.0,
+      "source_id": 806745,
+      "source_spike_count": 1,
+      "synaptic_gain": 1.0,
+      "synaptic_mode": "legacy_one_step",
+      "synaptic_tau_ms": null,
+      "target_first_spike_ms": null,
+      "target_id": 22012,
+      "target_peak_synaptic_current": 0.15000000000000002,
+      "target_peak_voltage_mv": -64.9925,
+      "target_spike_count": 0,
+      "topology": "native_pathway_806745_to_800225_to_22012",
+      "total_spikes": 1
+    },
+    {
+      "all_spike_events": [
+        {
+          "body_id": 806745,
+          "neuron_index": 2,
+          "time_ms": 9.0
+        }
+      ],
+      "complete_path": false,
+      "edge_count": 4,
+      "intermediate_first_spike_ms": null,
+      "intermediate_id": 800225,
+      "intermediate_spike_count": 0,
+      "mv_per_synapse": 0.05,
+      "node_count": 3,
+      "one_step_target_spike": false,
+      "source_first_spike_ms": 9.0,
+      "source_id": 806745,
+      "source_spike_count": 1,
+      "synaptic_gain": 1.0,
+      "synaptic_mode": "exponential",
+      "synaptic_tau_ms": 5.0,
+      "target_first_spike_ms": null,
+      "target_id": 22012,
+      "target_peak_synaptic_current": 0.15000000000000002,
+      "target_peak_voltage_mv": -64.97343529430513,
+      "target_spike_count": 0,
+      "topology": "native_pathway_806745_to_800225_to_22012",
+      "total_spikes": 1
+    },
+    {
+      "all_spike_events": [
+        {
+          "body_id": 806745,
+          "neuron_index": 2,
+          "time_ms": 9.0
+        }
+      ],
+      "complete_path": false,
+      "edge_count": 4,
+      "intermediate_first_spike_ms": null,
+      "intermediate_id": 800225,
+      "intermediate_spike_count": 0,
+      "mv_per_synapse": 0.05,
+      "node_count": 3,
+      "one_step_target_spike": false,
+      "source_first_spike_ms": 9.0,
+      "source_id": 806745,
+      "source_spike_count": 1,
+      "synaptic_gain": 3.0,
+      "synaptic_mode": "legacy_one_step",
+      "synaptic_tau_ms": null,
+      "target_first_spike_ms": null,
+      "target_id": 22012,
+      "target_peak_synaptic_current": 0.45000000000000007,
+      "target_peak_voltage_mv": -64.9775,
+      "target_spike_count": 0,
+      "topology": "native_pathway_806745_to_800225_to_22012",
+      "total_spikes": 1
+    },
+    {
+      "all_spike_events": [
+        {
+          "body_id": 806745,
+          "neuron_index": 2,
+          "time_ms": 9.0
+        }
+      ],
+      "complete_path": false,
+      "edge_count": 4,
+      "intermediate_first_spike_ms": null,
+      "intermediate_id": 800225,
+      "intermediate_spike_count": 0,
+      "mv_per_synapse": 0.05,
+      "node_count": 3,
+      "one_step_target_spike": false,
+      "source_first_spike_ms": 9.0,
+      "source_id": 806745,
+      "source_spike_count": 1,
+      "synaptic_gain": 3.0,
+      "synaptic_mode": "exponential",
+      "synaptic_tau_ms": 5.0,
+      "target_first_spike_ms": null,
+      "target_id": 22012,
+      "target_peak_synaptic_current": 0.45000000000000007,
+      "target_peak_voltage_mv": -64.92030588291534,
+      "target_spike_count": 0,
+      "topology": "native_pathway_806745_to_800225_to_22012",
+      "total_spikes": 1
+    },
+    {
+      "all_spike_events": [
+        {
+          "body_id": 806745,
+          "neuron_index": 2,
+          "time_ms": 9.0
+        }
+      ],
+      "complete_path": false,
+      "edge_count": 4,
+      "intermediate_first_spike_ms": null,
+      "intermediate_id": 800225,
+      "intermediate_spike_count": 0,
+      "mv_per_synapse": 0.05,
+      "node_count": 3,
+      "one_step_target_spike": false,
+      "source_first_spike_ms": 9.0,
+      "source_id": 806745,
+      "source_spike_count": 1,
+      "synaptic_gain": 6.0,
+      "synaptic_mode": "legacy_one_step",
+      "synaptic_tau_ms": null,
+      "target_first_spike_ms": null,
+      "target_id": 22012,
+      "target_peak_synaptic_current": 0.9000000000000001,
+      "target_peak_voltage_mv": -64.955,
+      "target_spike_count": 0,
+      "topology": "native_pathway_806745_to_800225_to_22012",
+      "total_spikes": 1
+    },
+    {
+      "all_spike_events": [
+        {
+          "body_id": 806745,
+          "neuron_index": 2,
+          "time_ms": 9.0
+        }
+      ],
+      "complete_path": false,
+      "edge_count": 4,
+      "intermediate_first_spike_ms": null,
+      "intermediate_id": 800225,
+      "intermediate_spike_count": 0,
+      "mv_per_synapse": 0.05,
+      "node_count": 3,
+      "one_step_target_spike": false,
+      "source_first_spike_ms": 9.0,
+      "source_id": 806745,
+      "source_spike_count": 1,
+      "synaptic_gain": 6.0,
+      "synaptic_mode": "exponential",
+      "synaptic_tau_ms": 5.0,
+      "target_first_spike_ms": null,
+      "target_id": 22012,
+      "target_peak_synaptic_current": 0.9000000000000001,
+      "target_peak_voltage_mv": -64.84061176583069,
+      "target_spike_count": 0,
+      "topology": "native_pathway_806745_to_800225_to_22012",
+      "total_spikes": 1
+    },
+    {
+      "all_spike_events": [
+        {
+          "body_id": 806745,
+          "neuron_index": 2,
+          "time_ms": 9.0
+        }
+      ],
+      "complete_path": false,
+      "edge_count": 4,
+      "intermediate_first_spike_ms": null,
+      "intermediate_id": 800225,
+      "intermediate_spike_count": 0,
+      "mv_per_synapse": 0.05,
+      "node_count": 3,
+      "one_step_target_spike": false,
+      "source_first_spike_ms": 9.0,
+      "source_id": 806745,
+      "source_spike_count": 1,
+      "synaptic_gain": 12.0,
+      "synaptic_mode": "legacy_one_step",
+      "synaptic_tau_ms": null,
+      "target_first_spike_ms": null,
+      "target_id": 22012,
+      "target_peak_synaptic_current": 1.8000000000000003,
+      "target_peak_voltage_mv": -64.91,
+      "target_spike_count": 0,
+      "topology": "native_pathway_806745_to_800225_to_22012",
+      "total_spikes": 1
+    },
+    {
+      "all_spike_events": [
+        {
+          "body_id": 806745,
+          "neuron_index": 2,
+          "time_ms": 9.0
+        }
+      ],
+      "complete_path": false,
+      "edge_count": 4,
+      "intermediate_first_spike_ms": null,
+      "intermediate_id": 800225,
+      "intermediate_spike_count": 0,
+      "mv_per_synapse": 0.05,
+      "node_count": 3,
+      "one_step_target_spike": false,
+      "source_first_spike_ms": 9.0,
+      "source_id": 806745,
+      "source_spike_count": 1,
+      "synaptic_gain": 12.0,
+      "synaptic_mode": "exponential",
+      "synaptic_tau_ms": 5.0,
+      "target_first_spike_ms": null,
+      "target_id": 22012,
+      "target_peak_synaptic_current": 1.8000000000000003,
+      "target_peak_voltage_mv": -64.68122353166139,
+      "target_spike_count": 0,
+      "topology": "native_pathway_806745_to_800225_to_22012",
+      "total_spikes": 1
+    }
+  ],
+  "tau_values_ms": [
+    null,
+    5.0
+  ],
+  "topologies": [
+    {
+      "edge_count": 377,
+      "intermediate_id": null,
+      "name": "DNpe056_edge_10732_to_10968",
+      "node_count": 66,
+      "source_id": 10732,
+      "target_id": 10968
+    },
+    {
+      "edge_count": 4,
+      "intermediate_id": 800225,
+      "name": "native_pathway_806745_to_800225_to_22012",
+      "node_count": 3,
+      "source_id": 806745,
+      "target_id": 22012
+    }
+  ]
+}

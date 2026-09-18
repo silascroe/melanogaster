@@ -1,0 +1,5 @@
+sign_mode,coupling_mv_per_synapse,native_edge_sign,applied_edge_sign,source_spike_count,source_first_spike_ms,target_spike_count,target_first_spike_ms,one_step_target_spike,total_spikes
+native,0.05,1.0,1.0,1,9.0,0,,False,1
+native,1.5,1.0,1.0,1,9.0,1,10.0,True,3
+forced_excitatory,0.05,1.0,1.0,1,9.0,0,,False,1
+forced_excitatory,1.5,1.0,1.0,1,9.0,1,10.0,True,3

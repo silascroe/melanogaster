@@ -74,3 +74,35 @@ is selected for comparison automatically; if none exists, the highest tested
 coupling is used instead. Coupling values remain calibration probes for this
 simplified model, not biological synaptic-strength estimates. The diagnostic
 does not claim to reproduce a named behavior or provide FlyDoom I/O.
+
+## Sensorimotor reflex demo
+
+The first behavior-facing experiment keeps the deterministic traced
+vnc_sensory -> vnc_intrinsic -> descending_neuron selection and uses the
+selected SNta30 source as the recipient of a synthetic sensory pulse. A
+longer pulse produces repeated spikes in the calibrated toy network. Each
+selected descending-neuron spike is decoded as a fixed turn impulse and one
+forward step for a point-mass body. Heading and position are arbitrary toy
+state variables; they are not claims about the biological function of the
+selected descending neuron.
+
+This is intentionally a sensorimotor reflex rather than a learned fly. The
+adult connectome is used as a mature wiring scaffold; no developmental history,
+plasticity, memory, or realistic body mechanics are simulated. The output
+trajectory is useful because it makes the interface inspectable: the external
+stimulus enters the selected source, the real induced edges carry activity, the
+descending target spikes, and only then does the body state change.
+
+## Visual local-circuit simulation
+
+The browser demo caches a 27-node, 288-edge local context around the selected
+sensory -> intrinsic -> descending path. The context is selected from the same
+traced Male CNS release with a 24-neighbor limit and a 500-edge cap. The
+selected path remains visually emphasized, while nearby ascending, intrinsic,
+sensory, and descending-labelled nodes provide activity context.
+
+The server replays the cached graph with the existing LIF simulator and exposes
+only parameterized toy runs over localhost. The page renders a point-mass body,
+spike-driven heading changes, a trajectory, and the active network graph. This
+is deliberately a runnable visual scaffold rather than a claim that the local
+neighborhood is a complete fly brain or that the action decoder is biological.

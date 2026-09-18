@@ -24,9 +24,14 @@ flytest-propagation-diagnostic = "flytest.propagation_diagnostic:main"
 flytest-pathway-slice = "flytest.pathway_slice:main"
 flytest-synaptic-dynamics = "flytest.synaptic_dynamics_diagnostic:main"
 flytest-circuit-story = "flytest.circuit_story:main"
+flytest-sensorimotor = "flytest.sensorimotor:main"
+flytest-visual = "flytest.visual_simulation:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[tool.setuptools.package-data]
+flytest = ["web/*.html"]
 
 [tool.pytest.ini_options]
 pythonpath = ["src"]

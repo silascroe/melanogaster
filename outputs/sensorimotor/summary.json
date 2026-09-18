@@ -1,0 +1,127 @@
+{
+  "action_decoder": {
+    "forward_step_per_target_spike": 1.0,
+    "heading_convention": "positive degrees rotate counterclockwise; arbitrary toy axis",
+    "input": "one selected sensory-source pulse",
+    "output": "one fixed turn and forward step per descending-target spike",
+    "turn_degrees_per_target_spike": 15.0
+  },
+  "dataset": {
+    "data_dir": "data\\working\\male-cns-v1.0",
+    "name": "FlyEM Male CNS",
+    "release": "v1.0",
+    "source_manifest": "data/metadata/source_manifest.json"
+  },
+  "edge_count": 4,
+  "experiment": "connectome-backed sensorimotor reflex",
+  "neural_parameters": {
+    "dt_ms": 1.0,
+    "duration_ms": 60.0,
+    "input_current_mv": 80.0,
+    "input_duration_ms": 30.0,
+    "input_start_ms": 5.0,
+    "mv_per_synapse": 4.0,
+    "refractory_ms": 2.0,
+    "reset_mv": -65.0,
+    "rest_mv": -65.0,
+    "synaptic_gain": 1.0,
+    "synaptic_tau_ms": null,
+    "tau_ms": 20.0,
+    "threshold_mv": -50.0
+  },
+  "node_count": 3,
+  "notes": [
+    "Only the selected sensory source receives external input.",
+    "Native transmitter signs and the existing one-step synaptic delay are preserved.",
+    "The body and action decoder are explicit toy assumptions, not measured biology.",
+    "The experiment demonstrates sensorimotor wiring; it does not identify a complete fly behavior."
+  ],
+  "outcome": {
+    "final_heading_degrees": 60.0,
+    "final_position": [
+      3.0390580112600545,
+      2.331951230073507
+    ],
+    "spike_counts": {
+      "22012": 4,
+      "800225": 4,
+      "806745": 4
+    },
+    "target_spike_count": 4,
+    "turn_event_count": 4
+  },
+  "outputs": {
+    "edges": "outputs\\sensorimotor\\edges.csv",
+    "nodes": "outputs\\sensorimotor\\nodes.csv",
+    "story": "outputs\\sensorimotor\\story.md",
+    "summary": "outputs\\sensorimotor\\summary.json",
+    "trajectory": "outputs\\sensorimotor\\trajectory.csv"
+  },
+  "parameters": {
+    "coupling_mv_per_synapse": 4.0,
+    "dt_ms": 1.0,
+    "duration_ms": 60.0,
+    "forward_step_per_target_spike": 1.0,
+    "initial_heading_degrees": 0.0,
+    "initial_x": 0.0,
+    "initial_y": 0.0,
+    "input_current_mv": 80.0,
+    "input_duration_ms": 30.0,
+    "input_start_ms": 5.0,
+    "refractory_ms": 2.0,
+    "reset_mv": -65.0,
+    "rest_mv": -65.0,
+    "tau_ms": 20.0,
+    "threshold_mv": -50.0,
+    "turn_degrees_per_target_spike": 15.0
+  },
+  "path": {
+    "intermediate_id": 800225,
+    "path_edge_keys": [
+      [
+        806745,
+        800225,
+        137
+      ],
+      [
+        800225,
+        22012,
+        73
+      ]
+    ],
+    "source_id": 806745,
+    "target_id": 22012
+  },
+  "selection": {
+    "candidate_count": 1305,
+    "chosen_path": {
+      "intermediate_id": 800225,
+      "intermediate_to_target_weight": 73,
+      "score": 10001,
+      "source_id": 806745,
+      "source_to_intermediate_weight": 137,
+      "target_id": 22012,
+      "weakest_edge_weight": 73,
+      "weight_sum": 210
+    },
+    "induced_edge_count": 4,
+    "intermediate_superclass": "vnc_intrinsic",
+    "min_weight": 3,
+    "path_edge_keys": [
+      [
+        806745,
+        800225,
+        137
+      ],
+      [
+        800225,
+        22012,
+        73
+      ]
+    ],
+    "ranking": "weight_product, weakest_edge_weight, weight_sum, ascending body IDs",
+    "source_superclass": "vnc_sensory",
+    "target_superclass": "descending_neuron",
+    "traced_only": true
+  }
+}

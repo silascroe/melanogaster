@@ -107,6 +107,39 @@ source, intrinsic, and descending neurons spike one timestep apart. The report
 is an interpretable diagnostic, not a claim that the selected path is a
 complete biological behavior circuit.
 
+## Put a toy body behind the pathway
+
+The next diagnostic gives the same real sensory-to-intrinsic-to-descending
+pathway an explicit action interface. The selected sensory neuron receives a
+longer pulse, each descending-neuron spike becomes a fixed turn impulse, and a
+point-mass body records its heading and position:
+
+~~~powershell
+.\.venv\Scripts\python.exe -m flytest.sensorimotor
+~~~
+
+This is deliberately a reflex demo, not a named biological behavior. The
+connectome-backed neural path, native signs, and one-step delay are inherited
+from the existing model. The body, movement rule, and spike-to-turn decoder
+are explicit toy assumptions. outputs/sensorimotor/story.md separates those
+assumptions from the data and records the resulting trajectory.
+
+## Watch the local circuit
+
+The browser-facing visual simulation adds a 27-node local context around the
+three-node path. It shows the toy body, the trajectory, active spikes, signed
+edges, and a replayable control panel. Start it with:
+
+~~~powershell
+.\.venv\Scripts\python.exe -m flytest.visual_simulation
+~~~
+
+Then open http://127.0.0.1:8765. The page runs entirely against the local
+server and local release. The default view uses 27 nodes and 288 induced
+edges; coupling, stimulus duration, playback speed, and turn decoding can be
+changed from the page. The graph expansion adds context without pretending
+that every nearby neuron is part of one proven biological behavior.
+
 ## Compare synaptic dynamics
 
 The simulator defaults to the original one-step synaptic current. The separate

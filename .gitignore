@@ -56,6 +56,12 @@ outputs/*
 !outputs/circuit-story/runs.csv
 !outputs/circuit-story/key_traces.csv
 !outputs/circuit-story/key_edge_contributions.csv
+!outputs/sensorimotor/
+!outputs/sensorimotor/story.md
+!outputs/sensorimotor/summary.json
+!outputs/sensorimotor/nodes.csv
+!outputs/sensorimotor/edges.csv
+!outputs/sensorimotor/trajectory.csv
 
 # Explicitly local-only simulation traces.
 outputs/**/spikes.csv

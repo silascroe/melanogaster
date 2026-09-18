@@ -126,19 +126,23 @@ assumptions from the data and records the resulting trajectory.
 
 ## Watch the local circuit
 
-The browser-facing visual simulation adds a 27-node local context around the
-three-node path. It shows the toy body, the trajectory, active spikes, signed
-edges, and a replayable control panel. Start it with:
+The browser-facing visual simulation now runs two 27-node local contexts side
+by side: the existing traced touch path and a separate annotated visual
+projection -> optic-lobe intrinsic -> descending path. It shows the toy body,
+the visual beacon, trajectory, active spikes, signed edges, and a replayable
+control panel. Start it with:
 
 ~~~powershell
 .\.venv\Scripts\python.exe -m flytest.visual_simulation
 ~~~
 
 Then open http://127.0.0.1:8765. The page runs entirely against the local
-server and local release. The default view uses 27 nodes and 288 induced
-edges; coupling, stimulus duration, playback speed, and turn decoding can be
-changed from the page. The graph expansion adds context without pretending
-that every nearby neuron is part of one proven biological behavior.
+server and local release. The default view uses 54 nodes and 435 induced
+edges: 27 nodes and 288 edges for touch, plus 27 nodes and 147 edges for
+vision. Coupling, stimulus duration, visual contrast, playback speed, and turn
+decoding can be changed from the page. The visual source is an annotated
+visual-projection neuron, not a claim that this demo models the retina or a
+complete visual behavior.
 
 ## Compare synaptic dynamics
 

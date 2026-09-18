@@ -93,16 +93,26 @@ trajectory is useful because it makes the interface inspectable: the external
 stimulus enters the selected source, the real induced edges carry activity, the
 descending target spikes, and only then does the body state change.
 
-## Visual local-circuit simulation
+## Dual sensory local-circuit simulation
 
-The browser demo caches a 27-node, 288-edge local context around the selected
-sensory -> intrinsic -> descending path. The context is selected from the same
-traced Male CNS release with a 24-neighbor limit and a 500-edge cap. The
-selected path remains visually emphasized, while nearby ascending, intrinsic,
-sensory, and descending-labelled nodes provide activity context.
+The browser demo caches two separate local contexts from the traced Male CNS
+release, each with a 24-neighbor limit and a 500-edge cap. The touch context is
+the existing `vnc_sensory -> vnc_intrinsic -> descending_neuron` path and has
+27 nodes and 288 edges. The visual context is selected independently as
+`visual_projection -> ol_intrinsic -> descending_neuron` and has 27 nodes and
+147 edges in the current release. The selected paths remain emphasized while
+nearby ascending, optic-lobe, intrinsic, sensory, and descending-labelled nodes
+provide activity context.
 
-The server replays the cached graph with the existing LIF simulator and exposes
-only parameterized toy runs over localhost. The page renders a point-mass body,
-spike-driven heading changes, a trajectory, and the active network graph. This
-is deliberately a runnable visual scaffold rather than a claim that the local
-neighborhood is a complete fly brain or that the action decoder is biological.
+The server replays the two cached graphs independently with the existing LIF
+simulator and feeds both target populations into one deliberately tiny body.
+Touch target spikes apply a fixed turn quantum. Visual target spikes steer
+toward a synthetic visual beacon, capped at that same quantum. The two local
+contexts are kept disjoint so a body ID cannot be mistaken for activity in the
+wrong channel, and the UI exposes channel labels in the spike log.
+
+This is an intentional next step toward a fly-like scaffold, not a retina
+model, a complete visual pathway, or a claim that the selected descending
+neurons implement a named behavior. The visual source label comes from the
+official annotations; the beacon, contrast-to-current mapping, body, and
+action decoder are modelling assumptions.

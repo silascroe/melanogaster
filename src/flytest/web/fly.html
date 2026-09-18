@@ -13,6 +13,7 @@
       --muted: #82949b;
       --text: #e4eee9;
       --cyan: #69d5cb;
+      --blue: #8fc8ff;
       --amber: #f0bd69;
       --magenta: #f084b9;
       --red: #ef7c65;
@@ -66,7 +67,7 @@
     }
     .canvas-legend { display: flex; gap: 15px; flex-wrap: wrap; padding: 0 14px 14px; color: var(--muted); font-size: 10px; }
     .dot { display: inline-block; width: 7px; height: 7px; margin-right: 5px; border-radius: 50%; background: var(--cyan); }
-    .dot.amber { background: var(--amber); } .dot.magenta { background: var(--magenta); } .dot.red { background: var(--red); }
+    .dot.amber { background: var(--amber); } .dot.magenta { background: var(--magenta); } .dot.red { background: var(--red); } .dot.blue { background: var(--blue); }
 
     .side { display: flex; flex-direction: column; gap: 14px; }
     .controls { padding: 14px; }
@@ -123,7 +124,7 @@
       <div>
         <div class="eyebrow">FlyTest / Male CNS v1.0 / local-first</div>
         <h1>Something with a nervous system.</h1>
-        <p class="lede">A small real connectome neighborhood receives a synthetic sensory pulse. Watch spikes travel, the descending neuron fire, and a deliberately simple body change course.</p>
+        <p class="lede">Two small real connectome neighborhoods receive synthetic touch and visual pulses. Watch spikes travel, descending neurons fire, and a deliberately simple body change course.</p>
       </div>
       <div id="status" class="status">CONNECTING TO LOCAL MODEL</div>
     </header>
@@ -140,6 +141,7 @@
         </div>
         <div class="canvas-legend">
           <span><i class="dot red"></i>sensory stimulus</span>
+          <span><i class="dot blue"></i>visual beacon</span>
           <span><i class="dot cyan"></i>fly body</span>
           <span><i class="dot amber"></i>descending command</span>
           <span><i class="dot magenta"></i>current heading</span>
@@ -166,6 +168,10 @@
           <div class="control">
             <label for="stimulus">stimulus duration <output id="stimulusValue">50 ms</output></label>
             <input id="stimulus" type="range" min="0" max="80" step="1" value="50">
+          </div>
+          <div class="control">
+            <label for="visualContrast">visual contrast <output id="visualContrastValue">1.00</output></label>
+            <input id="visualContrast" type="range" min="0" max="1.5" step="0.05" value="1">
           </div>
           <div class="control">
             <label for="turn">turn per descending spike <output id="turnValue">15°</output></label>
@@ -204,7 +210,7 @@
         </div>
         <div class="canvas-wrap"><canvas id="networkCanvas"></canvas></div>
         <div class="network-foot">
-          <span><strong>cyan</strong> source &nbsp; <strong>amber</strong> intrinsic &nbsp; <strong>magenta</strong> descending target &nbsp; gray context</span>
+          <span><strong>cyan</strong> touch &nbsp; <strong>blue</strong> vision &nbsp; <strong>magenta</strong> descending target &nbsp; gray context</span>
           <span id="graphCounts">—</span>
         </div>
       </section>
@@ -217,7 +223,7 @@
     const $ = (id) => document.getElementById(id);
     const worldCanvas = $("worldCanvas");
     const networkCanvas = $("networkCanvas");
-    const colors = { cyan: "#69d5cb", amber: "#f0bd69", magenta: "#f084b9", red: "#ef7c65", text: "#e4eee9", muted: "#82949b", line: "#26343a", context: "#73878c" };
+    const colors = { cyan: "#69d5cb", blue: "#8fc8ff", violet: "#b4a7ff", amber: "#f0bd69", magenta: "#f084b9", red: "#ef7c65", text: "#e4eee9", muted: "#82949b", line: "#26343a", context: "#73878c" };
 
     function canvasContext(canvas) {
       const rect = canvas.getBoundingClientRect();
@@ -238,26 +244,35 @@
       $("status").classList.toggle("error", error);
     }
 
+    function nodeKey(node) { return node.channel + ":" + node.body_id; }
+
+    function nodeStage(node) {
+      if (node.role === "target" || node.superclass === "descending_neuron") return "descending";
+      if (["ascending_neuron", "visual_centrifugal", "sensory_ascending"].includes(node.superclass)) return "ascending";
+      if (["vnc_sensory", "visual_projection", "ol_sensory"].includes(node.superclass)) return "input";
+      return "intrinsic";
+    }
+
     function layoutNetwork() {
       const { width, height } = canvasContext(networkCanvas);
-      const nodes = state.payload.nodes;
-      const groups = ["vnc_sensory", "vnc_intrinsic", "ascending_neuron", "descending_neuron"];
-      const grouped = new Map(groups.map((group) => [group, []]));
-      nodes.forEach((node) => grouped.has(node.superclass) ? grouped.get(node.superclass).push(node) : grouped.get("vnc_intrinsic").push(node));
-      const xByGroup = { vnc_sensory: .13, vnc_intrinsic: .40, ascending_neuron: .67, descending_neuron: .88 };
+      const stages = ["input", "intrinsic", "ascending", "descending"];
+      const grouped = new Map(stages.map((stage) => [stage, []]));
+      state.payload.nodes.forEach((node) => grouped.get(nodeStage(node)).push(node));
+      const xByStage = { input: .13, intrinsic: .40, ascending: .67, descending: .88 };
       state.layout = new Map();
-      groups.forEach((group) => {
-        const groupNodes = grouped.get(group);
-        groupNodes.sort((a, b) => (a.role === "target" ? -1 : 0) - (b.role === "target" ? -1 : 0) || a.body_id - b.body_id);
+      stages.forEach((stage) => {
+        const groupNodes = grouped.get(stage);
+        groupNodes.sort((a, b) => (a.channel + a.role).localeCompare(b.channel + b.role) || a.body_id - b.body_id);
         const gap = Math.min(32, (height - 48) / Math.max(1, groupNodes.length));
         const start = height / 2 - (groupNodes.length - 1) * gap / 2;
-        groupNodes.forEach((node, index) => state.layout.set(node.body_id, { x: width * xByGroup[group], y: start + index * gap }));
+        groupNodes.forEach((node, index) => state.layout.set(nodeKey(node), { x: width * xByStage[stage], y: start + index * gap }));
       });
     }
 
     function worldTransform(trajectory, width, height) {
-      const xs = trajectory.map((row) => row.position_x);
-      const ys = trajectory.map((row) => row.position_y);
+      const target = state.payload.environment && state.payload.environment.visual_target;
+      const xs = trajectory.map((row) => row.position_x).concat(target ? [target.x] : []);
+      const ys = trajectory.map((row) => row.position_y).concat(target ? [target.y] : []);
       const minX = Math.min(...xs, 0), maxX = Math.max(...xs, 0), minY = Math.min(...ys, 0), maxY = Math.max(...ys, 0);
       const pad = 72;
       const spanX = Math.max(5, maxX - minX + 2), spanY = Math.max(5, maxY - minY + 2);
@@ -290,11 +305,34 @@
       ctx.fillStyle = colors.muted; ctx.font = "10px ui-monospace, monospace"; ctx.fillText("stimulus origin", origin.x + 9, origin.y + 4);
 
       const body = point(current.position_x, current.position_y);
+      const target = state.payload.environment && state.payload.environment.visual_target;
+      if (target) {
+        const beacon = point(target.x, target.y);
+        ctx.save();
+        ctx.setLineDash([5, 6]);
+        ctx.strokeStyle = "rgba(143, 200, 255, .32)";
+        ctx.lineWidth = 1;
+        ctx.beginPath(); ctx.moveTo(body.x, body.y); ctx.lineTo(beacon.x, beacon.y); ctx.stroke();
+        ctx.restore();
+        ctx.strokeStyle = "rgba(143, 200, 255, .72)";
+        ctx.lineWidth = 2;
+        ctx.beginPath(); ctx.arc(beacon.x, beacon.y, 8 + (frame % 3), 0, Math.PI * 2); ctx.stroke();
+        ctx.fillStyle = "rgba(143, 200, 255, .22)";
+        ctx.beginPath(); ctx.arc(beacon.x, beacon.y, 4, 0, Math.PI * 2); ctx.fill();
+        ctx.fillStyle = "#8fc8ff"; ctx.font = "10px ui-monospace, monospace";
+        ctx.fillText(target.label || "visual beacon", beacon.x + 12, beacon.y + 4);
+      }
       if (current.stimulus_active) {
         const pulse = 17 + (frame % 7) * 2;
         ctx.strokeStyle = `rgba(239, 124, 101, ${.24 + (frame % 3) * .08})`; ctx.lineWidth = 2;
         ctx.beginPath(); ctx.arc(body.x, body.y, pulse, 0, Math.PI * 2); ctx.stroke();
         ctx.fillStyle = colors.red; ctx.font = "10px ui-monospace, monospace"; ctx.fillText("touch / sensory pulse", body.x + 22, body.y - 14);
+      }
+      if (current.visual_stimulus_active) {
+        const pulse = 23 + (frame % 5) * 2;
+        ctx.strokeStyle = "rgba(143, 200, 255, .62)"; ctx.lineWidth = 2;
+        ctx.beginPath(); ctx.arc(body.x, body.y, pulse, 0, Math.PI * 2); ctx.stroke();
+        ctx.fillStyle = "#8fc8ff"; ctx.font = "10px ui-monospace, monospace"; ctx.fillText("visual input", body.x + 22, body.y + 18);
       }
 
       const angle = -current.heading_degrees * Math.PI / 180;
@@ -312,8 +350,8 @@
 
     function nodeColor(node, active) {
       if (active) return "#ffffff";
-      if (node.role === "source") return colors.cyan;
-      if (node.role === "intermediate") return colors.amber;
+      if (node.role === "source") return node.channel === "vision" ? colors.blue : colors.cyan;
+      if (node.role === "intermediate") return node.channel === "vision" ? colors.violet : colors.amber;
       if (node.role === "target") return colors.magenta;
       return colors.context;
     }
@@ -324,14 +362,14 @@
       layoutNetwork();
       ctx.clearRect(0, 0, width, height);
       const frame = Math.min(state.frame, state.payload.spikes_by_time.length - 1);
-      const active = new Set(state.payload.spikes_by_time[frame] || []);
-      const nodeMap = new Map(state.payload.nodes.map((node) => [node.body_id, node]));
+      const active = new Set((state.payload.spikes_by_time[frame] || []).map((node) => nodeKey(node)));
       const maxWeight = Math.max(...state.payload.edges.map((edge) => edge.weight), 1);
 
       state.payload.edges.forEach((edge) => {
-        const a = state.layout.get(edge.body_pre), b = state.layout.get(edge.body_post);
+        const a = state.layout.get(nodeKey({ channel: edge.channel, body_id: edge.body_pre }));
+        const b = state.layout.get(nodeKey({ channel: edge.channel, body_id: edge.body_post }));
         if (!a || !b) return;
-        const hot = active.has(edge.body_pre);
+        const hot = active.has(nodeKey({ channel: edge.channel, body_id: edge.body_pre }));
         ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y);
         ctx.strokeStyle = hot ? (edge.sign > 0 ? "rgba(105,213,203,.75)" : "rgba(239,124,101,.75)") : edge.is_path_edge ? "rgba(240,189,105,.45)" : "rgba(115,135,140,.12)";
         ctx.lineWidth = edge.is_path_edge ? 1.8 : Math.max(.45, Math.min(1.6, edge.weight / maxWeight * 1.6));
@@ -346,19 +384,19 @@
       });
 
       state.payload.nodes.forEach((node) => {
-        const p = state.layout.get(node.body_id); if (!p) return;
-        const hot = active.has(node.body_id); const color = nodeColor(node, hot);
+        const p = state.layout.get(nodeKey(node)); if (!p) return;
+        const hot = active.has(nodeKey(node)); const color = nodeColor(node, hot);
         ctx.fillStyle = hot ? "rgba(255,255,255,.18)" : "rgba(10,16,19,.94)";
         ctx.strokeStyle = color; ctx.lineWidth = node.is_path_node ? 2 : 1;
         ctx.beginPath(); ctx.arc(p.x, p.y, node.is_path_node ? 7 : 4.3, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
         if (hot) { ctx.fillStyle = color; ctx.beginPath(); ctx.arc(p.x, p.y, 3, 0, Math.PI * 2); ctx.fill(); }
         if (node.is_path_node || hot) {
           ctx.fillStyle = color; ctx.font = "10px ui-monospace, monospace";
-          ctx.fillText(node.role === "source" ? "sensory" : node.role === "intermediate" ? "intrinsic" : "descending", p.x + 11, p.y + 3);
+          ctx.fillText(node.channel + " / " + (node.role === "source" ? "sensory" : node.role === "intermediate" ? "intrinsic" : "descending"), p.x + 11, p.y + 3);
         }
       });
       ctx.fillStyle = colors.muted; ctx.font = "10px ui-monospace, monospace";
-      [["vnc_sensory", .13], ["vnc_intrinsic", .40], ["ascending", .67], ["descending", .88]].forEach(([label, ratio]) => ctx.fillText(label, width * ratio - 24, 18));
+      [["input", .13], ["intrinsic", .40], ["ascending", .67], ["descending", .88]].forEach(([label, ratio]) => ctx.fillText(label, width * ratio - 24, 18));
     }
 
     function updateReadout() {
@@ -378,7 +416,8 @@
       $("graphCounts").textContent = `${state.payload.network.node_count} nodes / ${state.payload.network.edge_count} edges / native signs`;
       const events = state.payload.spike_events.filter((event) => event.time_ms <= row.time_ms).slice(-8).reverse();
       $("eventsList").innerHTML = events.length ? events.map((event) => {
-        const node = state.payload.nodes.find((item) => item.body_id === event.body_id);
+        const eventNode = state.payload.nodes.find((item) => item.channel === event.channel && item.body_id === event.body_id);
+        const node = eventNode ? { ...eventNode, label: event.channel + " / " + eventNode.label } : null;
         return `<div class="event"><span><strong>${node ? node.label : event.body_id}</strong></span><span class="tag">${event.time_ms.toFixed(0)} ms / ${node ? node.role : "node"}</span></div>`;
       }).join("") : "No spikes yet. The network is waiting for input.";
     }
@@ -400,6 +439,8 @@
     async function runModel() {
       const button = $("runButton"); button.disabled = true; setStatus("RUNNING LOCAL MODEL");
       const params = new URLSearchParams({ duration_ms: "120", coupling: $("coupling").value, input_duration_ms: $("stimulus").value, turn_degrees: $("turn").value, forward_step: "1" });
+      params.set("visual_contrast", $("visualContrast").value);
+      params.set("visual_coupling", "5");
       try {
         const response = await fetch(`/api/run?${params.toString()}`);
         const payload = await response.json();
@@ -418,6 +459,7 @@
     $("coupling").addEventListener("input", (event) => { $("couplingValue").textContent = `${Number(event.target.value).toFixed(2)} mV/synapse`; });
     $("stimulus").addEventListener("input", (event) => { $("stimulusValue").textContent = `${event.target.value} ms`; });
     $("turn").addEventListener("input", (event) => { $("turnValue").textContent = `${event.target.value}°`; });
+    $("visualContrast").addEventListener("input", (event) => { $("visualContrastValue").textContent = Number(event.target.value).toFixed(2); });
     window.addEventListener("resize", () => { if (state.payload) { layoutNetwork(); render(); } });
     runModel(); requestAnimationFrame(tick);
   </script>

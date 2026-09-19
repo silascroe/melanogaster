@@ -164,6 +164,22 @@ world event, sensory features, input currents, spikes, descending votes, and
 action. Sandbox requests remain obstacle-free unless an `obstacles` array is
 provided. This is an inspectable collision experiment, not flight physics.
 
+## Report runs to Discord
+
+The report-only Discord bridge uses the bot REST API and a local JSONL event
+spool. It needs no privileged Gateway intents or Discord dependency:
+
+```powershell
+$env:FLYTEST_DISCORD_BOT_TOKEN = "token-set-only-in-the-running-shell"
+$env:FLYTEST_DISCORD_CHANNEL_ID = "target-channel-id"
+.\.venv\Scripts\python.exe -m flytest.discord_bridge watch
+```
+
+Jobs can append completion or failure events with `flytest-discord emit`; see
+[docs/discord-bridge.md](docs/discord-bridge.md) for the event format, dry-run
+path, and later droplet/systemd handoff. The token is never part of the
+repository or event spool.
+
 ## Compare synaptic dynamics
 
 The simulator defaults to the original one-step synaptic current. The separate

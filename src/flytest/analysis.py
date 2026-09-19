@@ -271,6 +271,312 @@ def select_local_network(
     return LocalNetwork(nodes=tuple(nodes), edges=edges, seed_ids=seeds, selection=selection)
 
 
+def select_multihop_network(
+    paths: MaleCNSPaths,
+    seed_ids: list[int] | tuple[int, ...],
+    *,
+    target_count: int,
+    route_superclasses: tuple[str, ...] = (),
+    min_weight: int = 3,
+    traced_only: bool = True,
+    max_edges: int | None = None,
+    sign_map: dict[str, float] | None = None,
+    unknown_sign: float = 0.0,
+) -> LocalNetwork:
+    """Expand a seed set through deterministic incident graph frontiers.
+
+    The selector is intentionally conservative: the official weight table is
+    still streamed, every selected edge is retained, and candidates that carry
+    one of the requested sensory-to-descending superclass labels are ranked
+    ahead of generic local context.  A frontier is expanded only when the
+    previous frontier cannot satisfy ``target_count``.  This gives small
+    stages the same stable local behavior as :func:`select_local_network` while
+    allowing larger stages to grow through multiple hops.
+    """
+
+    if target_count < 1:
+        raise ValueError("target_count must be positive")
+    if min_weight < 1:
+        raise ValueError("min_weight must be at least 1")
+
+    seeds = tuple(sorted({int(body_id) for body_id in seed_ids}))
+    if not seeds:
+        raise ValueError("At least one seed body ID is required")
+    if target_count < len(seeds):
+        raise ValueError("target_count cannot be smaller than the seed count")
+
+    eligible = eligible_body_ids(paths, traced_only=traced_only)
+    eligible_set = set(int(body_id) for body_id in eligible.tolist())
+    missing = [body_id for body_id in seeds if body_id not in eligible_set]
+    if missing:
+        policy = "Traced" if traced_only else "annotation"
+        raise ValueError(f"Seed body ID(s) not in the {policy} population: {missing}")
+
+    annotations = annotation_records(paths)
+    selected: set[int] = set(seeds)
+    frontier: set[int] = set(seeds)
+    hop_by_id: dict[int, int] = {body_id: 0 for body_id in seeds}
+    score_by_id: defaultdict[int, int] = defaultdict(int)
+    count_by_id: defaultdict[int, int] = defaultdict(int)
+    forward_hits: defaultdict[int, int] = defaultdict(int)
+    expansion_rounds = 0
+
+    while len(selected) < target_count and frontier:
+        frontier_array = np.asarray(sorted(frontier), dtype=np.int64)
+        scores: defaultdict[int, int] = defaultdict(int)
+        counts: defaultdict[int, int] = defaultdict(int)
+        forward: defaultdict[int, int] = defaultdict(int)
+
+        for batch in iter_weight_batches(paths):
+            pre = np.asarray(batch.column("body_pre"))
+            post = np.asarray(batch.column("body_post"))
+            weight = np.asarray(batch.column("weight"))
+            mask = _eligible_edge_mask(pre, post, weight, eligible, min_weight=min_weight)
+            mask &= np.isin(pre, frontier_array) | np.isin(post, frontier_array)
+            if not mask.any():
+                continue
+            for pre_id, post_id, edge_weight in zip(
+                pre[mask].tolist(), post[mask].tolist(), weight[mask].tolist()
+            ):
+                pre_id = int(pre_id)
+                post_id = int(post_id)
+                edge_weight = int(edge_weight)
+                if pre_id in frontier and post_id not in selected:
+                    neighbor = post_id
+                    forward[neighbor] += 1
+                elif post_id in frontier and pre_id not in selected:
+                    neighbor = pre_id
+                else:
+                    continue
+                scores[neighbor] += edge_weight
+                counts[neighbor] += 1
+
+        if not scores:
+            break
+
+        def candidate_key(body_id: int) -> tuple[int, int, int, int, int]:
+            superclass = annotations.get(body_id, {}).get("superclass")
+            route_rank = 0 if superclass in route_superclasses else 1
+            return (
+                route_rank,
+                -scores[body_id],
+                -counts[body_id],
+                expansion_rounds + 1,
+                body_id,
+            )
+
+        ranked = sorted(scores, key=candidate_key)
+        take = ranked[: target_count - len(selected)]
+        selected.update(take)
+        expansion_rounds += 1
+        frontier = set(take)
+        for body_id in take:
+            hop_by_id[body_id] = expansion_rounds
+            score_by_id[body_id] = scores[body_id]
+            count_by_id[body_id] = counts[body_id]
+            forward_hits[body_id] = forward[body_id]
+
+    if len(selected) != target_count:
+        raise ValueError(
+            f"multi-hop expansion could select only {len(selected)} of {target_count} nodes"
+        )
+
+    selected_ids = tuple(sorted(selected))
+    selected_array = np.asarray(selected_ids, dtype=np.int64)
+    edge_tuples: list[tuple[int, int, int]] = []
+    for batch in iter_weight_batches(paths):
+        pre = np.asarray(batch.column("body_pre"))
+        post = np.asarray(batch.column("body_post"))
+        weight = np.asarray(batch.column("weight"))
+        mask = _eligible_edge_mask(
+            pre,
+            post,
+            weight,
+            eligible,
+            selected=selected_array,
+            min_weight=min_weight,
+        )
+        if mask.any():
+            edge_tuples.extend(
+                (int(pre_id), int(post_id), int(edge_weight))
+                for pre_id, post_id, edge_weight in zip(
+                    pre[mask].tolist(), post[mask].tolist(), weight[mask].tolist()
+                )
+            )
+
+    if max_edges is not None and max_edges >= 0 and len(edge_tuples) > max_edges:
+        edge_tuples = sorted(
+            edge_tuples, key=lambda edge: (-edge[2], edge[0], edge[1])
+        )[:max_edges]
+    else:
+        edge_tuples.sort(key=lambda edge: (edge[0], edge[1], -edge[2]))
+
+    neurotransmitters = neurotransmitter_records(paths, selected_ids)
+    nodes: list[NodeRecord] = []
+    for body_id in selected_ids:
+        annotation = annotations.get(body_id, {})
+        nt_record = neurotransmitters.get(body_id, {})
+        consensus_nt = _clean_string(nt_record.get("consensus_nt"))
+        predicted_nt = _clean_string(nt_record.get("predicted_nt"))
+        label = consensus_nt or predicted_nt
+        confidence = nt_record.get("predicted_nt_confidence")
+        nodes.append(
+            NodeRecord(
+                body_id=body_id,
+                type=_clean_string(annotation.get("type")),
+                instance=_clean_string(annotation.get("instance")),
+                status=_clean_string(annotation.get("status")),
+                superclass=_clean_string(annotation.get("superclass")),
+                class_label=_clean_string(annotation.get("class")),
+                soma_side=_clean_string(annotation.get("somaSide")),
+                consensus_nt=consensus_nt,
+                predicted_nt=predicted_nt,
+                nt_confidence=float(confidence) if confidence is not None else None,
+                fast_sign=transmitter_sign(label, sign_map=sign_map, unknown_sign=unknown_sign),
+                is_seed=body_id in seeds,
+            )
+        )
+
+    node_by_id = {node.body_id: node for node in nodes}
+    edges = tuple(
+        EdgeRecord(
+            body_pre=pre,
+            body_post=post,
+            weight=weight,
+            transmitter_pre=_label_for_nt(neurotransmitters.get(pre)),
+            sign=node_by_id[pre].fast_sign,
+            signed_weight=float(weight) * node_by_id[pre].fast_sign,
+        )
+        for pre, post, weight in edge_tuples
+    )
+    selection = {
+        "traced_only": traced_only,
+        "eligible_nodes": int(len(eligible)),
+        "target_count": target_count,
+        "actual_count": len(nodes),
+        "min_weight": min_weight,
+        "max_edges": max_edges,
+        "multi_hop": True,
+        "expansion_rounds": expansion_rounds,
+        "route_superclasses": list(route_superclasses),
+        "hop_by_id": {str(body_id): hop for body_id, hop in sorted(hop_by_id.items())},
+        "selected_neighbors": [
+            {
+                "body_id": body_id,
+                "incident_weight": score_by_id[body_id],
+                "incident_edges": count_by_id[body_id],
+                "forward_edges": forward_hits[body_id],
+            }
+            for body_id in sorted(score_by_id)
+        ],
+    }
+    return LocalNetwork(nodes=tuple(nodes), edges=edges, seed_ids=seeds, selection=selection)
+
+
+def select_induced_network(
+    paths: MaleCNSPaths,
+    selected_ids: list[int] | tuple[int, ...],
+    *,
+    min_weight: int = 3,
+    traced_only: bool = True,
+    sign_map: dict[str, float] | None = None,
+    unknown_sign: float = 0.0,
+) -> LocalNetwork:
+    """Return every eligible edge induced by an existing node set.
+
+    Unlike :func:`select_local_network`, this helper does not spend a first
+    pass ranking additional neighbors.  It is used when independently grown
+    sensory contexts are merged and only the cross-context edges are needed.
+    """
+
+    if min_weight < 1:
+        raise ValueError("min_weight must be at least 1")
+    seeds = tuple(sorted({int(body_id) for body_id in selected_ids}))
+    if not seeds:
+        raise ValueError("At least one selected body ID is required")
+    eligible = eligible_body_ids(paths, traced_only=traced_only)
+    eligible_set = set(int(body_id) for body_id in eligible.tolist())
+    missing = [body_id for body_id in seeds if body_id not in eligible_set]
+    if missing:
+        policy = "Traced" if traced_only else "annotation"
+        raise ValueError(f"Selected body ID(s) not in the {policy} population: {missing}")
+
+    selected_array = np.asarray(seeds, dtype=np.int64)
+    edge_tuples: list[tuple[int, int, int]] = []
+    for batch in iter_weight_batches(paths):
+        pre = np.asarray(batch.column("body_pre"))
+        post = np.asarray(batch.column("body_post"))
+        weight = np.asarray(batch.column("weight"))
+        mask = _eligible_edge_mask(
+            pre,
+            post,
+            weight,
+            eligible,
+            selected=selected_array,
+            min_weight=min_weight,
+        )
+        if mask.any():
+            edge_tuples.extend(
+                (int(pre_id), int(post_id), int(edge_weight))
+                for pre_id, post_id, edge_weight in zip(
+                    pre[mask].tolist(), post[mask].tolist(), weight[mask].tolist()
+                )
+            )
+    edge_tuples.sort(key=lambda edge: (edge[0], edge[1], -edge[2]))
+
+    annotations = annotation_records(paths)
+    neurotransmitters = neurotransmitter_records(paths, seeds)
+    nodes: list[NodeRecord] = []
+    for body_id in seeds:
+        annotation = annotations.get(body_id, {})
+        nt_record = neurotransmitters.get(body_id, {})
+        consensus_nt = _clean_string(nt_record.get("consensus_nt"))
+        predicted_nt = _clean_string(nt_record.get("predicted_nt"))
+        label = consensus_nt or predicted_nt
+        confidence = nt_record.get("predicted_nt_confidence")
+        nodes.append(
+            NodeRecord(
+                body_id=body_id,
+                type=_clean_string(annotation.get("type")),
+                instance=_clean_string(annotation.get("instance")),
+                status=_clean_string(annotation.get("status")),
+                superclass=_clean_string(annotation.get("superclass")),
+                class_label=_clean_string(annotation.get("class")),
+                soma_side=_clean_string(annotation.get("somaSide")),
+                consensus_nt=consensus_nt,
+                predicted_nt=predicted_nt,
+                nt_confidence=float(confidence) if confidence is not None else None,
+                fast_sign=transmitter_sign(label, sign_map=sign_map, unknown_sign=unknown_sign),
+                is_seed=True,
+            )
+        )
+    node_by_id = {node.body_id: node for node in nodes}
+    edges = tuple(
+        EdgeRecord(
+            body_pre=pre,
+            body_post=post,
+            weight=weight,
+            transmitter_pre=_label_for_nt(neurotransmitters.get(pre)),
+            sign=node_by_id[pre].fast_sign,
+            signed_weight=float(weight) * node_by_id[pre].fast_sign,
+        )
+        for pre, post, weight in edge_tuples
+    )
+    return LocalNetwork(
+        nodes=tuple(nodes),
+        edges=edges,
+        seed_ids=seeds,
+        selection={
+            "traced_only": traced_only,
+            "eligible_nodes": int(len(eligible)),
+            "selected_count": len(nodes),
+            "min_weight": min_weight,
+            "max_edges": None,
+            "induced_only": True,
+        },
+    )
+
+
 def select_native_pathway(
     paths: MaleCNSPaths,
     *,

@@ -36,6 +36,19 @@ replay viewer:
 - The scene defaults to stage 250. `SPACE` pauses; `R` creates a fresh neural
   session; right-drag orbits; the mouse wheel zooms.
 
+The first embodied world slice is now present:
+
+- scripted demo requests include two explicit static obstacles; sandbox
+  requests remain obstacle-free unless they provide an `obstacles` array;
+- Python resolves the circular toy body with swept circle/AABB contacts and
+  returns requested versus actual motion, collision IDs, boundary contacts,
+  and obstacle touch features in every frame;
+- Godot renders matching `StaticBody3D` shapes, probes the next move with a
+  `ShapeCast3D`, and shows a causal HUD from world contact through sensory
+  features, input currents, spikes, descending votes, and action;
+- set `FLYTEST_ARENA_ENDPOINT` to point the Godot bridge at a non-default local
+  server during a smoke test.
+
 This 3D lab is intentionally standalone. It is not part of the public website
 yet, and no Cloudflare configuration is needed for it.
 
@@ -87,20 +100,22 @@ The last completed checks were:
 git diff --check
 ```
 
-Result: 30 tests passed; provenance verification passed; `git diff --check`
+Result: 34 tests passed; provenance verification passed; `git diff --check`
 reported only existing line-ending warnings. Godot script parsing passed, and
-a real stage-250 live capture showed `LIVE CLOSED LOOP`, neural visual action,
-active spikes, the retina, moving beacon, threat, and trail.
+a real compatibility-renderer live capture completed against a fresh Python
+stage-54 server. The headless Godot runner still crashes in this environment
+while trying to write its `user://` log/settings files; that is an environment
+limitation, not a scene parse error.
 
 ## What is deliberately unfinished
 
 The live session store is in-memory and local-only. Restarting the Python
-server destroys sessions. The 3D body is still a simple point-mass controller;
-there is no collision physics, flight dynamics, learning, webcam input, or
-biological muscle model. The next useful work is probably improving the world
-and observation interface—real Godot collision geometry, richer 3D stimuli,
-and an inspector for the live causal chain—before adding more neurons or
-putting the 3D lab on the public site.
+server destroys sessions. The 3D body is still a simple circular point-mass
+controller; there is no full character-body physics, flight dynamics, learning,
+webcam input, or biological muscle model. The next useful work is to add a
+small set of deterministic scenarios around the new geometry—beacon approach,
+wall blocking, threat crossing—and inspect their causal traces before adding
+more neurons or putting the 3D lab on the public site.
 
 ## Worktree note
 

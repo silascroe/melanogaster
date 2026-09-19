@@ -11,6 +11,7 @@ htmlcov/
 # Local/editor files and secrets
 .vscode/
 .idea/
+.codex-remote-attachments/
 *.log
 .env
 .env.*
@@ -67,3 +68,8 @@ outputs/*
 outputs/**/spikes.csv
 outputs/**/voltages.csv
 outputs/**/synaptic_dynamics_traces.csv
+
+# Local Godot runtime and editor cache for the standalone 3D lab.
+tools/godot/
+arena3d/.godot/
+arena3d/.import/

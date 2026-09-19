@@ -5,13 +5,24 @@ from __future__ import annotations
 import argparse
 import json
 import math
+import threading
+from uuid import uuid4
 from dataclasses import asdict, dataclass, field, replace
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
-from typing import Any
+from typing import Any, Mapping
 from urllib.parse import parse_qs, urlparse
 
-from .analysis import LocalNetwork, PathwaySelection, select_local_network, select_native_pathway
+from .analysis import (
+    LocalNetwork,
+    PathwaySelection,
+    select_induced_network,
+    select_local_network,
+    select_multihop_network,
+    select_native_pathway,
+)
+from .arena_simulation import ArenaModel, ArenaRunConfig, ArenaSession
+from .arena_circuit import ArenaStage
 from .data import MaleCNSPaths
 from .sensorimotor import SensorimotorConfig
 from .simulation import LIFConfig, SimulationResult, simulate_lif
@@ -19,6 +30,7 @@ from .simulation import LIFConfig, SimulationResult, simulate_lif
 
 WEB_DIR = Path(__file__).with_name("web")
 DEFAULT_HTML = WEB_DIR / "fly.html"
+DEFAULT_FAVICON = WEB_DIR / "favicon.svg"
 
 
 @dataclass(frozen=True)
@@ -136,6 +148,121 @@ def _edge_rows(channel: CachedChannel) -> list[dict[str, Any]]:
     return rows
 
 
+def _neural_role(row: Mapping[str, Any]) -> str:
+    if row.get("role") == "source" or row.get("superclass") in {
+        "vnc_sensory",
+        "visual_projection",
+        "ol_sensory",
+        "visual_centrifugal",
+        "sensory_ascending",
+    }:
+        return "sensory"
+    if row.get("role") == "target" or row.get("superclass") == "descending_neuron":
+        return "descending"
+    return "intrinsic"
+
+
+def _population_metadata(row: Mapping[str, Any]) -> dict[str, Any]:
+    memberships = list(row.get("channels") or ([row["channel"]] if row.get("channel") else []))
+    side = str(row.get("soma_side") or "").upper()
+    side_name = "left" if side.startswith("L") else "right" if side.startswith("R") else "center"
+    input_groups: list[str] = []
+    output_groups: list[str] = []
+    neural_role = _neural_role(row)
+    if "vision" in memberships and neural_role == "sensory":
+        input_groups.extend([f"visual_{side_name}", "visual_motion", "visual_looming"])
+    if "touch" in memberships and neural_role == "sensory":
+        input_groups.extend([f"touch_{side_name}", "threat_urgency"])
+    if "vision" in memberships and neural_role == "descending":
+        output_groups.append({"left": "turn_left", "right": "turn_right", "center": "forward"}[side_name])
+    if "touch" in memberships and neural_role == "descending":
+        output_groups.append({"left": "escape_right", "right": "escape_left", "center": "escape_right"}[side_name])
+    return {
+        "neural_role": neural_role,
+        "input_groups": input_groups,
+        "input_group": input_groups[0] if input_groups else None,
+        "descending_output_groups": output_groups,
+        "descending_output_group": output_groups[0] if output_groups else None,
+    }
+
+
+def _merged_stage_rows(
+    channels: tuple[CachedChannel, ...],
+    network: LocalNetwork,
+) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+    """Annotate a unified induced graph with channel and path metadata."""
+
+    by_id = {node.body_id: node for node in network.nodes}
+    channel_ids = {
+        channel.name: {node.body_id for node in channel.network.nodes}
+        for channel in channels
+    }
+    role_by_id: dict[int, str] = {}
+    path_keys: dict[tuple[int, int, int], str] = {}
+    hop_by_id: dict[int, int] = {}
+    for channel in channels:
+        selection = channel.selection
+        role_by_id[selection.source_id] = "source"
+        role_by_id[selection.intermediate_id] = "intermediate"
+        role_by_id[selection.target_id] = "target"
+        path_keys[selection.path_edge_keys[0]] = "source_to_intermediate"
+        path_keys[selection.path_edge_keys[1]] = "intermediate_to_target"
+        for body_id, hop in channel.network.selection.get("hop_by_id", {}).items():
+            hop_by_id[int(body_id)] = min(hop_by_id.get(int(body_id), hop), int(hop))
+
+    node_rows: list[dict[str, Any]] = []
+    for body_id in sorted(by_id):
+        node = by_id[body_id]
+        memberships = [name for name, ids in channel_ids.items() if body_id in ids]
+        role = role_by_id.get(body_id, "context")
+        node_rows.append(
+            {
+                "channel": "merged",
+                "channels": memberships or ["merged"],
+                "body_id": node.body_id,
+                "label": node.instance or node.type or f"body {node.body_id}",
+                "type": node.type,
+                "instance": node.instance,
+                "superclass": node.superclass,
+                "class": node.class_label,
+                "soma_side": node.soma_side,
+                "consensus_nt": node.consensus_nt,
+                "fast_sign": node.fast_sign,
+                "role": role,
+                "is_path_node": role != "context",
+                "hop": hop_by_id.get(body_id, 0),
+                **_population_metadata(
+                    {
+                        "channel": "merged",
+                        "channels": memberships or ["merged"],
+                        "superclass": node.superclass,
+                        "soma_side": node.soma_side,
+                        "role": role,
+                    }
+                ),
+            }
+        )
+
+    edge_rows: list[dict[str, Any]] = []
+    for edge in network.edges:
+        key = (edge.body_pre, edge.body_post, edge.weight)
+        edge_rows.append(
+            {
+                "channel": "merged",
+                "channels": ["merged"],
+                "body_pre": edge.body_pre,
+                "body_post": edge.body_post,
+                "weight": edge.weight,
+                "transmitter_pre": edge.transmitter_pre,
+                "sign": edge.sign,
+                "signed_weight": edge.signed_weight,
+                "is_path_edge": key in path_keys,
+                "path_leg": path_keys.get(key, ""),
+            }
+        )
+    return node_rows, edge_rows
+
+
 def _stimulus_active(time_ms: float, config: SensorimotorConfig) -> bool:
     return config.input_start_ms <= time_ms < config.input_start_ms + config.input_duration_ms
 
@@ -164,7 +291,7 @@ def _channel_events(result: SimulationResult, channel_name: str) -> list[dict[st
 
 
 class VisualModel:
-    """Cache one tactile graph and one visual graph, then replay both cheaply."""
+    """Cache staged tactile/visual graphs, then replay them cheaply."""
 
     def __init__(
         self,
@@ -230,6 +357,143 @@ class VisualModel:
             for channel in self.channels
             for row in _edge_rows(channel)
         ]
+        arena_node_rows = []
+        for row in self.node_rows:
+            arena_node_rows.append(
+                {
+                    **row,
+                    "channels": [row["channel"]],
+                    "hop": {"source": 0, "intermediate": 1, "target": 2}.get(
+                        row.get("role"), 0
+                    ),
+                    **_population_metadata({**row, "channels": [row["channel"]]}),
+                }
+            )
+        self.arena_stages: dict[int, ArenaStage] = {
+            54: ArenaStage(
+                stage=54,
+                target_node_count=54,
+                unified=False,
+                channels=self.channels,
+                nodes=tuple(arena_node_rows),
+                edges=tuple(self.edge_rows),
+                selection={
+                    "stage": 54,
+                    "target_node_count": 54,
+                    "actual_node_count": len(self.node_rows),
+                    "strategy": "legacy two-channel local neighborhoods",
+                },
+            )
+        }
+        self.arena_model = ArenaModel(stages=self.arena_stages)
+
+    def _build_arena_stage(self, stage: int) -> ArenaStage:
+        if stage == 54:
+            return self.arena_stages[54]
+        if stage not in {100, 250}:
+            raise ValueError("network_stage must be 54, 100, or 250")
+
+        target_per_channel = stage // 2
+        touch_selection = self.channels[0].selection
+        visual_selection = self.channels[1].selection
+        touch_network = select_multihop_network(
+            self.paths,
+            [
+                touch_selection.source_id,
+                touch_selection.intermediate_id,
+                touch_selection.target_id,
+            ],
+            target_count=target_per_channel,
+            route_superclasses=("vnc_sensory", "vnc_intrinsic", "descending_neuron"),
+            min_weight=self.channels[0].network.selection["min_weight"],
+            max_edges=None,
+        )
+        visual_network = select_multihop_network(
+            self.paths,
+            [
+                visual_selection.source_id,
+                visual_selection.intermediate_id,
+                visual_selection.target_id,
+            ],
+            target_count=target_per_channel,
+            route_superclasses=("visual_projection", "ol_intrinsic", "descending_neuron"),
+            min_weight=self.channels[1].network.selection["min_weight"],
+            max_edges=None,
+        )
+        selected_ids = sorted(
+            {node.body_id for node in touch_network.nodes}
+            | {node.body_id for node in visual_network.nodes}
+        )
+        if len(selected_ids) != stage:
+            raise ValueError(
+                f"network stage {stage} selected {len(selected_ids)} unique nodes; "
+                "the requested production stage cannot be satisfied"
+            )
+
+        induced = select_induced_network(
+            self.paths,
+            selected_ids,
+            min_weight=self.channels[0].network.selection["min_weight"],
+        )
+        stage_channels = (
+            CachedChannel("touch", touch_selection, touch_network),
+            CachedChannel("vision", visual_selection, visual_network),
+        )
+        nodes, edges = _merged_stage_rows(stage_channels, induced)
+        selection = {
+            "stage": stage,
+            "target_node_count": stage,
+            "actual_node_count": len(nodes),
+            "strategy": "multi-hop sensory-to-descending expansion with induced cross-channel edges",
+            "touch": touch_network.selection,
+            "vision": visual_network.selection,
+            "merged": induced.selection,
+        }
+        return ArenaStage(
+            stage=stage,
+            target_node_count=stage,
+            unified=True,
+            channels=stage_channels,
+            nodes=tuple(nodes),
+            edges=tuple(edges),
+            selection=selection,
+        )
+
+    def _ensure_arena_stage(self, stage: int) -> None:
+        if stage not in self.arena_stages:
+            self.arena_stages[stage] = self._build_arena_stage(stage)
+            self.arena_model.stages = self.arena_stages
+
+    def run_arena(
+        self, config: ArenaRunConfig | Mapping[str, Any] | None = None
+    ) -> dict[str, Any]:
+        """Run the stateful arena against the requested cached graph stage."""
+
+        if config is None:
+            run_config = ArenaRunConfig()
+        elif isinstance(config, ArenaRunConfig):
+            run_config = config
+        else:
+            run_config = ArenaRunConfig.from_mapping(config)
+        run_config.validate()
+        stage = run_config.network_stage
+        self._ensure_arena_stage(stage)
+        return self.arena_model.run(run_config)
+
+    def create_arena_session(
+        self, config: ArenaRunConfig | Mapping[str, Any] | None = None
+    ) -> ArenaSession:
+        """Create a persistent arena brain for an external world client."""
+
+        if config is None:
+            run_config = ArenaRunConfig()
+        elif isinstance(config, ArenaRunConfig):
+            run_config = config
+        else:
+            run_config = ArenaRunConfig.from_mapping(config)
+        run_config.validate()
+        self._ensure_arena_stage(run_config.network_stage)
+        return self.arena_model.create_session(run_config)
 
     def run(
         self,
@@ -520,12 +784,20 @@ class _Handler(BaseHTTPRequestHandler):
         self.send_header("Content-Length", str(len(body)))
         self.send_header("Cache-Control", "no-store")
         self.end_headers()
-        self.wfile.write(body)
+        try:
+            self.wfile.write(body)
+        except (BrokenPipeError, ConnectionAbortedError):
+            # A Godot/movie run may close immediately after receiving the
+            # frame; the session itself has already advanced deterministically.
+            pass
 
     def do_GET(self) -> None:  # noqa: N802 - BaseHTTPRequestHandler API
         parsed = urlparse(self.path)
         if parsed.path in {"/", "/index.html"}:
             self._send(self.server.html, "text/html; charset=utf-8")
+            return
+        if parsed.path == "/favicon.svg":
+            self._send(self.server.favicon, "image/svg+xml; charset=utf-8")
             return
         if parsed.path == "/health":
             self._send(b"ok\n", "text/plain; charset=utf-8")
@@ -544,15 +816,84 @@ class _Handler(BaseHTTPRequestHandler):
             return
         self._send(b"not found\n", "text/plain; charset=utf-8", 404)
 
+    def do_POST(self) -> None:  # noqa: N802 - BaseHTTPRequestHandler API
+        parsed = urlparse(self.path)
+        try:
+            raw_length = self.headers.get("Content-Length", "0")
+            content_length = int(raw_length)
+            if content_length <= 0 or content_length > 1_000_000:
+                raise ValueError("arena request body must be between 1 byte and 1 MB")
+            payload = json.loads(self.rfile.read(content_length).decode("utf-8"))
+
+            if parsed.path == "/api/arena/run":
+                result = self.server.model.run_arena(payload)
+            elif parsed.path == "/api/arena/session":
+                session = self.server.model.create_arena_session(payload)
+                session_id = uuid4().hex
+                with self.server.arena_sessions_lock:
+                    if len(self.server.arena_sessions) >= 64:
+                        raise ValueError("too many live arena sessions")
+                    self.server.arena_sessions[session_id] = session
+                result = {
+                    **session.metadata(),
+                    "session_id": session_id,
+                    "status": "ready",
+                }
+            else:
+                path_parts = parsed.path.strip("/").split("/")
+                if (
+                    len(path_parts) != 5
+                    or path_parts[:3] != ["api", "arena", "session"]
+                ):
+                    self._send(b"not found\n", "text/plain; charset=utf-8", 404)
+                    return
+                session_id = path_parts[3]
+                operation = path_parts[4]
+                with self.server.arena_sessions_lock:
+                    session = self.server.arena_sessions.get(session_id)
+                    if session is None:
+                        self._send(
+                            json.dumps({"error": "arena session not found"}).encode("utf-8"),
+                            "application/json",
+                            404,
+                        )
+                        return
+                    if operation == "step":
+                        result = session.step(payload)
+                        result["session_id"] = session_id
+                    elif operation == "close":
+                        session.closed = True
+                        del self.server.arena_sessions[session_id]
+                        result = {
+                            "schema_version": 2,
+                            "session_id": session_id,
+                            "status": "closed",
+                        }
+                    else:
+                        self._send(b"not found\n", "text/plain; charset=utf-8", 404)
+                        return
+            body = json.dumps(result, separators=(",", ":")).encode("utf-8")
+            self._send(body, "application/json; charset=utf-8")
+        except (ValueError, KeyError, TypeError, UnicodeDecodeError, json.JSONDecodeError) as error:
+            self._send(
+                json.dumps({"error": str(error)}).encode("utf-8"),
+                "application/json",
+                400,
+            )
+
     def log_message(self, format: str, *args: Any) -> None:
         print(f"[flytest] {format % args}")
 
 
 class FlyServer(ThreadingHTTPServer):
-    def __init__(self, address: tuple[str, int], model: VisualModel, html: bytes) -> None:
+    def __init__(self, address: tuple[str, int], model: VisualModel, html: bytes, favicon: bytes) -> None:
         super().__init__(address, _Handler)
+        self.daemon_threads = True
         self.model = model
         self.html = html
+        self.favicon = favicon
+        self.arena_sessions = {}
+        self.arena_sessions_lock = threading.Lock()
 
 
 def serve(
@@ -566,13 +907,16 @@ def serve(
     html_path = DEFAULT_HTML
     if not html_path.is_file():
         raise FileNotFoundError(f"Visual UI not found: {html_path}")
+    favicon_path = DEFAULT_FAVICON
+    if not favicon_path.is_file():
+        raise FileNotFoundError(f"Visual favicon not found: {favicon_path}")
     print("[flytest] selecting and caching the tactile and visual connectome contexts...")
     model = VisualModel(
         MaleCNSPaths(data_dir),
         neighbor_limit=neighbor_limit,
         max_edges=max_edges,
     )
-    server = FlyServer((host, port), model, html_path.read_bytes())
+    server = FlyServer((host, port), model, html_path.read_bytes(), favicon_path.read_bytes())
     print(f"[flytest] visual simulation: http://{host}:{port}")
     print(f"[flytest] network: {len(model.node_rows)} nodes, {len(model.edge_rows)} edges")
     try:

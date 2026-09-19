@@ -31,7 +31,7 @@ flytest-visual = "flytest.visual_simulation:main"
 where = ["src"]
 
 [tool.setuptools.package-data]
-flytest = ["web/*.html"]
+flytest = ["web/*.html", "web/*.svg"]
 
 [tool.pytest.ini_options]
 pythonpath = ["src"]

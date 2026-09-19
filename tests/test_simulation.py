@@ -1,7 +1,7 @@
 import numpy as np
 import pytest
 
-from flytest.simulation import LIFConfig, simulate_lif
+from flytest.simulation import LIFConfig, LIFNetwork, simulate_lif
 
 
 def test_excitatory_and_inhibitory_edges_use_transmitter_sign() -> None:
@@ -142,3 +142,69 @@ def test_synaptic_parameters_reject_invalid_values() -> None:
             signs=[],
             config=LIFConfig(synaptic_tau_ms=0),
         )
+
+
+def test_stateful_steps_match_batch_replay_for_time_varying_input() -> None:
+    config = LIFConfig(
+        dt_ms=1,
+        duration_ms=5,
+        tau_ms=4,
+        rest_mv=0,
+        threshold_mv=1,
+        reset_mv=0,
+        refractory_ms=1,
+        mv_per_synapse=0.4,
+        synaptic_gain=1.5,
+    )
+    kwargs = {
+        "node_ids": [1, 2],
+        "body_pre": [1],
+        "body_post": [2],
+        "synapse_counts": [2],
+        "signs": [1],
+    }
+    external = np.asarray(
+        [
+            [2.0, 0.0],
+            [0.0, 0.0],
+            [0.0, 1.5],
+            [0.0, 0.0],
+            [0.0, 0.0],
+        ]
+    )
+    batch = simulate_lif(**kwargs, config=config, external_currents_mv=external)
+    network = LIFNetwork(**kwargs, config=config)
+    state = network.initial_state()
+    voltages = []
+    spikes = []
+    currents = []
+    for row in external:
+        step = network.step(state, row)
+        voltages.append(step.voltage_mv)
+        spikes.append(step.spikes)
+        currents.append(step.synaptic_currents_mv)
+
+    np.testing.assert_array_equal(batch.voltages_mv, np.asarray(voltages))
+    np.testing.assert_array_equal(batch.spikes, np.asarray(spikes))
+    np.testing.assert_array_equal(batch.synaptic_currents, np.asarray(currents))
+
+
+def test_stateful_external_input_respects_refractory_period() -> None:
+    config = LIFConfig(
+        dt_ms=1,
+        duration_ms=4,
+        tau_ms=1,
+        rest_mv=0,
+        threshold_mv=1,
+        reset_mv=0,
+        refractory_ms=2,
+    )
+    network = LIFNetwork([7], [], [], [], [], config=config)
+    state = network.initial_state()
+    spikes = [
+        bool(network.step(state, [2.0]).spikes[0]),
+        bool(network.step(state, [2.0]).spikes[0]),
+        bool(network.step(state, [2.0]).spikes[0]),
+        bool(network.step(state, [2.0]).spikes[0]),
+    ]
+    assert spikes == [True, False, False, True]

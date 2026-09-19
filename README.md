@@ -1,6 +1,6 @@
 # FlyTest: Drosophila connectome baseline
 
-This repository is a small, local-first exploration of the official FlyEM Male CNS connectome release. It deliberately stops at a readable data loader, a bounded subgraph extractor, and a simple leaky integrate-and-fire simulator. There is no web app, game layer, or opaque graph database.
+This repository is a small, local-first exploration of the official FlyEM Male CNS connectome release. It began with a readable data loader, a bounded subgraph extractor, and a simple leaky integrate-and-fire simulator; it now also includes an inspectable local browser lab and standalone Godot arena. There is still no opaque graph database or claim of a validated biological behavior model.
 
 The current baseline uses MaleCNS v1.0 from HHMI Janelia's public Google Storage bucket. The downloaded release files live in `data/original-data/male-cns-v1.0/` and are never edited. Byte-identical copies live in `data/working/male-cns-v1.0/`; derived tables and simulation output go under `outputs/`.
 
@@ -143,6 +143,26 @@ vision. Coupling, stimulus duration, visual contrast, playback speed, and turn
 decoding can be changed from the page. The visual source is an annotated
 visual-projection neuron, not a claim that this demo models the retina or a
 complete visual behavior.
+
+The page also has an Arena mode. Its API-compatible control stage is the same
+54-node local graph, and the browser can request unified 100- and 250-node
+multi-hop expansions. A deterministic 9x5 synthetic retina exposes brightness,
+motion, and looming to named sensory populations; descending spikes vote for
+turning, forward motion, or touch-priority escape. The scripted demo uses
+moving light and timed threat objects. Sandbox mode supports still, drifting,
+and crossing user-placed objects, replayed from neural rest with a frame
+scrubber and causal trace. The arena is intentionally a sensorimotor
+experiment, not a biological retina or a learned fly. The API defaults to
+stage 54 to preserve compatibility; the browser defaults to stage 250.
+
+The scripted arena demo now includes two explicit static obstacles. The body
+is a circular toy agent: Python resolves proposed movement with swept
+circle-versus-rectangle contacts and returns requested versus actual motion,
+collision IDs, boundary contacts, and obstacle touch features in each frame.
+Godot renders matching `StaticBody3D` shapes and its HUD exposes the current
+world event, sensory features, input currents, spikes, descending votes, and
+action. Sandbox requests remain obstacle-free unless an `obstacles` array is
+provided. This is an inspectable collision experiment, not flight physics.
 
 ## Compare synaptic dynamics
 

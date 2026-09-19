@@ -116,3 +116,88 @@ model, a complete visual pathway, or a claim that the selected descending
 neurons implement a named behavior. The visual source label comes from the
 official annotations; the beacon, contrast-to-current mapping, body, and
 action decoder are modelling assumptions.
+
+## Scalable closed-loop arena
+
+The arena now has a compatibility stage and two explicit expansion stages:
+54 keeps the separate touch and visual local contexts, while 100 and 250 merge
+deduplicated multi-hop expansions into one induced graph. Expansion starts from
+the existing sensory/intrinsic/descending seed paths, prefers annotated route
+classes, and then ranks frontier candidates by incident weight, edge count, hop,
+and body ID. If the official release cannot supply an exact requested stage,
+selection fails instead of quietly filling the graph with unrelated neurons.
+
+The stateful `LIFNetwork` runner shares the batch update's one-step synaptic
+delay, transmitter signs, and refractory behavior. A cached arena runtime
+precomputes body-ID indices, sparse edge currents, input populations, and
+descending output populations; each replay receives fresh mutable state. The
+baseline `GET /api/run` response remains the control condition, while
+`POST /api/arena/run` accepts schema-version-2 arena requests. The API defaults
+to stage 54 for compatibility; the browser explicitly asks for stage 250.
+
+The 9x5 retina exposes left, center, right, motion, and looming features. Touch
+and threat features expose left, right, and urgency populations. Actions come
+from descending spikes, not a direct centroid-to-turn shortcut: visual left,
+right, and center populations vote for turn-left, turn-right, and forward;
+touch populations vote for the opposite escape turn and take priority. On the
+54-node stage, missing side-specific populations may share nodes and the
+payload records that fallback. Those mappings, the sensor projection, and the
+action decoder are simulator scaffolding, not biological claims.
+
+Lights and threats move with deterministic velocity and boundary reflection.
+Each replay resets target persistence, escape cooldown, post-escape recovery,
+and threat habituation. These values affect sensory drive and action priority,
+never synaptic weights, and are returned frame by frame alongside retina cells,
+currents, spikes, votes, object positions, and a replay digest. Scripted mode
+keeps a moving beacon and timed threat; sandbox mode accepts moving user-placed
+objects and reruns from neural rest.
+
+## Godot live-loop boundary
+
+The standalone `arena3d` project is a world client, not a second connectome
+simulator. A `POST /api/arena/session` call creates a fresh stage-250 Python
+runtime. Each subsequent `POST /api/arena/session/{id}/step` sends Godot's
+current body, light, and threat state to Python. Python renders the synthetic
+retina, advances the persistent LIF state, applies memory and descending
+population decoding, and returns the action, spikes, causal trace, and the
+deterministic next state. Godot applies that result to its visible body and
+objects on the next tick.
+
+This separation makes the closed loop inspectable and keeps the public batch
+replay as a regression control. The world integration, timing, and 3D body are
+still explicit experiment scaffolding; the official dataset supplies the
+connectome wiring and annotations, not a complete physical fly or a biological
+motor command protocol.
+
+## Embodied arena collision slice
+
+The next arena slice gives the existing controller a small physical
+consequence without changing the connectome stage or the public baseline API.
+Scripted demo requests receive two explicit axis-aligned obstacles; sandbox
+requests remain empty unless they provide their own obstacle list. The body is
+represented as a circle in the arena plane with a configured radius. Python
+resolves each proposed forward move with small swept substeps and
+axis-separated circle/AABB contact, which prevents tunnelling and allows the
+toy body to slide along a wall. The resulting requested body, actual body,
+collision IDs, boundary contacts, and obstacle proximity are returned in every
+frame.
+
+Obstacle proximity is routed through the existing touch input groups so the
+controller can produce an escape vote from a world obstacle, while threat
+proximity remains a separate measured stimulus. Godot renders the same
+rectangles as `StaticBody3D` collision shapes and probes the next motion with a
+`ShapeCast3D`; Python remains the deterministic authority for replay and live
+session state. This is collision-aware experiment scaffolding, not flight
+dynamics, contact mechanics, or a biological body model.
+
+The live HUD now exposes a compact causal chain: world touch/contact, retina
+features, named input currents, active spikes, descending votes, and the chosen
+action. This makes a blocked move inspectable instead of silently clamping the
+body at a coordinate.
+
+World-object defaults are mode-dependent at the configuration boundary. An
+omitted value uses the selected mode's defaults: demo receives its scripted
+lights, threat, and obstacles, while sandbox receives empty collections. An
+explicit empty collection always disables that object type. Direct Python
+construction and JSON parsing therefore produce the same world for the same
+mode and inputs.

@@ -5,7 +5,8 @@ inhabit. It is deliberately separate from the public FlyTest website.
 
 The current milestone is a live closed-loop world client:
 
-- a fly-shaped placeholder body with a heading and trail;
+- a stylized low-poly fly body with a heading, trail, segmented abdomen,
+  wings, eyes, antennae, and six legs;
 - a beacon and a timed threat in a bounded 3D lab;
 - orbit/zoom camera controls;
 - a compact 9×5 retina preview;
@@ -31,6 +32,12 @@ requested versus actual motion and collision IDs; Godot renders the same
 rectangles as `StaticBody3D` shapes and probes the next move with a
 `ShapeCast3D`. The result is collision-aware experiment scaffolding, not
 flight physics.
+
+The visible fly is a procedural presentation shell separate from the spherical
+collision shape. Its insect silhouette is intentionally stylized and cheap to
+render; the wings flap at a low idle rate and more actively while the controller
+is moving. This keeps visual polish from changing the experiment's body radius
+or collision semantics.
 
 ## Run locally
 

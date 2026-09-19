@@ -11,6 +11,9 @@ const LIVE_STEP_INTERVAL_SECONDS := 0.045
 
 var fly_root: Node3D
 var body_cast: ShapeCast3D
+var wing_instances: Array[MeshInstance3D] = []
+var wing_base_rotations: Array[Vector3] = []
+var fly_visual_time := 0.0
 var beacon_root: Node3D
 var threat_root: Node3D
 var obstacle_root: Node3D
@@ -87,6 +90,7 @@ func _process(delta: float) -> void:
 		if step_accumulator >= LIVE_STEP_INTERVAL_SECONDS:
 			step_accumulator = 0.0
 			_request_live_step()
+	_update_fly_animation(delta)
 	_update_camera()
 	_update_hud()
 
@@ -205,18 +209,60 @@ func _build_fly() -> void:
 	body_cast.enabled = true
 	fly_root.add_child(body_cast)
 
-	var abdomen := _sphere(Color("#263840"), 0.42, Vector3(0.0, 0.43, -0.18), Vector3(0.82, 0.72, 1.24))
+	# The visible fly is deliberately separate from the spherical collision body.
+	# It is a stylized low-poly shell: clear insect proportions matter more here
+	# than anatomical detail or extra physics surfaces.
+	var abdomen := _capsule(Color("#263840"), 0.32, 1.35, Vector3(0.0, 0.43, -0.2), Vector3(0.92, 0.86, 1.0))
 	fly_root.add_child(abdomen)
-	var thorax := _sphere(Color("#4c6b68"), 0.34, Vector3(0.0, 0.48, 0.35), Vector3(1.08, 0.85, 0.95))
+	var abdomen_band_material := _material(Color("#617873"))
+	for band_z in [-0.61, -0.31, -0.01]:
+		var band := _torus(Color("#617873"), 0.275, 0.31, Vector3(0.0, 0.43, band_z), Vector3(0.92, 0.82, 1.0))
+		band.material_override = abdomen_band_material
+		fly_root.add_child(band)
+	var thorax := _sphere(Color("#4c6b68"), 0.37, Vector3(0.0, 0.49, 0.35), Vector3(1.08, 0.9, 1.04))
 	fly_root.add_child(thorax)
-	var head := _sphere(Color("#1d2b31"), 0.28, Vector3(0.0, 0.49, 0.9), Vector3(0.92, 0.9, 0.8))
+	var thorax_plate := _sphere(Color("#78928b"), 0.20, Vector3(0.0, 0.69, 0.35), Vector3(1.15, 0.18, 0.88))
+	fly_root.add_child(thorax_plate)
+	var head := _sphere(Color("#1d2b31"), 0.30, Vector3(0.0, 0.51, 0.88), Vector3(0.96, 0.92, 0.88))
 	fly_root.add_child(head)
 
 	for side in [-1.0, 1.0]:
-		var eye := _sphere(palette["red"], 0.105, Vector3(side * 0.18, 0.55, 1.08), Vector3(1.0, 1.0, 0.65), true)
+		var eye := _sphere(Color("#6f283b"), 0.17, Vector3(side * 0.21, 0.56, 1.02), Vector3(0.9, 0.92, 0.68), true)
 		fly_root.add_child(eye)
-		var wing := _sphere(Color(0.48, 0.82, 0.8, 0.28), 0.28, Vector3(side * 0.42, 0.68, 0.24), Vector3(0.32, 0.06, 1.72))
+		var eye_glint := _sphere(Color("#d5fff0"), 0.035, Vector3(side * 0.25, 0.64, 1.13), Vector3.ONE, true)
+		fly_root.add_child(eye_glint)
+
+		var wing := _sphere(Color(0.42, 0.82, 0.84, 0.34), 0.42, Vector3(side * 0.49, 0.75, 0.18), Vector3(1.22, 0.055, 2.05))
+		wing.rotation = Vector3(deg_to_rad(-9.0), deg_to_rad(side * 10.0), deg_to_rad(side * 7.0))
+		wing.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 		fly_root.add_child(wing)
+		wing_instances.append(wing)
+		wing_base_rotations.append(wing.rotation)
+
+		var wing_root := _sphere(Color(0.67, 0.95, 0.91, 0.22), 0.22, Vector3(side * 0.37, 0.72, 0.35), Vector3(1.0, 0.045, 1.15))
+		wing_root.rotation = Vector3(deg_to_rad(-6.0), deg_to_rad(side * 8.0), deg_to_rad(side * 5.0))
+		wing_root.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+		fly_root.add_child(wing_root)
+
+		var front_leg_joint := Vector3(side * 0.22, 0.37, 0.56)
+		var front_leg_knee := Vector3(side * 0.52, 0.16, 0.78)
+		var front_leg_foot := Vector3(side * 0.72, 0.07, 0.98)
+		_add_leg(front_leg_joint, front_leg_knee, front_leg_foot)
+		var mid_leg_joint := Vector3(side * 0.27, 0.34, 0.22)
+		var mid_leg_knee := Vector3(side * 0.62, 0.14, 0.16)
+		var mid_leg_foot := Vector3(side * 0.85, 0.06, 0.02)
+		_add_leg(mid_leg_joint, mid_leg_knee, mid_leg_foot)
+		var rear_leg_joint := Vector3(side * 0.22, 0.34, -0.20)
+		var rear_leg_knee := Vector3(side * 0.56, 0.14, -0.43)
+		var rear_leg_foot := Vector3(side * 0.75, 0.06, -0.68)
+		_add_leg(rear_leg_joint, rear_leg_knee, rear_leg_foot)
+
+		var antenna_base := Vector3(side * 0.12, 0.65, 1.10)
+		var antenna_mid := Vector3(side * 0.20, 0.80, 1.34)
+		var antenna_tip := Vector3(side * 0.28, 0.85, 1.52)
+		fly_root.add_child(_cylinder_between(Color("#91a39f"), 0.018, antenna_base, antenna_mid))
+		fly_root.add_child(_cylinder_between(Color("#91a39f"), 0.014, antenna_mid, antenna_tip))
+		fly_root.add_child(_sphere(Color("#f0b84b"), 0.025, antenna_tip, Vector3.ONE, true))
 
 	var nose := _sphere(palette["amber"], 0.045, Vector3(0.0, 0.49, 1.36), Vector3.ONE, true)
 	fly_root.add_child(nose)
@@ -250,6 +296,71 @@ func _build_fly() -> void:
 	collision_ring.material_override = _material(palette["amber"], true)
 	collision_ring.visible = false
 	fly_root.add_child(collision_ring)
+
+
+func _add_leg(joint: Vector3, knee: Vector3, foot: Vector3) -> void:
+	var leg_material := _material(Color("#78928b"))
+	var upper := _cylinder_between(Color("#78928b"), 0.035, joint, knee)
+	upper.material_override = leg_material
+	fly_root.add_child(upper)
+	var lower := _cylinder_between(Color("#526a67"), 0.025, knee, foot)
+	lower.material_override = leg_material
+	fly_root.add_child(lower)
+	fly_root.add_child(_sphere(Color("#a5bdb4"), 0.045, knee, Vector3.ONE))
+
+
+func _update_fly_animation(delta: float) -> void:
+	fly_visual_time += delta
+	for index in range(wing_instances.size()):
+		var wing := wing_instances[index]
+		var flap := sin(fly_visual_time * 13.0 + float(index) * PI) * 0.10
+		if action_name == "stop":
+			flap *= 0.28
+		wing.rotation = wing_base_rotations[index] + Vector3(flap, 0.0, 0.0)
+
+
+func _cylinder_between(color: Color, radius: float, from_point: Vector3, to_point: Vector3, emission: bool = false) -> MeshInstance3D:
+	var instance := MeshInstance3D.new()
+	var mesh := CylinderMesh.new()
+	mesh.top_radius = radius * 0.82
+	mesh.bottom_radius = radius
+	mesh.height = from_point.distance_to(to_point)
+	mesh.radial_segments = 8
+	mesh.rings = 2
+	instance.mesh = mesh
+	instance.position = (from_point + to_point) * 0.5
+	instance.quaternion = Quaternion(Vector3.UP, (to_point - from_point).normalized())
+	instance.material_override = _material(color, emission)
+	return instance
+
+
+func _capsule(color: Color, radius: float, height: float, position: Vector3, scale: Vector3, emission: bool = false) -> MeshInstance3D:
+	var instance := MeshInstance3D.new()
+	var mesh := CapsuleMesh.new()
+	mesh.radius = radius
+	mesh.height = height
+	mesh.radial_segments = 16
+	mesh.rings = 6
+	instance.mesh = mesh
+	instance.position = position
+	instance.rotation_degrees = Vector3(90.0, 0.0, 0.0)
+	instance.scale = scale
+	instance.material_override = _material(color, emission)
+	return instance
+
+
+func _torus(color: Color, inner_radius: float, outer_radius: float, position: Vector3, scale: Vector3, emission: bool = false) -> MeshInstance3D:
+	var instance := MeshInstance3D.new()
+	var mesh := TorusMesh.new()
+	mesh.inner_radius = inner_radius
+	mesh.outer_radius = outer_radius
+	mesh.rings = 20
+	mesh.ring_segments = 8
+	instance.mesh = mesh
+	instance.position = position
+	instance.scale = scale
+	instance.material_override = _material(color, emission)
+	return instance
 
 
 func _build_stimuli() -> void:

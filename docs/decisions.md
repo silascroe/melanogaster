@@ -195,6 +195,13 @@ features, named input currents, active spikes, descending votes, and the chosen
 action. This makes a blocked move inspectable instead of silently clamping the
 body at a coordinate.
 
+The visible body is a procedural stylized fly shell kept separate from the
+collision shape. A spherical `ShapeCast3D` remains the authoritative toy body,
+while the shell adds a segmented abdomen, wings, eyes, antennae, and legs for
+readability. This is a deliberate presentation boundary: improving the model
+must not silently alter body radius, collision tests, or the controller's
+world-state contract.
+
 World-object defaults are mode-dependent at the configuration boundary. An
 omitted value uses the selected mode's defaults: demo receives its scripted
 lights, threat, and obstacles, while sandbox receives empty collections. An

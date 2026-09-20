@@ -428,8 +428,9 @@ def main(argv: list[str] | None = None) -> int:
             return 0
 
         if args.command == "run":
+            program = args.program[1:] if args.program[:1] == ["--"] else args.program
             return run_and_report(
-                args.program,
+                program,
                 args.job,
                 host_alias=args.host_alias,
                 agent=args.agent,

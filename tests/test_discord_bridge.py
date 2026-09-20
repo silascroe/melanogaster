@@ -5,6 +5,7 @@ from pathlib import Path
 
 import pytest
 
+import flytest.discord_bridge as discord_bridge
 from flytest.discord_bridge import (
     DiscordBridgeError,
     DiscordConfig,
@@ -136,3 +137,19 @@ def test_run_and_report_attempts_failure_when_command_cannot_start() -> None:
 
     assert run_and_report(["missing-job"], "start failure", notify=record_notify, runner=missing_command) == 127
     assert [event["status"] for event in events] == ["started", "failure"]
+
+
+def test_run_cli_removes_argument_separator_before_starting_child(monkeypatch) -> None:
+    captured = {}
+
+    def fake_run(command, job, **kwargs):
+        captured["command"] = command
+        captured["job"] = job
+        return 0
+
+    monkeypatch.setattr(discord_bridge, "run_and_report", fake_run)
+
+    assert discord_bridge.main(
+        ["run", "--job", "parser smoke", "--", "python", "-c", "print(1)"]
+    ) == 0
+    assert captured == {"command": ["python", "-c", "print(1)"], "job": "parser smoke"}

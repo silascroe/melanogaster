@@ -12,6 +12,7 @@ htmlcov/
 .vscode/
 .idea/
 .codex-remote-attachments/
+.superpowers/
 *.log
 .env
 .env.*

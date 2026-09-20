@@ -50,3 +50,9 @@ def test_deploy_script_writes_bash_script_as_utf8_bytes_to_ssh():
     text = DEPLOY_PATH.read_text(encoding="utf-8")
     assert "StandardInput.BaseStream" in text
     assert "$remoteScript | & ssh" not in text
+
+
+def test_deploy_script_cleans_remote_stage_when_upload_fails():
+    text = DEPLOY_PATH.read_text(encoding="utf-8")
+    assert "$remoteStage -match '^/tmp/flybot-deploy-[A-Za-z0-9]+$'" in text
+    assert "rm -rf -- '$remoteStage'" in text

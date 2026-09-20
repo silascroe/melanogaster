@@ -150,6 +150,9 @@ try {
     Invoke-SshBashScript -TargetHost $HostAlias -RemoteStage $remoteStage -Script $remoteScript
 }
 finally {
+    if ($remoteStage -and $remoteStage -match '^/tmp/flybot-deploy-[A-Za-z0-9]+$') {
+        & ssh -o BatchMode=yes $HostAlias "rm -rf -- '$remoteStage'" 2>$null | Out-Null
+    }
     if ($localStage -and (Test-Path -LiteralPath $localStage)) {
         Remove-Item -LiteralPath $localStage -Recurse -Force
     }

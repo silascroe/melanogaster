@@ -8,20 +8,25 @@ need privileged intents or a third-party Discord client library.
 from __future__ import annotations
 
 import argparse
+import base64
 import json
 import os
+import shlex
 import sys
+import subprocess
 import time
 import urllib.error
 import urllib.request
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any, Mapping
+from typing import Any, Callable, Mapping, Sequence
 
 
 DEFAULT_SPOOL = Path("outputs/discord/events.jsonl")
 DEFAULT_API_BASE = "https://discord.com/api/v10"
+DEFAULT_REMOTE_HOST = "first-droplet"
+REMOTE_EVENT_SPOOL = "/var/lib/flytest-discord/events.jsonl"
 MAX_MESSAGE_LENGTH = 2_000
 
 
@@ -153,6 +158,126 @@ def append_event(spool: Path, event: Mapping[str, Any]) -> None:
         handle.write(json.dumps(record, ensure_ascii=False, sort_keys=True) + "\n")
 
 
+def append_event_remote(
+    event: Mapping[str, Any],
+    host_alias: str = DEFAULT_REMOTE_HOST,
+    *,
+    runner: Callable[..., subprocess.CompletedProcess[str]] = subprocess.run,
+) -> None:
+    """Append one event to the droplet spool without carrying the Discord token."""
+
+    if not isinstance(event, Mapping):
+        raise DiscordBridgeError("event must be a JSON object")
+    host = _validate_host_alias(host_alias)
+    encoded_event = base64.b64encode(
+        json.dumps(dict(event), ensure_ascii=False, sort_keys=True).encode("utf-8")
+    ).decode("ascii")
+    remote_code = (
+        "import base64,json,sys;"
+        "from pathlib import Path;"
+        "from flytest.discord_bridge import append_event;"
+        f"append_event(Path({REMOTE_EVENT_SPOOL!r}), "
+        "json.loads(base64.b64decode(sys.argv[1])))"
+    )
+    remote_command = (
+        "runuser -u flybot -- env PYTHONPATH=/opt/flytest-discord/src "
+        f"/usr/bin/python3 -c {shlex.quote(remote_code)} {shlex.quote(encoded_event)}"
+    )
+    try:
+        result = runner(
+            [
+                "ssh",
+                "-o",
+                "BatchMode=yes",
+                "-o",
+                "ConnectTimeout=10",
+                "-T",
+                host,
+                remote_command,
+            ],
+            check=False,
+            capture_output=True,
+            text=True,
+        )
+    except OSError as error:
+        raise DiscordBridgeError("could not start ssh for remote event") from error
+    if result.returncode != 0:
+        raise DiscordBridgeError(
+            f"remote event emission failed with exit code {result.returncode}"
+        )
+
+
+def run_and_report(
+    command: Sequence[str],
+    job: str,
+    *,
+    host_alias: str = DEFAULT_REMOTE_HOST,
+    agent: str = "codex",
+    cwd: str | Path | None = None,
+    notify: Callable[..., None] = append_event_remote,
+    runner: Callable[..., subprocess.CompletedProcess[Any]] = subprocess.run,
+) -> int:
+    """Run a local command and best-effort report its lifecycle to FlyBot."""
+
+    command_args = [str(value) for value in command]
+    if not command_args:
+        raise DiscordBridgeError("run requires a command after --")
+    job_name = str(job).strip() or "FlyTest command"
+    agent_name = str(agent).strip() or "codex"
+    _best_effort_notify(
+        notify,
+        {"status": "started", "job": job_name, "agent": agent_name},
+        host_alias,
+    )
+
+    started_at = time.monotonic()
+    exit_code = 127
+    summary: str | None = None
+    try:
+        result = runner(command_args, cwd=cwd)
+        exit_code = int(result.returncode)
+    except FileNotFoundError as error:
+        summary = f"could not start command: {error}"
+    except OSError as error:
+        summary = f"could not start command: {error}"
+    except KeyboardInterrupt:
+        exit_code = 130
+        summary = "command interrupted"
+
+    event: dict[str, Any] = {
+        "status": "success" if exit_code == 0 else "failure",
+        "job": job_name,
+        "agent": agent_name,
+        "duration": f"{time.monotonic() - started_at:.2f}s",
+    }
+    if summary is not None:
+        event["summary"] = summary
+    elif exit_code != 0:
+        event["summary"] = f"command exited with code {exit_code}"
+    _best_effort_notify(notify, event, host_alias)
+    return exit_code
+
+
+def _best_effort_notify(
+    notify: Callable[..., None], event: Mapping[str, Any], host_alias: str
+) -> None:
+    try:
+        notify(event, host_alias=host_alias)
+    except Exception:
+        print(
+            f"flytest-discord: notification failed for {event.get('status', 'event')}; "
+            "the local command will continue",
+            file=sys.stderr,
+        )
+
+
+def _validate_host_alias(host_alias: str) -> str:
+    value = str(host_alias).strip()
+    if not value or value.startswith("-") or any(character.isspace() for character in value):
+        raise DiscordBridgeError("host alias must be a nonempty SSH alias without whitespace")
+    return value
+
+
 def watch_once(
     spool: Path,
     state_file: Path,
@@ -252,16 +377,18 @@ def _build_parser() -> argparse.ArgumentParser:
 
     emit = subparsers.add_parser("emit", help="append one run event to the local JSONL spool")
     emit.add_argument("--spool", type=Path, default=DEFAULT_SPOOL)
-    emit.add_argument("--payload", type=Path, help="read the complete event from a JSON file")
-    emit.add_argument("--status", choices=("started", "success", "failure", "blocked"), default="success")
-    emit.add_argument("--job", default="FlyTest run")
-    emit.add_argument("--agent", default="flytest")
-    emit.add_argument("--summary")
-    emit.add_argument("--branch")
-    emit.add_argument("--commit")
-    emit.add_argument("--tests")
-    emit.add_argument("--duration")
-    emit.add_argument("--artifact", action="append")
+    _add_event_arguments(emit, agent_default="flytest")
+
+    notify = subparsers.add_parser("notify", help="append one run event to the remote FlyBot spool")
+    notify.add_argument("--host-alias", default=DEFAULT_REMOTE_HOST)
+    _add_event_arguments(notify, agent_default="flytest")
+
+    run = subparsers.add_parser("run", help="run a local command and report its lifecycle")
+    run.add_argument("--host-alias", default=DEFAULT_REMOTE_HOST)
+    run.add_argument("--job", required=True)
+    run.add_argument("--agent", default="codex")
+    run.add_argument("--cwd", type=Path)
+    run.add_argument("program", nargs=argparse.REMAINDER)
 
     send = subparsers.add_parser("send", help="send one message immediately")
     send.add_argument("content")
@@ -276,12 +403,38 @@ def _build_parser() -> argparse.ArgumentParser:
     return parser
 
 
+def _add_event_arguments(parser: argparse.ArgumentParser, *, agent_default: str) -> None:
+    parser.add_argument("--payload", type=Path, help="read the complete event from a JSON file")
+    parser.add_argument("--status", choices=("started", "success", "failure", "blocked"), default="success")
+    parser.add_argument("--job", default="FlyTest run")
+    parser.add_argument("--agent", default=agent_default)
+    parser.add_argument("--summary")
+    parser.add_argument("--branch")
+    parser.add_argument("--commit")
+    parser.add_argument("--tests")
+    parser.add_argument("--duration")
+    parser.add_argument("--artifact", action="append")
+
+
 def main(argv: list[str] | None = None) -> int:
     args = _build_parser().parse_args(argv)
     try:
         if args.command == "emit":
             append_event(args.spool, _event_from_args(args))
             return 0
+
+        if args.command == "notify":
+            append_event_remote(_event_from_args(args), host_alias=args.host_alias)
+            return 0
+
+        if args.command == "run":
+            return run_and_report(
+                args.program,
+                args.job,
+                host_alias=args.host_alias,
+                agent=args.agent,
+                cwd=args.cwd,
+            )
 
         if args.command == "send":
             if args.dry_run:

@@ -1,4 +1,6 @@
+import base64
 import json
+import subprocess
 from pathlib import Path
 
 import pytest
@@ -7,7 +9,9 @@ from flytest.discord_bridge import (
     DiscordBridgeError,
     DiscordConfig,
     append_event,
+    append_event_remote,
     format_event,
+    run_and_report,
     watch_once,
 )
 
@@ -79,3 +83,56 @@ def test_emit_payload_shape_is_json_serializable(tmp_path: Path) -> None:
     assert record["status"] == "success"
     assert record["job"] == "smoke"
     assert record["emitted_at"]
+
+
+def test_append_event_remote_sends_encoded_event_without_discord_secret() -> None:
+    calls = []
+
+    def fake_run(arguments, **kwargs):
+        calls.append((arguments, kwargs))
+        return subprocess.CompletedProcess(arguments, 0, stdout="", stderr="")
+
+    append_event_remote(
+        {"status": "success", "job": "title; touch /tmp/nope", "summary": "done"},
+        runner=fake_run,
+    )
+
+    command = calls[0][0][-1]
+    assert "FLYTEST_DISCORD_BOT_TOKEN" not in command
+    assert "touch /tmp/nope" not in command
+    encoded = command.rsplit(" ", 1)[-1].strip("'")
+    assert json.loads(base64.b64decode(encoded)) == {
+        "status": "success",
+        "job": "title; touch /tmp/nope",
+        "summary": "done",
+    }
+
+
+def test_run_and_report_preserves_child_failure_when_notification_fails() -> None:
+    events = []
+
+    def failing_notify(event, host_alias="first-droplet"):
+        events.append(event)
+        raise DiscordBridgeError("ssh unavailable")
+
+    def fake_run(command, **kwargs):
+        return subprocess.CompletedProcess(command, 7)
+
+    assert (
+        run_and_report(["fake-job"], "wrapper smoke", notify=failing_notify, runner=fake_run)
+        == 7
+    )
+    assert [event["status"] for event in events] == ["started", "failure"]
+
+
+def test_run_and_report_attempts_failure_when_command_cannot_start() -> None:
+    events = []
+
+    def record_notify(event, host_alias="first-droplet"):
+        events.append(event)
+
+    def missing_command(command, **kwargs):
+        raise FileNotFoundError("missing command")
+
+    assert run_and_report(["missing-job"], "start failure", notify=record_notify, runner=missing_command) == 127
+    assert [event["status"] for event in events] == ["started", "failure"]

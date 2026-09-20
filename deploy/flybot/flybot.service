@@ -1,0 +1,30 @@
+[Unit]
+Description=FlyTest Discord report bridge
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=flybot
+Group=flybot
+WorkingDirectory=/var/lib/flytest-discord
+EnvironmentFile=/etc/flytest/flybot.env
+Environment=PYTHONPATH=/opt/flytest-discord/src
+ExecStart=/usr/bin/python3 -m flytest.discord_bridge watch --spool /var/lib/flytest-discord/events.jsonl --state-file /var/lib/flytest-discord/events.jsonl.offset --poll-seconds 2
+Restart=on-failure
+RestartSec=5s
+UMask=0077
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=strict
+ProtectHome=yes
+ProtectKernelTunables=yes
+ProtectKernelModules=yes
+ProtectControlGroups=yes
+RestrictSUIDSGID=yes
+LockPersonality=yes
+RestrictAddressFamilies=AF_INET AF_INET6
+ReadWritePaths=/var/lib/flytest-discord
+
+[Install]
+WantedBy=multi-user.target

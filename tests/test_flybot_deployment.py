@@ -39,3 +39,8 @@ def test_deploy_script_requires_existing_secret_and_never_accepts_token_value():
     assert "Token" not in text.split("param(", 1)[1].split(")", 1)[0]
     assert "/etc/domainpatrol.env" not in text
     assert "systemctl restart flybot.service" in text
+
+
+def test_deploy_script_normalizes_bash_script_line_endings_before_ssh():
+    text = DEPLOY_PATH.read_text(encoding="utf-8")
+    assert '$remoteScript = $remoteScript -replace "`r`n", "`n"' in text

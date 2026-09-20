@@ -100,6 +100,7 @@ try {
         }
     }
 
+    $remoteScript = $remoteScript -replace "`r`n", "`n"
     $remoteScript | & ssh -o BatchMode=yes $HostAlias "bash -s -- '$remoteStage'"
     if ($LASTEXITCODE -ne 0) {
         throw "Remote FlyBot deployment failed on $HostAlias"

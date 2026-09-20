@@ -177,8 +177,22 @@ $env:FLYTEST_DISCORD_CHANNEL_ID = "target-channel-id"
 
 Jobs can append completion or failure events with `flytest-discord emit`; see
 [docs/discord-bridge.md](docs/discord-bridge.md) for the event format, dry-run
-path, and later droplet/systemd handoff. The token is never part of the
+path, and the always-on droplet deployment. The token is never part of the
 repository or event spool.
+
+The deployed watcher runs as `flybot.service` on `first-droplet`. From the
+repository root, update it with the secret-blind deployment script and inspect
+its logs with:
+
+```powershell
+powershell -NoProfile -File deploy/flybot/deploy.ps1 -HostAlias first-droplet
+ssh first-droplet "systemctl status flybot.service --no-pager"
+ssh first-droplet "journalctl -u flybot.service -n 50 --no-pager"
+```
+
+Only the bridge code and unit are copied to the droplet. The bot token remains
+only in `/etc/flytest/flybot.env`; event emission is explicit, and DomainPatrol
+is a separate untouched service.
 
 ## Compare synaptic dynamics
 

@@ -5,6 +5,10 @@ JSON events to `outputs/discord/events.jsonl` and a separate watcher posts them
 to one configured Discord channel through the bot REST API. It does not read
 channel history, open a Gateway connection, or require privileged intents.
 
+The repository is the source of truth. The droplet receives only the bridge
+module, its package marker, and the systemd unit; it does not receive the full
+FlyTest runtime, connectome data, Godot files, or the local virtual environment.
+
 ## Local configuration
 
 Set these variables only in the shell running the watcher:
@@ -51,15 +55,33 @@ For a one-off formatting check:
 
 Remove `--dry-run` only after the token and channel variables are set.
 
-## Droplet handoff
+## Droplet operation
 
-The same watcher can run under systemd later. The droplet should provide
-`FLYTEST_DISCORD_BOT_TOKEN` through a root-owned, mode-600 environment file and
-provide `FLYTEST_DISCORD_CHANNEL_ID` alongside it. The service should run as a
-dedicated unprivileged user, restart on failure, and log to the system journal.
+The always-on watcher runs on the DigitalOcean host under `flybot.service`.
+Before deploying, provision both variables in the root-owned, mode-600 file
+`/etc/flytest/flybot.env`. The deployment script checks that file remotely but
+never accepts or prints either value. It creates the unprivileged `flybot`
+account if needed, preserves the remote event spool, and restarts only
+`flybot.service`.
+
+From the repository root on Windows:
+
+```powershell
+powershell -NoProfile -File deploy/flybot/deploy.ps1 -HostAlias first-droplet
+ssh first-droplet "systemctl status flybot.service --no-pager"
+ssh first-droplet "journalctl -u flybot.service -n 50 --no-pager"
+ssh first-droplet "runuser -u flybot -- env PYTHONPATH=/opt/flytest-discord/src /usr/bin/python3 -m flytest.discord_bridge emit --spool /var/lib/flytest-discord/events.jsonl --status success --job 'remote job' --agent codex --summary 'completed'"
+```
+
+The service code lives under `/opt/flytest-discord/src`, and its durable spool
+and line offset live under `/var/lib/flytest-discord`. The systemd unit loads
+the secret file as an environment file, runs as `flybot`, restarts on failure,
+and logs to the journal. Re-running the deployment is safe and does not erase
+the spool or offset.
 
 The bridge currently reports explicit events. It does not guess when an
 unrelated process or Codex task has finished; job wrappers will emit events at
 the point where they know the result. Later commands such as `/status` can be
 added as a separate Gateway/interaction layer without changing this report
-spool or exposing the bot token to the repository.
+spool or exposing the bot token to the repository. DomainPatrol is a separate
+agent and is not modified by this deployment.

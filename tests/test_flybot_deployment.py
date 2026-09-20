@@ -44,3 +44,9 @@ def test_deploy_script_requires_existing_secret_and_never_accepts_token_value():
 def test_deploy_script_normalizes_bash_script_line_endings_before_ssh():
     text = DEPLOY_PATH.read_text(encoding="utf-8")
     assert '$remoteScript = $remoteScript -replace "`r`n", "`n"' in text
+
+
+def test_deploy_script_writes_bash_script_as_utf8_bytes_to_ssh():
+    text = DEPLOY_PATH.read_text(encoding="utf-8")
+    assert "StandardInput.BaseStream" in text
+    assert "$remoteScript | & ssh" not in text

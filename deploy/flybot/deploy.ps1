@@ -74,11 +74,57 @@ install -o root -g root -m 644 "$remote_stage/discord_bridge.py" /opt/flytest-di
 install -o root -g root -m 644 "$remote_stage/flybot.service" /etc/systemd/system/flybot.service
 
 systemctl daemon-reload
-systemctl enable flybot.service >/dev/null
+systemctl enable flybot.service >/dev/null 2>&1
 systemctl restart flybot.service
 systemctl is-enabled flybot.service
 systemctl is-active flybot.service
 '@
+
+function Invoke-SshBashScript {
+    param(
+        [string]$TargetHost,
+        [string]$RemoteStage,
+        [string]$Script
+    )
+
+    $startInfo = [System.Diagnostics.ProcessStartInfo]::new()
+    $startInfo.FileName = (Get-Command ssh.exe -CommandType Application -ErrorAction Stop).Source
+    $startInfo.Arguments = "-o BatchMode=yes `"$TargetHost`" `"bash -s -- '$RemoteStage'`""
+    $startInfo.UseShellExecute = $false
+    $startInfo.RedirectStandardInput = $true
+    $startInfo.RedirectStandardOutput = $true
+    $startInfo.RedirectStandardError = $true
+
+    $process = [System.Diagnostics.Process]::new()
+    $process.StartInfo = $startInfo
+    if (-not $process.Start()) {
+        throw "Could not start ssh for $TargetHost"
+    }
+
+    try {
+        $encoding = [System.Text.UTF8Encoding]::new($false)
+        $bytes = $encoding.GetBytes($Script)
+        $process.StandardInput.BaseStream.Write($bytes, 0, $bytes.Length)
+        $process.StandardInput.Close()
+        $stdout = $process.StandardOutput.ReadToEnd()
+        $stderr = $process.StandardError.ReadToEnd()
+        $process.WaitForExit()
+        $exitCode = $process.ExitCode
+    }
+    finally {
+        $process.Dispose()
+    }
+
+    if ($exitCode -ne 0) {
+        if ($stderr.Trim()) {
+            throw $stderr.Trim()
+        }
+        throw "Remote FlyBot deployment failed on $TargetHost"
+    }
+    if ($stdout.Trim()) {
+        Write-Output $stdout.TrimEnd()
+    }
+}
 
 try {
     New-Item -ItemType Directory -Path $localStage -Force | Out-Null
@@ -101,10 +147,7 @@ try {
     }
 
     $remoteScript = $remoteScript -replace "`r`n", "`n"
-    $remoteScript | & ssh -o BatchMode=yes $HostAlias "bash -s -- '$remoteStage'"
-    if ($LASTEXITCODE -ne 0) {
-        throw "Remote FlyBot deployment failed on $HostAlias"
-    }
+    Invoke-SshBashScript -TargetHost $HostAlias -RemoteStage $remoteStage -Script $remoteScript
 }
 finally {
     if ($localStage -and (Test-Path -LiteralPath $localStage)) {

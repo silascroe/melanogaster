@@ -164,6 +164,21 @@ world event, sensory features, input currents, spikes, descending votes, and
 action. Sandbox requests remain obstacle-free unless an `obstacles` array is
 provided. This is an inspectable collision experiment, not flight physics.
 
+Run the next bounded arena diagnostic against the same local release:
+
+~~~powershell
+.\.venv\Scripts\python.exe -m flytest.beacon_approach
+~~~
+
+This freezes one beacon in an otherwise empty sandbox and writes a compact
+`report.md`, `summary.json`, and `trajectory.csv` under
+`outputs/diagnostics/beacon-approach`. The pass criterion is deliberately
+small: the body must get closer than its start and enter the configured
+distance threshold at least once. The report separates connectome facts from
+the retina, body, movement, and threshold assumptions. It is a diagnostic of
+one fixed replay, not evidence of biological light seeking or sustained
+tracking.
+
 ## Report runs to Discord
 
 The report-only Discord bridge uses the bot REST API and a local JSONL event

@@ -1,0 +1,68 @@
+{
+  "causal_trace": {
+    "complete": true,
+    "complete_frame_count": 30,
+    "frame_count": 30,
+    "required_fields": [
+      "retina",
+      "input_currents",
+      "active_spikes",
+      "action",
+      "position_x",
+      "position_y"
+    ],
+    "vision_action_frame_count": 7,
+    "visual_output_spike_frame_count": 18,
+    "visual_stimulus_frame_count": 11
+  },
+  "dataset": {
+    "name": "FlyEM Male CNS",
+    "release": "v1.0",
+    "source_manifest": "data/metadata/source_manifest.json"
+  },
+  "experiment": "deterministic beacon approach",
+  "network": {
+    "actual_node_count": 54,
+    "edge_count": 435,
+    "requested_node_count": 54,
+    "stage": 54,
+    "unified": false
+  },
+  "notes": [
+    "The connectome stage and native-sign LIF runtime are reused unchanged.",
+    "The beacon is static and the sandbox contains no threats or obstacles.",
+    "Success means the body gets closer than its start and reaches the configured threshold at least once."
+  ],
+  "outputs": {
+    "report": "outputs\\diagnostics\\beacon-approach\\report.md",
+    "summary": "outputs\\diagnostics\\beacon-approach\\summary.json",
+    "trajectory": "outputs\\diagnostics\\beacon-approach\\trajectory.csv"
+  },
+  "replay_digest": "d4501909999b4320a1ed9750eaddb951749939d54f6d1e4b48e4f7db7773e2b9",
+  "result": {
+    "approach_threshold": 1.5,
+    "distance_decreased": true,
+    "distance_reduction": 1.41205587926029,
+    "distance_reduction_fraction": 0.4992371438196419,
+    "final_distance_to_beacon": 3.291539725858653,
+    "initial_distance_to_beacon": 2.8284271247461903,
+    "minimum_distance_frame": 10,
+    "minimum_distance_time_ms": 10.0,
+    "minimum_distance_to_beacon": 1.4163712454859003,
+    "success": true,
+    "threshold_reached": true
+  },
+  "scenario": {
+    "approach_threshold": 1.5,
+    "beacon_intensity": 1.0,
+    "beacon_x": 2.0,
+    "beacon_y": 2.0,
+    "duration_ms": 30.0,
+    "forward_step_per_target_spike": 0.25,
+    "initial_heading_degrees": 0.0,
+    "initial_x": 0.0,
+    "initial_y": 0.0,
+    "network_stage": 54,
+    "turn_degrees_per_target_spike": 15.0
+  }
+}

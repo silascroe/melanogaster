@@ -14,6 +14,7 @@ from flytest.data import (
 )
 from flytest.analysis import select_induced_network, select_multihop_network
 from flytest.arena_circuit import ArenaCircuitRuntime, ArenaStage
+from flytest.beacon_approach import BeaconApproachConfig, run_beacon_approach
 from flytest.arena_simulation import (
     ArenaLight,
     ArenaMemoryConfig,
@@ -236,6 +237,84 @@ def test_arena_replays_visual_path_and_is_deterministic(tmp_path: Path) -> None:
     assert first["outcome"]["visual_target_spike_count"] >= 1
     assert any(row["action_source"] == "vision" for row in first["trajectory"])
     assert first["trajectory"][0]["retina_centroid_x"] < 0
+
+
+def test_beacon_approach_writes_compact_causal_artifacts(tmp_path: Path) -> None:
+    class StubArenaModel:
+        def run_arena(self, config: ArenaRunConfig) -> dict[str, object]:
+            assert config.mode == "sandbox"
+            assert config.threats == ()
+            assert config.obstacles == ()
+            return {
+                "dataset": {"release": "fixture"},
+                "network": {
+                    "stage": 54,
+                    "requested_node_count": 54,
+                    "actual_node_count": 2,
+                    "edge_count": 1,
+                    "unified": False,
+                },
+                "replay_digest": "fixture-digest",
+                "trajectory": [
+                    {
+                        "time_ms": 0.0,
+                        "position_x": 0.5,
+                        "position_y": 0.0,
+                        "heading_degrees": 0.0,
+                        "retina": [0.5],
+                        "input_currents": {"visual_left": 1.0},
+                        "active_spikes": [{"body_id": 1}],
+                        "action": "turn_left",
+                        "action_source": "vision",
+                        "visual_stimulus_active": True,
+                        "visual_output_spike": True,
+                        "retina_centroid_x": -0.2,
+                        "retina_max": 0.5,
+                        "turn_command_degrees": 15.0,
+                        "forward_step": 0.25,
+                    },
+                    {
+                        "time_ms": 1.0,
+                        "position_x": 1.75,
+                        "position_y": 0.0,
+                        "heading_degrees": 0.0,
+                        "retina": [0.8],
+                        "input_currents": {"visual_center": 1.0},
+                        "active_spikes": [{"body_id": 2}],
+                        "action": "forward",
+                        "action_source": "vision",
+                        "visual_stimulus_active": True,
+                        "visual_output_spike": True,
+                        "retina_centroid_x": 0.0,
+                        "retina_max": 0.8,
+                        "turn_command_degrees": 0.0,
+                        "forward_step": 0.25,
+                    },
+                ],
+            }
+
+    output_dir = tmp_path / "beacon-approach"
+    summary = run_beacon_approach(
+        StubArenaModel(),
+        output_dir=output_dir,
+        config=BeaconApproachConfig(
+            beacon_x=2.0,
+            beacon_y=0.0,
+            approach_threshold=0.5,
+        ),
+    )
+
+    assert summary["experiment"] == "deterministic beacon approach"
+    assert summary["result"]["success"]
+    assert summary["result"]["distance_decreased"]
+    assert summary["result"]["threshold_reached"]
+    assert summary["causal_trace"]["complete"]
+    assert summary["causal_trace"]["vision_action_frame_count"] > 0
+    assert (output_dir / "summary.json").is_file()
+    assert (output_dir / "trajectory.csv").is_file()
+    report = (output_dir / "report.md").read_text(encoding="utf-8")
+    assert "Beacon approach" in report
+    assert "distance threshold" in report
 
 
 def test_live_arena_session_keeps_neural_state_and_matches_batch_prefix(tmp_path: Path) -> None:

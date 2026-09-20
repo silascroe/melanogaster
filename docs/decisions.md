@@ -195,6 +195,23 @@ features, named input currents, active spikes, descending votes, and the chosen
 action. This makes a blocked move inspectable instead of silently clamping the
 body at a coordinate.
 
+## Bounded beacon-approach diagnostic
+
+The first deterministic arena scenario is deliberately narrower than the
+scripted demo. It uses the existing stage-54 visual context, places one static
+beacon at a fixed position, and removes threats and obstacles. The body starts
+from rest and uses the existing descending-population action decoder and
+point-mass motion. No direct retina-centroid steering, new neurons, learning,
+or flight dynamics are introduced.
+
+The diagnostic writes a compact trajectory, summary, and plain-language report.
+It passes only when the minimum observed beacon distance is both below the
+starting distance and inside a named threshold. Minimum distance is used
+because the current decoder is a reflex mapping: a body can pass near the
+beacon and then turn away. That is useful evidence about this fixed replay, not
+evidence of a stable attraction controller. The next scenarios should test
+wall blocking and threat crossing under the same causal-trace standard.
+
 The visible body is a procedural stylized fly shell kept separate from the
 collision shape. A spherical `ShapeCast3D` remains the authoritative toy body,
 while the shell adds a segmented abdomen, wings, eyes, antennae, and legs for

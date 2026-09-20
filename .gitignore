@@ -44,6 +44,10 @@ outputs/*
 !outputs/diagnostics/propagation_matrix.json
 !outputs/diagnostics/synaptic_dynamics_matrix.csv
 !outputs/diagnostics/synaptic_dynamics_matrix.json
+!outputs/diagnostics/beacon-approach/
+!outputs/diagnostics/beacon-approach/report.md
+!outputs/diagnostics/beacon-approach/summary.json
+!outputs/diagnostics/beacon-approach/trajectory.csv
 !outputs/pathway-slice/
 !outputs/pathway-slice/nodes.csv
 !outputs/pathway-slice/edges.csv

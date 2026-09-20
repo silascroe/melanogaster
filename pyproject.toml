@@ -26,6 +26,7 @@ flytest-synaptic-dynamics = "flytest.synaptic_dynamics_diagnostic:main"
 flytest-circuit-story = "flytest.circuit_story:main"
 flytest-sensorimotor = "flytest.sensorimotor:main"
 flytest-visual = "flytest.visual_simulation:main"
+flytest-beacon-approach = "flytest.beacon_approach:main"
 flytest-discord = "flytest.discord_bridge:main"
 
 [tool.setuptools.packages.find]

@@ -52,6 +52,14 @@ The first embodied world slice is now present:
 This 3D lab is intentionally standalone. It is not part of the public website
 yet, and no Cloudflare configuration is needed for it.
 
+The first bounded arena diagnostic now exists as
+`src/flytest/beacon_approach.py`. It runs a static-beacon, no-threat,
+no-obstacle sandbox replay against the existing stage-54 visual context and
+writes compact `report.md`, `summary.json`, and `trajectory.csv` artifacts.
+Its deliberately modest pass criterion is a reduced minimum distance that
+also crosses the configured threshold; it is not a sustained tracking or
+biological-behavior claim.
+
 ## Important files
 
 - `src/flytest/arena_simulation.py`: arena configuration, retina/world model,
@@ -63,6 +71,8 @@ yet, and no Cloudflare configuration is needed for it.
 - `arena3d/main.gd`: 3D lab, world rendering, live tick loop, HUD, trail, and
   retina display.
 - `arena3d/arena_bridge.gd`: Godot HTTP transport for the live loop.
+- `src/flytest/beacon_approach.py`: bounded beacon diagnostic and compact
+  artifact writer.
 - `tests/test_visual_simulation.py`: arena, staged graph, retina, memory, and
   live-session coverage.
 - `docs/decisions.md`: provenance/model-boundary decisions.
@@ -100,9 +110,11 @@ The last completed checks were:
 git diff --check
 ```
 
-Result: 34 tests passed; provenance verification passed; `git diff --check`
-reported only existing line-ending warnings. Godot script parsing passed, and
-a real compatibility-renderer live capture completed against a fresh Python
+Result: 50 tests passed; provenance verification passed; `git diff --check`
+reported only line-ending warnings. The real stage-54 beacon-approach replay
+also passed: the body went from 2.828 m to a minimum of 1.416 m, crossing the
+1.5 m threshold in a 30-frame causal trace. Godot script parsing passed, and a
+real compatibility-renderer live capture completed against a fresh Python
 stage-54 server. The headless Godot runner still crashes in this environment
 while trying to write its `user://` log/settings files; that is an environment
 limitation, not a scene parse error.
@@ -112,15 +124,14 @@ limitation, not a scene parse error.
 The live session store is in-memory and local-only. Restarting the Python
 server destroys sessions. The 3D body is still a simple circular point-mass
 controller; there is no full character-body physics, flight dynamics, learning,
-webcam input, or biological muscle model. The next useful work is to add a
-small set of deterministic scenarios around the new geometry—beacon approach,
-wall blocking, threat crossing—and inspect their causal traces before adding
-more neurons or putting the 3D lab on the public site.
+webcam input, or biological muscle model. The next useful work is to add the
+remaining small deterministic scenarios around the new geometry—wall blocking
+and threat crossing—and inspect their causal traces before adding more neurons
+or putting the 3D lab on the public site.
 
 ## Worktree note
 
-The worktree is intentionally dirty. Earlier FlyTest/Arena work and the
-standalone Godot project are present as working changes. Do not reset or clean
-the tree blindly. Review `git status`, inspect the staged file list, and make a
-focused commit only after separating the desired project changes from any
-other user work.
+The bounded beacon slice is committed on `experiment/beacon-approach` as
+`fef7836`; `main` remains the known working baseline. The worktree is clean.
+Continue by reviewing the branch before adding the wall-blocking or
+threat-crossing scenarios. Do not reset or clean the tree blindly.

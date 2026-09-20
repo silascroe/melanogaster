@@ -194,6 +194,18 @@ Only the bridge code and unit are copied to the droplet. The bot token remains
 only in `/etc/flytest/flybot.env`; event emission is explicit, and DomainPatrol
 is a separate untouched service.
 
+To report a local job without putting the Discord token on Windows, use the
+existing SSH alias:
+
+```powershell
+\.venv\Scripts\python.exe -m flytest.discord_bridge run --job "FlyTest verification" -- .\.venv\Scripts\python.exe -m flytest.verify
+```
+
+The wrapper reports start and completion through the droplet, streams the local
+command's output, and preserves its exit code. See
+[docs/discord-bridge.md](docs/discord-bridge.md) for one-off notifications and
+failure behavior.
+
 ## Compare synaptic dynamics
 
 The simulator defaults to the original one-step synaptic current. The separate

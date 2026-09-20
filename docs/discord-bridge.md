@@ -55,6 +55,33 @@ For a one-off formatting check:
 
 Remove `--dry-run` only after the token and channel variables are set.
 
+## Report a local job through the droplet
+
+The deployed watcher is reachable from the local Windows workspace through the
+existing `first-droplet` SSH alias. These commands never need the Discord token
+locally; they append an event to the droplet spool as the unprivileged `flybot`
+user.
+
+Send one event manually:
+
+```powershell
+\.venv\Scripts\python.exe -m flytest.discord_bridge notify `
+  --status success `
+  --job "manual smoke" `
+  --summary "reported from the local workspace"
+```
+
+Wrap a real local command:
+
+```powershell
+\.venv\Scripts\python.exe -m flytest.discord_bridge run --job "FlyTest verification" -- .\.venv\Scripts\python.exe -m flytest.verify
+```
+
+`run` streams the child command's normal output and returns its exit code. It
+reports `started` and then `success` or `failure`. If SSH or FlyBot is down,
+the wrapper prints a warning but preserves the local command's result. This is
+an explicit wrapper, not automatic Codex task detection.
+
 ## Droplet operation
 
 The always-on watcher runs on the DigitalOcean host under `flybot.service`.

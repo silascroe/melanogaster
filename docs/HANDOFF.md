@@ -1,6 +1,6 @@
 # FlyTest handoff
 
-Updated 2026-09-19 for the next Codex chat.
+Updated 2026-09-21 for the next Codex chat.
 
 ## What this project is
 
@@ -146,6 +146,7 @@ on the public site.
 
 ## Worktree note
 
-The bounded beacon slice is committed on `experiment/beacon-approach` as
-`8688590`; `main` remains the known working baseline. The wall-blocking slice
-is the current change on this branch. Do not reset or clean the tree blindly.
+The bounded beacon slice is committed as `8688590`, and the wall-blocking slice
+as `0ec49d4`; both are now fast-forwarded onto `main`. The old
+`experiment/beacon-approach` pointer still names the same current commit. Do
+not reset or clean the tree blindly.

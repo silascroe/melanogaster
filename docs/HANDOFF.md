@@ -60,6 +60,14 @@ Its deliberately modest pass criterion is a reduced minimum distance that
 also crosses the configured threshold; it is not a sustained tracking or
 biological-behavior claim.
 
+The second bounded arena diagnostic now exists as
+`src/flytest/wall_blocking.py`. It places a static beacon behind one explicit
+toy wall, reuses the same stage-54 connectome-backed runtime, and writes the
+same compact causal artifacts. The real 14-frame replay passed with two
+blocked frames, wall collision and obstacle-touch evidence, and no crossing of
+the wall's front-face limit. This is collision evidence for one fixed replay,
+not biological obstacle avoidance.
+
 ## Important files
 
 - `src/flytest/arena_simulation.py`: arena configuration, retina/world model,
@@ -72,6 +80,8 @@ biological-behavior claim.
   retina display.
 - `arena3d/arena_bridge.gd`: Godot HTTP transport for the live loop.
 - `src/flytest/beacon_approach.py`: bounded beacon diagnostic and compact
+  artifact writer.
+- `src/flytest/wall_blocking.py`: bounded wall-blocking diagnostic and compact
   artifact writer.
 - `tests/test_visual_simulation.py`: arena, staged graph, retina, memory, and
   live-session coverage.
@@ -110,7 +120,7 @@ The last completed checks were:
 git diff --check
 ```
 
-Result: 50 tests passed; provenance verification passed; `git diff --check`
+Result: 51 tests passed; provenance verification passed; `git diff --check`
 reported only line-ending warnings. The real stage-54 beacon-approach replay
 also passed: the body went from 2.828 m to a minimum of 1.416 m, crossing the
 1.5 m threshold in a 30-frame causal trace. Godot script parsing passed, and a
@@ -119,19 +129,23 @@ stage-54 server. The headless Godot runner still crashes in this environment
 while trying to write its `user://` log/settings files; that is an environment
 limitation, not a scene parse error.
 
+The real stage-54 wall-blocking replay also passed: 14 frames produced two
+blocked frames, a wall collision, obstacle-touch causes, and a maximum body
+center x of 0.635 m against a 0.650 m front-face limit. Its compact artifacts
+are under `outputs/diagnostics/wall-blocking/`.
+
 ## What is deliberately unfinished
 
 The live session store is in-memory and local-only. Restarting the Python
 server destroys sessions. The 3D body is still a simple circular point-mass
 controller; there is no full character-body physics, flight dynamics, learning,
-webcam input, or biological muscle model. The next useful work is to add the
-remaining small deterministic scenarios around the new geometry—wall blocking
-and threat crossing—and inspect their causal traces before adding more neurons
-or putting the 3D lab on the public site.
+webcam input, or biological muscle model. Beacon approach and wall blocking are
+now bounded evidence for two fixed scenarios. The next useful work is threat
+crossing and its causal trace before adding more neurons or putting the 3D lab
+on the public site.
 
 ## Worktree note
 
 The bounded beacon slice is committed on `experiment/beacon-approach` as
-`fef7836`; `main` remains the known working baseline. The worktree is clean.
-Continue by reviewing the branch before adding the wall-blocking or
-threat-crossing scenarios. Do not reset or clean the tree blindly.
+`8688590`; `main` remains the known working baseline. The wall-blocking slice
+is the current change on this branch. Do not reset or clean the tree blindly.

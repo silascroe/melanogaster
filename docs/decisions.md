@@ -212,6 +212,22 @@ beacon and then turn away. That is useful evidence about this fixed replay, not
 evidence of a stable attraction controller. The next scenarios should test
 wall blocking and threat crossing under the same causal-trace standard.
 
+## Bounded wall-blocking diagnostic
+
+The second deterministic arena scenario places the same stage-54 visual
+context's static beacon at `(3.0, 0.0)` behind one explicit toy wall centered
+at `(1.5, 0.0)`, with width `1.0` m and height `3.0` m. The threat set remains
+empty, the body radius remains `0.35` m, and the existing arena collision
+resolver and descending-population decoder are reused unchanged.
+
+The pass criterion is deliberately physical and inspectable: at least one wall
+collision and one obstacle-touch cause must appear, at least one frame must be
+blocked, and the body center must not cross the wall's front-face limit of
+`0.65` m. The real 14-frame replay passed with two blocked frames, wall
+collision observed, wall-touch causes in 12 frames, and maximum body-center x
+of about `0.635` m. This demonstrates one fixed replay's collision and causal
+trace; it does not demonstrate biological obstacle avoidance or navigation.
+
 The visible body is a procedural stylized fly shell kept separate from the
 collision shape. A spherical `ShapeCast3D` remains the authoritative toy body,
 while the shell adds a segmented abdomen, wings, eyes, antennae, and legs for

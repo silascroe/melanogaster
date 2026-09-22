@@ -1,10 +1,35 @@
 {
   "configuration": {
+    "baseline_geometry_id": "centerline",
     "beacon_intensity": 1.0,
     "beacon_x": 2.0,
     "beacon_y": 2.0,
     "duration_ms": 60.0,
     "forward_step_per_target_spike": 0.25,
+    "geometry_generalization_stage": 1024,
+    "geometry_matrix": [
+      {
+        "geometry_id": "centerline",
+        "start_x": 0.6,
+        "start_y": -0.3,
+        "vx": 0.0,
+        "vy": 0.1
+      },
+      {
+        "geometry_id": "right-lane",
+        "start_x": 1.2999999999999998,
+        "start_y": -0.5,
+        "vx": 0.0,
+        "vy": 0.1
+      },
+      {
+        "geometry_id": "late-crossing",
+        "start_x": 1.0,
+        "start_y": -1.0,
+        "vx": 0.0,
+        "vy": 0.1
+      }
+    ],
     "initial_heading_degrees": 0.0,
     "initial_x": 0.0,
     "initial_y": 0.0,
@@ -29,8 +54,9 @@
   },
   "experiment": "deterministic threat crossing",
   "notes": [
-    "Each stage uses the same static beacon and moving collision-triggered threat.",
-    "A no-threat control is run beside the crossing replay at every stage.",
+    "Each stage uses the same static beacon and baseline moving collision-triggered threat.",
+    "A no-threat control is run once at every stage and reused as the comparison for the geometry matrix.",
+    "The 1,024-node stage adds two nearby threat geometries without changing the neural or body parameters.",
     "A behavioral response requires threat sensing, a touch output spike, and a touch-sourced escape action."
   ],
   "outputs": {
@@ -39,6 +65,10 @@
     "trajectory": "outputs\\diagnostics\\threat-crossing\\trajectory.csv"
   },
   "result": {
+    "geometry_generalization_stage": 1024,
+    "geometry_variant_count": 2,
+    "geometry_variant_response_any": true,
+    "geometry_variant_response_count": 2,
     "response_detected_any": true,
     "response_detected_stage_count": 3,
     "success": true
@@ -56,7 +86,9 @@
         "complete_frame_count": 60,
         "condition": "control",
         "escape_action_count": 0,
+        "escape_response_latency_ms": null,
         "frame_count": 60,
+        "geometry_id": "control",
         "minimum_threat_distance": null,
         "network": {
           "actual_node_count": 1024,
@@ -67,9 +99,13 @@
         },
         "replay_digest": "50fe74a3f361629620958401aaba561e9b4519c69f83e86514a67b84b492c1b5",
         "stage": 1024,
+        "threat_detected_first_time_ms": null,
         "threat_detected_frame_count": 0,
         "threat_escape_action_count": 0,
-        "threat_touch_output_spike_count": 0
+        "threat_escape_first_time_ms": null,
+        "threat_touch_output_first_time_ms": null,
+        "threat_touch_output_spike_count": 0,
+        "touch_response_latency_ms": null
       },
       "crossing": {
         "action_counts": {
@@ -83,7 +119,9 @@
         "complete_frame_count": 60,
         "condition": "crossing",
         "escape_action_count": 1,
+        "escape_response_latency_ms": 2.0,
         "frame_count": 60,
+        "geometry_id": "centerline",
         "minimum_threat_distance": 0.13122230638030732,
         "network": {
           "actual_node_count": 1024,
@@ -94,9 +132,123 @@
         },
         "replay_digest": "33e6f902cf2104f769471de672196bf619e07f8937f472beb46ca803531d9ffd",
         "stage": 1024,
+        "threat_detected_first_time_ms": 1.0,
         "threat_detected_frame_count": 5,
         "threat_escape_action_count": 1,
-        "threat_touch_output_spike_count": 2
+        "threat_escape_first_time_ms": 3.0,
+        "threat_touch_output_first_time_ms": 3.0,
+        "threat_touch_output_spike_count": 2,
+        "touch_response_latency_ms": 2.0
+      },
+      "geometries": {
+        "centerline": {
+          "crossing": {
+            "action_counts": {
+              "escape_right": 1,
+              "forward": 16,
+              "stop": 39,
+              "turn_left": 2,
+              "turn_right": 2
+            },
+            "causal_trace_complete": true,
+            "complete_frame_count": 60,
+            "condition": "crossing",
+            "escape_action_count": 1,
+            "escape_response_latency_ms": 2.0,
+            "frame_count": 60,
+            "geometry_id": "centerline",
+            "minimum_threat_distance": 0.13122230638030732,
+            "network": {
+              "actual_node_count": 1024,
+              "edge_count": 24807,
+              "requested_node_count": 1024,
+              "stage": 1024,
+              "unified": true
+            },
+            "replay_digest": "33e6f902cf2104f769471de672196bf619e07f8937f472beb46ca803531d9ffd",
+            "stage": 1024,
+            "threat_detected_first_time_ms": 1.0,
+            "threat_detected_frame_count": 5,
+            "threat_escape_action_count": 1,
+            "threat_escape_first_time_ms": 3.0,
+            "threat_touch_output_first_time_ms": 3.0,
+            "threat_touch_output_spike_count": 2,
+            "touch_response_latency_ms": 2.0
+          },
+          "response_detected": true
+        },
+        "late-crossing": {
+          "crossing": {
+            "action_counts": {
+              "escape_right": 1,
+              "forward": 18,
+              "stop": 35,
+              "turn_left": 3,
+              "turn_right": 3
+            },
+            "causal_trace_complete": true,
+            "complete_frame_count": 60,
+            "condition": "crossing:late-crossing",
+            "escape_action_count": 1,
+            "escape_response_latency_ms": 2.0,
+            "frame_count": 60,
+            "geometry_id": "late-crossing",
+            "minimum_threat_distance": 0.516067621780143,
+            "network": {
+              "actual_node_count": 1024,
+              "edge_count": 24807,
+              "requested_node_count": 1024,
+              "stage": 1024,
+              "unified": true
+            },
+            "replay_digest": "72af52ade8ea36bcdb832d48f200a4818f2a3ebb629c9aaa7d4282d79615f7db",
+            "stage": 1024,
+            "threat_detected_first_time_ms": 6.0,
+            "threat_detected_frame_count": 3,
+            "threat_escape_action_count": 1,
+            "threat_escape_first_time_ms": 8.0,
+            "threat_touch_output_first_time_ms": 8.0,
+            "threat_touch_output_spike_count": 1,
+            "touch_response_latency_ms": 2.0
+          },
+          "response_detected": true
+        },
+        "right-lane": {
+          "crossing": {
+            "action_counts": {
+              "escape_right": 1,
+              "forward": 17,
+              "stop": 36,
+              "turn_left": 2,
+              "turn_right": 4
+            },
+            "causal_trace_complete": true,
+            "complete_frame_count": 60,
+            "condition": "crossing:right-lane",
+            "escape_action_count": 1,
+            "escape_response_latency_ms": 2.0,
+            "frame_count": 60,
+            "geometry_id": "right-lane",
+            "minimum_threat_distance": 0.08339308810747834,
+            "network": {
+              "actual_node_count": 1024,
+              "edge_count": 24807,
+              "requested_node_count": 1024,
+              "stage": 1024,
+              "unified": true
+            },
+            "replay_digest": "9ed508b1dd7026f1dac929c2e8bd41748d75c2461346f37c88efed24547da663",
+            "stage": 1024,
+            "threat_detected_first_time_ms": 5.0,
+            "threat_detected_frame_count": 4,
+            "threat_escape_action_count": 1,
+            "threat_escape_first_time_ms": 7.0,
+            "threat_touch_output_first_time_ms": 7.0,
+            "threat_touch_output_spike_count": 2,
+            "touch_response_latency_ms": 2.0
+          },
+          "response_detected": true
+        }
       },
       "response_detected": true
     },
@@ -112,7 +264,9 @@
         "complete_frame_count": 60,
         "condition": "control",
         "escape_action_count": 0,
+        "escape_response_latency_ms": null,
         "frame_count": 60,
+        "geometry_id": "control",
         "minimum_threat_distance": null,
         "network": {
           "actual_node_count": 250,
@@ -123,9 +277,13 @@
         },
         "replay_digest": "0819ea61db5dac32a0637b00b2a2a6cefa41df53a4e15afbfc34e7aae1c49380",
         "stage": 250,
+        "threat_detected_first_time_ms": null,
         "threat_detected_frame_count": 0,
         "threat_escape_action_count": 0,
-        "threat_touch_output_spike_count": 0
+        "threat_escape_first_time_ms": null,
+        "threat_touch_output_first_time_ms": null,
+        "threat_touch_output_spike_count": 0,
+        "touch_response_latency_ms": null
       },
       "crossing": {
         "action_counts": {
@@ -139,7 +297,9 @@
         "complete_frame_count": 60,
         "condition": "crossing",
         "escape_action_count": 2,
+        "escape_response_latency_ms": 2.0,
         "frame_count": 60,
+        "geometry_id": "centerline",
         "minimum_threat_distance": 0.25735902276401273,
         "network": {
           "actual_node_count": 250,
@@ -150,9 +310,51 @@
         },
         "replay_digest": "47fa072fcc6e9734be8972798a558477e904c41247826d12396f070e6161a8fa",
         "stage": 250,
+        "threat_detected_first_time_ms": 1.0,
         "threat_detected_frame_count": 18,
         "threat_escape_action_count": 2,
-        "threat_touch_output_spike_count": 7
+        "threat_escape_first_time_ms": 3.0,
+        "threat_touch_output_first_time_ms": 3.0,
+        "threat_touch_output_spike_count": 7,
+        "touch_response_latency_ms": 2.0
+      },
+      "geometries": {
+        "centerline": {
+          "crossing": {
+            "action_counts": {
+              "escape_left": 2,
+              "forward": 14,
+              "stop": 37,
+              "turn_left": 5,
+              "turn_right": 2
+            },
+            "causal_trace_complete": true,
+            "complete_frame_count": 60,
+            "condition": "crossing",
+            "escape_action_count": 2,
+            "escape_response_latency_ms": 2.0,
+            "frame_count": 60,
+            "geometry_id": "centerline",
+            "minimum_threat_distance": 0.25735902276401273,
+            "network": {
+              "actual_node_count": 250,
+              "edge_count": 4164,
+              "requested_node_count": 250,
+              "stage": 250,
+              "unified": true
+            },
+            "replay_digest": "47fa072fcc6e9734be8972798a558477e904c41247826d12396f070e6161a8fa",
+            "stage": 250,
+            "threat_detected_first_time_ms": 1.0,
+            "threat_detected_frame_count": 18,
+            "threat_escape_action_count": 2,
+            "threat_escape_first_time_ms": 3.0,
+            "threat_touch_output_first_time_ms": 3.0,
+            "threat_touch_output_spike_count": 7,
+            "touch_response_latency_ms": 2.0
+          },
+          "response_detected": true
+        }
       },
       "response_detected": true
     },
@@ -167,7 +369,9 @@
         "complete_frame_count": 60,
         "condition": "control",
         "escape_action_count": 0,
+        "escape_response_latency_ms": null,
         "frame_count": 60,
+        "geometry_id": "control",
         "minimum_threat_distance": null,
         "network": {
           "actual_node_count": 54,
@@ -178,9 +382,13 @@
         },
         "replay_digest": "b47fe8d6d87d00a76a1afc75b9ecc595e3659e7e9b7d737f9dd3a11b39541255",
         "stage": 54,
+        "threat_detected_first_time_ms": null,
         "threat_detected_frame_count": 0,
         "threat_escape_action_count": 0,
-        "threat_touch_output_spike_count": 0
+        "threat_escape_first_time_ms": null,
+        "threat_touch_output_first_time_ms": null,
+        "threat_touch_output_spike_count": 0,
+        "touch_response_latency_ms": null
       },
       "crossing": {
         "action_counts": {
@@ -193,7 +401,9 @@
         "complete_frame_count": 60,
         "condition": "crossing",
         "escape_action_count": 1,
+        "escape_response_latency_ms": 6.0,
         "frame_count": 60,
+        "geometry_id": "centerline",
         "minimum_threat_distance": 0.2369712203287172,
         "network": {
           "actual_node_count": 54,
@@ -204,9 +414,50 @@
         },
         "replay_digest": "76c0168cd97c63d3ec29a6b66083dab65b8325a8e04033f97bfc7e2e610ad3d2",
         "stage": 54,
+        "threat_detected_first_time_ms": 1.0,
         "threat_detected_frame_count": 13,
         "threat_escape_action_count": 1,
-        "threat_touch_output_spike_count": 1
+        "threat_escape_first_time_ms": 7.0,
+        "threat_touch_output_first_time_ms": 7.0,
+        "threat_touch_output_spike_count": 1,
+        "touch_response_latency_ms": 6.0
+      },
+      "geometries": {
+        "centerline": {
+          "crossing": {
+            "action_counts": {
+              "escape_left": 1,
+              "forward": 12,
+              "stop": 37,
+              "turn_left": 10
+            },
+            "causal_trace_complete": true,
+            "complete_frame_count": 60,
+            "condition": "crossing",
+            "escape_action_count": 1,
+            "escape_response_latency_ms": 6.0,
+            "frame_count": 60,
+            "geometry_id": "centerline",
+            "minimum_threat_distance": 0.2369712203287172,
+            "network": {
+              "actual_node_count": 54,
+              "edge_count": 435,
+              "requested_node_count": 54,
+              "stage": 54,
+              "unified": false
+            },
+            "replay_digest": "76c0168cd97c63d3ec29a6b66083dab65b8325a8e04033f97bfc7e2e610ad3d2",
+            "stage": 54,
+            "threat_detected_first_time_ms": 1.0,
+            "threat_detected_frame_count": 13,
+            "threat_escape_action_count": 1,
+            "threat_escape_first_time_ms": 7.0,
+            "threat_touch_output_first_time_ms": 7.0,
+            "threat_touch_output_spike_count": 1,
+            "touch_response_latency_ms": 6.0
+          },
+          "response_detected": true
+        }
       },
       "response_detected": true
     }

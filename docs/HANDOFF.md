@@ -70,12 +70,13 @@ not biological obstacle avoidance.
 
 The third bounded arena diagnostic now exists as
 `src/flytest/threat_crossing.py`. It runs one moving collision-triggered threat
-and a no-threat control at stages 54, 250, and 1,024. The real 60-frame replay
-sensed the threat and produced a touch-linked escape action at all three
-stages: 54 had 13 threat frames and one escape, 250 had 18 and two, and 1,024
-had five and one. The controls produced zero escape actions. This is causal
-evidence for one fixed threat crossing, not biological predator avoidance or
-generalization.
+and a no-threat control at stages 54, 250, and 1,024, then checks two nearby
+threat geometries at 1,024 nodes. It records first threat sensing, first touch
+output spike, and first touch-sourced escape latency. The real result is in
+`outputs/diagnostics/threat-crossing/`: the baseline response was present at
+all three stages, with escape latency of 6 ms, 2 ms, and 2 ms respectively;
+both nearby geometries also responded at 2 ms. This remains narrow simulator
+evidence, not biological predator avoidance or broad generalization.
 
 ## Important files
 
@@ -92,8 +93,8 @@ generalization.
   artifact writer.
 - `src/flytest/wall_blocking.py`: bounded wall-blocking diagnostic and compact
   artifact writer.
-- `src/flytest/threat_crossing.py`: stage-comparison threat diagnostic and
-  compact causal artifact writer.
+- `src/flytest/threat_crossing.py`: stage-comparison and geometry-matrix threat
+  diagnostic with compact causal artifact writer.
 - `tests/test_visual_simulation.py`: arena, staged graph, retina, memory, and
   live-session coverage.
 - `docs/decisions.md`: provenance/model-boundary decisions.
@@ -135,7 +136,7 @@ The last completed checks were:
 git diff --check
 ```
 
-Result: 59 tests passed; provenance verification passed; `git diff --check`
+Result: 60 tests passed; provenance verification passed; `git diff --check`
 reported only line-ending warnings. The real stage-54 beacon-approach replay
 also passed: the body went from 2.828 m to a minimum of 1.416 m, crossing the
 1.5 m threshold in a 30-frame causal trace. Godot script parsing passed, and a
@@ -158,7 +159,8 @@ each. Compact evidence is under `outputs/diagnostics/arena-1024/`.
 
 The real threat-crossing comparison also passed structurally and detected a
 touch-linked escape response at stages 54, 250, and 1,024. Each no-threat
-control produced zero escape actions. Compact evidence is under
+control produced zero escape actions; both 1,024-node geometry variants also
+met the response criterion with 2 ms escape latency. Compact evidence is under
 `outputs/diagnostics/threat-crossing/`.
 
 ## What is deliberately unfinished
@@ -167,10 +169,12 @@ The live session store is in-memory and local-only. Restarting the Python
 server destroys sessions. The 3D body is still a simple circular point-mass
 controller; there is no full character-body physics, flight dynamics, learning,
 webcam input, or biological muscle model. Beacon approach, wall blocking, and
-threat crossing are bounded evidence for three fixed scenarios, and the
-1,024-node scale target is validated as a runnable graph/runtime workload rather
-than a behavior claim. The next useful behavior work is varying threat geometry
-and testing whether the response survives controls, not adding neurons yet.
+threat crossing are bounded evidence for three fixed scenarios plus a small
+geometry matrix, and the 1,024-node scale target is validated as a runnable
+graph/runtime workload rather than a behavior claim. The geometry result is not
+a broad generalization study; the next useful work is to expand controls or
+move to a more demanding circuit question, not add neurons merely for the
+number.
 The Python/NumPy backend has not been replaced; its measured costs remain
 available for that later decision.
 

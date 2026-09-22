@@ -242,9 +242,18 @@ The diagnostic separates three observations instead of treating any movement
 as avoidance: the world must report the threat as the active touch source, the
 touch population must spike, and a touch-sourced escape action must follow.
 The real 60-frame replay met that causal criterion at all three stages, while
-the paired no-threat controls produced no escape actions. This demonstrates a
-fixed simulator response to a fixed crossing event; it does not demonstrate
-biological predator avoidance, learning, or generalization.
+the paired no-threat controls produced no escape actions. The follow-up keeps
+those three stage comparisons and adds two nearby threat geometries at stage
+`1,024`, reusing the same no-threat control and reporting first-sensed to
+touch-output and first-sensed to escape latencies. This is a narrow geometry
+generalization check: it does not demonstrate biological predator avoidance,
+learning, or broad generalization.
+
+The two variants are intentionally small perturbations of the baseline path:
+`right-lane` shifts the threat start by `(0.7, -0.2)` and `late-crossing`
+shifts it by `(0.4, -0.7)` while preserving radius, velocity, timing, beacon,
+body, and neural settings. Reusing the stage-matched no-threat control keeps
+the geometry comparison from quietly changing the rest of the experiment.
 
 The visible body is a procedural stylized fly shell kept separate from the
 collision shape. A spherical `ShapeCast3D` remains the authoritative toy body,

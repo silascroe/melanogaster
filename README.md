@@ -201,9 +201,12 @@ Compare the threat response across the legacy control and unified stages:
 
 This runs the same beacon-plus-moving-threat scenario and a no-threat control
 at stages 54, 250, and 1,024. It reports whether the threat was sensed, the
-touch population spiked, and a touch-sourced escape action followed. Evidence
-is written under `outputs/diagnostics/threat-crossing`; a detected response is
-causal evidence for this fixed replay, not biological predator avoidance.
+touch population spiked, and a touch-sourced escape action followed, including
+first-response latency. The 1,024-node stage also checks two nearby threat
+geometries while reusing its no-threat control. Evidence is written under
+`outputs/diagnostics/threat-crossing`; a detected response is causal evidence
+for this narrow replay matrix, not biological predator avoidance or broad
+generalization.
 
 ## Report runs to Discord
 

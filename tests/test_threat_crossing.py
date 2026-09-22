@@ -9,11 +9,18 @@ from flytest.arena_simulation import ArenaRunConfig
 from flytest.threat_crossing import (
     ThreatCrossingConfig,
     _causal_trace_summary,
+    _stage_metrics,
     run_threat_crossing,
 )
 
 
-def _frame(*, time_ms: float, threat_active: bool, escaped: bool) -> dict[str, object]:
+def _frame(
+    *,
+    time_ms: float,
+    threat_active: bool,
+    escaped: bool,
+    touch_spike: bool | None = None,
+) -> dict[str, object]:
     threat_id = "crossing-threat" if threat_active else None
     action = "escape_left" if escaped else "forward"
     action_source = "touch" if escaped else "vision"
@@ -49,7 +56,7 @@ def _frame(*, time_ms: float, threat_active: bool, escaped: bool) -> dict[str, o
         "action": action,
         "action_source": action_source,
         "touch_stimulus_active": threat_active,
-        "touch_target_spike": escaped,
+        "touch_target_spike": escaped if touch_spike is None else touch_spike,
         "threat_id": threat_id,
         "touch_source": "threat" if threat_active else None,
         "touch_urgency": 0.8 if threat_active else 0.0,
@@ -95,22 +102,39 @@ def test_threat_crossing_compares_stages_and_writes_causal_artifacts(tmp_path: P
         config=ThreatCrossingConfig(duration_ms=2.0),
     )
 
-    assert [call.network_stage for call in model.calls] == [54, 54, 250, 250, 1024, 1024]
+    assert [call.network_stage for call in model.calls] == [
+        54,
+        54,
+        250,
+        250,
+        1024,
+        1024,
+        1024,
+        1024,
+    ]
     assert summary["experiment"] == "deterministic threat crossing"
     assert summary["result"]["success"] is True
     assert summary["result"]["response_detected_stage_count"] == 3
     assert summary["stages"]["1024"]["crossing"]["escape_action_count"] == 1
+    assert summary["stages"]["1024"]["geometries"]["right-lane"]["response_detected"] is True
     assert summary["stages"]["1024"]["control"]["escape_action_count"] == 0
     assert summary["stages"]["1024"]["causal_trace_complete"] is True
+    assert summary["result"]["geometry_variant_response_count"] == 2
     assert (output_dir / "summary.json").is_file()
     assert (output_dir / "report.md").is_file()
     with (output_dir / "trajectory.csv").open(newline="", encoding="utf-8") as handle:
         rows = list(csv.DictReader(handle))
-    assert len(rows) == 12
-    assert {row["condition"] for row in rows} == {"control", "crossing"}
+    assert len(rows) == 16
+    assert {row["condition"] for row in rows} == {
+        "control",
+        "crossing",
+        "crossing:right-lane",
+        "crossing:late-crossing",
+    }
     report = (output_dir / "report.md").read_text(encoding="utf-8")
     assert "Threat crossing" in report
     assert "response detected" in report
+    assert "Geometry generalization" in report
 
 
 def test_threat_crossing_config_uses_collision_triggered_moving_threat() -> None:
@@ -145,3 +169,32 @@ def test_causal_trace_requires_threat_fields_used_by_the_score() -> None:
     summary = _causal_trace_summary([frame])
 
     assert summary["complete"] is False
+
+
+def test_threat_crossing_metrics_report_first_causal_response_times() -> None:
+    payload = {
+        "network": {
+            "stage": 1024,
+            "actual_node_count": 1024,
+            "edge_count": 12,
+        },
+        "trajectory": [
+            _frame(time_ms=0.0, threat_active=False, escaped=False),
+            _frame(time_ms=2.0, threat_active=True, escaped=False, touch_spike=False),
+            _frame(time_ms=4.0, threat_active=True, escaped=False, touch_spike=True),
+            _frame(time_ms=7.0, threat_active=True, escaped=True, touch_spike=True),
+        ],
+    }
+
+    metrics, _ = _stage_metrics(
+        payload,
+        stage=1024,
+        condition="crossing",
+        geometry_id="centerline",
+    )
+
+    assert metrics["threat_detected_first_time_ms"] == pytest.approx(2.0)
+    assert metrics["threat_touch_output_first_time_ms"] == pytest.approx(4.0)
+    assert metrics["threat_escape_first_time_ms"] == pytest.approx(7.0)
+    assert metrics["touch_response_latency_ms"] == pytest.approx(2.0)
+    assert metrics["escape_response_latency_ms"] == pytest.approx(5.0)

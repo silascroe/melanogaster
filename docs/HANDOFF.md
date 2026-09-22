@@ -135,7 +135,7 @@ The last completed checks were:
 git diff --check
 ```
 
-Result: 58 tests passed; provenance verification passed; `git diff --check`
+Result: 59 tests passed; provenance verification passed; `git diff --check`
 reported only line-ending warnings. The real stage-54 beacon-approach replay
 also passed: the body went from 2.828 m to a minimum of 1.416 m, crossing the
 1.5 m threshold in a 30-frame causal trace. Godot script parsing passed, and a

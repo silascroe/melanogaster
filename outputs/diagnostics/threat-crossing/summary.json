@@ -1,0 +1,214 @@
+{
+  "configuration": {
+    "beacon_intensity": 1.0,
+    "beacon_x": 2.0,
+    "beacon_y": 2.0,
+    "duration_ms": 60.0,
+    "forward_step_per_target_spike": 0.25,
+    "initial_heading_degrees": 0.0,
+    "initial_x": 0.0,
+    "initial_y": 0.0,
+    "stages": [
+      54,
+      250,
+      1024
+    ],
+    "threat_active_end_ms": 60.0,
+    "threat_active_start_ms": 0.0,
+    "threat_radius": 0.65,
+    "threat_start_x": 0.6,
+    "threat_start_y": -0.3,
+    "threat_vx": 0.0,
+    "threat_vy": 0.1,
+    "turn_degrees_per_target_spike": 15.0
+  },
+  "dataset": {
+    "name": "FlyEM Male CNS",
+    "release": "v1.0",
+    "source_manifest": "data/metadata/source_manifest.json"
+  },
+  "experiment": "deterministic threat crossing",
+  "notes": [
+    "Each stage uses the same static beacon and moving collision-triggered threat.",
+    "A no-threat control is run beside the crossing replay at every stage.",
+    "A behavioral response requires threat sensing, a touch output spike, and a touch-sourced escape action."
+  ],
+  "outputs": {
+    "report": "outputs\\diagnostics\\threat-crossing\\report.md",
+    "summary": "outputs\\diagnostics\\threat-crossing\\summary.json",
+    "trajectory": "outputs\\diagnostics\\threat-crossing\\trajectory.csv"
+  },
+  "result": {
+    "response_detected_any": true,
+    "response_detected_stage_count": 3,
+    "success": true
+  },
+  "stages": {
+    "1024": {
+      "causal_trace_complete": true,
+      "control": {
+        "action_counts": {
+          "stop": 39,
+          "turn_left": 9,
+          "turn_right": 12
+        },
+        "causal_trace_complete": true,
+        "complete_frame_count": 60,
+        "condition": "control",
+        "escape_action_count": 0,
+        "frame_count": 60,
+        "minimum_threat_distance": null,
+        "network": {
+          "actual_node_count": 1024,
+          "edge_count": 24807,
+          "requested_node_count": 1024,
+          "stage": 1024,
+          "unified": true
+        },
+        "replay_digest": "50fe74a3f361629620958401aaba561e9b4519c69f83e86514a67b84b492c1b5",
+        "stage": 1024,
+        "threat_detected_frame_count": 0,
+        "threat_escape_action_count": 0,
+        "threat_touch_output_spike_count": 0
+      },
+      "crossing": {
+        "action_counts": {
+          "escape_right": 1,
+          "forward": 16,
+          "stop": 39,
+          "turn_left": 2,
+          "turn_right": 2
+        },
+        "causal_trace_complete": true,
+        "complete_frame_count": 60,
+        "condition": "crossing",
+        "escape_action_count": 1,
+        "frame_count": 60,
+        "minimum_threat_distance": 0.13122230638030732,
+        "network": {
+          "actual_node_count": 1024,
+          "edge_count": 24807,
+          "requested_node_count": 1024,
+          "stage": 1024,
+          "unified": true
+        },
+        "replay_digest": "33e6f902cf2104f769471de672196bf619e07f8937f472beb46ca803531d9ffd",
+        "stage": 1024,
+        "threat_detected_frame_count": 5,
+        "threat_escape_action_count": 1,
+        "threat_touch_output_spike_count": 2
+      },
+      "response_detected": true
+    },
+    "250": {
+      "causal_trace_complete": true,
+      "control": {
+        "action_counts": {
+          "stop": 38,
+          "turn_left": 17,
+          "turn_right": 5
+        },
+        "causal_trace_complete": true,
+        "complete_frame_count": 60,
+        "condition": "control",
+        "escape_action_count": 0,
+        "frame_count": 60,
+        "minimum_threat_distance": null,
+        "network": {
+          "actual_node_count": 250,
+          "edge_count": 4164,
+          "requested_node_count": 250,
+          "stage": 250,
+          "unified": true
+        },
+        "replay_digest": "0819ea61db5dac32a0637b00b2a2a6cefa41df53a4e15afbfc34e7aae1c49380",
+        "stage": 250,
+        "threat_detected_frame_count": 0,
+        "threat_escape_action_count": 0,
+        "threat_touch_output_spike_count": 0
+      },
+      "crossing": {
+        "action_counts": {
+          "escape_left": 2,
+          "forward": 14,
+          "stop": 37,
+          "turn_left": 5,
+          "turn_right": 2
+        },
+        "causal_trace_complete": true,
+        "complete_frame_count": 60,
+        "condition": "crossing",
+        "escape_action_count": 2,
+        "frame_count": 60,
+        "minimum_threat_distance": 0.25735902276401273,
+        "network": {
+          "actual_node_count": 250,
+          "edge_count": 4164,
+          "requested_node_count": 250,
+          "stage": 250,
+          "unified": true
+        },
+        "replay_digest": "47fa072fcc6e9734be8972798a558477e904c41247826d12396f070e6161a8fa",
+        "stage": 250,
+        "threat_detected_frame_count": 18,
+        "threat_escape_action_count": 2,
+        "threat_touch_output_spike_count": 7
+      },
+      "response_detected": true
+    },
+    "54": {
+      "causal_trace_complete": true,
+      "control": {
+        "action_counts": {
+          "stop": 42,
+          "turn_left": 18
+        },
+        "causal_trace_complete": true,
+        "complete_frame_count": 60,
+        "condition": "control",
+        "escape_action_count": 0,
+        "frame_count": 60,
+        "minimum_threat_distance": null,
+        "network": {
+          "actual_node_count": 54,
+          "edge_count": 435,
+          "requested_node_count": 54,
+          "stage": 54,
+          "unified": false
+        },
+        "replay_digest": "b47fe8d6d87d00a76a1afc75b9ecc595e3659e7e9b7d737f9dd3a11b39541255",
+        "stage": 54,
+        "threat_detected_frame_count": 0,
+        "threat_escape_action_count": 0,
+        "threat_touch_output_spike_count": 0
+      },
+      "crossing": {
+        "action_counts": {
+          "escape_left": 1,
+          "forward": 12,
+          "stop": 37,
+          "turn_left": 10
+        },
+        "causal_trace_complete": true,
+        "complete_frame_count": 60,
+        "condition": "crossing",
+        "escape_action_count": 1,
+        "frame_count": 60,
+        "minimum_threat_distance": 0.2369712203287172,
+        "network": {
+          "actual_node_count": 54,
+          "edge_count": 435,
+          "requested_node_count": 54,
+          "stage": 54,
+          "unified": false
+        },
+        "replay_digest": "76c0168cd97c63d3ec29a6b66083dab65b8325a8e04033f97bfc7e2e610ad3d2",
+        "stage": 54,
+        "threat_detected_frame_count": 13,
+        "threat_escape_action_count": 1,
+        "threat_touch_output_spike_count": 1
+      },
+      "response_detected": true
+    }
+  }
+}

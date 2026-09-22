@@ -193,6 +193,18 @@ the retina, body, movement, and threshold assumptions. It is a diagnostic of
 one fixed replay, not evidence of biological light seeking or sustained
 tracking.
 
+Compare the threat response across the legacy control and unified stages:
+
+~~~powershell
+.\.venv\Scripts\python.exe -m flytest.threat_crossing
+~~~
+
+This runs the same beacon-plus-moving-threat scenario and a no-threat control
+at stages 54, 250, and 1,024. It reports whether the threat was sensed, the
+touch population spiked, and a touch-sourced escape action followed. Evidence
+is written under `outputs/diagnostics/threat-crossing`; a detected response is
+causal evidence for this fixed replay, not biological predator avoidance.
+
 ## Report runs to Discord
 
 The report-only Discord bridge uses the bot REST API and a local JSONL event

@@ -229,6 +229,23 @@ collision observed, wall-touch causes in 12 frames, and maximum body-center x
 of about `0.635` m. This demonstrates one fixed replay's collision and causal
 trace; it does not demonstrate biological obstacle avoidance or navigation.
 
+## Bounded threat-crossing diagnostic
+
+The third deterministic arena scenario compares the same static beacon and
+moving collision-triggered threat against a no-threat control at stages `54`,
+`250`, and `1,024`. The threat crosses the early beacon route vertically from
+`(0.6, -0.3)` at `0.1` world units per millisecond, with a `0.65` m sensing
+radius. The body, retina, connectome runtime, native signs, and descending
+population decoder remain unchanged.
+
+The diagnostic separates three observations instead of treating any movement
+as avoidance: the world must report the threat as the active touch source, the
+touch population must spike, and a touch-sourced escape action must follow.
+The real 60-frame replay met that causal criterion at all three stages, while
+the paired no-threat controls produced no escape actions. This demonstrates a
+fixed simulator response to a fixed crossing event; it does not demonstrate
+biological predator avoidance, learning, or generalization.
+
 The visible body is a procedural stylized fly shell kept separate from the
 collision shape. A spherical `ShapeCast3D` remains the authoritative toy body,
 while the shell adds a segmented abdomen, wings, eyes, antennae, and legs for

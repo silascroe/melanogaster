@@ -29,6 +29,7 @@ flytest-visual = "flytest.visual_simulation:main"
 flytest-beacon-approach = "flytest.beacon_approach:main"
 flytest-wall-blocking = "flytest.wall_blocking:main"
 flytest-arena-scale = "flytest.arena_scale:main"
+flytest-threat-crossing = "flytest.threat_crossing:main"
 flytest-discord = "flytest.discord_bridge:main"
 
 [tool.setuptools.packages.find]

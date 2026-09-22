@@ -124,7 +124,7 @@ The last completed checks were:
 git diff --check
 ```
 
-Result: 51 tests passed; provenance verification passed; `git diff --check`
+Result: 55 tests passed; provenance verification passed; `git diff --check`
 reported only line-ending warnings. The real stage-54 beacon-approach replay
 also passed: the body went from 2.828 m to a minimum of 1.416 m, crossing the
 1.5 m threshold in a 30-frame causal trace. Godot script parsing passed, and a
@@ -138,19 +138,28 @@ blocked frames, a wall collision, obstacle-touch causes, and a maximum body
 center x of 0.635 m against a 0.650 m front-face limit. Its compact artifacts
 are under `outputs/diagnostics/wall-blocking/`.
 
+The real 1,024-node acceptance run also passed. It selected exactly 1,024
+unique nodes and 24,807 induced edges (512 touch nodes plus 512 vision nodes),
+completed 24 causal frames, produced the same replay digest twice, and stepped
+the live session twice. The initial graph build plus replay took about 88.15 s;
+the cached replay took about 44 ms, and the two live steps took under 1.3 ms
+each. Compact evidence is under `outputs/diagnostics/arena-1024/`.
+
 ## What is deliberately unfinished
 
 The live session store is in-memory and local-only. Restarting the Python
 server destroys sessions. The 3D body is still a simple circular point-mass
 controller; there is no full character-body physics, flight dynamics, learning,
 webcam input, or biological muscle model. Beacon approach and wall blocking are
-now bounded evidence for two fixed scenarios. The next useful work is threat
-crossing and its causal trace before adding more neurons or putting the 3D lab
-on the public site.
+now bounded evidence for two fixed scenarios, and the 1,024-node scale target is
+validated as a runnable graph/runtime workload rather than a behavior claim.
+The next useful behavior work is threat crossing and its causal trace. The
+Python/NumPy backend has not been replaced yet; the measured cached/live costs
+are now available for that later decision.
 
 ## Worktree note
 
 The bounded beacon slice is committed as `8688590`, and the wall-blocking slice
-as `0ec49d4`; both are now fast-forwarded onto `main`. The old
-`experiment/beacon-approach` pointer still names the same current commit. Do
-not reset or clean the tree blindly.
+as `0ec49d4`; both are fast-forwarded onto `main`. The old
+`experiment/beacon-approach` pointer remains at `0ec49d4`, while `main` now
+also contains the 1,024-node work. Do not reset or clean the tree blindly.

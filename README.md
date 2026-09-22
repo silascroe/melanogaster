@@ -167,6 +167,17 @@ world event, sensory features, input currents, spikes, descending votes, and
 action. Sandbox requests remain obstacle-free unless an `obstacles` array is
 provided. This is an inspectable collision experiment, not flight physics.
 
+Measure the first real arena scale target against the local release:
+
+~~~powershell
+.\.venv\Scripts\python.exe -m flytest.arena_scale
+~~~
+
+This builds the exact 1,024-node unified stage, runs a deterministic batch
+replay twice, steps a live session twice, and writes compact evidence under
+`outputs/diagnostics/arena-1024`. The first run includes graph expansion and
+runtime compilation; the second measures the cached replay.
+
 Run the next bounded arena diagnostic against the same local release:
 
 ~~~powershell

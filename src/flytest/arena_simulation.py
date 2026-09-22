@@ -22,6 +22,7 @@ from .arena_circuit import ACTION_ORDER, ArenaCircuitRuntime, ArenaStage
 
 
 ARENA_SCHEMA_VERSION = 2
+ARENA_NETWORK_STAGES = (54, 100, 250, 1024)
 DEFAULT_RETINA_WIDTH = 9
 DEFAULT_RETINA_HEIGHT = 5
 DEFAULT_FOV_DEGREES = 120.0
@@ -290,8 +291,8 @@ class ArenaRunConfig:
         self.neural.to_lif().validate()
         if self.mode not in {"demo", "sandbox"}:
             raise ValueError("mode must be demo or sandbox")
-        if self.network_stage not in {54, 100, 250}:
-            raise ValueError("network_stage must be 54, 100, or 250")
+        if self.network_stage not in ARENA_NETWORK_STAGES:
+            raise ValueError(f"network_stage must be one of {ARENA_NETWORK_STAGES}")
         if not 1.0 <= self.neural.duration_ms <= 300.0:
             raise ValueError("duration_ms must be between 1 and 300")
         if not math.isfinite(self.visual_contrast) or not 0.0 <= self.visual_contrast <= 1.5:

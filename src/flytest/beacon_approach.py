@@ -17,7 +17,7 @@ from dataclasses import asdict, dataclass
 from pathlib import Path
 from typing import Any, Protocol
 
-from .arena_simulation import ArenaLight, ArenaRunConfig
+from .arena_simulation import ARENA_NETWORK_STAGES, ArenaLight, ArenaRunConfig
 from .sensorimotor import SensorimotorConfig
 
 
@@ -79,8 +79,8 @@ class BeaconApproachConfig:
     def validate(self) -> None:
         if not math.isfinite(self.duration_ms) or not 1.0 <= self.duration_ms <= 300.0:
             raise ValueError("duration_ms must be between 1 and 300")
-        if self.network_stage not in {54, 100, 250}:
-            raise ValueError("network_stage must be 54, 100, or 250")
+        if self.network_stage not in ARENA_NETWORK_STAGES:
+            raise ValueError(f"network_stage must be one of {ARENA_NETWORK_STAGES}")
         for name, value in (
             ("beacon_x", self.beacon_x),
             ("beacon_y", self.beacon_y),

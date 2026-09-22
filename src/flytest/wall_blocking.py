@@ -16,7 +16,7 @@ from dataclasses import asdict, dataclass
 from pathlib import Path
 from typing import Any, Protocol
 
-from .arena_simulation import ArenaLight, ArenaObstacle, ArenaRunConfig
+from .arena_simulation import ARENA_NETWORK_STAGES, ArenaLight, ArenaObstacle, ArenaRunConfig
 from .sensorimotor import SensorimotorConfig
 
 
@@ -90,8 +90,8 @@ class WallBlockingConfig:
     def validate(self) -> None:
         if not math.isfinite(self.duration_ms) or not 1.0 <= self.duration_ms <= 300.0:
             raise ValueError("duration_ms must be between 1 and 300")
-        if self.network_stage not in {54, 100, 250}:
-            raise ValueError("network_stage must be 54, 100, or 250")
+        if self.network_stage not in ARENA_NETWORK_STAGES:
+            raise ValueError(f"network_stage must be one of {ARENA_NETWORK_STAGES}")
         if not self.wall_id:
             raise ValueError("wall_id cannot be empty")
         for name, value in (

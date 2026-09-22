@@ -21,7 +21,7 @@ from .analysis import (
     select_multihop_network,
     select_native_pathway,
 )
-from .arena_simulation import ArenaModel, ArenaRunConfig, ArenaSession
+from .arena_simulation import ARENA_NETWORK_STAGES, ArenaModel, ArenaRunConfig, ArenaSession
 from .arena_circuit import ArenaStage
 from .data import MaleCNSPaths
 from .sensorimotor import SensorimotorConfig
@@ -390,8 +390,8 @@ class VisualModel:
     def _build_arena_stage(self, stage: int) -> ArenaStage:
         if stage == 54:
             return self.arena_stages[54]
-        if stage not in {100, 250}:
-            raise ValueError("network_stage must be 54, 100, or 250")
+        if stage not in ARENA_NETWORK_STAGES[1:]:
+            raise ValueError(f"network_stage must be one of {ARENA_NETWORK_STAGES}")
 
         target_per_channel = stage // 2
         touch_selection = self.channels[0].selection

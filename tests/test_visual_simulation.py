@@ -5,6 +5,7 @@ from pathlib import Path
 import pyarrow as pa
 import pyarrow.feather as feather
 import pytest
+import flytest.arena_simulation as arena_simulation
 
 from flytest.data import (
     ANNOTATION_FILENAME,
@@ -408,6 +409,11 @@ def test_stage_54_is_the_legacy_two_context_control(tmp_path: Path) -> None:
     assert stage.target_node_count == 54
     assert len(stage.nodes) == len(model.node_rows)
     assert {row["channel"] for row in stage.nodes} == {"touch", "vision"}
+
+
+def test_arena_stage_contract_includes_1024_without_changing_control_stages() -> None:
+    assert getattr(arena_simulation, "ARENA_NETWORK_STAGES", None) == (54, 100, 250, 1024)
+    assert ArenaRunConfig.from_mapping({"network_stage": 1024}).network_stage == 1024
 
 
 def test_multihop_selection_and_induced_edges_are_deterministic(tmp_path: Path) -> None:

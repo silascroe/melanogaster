@@ -312,7 +312,8 @@
              </div>
              <label for="networkStage" class="control-label">network stage</label>
              <select id="networkStage" class="arena-select" aria-label="network stage">
-               <option value="250" selected>250 neurons · unified arena</option>
+               <option value="1024" selected>1024 neurons · unified arena</option>
+               <option value="250">250 neurons · unified arena control</option>
                <option value="100">100 neurons · merged pathways</option>
                <option value="54">54 neurons · control stage</option>
              </select>
@@ -394,7 +395,7 @@
       mode: "arena",
       arenaScenario: "demo",
       placement: "light",
-      networkStage: 250,
+      networkStage: 1024,
       traceExpanded: false,
       sandboxScene: { lights: [{ id: "sandbox-light", x: 7, y: 4, intensity: 1, vx: 0, vy: 0 }], threats: [] },
     };

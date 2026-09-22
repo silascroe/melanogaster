@@ -28,7 +28,7 @@ func _ready() -> void:
 func request_session() -> void:
 	var config := {
 		"mode": "demo",
-		"network_stage": 250,
+		"network_stage": 1024,
 		"duration_ms": 180,
 		"coupling": 3.0,
 		"turn_degrees": 15.0,

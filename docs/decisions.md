@@ -119,9 +119,9 @@ action decoder are modelling assumptions.
 
 ## Scalable closed-loop arena
 
-The arena now has a compatibility stage and two explicit expansion stages:
-54 keeps the separate touch and visual local contexts, while 100 and 250 merge
-deduplicated multi-hop expansions into one induced graph. Expansion starts from
+The arena now has a compatibility stage and three explicit expansion stages:
+54 keeps the separate touch and visual local contexts, while 100, 250, and 1,024
+merge deduplicated multi-hop expansions into one induced graph. Expansion starts from
 the existing sensory/intrinsic/descending seed paths, prefers annotated route
 classes, and then ranks frontier candidates by incident weight, edge count, hop,
 and body ID. If the official release cannot supply an exact requested stage,
@@ -133,7 +133,8 @@ precomputes body-ID indices, sparse edge currents, input populations, and
 descending output populations; each replay receives fresh mutable state. The
 baseline `GET /api/run` response remains the control condition, while
 `POST /api/arena/run` accepts schema-version-2 arena requests. The API defaults
-to stage 54 for compatibility; the browser explicitly asks for stage 250.
+to stage 54 for compatibility; the browser and Godot lab explicitly ask for
+stage 1,024, while stage 250 remains a smaller unified control.
 
 The 9x5 retina exposes left, center, right, motion, and looming features. Touch
 and threat features expose left, right, and urgency populations. Actions come
@@ -155,7 +156,7 @@ objects and reruns from neural rest.
 ## Godot live-loop boundary
 
 The standalone `arena3d` project is a world client, not a second connectome
-simulator. A `POST /api/arena/session` call creates a fresh stage-250 Python
+simulator. A `POST /api/arena/session` call creates a fresh stage-1,024 Python
 runtime. Each subsequent `POST /api/arena/session/{id}/step` sends Godot's
 current body, light, and threat state to Python. Python renders the synthetic
 retina, advances the persistent LIF state, applies memory and descending

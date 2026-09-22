@@ -498,7 +498,7 @@ func _request_session() -> void:
 	session_is_ready = false
 	step_pending = false
 	step_accumulator = 0.0
-	replay_status = "REQUESTING LIVE STAGE 250 SESSION"
+	replay_status = "REQUESTING LIVE STAGE 1024 SESSION"
 	paused = true
 	_reset_live_view()
 	if bridge != null:
@@ -511,9 +511,9 @@ func _on_session_ready(payload: Dictionary) -> void:
 		_on_bridge_failed("Python Arena returned an empty session ID")
 		return
 	var network_value: Variant = payload.get("network", {})
-	var stage := "250"
+	var stage := "1024"
 	if typeof(network_value) == TYPE_DICTIONARY:
-		stage = str(network_value.get("stage", 250))
+		stage = str(network_value.get("stage", 1024))
 	replay_status = "LIVE CLOSED LOOP · STAGE %s" % stage
 	_load_session_world(payload)
 	session_is_ready = true

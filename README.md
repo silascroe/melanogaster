@@ -145,15 +145,18 @@ visual-projection neuron, not a claim that this demo models the retina or a
 complete visual behavior.
 
 The page also has an Arena mode. Its API-compatible control stage is the same
-54-node local graph, and the browser can request unified 100- and 250-node
-multi-hop expansions. A deterministic 9x5 synthetic retina exposes brightness,
+54-node local graph, and the browser can request unified 100-, 250-, and
+1,024-node multi-hop expansions. The browser defaults to the 1,024-node stage;
+54 remains the API compatibility default and 250 remains a smaller unified
+control. A deterministic 9x5 synthetic retina exposes brightness,
 motion, and looming to named sensory populations; descending spikes vote for
 turning, forward motion, or touch-priority escape. The scripted demo uses
 moving light and timed threat objects. Sandbox mode supports still, drifting,
 and crossing user-placed objects, replayed from neural rest with a frame
 scrubber and causal trace. The arena is intentionally a sensorimotor
 experiment, not a biological retina or a learned fly. The API defaults to
-stage 54 to preserve compatibility; the browser defaults to stage 250.
+stage 54 to preserve compatibility; the browser and Godot lab explicitly
+request stage 1,024.
 
 The scripted arena demo now includes two explicit static obstacles. The body
 is a circular toy agent: Python resolves proposed movement with swept

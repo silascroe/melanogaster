@@ -19,8 +19,8 @@ or bulky movie/timestep artifacts.
 The browser baseline remains intact:
 
 - `GET /api/run` is the regression control.
-- `POST /api/arena/run` is schema version 2 and supports stages 54, 100, and
-  250, moving lights/threats, the 9x5 retina, touch priority, descending
+- `POST /api/arena/run` is schema version 2 and supports stages 54, 100, 250,
+  and 1,024, moving lights/threats, the 9x5 retina, touch priority, descending
   population votes, memory, causal traces, and deterministic replay digests.
 
 The standalone `arena3d/` project is now a live Godot client rather than a
@@ -33,7 +33,7 @@ replay viewer:
   state.
 - Godot applies the returned action and sends the resulting world state back
   on the next tick.
-- The scene defaults to stage 250. `SPACE` pauses; `R` creates a fresh neural
+- The scene defaults to stage 1,024. `SPACE` pauses; `R` creates a fresh neural
   session; right-drag orbits; the mouse wheel zooms.
 
 The first embodied world slice is now present:
@@ -98,6 +98,10 @@ From the repository root:
 The first request for a larger graph stage can take a while while the official
 working data is scanned and cached. The live Godot bridge has a 120-second
 request timeout for that reason.
+
+The browser and Godot live lab now use the exact 1,024-node unified stage by
+default. The API remains stage 54 by default for compatibility; the smaller
+250-node unified stage remains available as a control.
 
 Use the installed Godot executable with the Windows compatibility renderer:
 

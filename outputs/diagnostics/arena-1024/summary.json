@@ -1,0 +1,52 @@
+{
+  "configuration": {
+    "duration_ms": 24.0,
+    "network_stage": 1024
+  },
+  "dataset": {
+    "name": "FlyEM Male CNS",
+    "release": "v1.0",
+    "source_manifest": "data/metadata/source_manifest.json"
+  },
+  "experiment": "real 1024-node arena scale acceptance",
+  "live": {
+    "step_count": 2,
+    "step_indices": [
+      0,
+      1
+    ],
+    "step_timings_seconds": [
+      0.0005850999987160321,
+      0.0005855999988853
+    ]
+  },
+  "network": {
+    "actual_node_count": 1024,
+    "channels": {
+      "touch": {
+        "edge_count": 14890,
+        "node_count": 512
+      },
+      "vision": {
+        "edge_count": 9844,
+        "node_count": 512
+      }
+    },
+    "edge_count": 24807,
+    "requested_node_count": 1024,
+    "stage": 1024,
+    "target_node_count": 1024,
+    "unified": true
+  },
+  "result": {
+    "batch_frame_count": 24,
+    "causal_trace_complete": true,
+    "replay_digest": "3528c9fcb4030d0c7275291dbc81fa1e75c2dc47957c803efc5548e0f524fd39",
+    "replay_digest_match": true,
+    "success": true
+  },
+  "timing": {
+    "cached_replay_seconds": 0.0444100000004255,
+    "initial_build_and_replay_seconds": 88.14972780000062
+  }
+}

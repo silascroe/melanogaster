@@ -240,6 +240,19 @@ def test_arena_replays_visual_path_and_is_deterministic(tmp_path: Path) -> None:
     assert first["trajectory"][0]["retina_centroid_x"] < 0
 
 
+def test_batch_replay_accepts_explicit_decoder_policy_without_changing_default(tmp_path: Path) -> None:
+    model = VisualModel(_write_visual_fixture(tmp_path), neighbor_limit=4, max_edges=50)
+    config = _arena_fixture_config()
+
+    default = model.run_arena(config)
+    strongest = model.run_arena(config, decoder_policy="strongest_vote")
+
+    assert default["action_decoder"]["touch_priority"] is True
+    assert strongest["action_decoder"]["touch_priority"] is False
+    assert strongest["action_decoder"]["policy"] == "strongest_vote"
+    assert strongest["trajectory"][0]["time_ms"] == 0.0
+
+
 def test_beacon_approach_writes_compact_causal_artifacts(tmp_path: Path) -> None:
     class StubArenaModel:
         def run_arena(self, config: ArenaRunConfig) -> dict[str, object]:

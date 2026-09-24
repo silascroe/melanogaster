@@ -465,7 +465,10 @@ class VisualModel:
             self.arena_model.stages = self.arena_stages
 
     def run_arena(
-        self, config: ArenaRunConfig | Mapping[str, Any] | None = None
+        self,
+        config: ArenaRunConfig | Mapping[str, Any] | None = None,
+        *,
+        decoder_policy: str = "touch_priority",
     ) -> dict[str, Any]:
         """Run the stateful arena against the requested cached graph stage."""
 
@@ -478,7 +481,7 @@ class VisualModel:
         run_config.validate()
         stage = run_config.network_stage
         self._ensure_arena_stage(stage)
-        return self.arena_model.run(run_config)
+        return self.arena_model.run(run_config, decoder_policy=decoder_policy)
 
     def create_arena_session(
         self, config: ArenaRunConfig | Mapping[str, Any] | None = None

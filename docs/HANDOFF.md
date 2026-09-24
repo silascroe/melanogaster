@@ -136,7 +136,7 @@ The last completed checks were:
 git diff --check
 ```
 
-Result: 60 tests passed; provenance verification passed; `git diff --check`
+Result: 69 tests passed; provenance verification passed; `git diff --check`
 reported only line-ending warnings. The real stage-54 beacon-approach replay
 also passed: the body went from 2.828 m to a minimum of 1.416 m, crossing the
 1.5 m threshold in a 30-frame causal trace. Godot script parsing passed, and a
@@ -175,6 +175,20 @@ visual turn. Thus the priority rule was *vote-level sensitive* at 4 ms but
 did not cause the observed escape. The shadow readout is not a second
 closed-loop flight path. The next causal question needs a scene that produces
 simultaneous competing votes on an escape-eligible frame, not more neurons.
+
+That follow-up is `outputs/diagnostics/decoder-competition/`; rerun with
+`.\.venv\Scripts\python.exe -m flytest.decoder_competition`. A bounded
+0-4 ms activation sweep found that starting the threat at 2 ms puts touch
+vote 3 against visual vote 6 at 4 ms, before escape cooldown. Two genuine
+closed-loop stage-1,024 replays use the same graph, initial state, and world;
+only the batch decoder policy changes. Their first four frames and neural
+inputs/votes at the fork match. Touch priority chooses `escape_right` at
+4 ms; strongest-vote chooses `turn_left`. The no-threat control has no
+escape, and the strongest-vote run matches its action/body trace for all
+12 frames. Later trajectories diverge because the different actions change
+the body's path; they are not matched-input comparisons. This is one
+designed scene, not biological or robust avoidance. Live Godot decoding
+retains the existing touch-priority default.
 
 ## What is deliberately unfinished
 

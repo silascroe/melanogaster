@@ -269,6 +269,24 @@ stronger visual vote demonstrates a realized priority override. A vote-level
 policy difference without that live action is merely latent sensitivity;
 zero competitive frames leave action arbitration untested.
 
+## Competing-cue decoder replays isolate one decision
+
+A bounded sweep of threat activation at 0, 1, 2, 3, and 4 ms found that a
+2 ms start puts a stronger visual vote and a touch escape vote on the same
+escape-eligible frame at stage 1,024. The follow-up fixes that scene rather
+than tuning the connectome or LIF parameters. A no-threat control and two
+crossing runs share the graph and initial body/world/neural state; only the
+batch action-decoder policy differs. The original touch-priority decoder
+remains the default, including for live Godot sessions. The strongest-vote
+alternative is an explicit batch-only diagnostic option.
+
+This is a controlled comparison only through the first different action:
+retina, input currents, descending votes, and pre-action body state must
+match there. After the action, each replay closes its own sensorimotor loop,
+so later differences are consequences of the decoder choice, not identical-
+input decisions. The designed scene tests a mechanism, not robustness or
+biological predator avoidance.
+
 The visible body is a procedural stylized fly shell kept separate from the
 collision shape. A spherical `ShapeCast3D` remains the authoritative toy body,
 while the shell adds a segmented abdomen, wings, eyes, antennae, and legs for

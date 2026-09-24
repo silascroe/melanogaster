@@ -1075,6 +1075,7 @@ def _decode_population_action(
     memory: _ArenaMemoryState,
     config: ArenaRunConfig,
     output_nodes: Mapping[str, Sequence[int]] | None = None,
+    decoder_policy: str = "touch_priority",
 ) -> _Action:
     """Choose an action only after descending populations have voted."""
 
@@ -1091,7 +1092,19 @@ def _decode_population_action(
         )
         return ranked[0][1] if ranked and ranked[0][0] > 0 else None
 
+    if decoder_policy not in {"touch_priority", "strongest_vote"}:
+        raise ValueError(f"unknown decoder policy: {decoder_policy}")
     escape = winner(("escape_left", "escape_right"))
+    visual = winner(("turn_left", "turn_right", "forward"))
+    # The diagnostic changes only cross-population arbitration; cooldown and
+    # recovery gates, tie order, and all motor effects remain the same.
+    if (
+        decoder_policy == "strongest_vote"
+        and escape is not None
+        and visual is not None
+        and float(votes[visual]) > float(votes[escape])
+    ):
+        escape = None
     if escape and memory.escape_cooldown_remaining_ms <= 0.0:
         turn = config.escape_turn_degrees if escape == "escape_left" else -config.escape_turn_degrees
         return _Action(
@@ -1111,7 +1124,6 @@ def _decode_population_action(
             True,
         )
 
-    visual = winner(("turn_left", "turn_right", "forward"))
     if visual:
         turn = config.neural.turn_degrees_per_target_spike
         if visual == "turn_right":
@@ -1774,7 +1786,9 @@ class ArenaModel:
             self._runtime_templates[key] = template
         return template.new_run()
 
-    def _run_stage(self, stage: ArenaStage, run_config: ArenaRunConfig) -> dict[str, Any]:
+    def _run_stage(
+        self, stage: ArenaStage, run_config: ArenaRunConfig, *, decoder_policy: str = "touch_priority"
+    ) -> dict[str, Any]:
         neural_lif = run_config.neural.to_lif()
         visual_lif = replace(
             neural_lif,
@@ -1831,6 +1845,7 @@ class ArenaModel:
                 memory=memory,
                 config=run_config,
                 output_nodes=circuit_step.output_nodes,
+                decoder_policy=decoder_policy,
             )
 
             body_before_heading = heading
@@ -2107,7 +2122,8 @@ class ArenaModel:
             "action_decoder": {
                 "mode": "descending_population_votes",
                 "direct_retinal_centroid_steering": False,
-                "touch_priority": True,
+                "touch_priority": decoder_policy == "touch_priority",
+                "policy": decoder_policy,
                 "actions": list(ACTION_ORDER),
                 "mapping": {
                     "visual_left": "turn_left",
@@ -2195,7 +2211,12 @@ class ArenaModel:
             ],
         }
 
-    def run(self, config: ArenaRunConfig | Mapping[str, Any] | None = None) -> dict[str, Any]:
+    def run(
+        self,
+        config: ArenaRunConfig | Mapping[str, Any] | None = None,
+        *,
+        decoder_policy: str = "touch_priority",
+    ) -> dict[str, Any]:
         if config is None:
             run_config = ArenaRunConfig()
         elif isinstance(config, ArenaRunConfig):
@@ -2203,13 +2224,15 @@ class ArenaModel:
         else:
             run_config = ArenaRunConfig.from_mapping(config)
         run_config.validate()
+        if decoder_policy not in {"touch_priority", "strongest_vote"}:
+            raise ValueError(f"unknown decoder policy: {decoder_policy}")
         try:
             stage = self.stages[run_config.network_stage]
         except KeyError as error:
             raise ValueError(
                 f"network stage {run_config.network_stage} is not available in this model"
             ) from error
-        return self._run_stage(stage, run_config)
+        return self._run_stage(stage, run_config, decoder_policy=decoder_policy)
 
     def create_session(
         self, config: ArenaRunConfig | Mapping[str, Any] | None = None

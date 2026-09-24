@@ -255,6 +255,20 @@ shifts it by `(0.4, -0.7)` while preserving radius, velocity, timing, beacon,
 body, and neural settings. Reusing the stage-matched no-threat control keeps
 the geometry comparison from quietly changing the rest of the experiment.
 
+## Decoder attribution is a vote-level counterfactual
+
+The stage-1,024 decoder audit reuses the baseline crossing and no-threat
+scenarios. It records the live action alongside every descending population
+vote, then scores a strongest-positive-vote shadow decoder on those exact
+vectors. It does not feed shadow actions back into the body: doing so would
+change subsequent sensory inputs and break the matched-input comparison.
+Touch-priority is an arena decoder rule, while touch/vision output-action labels
+and vote aggregation are harness assumptions, not measured connectome facts.
+Only a frame with both populations voting and a live touch escape over a
+stronger visual vote demonstrates a realized priority override. A vote-level
+policy difference without that live action is merely latent sensitivity;
+zero competitive frames leave action arbitration untested.
+
 The visible body is a procedural stylized fly shell kept separate from the
 collision shape. A spherical `ShapeCast3D` remains the authoritative toy body,
 while the shell adds a segmented abdomen, wings, eyes, antennae, and legs for

@@ -163,6 +163,19 @@ control produced zero escape actions; both 1,024-node geometry variants also
 met the response criterion with 2 ms escape latency. Compact evidence is under
 `outputs/diagnostics/threat-crossing/`.
 
+The stage-1,024 decoder-attribution follow-up is under
+`outputs/diagnostics/decoder-attribution/`. Run it with
+`.\.venv\Scripts\python.exe -m flytest.decoder_attribution`. It keeps the live
+touch-priority decoder and compares a strongest-vote shadow decoder on the
+same recorded neural vote vectors in one no-threat and one crossing replay.
+The control had no touch/visual vote competition. The crossing had one
+competitive frame: at 3 ms a touch escape had no visual opposition; at 4 ms
+vision voted 6 against touch's 1 and the live action was a memory-sourced
+visual turn. Thus the priority rule was *vote-level sensitive* at 4 ms but
+did not cause the observed escape. The shadow readout is not a second
+closed-loop flight path. The next causal question needs a scene that produces
+simultaneous competing votes on an escape-eligible frame, not more neurons.
+
 ## What is deliberately unfinished
 
 The live session store is in-memory and local-only. Restarting the Python

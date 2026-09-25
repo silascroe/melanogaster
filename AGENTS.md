@@ -1,8 +1,29 @@
 # FlyTest project guide
 
-FlyTest is a local-first exploration of the official FlyEM Male CNS
-connectome. It is an educational, inspectable research toy—not a validated
-biophysical brain model, a behavioral simulator, or a FlyDoom replacement.
+FlyTest is a local-first workspace around the official FlyEM Male CNS
+connectome. Its existing Python diagnostics and `arena3d/` are an educational,
+inspectable research lab—not a validated biophysical brain or behavior model.
+`fly-creature/` is a separate, portable interactive-creature project in the same workspace.
+Its intended experience does not turn the old arena's chosen circuit or action
+rules into established fly biology.
+
+## Keep the two projects distinct
+
+- Preserve `src/flytest/` diagnostics, `arena3d/`, and their compact results as
+  the experimental record. Do not refactor the old arena merely to make the new
+  project fit its assumptions.
+- Develop the new creature entirely under `fly-creature/`, including its own
+  source, Godot project, assets, dependency manifest, and compact circuit data
+  when those are needed. A copy of that directory should eventually run without
+  files or imports from the rest of FlyTest. Adapt useful loader, selection, or
+  neural-simulator code into the new project rather than depending on the lab
+  package at runtime; do not copy the entire lab.
+- Select the new project's circuit from its stated sensory inputs and neural
+  outputs. The old 1,024-neuron touch/vision selection is an experimental stage,
+  not a default circuit or a known complete behavior circuit.
+- Keep a playable demonstration separate from scientific claims. A visible
+  reaction can depend on engineered sensors, motor decoding, body physics, or
+  safety rules; trace those contributions before crediting the connectome.
 
 ## Protect the data
 
@@ -25,6 +46,8 @@ biophysical brain model, a behavioral simulator, or a FlyDoom replacement.
 - `src/flytest/simulation.py` owns the small configurable LIF reference model.
 - Diagnostic modules own experiments and artifacts; do not hide experiment-
   specific behavior in production defaults.
+- New creature world, body, and interface code belongs to the new project,
+  rather than being folded into the legacy arena's defaults.
 - Preserve the existing one-step delay, native-sign convention, and default LIF
   behavior unless an experiment explicitly changes and records them.
 - Keep raw connectome facts distinct from modelling assumptions. A predicted
@@ -38,6 +61,10 @@ biophysical brain model, a behavioral simulator, or a FlyDoom replacement.
   single causal factor.
 - Do not begin behavioral, muscle, game, or FlyDoom integration without an
   explicit input/output definition and a circuit-level diagnostic first.
+- For `fly-creature/`, define what the world senses, which selected neurons
+  receive that signal, which neural activity is read, and how the body responds
+  before implementing a new reaction. Compare intact wiring with a suitable
+  control before claiming that the connectome caused a useful behavior.
 - Write inspectable CSV/JSON/Markdown artifacts and explain surprising results
   in plain language.
 
@@ -68,8 +95,9 @@ regression of the existing baseline.
 
 ## Explain decisions
 
-Document non-obvious choices in `docs/decisions.md`. In user-facing responses,
-separate what came from the official dataset, what the simulator assumes, and
-what the experiment actually demonstrated. Keep explanations understandable
+Document lab choices in `docs/decisions.md` and new-project choices under
+`fly-creature/`. In user-facing responses, separate what came from the official
+dataset, what the simulator assumes, and what the experiment actually
+demonstrated. Keep explanations understandable
 to someone learning the subject rather than assuming neuroscience or software
 engineering expertise.

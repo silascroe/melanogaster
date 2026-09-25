@@ -2,6 +2,14 @@
 
 This repository is a small, local-first exploration of the official FlyEM Male CNS connectome release. It began with a readable data loader, a bounded subgraph extractor, and a simple leaky integrate-and-fire simulator; it now also includes an inspectable local browser lab and standalone Godot arena. There is still no opaque graph database or claim of a validated biological behavior model.
 
+## Workspace map
+
+- `src/flytest/`, `tests/`, `outputs/`, and `arena3d/` are the existing experimental lab. Keep its diagnostics and Godot demo intact as a record of what was tried.
+- `fly-creature/` is the separate, portable home for the next interactive fly project. It may adapt useful lab code, but its runnable version must carry its own code, assets, dependency manifest, and selected circuit data.
+- `data/` holds the original release and its byte-identical working copy. Neither project should move or alter those files.
+
+The new project starts by defining the world-to-neuron inputs and neuron-to-body outputs, then choosing a circuit appropriate to those inputs and outputs. Copying `fly-creature/` alone should eventually be enough to run it; it must not import or read files from the rest of this workspace at runtime. Its current boundary is described in [fly-creature/README.md](fly-creature/README.md).
+
 The current baseline uses MaleCNS v1.0 from HHMI Janelia's public Google Storage bucket. The downloaded release files live in `data/original-data/male-cns-v1.0/` and are never edited. Byte-identical copies live in `data/working/male-cns-v1.0/`; derived tables and simulation output go under `outputs/`.
 
 ## Setup

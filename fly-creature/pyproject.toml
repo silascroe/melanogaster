@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fly-creature"
+version = "0.1.0"
+description = "A standalone 3D fly creature with an inspectable MaleCNS escape circuit"
+requires-python = ">=3.12"
+dependencies = ["numpy>=2.3"]
+
+[project.optional-dependencies]
+build-circuit = ["pyarrow>=19"]
+
+[project.scripts]
+fly-creature-server = "fly_creature.server:main"
+fly-creature-diagnostic = "fly_creature.diagnostic:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+fly_creature = ["data/*.json"]

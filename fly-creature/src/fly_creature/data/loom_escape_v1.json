@@ -1,0 +1,3461 @@
+{
+  "schema_version": 1,
+  "provenance": {
+    "dataset": "FlyEM Male CNS v1.0",
+    "source_url": "https://male-cns.janelia.org/download/",
+    "license": "CC-BY",
+    "selection": "Traced LC4, LPLC2, and DNp01 bodies; direct LC4/LPLC2 to DNp01 weighted edges only",
+    "source_files": [
+      "body-annotations-male-cns-v1.0-minconf-0.5.feather",
+      "body-neurotransmitters-male-cns-v1.0.feather",
+      "connectome-weights-male-cns-v1.0-minconf-0.5.feather"
+    ],
+    "predicted_transmitter_note": "Predictions are annotations, not measured synaptic signs"
+  },
+  "summary": {
+    "neurons": 313,
+    "connections": 311,
+    "types": {
+      "DNp01": 2,
+      "LC4": 126,
+      "LPLC2": 185
+    }
+  },
+  "neurons": [
+    {
+      "body_id": 10001,
+      "type": "DNp01",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 10010,
+      "type": "DNp01",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 11498,
+      "type": "LPLC2",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 12032,
+      "type": "LC4",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 12349,
+      "type": "LC4",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 12384,
+      "type": "LPLC2",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 12824,
+      "type": "LC4",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 13132,
+      "type": "LPLC2",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 13726,
+      "type": "LPLC2",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 13764,
+      "type": "LPLC2",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 14030,
+      "type": "LPLC2",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 14102,
+      "type": "LPLC2",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 14465,
+      "type": "LPLC2",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 14888,
+      "type": "LC4",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 15018,
+      "type": "LC4",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 15804,
+      "type": "LPLC2",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 16128,
+      "type": "LC4",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 16138,
+      "type": "LC4",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 16628,
+      "type": "LC4",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 16809,
+      "type": "LC4",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 16917,
+      "type": "LC4",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 17054,
+      "type": "LC4",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 17059,
+      "type": "LPLC2",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 17266,
+      "type": "LC4",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 17270,
+      "type": "LC4",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 17340,
+      "type": "LC4",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 17364,
+      "type": "LC4",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 17478,
+      "type": "LC4",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 17544,
+      "type": "LPLC2",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 17548,
+      "type": "LC4",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 17551,
+      "type": "LPLC2",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 17608,
+      "type": "LC4",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 17653,
+      "type": "LC4",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 17668,
+      "type": "LC4",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 17774,
+      "type": "LPLC2",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 17775,
+      "type": "LPLC2",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 17860,
+      "type": "LC4",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 17880,
+      "type": "LPLC2",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 17926,
+      "type": "LC4",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 17987,
+      "type": "LC4",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 17990,
+      "type": "LPLC2",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 18127,
+      "type": "LC4",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 18189,
+      "type": "LC4",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 18396,
+      "type": "LC4",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 18432,
+      "type": "LC4",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 18478,
+      "type": "LC4",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 18672,
+      "type": "LPLC2",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 18900,
+      "type": "LPLC2",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 18929,
+      "type": "LPLC2",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 18936,
+      "type": "LPLC2",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 19034,
+      "type": "LPLC2",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 19146,
+      "type": "LPLC2",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 19229,
+      "type": "LPLC2",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 19249,
+      "type": "LPLC2",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 19260,
+      "type": "LC4",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 19420,
+      "type": "LC4",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 19543,
+      "type": "LC4",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 19549,
+      "type": "LPLC2",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 19550,
+      "type": "LC4",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 19589,
+      "type": "LPLC2",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 19608,
+      "type": "LPLC2",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 19634,
+      "type": "LC4",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 19787,
+      "type": "LPLC2",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 19794,
+      "type": "LC4",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 19830,
+      "type": "LPLC2",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 19842,
+      "type": "LPLC2",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 19911,
+      "type": "LPLC2",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 19954,
+      "type": "LC4",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 20016,
+      "type": "LC4",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 20047,
+      "type": "LPLC2",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 20103,
+      "type": "LPLC2",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 20162,
+      "type": "LPLC2",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 20182,
+      "type": "LPLC2",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 20240,
+      "type": "LPLC2",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 20269,
+      "type": "LPLC2",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 20282,
+      "type": "LC4",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 20329,
+      "type": "LPLC2",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 20334,
+      "type": "LPLC2",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 20399,
+      "type": "LC4",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 20440,
+      "type": "LC4",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 20471,
+      "type": "LPLC2",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 20535,
+      "type": "LPLC2",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 20542,
+      "type": "LC4",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 20572,
+      "type": "LC4",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 20584,
+      "type": "LPLC2",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 20588,
+      "type": "LC4",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 20673,
+      "type": "LC4",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 20694,
+      "type": "LPLC2",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 20749,
+      "type": "LPLC2",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 20799,
+      "type": "LPLC2",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 20808,
+      "type": "LC4",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 20859,
+      "type": "LC4",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 20917,
+      "type": "LC4",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 20967,
+      "type": "LC4",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 20976,
+      "type": "LC4",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 21045,
+      "type": "LPLC2",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 21151,
+      "type": "LC4",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 21165,
+      "type": "LC4",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 21225,
+      "type": "LC4",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 21287,
+      "type": "LC4",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 21299,
+      "type": "LPLC2",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 21313,
+      "type": "LC4",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 21318,
+      "type": "LPLC2",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 21336,
+      "type": "LC4",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 21361,
+      "type": "LPLC2",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 21562,
+      "type": "LPLC2",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 21703,
+      "type": "LPLC2",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 21721,
+      "type": "LC4",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 21769,
+      "type": "LPLC2",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 21804,
+      "type": "LC4",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 21808,
+      "type": "LPLC2",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 21862,
+      "type": "LPLC2",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 21899,
+      "type": "LPLC2",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 22034,
+      "type": "LC4",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 22194,
+      "type": "LC4",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 22218,
+      "type": "LPLC2",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 22253,
+      "type": "LPLC2",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 22261,
+      "type": "LPLC2",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 22328,
+      "type": "LC4",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 22557,
+      "type": "LPLC2",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 22677,
+      "type": "LPLC2",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 22772,
+      "type": "LC4",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 22847,
+      "type": "LC4",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 22922,
+      "type": "LC4",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 22966,
+      "type": "LC4",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 22975,
+      "type": "LC4",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 23098,
+      "type": "LC4",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 23202,
+      "type": "LC4",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 23226,
+      "type": "LC4",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 23247,
+      "type": "LPLC2",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 23349,
+      "type": "LPLC2",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 23392,
+      "type": "LC4",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 23497,
+      "type": "LPLC2",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 23550,
+      "type": "LPLC2",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 23590,
+      "type": "LPLC2",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 23665,
+      "type": "LPLC2",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 23792,
+      "type": "LC4",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 23878,
+      "type": "LPLC2",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 23919,
+      "type": "LPLC2",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 23929,
+      "type": "LC4",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 24118,
+      "type": "LPLC2",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 24187,
+      "type": "LPLC2",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 24268,
+      "type": "LPLC2",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 24308,
+      "type": "LPLC2",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 24338,
+      "type": "LC4",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 24401,
+      "type": "LPLC2",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 24523,
+      "type": "LC4",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 24568,
+      "type": "LPLC2",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 24605,
+      "type": "LPLC2",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 24800,
+      "type": "LPLC2",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 24840,
+      "type": "LPLC2",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 25027,
+      "type": "LPLC2",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 25136,
+      "type": "LPLC2",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 25209,
+      "type": "LPLC2",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 25253,
+      "type": "LPLC2",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 25267,
+      "type": "LPLC2",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 25286,
+      "type": "LPLC2",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 25316,
+      "type": "LPLC2",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 25497,
+      "type": "LPLC2",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 25511,
+      "type": "LPLC2",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 25524,
+      "type": "LPLC2",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 25572,
+      "type": "LPLC2",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 25575,
+      "type": "LPLC2",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 25584,
+      "type": "LC4",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 25636,
+      "type": "LPLC2",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 25854,
+      "type": "LPLC2",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 26112,
+      "type": "LC4",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 26147,
+      "type": "LPLC2",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 26393,
+      "type": "LPLC2",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 26416,
+      "type": "LPLC2",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 26528,
+      "type": "LPLC2",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 26730,
+      "type": "LPLC2",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 26915,
+      "type": "LPLC2",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 27023,
+      "type": "LPLC2",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 27355,
+      "type": "LPLC2",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 27399,
+      "type": "LPLC2",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 27471,
+      "type": "LPLC2",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 27566,
+      "type": "LPLC2",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 27624,
+      "type": "LC4",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 27716,
+      "type": "LPLC2",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 27750,
+      "type": "LC4",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 27796,
+      "type": "LPLC2",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 27829,
+      "type": "LC4",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 28003,
+      "type": "LPLC2",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 28011,
+      "type": "LPLC2",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 28044,
+      "type": "LPLC2",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 28188,
+      "type": "LPLC2",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 28741,
+      "type": "LPLC2",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 28871,
+      "type": "LPLC2",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 28945,
+      "type": "LC4",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 28980,
+      "type": "LC4",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 29014,
+      "type": "LPLC2",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 29183,
+      "type": "LPLC2",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 29216,
+      "type": "LPLC2",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 29287,
+      "type": "LPLC2",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 29319,
+      "type": "LPLC2",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 29391,
+      "type": "LPLC2",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 29417,
+      "type": "LC4",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 29469,
+      "type": "LC4",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 29514,
+      "type": "LC4",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 29563,
+      "type": "LC4",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 29598,
+      "type": "LPLC2",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 29702,
+      "type": "LPLC2",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 29753,
+      "type": "LPLC2",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 29815,
+      "type": "LPLC2",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 29873,
+      "type": "LPLC2",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 29955,
+      "type": "LPLC2",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 29986,
+      "type": "LPLC2",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 30041,
+      "type": "LPLC2",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 30087,
+      "type": "LC4",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 30207,
+      "type": "LPLC2",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 30480,
+      "type": "LC4",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 30512,
+      "type": "LPLC2",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 30803,
+      "type": "LC4",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 30893,
+      "type": "LPLC2",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 30895,
+      "type": "LPLC2",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 30938,
+      "type": "LPLC2",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 31105,
+      "type": "LPLC2",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 31257,
+      "type": "LPLC2",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 31262,
+      "type": "LC4",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 31301,
+      "type": "LC4",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 31308,
+      "type": "LC4",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 31429,
+      "type": "LC4",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 31563,
+      "type": "LPLC2",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 31964,
+      "type": "LPLC2",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 31988,
+      "type": "LPLC2",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 32223,
+      "type": "LPLC2",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 32237,
+      "type": "LPLC2",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 32507,
+      "type": "LPLC2",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 32597,
+      "type": "LC4",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 32737,
+      "type": "LPLC2",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 33137,
+      "type": "LC4",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 33185,
+      "type": "LPLC2",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 33303,
+      "type": "LPLC2",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 33396,
+      "type": "LPLC2",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 33406,
+      "type": "LPLC2",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 33439,
+      "type": "LPLC2",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 33694,
+      "type": "LPLC2",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 33965,
+      "type": "LPLC2",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 34051,
+      "type": "LPLC2",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 34110,
+      "type": "LPLC2",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 34372,
+      "type": "LPLC2",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 34407,
+      "type": "LPLC2",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 34655,
+      "type": "LPLC2",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 34681,
+      "type": "LPLC2",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 34845,
+      "type": "LC4",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 35262,
+      "type": "LC4",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 35294,
+      "type": "LPLC2",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 35616,
+      "type": "LC4",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 35632,
+      "type": "LPLC2",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 35680,
+      "type": "LPLC2",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 35838,
+      "type": "LPLC2",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 35889,
+      "type": "LPLC2",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 37431,
+      "type": "LPLC2",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 37587,
+      "type": "LC4",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 37613,
+      "type": "LPLC2",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 37925,
+      "type": "LPLC2",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 38065,
+      "type": "LC4",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 38542,
+      "type": "LPLC2",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 39620,
+      "type": "LPLC2",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 40811,
+      "type": "LPLC2",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 40841,
+      "type": "LPLC2",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 41097,
+      "type": "LPLC2",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 50287,
+      "type": "LPLC2",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 55627,
+      "type": "LPLC2",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 77614,
+      "type": "LC4",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 81112,
+      "type": "LC4",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 95241,
+      "type": "LPLC2",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 100103,
+      "type": "LPLC2",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 100485,
+      "type": "LC4",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 107513,
+      "type": "LC4",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 111787,
+      "type": "LC4",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 111903,
+      "type": "LPLC2",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 112292,
+      "type": "LPLC2",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 129687,
+      "type": "LPLC2",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 134521,
+      "type": "LPLC2",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 511914,
+      "type": "LC4",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 512366,
+      "type": "LC4",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 512705,
+      "type": "LC4",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 514508,
+      "type": "LC4",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 514670,
+      "type": "LPLC2",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 514956,
+      "type": "LC4",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 515476,
+      "type": "LC4",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 515900,
+      "type": "LC4",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 515971,
+      "type": "LPLC2",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 516909,
+      "type": "LC4",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 517078,
+      "type": "LPLC2",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 517079,
+      "type": "LPLC2",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 517752,
+      "type": "LC4",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 517819,
+      "type": "LPLC2",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 518016,
+      "type": "LC4",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 518439,
+      "type": "LC4",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 518544,
+      "type": "LC4",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 518730,
+      "type": "LC4",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 518731,
+      "type": "LPLC2",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 518983,
+      "type": "LC4",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 519650,
+      "type": "LC4",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 519931,
+      "type": "LC4",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 520449,
+      "type": "LC4",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 520764,
+      "type": "LPLC2",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 521115,
+      "type": "LPLC2",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 524366,
+      "type": "LPLC2",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 524899,
+      "type": "LC4",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 525844,
+      "type": "LPLC2",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 526286,
+      "type": "LC4",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 527408,
+      "type": "LC4",
+      "side": "R",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 530029,
+      "type": "LC4",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 531014,
+      "type": "LPLC2",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 532254,
+      "type": "LC4",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 533129,
+      "type": "LC4",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 533895,
+      "type": "LPLC2",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 535341,
+      "type": "LC4",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    },
+    {
+      "body_id": 536444,
+      "type": "LPLC2",
+      "side": "L",
+      "predicted_nt": "acetylcholine"
+    }
+  ],
+  "connections": [
+    {
+      "pre": 11498,
+      "post": 10010,
+      "synapse_count": 2
+    },
+    {
+      "pre": 12032,
+      "post": 10010,
+      "synapse_count": 62
+    },
+    {
+      "pre": 12349,
+      "post": 10010,
+      "synapse_count": 62
+    },
+    {
+      "pre": 12384,
+      "post": 10010,
+      "synapse_count": 20
+    },
+    {
+      "pre": 12824,
+      "post": 10010,
+      "synapse_count": 58
+    },
+    {
+      "pre": 13132,
+      "post": 10010,
+      "synapse_count": 8
+    },
+    {
+      "pre": 13726,
+      "post": 10010,
+      "synapse_count": 43
+    },
+    {
+      "pre": 13764,
+      "post": 10010,
+      "synapse_count": 6
+    },
+    {
+      "pre": 14030,
+      "post": 10010,
+      "synapse_count": 4
+    },
+    {
+      "pre": 14102,
+      "post": 10010,
+      "synapse_count": 27
+    },
+    {
+      "pre": 14465,
+      "post": 10001,
+      "synapse_count": 21
+    },
+    {
+      "pre": 14888,
+      "post": 10010,
+      "synapse_count": 55
+    },
+    {
+      "pre": 15018,
+      "post": 10010,
+      "synapse_count": 40
+    },
+    {
+      "pre": 15804,
+      "post": 10010,
+      "synapse_count": 33
+    },
+    {
+      "pre": 16128,
+      "post": 10001,
+      "synapse_count": 65
+    },
+    {
+      "pre": 16138,
+      "post": 10001,
+      "synapse_count": 52
+    },
+    {
+      "pre": 16628,
+      "post": 10001,
+      "synapse_count": 53
+    },
+    {
+      "pre": 16809,
+      "post": 10010,
+      "synapse_count": 40
+    },
+    {
+      "pre": 16917,
+      "post": 10010,
+      "synapse_count": 62
+    },
+    {
+      "pre": 17054,
+      "post": 10001,
+      "synapse_count": 37
+    },
+    {
+      "pre": 17059,
+      "post": 10010,
+      "synapse_count": 12
+    },
+    {
+      "pre": 17266,
+      "post": 10001,
+      "synapse_count": 47
+    },
+    {
+      "pre": 17270,
+      "post": 10010,
+      "synapse_count": 63
+    },
+    {
+      "pre": 17340,
+      "post": 10010,
+      "synapse_count": 33
+    },
+    {
+      "pre": 17364,
+      "post": 10001,
+      "synapse_count": 48
+    },
+    {
+      "pre": 17478,
+      "post": 10010,
+      "synapse_count": 86
+    },
+    {
+      "pre": 17544,
+      "post": 10010,
+      "synapse_count": 9
+    },
+    {
+      "pre": 17548,
+      "post": 10001,
+      "synapse_count": 35
+    },
+    {
+      "pre": 17551,
+      "post": 10001,
+      "synapse_count": 37
+    },
+    {
+      "pre": 17608,
+      "post": 10010,
+      "synapse_count": 46
+    },
+    {
+      "pre": 17653,
+      "post": 10010,
+      "synapse_count": 83
+    },
+    {
+      "pre": 17668,
+      "post": 10001,
+      "synapse_count": 63
+    },
+    {
+      "pre": 17774,
+      "post": 10010,
+      "synapse_count": 19
+    },
+    {
+      "pre": 17775,
+      "post": 10010,
+      "synapse_count": 44
+    },
+    {
+      "pre": 17860,
+      "post": 10001,
+      "synapse_count": 50
+    },
+    {
+      "pre": 17880,
+      "post": 10010,
+      "synapse_count": 15
+    },
+    {
+      "pre": 17926,
+      "post": 10001,
+      "synapse_count": 48
+    },
+    {
+      "pre": 17987,
+      "post": 10001,
+      "synapse_count": 39
+    },
+    {
+      "pre": 17990,
+      "post": 10010,
+      "synapse_count": 38
+    },
+    {
+      "pre": 18127,
+      "post": 10001,
+      "synapse_count": 57
+    },
+    {
+      "pre": 18189,
+      "post": 10001,
+      "synapse_count": 46
+    },
+    {
+      "pre": 18396,
+      "post": 10010,
+      "synapse_count": 59
+    },
+    {
+      "pre": 18432,
+      "post": 10010,
+      "synapse_count": 52
+    },
+    {
+      "pre": 18478,
+      "post": 10010,
+      "synapse_count": 58
+    },
+    {
+      "pre": 18672,
+      "post": 10001,
+      "synapse_count": 36
+    },
+    {
+      "pre": 18900,
+      "post": 10010,
+      "synapse_count": 38
+    },
+    {
+      "pre": 18929,
+      "post": 10001,
+      "synapse_count": 5
+    },
+    {
+      "pre": 18936,
+      "post": 10010,
+      "synapse_count": 40
+    },
+    {
+      "pre": 19034,
+      "post": 10001,
+      "synapse_count": 28
+    },
+    {
+      "pre": 19146,
+      "post": 10001,
+      "synapse_count": 34
+    },
+    {
+      "pre": 19229,
+      "post": 10001,
+      "synapse_count": 34
+    },
+    {
+      "pre": 19249,
+      "post": 10001,
+      "synapse_count": 1
+    },
+    {
+      "pre": 19260,
+      "post": 10001,
+      "synapse_count": 37
+    },
+    {
+      "pre": 19420,
+      "post": 10001,
+      "synapse_count": 45
+    },
+    {
+      "pre": 19543,
+      "post": 10001,
+      "synapse_count": 49
+    },
+    {
+      "pre": 19549,
+      "post": 10001,
+      "synapse_count": 1
+    },
+    {
+      "pre": 19550,
+      "post": 10001,
+      "synapse_count": 21
+    },
+    {
+      "pre": 19589,
+      "post": 10001,
+      "synapse_count": 20
+    },
+    {
+      "pre": 19608,
+      "post": 10001,
+      "synapse_count": 49
+    },
+    {
+      "pre": 19634,
+      "post": 10001,
+      "synapse_count": 56
+    },
+    {
+      "pre": 19787,
+      "post": 10010,
+      "synapse_count": 55
+    },
+    {
+      "pre": 19794,
+      "post": 10001,
+      "synapse_count": 44
+    },
+    {
+      "pre": 19830,
+      "post": 10010,
+      "synapse_count": 12
+    },
+    {
+      "pre": 19842,
+      "post": 10001,
+      "synapse_count": 5
+    },
+    {
+      "pre": 19911,
+      "post": 10010,
+      "synapse_count": 10
+    },
+    {
+      "pre": 19954,
+      "post": 10001,
+      "synapse_count": 38
+    },
+    {
+      "pre": 20016,
+      "post": 10001,
+      "synapse_count": 46
+    },
+    {
+      "pre": 20047,
+      "post": 10001,
+      "synapse_count": 47
+    },
+    {
+      "pre": 20103,
+      "post": 10001,
+      "synapse_count": 48
+    },
+    {
+      "pre": 20162,
+      "post": 10001,
+      "synapse_count": 45
+    },
+    {
+      "pre": 20182,
+      "post": 10001,
+      "synapse_count": 59
+    },
+    {
+      "pre": 20240,
+      "post": 10010,
+      "synapse_count": 41
+    },
+    {
+      "pre": 20269,
+      "post": 10001,
+      "synapse_count": 53
+    },
+    {
+      "pre": 20282,
+      "post": 10001,
+      "synapse_count": 35
+    },
+    {
+      "pre": 20329,
+      "post": 10010,
+      "synapse_count": 36
+    },
+    {
+      "pre": 20334,
+      "post": 10001,
+      "synapse_count": 14
+    },
+    {
+      "pre": 20399,
+      "post": 10001,
+      "synapse_count": 62
+    },
+    {
+      "pre": 20440,
+      "post": 10010,
+      "synapse_count": 45
+    },
+    {
+      "pre": 20471,
+      "post": 10001,
+      "synapse_count": 43
+    },
+    {
+      "pre": 20535,
+      "post": 10001,
+      "synapse_count": 37
+    },
+    {
+      "pre": 20542,
+      "post": 10001,
+      "synapse_count": 47
+    },
+    {
+      "pre": 20572,
+      "post": 10010,
+      "synapse_count": 55
+    },
+    {
+      "pre": 20584,
+      "post": 10001,
+      "synapse_count": 8
+    },
+    {
+      "pre": 20588,
+      "post": 10001,
+      "synapse_count": 43
+    },
+    {
+      "pre": 20673,
+      "post": 10001,
+      "synapse_count": 44
+    },
+    {
+      "pre": 20694,
+      "post": 10001,
+      "synapse_count": 19
+    },
+    {
+      "pre": 20749,
+      "post": 10001,
+      "synapse_count": 12
+    },
+    {
+      "pre": 20799,
+      "post": 10010,
+      "synapse_count": 46
+    },
+    {
+      "pre": 20808,
+      "post": 10001,
+      "synapse_count": 42
+    },
+    {
+      "pre": 20859,
+      "post": 10010,
+      "synapse_count": 81
+    },
+    {
+      "pre": 20917,
+      "post": 10001,
+      "synapse_count": 42
+    },
+    {
+      "pre": 20967,
+      "post": 10010,
+      "synapse_count": 38
+    },
+    {
+      "pre": 20976,
+      "post": 10010,
+      "synapse_count": 57
+    },
+    {
+      "pre": 21045,
+      "post": 10001,
+      "synapse_count": 27
+    },
+    {
+      "pre": 21151,
+      "post": 10001,
+      "synapse_count": 40
+    },
+    {
+      "pre": 21165,
+      "post": 10001,
+      "synapse_count": 31
+    },
+    {
+      "pre": 21225,
+      "post": 10001,
+      "synapse_count": 52
+    },
+    {
+      "pre": 21287,
+      "post": 10001,
+      "synapse_count": 43
+    },
+    {
+      "pre": 21299,
+      "post": 10010,
+      "synapse_count": 8
+    },
+    {
+      "pre": 21313,
+      "post": 10001,
+      "synapse_count": 41
+    },
+    {
+      "pre": 21318,
+      "post": 10001,
+      "synapse_count": 4
+    },
+    {
+      "pre": 21336,
+      "post": 10001,
+      "synapse_count": 55
+    },
+    {
+      "pre": 21361,
+      "post": 10010,
+      "synapse_count": 34
+    },
+    {
+      "pre": 21562,
+      "post": 10001,
+      "synapse_count": 47
+    },
+    {
+      "pre": 21703,
+      "post": 10001,
+      "synapse_count": 14
+    },
+    {
+      "pre": 21721,
+      "post": 10010,
+      "synapse_count": 51
+    },
+    {
+      "pre": 21769,
+      "post": 10001,
+      "synapse_count": 12
+    },
+    {
+      "pre": 21804,
+      "post": 10001,
+      "synapse_count": 48
+    },
+    {
+      "pre": 21808,
+      "post": 10001,
+      "synapse_count": 38
+    },
+    {
+      "pre": 21862,
+      "post": 10001,
+      "synapse_count": 30
+    },
+    {
+      "pre": 21899,
+      "post": 10001,
+      "synapse_count": 15
+    },
+    {
+      "pre": 22034,
+      "post": 10001,
+      "synapse_count": 42
+    },
+    {
+      "pre": 22194,
+      "post": 10001,
+      "synapse_count": 59
+    },
+    {
+      "pre": 22218,
+      "post": 10001,
+      "synapse_count": 14
+    },
+    {
+      "pre": 22253,
+      "post": 10010,
+      "synapse_count": 60
+    },
+    {
+      "pre": 22261,
+      "post": 10001,
+      "synapse_count": 37
+    },
+    {
+      "pre": 22328,
+      "post": 10001,
+      "synapse_count": 47
+    },
+    {
+      "pre": 22557,
+      "post": 10010,
+      "synapse_count": 54
+    },
+    {
+      "pre": 22677,
+      "post": 10001,
+      "synapse_count": 9
+    },
+    {
+      "pre": 22772,
+      "post": 10010,
+      "synapse_count": 62
+    },
+    {
+      "pre": 22847,
+      "post": 10001,
+      "synapse_count": 67
+    },
+    {
+      "pre": 22922,
+      "post": 10010,
+      "synapse_count": 52
+    },
+    {
+      "pre": 22966,
+      "post": 10001,
+      "synapse_count": 61
+    },
+    {
+      "pre": 22975,
+      "post": 10001,
+      "synapse_count": 58
+    },
+    {
+      "pre": 23098,
+      "post": 10001,
+      "synapse_count": 32
+    },
+    {
+      "pre": 23202,
+      "post": 10010,
+      "synapse_count": 54
+    },
+    {
+      "pre": 23226,
+      "post": 10010,
+      "synapse_count": 52
+    },
+    {
+      "pre": 23247,
+      "post": 10010,
+      "synapse_count": 31
+    },
+    {
+      "pre": 23349,
+      "post": 10010,
+      "synapse_count": 41
+    },
+    {
+      "pre": 23392,
+      "post": 10001,
+      "synapse_count": 56
+    },
+    {
+      "pre": 23497,
+      "post": 10001,
+      "synapse_count": 41
+    },
+    {
+      "pre": 23550,
+      "post": 10010,
+      "synapse_count": 31
+    },
+    {
+      "pre": 23590,
+      "post": 10001,
+      "synapse_count": 33
+    },
+    {
+      "pre": 23665,
+      "post": 10010,
+      "synapse_count": 43
+    },
+    {
+      "pre": 23792,
+      "post": 10001,
+      "synapse_count": 52
+    },
+    {
+      "pre": 23878,
+      "post": 10001,
+      "synapse_count": 46
+    },
+    {
+      "pre": 23919,
+      "post": 10010,
+      "synapse_count": 47
+    },
+    {
+      "pre": 23929,
+      "post": 10001,
+      "synapse_count": 56
+    },
+    {
+      "pre": 24118,
+      "post": 10001,
+      "synapse_count": 35
+    },
+    {
+      "pre": 24187,
+      "post": 10001,
+      "synapse_count": 48
+    },
+    {
+      "pre": 24268,
+      "post": 10001,
+      "synapse_count": 29
+    },
+    {
+      "pre": 24308,
+      "post": 10010,
+      "synapse_count": 27
+    },
+    {
+      "pre": 24338,
+      "post": 10001,
+      "synapse_count": 63
+    },
+    {
+      "pre": 24401,
+      "post": 10001,
+      "synapse_count": 47
+    },
+    {
+      "pre": 24523,
+      "post": 10010,
+      "synapse_count": 42
+    },
+    {
+      "pre": 24568,
+      "post": 10010,
+      "synapse_count": 39
+    },
+    {
+      "pre": 24605,
+      "post": 10010,
+      "synapse_count": 10
+    },
+    {
+      "pre": 24800,
+      "post": 10001,
+      "synapse_count": 41
+    },
+    {
+      "pre": 24840,
+      "post": 10010,
+      "synapse_count": 38
+    },
+    {
+      "pre": 25027,
+      "post": 10010,
+      "synapse_count": 20
+    },
+    {
+      "pre": 25136,
+      "post": 10010,
+      "synapse_count": 15
+    },
+    {
+      "pre": 25209,
+      "post": 10010,
+      "synapse_count": 28
+    },
+    {
+      "pre": 25253,
+      "post": 10001,
+      "synapse_count": 32
+    },
+    {
+      "pre": 25267,
+      "post": 10001,
+      "synapse_count": 7
+    },
+    {
+      "pre": 25286,
+      "post": 10010,
+      "synapse_count": 6
+    },
+    {
+      "pre": 25316,
+      "post": 10001,
+      "synapse_count": 6
+    },
+    {
+      "pre": 25497,
+      "post": 10001,
+      "synapse_count": 32
+    },
+    {
+      "pre": 25511,
+      "post": 10001,
+      "synapse_count": 21
+    },
+    {
+      "pre": 25524,
+      "post": 10010,
+      "synapse_count": 43
+    },
+    {
+      "pre": 25572,
+      "post": 10010,
+      "synapse_count": 30
+    },
+    {
+      "pre": 25575,
+      "post": 10010,
+      "synapse_count": 24
+    },
+    {
+      "pre": 25584,
+      "post": 10001,
+      "synapse_count": 30
+    },
+    {
+      "pre": 25636,
+      "post": 10001,
+      "synapse_count": 20
+    },
+    {
+      "pre": 25854,
+      "post": 10010,
+      "synapse_count": 48
+    },
+    {
+      "pre": 26112,
+      "post": 10001,
+      "synapse_count": 53
+    },
+    {
+      "pre": 26147,
+      "post": 10001,
+      "synapse_count": 42
+    },
+    {
+      "pre": 26393,
+      "post": 10001,
+      "synapse_count": 36
+    },
+    {
+      "pre": 26416,
+      "post": 10010,
+      "synapse_count": 13
+    },
+    {
+      "pre": 26528,
+      "post": 10010,
+      "synapse_count": 38
+    },
+    {
+      "pre": 26730,
+      "post": 10001,
+      "synapse_count": 3
+    },
+    {
+      "pre": 26915,
+      "post": 10001,
+      "synapse_count": 21
+    },
+    {
+      "pre": 27023,
+      "post": 10010,
+      "synapse_count": 11
+    },
+    {
+      "pre": 27355,
+      "post": 10010,
+      "synapse_count": 30
+    },
+    {
+      "pre": 27399,
+      "post": 10010,
+      "synapse_count": 25
+    },
+    {
+      "pre": 27471,
+      "post": 10001,
+      "synapse_count": 17
+    },
+    {
+      "pre": 27566,
+      "post": 10001,
+      "synapse_count": 10
+    },
+    {
+      "pre": 27624,
+      "post": 10010,
+      "synapse_count": 51
+    },
+    {
+      "pre": 27716,
+      "post": 10010,
+      "synapse_count": 30
+    },
+    {
+      "pre": 27750,
+      "post": 10010,
+      "synapse_count": 59
+    },
+    {
+      "pre": 27796,
+      "post": 10010,
+      "synapse_count": 29
+    },
+    {
+      "pre": 27829,
+      "post": 10010,
+      "synapse_count": 64
+    },
+    {
+      "pre": 28003,
+      "post": 10001,
+      "synapse_count": 25
+    },
+    {
+      "pre": 28011,
+      "post": 10010,
+      "synapse_count": 27
+    },
+    {
+      "pre": 28044,
+      "post": 10001,
+      "synapse_count": 43
+    },
+    {
+      "pre": 28188,
+      "post": 10010,
+      "synapse_count": 36
+    },
+    {
+      "pre": 28741,
+      "post": 10001,
+      "synapse_count": 28
+    },
+    {
+      "pre": 28871,
+      "post": 10001,
+      "synapse_count": 41
+    },
+    {
+      "pre": 28945,
+      "post": 10001,
+      "synapse_count": 42
+    },
+    {
+      "pre": 28980,
+      "post": 10010,
+      "synapse_count": 51
+    },
+    {
+      "pre": 29014,
+      "post": 10001,
+      "synapse_count": 31
+    },
+    {
+      "pre": 29183,
+      "post": 10001,
+      "synapse_count": 13
+    },
+    {
+      "pre": 29216,
+      "post": 10001,
+      "synapse_count": 17
+    },
+    {
+      "pre": 29287,
+      "post": 10001,
+      "synapse_count": 29
+    },
+    {
+      "pre": 29319,
+      "post": 10010,
+      "synapse_count": 17
+    },
+    {
+      "pre": 29391,
+      "post": 10001,
+      "synapse_count": 32
+    },
+    {
+      "pre": 29417,
+      "post": 10010,
+      "synapse_count": 41
+    },
+    {
+      "pre": 29469,
+      "post": 10010,
+      "synapse_count": 73
+    },
+    {
+      "pre": 29514,
+      "post": 10010,
+      "synapse_count": 58
+    },
+    {
+      "pre": 29563,
+      "post": 10001,
+      "synapse_count": 40
+    },
+    {
+      "pre": 29598,
+      "post": 10001,
+      "synapse_count": 14
+    },
+    {
+      "pre": 29702,
+      "post": 10010,
+      "synapse_count": 33
+    },
+    {
+      "pre": 29753,
+      "post": 10010,
+      "synapse_count": 29
+    },
+    {
+      "pre": 29815,
+      "post": 10010,
+      "synapse_count": 27
+    },
+    {
+      "pre": 29873,
+      "post": 10001,
+      "synapse_count": 16
+    },
+    {
+      "pre": 29955,
+      "post": 10010,
+      "synapse_count": 29
+    },
+    {
+      "pre": 29986,
+      "post": 10001,
+      "synapse_count": 18
+    },
+    {
+      "pre": 30041,
+      "post": 10001,
+      "synapse_count": 12
+    },
+    {
+      "pre": 30087,
+      "post": 10010,
+      "synapse_count": 51
+    },
+    {
+      "pre": 30207,
+      "post": 10001,
+      "synapse_count": 3
+    },
+    {
+      "pre": 30480,
+      "post": 10001,
+      "synapse_count": 45
+    },
+    {
+      "pre": 30512,
+      "post": 10010,
+      "synapse_count": 18
+    },
+    {
+      "pre": 30803,
+      "post": 10001,
+      "synapse_count": 57
+    },
+    {
+      "pre": 30893,
+      "post": 10010,
+      "synapse_count": 6
+    },
+    {
+      "pre": 30895,
+      "post": 10010,
+      "synapse_count": 27
+    },
+    {
+      "pre": 30938,
+      "post": 10001,
+      "synapse_count": 23
+    },
+    {
+      "pre": 31105,
+      "post": 10010,
+      "synapse_count": 9
+    },
+    {
+      "pre": 31257,
+      "post": 10001,
+      "synapse_count": 19
+    },
+    {
+      "pre": 31262,
+      "post": 10001,
+      "synapse_count": 36
+    },
+    {
+      "pre": 31301,
+      "post": 10010,
+      "synapse_count": 61
+    },
+    {
+      "pre": 31308,
+      "post": 10010,
+      "synapse_count": 43
+    },
+    {
+      "pre": 31429,
+      "post": 10010,
+      "synapse_count": 45
+    },
+    {
+      "pre": 31563,
+      "post": 10010,
+      "synapse_count": 64
+    },
+    {
+      "pre": 31964,
+      "post": 10001,
+      "synapse_count": 44
+    },
+    {
+      "pre": 31988,
+      "post": 10001,
+      "synapse_count": 24
+    },
+    {
+      "pre": 32223,
+      "post": 10010,
+      "synapse_count": 10
+    },
+    {
+      "pre": 32237,
+      "post": 10010,
+      "synapse_count": 19
+    },
+    {
+      "pre": 32507,
+      "post": 10001,
+      "synapse_count": 19
+    },
+    {
+      "pre": 32597,
+      "post": 10010,
+      "synapse_count": 69
+    },
+    {
+      "pre": 32737,
+      "post": 10010,
+      "synapse_count": 33
+    },
+    {
+      "pre": 33137,
+      "post": 10010,
+      "synapse_count": 39
+    },
+    {
+      "pre": 33185,
+      "post": 10001,
+      "synapse_count": 41
+    },
+    {
+      "pre": 33303,
+      "post": 10010,
+      "synapse_count": 24
+    },
+    {
+      "pre": 33396,
+      "post": 10001,
+      "synapse_count": 21
+    },
+    {
+      "pre": 33406,
+      "post": 10010,
+      "synapse_count": 35
+    },
+    {
+      "pre": 33439,
+      "post": 10001,
+      "synapse_count": 21
+    },
+    {
+      "pre": 33694,
+      "post": 10001,
+      "synapse_count": 11
+    },
+    {
+      "pre": 33965,
+      "post": 10010,
+      "synapse_count": 20
+    },
+    {
+      "pre": 34051,
+      "post": 10010,
+      "synapse_count": 17
+    },
+    {
+      "pre": 34110,
+      "post": 10001,
+      "synapse_count": 16
+    },
+    {
+      "pre": 34372,
+      "post": 10001,
+      "synapse_count": 9
+    },
+    {
+      "pre": 34407,
+      "post": 10010,
+      "synapse_count": 40
+    },
+    {
+      "pre": 34655,
+      "post": 10010,
+      "synapse_count": 33
+    },
+    {
+      "pre": 34681,
+      "post": 10001,
+      "synapse_count": 19
+    },
+    {
+      "pre": 34845,
+      "post": 10010,
+      "synapse_count": 51
+    },
+    {
+      "pre": 35262,
+      "post": 10010,
+      "synapse_count": 56
+    },
+    {
+      "pre": 35294,
+      "post": 10010,
+      "synapse_count": 11
+    },
+    {
+      "pre": 35616,
+      "post": 10010,
+      "synapse_count": 61
+    },
+    {
+      "pre": 35632,
+      "post": 10001,
+      "synapse_count": 4
+    },
+    {
+      "pre": 35680,
+      "post": 10001,
+      "synapse_count": 21
+    },
+    {
+      "pre": 35838,
+      "post": 10001,
+      "synapse_count": 4
+    },
+    {
+      "pre": 35889,
+      "post": 10001,
+      "synapse_count": 38
+    },
+    {
+      "pre": 37431,
+      "post": 10001,
+      "synapse_count": 21
+    },
+    {
+      "pre": 37587,
+      "post": 10010,
+      "synapse_count": 51
+    },
+    {
+      "pre": 37613,
+      "post": 10001,
+      "synapse_count": 5
+    },
+    {
+      "pre": 37925,
+      "post": 10001,
+      "synapse_count": 9
+    },
+    {
+      "pre": 38065,
+      "post": 10001,
+      "synapse_count": 36
+    },
+    {
+      "pre": 38542,
+      "post": 10001,
+      "synapse_count": 5
+    },
+    {
+      "pre": 39620,
+      "post": 10001,
+      "synapse_count": 21
+    },
+    {
+      "pre": 40811,
+      "post": 10010,
+      "synapse_count": 17
+    },
+    {
+      "pre": 40841,
+      "post": 10010,
+      "synapse_count": 23
+    },
+    {
+      "pre": 41097,
+      "post": 10010,
+      "synapse_count": 39
+    },
+    {
+      "pre": 50287,
+      "post": 10001,
+      "synapse_count": 17
+    },
+    {
+      "pre": 55627,
+      "post": 10001,
+      "synapse_count": 16
+    },
+    {
+      "pre": 77614,
+      "post": 10010,
+      "synapse_count": 52
+    },
+    {
+      "pre": 81112,
+      "post": 10010,
+      "synapse_count": 55
+    },
+    {
+      "pre": 95241,
+      "post": 10010,
+      "synapse_count": 11
+    },
+    {
+      "pre": 100103,
+      "post": 10010,
+      "synapse_count": 36
+    },
+    {
+      "pre": 100485,
+      "post": 10010,
+      "synapse_count": 58
+    },
+    {
+      "pre": 107513,
+      "post": 10010,
+      "synapse_count": 39
+    },
+    {
+      "pre": 111787,
+      "post": 10010,
+      "synapse_count": 30
+    },
+    {
+      "pre": 111903,
+      "post": 10010,
+      "synapse_count": 6
+    },
+    {
+      "pre": 112292,
+      "post": 10010,
+      "synapse_count": 21
+    },
+    {
+      "pre": 129687,
+      "post": 10010,
+      "synapse_count": 22
+    },
+    {
+      "pre": 134521,
+      "post": 10010,
+      "synapse_count": 18
+    },
+    {
+      "pre": 511914,
+      "post": 10010,
+      "synapse_count": 54
+    },
+    {
+      "pre": 512366,
+      "post": 10010,
+      "synapse_count": 65
+    },
+    {
+      "pre": 512705,
+      "post": 10010,
+      "synapse_count": 53
+    },
+    {
+      "pre": 514508,
+      "post": 10010,
+      "synapse_count": 41
+    },
+    {
+      "pre": 514670,
+      "post": 10010,
+      "synapse_count": 37
+    },
+    {
+      "pre": 514956,
+      "post": 10010,
+      "synapse_count": 60
+    },
+    {
+      "pre": 515476,
+      "post": 10010,
+      "synapse_count": 64
+    },
+    {
+      "pre": 515900,
+      "post": 10010,
+      "synapse_count": 54
+    },
+    {
+      "pre": 515971,
+      "post": 10010,
+      "synapse_count": 45
+    },
+    {
+      "pre": 516909,
+      "post": 10010,
+      "synapse_count": 47
+    },
+    {
+      "pre": 517078,
+      "post": 10010,
+      "synapse_count": 15
+    },
+    {
+      "pre": 517079,
+      "post": 10010,
+      "synapse_count": 43
+    },
+    {
+      "pre": 517752,
+      "post": 10010,
+      "synapse_count": 55
+    },
+    {
+      "pre": 517819,
+      "post": 10010,
+      "synapse_count": 44
+    },
+    {
+      "pre": 518016,
+      "post": 10010,
+      "synapse_count": 39
+    },
+    {
+      "pre": 518439,
+      "post": 10010,
+      "synapse_count": 82
+    },
+    {
+      "pre": 518544,
+      "post": 10010,
+      "synapse_count": 47
+    },
+    {
+      "pre": 518730,
+      "post": 10010,
+      "synapse_count": 51
+    },
+    {
+      "pre": 518731,
+      "post": 10010,
+      "synapse_count": 48
+    },
+    {
+      "pre": 518983,
+      "post": 10010,
+      "synapse_count": 46
+    },
+    {
+      "pre": 519650,
+      "post": 10010,
+      "synapse_count": 46
+    },
+    {
+      "pre": 519931,
+      "post": 10010,
+      "synapse_count": 37
+    },
+    {
+      "pre": 520449,
+      "post": 10010,
+      "synapse_count": 42
+    },
+    {
+      "pre": 520764,
+      "post": 10010,
+      "synapse_count": 46
+    },
+    {
+      "pre": 521115,
+      "post": 10010,
+      "synapse_count": 40
+    },
+    {
+      "pre": 524366,
+      "post": 10010,
+      "synapse_count": 20
+    },
+    {
+      "pre": 524899,
+      "post": 10010,
+      "synapse_count": 64
+    },
+    {
+      "pre": 525844,
+      "post": 10010,
+      "synapse_count": 27
+    },
+    {
+      "pre": 526286,
+      "post": 10010,
+      "synapse_count": 32
+    },
+    {
+      "pre": 527408,
+      "post": 10001,
+      "synapse_count": 47
+    },
+    {
+      "pre": 530029,
+      "post": 10010,
+      "synapse_count": 62
+    },
+    {
+      "pre": 531014,
+      "post": 10010,
+      "synapse_count": 23
+    },
+    {
+      "pre": 532254,
+      "post": 10010,
+      "synapse_count": 34
+    },
+    {
+      "pre": 533129,
+      "post": 10010,
+      "synapse_count": 69
+    },
+    {
+      "pre": 533895,
+      "post": 10010,
+      "synapse_count": 50
+    },
+    {
+      "pre": 535341,
+      "post": 10010,
+      "synapse_count": 32
+    },
+    {
+      "pre": 536444,
+      "post": 10010,
+      "synapse_count": 36
+    }
+  ]
+}

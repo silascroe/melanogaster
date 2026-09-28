@@ -300,3 +300,31 @@ lights, threat, and obstacles, while sandbox receives empty collections. An
 explicit empty collection always disables that object type. Direct Python
 construction and JSON parsing therefore produce the same world for the same
 mode and inputs.
+
+## Arena readability is a presentation layer
+
+The Godot floor uses quieter one-meter lines, stronger four-meter guides, a
+subdued perimeter, and small corner instruments so the arena reads as a
+bounded lab surface instead of an endless grid. The beacon has a dimmer core
+with a grounded halo. These are render-only cues: the arena dimensions,
+`_build_boundary_colliders()`, fly collision shape, and Python/Godot world
+contract remain unchanged.
+
+## The Blender hero fly is a separate procedural art study
+
+`artwork/blender/realistic_fly_hero/male_drosophila_hero.blend` is an editable,
+standalone macro interpretation of an adult male *Drosophila melanogaster*.
+Its continuous abdomen shell, corneal facets, fine hairs, articulated legs,
+sex combs, wing membranes, and veins are visual geometry and material work;
+they are not derived from the connectome, a specimen scan, or measured body
+coordinates. The model is not the Godot fly asset and must not silently replace
+`arena3d/assets/decision_chamber_fly.glb` or affect body/collision behavior.
+
+The male A5–A6 dark tergites and foreleg comb are grounded in adult anatomy
+references; the scene represents 11 comb teeth as a practical reference
+instance, not an invariant count for every strain. The wing network represents
+the five main longitudinal veins and crossveins. See the anatomy atlas
+(https://pmc.ncbi.nlm.nih.gov/articles/PMC11457947/), pigmentation study
+(https://pmc.ncbi.nlm.nih.gov/articles/PMC5608185/), and wing review
+(https://pmc.ncbi.nlm.nih.gov/articles/PMC8982031/). The intended standard is
+an inspectable, higher-detail procedural model—not a claim of photorealism.

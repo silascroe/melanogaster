@@ -30,11 +30,12 @@ func start_session(condition: String) -> void:
 	_send("/session", {"condition": condition}, "session")
 
 
-func step(session_id: String, fly: Dictionary, object_state: Dictionary) -> void:
+func step(session_id: String, fly: Dictionary, object_state: Dictionary, target_state: Dictionary) -> void:
 	_send("/session/%s/step" % session_id, {
 		"dt_ms": 50.0,
 		"fly": fly,
 		"object": object_state,
+		"target": target_state,
 	}, "step")
 
 

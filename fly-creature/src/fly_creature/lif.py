@@ -26,13 +26,16 @@ class LIFNetwork:
         edges = circuit.connections if connected else ()
         self.pre = np.asarray([self.index[e.pre] for e in edges], dtype=np.int64)
         self.post = np.asarray([self.index[e.post] for e in edges], dtype=np.int64)
-        # All selected presynaptic cells are predicted acetylcholine; treating
-        # that prediction as excitatory is a model convention, not a measurement.
+        # Transmitter labels determine a simple current sign. Receptor-specific
+        # effects are unknown here; the existing all-ACh jump circuit retains
+        # exactly its former positive weights.
         predicted = {n.body_id: n.predicted_nt for n in circuit.neurons}
-        if any(predicted[e.pre] != "acetylcholine" for e in edges):
-            raise ValueError("Unexpected predicted transmitter; sign needs review")
+        signs = {"acetylcholine": 1.0, "gaba": -1.0}
+        if any(predicted[e.pre] not in signs for e in edges):
+            raise ValueError("Unknown presynaptic transmitter; sign needs review")
         self.edge_current_mv = np.asarray(
-            [e.synapse_count * 0.05 for e in edges], dtype=np.float64
+            [e.synapse_count * 0.05 * signs[predicted[e.pre]] for e in edges],
+            dtype=np.float64,
         )
 
     def initial_state(self) -> LIFState:

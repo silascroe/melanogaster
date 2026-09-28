@@ -76,5 +76,10 @@ outputs/**/synaptic_dynamics_traces.csv
 
 # Local Godot runtime and editor cache for the standalone 3D lab.
 tools/godot/
+tools/blender/
+tools/ffmpeg/
 arena3d/.godot/
 arena3d/.import/
+
+# Blender's rolling autosaves are redundant recovery copies.
+*.blend1

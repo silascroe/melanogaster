@@ -7,6 +7,7 @@ import numpy as np
 
 from .circuit import Circuit
 from .lif import LIFNetwork
+from .steering import SteeringSession
 
 
 def _clamp01(value: float) -> float:
@@ -16,11 +17,14 @@ def _clamp01(value: float) -> float:
 class CreatureSession:
     """One persistent neural state; the Godot client owns body and object state."""
 
-    def __init__(self, circuit: Circuit, *, condition: str = "intact") -> None:
+    def __init__(self, circuit: Circuit, *, condition: str = "intact",
+                 steering_circuit: Circuit | None = None) -> None:
         if condition not in ("intact", "disconnected"):
             raise ValueError("condition must be intact or disconnected")
         self.condition = condition
         self.network = LIFNetwork(circuit, connected=condition == "intact")
+        self.steering = (SteeringSession(steering_circuit, condition=condition)
+                         if steering_circuit is not None else None)
         self.state = self.network.initial_state()
         groups = circuit.ids_by_type
         self.lc4 = np.asarray([self.network.index[i] for i in groups["LC4"]], dtype=np.int64)
@@ -79,6 +83,9 @@ class CreatureSession:
         jump = gf_spikes > 0 and self.cooldown_ms == 0.0
         if jump:
             self.cooldown_ms = 1200.0
+        steering = (self.steering.step(fly, payload.get("target", {"active": False}),
+                                       int(round(dt_ms)))
+                    if self.steering is not None else None)
         return {
             "condition": self.condition,
             "visual": {
@@ -93,4 +100,5 @@ class CreatureSession:
             "spikes": {"LC4": lc4_spikes, "LPLC2": lplc2_spikes, "DNp01": gf_spikes},
             "jump": jump,
             "jump_rule": "DNp01 spike outside 1.2 s animation cooldown",
+            **({"steering": steering} if steering is not None else {}),
         }

@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1430 550" role="img" aria-label="Fixed-fly neural pathway responses under matched_current">
+<rect width="100%" height="100%" fill="#f7f9f9"/>
+<style>text{font-family:Arial,sans-serif;fill:#26323d}.small{font-size:14px}.title{font-size:24px;font-weight:bold}.panel{font-size:19px;font-weight:bold}</style>
+<text x="65" y="42" class="title">LC10a visual-pathway probe — matched current</text>
+<text x="65" y="70" class="small">Fixed fly · right-side target · 400 ms pulse · solid outward, dashed inward</text>
+<text x="75" y="125" class="panel">AOTU019 modeled spikes</text>
+<line x1="75" y1="420" x2="465" y2="420" stroke="#8a959f"/>
+<line x1="75" y1="165" x2="75" y2="420" stroke="#8a959f"/>
+<text x="75" y="153" class="small">73.9 spikes / 400 ms</text>
+<text x="44" y="424" class="small">0.0</text>
+<line x1="75.0" y1="165" x2="75.0" y2="420" stroke="#dce4e7"/>
+<text x="66.0" y="441" class="small">12°</text>
+<line x1="192.9" y1="165" x2="192.9" y2="420" stroke="#dce4e7"/>
+<text x="183.9" y="441" class="small">25°</text>
+<line x1="329.0" y1="165" x2="329.0" y2="420" stroke="#dce4e7"/>
+<text x="320.0" y="441" class="small">40°</text>
+<line x1="465.0" y1="165" x2="465.0" y2="420" stroke="#dce4e7"/>
+<text x="456.0" y="441" class="small">55°</text>
+<polyline points="75.0,192.3 192.9,192.3 329.0,192.3 465.0,192.3" fill="none" stroke="#526176" stroke-width="3"/>
+<circle cx="75.0" cy="192.3" r="4" fill="#526176"/>
+<circle cx="192.9" cy="192.3" r="4" fill="#526176"/>
+<circle cx="329.0" cy="192.3" r="4" fill="#526176"/>
+<circle cx="465.0" cy="192.3" r="4" fill="#526176"/>
+<polyline points="75.0,192.3 192.9,192.3 329.0,192.3 465.0,192.3" fill="none" stroke="#526176" stroke-width="3" stroke-dasharray="7 6"/>
+<polyline points="75.0,237.2 192.9,192.3 329.0,226.8 465.0,282.0" fill="none" stroke="#008c82" stroke-width="3"/>
+<circle cx="75.0" cy="237.2" r="4" fill="#008c82"/>
+<circle cx="192.9" cy="192.3" r="4" fill="#008c82"/>
+<circle cx="329.0" cy="226.8" r="4" fill="#008c82"/>
+<circle cx="465.0" cy="282.0" r="4" fill="#008c82"/>
+<polyline points="75.0,237.2 192.9,199.2 329.0,237.2 465.0,278.6" fill="none" stroke="#008c82" stroke-width="3" stroke-dasharray="7 6"/>
+<polyline points="75.0,266.5 192.9,263.0 329.0,256.1 465.0,257.9" fill="none" stroke="#d58130" stroke-width="3"/>
+<circle cx="75.0" cy="266.5" r="4" fill="#d58130"/>
+<circle cx="192.9" cy="263.0" r="4" fill="#d58130"/>
+<circle cx="329.0" cy="256.1" r="4" fill="#d58130"/>
+<circle cx="465.0" cy="257.9" r="4" fill="#d58130"/>
+<polyline points="75.0,268.2 192.9,254.4 329.0,257.9 465.0,261.3" fill="none" stroke="#d58130" stroke-width="3" stroke-dasharray="7 6"/>
+<text x="530" y="125" class="panel">AOTU025 modeled spikes</text>
+<line x1="530" y1="420" x2="920" y2="420" stroke="#8a959f"/>
+<line x1="530" y1="165" x2="530" y2="420" stroke="#8a959f"/>
+<text x="530" y="153" class="small">44.8 spikes / 400 ms</text>
+<text x="499" y="424" class="small">0.0</text>
+<line x1="530.0" y1="165" x2="530.0" y2="420" stroke="#dce4e7"/>
+<text x="521.0" y="441" class="small">12°</text>
+<line x1="647.9" y1="165" x2="647.9" y2="420" stroke="#dce4e7"/>
+<text x="638.9" y="441" class="small">25°</text>
+<line x1="784.0" y1="165" x2="784.0" y2="420" stroke="#dce4e7"/>
+<text x="775.0" y="441" class="small">40°</text>
+<line x1="920.0" y1="165" x2="920.0" y2="420" stroke="#dce4e7"/>
+<text x="911.0" y="441" class="small">55°</text>
+<polyline points="530.0,232.2 647.9,232.2 784.0,232.2 920.0,232.2" fill="none" stroke="#526176" stroke-width="3"/>
+<circle cx="530.0" cy="232.2" r="4" fill="#526176"/>
+<circle cx="647.9" cy="232.2" r="4" fill="#526176"/>
+<circle cx="784.0" cy="232.2" r="4" fill="#526176"/>
+<circle cx="920.0" cy="232.2" r="4" fill="#526176"/>
+<polyline points="530.0,232.2 647.9,232.2 784.0,232.2 920.0,232.2" fill="none" stroke="#526176" stroke-width="3" stroke-dasharray="7 6"/>
+<polyline points="530.0,368.8 647.9,311.9 784.0,254.9 920.0,192.3" fill="none" stroke="#008c82" stroke-width="3"/>
+<circle cx="530.0" cy="368.8" r="4" fill="#008c82"/>
+<circle cx="647.9" cy="311.9" r="4" fill="#008c82"/>
+<circle cx="784.0" cy="254.9" r="4" fill="#008c82"/>
+<circle cx="920.0" cy="192.3" r="4" fill="#008c82"/>
+<polyline points="530.0,368.8 647.9,306.2 784.0,232.2 920.0,198.0" fill="none" stroke="#008c82" stroke-width="3" stroke-dasharray="7 6"/>
+<polyline points="530.0,294.8 647.9,272.0 784.0,272.0 920.0,286.2" fill="none" stroke="#d58130" stroke-width="3"/>
+<circle cx="530.0" cy="294.8" r="4" fill="#d58130"/>
+<circle cx="647.9" cy="272.0" r="4" fill="#d58130"/>
+<circle cx="784.0" cy="272.0" r="4" fill="#d58130"/>
+<circle cx="920.0" cy="286.2" r="4" fill="#d58130"/>
+<polyline points="530.0,291.9 647.9,272.0 784.0,272.0 920.0,289.1" fill="none" stroke="#d58130" stroke-width="3" stroke-dasharray="7 6"/>
+<text x="985" y="125" class="panel">DNa02 toward-side voltage</text>
+<line x1="985" y1="420" x2="1375" y2="420" stroke="#8a959f"/>
+<line x1="985" y1="165" x2="985" y2="420" stroke="#8a959f"/>
+<text x="985" y="153" class="small">3.5 mV difference</text>
+<text x="954" y="424" class="small">0.0</text>
+<line x1="985.0" y1="165" x2="985.0" y2="420" stroke="#dce4e7"/>
+<text x="976.0" y="441" class="small">12°</text>
+<line x1="1102.9" y1="165" x2="1102.9" y2="420" stroke="#dce4e7"/>
+<text x="1093.9" y="441" class="small">25°</text>
+<line x1="1239.0" y1="165" x2="1239.0" y2="420" stroke="#dce4e7"/>
+<text x="1230.0" y="441" class="small">40°</text>
+<line x1="1375.0" y1="165" x2="1375.0" y2="420" stroke="#dce4e7"/>
+<text x="1366.0" y="441" class="small">55°</text>
+<polyline points="985.0,192.3 1102.9,192.3 1239.0,192.3 1375.0,192.3" fill="none" stroke="#526176" stroke-width="3"/>
+<circle cx="985.0" cy="192.3" r="4" fill="#526176"/>
+<circle cx="1102.9" cy="192.3" r="4" fill="#526176"/>
+<circle cx="1239.0" cy="192.3" r="4" fill="#526176"/>
+<circle cx="1375.0" cy="192.3" r="4" fill="#526176"/>
+<polyline points="985.0,192.3 1102.9,192.3 1239.0,192.3 1375.0,192.3" fill="none" stroke="#526176" stroke-width="3" stroke-dasharray="7 6"/>
+<polyline points="985.0,269.6 1102.9,217.0 1239.0,225.7 1375.0,250.2" fill="none" stroke="#008c82" stroke-width="3"/>
+<circle cx="985.0" cy="269.6" r="4" fill="#008c82"/>
+<circle cx="1102.9" cy="217.0" r="4" fill="#008c82"/>
+<circle cx="1239.0" cy="225.7" r="4" fill="#008c82"/>
+<circle cx="1375.0" cy="250.2" r="4" fill="#008c82"/>
+<polyline points="985.0,266.9 1102.9,220.0 1239.0,227.0 1375.0,248.2" fill="none" stroke="#008c82" stroke-width="3" stroke-dasharray="7 6"/>
+<polyline points="985.0,267.4 1102.9,259.5 1239.0,252.3 1375.0,262.1" fill="none" stroke="#d58130" stroke-width="3"/>
+<circle cx="985.0" cy="267.4" r="4" fill="#d58130"/>
+<circle cx="1102.9" cy="259.5" r="4" fill="#d58130"/>
+<circle cx="1239.0" cy="252.3" r="4" fill="#d58130"/>
+<circle cx="1375.0" cy="262.1" r="4" fill="#d58130"/>
+<polyline points="985.0,269.4 1102.9,252.0 1239.0,255.6 1375.0,261.7" fill="none" stroke="#d58130" stroke-width="3" stroke-dasharray="7 6"/>
+<line x1="80" y1="498" x2="128" y2="498" stroke="#526176" stroke-width="4"/>
+<text x="138" y="503" class="small">uniform</text>
+<line x1="340" y1="498" x2="388" y2="498" stroke="#008c82" stroke-width="4"/>
+<text x="398" y="503" class="small">anatomy</text>
+<line x1="600" y1="498" x2="648" y2="498" stroke="#d58130" stroke-width="4"/>
+<text x="658" y="503" class="small">shuffled median</text>
+<text x="850" y="503" class="small">Input amplitude held fixed only in matched-current chart</text>
+</svg>

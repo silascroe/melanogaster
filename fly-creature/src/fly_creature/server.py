@@ -9,6 +9,8 @@ from uuid import uuid4
 
 from .circuit import load_circuit
 from .controller import CreatureSession
+from .steering_diagnostic import load_candidate
+from .steering_diagnostic import condition_circuit
 
 
 def main() -> None:
@@ -17,6 +19,7 @@ def main() -> None:
     parser.add_argument("--port", type=int, default=8768)
     args = parser.parse_args()
     circuit = load_circuit()
+    steering_circuit = load_candidate()
     sessions: dict[str, CreatureSession] = {}
 
     class Handler(BaseHTTPRequestHandler):
@@ -36,6 +39,8 @@ def main() -> None:
                 "project": "Fly Creature",
                 "neurons": len(circuit.neurons),
                 "connections": len(circuit.connections),
+                "steering_neurons": len(steering_circuit.neurons),
+                "steering_connections": len(steering_circuit.connections),
                 "active_sessions": len(sessions),
             })
 
@@ -49,7 +54,8 @@ def main() -> None:
                     raise ValueError("JSON body must be an object")
                 if self.path == "/session":
                     condition = str(payload.get("condition", "intact"))
-                    session = CreatureSession(circuit, condition=condition)
+                    session = CreatureSession(circuit, condition=condition,
+                                              steering_circuit=steering_circuit)
                     session_id = uuid4().hex
                     # This first project has one local scene/client at a time.
                     sessions.clear()
@@ -59,6 +65,11 @@ def main() -> None:
                         "condition": condition,
                         "neurons": len(circuit.neurons),
                         "connections": len(circuit.connections) if condition == "intact" else 0,
+                        "steering_neurons": len(steering_circuit.neurons),
+                        "steering_connections": len(condition_circuit(
+                            steering_circuit,
+                            "intact" if condition == "intact" else "bridge_removed"
+                        ).connections),
                     })
                     return
                 parts = self.path.strip("/").split("/")

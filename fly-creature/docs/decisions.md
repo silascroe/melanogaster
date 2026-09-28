@@ -21,3 +21,249 @@ A fixed 36-frame approach at 50 ms per frame compares identical world inputs and
 ## Portability
 
 The packaged circuit is a compact, attributed derivative of the official release. Runtime source, Godot scene, dependency manifest, and data all live under `fly-creature/`; normal use needs no file from the parent FlyTest lab. The release exporter is development-only and accepts an explicit source directory.
+
+## Visual fly import
+
+The Blender macro-study fly is a presentation asset, not circuit evidence. A
+copy of its packed `.blend` lives in `art/`; `tools/export_fly_model.py` turns
+it into a self-contained glTF under `godot/assets/`. The export simplifies the
+Blender shader graph to image-based glTF materials, converts curves to meshes,
+adds a subtle image-based cuticle map to the legs, and keeps wings and
+two-segment legs under named pivots. `godot/fly_actor.tscn` combines that GLB
+with the reusable gait, jump, and flight pose controller. The current room
+instances this actor and supplies position, heading, walking speed, and action requests;
+another world can do the same without copying its animation code. The source
+artwork and the old arena remain separate. The creature's existing world coordinates, engineered
+vision features, Python LIF circuit, and jump trigger do not depend on which
+visual mesh is displayed. Godot handles wing twitches, tripod stepping with
+grounded foot targets, a two-segment leg solve, takeoff and landing poses,
+body bob, and camera follow as presentation behavior. None of these
+motions should be described as a simulated fly motor circuit.
+
+The first Blender model had a decorative dark curve intended to suggest a
+posterior thorax seam. Rear-angle renders showed it standing away from the
+cuticle as a floating arch. We removed that curve from the editable Blender
+source and regenerated the Godot GLB. The real thorax shape, wing geometry,
+and abdomen bands remain; this is an art correction, not a biological claim.
+
+## Engineered roaming
+
+`G` switches from manual WASD movement to a simple world controller. Its inputs
+are the fly's position, heading, and room bounds; it selects nearby random
+goals and steers the fly toward them. Its output is desired heading and floor
+translation. This controller does not read neural activity or inject current
+into the selected circuit. The existing approaching-object sensor and jump
+trigger still operate while roaming in the interactive scene. Roaming shows
+the model in motion; it is not a connectome behavior experiment.
+
+## Animation recording
+
+`--animation-demo` makes the Godot scene follow a seeded roaming route, take
+off, cruise, and land during a ten-second movie. It bypasses the Python
+session and hides the neural HUD. This is an asset and animation inspection
+clip, not a behavioral experiment; the flight has no connectome trigger.
+The interactive scene also exposes flight on `T`, independently of the neural
+jump trigger. The world still chooses a horizontal route while the reusable
+actor animates a fixed height above its floor position. That is a visual
+flight mode, not aerodynamic simulation or a connectome-derived motor command.
+
+## Forward walking gait
+
+The reusable `FlyActor` now uses a modified alternating tripod for authored
+walking: the front, opposite middle, and same-side hind legs share a group,
+with small front-to-middle-to-hind delays rather than simultaneous swings.
+Slower translation extends the world-planted stance interval while the swing
+duration remains about 0.12 s. Each recovering foot moves ahead on a low arc;
+the body rise is small. These choices follow the qualitative observations in
+[real fly walking references](real_fly_walking_references.md), especially Chun
+et al. (2021). The numerical timings, phase offsets, and arc heights are
+authored for this simplified two-segment rig, not measurements of a real fly.
+
+`--walking-demo` isolates a slow straight walk and stop, without the roaming
+controller, flight, neural service, or HUD. The head and body axis were checked
+against the Godot forward vector; the earlier clip's turning route and
+following camera made the direction of travel hard to read. The demo camera follows
+only partway so the animal visibly advances head-first across the floor.
+The interactive room still uses the same `FlyActor` gait. Its turning leg
+kinematics and foot contacts remain approximate.
+
+## Visual steering candidate and engineered pursuit
+
+The [Male CNS steering inspection](steering_candidate.md) selects traced
+LC10a, AOTU019, AOTU025, and DNa02 cells because published object-pursuit and
+walking-steering work gives them a concrete sensory-to-output question. The
+Male CNS release contains the expected bilateral direct bridges. A signed
+two-edge structural score is biased toward the stimulated side and reverses
+when the AOTU-to-DNa02 bridge destinations are swapped. This is evidence for
+a candidate route under an assumed transmitter-sign rule, not a prediction of
+spiking or actual turns. A subsequent [matched LIF probe](steering_candidate.md#matched-neural-activity-probe)
+finds a side-specific DNa02 voltage bias with the recorded bridge, zero bias
+when that bridge is removed, and a reversed bias when its destinations are
+swapped. DNa02 never spikes under the fixed probe settings.
+
+The [pursuit milestone](pursuit_milestone.md) deliberately reads the DNa02
+voltage difference as an analog motor command. That readout and its gain are
+engineered. Godot moves a visible small target, supplies a left/right bearing
+feature to the selected LC10a population, and applies the returned turn rate
+while the fly walks forward. Removing only the AOTU-to-DNa02 bridge in the
+steering circuit eliminates the turn in the same scripted scene. Three small
+closed-loop target paths reduce bearing error relative to that control, but
+they do not establish real-fly sensor tuning, neural firing, or pursuit
+behavior. The existing jump circuit and roaming rule retain separate roles.
+
+## 2026-09-26: keep skeleton-derived LC10a input experimental
+
+The [visual-input experiment](visual_input_experiment.md) gives the 275
+selected LC10a body IDs different provisional visual centers using their
+official MaleCNS SWC geometry. This is more specific than the playable
+whole-side current, but its distal point window, y-axis orientation, angle
+range, tuning width, and current normalization are modeling choices. The
+published frontal/lateral AOTU distinction comes from a different connectome;
+the MaleCNS annotations do not measure these cells' receptive fields.
+
+The input aligned with the recorded wiring better than 12 within-side LC10a
+output-bundle shuffles on ten offline paths. It tracked worse than both the
+old uniform input and a direct rule on all five new paths. Therefore keep the
+playable input unchanged, preserve this map and comparison as evidence, and
+seek a visual-field assignment independent of the selected output wiring
+before claiming anatomical specificity or promoting the alternative.
+
+## 2026-09-26: separate spatial branch response from motion selectivity
+
+The [fixed-fly pathway probe](visual_pathway_probe.md) used equal-amplitude
+static and matched inward/outward motion pulses before repeating them with
+the playable input envelope. The anatomical input produced a coarse frontal
+AOTU019 / lateral AOTU025 split that uniform side input lacked. Static
+targets still drove both branches, and motion direction had no consistent
+AOTU019 preference across hemispheres. With the current LIF and decoder,
+the anatomical input gave a weaker DNa02 voltage bias in every probe setting.
+This explains a plausible part of its poorer closed-loop tracking but does
+not justify changing gain or promoting the visual map. Keep the experiment
+offline and seek independent receptive-field or motion-input evidence.
+
+## 2026-09-26: retain the upstream map, reject the simple motion gate
+
+The [upstream and motion report](visual_motion_experiment.md) derives LC10a
+horizontal positions from MaleCNS medulla-column neurons that synapse *into*
+LC10a. It does not use LC10a output weights or pursuit scores to choose the
+axis. Direct upstream input covers 248 of 275 cells, but only 164 have at least
+three mapped incoming edges; the other 111 positions use skeleton geometry
+calibrated from those inputs. The rank-to-degree conversion remains a model
+assumption. A fixed fly confirms the added speed feature suppresses static
+responses, yet the two AOTU branches still lack the observed direction
+preference. On five repeated paths, this version tracked worse than the
+playable input and a direct rule, despite beating the median wiring shuffle.
+The predeclared promotion gate failed. Keep the packaged map as a research
+artifact and keep the playable input unchanged; do not tune output gain to
+rescue this particular input rule.
+
+## 2026-09-26: diagnose sensory drive separately from motor readout
+
+The [paired input/readout audit](input_readout_audit.md) holds a prerecorded
+trajectory fixed while comparing upstream-position and speed-sensitive input.
+The motion rule roughly halves mean delivered current and suppresses LC10a,
+AOTU019, and DNa02 voltage responses. Correct-sign voltage frames become
+silent, rather than changing sign. In a separate readout comparison, a
+spike-only DNa02 decoder never turns because the model emits no DNa02 spikes.
+Thus the extra pursuit loss from the motion rule is primarily a sensory-drive
+effect under the existing software readout, while the voltage-based motor
+command remains an independent biological-validity limit. Do not change the
+playable input or readout on this evidence. Seek a fixed-fly stimulus and
+neural parameterization that produce a defensible DNa02 firing response
+before claiming a firing-to-steering mechanism.
+
+## 2026-09-26: do not promote tonic firing from the sensitivity grid
+
+The [fixed-fly DNa02 firing experiment](fixed_fly_dn_firing.md) used
+literature-matched object-pulse span and speeds, but explicitly modeled
+LC10a currents and LIF parameters. Full-strength visual input elicited no
+DNa02 spikes at the current settings or with a 2×/4× boost to the AOTU
+bridge. Tonic DNa02 drive above the LIF threshold yielded a correctly signed,
+bridge-dependent spike difference, but the tonic level is unmeasured and
+direction selectivity remained absent. Static targets also produced the
+position-input response. Keep both tonic drive and bridge multipliers
+experimental; retain the playable voltage rule as an engineered proxy.
+
+## 2026-09-26: keep local motion redistribution offline
+
+The [local-motion experiment](local_motion_experiment.md) addressed the
+previous speed gate's current starvation by keeping total side current
+identical and moving half of it toward cells whose putative fields the image
+enters. The circuit response changed, and intact wiring beat within-side
+output-bundle shuffles on all five new paths. It nevertheless tracked worse
+than position-only, playable uniform input, and a direct software rule.
+Fixed-fly AOTU019 responses also preferred inward over outward motion in
+seven of eight matched settings. The predeclared promotion gate failed.
+Do not tune the 50/50 fraction against these paths or enable the input in
+Godot. The optional per-cell-weight hook leaves default behavior unchanged.
+
+## 2026-09-26: keep the reproduced pursuit reference separate from MaleCNS runtime
+
+The [Step 2 reproduction](pursuit_reference_result.md) matches the authors'
+population-level pursuit core under Octave to floating-point precision for
+static and zero-noise step inputs, with a common unfiltered-noise cross-check.
+Its response fields are sourced from the authors' licensed table at analysis
+time, not bundled with the creature. This is a mathematical reproduction of
+pathway activity; it does not exercise our selected 281 v1.0 neurons.
+Do not enable it in Godot or label it connectome-driven until a mapped
+cell-level adaptation and suitable pathway interventions have been checked.
+The source's settling helper can count separate visits as one settled
+interval, so report it beside a continuous-stay measure.
+
+## 2026-09-26: retain the v1 pursuit projection offline
+
+The [Step 3 audit](pursuit_mapping_result.md) finds that all 16 published
+v0.9 downstream partner IDs persist with the same type in v1.0. The authors'
+visual response fields already reflect LC10a-to-target heatmap weighting and
+normalized target-to-DNa02 counts. Do not multiply those aggregate fields by
+our own selected edges. The new `pursuit_activity.py` instead projects an
+explicitly hypothesized v1.0 LC10a response through each recorded edge once.
+Its AOTU019 shape is near the reference, but AOTU025 is substantially more
+frontal. Keep this adapter as an offline structural diagnostic; its values
+are contact products, not calibrated neural activity or a turn command.
+Resolve the visual-field mismatch before behavioral promotion.
+
+## 2026-09-26: do not fit the v1 visual map to the pursuit outputs
+
+The [field-gap diagnosis](pursuit_field_gap_diagnosis.md) shows that the
+5°–60° rank-to-angle assumption compresses the lateral AOTU025 response.
+Changing field width, side, contact threshold, or cap does not fix its peak;
+mapping the original medulla coordinate to a broader assumed span greatly
+changes the curve. A span chosen to match the authors' two peaks would be
+circular. Keep the packaged map as a labeled hypothesis and the adapter
+offline until an independently registered medulla-column-to-retinal-bearing
+map can be checked against both branches.
+
+## 2026-09-26: use a registered eye-map candidate for bounded Step 4 tests
+
+The [registered eye-map result](pursuit_registered_eye_map_result.md) replaces
+the arbitrary 5°–60° conversion in the offline projection with a published
+FAFB viewing-vector map transferred through MaleCNS p/q column coordinates.
+The nominal v3 map passes a fixed-fly AOTU019/AOTU025 shape-and-peak check on
+both sides. A within-side output-bundle shuffle loses the modeled spatial
+split in 500 deterministic controls. The map derivation did not inspect the
+AOTU reference or tracking outcomes. Step 4's bounded evaluation may begin.
+Keep the original v2 map available for comparison. The transfer is a
+cross-specimen registration hypothesis, most left output contacts rely on
+skeleton fallback, and a one-column shift changes the curves. Carry declared
+shift variants and test unseen situations before deciding whether this
+candidate merits a playable integration. The hard hemisphere gate in the
+offline projection also excludes binocular overlap; do not label its output
+neural firing or a measured receptive field.
+
+## 2026-09-27: retain the Step 4 adapter offline after failed settling gate
+
+The [frozen Step 4 protocol](pursuit_step4_protocol.md) and
+[result](pursuit_step4_result.md) tested the registered input map with the
+source's 450 ms delay, ELU AOTU transformation, and imposed AOTU019 motion
+penalty, then the v1.0 signed AOTU→DNa02 edges. Intact wiring beat bridge
+removal and median within-side shuffle on eight held-out paths, demonstrating
+modeled pathway dependence. Neither step-hold case had a continuous one-second
+stay within ±10°; both oscillated across the target nine times near center.
+The predeclared one-factor sensitivity bound also failed when a 20% lower
+gain improved median error from 12.123° to 8.374°. Direct bearing and the
+existing playable LIF controller tracked better. Do not promote this adapter
+to Godot or tune the same held-out paths to make it pass. Retain the verified
+aggregate reference, v3 map, old playable controller, and this failed
+Step 4 result as separately labeled artifacts. A revised controller needs
+an explanation of delayed oscillation and newly declared held-out cases.

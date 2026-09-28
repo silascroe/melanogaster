@@ -1,6 +1,271 @@
 # FlyTest handoff
 
-Updated 2026-09-21 for the next Codex chat.
+## 2026-09-27: pursuit Step 4 ran; do not integrate this candidate
+
+Read the [frozen protocol](../fly-creature/docs/pursuit_step4_protocol.md),
+[result](../fly-creature/docs/pursuit_step4_result.md), and compact JSON. The
+v3 input map was combined with source-inspired delayed AOTU dynamics and the
+selected v1.0 AOTU→DNa02 edges in a portable, offline adapter. On eight
+new target paths, intact median error was 12.123° versus 18.526° with the
+output bridge removed, and intact beat the median of 32 within-side wiring
+shuffles on every path. But it failed the predeclared Step 5 gate: neither
+step-hold case stayed within ±10° for one second, and a 20% lower gain moved
+median error by more than the allowed 25%. Direct bearing and the playable
+LIF controller both tracked better. The old source-reference parity check,
+10 creature tests, 69 root tests, and original/working data verification
+passed. Keep Godot on the earlier LIF controller. A revision needs a causal
+explanation for the delayed oscillation and fresh held-out paths; do not tune
+on these eight. The intentionally dirty worktree and raw data were preserved.
+
+## 2026-09-26: pursuit Step 3 eye-map candidate; Step 4 may begin offline
+
+Read the [registered eye-map result](../fly-creature/docs/pursuit_registered_eye_map_result.md)
+and its compact audit. A public FAFB eye map was transferred using the
+MaleCNS hex-to-p/q coordinate transform, without using the target AOTU
+curves in the derivation. The packaged v3 candidate passes the fixed-fly
+frontal/lateral field check on both sides; 500 within-side output-bundle
+shuffles do not match its spatial split. This resolves the prior 45° versus
+72° mismatch enough to start Step 4's bounded offline experiment. The
+cross-specimen registration is not unique, and left-side branches mostly
+depend on skeleton fallback. Carry nominal and declared one-column shifts,
+test motion and held-out paths, and retain the hard-hemisphere input caveat.
+The playable Godot/LIF controller remains separate and unchanged. Earlier
+handoff sections below record the prior failed map and diagnosis.
+
+## 2026-09-26: pursuit Step 3 field-gap diagnosis
+
+Read the [diagnosis](../fly-creature/docs/pursuit_field_gap_diagnosis.md) and
+its compact JSON before moving toward Step 4. The current AOTU025 mismatch
+comes primarily from our assumed 5°–60° LC10a visual-angle conversion;
+width, hemisphere, contact threshold, and cap controls do not fix it. A
+broader mapping from the same upstream medulla coordinate improves the curve
+shape but is not independently calibrated. Do not tune against the authors'
+output peaks or enable the offline adapter in Godot yet. Obtain an
+independent column-to-bearing calibration first.
+
+## 2026-09-26: pursuit reference Step 3 mapping audit
+
+Read [pursuit_mapping_result.md](../fly-creature/docs/pursuit_mapping_result.md)
+and its compact JSON before attempting a new pursuit controller. All 16
+published v0.9 downstream partner IDs persist with the same traced types in
+v1.0, but the authors' curves already include connection-weight information.
+The portable offline `pursuit_activity.py` projects the packaged v1.0 LC10a
+position hypothesis through each selected edge once. AOTU019 shape is close
+to the published aggregate; AOTU025 peaks at 45° versus 72° in the reference.
+The map's retinal-angle scale is assumed, so this is not a validated
+cell-level substitution. Keep both the verified aggregate reference and the
+playable LIF controller separate. Next, resolve the AOTU025 visual-field
+mismatch before behavioral evaluation; do not tune the motor gain to hide it.
+
+## 2026-09-26: pursuit reference Step 2
+
+The offline Python population reference is in
+`fly-creature/src/fly_creature/pursuit_reference.py`. The pinned authors' core
+running in portable GNU Octave and the Python version match to floating-point
+precision across static responses and all three direction-selectivity step
+conditions, including a shared nonzero perturbation check. See
+[pursuit_reference_result.md](../fly-creature/docs/pursuit_reference_result.md)
+and compact evidence JSON. The MATLAB low-pass noise filter and full 20,000-run
+published aggregate were not reproduced. In a 120° sample, the authors'
+settling helper reports success where a true consecutive one-second stay
+does not occur; both metrics are retained. Our tracked comparison harness is
+under `fly-creature/tools/pursuit_reference_octave/`. The authors' code/data
+and raw traces stay ignored under `fly-creature/outputs/research/`. Playable
+Godot and MaleCNS v1.0 LIF steering remain unchanged. Next: map source v0.9
+fields/weights to our v1.0 circuit without double-counting synapses.
+
+## 2026-09-26: published pursuit reference Step 1
+
+The pinned source, file hashes, MaleCNS table audit, exact author-code step
+protocol, and comparison rules are in
+[pursuit_reference_contract.md](../fly-creature/docs/pursuit_reference_contract.md).
+The clean authors' clone is ignored under `fly-creature/outputs/research/`;
+their source/data were not copied into tracked runtime files. Source revision
+`65d72773121ffe148b56b8ba4f594a7a51c51789` uses MaleCNS v0.9-derived
+response tables, while our creature's graph uses v1.0. No MATLAB/Octave
+runtime or original numerical trace was available. The code's settling-time
+helper counts separate visits to the target band cumulatively despite its
+continuous-stay description; keep source parity and corrected metrics
+separate. Playable behavior is unchanged.
+
+## 2026-09-26: pursuit strategy reassessment
+
+Read [pursuit_reassessment.md](../fly-creature/docs/pursuit_reassessment.md)
+before another visual-input experiment. The next recommendation is to
+reproduce the authors' released activity-based pursuit reference and reconcile
+it with our MaleCNS circuit, rather than invent another LC10a motion filter.
+Their repository contains MaleCNS v0.9 analysis as well as the older female
+work; exact response-table provenance and v1.0 correspondence remain open.
+Our generic LIF parameters are uncalibrated, and beating an exact-bearing
+software controller is not a necessary biological acceptance criterion.
+This was research only; no replacement model or new performance result exists.
+
+## 2026-09-26: fixed-charge local LC10a motion candidate
+
+The [offline local-motion experiment](../fly-creature/docs/local_motion_experiment.md)
+redistributes half the existing visual current toward LC10a cells whose
+modeled receptive fields the target is entering. Total side current is
+unchanged. Fixed-fly pulses confirmed exact current matching, but AOTU019
+showed no desired outward-motion preference; inward response was larger in
+seven of eight paired settings. On five new target paths, mean bearing error
+was 10.775° versus 10.297° for position only, 9.195° for playable whole-side
+input, and 8.113° for a direct controller. It beat the median of 12 wiring
+shuffles on all five paths, but failed the predeclared promotion gate. The
+candidate stays offline; the new optional per-cell input override does not
+change Godot or service defaults. Code and compact JSON are under
+`fly-creature/`. Preserve the intentionally dirty worktree.
+
+## 2026-09-26: fixed-fly DNa02 firing sensitivity result
+
+The [fixed-fly firing experiment](../fly-creature/docs/fixed_fly_dn_firing.md)
+uses published 22.5° object-pulse spans and 25/75°/s speeds with the selected
+MaleCNS route and upstream-derived LC10a map. At original LIF settings,
+full-strength moving input produced zero DNa02 spikes in all 16 moving trials
+per input type. Multiplying only the four AOTU-to-DNa02 edge currents by 2 or
+4 still produced none without tonic drive. An *unmeasured* symmetric tonic
+DNa02 drive of 16 or 20 current-equivalent mV yielded a bridge-dependent
+toward-side firing bias on all moving trials, but the position input drove
+static objects too, and the motion gate showed no consistent inward/outward
+preference. This is a sensitivity result, not a calibrated spiking model.
+Code, compact JSON, and report are under `fly-creature/`; playable Godot and
+neural service defaults remain unchanged.
+
+## 2026-09-26: separate visual-input and steering-readout audit
+
+The [paired offline audit](../fly-creature/docs/input_readout_audit.md) replays
+the upstream position input and speed-sensitive input on identical direct-rule
+trajectories. The motion rule cuts the mean dimensionless LC10a input-strength
+factor from 0.1963 to 0.0955, and AOTU019 spikes from 855 to 286 across five
+paths. The available
+DNa02 voltage bias never points the wrong way on the 696 eligible sampled
+frames, but becomes zero much more often (337 to 576 frames). In separate
+closed-loop trials, position versus motion under the unchanged voltage decoder
+gives 11.428° versus 17.102° mean bearing error. A spike-only DNa02 readout
+cannot turn because this selected LIF model produces zero DNa02 spikes; both
+input versions then score 26.849°. Keep the playable Godot behavior unchanged.
+The audit code and compact JSON live entirely under `fly-creature/`.
+
+## 2026-09-26: upstream LC10a map and motion-input decision
+
+The [latest offline report](../fly-creature/docs/visual_motion_experiment.md)
+uses MaleCNS medulla-column inputs to orient 275 LC10a positions independently
+of the selected AOTU outputs. Direct upstream input covers 248 cells; 164 have
+at least three mapped incoming column edges, and 111 use skeleton-based
+fallback calibrated from those inputs. The 5°–60° rank scale is still a
+model assumption. A fixed, magnitude-only motion feature suppresses static
+responses but does not reproduce measured direction preference. On the five
+repeated target paths, mean pursuit error was 17.102° with that motion input,
+versus 9.903° for the current playable input and 9.088° for a direct rule.
+It beat the median shuffled wiring but failed the predeclared promotion gate.
+The packaged v2 map, derivation tool, experiment code, and compact JSON are
+under `fly-creature/`; Godot and neural service defaults remain unchanged.
+The deliberately dirty worktree and raw Feather release were preserved.
+
+## 2026-09-26: fixed-fly visual pathway probe
+
+The [pathway report](../fly-creature/docs/visual_pathway_probe.md) now answers
+why the first anatomical input underperformed. With a fixed fly and matched
+current, it creates a coarse AOTU019 frontal / AOTU025 lateral response split;
+uniform whole-side input gives flat angle responses. The anatomical input
+still produces less DNa02 voltage bias under the fixed decoder in all 48
+probe settings. Static objects drive it, and inward/outward sweeps do not show
+a consistent frontal AOTU019 direction preference. The report links two PNG
+chart previews, their SVG originals, compact CSV/JSON summaries, and the
+reproducible command. The Godot
+default and other creature behaviors remain unchanged.
+
+## 2026-09-26: LC10a anatomical input experiment
+
+The long-term Fly Creature direction is now in `fly-creature/README.md`:
+build sensory-to-action pathways whose particular MaleCNS wiring has a
+demonstrable role, with simulator assumptions and controls explicit. The
+[first per-cell input experiment](../fly-creature/docs/visual_input_experiment.md)
+derives 275 provisional visual centers from official MaleCNS LC10a SWC
+geometry. Raw skeletons are ignored under `fly-creature/outputs/`; a compact
+reproducible map is packaged within the creature. Offline, the anatomy input
+beat all 12 within-side wiring shuffles on ten paths, but lost to both the
+existing uniform input and a direct-bearing controller on all five new paths.
+The playable input was not changed. See the compact result JSON and the report
+for exact methods, scores, and the cross-dataset visual-field caveat.
+
+## 2026-09-26: pursuit trust audit
+
+The current Fly Creature pursuit default remains intact. The read-only
+[audit](../fly-creature/docs/pursuit_trust_audit.md) compares six active target
+paths, six input strengths, and three world-step intervals with bridge removal,
+a side-swapped bridge, and a direct-bearing controller. Its compact results are
+at `fly-creature/docs/evidence/pursuit_trust_audit_v1.json`. The selected
+281-cell/366-edge circuit was regenerated byte for byte from the working
+MaleCNS release; all working Feather files still match the originals. None of
+the 275 LC10a annotation rows has optic-lobe hex coordinates filled in, so the
+per-cell visual assignment remains unresolved. The
+[primary-source review](../fly-creature/docs/lc10a_visual_input_research.md)
+records the supported and unsupported inferences. A short Godot 4.7 headless
+run reached the Python service and produced a nonzero pursuit turn. The audit
+supports modeled wiring dependence, not a unique advantage over a direct
+tracker or a biological claim.
+
+## 2026-09-26: working Fly Creature pursuit slice
+
+The newest **uncommitted** milestone is in `fly-creature/`, separate from the
+old arena described below. A moving green target now drives an engineered
+left/right LC10a input into a compact 281-neuron, 366-edge MaleCNS
+LC10a→AOTU019/AOTU025→DNa02 route. The Python LIF model returns the DNa02
+voltage difference; an explicit software readout turns the walking fly in
+Godot. Press `V` in the interactive scene. `C` restarts with the
+AOTU→DNa02 steering bridge removed, yielding straight walking under the same
+target script. The preexisting jump pathway retains its former diagnostic
+result (first intact jump frame 24, none with its circuit disconnected).
+
+Read `fly-creature/docs/pursuit_milestone.md` for exact input, model, motor
+assumptions, three closed-loop trajectory comparisons, individual AOTU output
+ablations, and the next loop.
+Eight-second 1280×720/60 fps captures are local ignored artifacts at
+`fly-creature/outputs/pursuit/pursuit_intact.mp4` and
+`fly-creature/outputs/pursuit/pursuit_disconnected.mp4`. The packaged compact
+circuit and all runtime imports live under `fly-creature/`; the parent Feather
+release is read only during development. The Godot capture was made with the
+workspace portable build in `tools/godot/4.7/` using the Windows compatibility
+renderer. Sandbox-only launches failed while creating Godot user data; the
+graphics-enabled workspace-copy launch succeeded. Keep the deliberately
+mixed worktree intact; do not broadly
+stage, clean, or reset it.
+
+The following 2026-09-24 handoff remains as the historical lab snapshot.
+
+Updated 2026-09-24 for the next Codex chat.
+
+## Current snapshot — start here
+
+The latest committed brain milestone is `4e96f78` (`Test competing cues with
+paired arena decoders`) on `experiment/competitive-decoder-replay`. The
+worktree is intentionally not clean. Before this handoff update, it already
+contained uncommitted presentation work in `.gitignore`, `arena3d/main.gd`,
+`docs/decisions.md`, `arena3d/assets/`, and `artwork/`. Do not reset, clean,
+switch branches, or stage unrelated work without checking with the user. This
+handoff and the new Blender decision entry are the only workspace edits made
+for this chat-boundary preparation.
+
+The latest visual work is a standalone procedural male fruit-fly study. Open
+`artwork/blender/realistic_fly_hero/male_drosophila_hero.blend` in Blender;
+the full-body and close-up renders are under
+`outputs/blender/realistic-fly-hero/`. Its builder and Blender integration
+test sit beside the scene. It is not wired into Godot and does not change the
+connectome, simulator, or the existing Decision Chamber / earlier fly scenes.
+This is a detailed procedural CG model, not a specimen scan or photoreal asset.
+
+The visual checks passed: 4 hero-scene Blender tests, 3 tests for the earlier
+realistic-fly scene, all 69 project tests, and `flytest.verify` (original and
+working connectome copies still match). The hero scene was rendered at
+2048×1536, 96 Cycles samples, using the local Blender 5.2.2 build and the GTX
+1070 OptiX device. `git diff --check` reports only the checkout's existing
+line-ending warnings.
+
+For the next incremental project step, use the decoder-competition results
+below as the brain-work starting point; a small set of matched timing/geometry
+controls is more informative than adding neurons. Alternatively, continue
+visual modeling only after choosing a specific target. Do not assume this
+handoff authorizes either path by itself.
 
 ## What this project is
 

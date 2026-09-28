@@ -1,0 +1,102 @@
+{
+  "map_sha256": "49830d161d8b893754247f57499d9988099aa97f0365124ea67a92c7b764ca99",
+  "pursuit_reference_source_commit": "65d72773121ffe148b56b8ba4f594a7a51c51789",
+  "eye_map_git_blob_sha1": "f3ee4a5aeb5be159de7071952dc52eb20d8b42d6",
+  "fafb_medulla_grid_git_blob_sha1": "66d5b9f1e9d06d65a77bfa04d305396e3ff21a9f",
+  "interpretation": "fixed-fly anatomical hypothesis; not measured cell fields or calibrated firing",
+  "eye_map_local_affine_leave_one_out_azimuth_abs_error_deg": {
+    "median": 0.20985357523803927,
+    "p95": 1.1183046041243556,
+    "max": 13.258296597979168,
+    "warning": "Same-dataset interpolation error; excludes cross-specimen registration uncertainty"
+  },
+  "branch_coverage": {
+    "AOTU019_L": {
+      "lc10a_to_aotu_contacts": 6615,
+      "direct_angle_contact_fraction": 0.4255479969765684,
+      "boundary_interpolation_fraction_within_direct": 0.03572746003552398
+    },
+    "AOTU025_L": {
+      "lc10a_to_aotu_contacts": 3303,
+      "direct_angle_contact_fraction": 0.35392067817135936,
+      "boundary_interpolation_fraction_within_direct": 0.0002851154833190761
+    },
+    "AOTU019_R": {
+      "lc10a_to_aotu_contacts": 7595,
+      "direct_angle_contact_fraction": 0.9797235023041475,
+      "boundary_interpolation_fraction_within_direct": 0.04392220131702729
+    },
+    "AOTU025_R": {
+      "lc10a_to_aotu_contacts": 3728,
+      "direct_angle_contact_fraction": 0.9466201716738197,
+      "boundary_interpolation_fraction_within_direct": 0.0017003967129498442
+    }
+  },
+  "old_v2_field": {
+    "L": {
+      "AOTU019": {
+        "peak_deg": 27,
+        "reference_peak_deg": 26,
+        "shape_pearson": 0.8968818653799098
+      },
+      "AOTU025": {
+        "peak_deg": 44,
+        "reference_peak_deg": 72,
+        "shape_pearson": 0.22918910359991562
+      },
+      "peak_separation_deg": 17
+    },
+    "R": {
+      "AOTU019": {
+        "peak_deg": 28,
+        "reference_peak_deg": 26,
+        "shape_pearson": 0.9042042825812127
+      },
+      "AOTU025": {
+        "peak_deg": 45,
+        "reference_peak_deg": 72,
+        "shape_pearson": 0.263244843925235
+      },
+      "peak_separation_deg": 17
+    }
+  },
+  "registered_v3_field": {
+    "L": {
+      "AOTU019": {
+        "peak_deg": 18,
+        "reference_peak_deg": 26,
+        "shape_pearson": 0.9340291474232002
+      },
+      "AOTU025": {
+        "peak_deg": 62,
+        "reference_peak_deg": 72,
+        "shape_pearson": 0.8532693934260609
+      },
+      "peak_separation_deg": 44
+    },
+    "R": {
+      "AOTU019": {
+        "peak_deg": 21,
+        "reference_peak_deg": 26,
+        "shape_pearson": 0.9479963615629781
+      },
+      "AOTU025": {
+        "peak_deg": 62,
+        "reference_peak_deg": 72,
+        "shape_pearson": 0.8463492196469694
+      },
+      "peak_separation_deg": 41
+    }
+  },
+  "within_side_whole_bundle_shuffle": {
+    "seed": 20260926,
+    "count": 500,
+    "mean_four_branch_shape_correlation": 0.8954110305148022,
+    "null_mean_shape_correlation_median": 0.5396607302262768,
+    "null_mean_shape_correlation_p95": 0.6273320298961275,
+    "null_fraction_at_least_observed_shape": 0.0,
+    "mean_bilateral_branch_peak_separation_deg": 42.5,
+    "null_peak_separation_median_deg": 0.5,
+    "null_fraction_at_least_observed_separation": 0.0
+  }
+}

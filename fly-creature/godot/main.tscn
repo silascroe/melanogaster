@@ -1,10 +1,13 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene load_steps=4 format=3]
 
 [ext_resource type="Script" path="res://main.gd" id="1_main"]
 [ext_resource type="Script" path="res://neural_bridge.gd" id="2_bridge"]
+[ext_resource type="PackedScene" path="res://fly_actor.tscn" id="3_fly"]
 
 [node name="FlyCreature" type="Node3D"]
 script = ExtResource("1_main")
 
 [node name="NeuralBridge" type="Node" parent="."]
 script = ExtResource("2_bridge")
+
+[node name="Fly" parent="." instance=ExtResource("3_fly")]

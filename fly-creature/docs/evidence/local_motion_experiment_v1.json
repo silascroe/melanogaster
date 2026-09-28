@@ -1,0 +1,865 @@
+{
+  "question": "Can fixed-charge local LC10a motion input improve pursuit through the selected MaleCNS wiring?",
+  "status": "offline candidate; playable default unchanged",
+  "map_sha256": "acd8dab50a468f5c2d715363d00cea2d12130ce0daacce7d7561de4893bb8fe8",
+  "protocol": {
+    "input": "At each 20ms step, split 50% of the existing side current by the position weights and 50% by positive per-cell change in those weights. If no weights rise, use position only. Side current is preserved.",
+    "input_caveat": "The 18-degree field width, 0.1 floor, 50/50 split, and rank-to-angle map are engineered. Retinal self-motion is not separated.",
+    "fixed_fly": "100ms baseline; static or 22.5-degree inward/outward sweep at 25/75deg/s, full matched mean side current, 20ms world / 1ms LIF steps.",
+    "new_paths": [
+      "weave",
+      "offset_hop",
+      "approach_arc",
+      "lateral_drift",
+      "flutter"
+    ],
+    "path_duration_ms": 8000,
+    "controls": "Playable uniform input, upstream position only, previous global speed gate, direct-bearing software rule, bridge removal, and 12 within-side LC10a output-bundle shuffles. Neural model and voltage decoder held fixed.",
+    "predeclared_promotion_gate": "Local input must beat position, playable uniform, and direct control in mean bearing error and on at least 3/5 new paths each; beat shuffle median on at least 3/5. Otherwise stay offline."
+  },
+  "fixed_fly": {
+    "L:25:25:static": {
+      "position": {
+        "duration_ms": 900,
+        "frames_with_local_redistribution": 0,
+        "mean_total_LC10a_current_mv": 12150.0,
+        "LC10a_spikes": 19504,
+        "AOTU019_spikes": 150,
+        "AOTU025_spikes": 44,
+        "DNa02_spikes": 0,
+        "mean_toward_DNa02_voltage_bias_mv": 2.8364
+      },
+      "local": {
+        "duration_ms": 900,
+        "frames_with_local_redistribution": 0,
+        "mean_total_LC10a_current_mv": 12150.0,
+        "LC10a_spikes": 19504,
+        "AOTU019_spikes": 150,
+        "AOTU025_spikes": 44,
+        "DNa02_spikes": 0,
+        "mean_toward_DNa02_voltage_bias_mv": 2.8364
+      }
+    },
+    "L:25:25:outward": {
+      "position": {
+        "duration_ms": 900,
+        "frames_with_local_redistribution": 0,
+        "mean_total_LC10a_current_mv": 12150.0,
+        "LC10a_spikes": 19224,
+        "AOTU019_spikes": 102,
+        "AOTU025_spikes": 41,
+        "DNa02_spikes": 0,
+        "mean_toward_DNa02_voltage_bias_mv": 2.05
+      },
+      "local": {
+        "duration_ms": 900,
+        "frames_with_local_redistribution": 17,
+        "mean_total_LC10a_current_mv": 12150.0,
+        "LC10a_spikes": 18655,
+        "AOTU019_spikes": 92,
+        "AOTU025_spikes": 57,
+        "DNa02_spikes": 0,
+        "mean_toward_DNa02_voltage_bias_mv": 2.0764
+      }
+    },
+    "L:25:25:inward": {
+      "position": {
+        "duration_ms": 900,
+        "frames_with_local_redistribution": 0,
+        "mean_total_LC10a_current_mv": 12150.0,
+        "LC10a_spikes": 19224,
+        "AOTU019_spikes": 108,
+        "AOTU025_spikes": 42,
+        "DNa02_spikes": 0,
+        "mean_toward_DNa02_voltage_bias_mv": 2.1604
+      },
+      "local": {
+        "duration_ms": 900,
+        "frames_with_local_redistribution": 17,
+        "mean_total_LC10a_current_mv": 12150.0,
+        "LC10a_spikes": 16527,
+        "AOTU019_spikes": 99,
+        "AOTU025_spikes": 10,
+        "DNa02_spikes": 0,
+        "mean_toward_DNa02_voltage_bias_mv": 1.6813
+      }
+    },
+    "L:25:75:static": {
+      "position": {
+        "duration_ms": 300,
+        "frames_with_local_redistribution": 0,
+        "mean_total_LC10a_current_mv": 12150.0,
+        "LC10a_spikes": 6499,
+        "AOTU019_spikes": 50,
+        "AOTU025_spikes": 15,
+        "DNa02_spikes": 0,
+        "mean_toward_DNa02_voltage_bias_mv": 2.6918
+      },
+      "local": {
+        "duration_ms": 300,
+        "frames_with_local_redistribution": 0,
+        "mean_total_LC10a_current_mv": 12150.0,
+        "LC10a_spikes": 6499,
+        "AOTU019_spikes": 50,
+        "AOTU025_spikes": 15,
+        "DNa02_spikes": 0,
+        "mean_toward_DNa02_voltage_bias_mv": 2.6918
+      }
+    },
+    "L:25:75:outward": {
+      "position": {
+        "duration_ms": 300,
+        "frames_with_local_redistribution": 0,
+        "mean_total_LC10a_current_mv": 12150.0,
+        "LC10a_spikes": 6402,
+        "AOTU019_spikes": 34,
+        "AOTU025_spikes": 14,
+        "DNa02_spikes": 0,
+        "mean_toward_DNa02_voltage_bias_mv": 1.9643
+      },
+      "local": {
+        "duration_ms": 300,
+        "frames_with_local_redistribution": 5,
+        "mean_total_LC10a_current_mv": 12150.0,
+        "LC10a_spikes": 6156,
+        "AOTU019_spikes": 31,
+        "AOTU025_spikes": 18,
+        "DNa02_spikes": 0,
+        "mean_toward_DNa02_voltage_bias_mv": 1.9579
+      }
+    },
+    "L:25:75:inward": {
+      "position": {
+        "duration_ms": 300,
+        "frames_with_local_redistribution": 0,
+        "mean_total_LC10a_current_mv": 12150.0,
+        "LC10a_spikes": 6400,
+        "AOTU019_spikes": 37,
+        "AOTU025_spikes": 14,
+        "DNa02_spikes": 0,
+        "mean_toward_DNa02_voltage_bias_mv": 2.0957
+      },
+      "local": {
+        "duration_ms": 300,
+        "frames_with_local_redistribution": 5,
+        "mean_total_LC10a_current_mv": 12150.0,
+        "LC10a_spikes": 5575,
+        "AOTU019_spikes": 33,
+        "AOTU025_spikes": 4,
+        "DNa02_spikes": 0,
+        "mean_toward_DNa02_voltage_bias_mv": 1.6187
+      }
+    },
+    "L:45:25:static": {
+      "position": {
+        "duration_ms": 900,
+        "frames_with_local_redistribution": 0,
+        "mean_total_LC10a_current_mv": 12150.0,
+        "LC10a_spikes": 18891,
+        "AOTU019_spikes": 90,
+        "AOTU025_spikes": 60,
+        "DNa02_spikes": 0,
+        "mean_toward_DNa02_voltage_bias_mv": 2.0702
+      },
+      "local": {
+        "duration_ms": 900,
+        "frames_with_local_redistribution": 0,
+        "mean_total_LC10a_current_mv": 12150.0,
+        "LC10a_spikes": 18891,
+        "AOTU019_spikes": 90,
+        "AOTU025_spikes": 60,
+        "DNa02_spikes": 0,
+        "mean_toward_DNa02_voltage_bias_mv": 2.0702
+      }
+    },
+    "L:45:25:outward": {
+      "position": {
+        "duration_ms": 900,
+        "frames_with_local_redistribution": 0,
+        "mean_total_LC10a_current_mv": 12150.0,
+        "LC10a_spikes": 18806,
+        "AOTU019_spikes": 89,
+        "AOTU025_spikes": 60,
+        "DNa02_spikes": 0,
+        "mean_toward_DNa02_voltage_bias_mv": 2.0629
+      },
+      "local": {
+        "duration_ms": 900,
+        "frames_with_local_redistribution": 17,
+        "mean_total_LC10a_current_mv": 12150.0,
+        "LC10a_spikes": 15245,
+        "AOTU019_spikes": 53,
+        "AOTU025_spikes": 54,
+        "DNa02_spikes": 0,
+        "mean_toward_DNa02_voltage_bias_mv": 1.4398
+      }
+    },
+    "L:45:25:inward": {
+      "position": {
+        "duration_ms": 900,
+        "frames_with_local_redistribution": 0,
+        "mean_total_LC10a_current_mv": 12150.0,
+        "LC10a_spikes": 18808,
+        "AOTU019_spikes": 92,
+        "AOTU025_spikes": 61,
+        "DNa02_spikes": 0,
+        "mean_toward_DNa02_voltage_bias_mv": 2.1175
+      },
+      "local": {
+        "duration_ms": 900,
+        "frames_with_local_redistribution": 17,
+        "mean_total_LC10a_current_mv": 12150.0,
+        "LC10a_spikes": 18757,
+        "AOTU019_spikes": 105,
+        "AOTU025_spikes": 48,
+        "DNa02_spikes": 0,
+        "mean_toward_DNa02_voltage_bias_mv": 2.1708
+      }
+    },
+    "L:45:75:static": {
+      "position": {
+        "duration_ms": 300,
+        "frames_with_local_redistribution": 0,
+        "mean_total_LC10a_current_mv": 12150.0,
+        "LC10a_spikes": 6288,
+        "AOTU019_spikes": 30,
+        "AOTU025_spikes": 20,
+        "DNa02_spikes": 0,
+        "mean_toward_DNa02_voltage_bias_mv": 1.9538
+      },
+      "local": {
+        "duration_ms": 300,
+        "frames_with_local_redistribution": 0,
+        "mean_total_LC10a_current_mv": 12150.0,
+        "LC10a_spikes": 6288,
+        "AOTU019_spikes": 30,
+        "AOTU025_spikes": 20,
+        "DNa02_spikes": 0,
+        "mean_toward_DNa02_voltage_bias_mv": 1.9538
+      }
+    },
+    "L:45:75:outward": {
+      "position": {
+        "duration_ms": 300,
+        "frames_with_local_redistribution": 0,
+        "mean_total_LC10a_current_mv": 12150.0,
+        "LC10a_spikes": 6264,
+        "AOTU019_spikes": 30,
+        "AOTU025_spikes": 20,
+        "DNa02_spikes": 0,
+        "mean_toward_DNa02_voltage_bias_mv": 1.9839
+      },
+      "local": {
+        "duration_ms": 300,
+        "frames_with_local_redistribution": 5,
+        "mean_total_LC10a_current_mv": 12150.0,
+        "LC10a_spikes": 5193,
+        "AOTU019_spikes": 19,
+        "AOTU025_spikes": 18,
+        "DNa02_spikes": 0,
+        "mean_toward_DNa02_voltage_bias_mv": 1.4603
+      }
+    },
+    "L:45:75:inward": {
+      "position": {
+        "duration_ms": 300,
+        "frames_with_local_redistribution": 0,
+        "mean_total_LC10a_current_mv": 12150.0,
+        "LC10a_spikes": 6267,
+        "AOTU019_spikes": 30,
+        "AOTU025_spikes": 20,
+        "DNa02_spikes": 0,
+        "mean_toward_DNa02_voltage_bias_mv": 2.0046
+      },
+      "local": {
+        "duration_ms": 300,
+        "frames_with_local_redistribution": 5,
+        "mean_total_LC10a_current_mv": 12150.0,
+        "LC10a_spikes": 6231,
+        "AOTU019_spikes": 33,
+        "AOTU025_spikes": 16,
+        "DNa02_spikes": 0,
+        "mean_toward_DNa02_voltage_bias_mv": 2.0176
+      }
+    },
+    "R:25:25:static": {
+      "position": {
+        "duration_ms": 900,
+        "frames_with_local_redistribution": 0,
+        "mean_total_LC10a_current_mv": 12600.0,
+        "LC10a_spikes": 20208,
+        "AOTU019_spikes": 150,
+        "AOTU025_spikes": 50,
+        "DNa02_spikes": 0,
+        "mean_toward_DNa02_voltage_bias_mv": 2.9423
+      },
+      "local": {
+        "duration_ms": 900,
+        "frames_with_local_redistribution": 0,
+        "mean_total_LC10a_current_mv": 12600.0,
+        "LC10a_spikes": 20208,
+        "AOTU019_spikes": 150,
+        "AOTU025_spikes": 50,
+        "DNa02_spikes": 0,
+        "mean_toward_DNa02_voltage_bias_mv": 2.9423
+      }
+    },
+    "R:25:25:outward": {
+      "position": {
+        "duration_ms": 900,
+        "frames_with_local_redistribution": 0,
+        "mean_total_LC10a_current_mv": 12600.0,
+        "LC10a_spikes": 19929,
+        "AOTU019_spikes": 129,
+        "AOTU025_spikes": 46,
+        "DNa02_spikes": 0,
+        "mean_toward_DNa02_voltage_bias_mv": 2.5803
+      },
+      "local": {
+        "duration_ms": 900,
+        "frames_with_local_redistribution": 17,
+        "mean_total_LC10a_current_mv": 12600.0,
+        "LC10a_spikes": 19346,
+        "AOTU019_spikes": 107,
+        "AOTU025_spikes": 64,
+        "DNa02_spikes": 0,
+        "mean_toward_DNa02_voltage_bias_mv": 2.415
+      }
+    },
+    "R:25:25:inward": {
+      "position": {
+        "duration_ms": 900,
+        "frames_with_local_redistribution": 0,
+        "mean_total_LC10a_current_mv": 12600.0,
+        "LC10a_spikes": 19925,
+        "AOTU019_spikes": 130,
+        "AOTU025_spikes": 47,
+        "DNa02_spikes": 0,
+        "mean_toward_DNa02_voltage_bias_mv": 2.5997
+      },
+      "local": {
+        "duration_ms": 900,
+        "frames_with_local_redistribution": 17,
+        "mean_total_LC10a_current_mv": 12600.0,
+        "LC10a_spikes": 17141,
+        "AOTU019_spikes": 107,
+        "AOTU025_spikes": 13,
+        "DNa02_spikes": 0,
+        "mean_toward_DNa02_voltage_bias_mv": 1.8753
+      }
+    },
+    "R:25:75:static": {
+      "position": {
+        "duration_ms": 300,
+        "frames_with_local_redistribution": 0,
+        "mean_total_LC10a_current_mv": 12600.0,
+        "LC10a_spikes": 6733,
+        "AOTU019_spikes": 50,
+        "AOTU025_spikes": 16,
+        "DNa02_spikes": 0,
+        "mean_toward_DNa02_voltage_bias_mv": 2.79
+      },
+      "local": {
+        "duration_ms": 300,
+        "frames_with_local_redistribution": 0,
+        "mean_total_LC10a_current_mv": 12600.0,
+        "LC10a_spikes": 6733,
+        "AOTU019_spikes": 50,
+        "AOTU025_spikes": 16,
+        "DNa02_spikes": 0,
+        "mean_toward_DNa02_voltage_bias_mv": 2.79
+      }
+    },
+    "R:25:75:outward": {
+      "position": {
+        "duration_ms": 300,
+        "frames_with_local_redistribution": 0,
+        "mean_total_LC10a_current_mv": 12600.0,
+        "LC10a_spikes": 6640,
+        "AOTU019_spikes": 47,
+        "AOTU025_spikes": 15,
+        "DNa02_spikes": 0,
+        "mean_toward_DNa02_voltage_bias_mv": 2.6681
+      },
+      "local": {
+        "duration_ms": 300,
+        "frames_with_local_redistribution": 5,
+        "mean_total_LC10a_current_mv": 12600.0,
+        "LC10a_spikes": 6381,
+        "AOTU019_spikes": 36,
+        "AOTU025_spikes": 20,
+        "DNa02_spikes": 0,
+        "mean_toward_DNa02_voltage_bias_mv": 2.2958
+      }
+    },
+    "R:25:75:inward": {
+      "position": {
+        "duration_ms": 300,
+        "frames_with_local_redistribution": 0,
+        "mean_total_LC10a_current_mv": 12600.0,
+        "LC10a_spikes": 6638,
+        "AOTU019_spikes": 44,
+        "AOTU025_spikes": 16,
+        "DNa02_spikes": 0,
+        "mean_toward_DNa02_voltage_bias_mv": 2.5413
+      },
+      "local": {
+        "duration_ms": 300,
+        "frames_with_local_redistribution": 5,
+        "mean_total_LC10a_current_mv": 12600.0,
+        "LC10a_spikes": 5789,
+        "AOTU019_spikes": 37,
+        "AOTU025_spikes": 5,
+        "DNa02_spikes": 0,
+        "mean_toward_DNa02_voltage_bias_mv": 1.9046
+      }
+    },
+    "R:45:25:static": {
+      "position": {
+        "duration_ms": 900,
+        "frames_with_local_redistribution": 0,
+        "mean_total_LC10a_current_mv": 12600.0,
+        "LC10a_spikes": 19570,
+        "AOTU019_spikes": 106,
+        "AOTU025_spikes": 90,
+        "DNa02_spikes": 0,
+        "mean_toward_DNa02_voltage_bias_mv": 2.6618
+      },
+      "local": {
+        "duration_ms": 900,
+        "frames_with_local_redistribution": 0,
+        "mean_total_LC10a_current_mv": 12600.0,
+        "LC10a_spikes": 19570,
+        "AOTU019_spikes": 106,
+        "AOTU025_spikes": 90,
+        "DNa02_spikes": 0,
+        "mean_toward_DNa02_voltage_bias_mv": 2.6618
+      }
+    },
+    "R:45:25:outward": {
+      "position": {
+        "duration_ms": 900,
+        "frames_with_local_redistribution": 0,
+        "mean_total_LC10a_current_mv": 12600.0,
+        "LC10a_spikes": 19495,
+        "AOTU019_spikes": 107,
+        "AOTU025_spikes": 68,
+        "DNa02_spikes": 0,
+        "mean_toward_DNa02_voltage_bias_mv": 2.4545
+      },
+      "local": {
+        "duration_ms": 900,
+        "frames_with_local_redistribution": 17,
+        "mean_total_LC10a_current_mv": 12600.0,
+        "LC10a_spikes": 15812,
+        "AOTU019_spikes": 71,
+        "AOTU025_spikes": 63,
+        "DNa02_spikes": 0,
+        "mean_toward_DNa02_voltage_bias_mv": 1.8273
+      }
+    },
+    "R:45:25:inward": {
+      "position": {
+        "duration_ms": 900,
+        "frames_with_local_redistribution": 0,
+        "mean_total_LC10a_current_mv": 12600.0,
+        "LC10a_spikes": 19496,
+        "AOTU019_spikes": 105,
+        "AOTU025_spikes": 72,
+        "DNa02_spikes": 0,
+        "mean_toward_DNa02_voltage_bias_mv": 2.4498
+      },
+      "local": {
+        "duration_ms": 900,
+        "frames_with_local_redistribution": 17,
+        "mean_total_LC10a_current_mv": 12600.0,
+        "LC10a_spikes": 19454,
+        "AOTU019_spikes": 120,
+        "AOTU025_spikes": 52,
+        "DNa02_spikes": 0,
+        "mean_toward_DNa02_voltage_bias_mv": 2.4935
+      }
+    },
+    "R:45:75:static": {
+      "position": {
+        "duration_ms": 300,
+        "frames_with_local_redistribution": 0,
+        "mean_total_LC10a_current_mv": 12600.0,
+        "LC10a_spikes": 6514,
+        "AOTU019_spikes": 35,
+        "AOTU025_spikes": 30,
+        "DNa02_spikes": 0,
+        "mean_toward_DNa02_voltage_bias_mv": 2.5261
+      },
+      "local": {
+        "duration_ms": 300,
+        "frames_with_local_redistribution": 0,
+        "mean_total_LC10a_current_mv": 12600.0,
+        "LC10a_spikes": 6514,
+        "AOTU019_spikes": 35,
+        "AOTU025_spikes": 30,
+        "DNa02_spikes": 0,
+        "mean_toward_DNa02_voltage_bias_mv": 2.5261
+      }
+    },
+    "R:45:75:outward": {
+      "position": {
+        "duration_ms": 300,
+        "frames_with_local_redistribution": 0,
+        "mean_total_LC10a_current_mv": 12600.0,
+        "LC10a_spikes": 6498,
+        "AOTU019_spikes": 37,
+        "AOTU025_spikes": 25,
+        "DNa02_spikes": 0,
+        "mean_toward_DNa02_voltage_bias_mv": 2.4642
+      },
+      "local": {
+        "duration_ms": 300,
+        "frames_with_local_redistribution": 5,
+        "mean_total_LC10a_current_mv": 12600.0,
+        "LC10a_spikes": 5386,
+        "AOTU019_spikes": 26,
+        "AOTU025_spikes": 22,
+        "DNa02_spikes": 0,
+        "mean_toward_DNa02_voltage_bias_mv": 1.8765
+      }
+    },
+    "R:45:75:inward": {
+      "position": {
+        "duration_ms": 300,
+        "frames_with_local_redistribution": 0,
+        "mean_total_LC10a_current_mv": 12600.0,
+        "LC10a_spikes": 6500,
+        "AOTU019_spikes": 35,
+        "AOTU025_spikes": 25,
+        "DNa02_spikes": 0,
+        "mean_toward_DNa02_voltage_bias_mv": 2.3447
+      },
+      "local": {
+        "duration_ms": 300,
+        "frames_with_local_redistribution": 5,
+        "mean_total_LC10a_current_mv": 12600.0,
+        "LC10a_spikes": 6466,
+        "AOTU019_spikes": 39,
+        "AOTU025_spikes": 19,
+        "DNa02_spikes": 0,
+        "mean_toward_DNa02_voltage_bias_mv": 2.4012
+      }
+    }
+  },
+  "pursuit": {
+    "weave": {
+      "direct": {
+        "mean_abs_bearing_deg": 7.301,
+        "in_view_fraction": 1.0,
+        "mean_active_side_current_mv": null,
+        "local_active_frames": 0,
+        "DNa02_spikes": null
+      },
+      "uniform": {
+        "mean_abs_bearing_deg": 9.258,
+        "in_view_fraction": 1.0,
+        "mean_active_side_current_mv": 2579.647,
+        "local_active_frames": 0,
+        "DNa02_spikes": 0
+      },
+      "position": {
+        "mean_abs_bearing_deg": 10.768,
+        "in_view_fraction": 1.0,
+        "mean_active_side_current_mv": 3172.918,
+        "local_active_frames": 0,
+        "DNa02_spikes": 0
+      },
+      "global_motion": {
+        "mean_abs_bearing_deg": 18.255,
+        "in_view_fraction": 1.0,
+        "mean_active_side_current_mv": 2579.831,
+        "local_active_frames": 0,
+        "DNa02_spikes": 0
+      },
+      "local": {
+        "mean_abs_bearing_deg": 10.688,
+        "in_view_fraction": 1.0,
+        "mean_active_side_current_mv": 3140.951,
+        "local_active_frames": 153,
+        "DNa02_spikes": 0
+      },
+      "local_disconnected": {
+        "mean_abs_bearing_deg": 21.448,
+        "in_view_fraction": 1.0,
+        "mean_active_side_current_mv": 7433.384,
+        "local_active_frames": 156,
+        "DNa02_spikes": 0
+      },
+      "local_shuffled": {
+        "101": 12.057,
+        "102": 11.935,
+        "103": 11.733,
+        "104": 12.001,
+        "105": 11.693,
+        "106": 12.13,
+        "107": 11.977,
+        "108": 11.986,
+        "109": 12.062,
+        "110": 12.19,
+        "111": 11.824,
+        "112": 12.051
+      },
+      "local_shuffled_median": 11.994
+    },
+    "offset_hop": {
+      "direct": {
+        "mean_abs_bearing_deg": 9.03,
+        "in_view_fraction": 1.0,
+        "mean_active_side_current_mv": null,
+        "local_active_frames": 0,
+        "DNa02_spikes": null
+      },
+      "uniform": {
+        "mean_abs_bearing_deg": 10.383,
+        "in_view_fraction": 1.0,
+        "mean_active_side_current_mv": 2844.754,
+        "local_active_frames": 0,
+        "DNa02_spikes": 0
+      },
+      "position": {
+        "mean_abs_bearing_deg": 11.564,
+        "in_view_fraction": 1.0,
+        "mean_active_side_current_mv": 3306.589,
+        "local_active_frames": 0,
+        "DNa02_spikes": 0
+      },
+      "global_motion": {
+        "mean_abs_bearing_deg": 14.464,
+        "in_view_fraction": 1.0,
+        "mean_active_side_current_mv": 1579.624,
+        "local_active_frames": 0,
+        "DNa02_spikes": 0
+      },
+      "local": {
+        "mean_abs_bearing_deg": 13.272,
+        "in_view_fraction": 1.0,
+        "mean_active_side_current_mv": 3972.252,
+        "local_active_frames": 160,
+        "DNa02_spikes": 0
+      },
+      "local_disconnected": {
+        "mean_abs_bearing_deg": 20.51,
+        "in_view_fraction": 1.0,
+        "mean_active_side_current_mv": 6353.725,
+        "local_active_frames": 160,
+        "DNa02_spikes": 0
+      },
+      "local_shuffled": {
+        "101": 13.619,
+        "102": 13.536,
+        "103": 13.194,
+        "104": 13.514,
+        "105": 13.593,
+        "106": 13.206,
+        "107": 13.458,
+        "108": 13.671,
+        "109": 13.415,
+        "110": 14.151,
+        "111": 13.315,
+        "112": 13.335
+      },
+      "local_shuffled_median": 13.486
+    },
+    "approach_arc": {
+      "direct": {
+        "mean_abs_bearing_deg": 9.533,
+        "in_view_fraction": 1.0,
+        "mean_active_side_current_mv": null,
+        "local_active_frames": 0,
+        "DNa02_spikes": null
+      },
+      "uniform": {
+        "mean_abs_bearing_deg": 10.131,
+        "in_view_fraction": 1.0,
+        "mean_active_side_current_mv": 3166.683,
+        "local_active_frames": 0,
+        "DNa02_spikes": 0
+      },
+      "position": {
+        "mean_abs_bearing_deg": 11.734,
+        "in_view_fraction": 1.0,
+        "mean_active_side_current_mv": 3856.355,
+        "local_active_frames": 0,
+        "DNa02_spikes": 0
+      },
+      "global_motion": {
+        "mean_abs_bearing_deg": 16.906,
+        "in_view_fraction": 1.0,
+        "mean_active_side_current_mv": 3116.49,
+        "local_active_frames": 0,
+        "DNa02_spikes": 0
+      },
+      "local": {
+        "mean_abs_bearing_deg": 12.25,
+        "in_view_fraction": 1.0,
+        "mean_active_side_current_mv": 4023.344,
+        "local_active_frames": 144,
+        "DNa02_spikes": 0
+      },
+      "local_disconnected": {
+        "mean_abs_bearing_deg": 23.055,
+        "in_view_fraction": 0.963,
+        "mean_active_side_current_mv": 7507.394,
+        "local_active_frames": 141,
+        "DNa02_spikes": 0
+      },
+      "local_shuffled": {
+        "101": 13.39,
+        "102": 13.192,
+        "103": 12.931,
+        "104": 13.39,
+        "105": 12.93,
+        "106": 13.194,
+        "107": 13.127,
+        "108": 13.168,
+        "109": 13.592,
+        "110": 13.658,
+        "111": 13.135,
+        "112": 13.527
+      },
+      "local_shuffled_median": 13.193
+    },
+    "lateral_drift": {
+      "direct": {
+        "mean_abs_bearing_deg": 7.434,
+        "in_view_fraction": 1.0,
+        "mean_active_side_current_mv": null,
+        "local_active_frames": 0,
+        "DNa02_spikes": null
+      },
+      "uniform": {
+        "mean_abs_bearing_deg": 8.719,
+        "in_view_fraction": 1.0,
+        "mean_active_side_current_mv": 2553.143,
+        "local_active_frames": 0,
+        "DNa02_spikes": 0
+      },
+      "position": {
+        "mean_abs_bearing_deg": 9.273,
+        "in_view_fraction": 1.0,
+        "mean_active_side_current_mv": 2886.376,
+        "local_active_frames": 0,
+        "DNa02_spikes": 0
+      },
+      "global_motion": {
+        "mean_abs_bearing_deg": 14.148,
+        "in_view_fraction": 1.0,
+        "mean_active_side_current_mv": 2531.341,
+        "local_active_frames": 0,
+        "DNa02_spikes": 0
+      },
+      "local": {
+        "mean_abs_bearing_deg": 9.43,
+        "in_view_fraction": 1.0,
+        "mean_active_side_current_mv": 3203.489,
+        "local_active_frames": 131,
+        "DNa02_spikes": 0
+      },
+      "local_disconnected": {
+        "mean_abs_bearing_deg": 21.385,
+        "in_view_fraction": 1.0,
+        "mean_active_side_current_mv": 6406.184,
+        "local_active_frames": 151,
+        "DNa02_spikes": 0
+      },
+      "local_shuffled": {
+        "101": 10.343,
+        "102": 10.172,
+        "103": 9.989,
+        "104": 10.25,
+        "105": 10.147,
+        "106": 10.313,
+        "107": 10.27,
+        "108": 10.23,
+        "109": 10.243,
+        "110": 10.445,
+        "111": 9.937,
+        "112": 10.399
+      },
+      "local_shuffled_median": 10.247
+    },
+    "flutter": {
+      "direct": {
+        "mean_abs_bearing_deg": 7.268,
+        "in_view_fraction": 1.0,
+        "mean_active_side_current_mv": null,
+        "local_active_frames": 0,
+        "DNa02_spikes": null
+      },
+      "uniform": {
+        "mean_abs_bearing_deg": 7.482,
+        "in_view_fraction": 1.0,
+        "mean_active_side_current_mv": 2305.577,
+        "local_active_frames": 0,
+        "DNa02_spikes": 0
+      },
+      "position": {
+        "mean_abs_bearing_deg": 8.148,
+        "in_view_fraction": 1.0,
+        "mean_active_side_current_mv": 2582.467,
+        "local_active_frames": 0,
+        "DNa02_spikes": 0
+      },
+      "global_motion": {
+        "mean_abs_bearing_deg": 9.634,
+        "in_view_fraction": 1.0,
+        "mean_active_side_current_mv": 1968.327,
+        "local_active_frames": 0,
+        "DNa02_spikes": 0
+      },
+      "local": {
+        "mean_abs_bearing_deg": 8.234,
+        "in_view_fraction": 1.0,
+        "mean_active_side_current_mv": 2649.642,
+        "local_active_frames": 129,
+        "DNa02_spikes": 0
+      },
+      "local_disconnected": {
+        "mean_abs_bearing_deg": 13.939,
+        "in_view_fraction": 1.0,
+        "mean_active_side_current_mv": 5150.102,
+        "local_active_frames": 133,
+        "DNa02_spikes": 0
+      },
+      "local_shuffled": {
+        "101": 8.803,
+        "102": 8.691,
+        "103": 8.596,
+        "104": 8.716,
+        "105": 8.635,
+        "106": 8.754,
+        "107": 8.766,
+        "108": 8.745,
+        "109": 8.754,
+        "110": 8.863,
+        "111": 8.7,
+        "112": 8.734
+      },
+      "local_shuffled_median": 8.739
+    }
+  },
+  "mean_pursuit_error_deg": {
+    "direct": 8.113,
+    "uniform": 9.195,
+    "position": 10.297,
+    "global_motion": 14.681,
+    "local": 10.775,
+    "local_disconnected": 20.067,
+    "local_shuffled_median": 11.532
+  },
+  "decision": {
+    "promote_to_playable": false,
+    "path_wins_out_of_five": {
+      "versus_position": 1,
+      "versus_uniform": 0,
+      "versus_direct": 0,
+      "versus_local_shuffled_median": 5
+    }
+  }
+}

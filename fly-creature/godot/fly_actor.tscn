@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://fly_actor.gd" id="1_actor"]
+[ext_resource type="PackedScene" path="res://assets/male_drosophila.glb" id="2_model"]
+
+[node name="FlyActor" type="Node3D"]
+script = ExtResource("1_actor")
+
+[node name="BodyMotion" type="Node3D" parent="."]
+
+[node name="FlyVisualMotion" type="Node3D" parent="BodyMotion"]
+rotation = Vector3(0, -1.5707964, 0)
+scale = Vector3(0.32, 0.32, 0.32)
+
+[node name="MaleDrosophila" parent="BodyMotion/FlyVisualMotion" instance=ExtResource("2_model")]

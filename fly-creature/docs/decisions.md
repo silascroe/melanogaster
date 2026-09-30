@@ -280,3 +280,15 @@ adds an explicit experimental mode. Its 15-degree aperture crossfade changes
 effective gain near center and is not measured LC10a anatomy. The 200 ms
 motor-effect interpretation is not author-code parity. Preserve the failed
 baseline; new target paths will be required for further validation claims.
+
+## 2026-09-30: opt-in Godot activity integration
+
+User review authorized the [experimental integration](godot_pursuit_activity.md).
+Expose `activity_v1` explicitly while retaining the LIF startup default. Keep
+the 10 ms model/world tick and 20-tick motor queue identical to the reviewed
+candidate; use synchronous loopback requests rather than silently changing
+the model to the previous 50 ms bridge cadence. This transport can slow
+rendering under load and needs future performance work. Label outputs as
+normalized activity, not voltage or spikes. Recorded parity on the known
+harmonic path is an integration check, not new held-out evidence. Fix the
+visual actor's yaw sign to agree with physical heading and record alignment.

@@ -8,6 +8,7 @@ import numpy as np
 from .circuit import Circuit
 from .lif import LIFNetwork
 from .steering import SteeringSession
+from .pursuit_controller import ActivitySteeringSession
 
 
 def _clamp01(value: float) -> float:
@@ -18,13 +19,19 @@ class CreatureSession:
     """One persistent neural state; the Godot client owns body and object state."""
 
     def __init__(self, circuit: Circuit, *, condition: str = "intact",
-                 steering_circuit: Circuit | None = None) -> None:
+                 steering_circuit: Circuit | None = None,
+                 steering_model: str = "lif") -> None:
         if condition not in ("intact", "disconnected"):
             raise ValueError("condition must be intact or disconnected")
         self.condition = condition
+        if steering_model not in ("lif", "activity_v1"):
+            raise ValueError("Unknown steering model")
+        self.steering_model = steering_model
         self.network = LIFNetwork(circuit, connected=condition == "intact")
         self.steering = (SteeringSession(steering_circuit, condition=condition)
                          if steering_circuit is not None else None)
+        if steering_model == "activity_v1":
+            self.steering = ActivitySteeringSession(condition=condition)
         self.state = self.network.initial_state()
         groups = circuit.ids_by_type
         self.lc4 = np.asarray([self.network.index[i] for i in groups["LC4"]], dtype=np.int64)
@@ -41,6 +48,8 @@ class CreatureSession:
         dt_ms = float(payload.get("dt_ms", 50.0))
         if not math.isfinite(dt_ms) or not 10.0 <= dt_ms <= 100.0:
             raise ValueError("dt_ms must be between 10 and 100")
+        if self.steering_model == "activity_v1" and dt_ms != 10.0:
+            raise ValueError("activity_v1 requires exact 10 ms world steps")
         x, z = float(fly["x"]), float(fly["z"])
         heading = float(fly["heading_rad"])
         object_x, object_z = float(obj["x"]), float(obj["z"])

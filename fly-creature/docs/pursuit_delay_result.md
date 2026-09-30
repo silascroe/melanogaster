@@ -1,5 +1,9 @@
 # Pursuit delay diagnosis: revised offline candidate settles
 
+Subsequent work: the reviewed candidate now runs in an opt-in
+[Godot integration](godot_pursuit_activity.md). The results below describe
+the original offline experiment; the integration replays a known path.
+
 2026-09-30. [Frozen protocol](pursuit_delay_protocol.md),
 [compact evidence](evidence/pursuit_delay_v1.json),
 [trace plot](evidence/pursuit_delay_v1.png) ([SVG](evidence/pursuit_delay_v1.svg)).

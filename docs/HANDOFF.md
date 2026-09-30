@@ -1,5 +1,20 @@
 # FlyTest handoff
 
+## 2026-09-30: experimental Godot activity pursuit runs
+
+Read [the integration report](../fly-creature/docs/godot_pursuit_activity.md).
+The reviewed candidate is an opt-in `activity_v1` controller selected with
+`B`; startup retains the earlier LIF controller. `C` compares disconnection.
+Two actual graphics-enabled runs completed 800 exact 10 ms service ticks:
+mean bearing error 2.350 degrees intact and 12.296 disconnected, matching
+the prior offline harmonic result. Commands preserve the 200 ms queue.
+HD 60 fps clips and full logs are ignored local outputs; compact evidence is
+tracked. A rendered yaw sign mismatch was fixed and facing/travel alignment
+is checked in every recorded tick. 18 creature and 69 lab tests pass, as does
+release provenance verification. This is integration on an already evaluated
+path, not additional generalization evidence. Synchronous HTTP can slow
+rendering under load; all timing and input assumptions remain explicit.
+
 ## 2026-09-30: delay/center diagnosis passes offline review
 
 Read [the result](../fly-creature/docs/pursuit_delay_result.md),

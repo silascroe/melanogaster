@@ -54,8 +54,10 @@ def main() -> None:
                     raise ValueError("JSON body must be an object")
                 if self.path == "/session":
                     condition = str(payload.get("condition", "intact"))
+                    steering_model = str(payload.get("steering_model", "lif"))
                     session = CreatureSession(circuit, condition=condition,
-                                              steering_circuit=steering_circuit)
+                                              steering_circuit=steering_circuit,
+                                              steering_model=steering_model)
                     session_id = uuid4().hex
                     # This first project has one local scene/client at a time.
                     sessions.clear()
@@ -63,6 +65,7 @@ def main() -> None:
                     self._reply(200, {
                         "session_id": session_id,
                         "condition": condition,
+                        "steering_model": steering_model,
                         "neurons": len(circuit.neurons),
                         "connections": len(circuit.connections) if condition == "intact" else 0,
                         "steering_neurons": len(steering_circuit.neurons),

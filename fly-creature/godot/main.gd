@@ -47,13 +47,31 @@ var pursuit_demo := false
 var pursuit_time := 0.0
 var target_position := Vector3(-2.9, 0.45, -6.5)
 var steering_turn_rate := 0.0
+var steering_model := "lif"
+var pursuit_path := "crossing"
+var pursuit_seconds := 0.0
+var record_ticks := false
 
 
 func _ready() -> void:
+	if OS.get_cmdline_user_args().has("--capture-hd"):
+		get_window().content_scale_size = Vector2i(1920, 1080)
+		get_window().size = Vector2i(1920, 1080)
 	animation_demo = OS.get_cmdline_user_args().has("--animation-demo")
 	walking_demo = OS.get_cmdline_user_args().has("--walking-demo")
 	pursuit_demo = OS.get_cmdline_user_args().has("--pursuit-demo")
 	pursuit_enabled = pursuit_demo
+	if OS.get_cmdline_user_args().has("--pursuit-experimental"):
+		steering_model = "activity_v1"
+		pursuit_path = "harmonic"
+		pursuit_demo = true
+		pursuit_enabled = true
+	record_ticks = OS.get_cmdline_user_args().has("--pursuit-trace")
+	for argument in OS.get_cmdline_user_args():
+		if argument.begins_with("--pursuit-path="):
+			pursuit_path = argument.trim_prefix("--pursuit-path=")
+		if argument.begins_with("--pursuit-seconds="):
+			pursuit_seconds = float(argument.trim_prefix("--pursuit-seconds="))
 	if OS.get_cmdline_user_args().has("--pursuit-control"):
 		pursuit_demo = true
 		pursuit_enabled = true
@@ -84,19 +102,27 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	var previous_position := fly_position
-	_move_fly(delta)
-	move_speed = fly_position.distance_to(previous_position) / maxf(delta, 0.0001)
-	_move_ball(delta)
-	_move_target(delta)
+	var advanced_delta := delta
+	if steering_model == "activity_v1" and pursuit_enabled:
+		advanced_delta = _advance_experimental(delta)
+	else:
+		_move_fly(delta)
+		_move_ball(delta)
+		_move_target(delta)
+	move_speed = fly_position.distance_to(previous_position) / maxf(advanced_delta, 0.0001)
 	fly_actor.position = fly_position
-	fly_actor.rotation.y = heading_rad
-	fly_actor.advance(delta, walking_now, move_speed)
+	fly_actor.rotation.y = -heading_rad
+	fly_actor.advance(advanced_delta, walking_now, move_speed)
 	_update_camera(delta)
 	ball_root.position = ball_position
 	ball_root.visible = ball_active
 	target_root.position = target_position
 	target_root.visible = pursuit_enabled
-	if not session_id.is_empty():
+	if not session_id.is_empty() and not (steering_model == "activity_v1" and pursuit_enabled):
+		if steering_model == "activity_v1":
+			# No experimental ticks during manual walking.
+			_update_hud()
+			return
 		step_clock += delta
 		if step_clock >= NEURAL_STEP_S:
 			step_clock = 0.0
@@ -108,6 +134,7 @@ func _process(delta: float) -> void:
 		_update_hud()
 	if pursuit_demo and Engine.get_process_frames() % 60 == 0:
 		print("PURSUIT_TELEMETRY ", JSON.stringify({
+			"model": steering_model,
 			"condition": condition, "time_s": snappedf(pursuit_time, 0.01),
 			"fly_x": snappedf(fly_position.x, 0.001),
 			"fly_z": snappedf(fly_position.z, 0.001),
@@ -139,9 +166,17 @@ func _unhandled_key_input(event: InputEvent) -> void:
 			service_message = "Roaming on (engineered controller)" if roam_enabled else "Manual walking"
 		KEY_V:
 			pursuit_enabled = not pursuit_enabled
+			if not pursuit_enabled and steering_model == "activity_v1":
+				steering_model = "lif"
 			roam_enabled = false
 			_start_session()
 			service_message = "Neural pursuit: moving target" if pursuit_enabled else "Manual walking"
+		KEY_B:
+			steering_model = "activity_v1" if steering_model == "lif" else "lif"
+			pursuit_path = "harmonic" if steering_model == "activity_v1" else "crossing"
+			pursuit_enabled = true
+			roam_enabled = false
+			_start_session()
 		KEY_T:
 			if fly_actor.is_flying():
 				if fly_actor.request_landing():
@@ -231,8 +266,50 @@ func _move_target(delta: float) -> void:
 	if not pursuit_enabled:
 		return
 	pursuit_time += delta
-	target_position.x = 3.2 * sin(pursuit_time * 0.62 - 1.2)
-	target_position.z = -6.5
+	if steering_model == "activity_v1":
+		if pursuit_path == "step_hold":
+			target_position.x = -1.8 if pursuit_time < 2.0 else 1.8
+		else:
+			target_position.x = 1.8 * sin(0.8 * pursuit_time + 0.3) + 0.6 * sin(2.2 * pursuit_time - 0.7)
+		target_position.z = -7.0
+	else:
+		target_position.x = 3.2 * sin(pursuit_time * 0.62 - 1.2)
+		target_position.z = -6.5
+
+
+func _advance_experimental(delta: float) -> float:
+	if session_id.is_empty():
+		walking_now = false
+		return 0.0
+	# Rendering may slow under load; preserve 10 ms simulation ticks and the
+	# command queue rather than enlarge neural timesteps or drop HTTP requests.
+	step_clock += minf(delta, 0.1)
+	var advanced := 0.0
+	while step_clock >= 0.01 and not session_id.is_empty():
+		_move_fly(0.01)
+		_move_ball(0.01)
+		_move_target(0.01)
+		var response := bridge.step_fixed(session_id,
+			{"x": fly_position.x, "z": fly_position.z, "heading_rad": heading_rad},
+			{"x": ball_position.x, "z": ball_position.z, "radius": BALL_RADIUS, "active": ball_active},
+			{"x": target_position.x, "z": target_position.z, "active": true})
+		if response.is_empty():
+			break
+		_on_step_ready(response)
+		fly_actor.rotation.y = -heading_rad
+		step_clock -= 0.01
+		advanced += 0.01
+		if record_ticks:
+			print("PURSUIT_TICK ", JSON.stringify({"model": steering_model,
+				"condition": condition, "time_s": pursuit_time, "fly_x": fly_position.x,
+				"fly_z": fly_position.z, "heading_rad": heading_rad,
+				"target_x": target_position.x,
+				"facing_travel_dot": (-fly_actor.global_transform.basis.z).normalized().dot(Vector3(sin(heading_rad), 0.0, -cos(heading_rad))),
+				"steering": response.get("steering", {})}))
+		if pursuit_seconds > 0.0 and pursuit_time >= pursuit_seconds - 0.000001:
+			get_tree().quit()
+			break
+	return advanced
 
 
 func _request_jump(source: String) -> void:
@@ -262,7 +339,7 @@ func _start_session() -> void:
 	fly_actor.reset_actor()
 	ball_active = false
 	service_message = "Starting %s neural session..." % condition
-	bridge.start_session(condition)
+	bridge.start_session(condition, steering_model)
 
 
 func _on_session_ready(payload: Dictionary) -> void:
@@ -284,15 +361,20 @@ func _on_bridge_failed(message: String) -> void:
 
 
 func _update_hud() -> void:
-	status_label.text = "FLY CREATURE  /  %s\n%s" % [condition.to_upper(), service_message]
+	status_label.text = "FLY CREATURE  /  %s  /  %s\n%s" % [condition.to_upper(), steering_model.to_upper(), service_message]
 	var visual: Dictionary = last_trace.get("visual", {})
 	var spikes: Dictionary = last_trace.get("spikes", {})
 	var steering: Dictionary = last_trace.get("steering", {})
-	detail_label.text = "WASD move  |  V neural pursuit  |  C disconnect  |  G roam  |  T fly  |  SPACE approach  |  F camera  |  R reset\n" \
+	var signal_key := "right_minus_left_activity" if steering_model == "activity_v1" else "right_minus_left_mv"
+	var readout_signal := "%.3f" % float(steering[signal_key]) if steering.has(signal_key) else "--"
+	var bearing_text := "%.2f" % float(steering["bearing_deg"]) if steering.has("bearing_deg") else "--"
+	var turn_text := "%.3f" % float(steering["turn_rate_rad_s"]) if steering.has("turn_rate_rad_s") else "--"
+	var units := "activity units" if steering_model == "activity_v1" else "mV"
+	detail_label.text = "WASD move  |  V pursuit  |  B experimental/baseline  |  C disconnect  |  G roam  |  T fly  |  SPACE approach  |  F camera  |  R reset\n" \
 		+ "Object angle: %s deg   expansion: %s deg/s\n" % [visual.get("angle_deg", "--"), visual.get("expansion_deg_s", "--")] \
 		+ "LC4 spikes: %s   LPLC2 spikes: %s   giant fiber spikes: %s\n" % [spikes.get("LC4", "--"), spikes.get("LPLC2", "--"), spikes.get("DNp01", "--")] \
-		+ "Target bearing: %s deg   DNa02 right-left: %s mV   neural turn: %s rad/s\n" % [steering.get("bearing_deg", "--"), steering.get("right_minus_left_mv", "--"), steering.get("turn_rate_rad_s", "--")] \
-		+ "Sensors, voltage-to-turn rule, walking, and jump animation are engineered; selected connections are MaleCNS data."
+		+ "Target bearing: %s deg   DNa02 right-left: %s %s   neural turn: %s rad/s\n" % [bearing_text, readout_signal, units, turn_text] \
+		+ "Sensors, activity/voltage readouts, walking, and jump animation are engineered; selected connections are MaleCNS data."
 
 
 func _build_world() -> void:
@@ -415,7 +497,7 @@ func _build_hud() -> void:
 	status_label.add_theme_font_size_override("font_size", 20)
 	panel.add_child(status_label)
 	var detail_panel := PanelContainer.new()
-	detail_panel.position = Vector2(22.0, 535.0)
+	detail_panel.position = Vector2(22.0, get_viewport().get_visible_rect().size.y - 185.0)
 	detail_panel.custom_minimum_size = Vector2(1210.0, 155.0)
 	layer.add_child(detail_panel)
 	detail_label = Label.new()

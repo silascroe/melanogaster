@@ -39,7 +39,7 @@ The subsequent [timing and center-field diagnosis](docs/pursuit_delay_result.md)
 reproduces the failure and separates visual-history delay, motor delay, and
 center input. A declared 200 ms motor-effect / smooth-overlap candidate settles
 and passes a six-path offline review gate with wiring controls and gain
-sensitivity. This supports reviewing a future experimental Godot integration;
+sensitivity. It now has an opt-in [experimental Godot integration](docs/godot_pursuit_activity.md);
 the timing and overlap remain explicit modelling hypotheses.
 
 The [LC10a source review](docs/lc10a_visual_input_research.md) explains why
@@ -77,6 +77,14 @@ Open `godot/` as a project in Godot 4 and run its main scene. The Python service
 `WASD` moves the fly across the room. `V` starts a moving-target neural pursuit demonstration; the fly walks forward and its heading follows the DNa02 voltage readout. `C` restarts the same scene with its AOTU-to-DNa02 bridge removed (and disconnects the independent jump circuit); press it again to restore the connections. `G` toggles simple roaming between nearby goals. `T` toggles authored flight and landing. `SPACE` sends an object toward its current heading. `F` toggles between close and wide cameras. `R` resets the neural session and world. The target path, visual feature encoding, walking speed, and voltage-to-turn rule are engineered. See the [pursuit milestone](docs/pursuit_milestone.md).
 
 ## Visual fly
+
+Press `B` to start the revised experimental activity pursuit mode, and `C`
+to compare disconnected wiring. `B` again returns to the older LIF pursuit.
+The experimental mode advances Python and the world in exact 10 ms ticks,
+with a 200 ms motor queue and 15-degree input overlap. Its HUD reports activity
+units, not voltage or spikes. Under load this synchronous local prototype can
+slow rendering rather than drop simulation ticks. See the
+[integration report and recording commands](docs/godot_pursuit_activity.md).
 
 `godot/fly_actor.tscn` is the reusable Godot fly. It contains the imported model,
 its textured materials, wing and leg pivots, tripod gait, jump, and a separate

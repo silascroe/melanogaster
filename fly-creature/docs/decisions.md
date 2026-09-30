@@ -267,3 +267,16 @@ to Godot or tune the same held-out paths to make it pass. Retain the verified
 aggregate reference, v3 map, old playable controller, and this failed
 Step 4 result as separately labeled artifacts. A revised controller needs
 an explanation of delayed oscillation and newly declared held-out cases.
+
+## 2026-09-30: accept the timing diagnosis for offline review
+
+The [delay/center experiment](pursuit_delay_result.md) reproduces Step 4 and
+isolates three factors at fixed graph, gain and normalization. Large
+oscillations depend on long feedback latency; smooth center encoding reduces
+the remaining wobble under 200 ms feedback. The candidate declared before
+evaluation passes settling, fresh-path wiring-control and gain-sensitivity
+gates. Keep it in a separate offline diagnostic until a reviewed integration
+adds an explicit experimental mode. Its 15-degree aperture crossfade changes
+effective gain near center and is not measured LC10a anatomy. The 200 ms
+motor-effect interpretation is not author-code parity. Preserve the failed
+baseline; new target paths will be required for further validation claims.

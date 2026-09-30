@@ -35,6 +35,13 @@ controller failed continuous settling and gain-sensitivity gates. It remains
 offline; Step 5 Godot integration is not warranted on this result. The
 playable controller still uses the earlier LIF implementation.
 
+The subsequent [timing and center-field diagnosis](docs/pursuit_delay_result.md)
+reproduces the failure and separates visual-history delay, motor delay, and
+center input. A declared 200 ms motor-effect / smooth-overlap candidate settles
+and passes a six-path offline review gate with wiring controls and gain
+sensitivity. This supports reviewing a future experimental Godot integration;
+the timing and overlap remain explicit modelling hypotheses.
+
 The [LC10a source review](docs/lc10a_visual_input_research.md) explains why
 our MaleCNS annotations do not directly supply individual visual fields.
 The [first skeleton-derived input experiment](docs/visual_input_experiment.md)

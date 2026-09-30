@@ -1,5 +1,27 @@
 # FlyTest handoff
 
+## 2026-09-30: delay/center diagnosis passes offline review
+
+Read [the result](../fly-creature/docs/pursuit_delay_result.md),
+[frozen protocol](../fly-creature/docs/pursuit_delay_protocol.md), and evidence.
+On `experiment/pursuit-delay-diagnosis`, a separate runner reproduces Step 4
+and isolates delays and center encoding in 16 configurations, including
+rotation-only controls. A 450 ms feedback delay causes large oscillations;
+overlap alone does not fix them. The predeclared 0 ms visual-history / 200 ms
+motor-effect / 15-degree total smooth-overlap candidate settles on both
+mirrored steps. Six new paths give median error 2.373 degrees versus 11.033
+original, 12.296 bridge removal, 5.698 direct rule and 8.567 playable LIF;
+intact beats all 32 shuffles on aggregate mean. Gain robustness passes.
+Final-second jitter remains below one degree in both step cases. This is a
+model intervention, not measured timing, calibrated LC10a fields, or source
+parity. Godot and frozen Step 4 remain unchanged. 15 creature tests, 69 lab
+tests and data verification pass. Next is a separate review/integration
+decision; these evaluation paths are no longer unseen.
+
+The private GitHub origin is `silascroe/fly-test`; the prior workspace and
+all existing branches were backed up. Dirty-worktree statements below are
+historical snapshots, not the current state.
+
 ## 2026-09-27: pursuit Step 4 ran; do not integrate this candidate
 
 Read the [frozen protocol](../fly-creature/docs/pursuit_step4_protocol.md),

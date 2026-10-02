@@ -16,6 +16,7 @@ NumPy and Godot runtimes are still required.
 | `godot/playground.tscn`, `playground.gd` | Interactive comparison rendering/UI; Python owns its body/world |
 | `godot/fly_actor.tscn`, `fly_actor.gd`, `assets/` | Reusable textured visual fly and authored animation |
 | Diagnostic modules, `docs/evidence/` | Reproducible research comparisons; full traces stay in ignored outputs |
+| `pursuit_footprints.py`, `data/lc10a_column_footprints_v1.json` | Portable offline upstream-column input hypothesis; production does not import it |
 
 Comparison endpoints are `POST /playground` and
 `POST /playground/{world_id}/step`. They have a separate single-world store

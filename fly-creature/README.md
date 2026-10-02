@@ -71,6 +71,12 @@ additional nonlinear attenuation. Output weights and DN quantization have much
 smaller effects. No diagnostic probe is promoted; the author field itself is
 an anatomical image-derived approximation, not measured visual physiology.
 
+The [column-footprint candidate](docs/pursuit_footprint_result.md) now preserves
+upstream spatial distributions for 164 cells with unchanged fallback inputs,
+gain and timing. It passes input/normalization checks but does not improve
+tracking and weakens some wiring ranks. It remains a portable offline alternative;
+the playable controller is unchanged.
+
 The [LC10a source review](docs/lc10a_visual_input_research.md) explains why
 our MaleCNS annotations do not directly supply individual visual fields.
 The [first skeleton-derived input experiment](docs/visual_input_experiment.md)

@@ -1,5 +1,25 @@
 # FlyTest handoff
 
+## 2026-10-02: offline column-footprint candidate complete, not promoted
+
+Read [result](../fly-creature/docs/pursuit_footprint_result.md) and
+[protocol](../fly-creature/docs/pursuit_footprint_protocol.md). Branch
+`experiment/pursuit-column-footprints` preserves production settings and old map.
+New packaged data retain 979 cell-column entries (517 coordinates) for the same
+164 directly mapped LC10a; 111 fallback cells are exactly unchanged. Source
+derivation reproduces saved moments and hashes; offline NumPy adapter preserves
+fixed type peaks, ELU, edges, gain, aperture and motor timing. Signed footprint,
+signed mean and recentered spread controls separate position from spread.
+Fixed-fly fields are bounded, unclipped and retain 42.5-degree AOTU peak split,
+beating 32/32 spatial shuffles. Right 105-degree turn rises only 14.36 to 15.11
+degrees/s. Primary footprint slightly worsens all five behavioral aggregates;
+smooth-path wiring rank falls 15/32 to 2/32. No promotion or fresh validation.
+Left 105-degree AOTU025 drive remains 90.1% fallback, a significant coverage limit.
+1,496 replays; all baseline/shuffle metrics reproduce; 112 tests, release hashes,
+repeat data/report/plot bytes and standalone source-copy checks pass. Next:
+research measured LC10a/AOTU sensory constraints before another rewrite (Sol medium).
+Do not blindly widen kernels, renormalize peaks or chase the source-image curve.
+
 ## 2026-10-02: response-contribution investigation complete
 
 Read [response result](../fly-creature/docs/pursuit_response_result.md) and

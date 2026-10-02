@@ -127,3 +127,7 @@ separate directly mapped evidence from fallback uncertainty. Start with fixed-fl
 curves and normalization checks before behavioral validation. Do not widen fields
 until they match the author curve, or silently remove the nonlinear response.
 Sol medium fits the input-contract design and its anatomical uncertainty.
+
+This proposed candidate is now [implemented and evaluated](pursuit_footprint_result.md).
+It preserves spatial distributions but does not improve tracking; production
+remains unchanged. That result narrows the center-collapse hypothesis.

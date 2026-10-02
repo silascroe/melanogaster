@@ -1,5 +1,17 @@
 # Fly Creature decisions
 
+## Column footprints: preserve the candidate without promotion
+
+The [candidate](pursuit_footprint_result.md) passes fixed-fly implementation and
+normalization checks and preserves the recorded wiring's spatial split. It
+slightly strengthens wide-angle response but worsens all five consumed-case
+behavioral aggregates and some wiring ranks. Retain production unchanged.
+Center collapse is not the dominant explanation under the fixed kernel; neither
+full spatial distributions nor more anatomical detail guarantee useful behavior.
+Left wide-angle response remains largely fallback. Before another rewrite,
+seek measured sensory constraints rather than fitting widths to pursuit scores
+or copying the reference's image-derived fields.
+
 ## Response diagnosis: investigate spatial inputs before a controller fix
 
 The [decomposition](pursuit_response_result.md) locates a large wide-angle gap

@@ -10,11 +10,19 @@ Source preprocessing has already made position positive ipsilaterally.
 
 Extract contiguous finite stimulus intervals, rejecting incomplete boundary
 segments. Accept 22.5-degree motion spans within 3 degrees, duration within
-30 ms of 0.9/0.3 seconds (25/75 degrees/s), slope within 10% of that speed,
+20% of 0.9/0.3 seconds (25/75 degrees/s), slope within 10% of that speed,
 and linear-position R² >=0.98. Derive speed by least-squares position/time,
 not adjacent quantized samples. Retain rejection counts. Compare extracted
 counts, spans and durations to the source's finite-interval ordering; do not
 claim execution parity with its MATLAB helper. No tuning extraction to rates.
+
+Stimulus-only extraction correction before response fitting: the first pass
+used a 30 ms duration tolerance and accepted no pulses. A sample's nominal
+75-degree/s sweeps last about338 ms, and25-degree/s sweeps about987 ms,
+including endpoint dwell. The recorded staircase also fits closer to72/24.5
+degrees/s. The revised20% duration tolerance accommodates these recorded
+intervals while retaining the span, slope andR² gates. No response fit was
+seen before this correction; nominal and measured speeds remain separate.
 
 Use a 250 ms pre/post observation window with no other visible stimulus in
 that window. Baseline rate is mean over -250..-100 ms; keep raw pulse mean

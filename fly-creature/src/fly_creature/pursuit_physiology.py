@@ -19,6 +19,10 @@ ARCHIVES = {
     "AOTU019": ("AOTU019 Motion Pulse NoP1.zip", "6ebc8edd2bb348fa14b9dbd8f2cbea01"),
     "AOTU025": ("AOTU025 Motion Pulse NoP1.zip", "ebeace816547366b8325182f80a08a5b"),
 }
+P1_ARCHIVES = {
+    "AOTU019": ("AOTU019 Motion Pulse.zip", "848680fbccbb80353d05f828cc6feef1"),
+    "AOTU025": ("AOTU025 Motion Pulse.zip", "eae5a827f7e75b373c95b1ce9ee76c9b"),
+}
 
 
 def sha(path):
@@ -101,10 +105,11 @@ def extract(time, dt, data, identity, kind, side):
     return pulses, dict(rejected)
 
 
-def load_archives(directory):
+def load_archives(directory, condition="NoP1"):
     from scipy.io import loadmat
     pulses, audit = [], []
-    for kind, (name, expected) in ARCHIVES.items():
+    archives = {"NoP1": ARCHIVES, "P1": P1_ARCHIVES}[condition]
+    for kind, (name, expected) in archives.items():
         path = directory / name
         digest = hashlib.md5(path.read_bytes()).hexdigest()
         if digest != expected:
@@ -312,7 +317,7 @@ def binned_curves(pulses, names, coefficients):
     return rows
 
 
-def make_plot(path, curves, summary):
+def make_plot(path, curves, summary, condition="NoP1"):
     os.environ.setdefault("MPLCONFIGDIR", str(path.parent / "mpl-cache"))
     import matplotlib
     matplotlib.use("Agg")
@@ -348,7 +353,7 @@ def make_plot(path, curves, summary):
         ax.set_xticks(np.arange(len(available))+.25, [s for s,g in available])
         ax.set(title=f"{kind} / held-out errors", ylabel="Mean animal pulse RMSE (spikes/s)")
         ax.legend(fontsize=8)
-    fig.suptitle("Measured AOTU responses vs frozen models — NoP1, leave-one-recording-out\nObservation calibration only; size/contrast and neural dynamics remain unmodelled")
+    fig.suptitle(f"Measured AOTU responses vs frozen models — {condition}, leave-one-recording-out\nObservation calibration only; size/contrast and neural dynamics remain unmodelled")
     fig.savefig(path, dpi=150, metadata={"Software": "Fly Creature physiological diagnostic"})
     plt.close(fig)
 
@@ -417,13 +422,13 @@ def temporal_plot(path, pulses, names, coefficients):
     return output
 
 
-def run(data_dir, output_dir):
+def run(data_dir, output_dir, condition="NoP1"):
     output_dir.mkdir(parents=True, exist_ok=True)
     frozen_paths = [ROOT / "src/fly_creature" / name for name in
         ("pursuit_controller.py", "pursuit_activity.py", "pursuit_step4.py", "pursuit_delay_diagnostic.py",
          "data/visual_steering_v1.json", "data/lc10a_registered_eyemap_hypothesis_v3.json", "data/lc10a_column_footprints_v1.json")]
     frozen = {str(p.relative_to(ROOT)): sha(p) for p in frozen_paths}
-    pulses, audit = load_archives(data_dir)
+    pulses, audit = load_archives(data_dir, condition)
     names, tables = model_tables()
     summarize_predictions(pulses, names, tables)
     folds, coefficients, summary = evaluate(pulses, names)
@@ -436,7 +441,8 @@ def run(data_dir, output_dir):
     write_csv(output_dir / "direction.csv", direction_rows(curves))
     scalar_keys = [k for k,v in pulses[0].items() if np.isscalar(v)]
     write_csv(output_dir / "pulses.csv", [{k: p[k] for k in scalar_keys} for p in pulses])
-    result = {"protocol": "pursuit_physiology_protocol.md", "seed": SEED,
+    protocol = "pursuit_physiology_protocol.md" if condition == "NoP1" else "pursuit_p1_protocol.md"
+    result = {"protocol": protocol, "condition": condition, "seed": SEED,
         "dataset_url": "https://zenodo.org/records/15474938", "audit": audit,
         "accepted_pulses": len(pulses), "variant_count": len(names), "summary": summary,
         "frozen_code_and_input_sha256": frozen,
@@ -444,14 +450,15 @@ def run(data_dir, output_dir):
             "accepted_plus_rejected_equals_finite_segments": all(a["accepted_pulses"] + sum(a["rejected"].values()) == a["finite_segments"] for a in audit),
             "filter_direct_convolution_max_abs_error": filter_error,
             "frozen_hashes_unchanged": True},
-        "source_sha256": sha(Path(__file__)), "protocol_sha256": sha(ROOT / "docs/pursuit_physiology_protocol.md"),
+        "source_sha256": sha(Path(__file__)), "protocol_sha256": sha(ROOT / "docs" / protocol),
         "inputs_sha256": {name: sha(ROOT / "src/fly_creature/data" / name) for name in
             ("visual_steering_v1.json", "lc10a_registered_eyemap_hypothesis_v3.json", "lc10a_column_footprints_v1.json")},
-        "limitations": ["NoP1 is not a measured uniform internal state", "Finite object size/contrast metadata unavailable in sample MAT variables",
+        "limitations": [("NoP1 is not a measured uniform internal state" if condition == "NoP1" else
+            "P1 label comes from archive and source provenance; stimulation markers not read from int_* files"), "Finite object size/contrast metadata unavailable in sample MAT variables",
             "Static adapter lacks neural temporal dynamics", "Calibration is observation-only, not a production change",
             "Source MATLAB analysis pipeline not reproduced", "Aggregate AOTU responses cannot uniquely identify individual LC10a fields"]}
     (output_dir / "report.json").write_text(json.dumps(result, indent=2, allow_nan=False) + "\n")
-    make_plot(output_dir / "overview.png", curves, summary)
+    make_plot(output_dir / "overview.png", curves, summary, condition)
     write_csv(output_dir / "temporal.csv", temporal_plot(output_dir / "temporal.png", pulses, names, coefficients))
     print(json.dumps({k: {"flies": v.get("flies"), "pulses": v.get("pulses"),
         "rmse": {n: v["scores"][n]["pulse_rmse_spikes_s"]["mean"] for n in ("baseline", "footprint", "simple_spatial")},
@@ -463,8 +470,9 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--data-dir", type=Path, required=True)
     parser.add_argument("--output-dir", type=Path, required=True)
+    parser.add_argument("--condition", choices=("NoP1", "P1"), default="NoP1")
     args = parser.parse_args()
-    run(args.data_dir, args.output_dir)
+    run(args.data_dir, args.output_dir, args.condition)
 
 
 if __name__ == "__main__":

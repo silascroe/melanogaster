@@ -1,18 +1,23 @@
-"""Fetch only the two public NoP1 archives; validate before keeping them."""
+"""Fetch the selected public recording pair; validate before keeping it."""
 import argparse
 import hashlib
 from pathlib import Path
 import urllib.request
+import urllib.parse
 
 ARCHIVES = {
     "AOTU019 Motion Pulse NoP1.zip": (269524276, "6ebc8edd2bb348fa14b9dbd8f2cbea01"),
     "AOTU025 Motion Pulse NoP1.zip": (229423097, "ebeace816547366b8325182f80a08a5b"),
 }
+P1_ARCHIVES = {
+    "AOTU019 Motion Pulse.zip": (1333343141, "848680fbccbb80353d05f828cc6feef1"),
+    "AOTU025 Motion Pulse.zip": (960296278, "eae5a827f7e75b373c95b1ce9ee76c9b"),
+}
 
 
-def fetch(directory):
+def fetch(directory, condition="NoP1"):
     directory.mkdir(parents=True, exist_ok=True)
-    for name, (size, checksum) in ARCHIVES.items():
+    for name, (size, checksum) in (ARCHIVES if condition == "NoP1" else P1_ARCHIVES).items():
         path = directory / name
         if path.exists():
             if path.stat().st_size == size and hashlib.md5(path.read_bytes()).hexdigest() == checksum:
@@ -39,4 +44,6 @@ def fetch(directory):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--data-dir", type=Path, required=True)
-    fetch(parser.parse_args().data_dir)
+    parser.add_argument("--condition", choices=("NoP1", "P1"), default="NoP1")
+    args = parser.parse_args()
+    fetch(args.data_dir, args.condition)

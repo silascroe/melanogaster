@@ -13,7 +13,7 @@ behavior depends in an identifiable way on *which fly neurons connect to
 which*, while keeping simulated neural dynamics, sensory inputs, and body
 rules plainly labeled as our engineering choices.
 
-The current research task is connecting a verified pursuit reference to our
+The pursuit research has connected a verified reference to our
 MaleCNS v1.0 circuit. The [reference contract](docs/pursuit_reference_contract.md)
 pins the authors' code and chosen protocol. An offline Python implementation
 matches the authors' numerical core on static and step cases; the
@@ -32,8 +32,9 @@ it passes the fixed-fly field check and wiring-shuffle control. The
 source-inspired activity adaptation on eight held-out target paths. Its
 specific wiring helped relative to bridge removal and shuffles, but the
 controller failed continuous settling and gain-sensitivity gates. It remains
-offline; Step 5 Godot integration is not warranted on this result. The
-playable controller still uses the earlier LIF implementation.
+offline; Step 5 Godot integration was not warranted for that candidate.
+The earlier LIF implementation remains the startup default; the later activity
+candidate described below has a separate opt-in integration.
 
 The subsequent [timing and center-field diagnosis](docs/pursuit_delay_result.md)
 reproduces the failure and separates visual-history delay, motor delay, and
@@ -50,6 +51,14 @@ controller with the same delay, but an ordinary controller without that delay
 tracks better overall. Fast motion, wide initial headings, and walking past
 nearby stationary targets expose clear limits. These are model results, not
 validated fly biology; the Godot controller remains unchanged.
+
+The subsequent [motion-rule diagnosis](docs/pursuit_motion_result.md) isolates
+a direction-rule tradeoff and a strong motor-delay limit. Removing direction
+sensitivity helps fast paths but worsens gentle tracking; no input candidate
+qualifies. On 12 fresh fast/mixed-motion paths, the current model beats only
+1/32 shuffled circuits on aggregate, so its wiring advantage is limited to
+particular situations. Production settings remain unchanged. Timing needs a
+source-grounded review before another controller revision.
 
 The [LC10a source review](docs/lc10a_visual_input_research.md) explains why
 our MaleCNS annotations do not directly supply individual visual fields.

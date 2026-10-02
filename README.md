@@ -14,9 +14,10 @@ The current baseline uses MaleCNS v1.0 from HHMI Janelia's public Google Storage
 
 ## Setup
 
-Current creature research: the [pursuit stress report](fly-creature/docs/pursuit_stress_result.md)
-checks the working Godot controller's limits against shuffled wiring and
-matched ordinary control. See [the handoff](docs/HANDOFF.md) for continuation.
+Current creature research: the [motion diagnosis](fly-creature/docs/pursuit_motion_result.md)
+finds a direction-rule tradeoff and motor-delay limit; no input fix qualifies.
+Fresh fast/mixed-motion cases limit the earlier wiring-advantage claim.
+See [the handoff](docs/HANDOFF.md) for continuation.
 The [interactive playground](fly-creature/docs/playground.md) now exposes
 simultaneous comparisons, target presets/manual placement and live errors.
 

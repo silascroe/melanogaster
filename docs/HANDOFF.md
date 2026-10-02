@@ -1,5 +1,25 @@
 # FlyTest handoff
 
+## 2026-10-02: motion-rule diagnosis complete; no input fix promoted
+
+Read [motion result](../fly-creature/docs/pursuit_motion_result.md) and
+[protocol](../fly-creature/docs/pursuit_motion_protocol.md). Branch
+`experiment/pursuit-motion-diagnosis` preserves the playground/runtime.
+An offline diagnostic reproduces all 48 frozen stress cases and matches the
+actual session tick for tick. Direction removal improves six hard cases by
+11.0% but worsens supported aggregate error by 17.7%; history correction has
+no hard-case effect. Zero motor delay cuts fastest error 12.050 to 5.851
+degrees, but is an explanatory control, not a promoted biological setting.
+Including self-motion matches retinal geometry and the source model.
+Twelve fresh cases: intact mean 6.459 degrees, all pass the coarse envelope,
+but intact beats only 1/32 shuffle aggregates. Position-only gets 6.218 and
+beats 32/32 shuffles but does not qualify given prior regressions. The earlier
+wiring advantage is motion-regime dependent. Two complete reports are
+byte-identical; 24 traces/hashes/aggregates independently checked. 32 creature
+and 69 lab tests and release verification pass. No production setting changed.
+Next proposed work: review visual-response versus end-to-end motor timing
+before another revision; Sol medium for the source/model distinction.
+
 ## 2026-10-02: interactive comparison playground implemented
 
 Read [playground.md](../fly-creature/docs/playground.md) and

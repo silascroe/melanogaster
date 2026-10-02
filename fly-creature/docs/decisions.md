@@ -1,5 +1,18 @@
 # Fly Creature decisions
 
+## Motion-rule diagnosis: retain the current controller
+
+The [controlled diagnosis](pursuit_motion_result.md) reproduces all frozen
+stress metrics and tests direction removal/reversal, target-only motion,
+visibility history and zero motor delay separately. No input intervention
+meets the registered improvement/regression gate. Keep production settings.
+Fresh fast/mixed-motion paths lose the current model's intact-versus-shuffle
+advantage; do not extrapolate the prior stress result across motion regimes.
+Source-inspired direction sensitivity is an imposed rule, not a property
+discovered from recorded edges. Self-motion in retinal bearing is expected.
+Zero delay is a sensitivity control, not a justified new biological default.
+Review the visual/motor timing contract before another implementation change.
+
 ## First reaction: looming object to jump
 
 The first visible behavior is deliberately narrow: an object approaches a fly standing or walking on the floor, and a DNp01 giant-fiber spike requests a jump animation. Published work identifies LC4 and LPLC2 as direct visual inputs to the giant fiber during looming. The local MaleCNS v1.0 files contain 126 traced LC4, 185 traced LPLC2, and two traced DNp01 neurons; the selected direct path has 311 weighted body-to-body edges. These counts are from the local release, not a claim that this is a complete escape circuit.

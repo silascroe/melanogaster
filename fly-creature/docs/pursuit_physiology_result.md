@@ -12,8 +12,11 @@ Frozen [protocol](pursuit_physiology_protocol.md),
 The authors' [Zenodo NoP1 archives](https://zenodo.org/records/15474938) contain
 24 recordings, 12 per type. Both full archives pass published MD5 checks;
 every read member passes ZIP CRC. The independent loader restores MATLAB
-dimensions and assigns recorded hemisphere using the corresponding sorted
-file list and side metadata. Source preprocessing already makes measured
+dimensions and provisionally assigns model hemisphere using the sorted
+file list and side metadata. The subsequent [P1 audit](pursuit_p1_result.md)
+found that the side vector is saved in spreadsheet order, not explicitly
+sorted filename order; its association is unverified. One recording is also
+numerically duplicated across the two archives, so its condition is unresolved. Source preprocessing already makes measured
 angles positive ipsilaterally; the model receives global angles with one
 explicit side transform.
 
@@ -117,14 +120,10 @@ tests were run in this task; the checks above cover the requested diagnostic.
 
 ## Next
 
-Extend the same frozen benchmark to the **P1-stimulated recordings** before
-fitting another spatial kernel. Keep the NoP1 result as a condition-specific
-baseline, separate locomotor strata, and audit protocol/animal differences
-instead of pretending the two archives are paired animals. Compare measured
-state-related amplitude, direction and time-course changes; do not change
-production from an aggregate improvement alone. Sol medium fits this extension's
-state and measurement interpretation. It may motivate a bounded response model
-after physiological agreement is established; fresh pursuit paths remain reserved.
+The [P1 extension and condition audit](pursuit_p1_result.md) is complete.
+Read it before interpreting side-specific or cross-condition physiology.
+A bounded temporal-response hypothesis is the next diagnostic design;
+production and fresh pursuit validation remain unchanged.
 
 **TL;DR:** The benchmark works. The footprint adds almost nothing, and these
-NoP1 recordings support only modest spatial benefitâ€”not the pursuit claim.
+NoP1 recordings support only modest spatial benefit, not the pursuit claim.

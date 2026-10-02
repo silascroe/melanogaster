@@ -1,5 +1,41 @@
 # FlyTest handoff
 
+## 2026-10-02: frozen P1 physiology comparison and data-quality sensitivities complete
+
+Read [result](../fly-creature/docs/pursuit_p1_result.md) and
+[protocol](../fly-creature/docs/pursuit_p1_protocol.md). Branch
+`experiment/p1-aotu-responses` preserves production and old NoP1 evidence.
+Two extra public archives (2.29 GB), MD5/CRC verified, contain 47 recordings;
+55,252 accepted pulses and 141 rejected intervals fully accounted for.
+Same native-position replay, strata, 68 variants, filter, training-only affine
+calibration and equal-recording LOO. P1 baseline beats constant by 7.60/7.33%
+(019 quiet/running) and 5.67/2.97% (025); advantage over simple spatial is only
+1.01/0.28% in quiescent groups, negative in primary running groups.
+Footprint effect remains negligible. NoP1 CSV/PNG/numerics exactly preserved;
+P1 complete repeat CSV/PNG/report bytes identical; model/input hashes unchanged.
+
+Important audit: all 24 NoP1 names overlap P1, with 23 additional P1 names.
+019/2023_06_15_fly03 has identical 40 trials across all seven numeric variables
+in both archives, despite differing MAT bytes; no other exact numeric trial
+matches found. Eleven assigned-side labels disagree (019=4, 025=7).
+Author loader saves trackLR in spreadsheet order, not explicitly filename order;
+tracker sheets absent. Already-ipsilateral-positive measurements remain fixed.
+Primary model hemisphere assignment is provisional, including old NoP1 result.
+Do not infer randomized pairing, causal P1 gain or verified side-specific fit.
+Four pre-fit hemisphere scenarios and post-hoc duplicate exclusion preserve
+broad spatial benefit/small anatomy-over-simple benefit; some finer wiring
+ranks shift substantially. Metadata sensitivity summaries exactly reproduce
+primary summaries. Full diagnostics ignored, compact evidence tracked.
+
+Inspected time courses show measured persistence/delayed shape missing from
+static adapters. Next: design a bounded causal temporal-response hypothesis,
+exclude known duplicate prospectively, handle hemisphere/condition uncertainty,
+freeze training-only choices, compare held-out evoked/time errors with equally
+calibrated static anatomy and simple controls. Better provenance remains needed
+for biological state/side claims. Sol medium for design, Luna Max for scoped
+implementation after protocol. No production promotion/fresh pursuit paths;
+no unit/gameplay suite ran in this task.
+
 ## 2026-10-02: measured NoP1 AOTU benchmark implemented and evaluated
 
 Read [result](../fly-creature/docs/pursuit_physiology_result.md) and

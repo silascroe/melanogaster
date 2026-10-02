@@ -85,7 +85,12 @@ per-MaleCNS visual-field widths. The completed
 13,038 pulses from 24 NoP1 recordings with frozen models and equally calibrated
 controls. Footprints barely change the errors; simple spatial predictions are
 close and a constant predictor exposes weak AOTU019 benefit in this condition.
-Production is unchanged. P1-stimulated physiology is the next comparison.
+The completed [P1 extension](docs/pursuit_p1_result.md) compares another
+55,252 pulses from 47 recordings. Spatial benefit is clearer, but anatomy
+barely improves on a simple spatial curve. Its audit finds a duplicated
+recording across conditions and an unverified hemisphere-label association;
+condition effects and side-specific claims remain provisional. Production is
+unchanged. A bounded temporal-response diagnostic is the next design task.
 The optional `physiology-research` extra and reproduction commands are in the
 result; full recordings stay in ignored outputs.
 The [first skeleton-derived input experiment](docs/visual_input_experiment.md)

@@ -105,7 +105,7 @@ def extract(time, dt, data, identity, kind, side):
     return pulses, dict(rejected)
 
 
-def load_archives(directory, condition="NoP1"):
+def load_archives(directory, condition="NoP1", hemisphere_assignment="metadata"):
     from scipy.io import loadmat
     pulses, audit = [], []
     archives = {"NoP1": ARCHIVES, "P1": P1_ARCHIVES}[condition]
@@ -123,6 +123,8 @@ def load_archives(directory, condition="NoP1"):
             if len(sides) != len(members) or set(sides) - set("LR"):
                 raise ValueError("Side metadata does not match sorted recordings")
             for member, side in zip(members, sides):
+                side = {"metadata": side, "opposite": "R" if side == "L" else "L",
+                    "all_L": "L", "all_R": "R"}[hemisphere_assignment]
                 payload = archive.read(member)  # zipfile verifies the member CRC.
                 identity = kind + "/" + Path(member).stem.removesuffix("_int")
                 time, dt, data = read_recording(payload)
@@ -422,13 +424,13 @@ def temporal_plot(path, pulses, names, coefficients):
     return output
 
 
-def run(data_dir, output_dir, condition="NoP1"):
+def run(data_dir, output_dir, condition="NoP1", hemisphere_assignment="metadata"):
     output_dir.mkdir(parents=True, exist_ok=True)
     frozen_paths = [ROOT / "src/fly_creature" / name for name in
         ("pursuit_controller.py", "pursuit_activity.py", "pursuit_step4.py", "pursuit_delay_diagnostic.py",
          "data/visual_steering_v1.json", "data/lc10a_registered_eyemap_hypothesis_v3.json", "data/lc10a_column_footprints_v1.json")]
     frozen = {str(p.relative_to(ROOT)): sha(p) for p in frozen_paths}
-    pulses, audit = load_archives(data_dir, condition)
+    pulses, audit = load_archives(data_dir, condition, hemisphere_assignment)
     names, tables = model_tables()
     summarize_predictions(pulses, names, tables)
     folds, coefficients, summary = evaluate(pulses, names)
@@ -442,7 +444,8 @@ def run(data_dir, output_dir, condition="NoP1"):
     scalar_keys = [k for k,v in pulses[0].items() if np.isscalar(v)]
     write_csv(output_dir / "pulses.csv", [{k: p[k] for k in scalar_keys} for p in pulses])
     protocol = "pursuit_physiology_protocol.md" if condition == "NoP1" else "pursuit_p1_protocol.md"
-    result = {"protocol": protocol, "condition": condition, "seed": SEED,
+    result = {"protocol": protocol, "condition": condition,
+        "hemisphere_assignment": hemisphere_assignment, "seed": SEED,
         "dataset_url": "https://zenodo.org/records/15474938", "audit": audit,
         "accepted_pulses": len(pulses), "variant_count": len(names), "summary": summary,
         "frozen_code_and_input_sha256": frozen,
@@ -456,7 +459,8 @@ def run(data_dir, output_dir, condition="NoP1"):
         "limitations": [("NoP1 is not a measured uniform internal state" if condition == "NoP1" else
             "P1 label comes from archive and source provenance; stimulation markers not read from int_* files"), "Finite object size/contrast metadata unavailable in sample MAT variables",
             "Static adapter lacks neural temporal dynamics", "Calibration is observation-only, not a production change",
-            "Source MATLAB analysis pipeline not reproduced", "Aggregate AOTU responses cannot uniquely identify individual LC10a fields"]}
+            "Source MATLAB analysis pipeline not reproduced", "Aggregate AOTU responses cannot uniquely identify individual LC10a fields",
+            "trackLR is saved in spreadsheet order; its association with sorted filenames is unverified"]}
     (output_dir / "report.json").write_text(json.dumps(result, indent=2, allow_nan=False) + "\n")
     make_plot(output_dir / "overview.png", curves, summary, condition)
     write_csv(output_dir / "temporal.csv", temporal_plot(output_dir / "temporal.png", pulses, names, coefficients))
@@ -471,8 +475,9 @@ def main():
     parser.add_argument("--data-dir", type=Path, required=True)
     parser.add_argument("--output-dir", type=Path, required=True)
     parser.add_argument("--condition", choices=("NoP1", "P1"), default="NoP1")
+    parser.add_argument("--hemisphere-assignment", choices=("metadata", "opposite", "all_L", "all_R"), default="metadata")
     args = parser.parse_args()
-    run(args.data_dir, args.output_dir, args.condition)
+    run(args.data_dir, args.output_dir, args.condition, args.hemisphere_assignment)
 
 
 if __name__ == "__main__":

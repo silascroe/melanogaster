@@ -35,3 +35,18 @@ primary numerical summaries and CSVs. Confirm frozen controller/model/data
 hashes, independent observation-filter arithmetic and repeated P1 results.
 Save compact reports/plots under docs/evidence and full data/traces only in
 ignored outputs. No fresh pursuit paths or behavioral promotion.
+
+## Metadata contingency, before P1 response fitting
+
+Source inspection found that `load_targetpulse.m` saves `trackLR` in tracker
+spreadsheet order, not explicitly sorted filename order. The tracker sheets
+are absent from the cloned release. Of the 12 shared AOTU025 date/fly names,
+7 have discordant labels under the sorted-file association. This does not
+prove either association correct or incorrect; distinct cells and ordering
+cannot be recovered from names alone. Preserve the original metadata-assigned
+benchmark as provisional. Additionally repeat both conditions with all labels
+flipped, all L, and all R, keeping already-ipsilateral-positive measured
+positions fixed and changing only the selected model hemisphere. These are
+declared sensitivity scenarios, not an exhaustive bound over all assignments,
+and no scenario is selected for its fit. Do not claim side-specific biological
+validation from this dataset without an explicit filename-to-side mapping.

@@ -1,5 +1,17 @@
 # Fly Creature decisions
 
+## P1 physiology: distinguish spatial benefit from circuit-specific benefit
+
+The [P1 extension](pursuit_p1_result.md) adds 47 recordings and 55,252 pulses.
+Frozen anatomy reduces error against a constant predictor, but its advantage
+against a simple spatial curve is small; footprints add almost nothing.
+One numeric recording occurs in both condition archives, and `trackLR` order
+is not linked reliably to filenames. Preserve primary results as provisional,
+record declared hemisphere sensitivities and post-hoc duplicate exclusion,
+and avoid causal P1 or side-specific validation claims. Investigate measured
+temporal-response mismatch with a bounded held-recording diagnostic before
+retuning production or consuming fresh pursuit paths.
+
 ## NoP1 physiology: preserve the empirical baseline, do not promote a kernel
 
 The [completed benchmark](pursuit_physiology_result.md) measures held-out
@@ -7,8 +19,9 @@ AOTU response errors in 24 recordings. The footprint adds negligible benefit;
 a fixed simple spatial predictor is close, and an intercept-only predictor
 nearly matches quiescent AOTU019 and improves running AOTU019. Wiring ranks
 alone therefore overstate practical fit. NoP1 and pulse-window locomotor strata
-are explicit conditions, not a calibration of aroused pursuit. Extend the same
-fixed comparison to P1 recordings before another input rewrite. Keep the
+are explicit conditions, not a calibration of aroused pursuit. The P1
+extension is now complete; read its condition and metadata audit before
+interpreting the original side assignments. Keep the
 original calibration budget, label protocol corrections/post-hoc controls,
 and preserve production and fresh behavioral validation.
 

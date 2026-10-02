@@ -17,7 +17,7 @@ NumPy and Godot runtimes are still required.
 | `godot/fly_actor.tscn`, `fly_actor.gd`, `assets/` | Reusable textured visual fly and authored animation |
 | Diagnostic modules, `docs/evidence/` | Reproducible research comparisons; full traces stay in ignored outputs |
 | `pursuit_footprints.py`, `data/lc10a_column_footprints_v1.json` | Portable offline upstream-column input hypothesis; production does not import it |
-| `pursuit_physiology.py`, `tools/fetch_aotu_recordings.py` | Offline recorded-stimulus extraction, held-out AOTU response comparison and verified public-data acquisition; optional research dependencies |
+| `pursuit_physiology.py`, `pursuit_p1_comparison.py`, `tools/fetch_aotu_recordings.py` | Offline NoP1/P1 recorded-stimulus extraction, held-out AOTU response comparison, condition audit and verified public-data acquisition; optional research dependencies |
 
 Comparison endpoints are `POST /playground` and
 `POST /playground/{world_id}/step`. They have a separate single-world store

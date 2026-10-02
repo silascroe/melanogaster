@@ -1,0 +1,36 @@
+{
+  "NoP1_regression": {
+    "folds.csv": true,
+    "curves.csv": true,
+    "direction.csv": true,
+    "pulses.csv": true,
+    "temporal.csv": true,
+    "overview.png": true,
+    "temporal.png": true,
+    "summary": true,
+    "audit": true,
+    "accepted_pulses": true,
+    "checks": true,
+    "frozen_code_and_input_sha256": true,
+    "inputs_sha256": true
+  },
+  "P1_repeat": {
+    "report.json": true,
+    "folds.csv": true,
+    "curves.csv": true,
+    "direction.csv": true,
+    "pulses.csv": true,
+    "temporal.csv": true,
+    "overview.png": true,
+    "temporal.png": true
+  },
+  "sensitivity_original_summaries_exact": true,
+  "source_sha256": {
+    "fly-creature/src/fly_creature/pursuit_physiology.py": "c2020f4d4b0d35ec8a868c5dbb98d4801c55310f4b994923db83f809ced8bc85",
+    "fly-creature/src/fly_creature/pursuit_p1_comparison.py": "299f3d9a29ff8c96bf9aabb2273f63f391488b658a6fc11b884dbe90ab4423fc",
+    "fly-creature/src/fly_creature/pursuit_physiology_sensitivity.py": "7b7cf0e5e209b4d90e220fe1bfd733c96d1ae0a6546f0bfd4f1dd36a33581f61"
+  },
+  "sensitivity_full_output_sha256": "d11eedddef1cee3fce200357f9775cded545f4c96552347421879303f4848e6e",
+  "P1_source_and_protocol_hashes_current": true,
+  "production_and_input_hashes_current": true
+}

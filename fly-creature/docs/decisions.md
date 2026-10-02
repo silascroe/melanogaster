@@ -1,5 +1,16 @@
 # Fly Creature decisions
 
+## Response diagnosis: investigate spatial inputs before a controller fix
+
+The [decomposition](pursuit_response_result.md) locates a large wide-angle gap
+before output decoding. Shared input normalization and ELU create additional
+effects; output weights and quantization do not account for most of that gap.
+Linear activation/per-channel normalization improve several consumed cases but
+regress fast sweeps, so neither is promoted. The source field is image-derived;
+matching it alone does not establish biological correctness. Next investigate
+distribution-preserving upstream-column fields, preserving fallback uncertainty
+and fixed gain/timing. Anatomical spread is not a measured response width.
+
 ## Matched retinal comparison: shared limits and adaptation gaps
 
 The [benchmark](pursuit_retinal_result.md) preserves production settings and
@@ -7,8 +18,8 @@ The [benchmark](pursuit_retinal_result.md) preserves production settings and
 both controllers share rotational world, queue and body conventions. Fast
 sweeps expose a shared limit; removing only the reference cap does not fix it.
 Adaptation error and wiring rank vary by task. Keep direction, gain, timing and
-selection unchanged. Next inspect response-curve contributions before choosing
-a fix; reserve fresh validation.
+selection unchanged. The response diagnosis above now inspects contributions;
+reserve fresh validation for any later candidate.
 
 ## Timing contract: preserve feedback delay and compare matched references
 

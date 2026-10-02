@@ -1,5 +1,25 @@
 # FlyTest handoff
 
+## 2026-10-02: response-contribution investigation complete
+
+Read [response result](../fly-creature/docs/pursuit_response_result.md) and
+[protocol](../fly-creature/docs/pursuit_response_protocol.md). Branch
+`experiment/pursuit-response-diagnosis` leaves production unchanged. At right
+105 degrees, adapted stationary signal 0.221 versus reference 0.870. Canonical
+output edges recover only 0.010; linear activation reaches 0.347. Raw normalized
+right AOTU025 field is 0.343 versus reference 0.772: the main gap precedes
+decoding. Input symmetrization reduces mirror mismatch 0.288 to 0.036; output
+symmetrization does not help that metric. Per-channel normalization/linear
+activation help four replay families but regress fast sweeps; no promotion.
+The reference's heatmap pipeline assigns anatomical image extent linearly to
+-15..165 degrees, while our model uses registered centers and fixed 18-degree
+Gaussians. Neither is measured physiology. Saved upstream spreads are ignored
+by runtime, but most are smaller than 18 degrees; do not blindly replace width.
+176 replays; prior baselines reproduce exactly. 108 tests, 17 source hashes,
+release verification and byte-identical JSON/CSV/PNG pass. Next proposed build:
+offline upstream-column footprint input, preserving kernel/fallback uncertainty,
+fixed-fly checks first (Sol medium). Fresh validation remains reserved.
+
 ## 2026-10-02: matched retinal reference benchmark complete
 
 Read [result](../fly-creature/docs/pursuit_retinal_result.md) and

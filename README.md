@@ -21,6 +21,8 @@ The [timing contract](fly-creature/docs/pursuit_timing_contract.md) now checks
 the final paper. The completed
 [matched retinal benchmark](fly-creature/docs/pursuit_retinal_result.md) finds
 shared fast-motion weakness and task-dependent adaptation/wiring differences.
+The [response diagnosis](fly-creature/docs/pursuit_response_result.md) now
+isolates weak wide-angle input profiles and additional nonlinear attenuation.
 See [the handoff](docs/HANDOFF.md) for continuation.
 The [interactive playground](fly-creature/docs/playground.md) now exposes
 simultaneous comparisons, target presets/manual placement and live errors.

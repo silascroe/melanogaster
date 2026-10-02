@@ -65,6 +65,12 @@ through our static adapter gives identical commands. The completed
 fast-sweep weakness and task-dependent adaptation/wiring differences.
 The playable controller remains unchanged.
 
+The [response-contribution diagnosis](docs/pursuit_response_result.md) locates
+the wide-angle signal deficit mainly in the hypothesized input profiles, with
+additional nonlinear attenuation. Output weights and DN quantization have much
+smaller effects. No diagnostic probe is promoted; the author field itself is
+an anatomical image-derived approximation, not measured visual physiology.
+
 The [LC10a source review](docs/lc10a_visual_input_research.md) explains why
 our MaleCNS annotations do not directly supply individual visual fields.
 The [first skeleton-derived input experiment](docs/visual_input_experiment.md)

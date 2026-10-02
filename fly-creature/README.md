@@ -104,8 +104,14 @@ excludes whole recordings and uses identical pulse-mean coverage/calibration.
 An empirical other-recording template improves P1 errors about 2.2% against
 anatomy; anatomy beats simple spatial by only 0.24%/0.53%. Anatomy captures some
 019 field shape, while outer-field tails, direction-dependent peaks and
-below-reference responses expose specific mismatches. Production remains
-unchanged; audit target history/baseline provenance before a sensory rewrite.
+below-reference responses expose specific mismatches. The subsequent
+[improvement cycle](docs/pursuit_goal_result.md) audited history/reference choices
+and rejected a bounded direction-skew/negative-offset correction: P1 errors
+improved only 0.058% for AOTU019 and worsened 0.164% for AOTU025. Below-reference
+025 responses persist across paired baselines, but missing long-gap coverage
+prevents a history-independent inhibition claim. Production remains unchanged.
+The [replacement plan](docs/pursuit_replacement_plan.md) starts with a source-grounded
+finite-object LC10a sensor contract and probe matrix before another sensory rewrite.
 The optional `physiology-research` extra and reproduction commands are in the
 result; full recordings stay in ignored outputs.
 The [first skeleton-derived input experiment](docs/visual_input_experiment.md)

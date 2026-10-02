@@ -1,5 +1,39 @@
 # FlyTest handoff
 
+## 2026-10-02: autonomous pursuit improvement cycle complete; candidate rejected
+
+Branch `experiment/pursuit-improvement-cycle`. Read the
+[cycle result](../fly-creature/docs/pursuit_goal_result.md),
+[replacement plan](../fly-creature/docs/pursuit_replacement_plan.md) and its
+three linked frozen/posthoc protocols. Production and prior evidence unchanged.
+
+History audit: 35,484 quiet pulses / 69 recordings. Literal >=1 s gap selects
+timestamp quantization; preserved initial results plus labeled posthoc >=0.995 s
+sensitivity. Paired near/early/far P1 025 nonpreferred means stay negative;
+no eligible 025 >=2 s or first-pulse/all-window cohort. Cannot claim history-
+independent inhibition or a global field shift.
+
+Bounded direction-derivative skew plus negative visibility offset (three NNLS
+coefficients) compared identically across anatomy, 32 shuffles, simple spatial
+and flat controls. P1 019 RMSE 11.02839 ->11.02203 (+0.058%, 11/24 wins);
+025 14.51848 ->14.54232 (-0.164%, 4/22 wins). Corrected anatomy beats corrected
+simple by only 0.374%/0.483%; beats 0/32 and 32/32 shuffles. Both frozen gates
+fail. Reject correction; no production integration. Dataset reuse means these
+recording-held-out results are exploratory, not independent confirmation.
+
+Two full replays and figures byte-identical. Independent checker reconstructs
+all 2,415 fits, weights, losses, summary ranks and gates; prior static parity and
+protected source/circuit hashes pass. No unit/gameplay suites ran. Compact
+reports/figures/checks tracked; raw observations/features/all folds ignored.
+Source modules `pursuit_history.py`, `pursuit_revision.py`; tools
+`check_pursuit_cycle.py`, `plot_pursuit_cycle.py`. Result has reproduction commands.
+
+Next bounded deliverable: evidence-backed finite-object LC10a input contract and
+probe matrix. Resolve dimensions/contrast/surround/motion/state and numerical
+source gaps before changing the simulator. Sol medium for contract/interpretation;
+Luna Max for a frozen implementation. Do not add neuron counts, output-fit knobs
+or gameplay features to disguise this measured-response mismatch.
+
 ## 2026-10-02: matched population tuning complete; specific shape gaps identified
 
 Read [result](../fly-creature/docs/pursuit_population_result.md) and

@@ -137,9 +137,11 @@ also differ: a comparison must declare the exact state criterion.
 The [result](pursuit_physiology_result.md) implements the data adapter and
 fixed-body report specified below. Its [frozen protocol](pursuit_physiology_protocol.md)
 records extraction corrections and comparison details. **Do not rewrite the
-production input from these NoP1 results.** The next comparison extends the same
-benchmark to P1-stimulated recordings; Sol medium fits its state and provenance
-decisions.
+production input from these NoP1 results.** Subsequent P1 comparisons, population
+tuning, reference-history audit and a rejected output correction are summarized
+in the [completed improvement cycle](pursuit_goal_result.md). The current next
+task is the [LC10a sensor contract](pursuit_replacement_plan.md); the specification
+below records the implemented benchmark's original design and limitations.
 
 Acquire the two NoP1 archives with checksum verification and preserve file/fly
 identity. Reconstruct visible pulse intervals from recorded position/time,

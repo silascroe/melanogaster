@@ -1,5 +1,23 @@
 # Fly Creature decisions
 
+## Pursuit improvement cycle: reject output correction; define upstream evidence
+
+The [completed cycle](pursuit_goal_result.md) preserves production. A paired
+three-reference audit retains negative nonpreferred AOTU025 evoked responses,
+but missing long-gap/first-pulse coverage prevents separating target history
+from inhibition. The nominal one-second-gap sensitivity is explicitly posthoc;
+the original literal cutoff remains reproducible. A frozen three-coefficient
+direction-skew/negative-offset correction fails predictive and wiring gates:
+P1 error improves 0.058% for 019 and worsens 0.164% for 025. Reject this correction
+and stop extending its parameter search. Its recording holds are exploratory
+because the design reused the same dataset.
+
+The [replacement plan](pursuit_replacement_plan.md) defines a finite-object LC10a
+sensor contract and source-grounded probes before changing the input. Keep graph,
+registered-center uncertainty and matched controls explicit. Object-size tuning
+does not establish per-neuron receptive-field widths. Do not promote to Godot
+without upstream evidence and the existing closed-loop gates.
+
 ## Population tuning: diagnose concrete residual features before rewiring
 
 The [matched comparison](pursuit_population_result.md) preserves frozen
@@ -12,7 +30,8 @@ Anatomy's 019 shape correlation is better in aggregate, but outer-field tails,
 Do not infer inhibition from baseline subtraction, shift the whole eye map
 from coarse pulse-mean peak locations, or credit empirical grand-mean curve
 agreement as independent validation. Next audit target history and baseline
-choice with recording-blocked evidence; production remains unchanged.
+choice with recording-blocked evidence; this audit and the subsequent rejected
+correction are now recorded above. Production remains unchanged.
 
 ## Repeatability: recognize target variation without excusing the adapter
 

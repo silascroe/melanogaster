@@ -21,6 +21,8 @@ NumPy and Godot runtimes are still required.
 | `pursuit_temporal.py` | Offline native-trial causal response-memory hypothesis, pooled hemisphere and side sensitivities, nested recording holdouts and speed-transfer diagnostic |
 | `pursuit_repeatability.py`, `tools/check_repeatability.py` | Offline repeated-stimulus pulse-mean templates, held-trial descriptive motor association and independent saved-artifact arithmetic; no production changes |
 | `pursuit_population.py`, `tools/check_population.py` | Offline matched held-recording anatomy/simple/empirical response fields, training-only gain fits and independent reconstruction; prior repeatability outputs define unchanged coverage |
+| `pursuit_history.py` | Offline paired reference-window and preceding-target audit; preserves literal-gap results and labels nominal-gap sensitivity posthoc |
+| `pursuit_revision.py`, `tools/check_pursuit_cycle.py`, `tools/plot_pursuit_cycle.py` | Offline bounded direction-skew/visible-offset hypothesis, matched control fits, independent reconstruction and figures; rejected, never imported by production |
 
 Comparison endpoints are `POST /playground` and
 `POST /playground/{world_id}/step`. They have a separate single-world store

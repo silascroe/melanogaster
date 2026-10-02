@@ -1,5 +1,19 @@
 # Fly Creature decisions
 
+## Repeatability: recognize target variation without excusing the adapter
+
+The [completed audit](pursuit_repeatability_result.md) finds repeatable P1
+stimulus structure: same-recording templates beat blind means by 14.3%/16.7%
+and other-recording templates by 11.0%/10.4%. Simple descriptive movement adds
+4.47%/0.85% held-trial RMSE reduction, not a causal motor explanation. NoP1
+cell-specific templates lose to blind means. Substantial trial and recording
+variation is part of the prediction target, but neither templates nor their
+errors establish a biological noise ceiling or validate our sensory adapter.
+Keep production unchanged. Next compare frozen anatomy, simple spatial and
+empirical other-recording tuning on identical pulse-mean holdouts/coverage
+before another sensory rewrite. Do not compare these absolute errors directly
+with the earlier full-trace or raw-rate objectives.
+
 ## Temporal response: preserve the bounded hypothesis without promotion
 
 The [completed experiment](pursuit_temporal_result.md) replays native whole

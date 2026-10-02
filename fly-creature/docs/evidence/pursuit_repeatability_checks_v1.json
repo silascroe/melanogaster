@@ -1,0 +1,23 @@
+{
+  "artifact_sha256": {
+    "folds.csv": "adc97573f9a81031cef79fcdca4475c60c05622d2499a1721b179a4db394a450",
+    "observations.csv": "92f7e7d443da1dd5e7eea1015fa1dd9a47fcb866182003935e4dfbd03a8d58c6",
+    "recordings.csv": "9e9aeed9340c46deb85961bbb85e8acc4485e5318f62df9743fc64c5b64fdf24",
+    "repeatability.png": "a0bd006edaba4716bdd3148adaf96596d908e5e15036431c036011564637033a",
+    "report.json": "891779a0f512fe7106d5a4b73ba566ba78ef7a9624860e89fdc97503973e9469"
+  },
+  "augmented_least_squares_max_error": 4.1744385725905886e-14,
+  "byte_identical_repeat": {
+    "folds.csv": true,
+    "observations.csv": true,
+    "recordings.csv": true,
+    "repeatability.png": true,
+    "report.json": true
+  },
+  "duplicate_exclusion_and_interval_counts": true,
+  "independent_mean_max_error": 5.329070518200751e-15,
+  "independent_ridge_recordings": 69,
+  "independently_checked_fold_rows": 34554,
+  "protocol_and_implementation_hashes_current": true,
+  "recording_loss_checks": true
+}

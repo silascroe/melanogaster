@@ -1,5 +1,40 @@
 # FlyTest handoff
 
+## 2026-10-02: repeated-response audit complete; production preserved
+
+Read [result](../fly-creature/docs/pursuit_repeatability_result.md) and
+[frozen protocol](../fly-creature/docs/pursuit_repeatability_protocol.md).
+Branch `experiment/aotu-response-repeatability`; protocol `8a074db`, initial
+implementation `3805c9a`. New offline `pursuit_repeatability.py` reads the same
+four archives, excludes the known duplicate and scores baseline-subtracted
+pulse means in the old quiescent class. Group speed/direction/11.25-degree
+center cells, require four trials and three other recordings. Hold whole
+trials; all comparisons score 34,554 common trial-cells from 35,484 quiet
+pulses / 69 recordings. Equal cell/trial/recording scoring; no physical-side
+or causal P1 assumption.
+
+P1 same-recording templates beat blind means by 14.3%/16.7% and other-recording
+templates by 11.0%/10.4%; NoP1 same-recording templates lose to blind means.
+Fixed training-only residualized ridge 0.1 using four pre/on forward/absolute
+angular covariates adds 4.47%/0.85% P1 held-trial RMSE reduction. Quiescent
+does not mean immobile: 38.0%/39.6% of P1 pulses contain some above-threshold
+forward motion; turning is unconstrained. Large residual trial variation is
+not all noise, and these predictors are not a noise ceiling. Motor association
+can reflect neural output/shared causes, not an input justified for production.
+
+Two runs reproduce report, observations/folds/recording CSVs and PNG bytes.
+`tools/check_repeatability.py` independently checks all 34,554 saved means,
+weights, count/exclusion rules and recording losses; augmented least squares
+checks motor fits for one held trial in each of 69 recordings. Maximum
+mean discrepancy 5.33e-15, motor-fit discrepancy 4.18e-14. Raw inputs and
+old extraction/evidence preserved. No unit/gameplay suite ran. Full observations
+and folds ignored; compact report, recording table, checks and figure tracked.
+
+Next: matched population-tuning comparison of frozen anatomy, simple spatial
+and empirical other-recording templates, same pulse-mean objective, coverage,
+calibration budget and recording holdouts. Diagnose mean visual field shapes
+before a sensory rewrite. Sol medium design/interpretation; Luna Max once fixed.
+
 ## 2026-10-02: causal response-memory diagnostic complete; benefit gate failed
 
 Read [result](../fly-creature/docs/pursuit_temporal_result.md) and

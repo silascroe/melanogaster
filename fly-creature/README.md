@@ -94,8 +94,12 @@ unchanged. The completed [causal response-memory experiment](docs/pursuit_tempor
 uses nested recording holdouts, complete-trial history and matched timing budgets.
 It improves primary errors by less than 1%, fails its frozen benefit criteria
 and transfers inconsistently across speeds. No temporal candidate is promoted.
-Response repeatability and remaining within/across-recording variation are
-the next diagnostic question.
+The completed [response-repeatability audit](docs/pursuit_repeatability_result.md)
+finds repeatable P1 stimulus structure and recording differences alongside
+substantial trial variation. Same-recording templates reduce errors about
+10–11% against other-recording templates; descriptive movement adds 4.47%/0.85%.
+These are pulse-mean results, not causal motor evidence or a model noise ceiling.
+Production remains unchanged; a matched population-tuning comparison is next.
 The optional `physiology-research` extra and reproduction commands are in the
 result; full recordings stay in ignored outputs.
 The [first skeleton-derived input experiment](docs/visual_input_experiment.md)

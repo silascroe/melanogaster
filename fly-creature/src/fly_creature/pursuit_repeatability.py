@@ -219,6 +219,8 @@ def report(records, observations, audit, motion, checks):
 
 
 def plot(path, summary, records):
+    import os
+    os.environ.setdefault("MPLCONFIGDIR", str(path.parent / "mpl-cache"))
     import matplotlib
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt

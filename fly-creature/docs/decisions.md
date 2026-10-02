@@ -13,8 +13,10 @@ regressive silence is supported by the inspected sources.
 Final-paper bar dimensions are now available; paper pulse cadence differs from
 the predominantly one-second hidden gaps recovered in our archives. Preserve
 native timestamps and label any paper-to-recording size association as provisional
-until external pattern metadata is recovered. Next implement inspectable retinal
-rendering and consistency probes before choosing a new shared neural-input rule.
+until external pattern metadata is recovered. The renderer/runner are now
+implemented: synthetic pixels and temporal coverage are inspectable, but output
+stops before the first neuron. Choose a response rule only after reviewing this
+image boundary and its source constraints.
 
 ## Pursuit improvement cycle: reject output correction; define upstream evidence
 

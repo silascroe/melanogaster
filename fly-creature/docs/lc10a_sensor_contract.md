@@ -116,10 +116,12 @@ size/surround; expose that loss of information explicitly.
 
 ## Implementation boundary and next deliverable
 
-Implement the finite-object renderer and a probe runner first. Make its outputs
-inspectable as retinal frames and geometry measurements, with the old adapter
-available as a named reference. Do not add fitted LC10a dynamics or select a
-center/surround parameter sweep yet. Exact numerical size/contrast/surround
+The finite-object renderer and probe runner are implemented in
+[`retina.py`](../src/fly_creature/retina.py) and
+[`run_lc10a_probes.py`](../tools/run_lc10a_probes.py). Their outputs are retinal
+frames and geometry measurements, with no new neural model. See the
+[renderer report](lc10a_sensor_renderer.md). Do not add fitted LC10a dynamics or
+select a center/surround parameter sweep yet. Exact numerical size/contrast/surround
 constraints remain incomplete, so a later shared center/surround response rule
 would be a synthetic hypothesis requiring its own frozen protocol.
 
@@ -140,8 +142,10 @@ physiology. This contract authorizes no physiological success claim.
 
 ```powershell
 .\.venv\Scripts\python.exe fly-creature/tools/build_lc10a_probe_matrix.py --output-dir fly-creature/outputs/research/lc10a-contract-v1
+.\.venv\Scripts\python.exe fly-creature/tools/run_lc10a_probes.py --output-dir fly-creature/outputs/research/lc10a-render-v1
 ```
 
 The builder checks unique probe IDs, legal geometry/contrast, aperture bounds
-and the packaged map's coverage. It generates specifications only. No neural
-response experiment, unit-test suite, AOTU fit or Godot validation ran here.
+and the packaged map's coverage. Renderer outputs are described in the
+[renderer report](lc10a_sensor_renderer.md). No neural response experiment,
+unit-test suite, AOTU fit or Godot validation ran here.

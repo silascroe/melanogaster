@@ -1,5 +1,26 @@
 # FlyTest handoff
 
+## 2026-10-02: LC10a finite-object retinal renderer complete
+
+Read [contract](../fly-creature/docs/lc10a_sensor_contract.md),
+[renderer report](../fly-creature/docs/lc10a_sensor_renderer.md) and updated
+[replacement plan](../fly-creature/docs/pursuit_replacement_plan.md). New
+`fly_creature.retina.RetinalRenderer` rasterizes finite rectangle/disc targets
+and a separate moving square-grating surround on a 176x32, 1.875-degree grid;
+8x8 subpixel coverage alpha-mixes edges. `tools/run_lc10a_probes.py` streams all
+68 probe histories at 2 ms to 102,000 time-summary rows, 24 preview PNGs and a
+labeled SVG contact sheet. It outputs geometry/luminance only; no neural response,
+state gain, connectome readout or behavior. Default data remains ignored; compact
+report/summary/contact sheet and renderer sources are tracked.
+
+Inspected bar/dot/surround frames look consistent with stated angular geometry;
+zero-contrast frame hash equals absent target. Initial blank output uncovered and
+fixed CSV-Boolean parsing and vertically reversed crop bounds; corrected outputs
+show nonzero target coverage. No unit-test suite or Godot validation ran. Next
+decision is the hypothesized sensory-response function, but exact size/contrast/
+surround laws are still unavailable and per-cell elevation fields absent. Sol
+medium for that design; Luna Max for a frozen implementation.
+
 ## 2026-10-02: finite-object LC10a contract and probe specifications complete
 
 Read [contract](../fly-creature/docs/lc10a_sensor_contract.md) and
@@ -18,8 +39,7 @@ Registered map has no per-neuron elevation. Progressive > regressive and state
 amplification are aggregate calcium findings, not spiking laws or complete silence.
 Surround/contrast probes are hypotheses; no numeric response fit warranted yet.
 
-Next: finite-object renderer and inspectable probe runner (Luna Max), then frozen
-shared response hypothesis and interpretation (Sol medium). Keep 275 IDs/edges,
+The renderer milestone is now complete (see next entry). Keep 275 IDs/edges,
 164 mapped/111 fallback labels, prior controls and production unchanged. Do not
 claim that passing qualitative source constraints validates body-specific fields.
 

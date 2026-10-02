@@ -1,0 +1,50 @@
+{
+  "grid": {
+    "height_px": 32,
+    "linear_luminance_png_range": [
+      0,
+      2
+    ],
+    "oversample_per_axis": 8,
+    "pixel_pitch_deg": 1.875,
+    "width_px": 176
+  },
+  "input_matrix": "docs/evidence/lc10a_sensor_probes_v1.csv",
+  "input_sha256": "864e9724694a2a6e33d14f558061e541f0abf0f29db94f61af75fe99f9222f9f",
+  "preview_sha256": "1e1ac20ebb444e5d9fdb81954415a49824d67a8c56ce9ce798adbdbfd1325f5e",
+  "previews": [
+    "width_5_R_early.png",
+    "width_5_R_middle.png",
+    "width_5_R_late.png",
+    "width_30_R_early.png",
+    "width_30_R_middle.png",
+    "width_30_R_late.png",
+    "height_60_R_early.png",
+    "height_60_R_middle.png",
+    "height_60_R_late.png",
+    "dot10_dir1_unstimulated_R_early.png",
+    "dot10_dir1_unstimulated_R_middle.png",
+    "dot10_dir1_unstimulated_R_late.png",
+    "dot25_dir-1_P1_stimulated_R_early.png",
+    "dot25_dir-1_P1_stimulated_R_middle.png",
+    "dot25_dir-1_P1_stimulated_R_late.png",
+    "surround_75_R_early.png",
+    "surround_75_R_middle.png",
+    "surround_75_R_late.png",
+    "contrast_1_R_early.png",
+    "contrast_1_R_middle.png",
+    "contrast_1_R_late.png",
+    "bar_25_1_15_R_early.png",
+    "bar_25_1_15_R_middle.png",
+    "bar_25_1_15_R_late.png"
+  ],
+  "probes": 68,
+  "render_rule": "eight-by-eight subpixel coverage; target alpha-mixed over instantaneous background",
+  "renderer_sha256": "1f8b190260cf1dcc9c84d6165552801399be7ce685f3ea2fd201ddd2a03871a6",
+  "runner_sha256": "47b44dfd2d34618854b89c7e60688ba4d08817523a05fff59023aecd899eb031",
+  "sample_interval_s": "per-probe dt_s",
+  "status": "retinal stimulus rendering only; no LC10a neural response generated",
+  "summary_sha256": "e0921a57fdc2cd7cd33d4576508d03427ee57741558a4e3cc5561188b6ce10bd",
+  "trace_rows": 102000,
+  "trace_sha256": "86e4efd60d5b60a25c700c556fc6d99acc7c228fd2dd28f8099282d115280d49"
+}

@@ -1,6 +1,6 @@
 {
   "builder_sha256": "ab248aecc4b540af6de71c5b6faabf19a6a5ae99dfc1c60058fac8278f4558e1",
-  "contract_doc_sha256": "403d999dc3c42a9e38a6d391c9fa8a06b348b907547e3b4a1c91def328730c6a",
+  "contract_doc_sha256": "4cca245e4cbc78a60156ea0ac84b64ece50a0eceed90220b5083f4f7f0646cfc",
   "contrast_definition": "(target_luminance-background_luminance)/background_luminance; background=1",
   "coordinate_system": "body azimuth positive right, elevation positive up; left mirror explicit",
   "fallback_cells": 111,

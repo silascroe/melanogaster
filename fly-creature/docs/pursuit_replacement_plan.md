@@ -1,77 +1,61 @@
-# Replacement direction: define and test the LC10a visual input
+# Replacement direction: build the missing visual-input boundary
 
 ## Why this direction
 
 The [completed correction cycle](pursuit_goal_result.md) rejects a bounded
 direction-skew/negative-offset fix. It does not show that more connectome neurons
-would help, or prove the input is the sole fault. It gives a reason to stop
-fitting output corrections and interrogate the sensory assumptions directly.
+would help, or prove the input is the sole fault. Stop fitting downstream output
+corrections; make the retinal stimulus input explicit and inspectable.
 
-The [LC10a research audit](lc10a_visual_input_research.md) records the relevant
-primary evidence: LC10 small-object responses and antagonistic motion surround
-(Ribeiro 2018), spatial ordering (Aptekar 2015), state-dependent directional
-responses (Hindmarsh Sten 2021), and LC10a object-size preferences (Schretter
-2025). These constrain an input hypothesis, but calcium, object-size preference,
-and a neuron's receptive-field width are different measurements. The existing
-18-degree Gaussian width is our assumption. MaleCNS annotations do not provide
-measured receptive fields for each selected neuron.
+The [LC10a research audit](lc10a_visual_input_research.md) and
+[fresh primary-source note](lc10a_sensor_source_refresh.md) distinguish measured
+constraints from assumptions. Size preference, calcium and spatial receptive
+field width are different measurements. Our 18-degree Gaussian remains an
+engineering choice; MaleCNS annotations do not provide measured fields for each
+selected LC10a.
 
-## First milestone: a source-grounded sensor contract
+## Completed: contract and probe matrix
 
-Completed in the [sensor contract](lc10a_sensor_contract.md), fresh source note
-and 68-probe matrix. Neural responses have not been evaluated. The next bounded
-implementation is the finite-object renderer/probe runner described there.
+The [sensor contract](lc10a_sensor_contract.md) defines target shape, azimuth,
+elevation, dimensions, contrast, independent surround motion and state metadata.
+The reproducible 68-probe matrix keeps selected IDs/edges fixed and labels 164
+mapped centers versus 111 fallback estimates. No response function is specified
+by the source audit with enough numeric detail to fit yet.
 
-Create an offline retinal-stimulus/LC10a probe matrix before rewriting pursuit.
-Its input must describe finite target azimuth/elevation, angular width/height,
-contrast against a declared background, trajectory and surrounding motion over
-time. Its output is an explicitly hypothetical activity per selected LC10a
-neuron, before AOTU projection, decoder or body movement. Use the registered eye
-map with its 164 mapped/111 fallback centers and uncertainty labels; keep the
-selected graph and synapse weights frozen.
+## Completed: retinal renderer and probe runner
 
-First resolve what each reference actually supports numerically. Document the
-recording modality, stimulus dimensions, direction convention, state and missing
-metadata for every intended check. The previous source audit could not locate
-the numerical Fig. 3a size-tuning data in the inspected public deposit. A declared
-figure digitization with uncertainty is an option if a usable figure exists;
-do not manufacture exact tuning values. Verify the AOTU motion-pulse stimulus
-dimensions from acquisition records before calling a retinal replay matched.
+The [renderer report](lc10a_sensor_renderer.md) describes the first runnable
+boundary. The renderer makes a 176x32 image on the contract's 1.875-degree grid,
+uses eight-by-eight subpixel coverage for target geometry and yields normalized
+linear-luminance frames. The runner samples the chronology at each probe's
+declared 2 ms step, records a time-series geometry/luminance CSV and a summary,
+and saves labeled early/middle/late preview images in an SVG contact sheet.
+It produces no neural activity, firing rates or behavior. The existing point
+adapter remains untouched and outside this renderer.
 
-The initial probe cases are: isolated small versus large objects at a fixed
-center; object motion with a static versus moving surround; progressive versus
-regressive motion; and target absence/contrast changes. Define evidence-backed
-qualitative constraints and any available numeric ranges before implementing.
-Do not demand selectivity or suppression that the cited measurement cannot show.
+## Next experiment boundary
 
-## Candidate and comparison budget
+First inspect whether the finite raster preserves the declared geometry and its
+mirrors. Then specify one shared hypothetical center/surround response rule with
+a small frozen parameter budget, citing the source constraint for each parameter.
+Keep any LC10a rate/state dynamics separate from image geometry. Do not fit 275
+individual fields to downstream AOTU responses, treat calcium amplitude as
+spikes/s, or infer receptive field width from preferred object size.
 
-If the evidence supports a finite-object center/surround hypothesis, implement
-one shared sensor rule with declared units and a small frozen parameter budget.
-Keep any LC10a rate/state dynamics separate from image geometry. Do not fit
-275 independent receptive fields to downstream AOTU responses or treat calcium
-amplitude as spikes/s. Do not infer receptive-field width from preferred object
-size. Retain the point/Gaussian adapter as the explicit baseline.
+Replay the existing AOTU benchmark only after that sensor contract check, using
+the frozen recording coverage and exact recorded timestamps. Apply equal visual
+information/calibration freedom to anatomy, the same wiring shuffles and a
+non-neural controller. Separate improvement due to the pixels/features from
+improvement due to wiring. Reused-data recording holdouts remain exploratory;
+reserve genuinely new stimuli/data for confirmation. Freeze coverage and gates
+before looking at candidate scores.
 
-Check the sensor contract first. Only then replay the existing AOTU benchmark
-with intact wiring, the same fixed shuffles and a non-neural spatial controller
-receiving equivalent visual information and calibration freedom. Separate
-upstream sensory improvement from downstream wiring contribution. Recording
-holdouts on reused data remain exploratory; reserve genuinely new stimuli or
-data for confirmation. Freeze the evaluation coverage and acceptance thresholds
-before inspecting candidate scores. Preserve unfavorable results.
+If sources cannot constrain the proposed response rule, document the gap and
+keep it labeled synthetic. If sensory fit improves but intact anatomy does not
+beat matched controls, report that plainly. Godot still requires existing
+closed-loop stability and fresh-path controls.
 
-## Stop and promotion conditions
-
-If public evidence cannot constrain the proposed rule, finish with a documented
-data gap and a clearly labeled synthetic hypothesis; do not claim physiological
-validation. If its LC10a checks fail, revise or reject at that boundary before
-running a parameter sweep on AOTU. If it improves sensory agreement but anatomy
-does not beat matched ordinary/shuffled controls, report that limit plainly.
-Godot promotion additionally requires the existing closed-loop stability and
-fresh-path controls; a prettier response curve alone is insufficient.
-
-**Recommended settings:** Sol medium for the source/contract decisions and
-interpretation; Luna Max for a frozen implementation with concrete checks.
-The next deliverable is the contract and probe matrix, not a promise that this
-sensor change will fix the fly.
+**Recommended settings:** Sol medium for designing/interpreting the response
+hypothesis; Luna Max for a frozen implementation and checks. A rendered retinal
+image is the new concrete output. It is not a claim that the biological input
+path or pursuit behavior has been fixed.

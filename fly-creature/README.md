@@ -114,8 +114,9 @@ The [replacement plan](docs/pursuit_replacement_plan.md) now has a completed
 [finite-object LC10a input contract](docs/lc10a_sensor_contract.md) and 68 reproducible
 probe specifications. A fresh source check recovered the paper's actual bar size,
 but archive-specific stimulus metadata and quantitative LC10a response laws remain
-incomplete. Next implement the renderer/probe runner; no new neural response rule
-has been validated or promoted.
+incomplete. The [renderer and probe runner](docs/lc10a_sensor_renderer.md) now
+produce inspectable retinal movies, traces and summaries; this ends at the image
+input and adds no neural response rule.
 The optional `physiology-research` extra and reproduction commands are in the
 result; full recordings stay in ignored outputs.
 The [first skeleton-derived input experiment](docs/visual_input_experiment.md)

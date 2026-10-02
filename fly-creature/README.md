@@ -60,8 +60,10 @@ qualifies. On 12 fresh fast/mixed-motion paths, the current model beats only
 particular situations. Production settings remain unchanged. The subsequent
 [timing audit and next benchmark contract](docs/pursuit_timing_contract.md)
 confirms a published 200 ms feedback delay and shows that redistributing it
-through our static adapter gives identical commands. The next implementation
-should compare the reference and our adaptation under matched retinal inputs.
+through our static adapter gives identical commands. The completed
+[matched retinal benchmark](docs/pursuit_retinal_result.md) finds shared
+fast-sweep weakness and task-dependent adaptation/wiring differences.
+The playable controller remains unchanged.
 
 The [LC10a source review](docs/lc10a_visual_input_research.md) explains why
 our MaleCNS annotations do not directly supply individual visual fields.

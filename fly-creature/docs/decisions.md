@@ -1,5 +1,15 @@
 # Fly Creature decisions
 
+## Matched retinal comparison: shared limits and adaptation gaps
+
+The [benchmark](pursuit_retinal_result.md) preserves production settings and
+450 ms source defaults. A separate 200 ms variant passes Eq6 recurrence checks;
+both controllers share rotational world, queue and body conventions. Fast
+sweeps expose a shared limit; removing only the reference cap does not fix it.
+Adaptation error and wiring rank vary by task. Keep direction, gain, timing and
+selection unchanged. Next inspect response-curve contributions before choosing
+a fix; reserve fresh validation.
+
 ## Timing contract: preserve feedback delay and compare matched references
 
 The [final-paper timing audit](pursuit_timing_contract.md) resolves the older
@@ -9,8 +19,9 @@ delay, and post hoc analysis shifts. A numerical check shows total-200-ms
 delay splits through the static adapter produce exactly identical commands.
 Do not use a delay relabeling as a fix, subtract response latency from the
 feedback delay, or treat analysis smoothing as online neural dynamics.
-Preserve runtime timing; next compare the article-method reference variant
-and recorded projection under the same retinal streams/body contract.
+Preserve runtime timing. The benchmark above compares the article-method
+reference and recorded projection under matched world streams/body contracts;
+retinal histories correctly differ with each body's steering.
 
 ## Motion-rule diagnosis: retain the current controller
 

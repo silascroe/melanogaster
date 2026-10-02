@@ -1,5 +1,23 @@
 # FlyTest handoff
 
+## 2026-10-02: matched retinal reference benchmark complete
+
+Read [result](../fly-creature/docs/pursuit_retinal_result.md) and
+[protocol](../fly-creature/docs/pursuit_retinal_protocol.md). Branch
+`experiment/matched-retinal-reference` preserves playable settings.
+22 mirrored cases, 71 variants, 1,562 comparisons. A 200 ms source-core override
+matches a separate Eq6 recurrence exactly in four mirrored conditions; 450 ms
+defaults remain intact. Matched models share warmup, queue, cap, visibility,
+gain and rotation-only body conventions. Fast-sweep errors: reference 23.823,
+adaptation 25.241; uncapping the reference does not help (23.847). Adaptation
+is worse on stationary steps but better on slow sweeps and tested smooth paths.
+Direction-on intact beats 15/32 shuffles on smooth paths; direction-off beats
+32/32 but regresses other families. No change promoted. All 104 tests and
+source/data hashes pass; reports repeat identically and 14 traces verify metrics.
+Next: fixed-delay/gain response-curve contribution diagnosis (Sol medium), then
+a bounded fix with fresh validation if justified. These paths are consumed;
+do not claim exact paper parity or broad biological validation.
+
 ## 2026-10-02: final-paper timing audit and benchmark contract complete
 
 Read [timing contract](../fly-creature/docs/pursuit_timing_contract.md).
@@ -16,7 +34,7 @@ Source hashes and compact audit evidence are saved. No controller or data
 changed. Next build is the matched retinal reference benchmark specified in
 the contract, with a separately labelled 200 ms article-method variant, fixed
 gain/caps, wiring controls and reserved fresh validation. Sol medium fits
-the comparison design/implementation. This benchmark is not yet implemented.
+the comparison design/implementation. The benchmark above implements this contract.
 
 ## 2026-10-02: motion-rule diagnosis complete; no input fix promoted
 

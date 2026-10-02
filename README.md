@@ -18,7 +18,9 @@ Current creature research: the [motion diagnosis](fly-creature/docs/pursuit_moti
 finds a direction-rule tradeoff and motor-delay limit; no input fix qualifies.
 Fresh fast/mixed-motion cases limit the earlier wiring-advantage claim.
 The [timing contract](fly-creature/docs/pursuit_timing_contract.md) now checks
-the final paper and defines the next matched retinal reference benchmark.
+the final paper. The completed
+[matched retinal benchmark](fly-creature/docs/pursuit_retinal_result.md) finds
+shared fast-motion weakness and task-dependent adaptation/wiring differences.
 See [the handoff](docs/HANDOFF.md) for continuation.
 The [interactive playground](fly-creature/docs/playground.md) now exposes
 simultaneous comparisons, target presets/manual placement and live errors.

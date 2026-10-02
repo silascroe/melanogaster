@@ -4,6 +4,11 @@
 [Reproducible audit](evidence/pursuit_timing_audit_v1.json),
 runner `tools/audit_pursuit_timing.py`.
 
+The specified benchmark is now implemented: see the
+[matched retinal result](pursuit_retinal_result.md) and
+[frozen implementation protocol](pursuit_retinal_protocol.md). Production
+timing and the verified 450 ms source default remain unchanged.
+
 ## Primary evidence resolved
 
 The [authors' final article](https://wilson.hms.harvard.edu/sites/g/files/omnuum8421/files/2026-03/Collie%202026.pdf)

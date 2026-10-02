@@ -80,9 +80,14 @@ the playable controller is unchanged.
 The refreshed [sensory source review](docs/lc10a_visual_input_research.md)
 identifies downloadable AOTU recordings and verifies two sample schemas.
 LC10a studies constrain object size, direction and state, but do not supply
-per-MaleCNS visual-field widths. The next offline milestone compares frozen
-AOTU responses with measured pulse responses before another input rewrite;
-no physiological calibration or production change has been made.
+per-MaleCNS visual-field widths. The completed
+[measured-response benchmark](docs/pursuit_physiology_result.md) compares
+13,038 pulses from 24 NoP1 recordings with frozen models and equally calibrated
+controls. Footprints barely change the errors; simple spatial predictions are
+close and a constant predictor exposes weak AOTU019 benefit in this condition.
+Production is unchanged. P1-stimulated physiology is the next comparison.
+The optional `physiology-research` extra and reproduction commands are in the
+result; full recordings stay in ignored outputs.
 The [first skeleton-derived input experiment](docs/visual_input_experiment.md)
 found wiring-specific alignment but worse tracking than the current input.
 

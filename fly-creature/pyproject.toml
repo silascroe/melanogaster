@@ -13,6 +13,7 @@ dependencies = ["numpy>=2.3"]
 build-circuit = ["pyarrow>=19"]
 eye-map-research = ["pyarrow>=19", "rdata==1.1.0"]
 research-plots = ["matplotlib>=3.8,<4"]
+physiology-research = ["h5py>=3.14,<4", "scipy>=1.16,<2", "matplotlib>=3.8,<4"]
 
 [project.scripts]
 fly-creature-server = "fly_creature.server:main"

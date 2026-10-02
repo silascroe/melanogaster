@@ -11,18 +11,26 @@ Source preprocessing has already made position positive ipsilaterally.
 Extract contiguous finite stimulus intervals, rejecting incomplete boundary
 segments. Accept 22.5-degree motion spans within 3 degrees, duration within
 20% of 0.9/0.3 seconds (25/75 degrees/s), slope within 10% of that speed,
-and linear-position R² >=0.98. Derive speed by least-squares position/time,
+and linear-position RÂ² >=0.98. Derive speed by least-squares position/time,
 not adjacent quantized samples. Retain rejection counts. Compare extracted
 counts, spans and durations to the source's finite-interval ordering; do not
 claim execution parity with its MATLAB helper. No tuning extraction to rates.
 
 Stimulus-only extraction correction before response fitting: the first pass
 used a 30 ms duration tolerance and accepted no pulses. A sample's nominal
-75-degree/s sweeps last about338 ms, and25-degree/s sweeps about987 ms,
+75-degree/s sweeps last about 338 ms, and 25-degree/s sweeps about 987 ms,
 including endpoint dwell. The recorded staircase also fits closer to72/24.5
-degrees/s. The revised20% duration tolerance accommodates these recorded
-intervals while retaining the span, slope andR² gates. No response fit was
+degrees/s. The revised 20% duration tolerance accommodates these recorded
+intervals while retaining the span, slope andRÂ² gates. No response fit was
 seen before this correction; nominal and measured speeds remain separate.
+
+After the first fit, add a **secondary intercept-only diagnostic**, trained
+with the same animal weights and no visual predictor, to quantify how much
+error is explained by mean baseline rate. This addition does not revise the
+frozen primary models, calibration, extraction or wiring comparison. Do not
+describe its inclusion as preregistered. Descriptive curve bins snap recorded
+pulse centers to their 11.25-degree grid to avoid splitting the same position
+because of acquisition noise; model replay/calibration use unsnapped positions.
 
 Use a 250 ms pre/post observation window with no other visible stimulus in
 that window. Baseline rate is mean over -250..-100 ms; keep raw pulse mean
@@ -37,8 +45,8 @@ penalty and recorded edges. Replay native recorded stimulus positions through
 their AOTU activity, before DN decoding. For left recordings, transform the
 ipsilateral-positive input back to global left angles exactly once for the model.
 Use full -180..180-degree diagnostic fields, not the game's 120-degree view cap.
-Hidden stimulus gives zero model evoked activity. Apply sigma50ms symmetric
-Gaussian observation filtering (truncate at5sigma), zero-padded outside the
+Hidden stimulus gives zero model evoked activity. Apply sigma 50 ms symmetric
+Gaussian observation filtering (truncate at 5 sigma), zero-padded outside the
 isolated stimulus. This is measurement matching, not neural dynamics or a motor
 delay; preserve the gameplay queue. Shape predictions remain arbitrary units.
 Finite object size/contrast/elevation are not encoded by these frozen models.
@@ -46,9 +54,9 @@ The files lack acquisition metadata: report that limitation rather than claim
 exact finite-stimulus parity.
 
 32 within-side LC10a input-bundle shuffles per anatomical candidate, fixed
-seed20261006 and frozen original normalization. Additional simple spatial
-control: Gaussian ipsilateral-position response centered35/65 degrees,
-width20 degrees, no direction penalty, with the same observation filter and
+seed 20261006 and frozen original normalization. Additional simple spatial
+control: Gaussian ipsilateral-position response centered 35/65 degrees,
+width 20 degrees, no direction penalty, with the same observation filter and
 calibration allowance. These fixed values are source regression predictors,
 not claimed measured physiology; no spatial parameters are fitted here.
 
@@ -60,7 +68,7 @@ candidate/control; no separate direction or side gains. Carry these parameters
 to held-out pulse means and time courses. Baseline-subtracted metrics remove
 each pulse's own pre-stimulus baseline from observation and prediction; they
 do not get a second fitted gain. Do not fit temporal shift, widths or delays.
-Require at least3 training recordings; missing coverage is unavailable, not zero.
+Require at least 3 training recordings; missing coverage is unavailable, not zero.
 
 Report per-recording held-out pulse-mean RMSE, baseline-subtracted pulse-mean
 RMSE and time-course RMSE in spikes/s, then means/SEM across recordings.

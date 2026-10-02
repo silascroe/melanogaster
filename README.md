@@ -27,7 +27,10 @@ The [column-footprint experiment](fly-creature/docs/pursuit_footprint_result.md)
 retains more upstream spatial detail but does not improve tracking; it remains offline.
 The [sensory evidence review](fly-creature/docs/lc10a_visual_input_research.md)
 now identifies actual AOTU recordings and a bounded measured-response comparison
-as the next milestone. Two public samples load; no physiological fit has run.
+as an empirical target. The completed
+[physiology benchmark](fly-creature/docs/pursuit_physiology_result.md) now
+compares 13,038 NoP1 pulses; footprints add little, and the benefit over simple
+controls is limited. Production remains unchanged.
 See [the handoff](docs/HANDOFF.md) for continuation.
 The [interactive playground](fly-creature/docs/playground.md) now exposes
 simultaneous comparisons, target presets/manual placement and live errors.

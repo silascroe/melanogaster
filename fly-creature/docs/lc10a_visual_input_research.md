@@ -4,7 +4,10 @@
 and timing are unchanged. This replaces the earlier whole-side-input proposal.
 Read the [footprint result](pursuit_footprint_result.md) for the current failure
 and [source/sample audit](evidence/pursuit_sensory_source_audit_v1.json) for
-retrieval evidence. No physiological fit or new behavioral experiment ran here.
+retrieval evidence. That source audit was research-only. The subsequent
+[measured-response benchmark](pursuit_physiology_result.md) now evaluates
+13,038 NoP1 pulses with training-only observation calibration; footprint effects
+are negligible and simple controls are close. No production change follows.
 
 ## Conclusion
 
@@ -129,13 +132,14 @@ at 20 kHz (50 ms). Do not smooth measured rates again or interpret their
 pre-onset tail as causal neural anticipation. Source running/quiescent filters
 also differ: a comparison must declare the exact state criterion.
 
-## Next implementation: an offline measured-response benchmark
+## Measured-response benchmark: specification now implemented
 
-Build a data adapter and fixed-body response report first; **do not rewrite
-the production input yet**. Sol medium fits the units, state and provenance
-decisions. A concrete first milestone is a reproducible measured-versus-model
-AOTU019/025 pulse-response figure with animal-level uncertainty and explicit
-unavailable stimulus metadata.
+The [result](pursuit_physiology_result.md) implements the data adapter and
+fixed-body report specified below. Its [frozen protocol](pursuit_physiology_protocol.md)
+records extraction corrections and comparison details. **Do not rewrite the
+production input from these NoP1 results.** The next comparison extends the same
+benchmark to P1-stimulated recordings; Sol medium fits its state and provenance
+decisions.
 
 Acquire the two NoP1 archives with checksum verification and preserve file/fly
 identity. Reconstruct visible pulse intervals from recorded position/time,

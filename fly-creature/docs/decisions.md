@@ -1,5 +1,17 @@
 # Fly Creature decisions
 
+## NoP1 physiology: preserve the empirical baseline, do not promote a kernel
+
+The [completed benchmark](pursuit_physiology_result.md) measures held-out
+AOTU response errors in 24 recordings. The footprint adds negligible benefit;
+a fixed simple spatial predictor is close, and an intercept-only predictor
+nearly matches quiescent AOTU019 and improves running AOTU019. Wiring ranks
+alone therefore overstate practical fit. NoP1 and pulse-window locomotor strata
+are explicit conditions, not a calibration of aroused pursuit. Extend the same
+fixed comparison to P1 recordings before another input rewrite. Keep the
+original calibration budget, label protocol corrections/post-hoc controls,
+and preserve production and fresh behavioral validation.
+
 ## Measured sensory responses before another input rewrite
 
 The refreshed [review](lc10a_visual_input_research.md) separates LC10a size

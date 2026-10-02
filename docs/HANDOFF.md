@@ -1,5 +1,27 @@
 # FlyTest handoff
 
+## 2026-10-02: measured NoP1 AOTU benchmark implemented and evaluated
+
+Read [result](../fly-creature/docs/pursuit_physiology_result.md) and
+[protocol](../fly-creature/docs/pursuit_physiology_protocol.md). Branch
+`experiment/measured-aotu-responses` preserves all production settings.
+Two public NoP1 archives (499 MB) pass MD5; 24 recordings yield 13,038 pulses,
+25 rejected intervals fully accounted for. Optional h5py/scipy readers restore
+MATLAB dimensions; side metadata and already-mirrored measurements are explicit.
+LOO by recording/type/state with training-only, equal-animal affine calibration.
+Frozen baseline/footprint and 32 shuffles each; simple fixed spatial control;
+post-hoc intercept-only diagnostic labelled. Footprint has negligible effect.
+Quiescent AOTU019 baseline error 7.0391 vs constant 7.0395; AOTU025 9.2049 vs 9.3756.
+Running AOTU019 constant beats anatomy; simple spatial controls are close.
+High shuffle ranks do not establish substantial empirical or pursuit benefit.
+Stimulus duration gate was corrected before fitting from actual staircases;
+the model still lacks finite-object encoding and intrinsic temporal dynamics.
+Two complete evaluations reproduce CSV/PNG bytes and numerical report fields;
+filter and independent error arithmetic agree. No unit/gameplay tests ran.
+Raw datasets/full CSVs ignored; compact JSON/table/plots tracked. Next: same
+frozen comparison on P1 recordings, auditing state/protocol differences before
+another kernel revision (Sol medium). No fresh pursuit paths consumed.
+
 ## 2026-10-02: measured sensory research complete; empirical benchmark next
 
 Read the refreshed [sensory review](../fly-creature/docs/lc10a_visual_input_research.md)

@@ -1,5 +1,28 @@
 # FlyTest handoff
 
+## 2026-10-02: finite-object LC10a contract and probe specifications complete
+
+Read [contract](../fly-creature/docs/lc10a_sensor_contract.md) and
+[fresh primary-source note](../fly-creature/docs/lc10a_sensor_source_refresh.md).
+68 synthetic probes cover width/height, nulls, direction/state, surround,
+contrast/polarity, stationary targets and paper-size AOTU bars, including explicit
+left/right mirrors. Stdlib `tools/build_lc10a_probe_matrix.py` generates CSV and
+source/contract/map/circuit hash manifest; geometry and map checks pass. No neural
+response model, physiology comparison, unit tests or Godot work ran.
+
+Final Collie PDF now accessible: paper main bar dimensions recovered. Its described
+three-second pulse onset cadence differs from archived hidden-gap durations;
+do not replace native timing. External pattern lookup metadata is absent from
+pinned clone. Paper-to-recording stimulus association remains provisional.
+Registered map has no per-neuron elevation. Progressive > regressive and state
+amplification are aggregate calcium findings, not spiking laws or complete silence.
+Surround/contrast probes are hypotheses; no numeric response fit warranted yet.
+
+Next: finite-object renderer and inspectable probe runner (Luna Max), then frozen
+shared response hypothesis and interpretation (Sol medium). Keep 275 IDs/edges,
+164 mapped/111 fallback labels, prior controls and production unchanged. Do not
+claim that passing qualitative source constraints validates body-specific fields.
+
 ## 2026-10-02: autonomous pursuit improvement cycle complete; candidate rejected
 
 Branch `experiment/pursuit-improvement-cycle`. Read the

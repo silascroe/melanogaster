@@ -1,5 +1,11 @@
 # LC10a / AOTU visual input: measured constraints and next comparison
 
+Latest sensor milestone: [fresh primary-source check](lc10a_sensor_source_refresh.md)
+and [finite-object input contract](lc10a_sensor_contract.md). The final Collie PDF
+was accessible in that refresh and paper bar dimensions were recovered. Earlier
+access/format notes below describe the prior pass; full-archive verification and
+P1 comparisons are recorded in the linked subsequent results.
+
 2026-10-02. Research complete; production input, wiring, activation, decoder
 and timing are unchanged. This replaces the earlier whole-side-input proposal.
 Read the [footprint result](pursuit_footprint_result.md) for the current failure

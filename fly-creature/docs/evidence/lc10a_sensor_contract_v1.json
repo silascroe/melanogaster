@@ -1,0 +1,41 @@
+{
+  "builder_sha256": "ab248aecc4b540af6de71c5b6faabf19a6a5ae99dfc1c60058fac8278f4558e1",
+  "contract_doc_sha256": "403d999dc3c42a9e38a6d391c9fa8a06b348b907547e3b4a1c91def328730c6a",
+  "contrast_definition": "(target_luminance-background_luminance)/background_luminance; background=1",
+  "coordinate_system": "body azimuth positive right, elevation positive up; left mirror explicit",
+  "fallback_cells": 111,
+  "mapped_cells": 164,
+  "output_contract": "one dimensionless hypothesized activity per sorted LC10a body ID plus map provenance; no spikes/s",
+  "per_neuron_elevation_map": false,
+  "probe_csv_sha256": "864e9724694a2a6e33d14f558061e541f0abf0f29db94f61af75fe99f9222f9f",
+  "probes": 68,
+  "protected_sha256": {
+    "src/fly_creature/data/lc10a_registered_eyemap_hypothesis_v3.json": "690fabf4df864d5d8ca007a1dccef8263498c735aa6ee2d38a78866ed1e4ba90",
+    "src/fly_creature/data/visual_steering_v1.json": "e695c15db69acfca5bd029b88c699674edac5e1344a56cf230b0fadf536c64b2",
+    "src/fly_creature/pursuit_activity.py": "3a9b6de9342f098dd468102c770d55f8f2a0dbaf6ab6d51a3904be784e60827e",
+    "src/fly_creature/pursuit_controller.py": "fe7f4d6ecf86b3a816549bfd4fedf3a7ce124a7b2f92e28daf891404d7dc6584",
+    "src/fly_creature/pursuit_delay_diagnostic.py": "fa7282fc335399a5dec07560eb2aae3df81461de86742df60d94670d8afb79a1",
+    "src/fly_creature/pursuit_step4.py": "e03e9b001e2c33c43d83a215092386760257f3cd038c7c8b26999f4b2875d1fc"
+  },
+  "response_evaluation": "not_run",
+  "sample_recipe": "visible on [onset,onset+duration); az=center+velocity*(t-onset-duration/2)",
+  "schema_version": 1,
+  "source_note_sha256": "34f71c58b843e4a388f8b43dc9f99f452aee5b1c39d6a0cc928bbcd2483abb9b",
+  "state_status": "metadata only, not a fitted multiplier; no equivalence to quiet/running",
+  "status": "stimulus contract; no neural candidate or physiological fit",
+  "surround_definition": "0.5-amplitude square-wave Weber contrast, 30-degree period; target occludes it",
+  "synthetic_panel": {
+    "azimuth_bounds_deg": [
+      -165,
+      165
+    ],
+    "dt_s": 0.002,
+    "elevation_bounds_deg": [
+      -30,
+      30
+    ],
+    "elevation_origin_status": "synthetic panel-centered convention",
+    "pixel_pitch_deg": 1.875
+  },
+  "trial_duration_s": 3.0
+}

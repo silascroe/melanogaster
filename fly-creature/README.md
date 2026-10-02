@@ -110,8 +110,12 @@ and rejected a bounded direction-skew/negative-offset correction: P1 errors
 improved only 0.058% for AOTU019 and worsened 0.164% for AOTU025. Below-reference
 025 responses persist across paired baselines, but missing long-gap coverage
 prevents a history-independent inhibition claim. Production remains unchanged.
-The [replacement plan](docs/pursuit_replacement_plan.md) starts with a source-grounded
-finite-object LC10a sensor contract and probe matrix before another sensory rewrite.
+The [replacement plan](docs/pursuit_replacement_plan.md) now has a completed
+[finite-object LC10a input contract](docs/lc10a_sensor_contract.md) and 68 reproducible
+probe specifications. A fresh source check recovered the paper's actual bar size,
+but archive-specific stimulus metadata and quantitative LC10a response laws remain
+incomplete. Next implement the renderer/probe runner; no new neural response rule
+has been validated or promoted.
 The optional `physiology-research` extra and reproduction commands are in the
 result; full recordings stay in ignored outputs.
 The [first skeleton-derived input experiment](docs/visual_input_experiment.md)

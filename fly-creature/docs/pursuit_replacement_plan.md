@@ -18,6 +18,10 @@ measured receptive fields for each selected neuron.
 
 ## First milestone: a source-grounded sensor contract
 
+Completed in the [sensor contract](lc10a_sensor_contract.md), fresh source note
+and 68-probe matrix. Neural responses have not been evaluated. The next bounded
+implementation is the finite-object renderer/probe runner described there.
+
 Create an offline retinal-stimulus/LC10a probe matrix before rewriting pursuit.
 Its input must describe finite target azimuth/elevation, angular width/height,
 contrast against a declared background, trajectory and surrounding motion over

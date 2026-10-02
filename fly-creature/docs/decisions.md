@@ -1,5 +1,21 @@
 # Fly Creature decisions
 
+## LC10a sensor contract: geometry before a fitted response law
+
+The [contract](lc10a_sensor_contract.md) and [source refresh](lc10a_sensor_source_refresh.md)
+separate finite-object geometry, surround, contrast, motion and state from LC10a
+response assumptions. The registered map supplies azimuth, not per-cell elevation.
+Use the fixed 275 IDs/edges and retain 164 mapped/111 fallback provenance.
+The new 68-probe matrix is a synthetic stimulus specification, not a response
+experiment. No hard surround-suppression ratio, universal contrast law or complete
+regressive silence is supported by the inspected sources.
+
+Final-paper bar dimensions are now available; paper pulse cadence differs from
+the predominantly one-second hidden gaps recovered in our archives. Preserve
+native timestamps and label any paper-to-recording size association as provisional
+until external pattern metadata is recovered. Next implement inspectable retinal
+rendering and consistency probes before choosing a new shared neural-input rule.
+
 ## Pursuit improvement cycle: reject output correction; define upstream evidence
 
 The [completed cycle](pursuit_goal_result.md) preserves production. A paired

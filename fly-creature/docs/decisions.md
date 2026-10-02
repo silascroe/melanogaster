@@ -1,5 +1,19 @@
 # Fly Creature decisions
 
+## Temporal response: preserve the bounded hypothesis without promotion
+
+The [completed experiment](pursuit_temporal_result.md) replays native whole
+trials, excludes the known duplicate and compares equally calibrated temporal
+anatomy, simple spatial and 32 shuffled models with nested recording holdouts.
+Pooled P1 reductions are 0.81%/0.28%, below the frozen 5% criterion and 60%
+recording-win threshold; fast-to-slow transfer worsens both types. Hemisphere
+sensitivities do not rescue it. Example-curve improvements do not establish
+aggregate or circuit-specific benefit. Keep production and the grid unchanged.
+Audit repeated-stimulus response variation and continuous motor covariates
+before another sensory rewrite; correlations are not automatically causal
+neural inputs. The new evoked time-course objective is distinct from the old
+raw pulse-mean calibration, so numerical tables/ranks are not directly comparable.
+
 ## P1 physiology: distinguish spatial benefit from circuit-specific benefit
 
 The [P1 extension](pursuit_p1_result.md) adds 47 recordings and 55,252 pulses.

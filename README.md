@@ -33,7 +33,10 @@ compares 13,038 NoP1 pulses; footprints add little, and the benefit over simple
 controls is limited. The [P1 extension](fly-creature/docs/pursuit_p1_result.md)
 adds 55,252 pulses; spatial benefit is clearer, but anatomy barely improves
 on a simple spatial curve. A duplicated recording and uncertain side-label
-association limit condition/hemisphere claims. Production remains unchanged.
+association limit condition/hemisphere claims. The
+[temporal-response experiment](fly-creature/docs/pursuit_temporal_result.md)
+adds nested holdouts and speed transfer; bounded memory improves less than 1%
+and fails its frozen criteria. Production remains unchanged.
 See [the handoff](docs/HANDOFF.md) for continuation.
 The [interactive playground](fly-creature/docs/playground.md) now exposes
 simultaneous comparisons, target presets/manual placement and live errors.

@@ -1,5 +1,46 @@
 # FlyTest handoff
 
+## 2026-10-02: causal response-memory diagnostic complete; benefit gate failed
+
+Read [result](../fly-creature/docs/pursuit_temporal_result.md) and
+[frozen protocol](../fly-creature/docs/pursuit_temporal_protocol.md).
+Branch `experiment/aotu-temporal-response`; protocol checkpoint `ac50707`,
+implementation checkpoint `5b82713`. Production and prior evidence unchanged.
+New `pursuit_temporal.py` replays native full trials and visual history, adds
+unity-gain first-order memory (0/40/100/200 ms) and lag (0/40/80 ms nominal;
+0/40.5/79.5 ms realized), with the fixed 50 ms observation filter.
+Pooled model hemispheres primary; all-left/all-right sensitivities. Known
+numeric duplicate excluded from both archives prospectively. 69 recordings,
+35,484 quiescent pulses (7,450 NoP1; 28,034 P1); all 65,416 accepted and 158
+rejected intervals in retained recordings accounted for, no singleton drives.
+
+Baseline anatomy, 32 seeded wiring controls, simple spatial and zero-evoked
+predictors get equal timing/gain allowances. Evoked trace objective differs
+from prior raw pulse-mean fit. Nested recording CV chooses timing exclusively
+within outer training; one nonnegative gain, no intercept after recorded
+pre-stimulus baseline subtraction. Native simulation/filtering, every-seventh-
+sample scoring (10.5 ms). Speed transfer excludes entire held recording.
+P1 pooled 019 RMSE 12.4402 to12.3393 (0.81%; 13/24 improve), 025 15.2460
+to15.2039 (0.28%;13/22). Both fail frozen 5%/60% criteria. Simple improves
+0.62/0.25%; anatomy-over-simple advantage only0.44/0.30%. Wiring ranks7/32
+and32/32. Hemisphere sensitivity does not rescue it; NoP1 negligible gain.
+Slow-to-fast helps1.39/0.60%; fast-to-slow worsens0.97/0.48%.
+Examples improve some onset/peak shapes; post-offset persistence remains.
+Do not promote memory into Godot or expand the grid based on these results.
+
+Two independent complete runs reproduce report, all three CSVs and PNG bytes;
+43,470 full fold rows ignored. Filter-order/recurrence/direct-moment checks,
+archive MD5/member CRC, count accounting, saved-fold gain/timing/count checks,
+source/protocol and frozen production/input hashes pass. No unit/gameplay
+suite ran. Compact report/table/ranks/checks/figure tracked; full report retains
+all shuffle timing distributions. Source unchanged after validated runs.
+Next: design a response-repeatability/residual-variation audit for repeated
+same position/direction/speed, separating within/across-recording variation
+and auditing continuous forward/turning covariates in coarse quiescent pulses.
+Motor correlation may be neural output/shared cause, not automatically an
+input. This distinguishes the prediction target before another sensory rewrite.
+Sol medium for design/interpretation, Luna Max for a fixed implementation.
+
 ## 2026-10-02: frozen P1 physiology comparison and data-quality sensitivities complete
 
 Read [result](../fly-creature/docs/pursuit_p1_result.md) and

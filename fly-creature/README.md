@@ -90,7 +90,12 @@ The completed [P1 extension](docs/pursuit_p1_result.md) compares another
 barely improves on a simple spatial curve. Its audit finds a duplicated
 recording across conditions and an unverified hemisphere-label association;
 condition effects and side-specific claims remain provisional. Production is
-unchanged. A bounded temporal-response diagnostic is the next design task.
+unchanged. The completed [causal response-memory experiment](docs/pursuit_temporal_result.md)
+uses nested recording holdouts, complete-trial history and matched timing budgets.
+It improves primary errors by less than 1%, fails its frozen benefit criteria
+and transfers inconsistently across speeds. No temporal candidate is promoted.
+Response repeatability and remaining within/across-recording variation are
+the next diagnostic question.
 The optional `physiology-research` extra and reproduction commands are in the
 result; full recordings stay in ignored outputs.
 The [first skeleton-derived input experiment](docs/visual_input_experiment.md)

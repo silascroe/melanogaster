@@ -128,15 +128,12 @@ original evaluation output bytes before Git text normalization.
 
 ## Next
 
-Before a new production controller, define one bounded **causal temporal
-response hypothesis**, with a fixed observation filter and explicit condition
-and hemisphere uncertainty. Exclude the known duplicate prospectively, freeze
-training-only parameter choices and compare held-out time-course/evoked errors
-against equally calibrated static anatomy and simple spatial controls. Seek
-better filename/condition metadata in parallel; do not claim validated P1 or
-side-specific physiology without it. Do not fit pursuit scores or consume
-fresh behavioral paths to select sensory dynamics. Sol medium fits the design
-and interpretation; implementation can use Luna Max once the protocol is fixed.
+The [bounded temporal-response experiment](pursuit_temporal_result.md) is
+now implemented and evaluated. It fails the frozen benefit criteria; read
+its held-recording and speed-transfer results before introducing response
+memory into production. The next diagnostic question is response repeatability
+and remaining within/across-recording variation. Better condition/hemisphere
+provenance is still required for biological state/side claims.
 
 **TL;DR:** Spatial responses are clearer in the P1 archive, but the detailed
 connectome barely adds to a simple spatial curve. Data labels need caution;

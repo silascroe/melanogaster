@@ -1,5 +1,19 @@
 # Fly Creature decisions
 
+## Population tuning: diagnose concrete residual features before rewiring
+
+The [matched comparison](pursuit_population_result.md) preserves frozen
+anatomy/simple shapes and applies training-only gain fits on identical
+recording holdouts. The empirical cell template has additional fitted values;
+equal final calibration is not equal complexity. It improves P1 RMSE about
+2.2% over anatomy, while anatomy-over-simple benefits remain 0.24%/0.53%.
+Anatomy's 019 shape correlation is better in aggregate, but outer-field tails,
+025 direction-dependent peaks and below-reference firing remain mismatched.
+Do not infer inhibition from baseline subtraction, shift the whole eye map
+from coarse pulse-mean peak locations, or credit empirical grand-mean curve
+agreement as independent validation. Next audit target history and baseline
+choice with recording-blocked evidence; production remains unchanged.
+
 ## Repeatability: recognize target variation without excusing the adapter
 
 The [completed audit](pursuit_repeatability_result.md) finds repeatable P1

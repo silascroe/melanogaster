@@ -1,5 +1,44 @@
 # FlyTest handoff
 
+## 2026-10-02: matched population tuning complete; specific shape gaps identified
+
+Read [result](../fly-creature/docs/pursuit_population_result.md) and
+[frozen protocol](../fly-creature/docs/pursuit_population_protocol.md).
+Branch `experiment/aotu-population-tuning`; protocol `13e63bb`, implementation
+`70de954`. New offline `pursuit_population.py` compares frozen pooled static
+anatomy, simple spatial, empirical other-recording template, constant and zero
+on the previous audit's exact 34,554 trial-cells / 69 recordings. Native full
+trials and 50 ms observation filter; evoked pulse means. Outer recording
+holdouts; all gains are nonnegative/no-intercept, trained on identical inner-
+eligible observations. Empirical gain cross-fits inner training recordings
+before fitting; per-cell template parameters make it a flexible reference,
+not an equal-complexity mechanistic competitor. No motor covariates or tuning.
+
+P1 anatomy/simple/empirical RMSE: 019 11.028/11.055/10.792, 025
+14.518/14.595/14.200 spikes/s. Empirical beats anatomy 2.15%/2.19%, with
+17/24 and 13/22 recording wins. Anatomy beats simple only 0.24%/0.53%.
+019 median field correlation anatomy/simple/empirical 0.802/0.688/0.768
+(23 defined recordings); 025 0.661/0.672/0.762 (22). Broad tuning is present,
+but models underpredict outer tails and below-reference responses. 025
+direction -1 measured peaks at 78.75 vs model 56.25 degrees; +1 both at56.25.
+Do not interpret this as a justified global field shift or proven inhibition.
+Empirical population-mean curves follow measured means partly algebraically;
+held-recording errors, not plot agreement, are the prediction evidence.
+
+Two native replays reproduce report, five CSVs and PNG bytes. Lookup parity
+exact; direct convolution error <=1.12e-15. Independent checker reconstructs
+all gains, templates, inner/outer exclusions, weights, losses, correlations,
+plot means and coverage; maximum gain/prediction discrepancy 1.78e-14,
+other metric discrepancies zero. Source hashes, archive checks, duplicate
+exclusion and accepted/rejected counts pass. Production, raw data and old
+evidence preserved; no unit/gameplay suite ran. Full observations/folds and
+recording-cell tables ignored. Compact provenance/tables/checks/figure tracked.
+
+Next isolate previous-target history and baseline-choice effects on negative
+evoked responses and direction-dependent peaks before a circuit rewrite.
+Freeze a recording-blocked audit; don't silently retune the sensory map.
+Sol medium for design/interpretation, Luna Max for fixed implementation.
+
 ## 2026-10-02: repeated-response audit complete; production preserved
 
 Read [result](../fly-creature/docs/pursuit_repeatability_result.md) and

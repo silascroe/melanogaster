@@ -20,6 +20,7 @@ NumPy and Godot runtimes are still required.
 | `pursuit_physiology.py`, `pursuit_p1_comparison.py`, `tools/fetch_aotu_recordings.py` | Offline NoP1/P1 recorded-stimulus extraction, held-out AOTU response comparison, condition audit and verified public-data acquisition; optional research dependencies |
 | `pursuit_temporal.py` | Offline native-trial causal response-memory hypothesis, pooled hemisphere and side sensitivities, nested recording holdouts and speed-transfer diagnostic |
 | `pursuit_repeatability.py`, `tools/check_repeatability.py` | Offline repeated-stimulus pulse-mean templates, held-trial descriptive motor association and independent saved-artifact arithmetic; no production changes |
+| `pursuit_population.py`, `tools/check_population.py` | Offline matched held-recording anatomy/simple/empirical response fields, training-only gain fits and independent reconstruction; prior repeatability outputs define unchanged coverage |
 
 Comparison endpoints are `POST /playground` and
 `POST /playground/{world_id}/step`. They have a separate single-world store

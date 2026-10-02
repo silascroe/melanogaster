@@ -1,0 +1,30 @@
+{
+  "artifact_sha256": {
+    "folds.csv": "68222caef0facf2f299847181fc8b8d98b1b0e8f0842b67d671a7ad5b95323b2",
+    "observations.csv": "58f4da65bd167b5c88fe39e2c051faadf6ffa6bd1606305e2adaeb286d9d3d9f",
+    "population_cells.csv": "e8db07f2efafd0ba1375c8d96bfc0a75f36185e9fed7890bdf6c02c9d737b131",
+    "population_tuning.png": "13f35d7853fb8b6e2415a2e66e9d9eab8287f52c2d62bf17b71c9f000204dd72",
+    "recording_cells.csv": "82bae392a347d3eec7f2c6378110129484b93cf41b604092df0128de61dee4fc",
+    "recordings.csv": "620cff71f7aad5ec9652e620affbb561ff715888f0e0ae64f3f6e186df2be42c",
+    "report.json": "be4c892575b9a7c914ec4f1cc3d110f4943e24ffd95c0a10b9fede8064565640"
+  },
+  "byte_identical_repeat": {
+    "folds.csv": true,
+    "observations.csv": true,
+    "population_cells.csv": true,
+    "population_tuning.png": true,
+    "recording_cells.csv": true,
+    "recordings.csv": true,
+    "report.json": true
+  },
+  "independent_cell_correlation_max_error": 0.0,
+  "independent_gain_max_error": 1.7763568394002505e-14,
+  "independent_loss_max_error": 0.0,
+  "independent_plot_mean_max_error": 0.0,
+  "independent_prediction_max_error": 1.7763568394002505e-14,
+  "independent_predictions": 34554,
+  "inner_and_outer_recording_exclusion_and_coverage": true,
+  "interval_counts_and_duplicate_exclusion": true,
+  "reconstructed_outer_recordings": 69,
+  "source_and_frozen_component_hashes_current": true
+}

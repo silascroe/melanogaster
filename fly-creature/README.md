@@ -99,7 +99,13 @@ finds repeatable P1 stimulus structure and recording differences alongside
 substantial trial variation. Same-recording templates reduce errors about
 10–11% against other-recording templates; descriptive movement adds 4.47%/0.85%.
 These are pulse-mean results, not causal motor evidence or a model noise ceiling.
-Production remains unchanged; a matched population-tuning comparison is next.
+The completed [matched population-tuning comparison](docs/pursuit_population_result.md)
+excludes whole recordings and uses identical pulse-mean coverage/calibration.
+An empirical other-recording template improves P1 errors about 2.2% against
+anatomy; anatomy beats simple spatial by only 0.24%/0.53%. Anatomy captures some
+019 field shape, while outer-field tails, direction-dependent peaks and
+below-reference responses expose specific mismatches. Production remains
+unchanged; audit target history/baseline provenance before a sensory rewrite.
 The optional `physiology-research` extra and reproduction commands are in the
 result; full recordings stay in ignored outputs.
 The [first skeleton-derived input experiment](docs/visual_input_experiment.md)

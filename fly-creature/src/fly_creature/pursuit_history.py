@@ -44,6 +44,7 @@ def collect(directory):
                                  center_bin=int(round(p["center_deg"]/11.25)),start_sample=start,
                                  onset_s=float(time[start]-time[0]),hidden_gap_s=float(gap),first_stimulus=not bool(prev),
                                  previous_center_deg=float(np.mean(data["int_panelps"][prev[0]:prev[1],trial])) if prev else None,
+                                 previous_direction=int(np.sign(data["int_panelps"][prev[1]-1,trial]-data["int_panelps"][prev[0],trial])) if prev else None,
                                  mean_spikes_s=p["mean_spikes_s"],
                                  tail_spikes_s=float(data["int_spikert"][stop+int(np.ceil(.1/dt)):stop+margin,trial].mean()))
                         for label,(lo,hi) in WINDOWS.items():
@@ -65,10 +66,10 @@ def aggregate(rows):
     for condition in ("NoP1","P1"):
         for kind in ARCHIVES:
             pool = [r for r in rows if (r["condition"],r["type"])==(condition,kind)]
-            for stratum in ("original","isolated_1s","isolated_2s","first"):
+            for stratum in ("original","isolated_1s","isolated_2s","first","nominal_1s"):
                 selected = [r for r in pool if stratum=="original" or
                             (all(r[label+"_evoked"] is not None for label in WINDOWS) and
-                             (r["hidden_gap_s"]>= (2 if stratum=="isolated_2s" else 1)) and
+                             (r["hidden_gap_s"]>= (2 if stratum=="isolated_2s" else .995 if stratum=="nominal_1s" else 1)) and
                              (stratum!="first" or r["first_stimulus"]))]
                 grouped = defaultdict(lambda:defaultdict(lambda:defaultdict(list)))
                 for r in selected:
@@ -113,7 +114,7 @@ def main():
     summary = []
     for condition in ("NoP1","P1"):
         for kind in ARCHIVES:
-            for stratum in ("original","isolated_1s","isolated_2s","first"):
+            for stratum in ("original","isolated_1s","isolated_2s","first","nominal_1s"):
                 for baseline in ("near",) if stratum=="original" else WINDOWS:
                     selected = [r for r in records if (r["condition"],r["type"],r["stratum"],r["baseline"])==(condition,kind,stratum,baseline) and r["center_deg"]<=0]
                     byrecord = defaultdict(list)
@@ -129,6 +130,7 @@ def main():
                                         nonpreferred_recordings=len(ys),nonpreferred_mean=float(np.mean(ys)) if ys else None,
                                         nonpreferred_negative_recordings=sum(y<0 for y in ys),peak_centers_deg=peaks))
     report = dict(protocol_sha256=sha(ROOT/"docs/pursuit_goal_protocol.md"),implementation_sha256=sha(Path(__file__)),
+                  posthoc_sensitivity_sha256=sha(ROOT/"docs/pursuit_history_sensitivity.md"),
                   archives=audit,coverage=coverage,summary=summary,quiet_pulses=len(rows))
     (args.output_dir/"report.json").write_text(json.dumps(report,indent=2,sort_keys=True)+"\n",encoding="utf-8",newline="\n")
     print(json.dumps(coverage,indent=2),flush=True)

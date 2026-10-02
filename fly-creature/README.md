@@ -57,8 +57,11 @@ a direction-rule tradeoff and a strong motor-delay limit. Removing direction
 sensitivity helps fast paths but worsens gentle tracking; no input candidate
 qualifies. On 12 fresh fast/mixed-motion paths, the current model beats only
 1/32 shuffled circuits on aggregate, so its wiring advantage is limited to
-particular situations. Production settings remain unchanged. Timing needs a
-source-grounded review before another controller revision.
+particular situations. Production settings remain unchanged. The subsequent
+[timing audit and next benchmark contract](docs/pursuit_timing_contract.md)
+confirms a published 200 ms feedback delay and shows that redistributing it
+through our static adapter gives identical commands. The next implementation
+should compare the reference and our adaptation under matched retinal inputs.
 
 The [LC10a source review](docs/lc10a_visual_input_research.md) explains why
 our MaleCNS annotations do not directly supply individual visual fields.

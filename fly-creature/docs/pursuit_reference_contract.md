@@ -122,13 +122,13 @@ Step 2 should reproduce that helper only as a **source metric**, and compute
 a separately labeled continuous-settling metric for interpretation. This
 audit has not measured how much that discrepancy changes the authors' results.
 
-The chosen author-code protocol is relevant to the preprint's pursuit
-step-response analysis, but the older [preprint methods](https://pmc.ncbi.nlm.nih.gov/articles/PMC12212441/)
-give different illustrative values (including 200 ms, a 0.7 direction
-penalty, and a 100° example). The final article's precise figure-to-code
-mapping could not be confirmed from its accessible abstract. Therefore call
-this an **author-code protocol**, not an exact reproduction of a numbered
-published figure.
+The chosen author-code protocol remains separate from a published-figure
+reproduction. The [2026-10-02 timing audit](pursuit_timing_contract.md) now
+checks the full final article from the authors' lab: its Figure 6 / Equation 6
+uses 200 ms feedback, while this pinned dynamic code uses 450 ms. The final
+article's constant direction penalty is 0.66. The earlier preprint has other
+illustrative values. Preserve source parity; call a new 200 ms parameter
+override an article-method variant, not an exact Figure 6 reproduction.
 
 ## Comparison contract for Step 2
 

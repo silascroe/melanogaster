@@ -1,5 +1,23 @@
 # FlyTest handoff
 
+## 2026-10-02: final-paper timing audit and benchmark contract complete
+
+Read [timing contract](../fly-creature/docs/pursuit_timing_contract.md).
+Branch `experiment/pursuit-timing-contract` preserves production code.
+The final paper is now readable from the authors' lab: it explicitly uses
+200 ms steering feedback, distinct from roughly 40 ms visual-response latency.
+The pinned author code still uses 450 ms history delay; its separate 200 ms
+setting only shifts an analysis. Preserve that verified reference. The audit
+checks 600 active/visible samples: total-200-ms sensory/motor splits 0/200,
+40/160, 100/100 and 200/0 give identical commands. Redistribution is not a fix.
+Actual queue timing and independent target speeds are recorded; the extra
+body sample interval is an explicit endpoint convention, not a shortening fix.
+Source hashes and compact audit evidence are saved. No controller or data
+changed. Next build is the matched retinal reference benchmark specified in
+the contract, with a separately labelled 200 ms article-method variant, fixed
+gain/caps, wiring controls and reserved fresh validation. Sol medium fits
+the comparison design/implementation. This benchmark is not yet implemented.
+
 ## 2026-10-02: motion-rule diagnosis complete; no input fix promoted
 
 Read [motion result](../fly-creature/docs/pursuit_motion_result.md) and

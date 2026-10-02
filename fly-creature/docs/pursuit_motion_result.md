@@ -97,10 +97,8 @@ From the workspace root:
 .\.venv\Scripts\python.exe fly-creature/tools/plot_pursuit_motion.py
 ```
 
-This is a completed diagnosis, not a fixed controller. Next design question:
-how should published visual-response and end-to-end steering timing constrain
-the activity model, rather than placing all 200 ms in a command FIFO?
-Audit the timing contract before changing it. Measured response latency,
-fitted feedback delay and body execution delay are not interchangeable.
-Sol medium is recommended for that research/design. Adding neurons or tuning
-gain would not answer the diagnosed question.
+This is a completed diagnosis, not a fixed controller. The subsequent
+[timing audit](pursuit_timing_contract.md) confirms a published basis for the
+200 ms feedback queue and proves that redistributing that fixed delay through
+our static adapter gives identical commands. Next is a matched retinal
+reference benchmark, as specified there, rather than another timing split.

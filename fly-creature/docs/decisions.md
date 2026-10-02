@@ -1,5 +1,17 @@
 # Fly Creature decisions
 
+## Timing contract: preserve feedback delay and compare matched references
+
+The [final-paper timing audit](pursuit_timing_contract.md) resolves the older
+abstract-only gap: 200 ms feedback has a published basis. It is distinct from
+visual-response derivative-peak latency, the pinned code's 450 ms history
+delay, and post hoc analysis shifts. A numerical check shows total-200-ms
+delay splits through the static adapter produce exactly identical commands.
+Do not use a delay relabeling as a fix, subtract response latency from the
+feedback delay, or treat analysis smoothing as online neural dynamics.
+Preserve runtime timing; next compare the article-method reference variant
+and recorded projection under the same retinal streams/body contract.
+
 ## Motion-rule diagnosis: retain the current controller
 
 The [controlled diagnosis](pursuit_motion_result.md) reproduces all frozen
@@ -11,7 +23,7 @@ advantage; do not extrapolate the prior stress result across motion regimes.
 Source-inspired direction sensitivity is an imposed rule, not a property
 discovered from recorded edges. Self-motion in retinal bearing is expected.
 Zero delay is a sensitivity control, not a justified new biological default.
-Review the visual/motor timing contract before another implementation change.
+The subsequent timing contract above specifies the next comparison.
 
 ## First reaction: looming object to jump
 

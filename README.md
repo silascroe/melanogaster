@@ -17,6 +17,8 @@ The current baseline uses MaleCNS v1.0 from HHMI Janelia's public Google Storage
 Current creature research: the [motion diagnosis](fly-creature/docs/pursuit_motion_result.md)
 finds a direction-rule tradeoff and motor-delay limit; no input fix qualifies.
 Fresh fast/mixed-motion cases limit the earlier wiring-advantage claim.
+The [timing contract](fly-creature/docs/pursuit_timing_contract.md) now checks
+the final paper and defines the next matched retinal reference benchmark.
 See [the handoff](docs/HANDOFF.md) for continuation.
 The [interactive playground](fly-creature/docs/playground.md) now exposes
 simultaneous comparisons, target presets/manual placement and live errors.

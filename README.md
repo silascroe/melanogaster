@@ -14,6 +14,10 @@ The current baseline uses MaleCNS v1.0 from HHMI Janelia's public Google Storage
 
 ## Setup
 
+Current creature research: the [pursuit stress report](fly-creature/docs/pursuit_stress_result.md)
+checks the working Godot controller's limits against shuffled wiring and
+matched ordinary control. See [the handoff](docs/HANDOFF.md) for continuation.
+
 The tested interpreter is Python 3.12. Create or activate the project environment, then install the package and development dependencies:
 
 ```powershell

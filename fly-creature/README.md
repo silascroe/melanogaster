@@ -42,6 +42,15 @@ and passes a six-path offline review gate with wiring controls and gain
 sensitivity. It now has an opt-in [experimental Godot integration](docs/godot_pursuit_activity.md);
 the timing and overlap remain explicit modelling hypotheses.
 
+The [frozen stress test](docs/pursuit_stress_result.md) now checks 48 new
+conditions without retuning the working controller. Intact wiring meets the
+declared envelope on 32/36 supported-task cases and beats all 32 shuffled
+circuits on aggregate error. It modestly improves on a calibrated ordinary
+controller with the same delay, but an ordinary controller without that delay
+tracks better overall. Fast motion, wide initial headings, and walking past
+nearby stationary targets expose clear limits. These are model results, not
+validated fly biology; the Godot controller remains unchanged.
+
 The [LC10a source review](docs/lc10a_visual_input_research.md) explains why
 our MaleCNS annotations do not directly supply individual visual fields.
 The [first skeleton-derived input experiment](docs/visual_input_experiment.md)

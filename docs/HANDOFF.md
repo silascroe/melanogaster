@@ -1,5 +1,26 @@
 # FlyTest handoff
 
+## 2026-10-02: frozen pursuit stress envelope evaluated
+
+Read [the result](../fly-creature/docs/pursuit_stress_result.md) and
+[protocol](../fly-creature/docs/pursuit_stress_protocol.md). Branch
+`experiment/pursuit-stress-envelope` starts from the working Godot integration
+`1d27daa`; protocol/runner were committed as `53d28d9` before results. The
+controller and Godot are unchanged. Forty-eight mirrored cases include 36
+supported tasks and 12 range/stationary-depth challenges. Intact meets the
+envelope on 32/36 supported cases: 4.352-degree mean case error versus 22.509
+disconnected, 4.918 calibrated matched-delay proportional, and 3.645 same
+ordinary controller without delay. Intact beats all 32 shuffles on aggregate
+and the median shuffle on 30/36 cases. It loses to median shuffles on some
+fast/reversing paths. Fast motion and 105-degree starting headings fail the
+error gate; the wide headings eventually recover. Nearby stationary targets
+are walked past; unseen targets are not searched for. All dropout/reentry
+cases recover, with no inactive turns or lookup clipping. Full repeat JSON
+is identical; 96 traces checked independently. 22 creature tests, 69 lab
+tests, and data provenance pass. These cases are now consumed evaluation
+material. Next proposed work is a comparison playground; Sol medium is
+recommended to preserve logical timing while integrating interactive controls.
+
 ## 2026-09-30: experimental Godot activity pursuit runs
 
 Read [the integration report](../fly-creature/docs/godot_pursuit_activity.md).

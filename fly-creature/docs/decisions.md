@@ -292,3 +292,16 @@ rendering under load and needs future performance work. Label outputs as
 normalized activity, not voltage or spikes. Recorded parity on the known
 harmonic path is an integration check, not new held-out evidence. Fix the
 visual actor's yaw sign to agree with physical heading and record alignment.
+
+## 2026-10-02: keep activity pursuit bounded after stress evaluation
+
+The [stress result](pursuit_stress_result.md) gives evidence of particular
+wiring contributing under the current hypotheses: intact beats all 32
+shuffles on aggregate across 36 supported cases. The matched ordinary
+controller is close, and its immediate version beats intact overall. Keep
+the runtime unchanged and experimental. Do not sell general connectome
+superiority, search, stopping, vision from pixels, or natural walking-speed
+control. The coarse tracking threshold alone is insufficient attribution:
+disconnected passes twelve mild cases without turning. New research must
+use a new declared question/cases; a comparison playground can reuse this
+evidence without calling those cases held-out again.

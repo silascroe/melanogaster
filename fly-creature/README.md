@@ -73,6 +73,14 @@ Everything required from this workspace is inside this folder. Copy `fly-creatur
 
 ## Run
 
+For the [interactive comparison playground](docs/playground.md), run
+`tools/run_playground.ps1` from this folder, or press `P` in the original
+creature scene. Four controllers run together against one shared target:
+intact wiring, disconnected wiring, and ordinary rules with/without delay.
+Choose presets or drag a manual target; inspect the colored trails and live
+error cards. [Architecture](docs/ARCHITECTURE.md) explains the two scene/world
+ownership boundaries. The frozen neural controller settings are unchanged.
+
 From this directory in PowerShell:
 
 ```powershell

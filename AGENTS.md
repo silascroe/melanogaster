@@ -40,6 +40,11 @@ rules into established fly biology.
 
 ## Keep the code boundaries clear
 
+The creature now has two world ownership boundaries: its original Godot
+scene owns body state, while `fly-creature/src/fly_creature/playground.py`
+owns the simultaneous comparison world. Read `fly-creature/docs/ARCHITECTURE.md`
+and `docs/playground.md` inside that project before changing either bridge.
+
 - `src/flytest/data.py` owns read-only release loading and streaming access.
 - `src/flytest/analysis.py` owns selection, annotation joins, signs, and graph
   construction.

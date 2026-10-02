@@ -305,3 +305,15 @@ control. The coarse tracking threshold alone is insufficient attribution:
 disconnected passes twelve mild cases without turning. New research must
 use a new declared question/cases; a comparison playground can reuse this
 evidence without calling those cases held-out again.
+
+## 2026-10-02: separate simultaneous comparison world
+
+The [playground](playground.md) runs all four controllers concurrently,
+so changing the inspected fly cannot change statistics or initial conditions.
+Python owns this new world, including authored constant walking; the original
+Godot-owned creature world remains separate. Async threaded HTTP batches at
+most five exact ticks rather than blocking the UI or enlarging timestep.
+Ordered idempotent steps and queued reset handling protect this timing seam.
+Keep ordinary steering separate from the frozen activity simulator and label
+its 0/200 ms variants. Reuse prior stimulus cases for interactive inspection,
+without presenting this as new held-out or biological evidence.

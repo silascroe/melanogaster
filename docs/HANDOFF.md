@@ -1,5 +1,26 @@
 # FlyTest handoff
 
+## 2026-10-02: interactive comparison playground implemented
+
+Read [playground.md](../fly-creature/docs/playground.md) and
+[architecture](../fly-creature/docs/ARCHITECTURE.md). Branch
+`experiment/comparison-playground` adds a separate steering-only Godot scene.
+P enters it from the existing creature demo; Esc returns. The user launcher
+is `fly-creature/tools/run_playground.ps1`. Four independent bodies run
+intact/disconnected activity and ordinary proportional steering with 200/0 ms
+delay. Python owns this world's 10 ms ticks; Godot batches at most five via
+threaded asynchronous HTTP, preserving prior-command body updates and queues.
+Sequence validation/cache prevents duplicate advancement. Reset during an
+in-flight request discards stale results. Presets/manual dragging, pause,
+hiding, inspection, starting depth/heading and mirror controls are checked
+through actual Godot execution. The preview is 1080p60, 8.05 seconds for
+8.01 simulated seconds. Exact final states match direct Python replay.
+28 creature tests, 69 lab tests, frozen stress checks and data verification
+pass. Compact evidence is tracked; recordings/logs remain ignored. Frozen
+neural controller, stress runner, protocol, map and graph are unchanged.
+The playground is single-client, has no neural search/stopping/flight, and
+may lag wall time under load. Inspecting another body does not restart it.
+
 ## 2026-10-02: frozen pursuit stress envelope evaluated
 
 Read [the result](../fly-creature/docs/pursuit_stress_result.md) and

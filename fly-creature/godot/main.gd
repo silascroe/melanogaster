@@ -149,6 +149,8 @@ func _unhandled_key_input(event: InputEvent) -> void:
 	if key_event == null or not key_event.pressed or key_event.echo:
 		return
 	match key_event.keycode:
+		KEY_P:
+			get_tree().change_scene_to_file("res://playground.tscn")
 		KEY_SPACE:
 			_launch_ball()
 		KEY_R:
@@ -370,7 +372,7 @@ func _update_hud() -> void:
 	var bearing_text := "%.2f" % float(steering["bearing_deg"]) if steering.has("bearing_deg") else "--"
 	var turn_text := "%.3f" % float(steering["turn_rate_rad_s"]) if steering.has("turn_rate_rad_s") else "--"
 	var units := "activity units" if steering_model == "activity_v1" else "mV"
-	detail_label.text = "WASD move  |  V pursuit  |  B experimental/baseline  |  C disconnect  |  G roam  |  T fly  |  SPACE approach  |  F camera  |  R reset\n" \
+	detail_label.text = "WASD move  |  P playground  |  V pursuit  |  B models  |  C disconnect  |  G roam  |  T fly  |  SPACE approach  |  F camera  |  R reset\n" \
 		+ "Object angle: %s deg   expansion: %s deg/s\n" % [visual.get("angle_deg", "--"), visual.get("expansion_deg_s", "--")] \
 		+ "LC4 spikes: %s   LPLC2 spikes: %s   giant fiber spikes: %s\n" % [spikes.get("LC4", "--"), spikes.get("LPLC2", "--"), spikes.get("DNp01", "--")] \
 		+ "Target bearing: %s deg   DNa02 right-left: %s %s   neural turn: %s rad/s\n" % [bearing_text, readout_signal, units, turn_text] \

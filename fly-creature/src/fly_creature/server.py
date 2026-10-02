@@ -11,6 +11,7 @@ from .circuit import load_circuit
 from .controller import CreatureSession
 from .steering_diagnostic import load_candidate
 from .steering_diagnostic import condition_circuit
+from .playground import PlaygroundSession
 
 
 def main() -> None:
@@ -21,6 +22,7 @@ def main() -> None:
     circuit = load_circuit()
     steering_circuit = load_candidate()
     sessions: dict[str, CreatureSession] = {}
+    playgrounds: dict[str, PlaygroundSession] = {}
 
     class Handler(BaseHTTPRequestHandler):
         def _reply(self, code: int, payload: dict[str, object]) -> None:
@@ -42,6 +44,7 @@ def main() -> None:
                 "steering_neurons": len(steering_circuit.neurons),
                 "steering_connections": len(steering_circuit.connections),
                 "active_sessions": len(sessions),
+                "comparison_playground": True,
             })
 
         def do_POST(self) -> None:
@@ -52,6 +55,21 @@ def main() -> None:
                 payload = json.loads(self.rfile.read(length))
                 if not isinstance(payload, dict):
                     raise ValueError("JSON body must be an object")
+                if self.path == "/playground":
+                    session = PlaygroundSession(payload)
+                    session_id = uuid4().hex
+                    playgrounds.clear()
+                    playgrounds[session_id] = session
+                    self._reply(200, {"world_id": session_id, **session.snapshot()})
+                    return
+                parts = self.path.strip("/").split("/")
+                if len(parts) == 3 and parts[0] == "playground" and parts[2] == "step":
+                    session = playgrounds.get(parts[1])
+                    if session is None:
+                        self._reply(404, {"error": "Unknown comparison; reset the playground"})
+                        return
+                    self._reply(200, {"world_id": parts[1], **session.step(payload)})
+                    return
                 if self.path == "/session":
                     condition = str(payload.get("condition", "intact"))
                     steering_model = str(payload.get("steering_model", "lif"))

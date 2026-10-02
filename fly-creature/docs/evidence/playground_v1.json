@@ -1,0 +1,36 @@
+{
+  "passed": true,
+  "godot": "4.7.stable",
+  "ui": {
+    "clocks": true,
+    "focus_preserves_state": true,
+    "hide_clears_turns": true,
+    "inflight_reset": true,
+    "keyboard_pause": true,
+    "mirror": true,
+    "mouse_drag": true,
+    "passed": true,
+    "pause": true,
+    "preset_reset": true,
+    "request_samples": 102,
+    "sliders": true
+  },
+  "snapshot_count": 482,
+  "final_tick": 801.0,
+  "final_mean_errors_deg": {
+    "disconnected": 12.4140647311172,
+    "intact": 1.19020736697768,
+    "ordinary_delayed": 1.45179176345712,
+    "ordinary_immediate": 1.12834224155997
+  },
+  "mean_compute_ms": 0.24282016587858002,
+  "mean_roundtrip_ms": 83.06653638253638,
+  "video": {
+    "width": 1920,
+    "height": 1080,
+    "r_frame_rate": "60/1",
+    "duration": "8.050000",
+    "nb_frames": "483"
+  },
+  "preview_scope": "Existing gentle trajectory, integration evidence only"
+}

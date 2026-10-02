@@ -1,5 +1,25 @@
 # FlyTest handoff
 
+## 2026-10-02: measured sensory research complete; empirical benchmark next
+
+Read the refreshed [sensory review](../fly-creature/docs/lc10a_visual_input_research.md)
+and [sample/source audit](../fly-creature/docs/evidence/pursuit_sensory_source_audit_v1.json).
+Branch `research/pursuit-sensory-constraints` changes documentation only.
+LC10a primary studies constrain finite object size, direction and state, not
+per-MaleCNS Gaussian widths. Schretter's RF-labelled matrices are object-size
+matrices; the public Fig3 workbook omits its calcium-size panel. Collie's actual
+AOTU recordings are accessible at Zenodo version 15474938 (concept 15474937).
+Each NoP1 archive contains 12 recordings plus side metadata. Two smallest actual
+recordings downloaded with ZIP CRC32 checks and local SHA256, loaded in existing
+portable Octave; 1.5 ms samples, seven int_* signals, intentional position NaNs.
+Full archives/checksums and representative response estimates remain untested.
+Source preprocessing already mirrors left data; source “peak” summaries use
+pulse means; Gaussian 35/65 centers and 20-degree spread are fixed predictors.
+Production/source/data unchanged; no physiological fit, behavioral replay or
+fresh validation ran. Next: offline measured AOTU pulse-response benchmark with
+matched stimuli/state, raw units, animal-level holdouts and equally calibrated
+controls (Sol medium). Locate the empirical mismatch before an input rewrite.
+
 ## 2026-10-02: offline column-footprint candidate complete, not promoted
 
 Read [result](../fly-creature/docs/pursuit_footprint_result.md) and

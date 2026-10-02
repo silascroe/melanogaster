@@ -77,8 +77,12 @@ gain and timing. It passes input/normalization checks but does not improve
 tracking and weakens some wiring ranks. It remains a portable offline alternative;
 the playable controller is unchanged.
 
-The [LC10a source review](docs/lc10a_visual_input_research.md) explains why
-our MaleCNS annotations do not directly supply individual visual fields.
+The refreshed [sensory source review](docs/lc10a_visual_input_research.md)
+identifies downloadable AOTU recordings and verifies two sample schemas.
+LC10a studies constrain object size, direction and state, but do not supply
+per-MaleCNS visual-field widths. The next offline milestone compares frozen
+AOTU responses with measured pulse responses before another input rewrite;
+no physiological calibration or production change has been made.
 The [first skeleton-derived input experiment](docs/visual_input_experiment.md)
 found wiring-specific alignment but worse tracking than the current input.
 

@@ -1,0 +1,275 @@
+{
+  "date": "2026-10-02",
+  "purpose": "Research and sample-format audit only; no fitted model or behavioral result",
+  "paper_final_doi": "10.1016/j.neuron.2026.01.001",
+  "paper_preprint_doi": "10.1101/2025.04.23.650240",
+  "source_revision": "65d72773121ffe148b56b8ba4f594a7a51c51789",
+  "source_url": "https://github.com/wilson-lab/CollieWilson/tree/65d72773121ffe148b56b8ba4f594a7a51c51789",
+  "source_files": [
+    {
+      "path": "Data_Analysis_Code/pipelines/pipeline_motion_pulse.m",
+      "sha256": "9e0cee8cab0577e704af0e41bfe4b9e9410ac78089c4a7a97a4b802aac5229cd"
+    },
+    {
+      "path": "Data_Analysis_Code/pipelines/preprocess_motionpulse.m",
+      "sha256": "b1c13df523171e5977412efe63847abac5f66723b78a891e1a18ab8b2a390c93"
+    },
+    {
+      "path": "Data_Analysis_Code/data processing/spikert_seqfit.m",
+      "sha256": "ba555ecbbc1d1d2a8005f978d54d175a60239b008270979376a2ed0e79df4c80"
+    },
+    {
+      "path": "Data_Analysis_Code/data processing/pulse_v_output.m",
+      "sha256": "a45c327839d9c2fd5644be43e4bfc3781e6e8006439138b29484b70525f3699a"
+    },
+    {
+      "path": "Data_Analysis_Code/data processing/order_motion_pulse.m",
+      "sha256": "7268755994a0247d8e25e8767f9dae6fe9a3f88192cea5199b06a43ae632085b"
+    },
+    {
+      "path": "Data_Analysis_Code/settings/processSettings.m",
+      "sha256": "3341f503b27e379c09fd793a8478d4b67e9cfc462856cca489d483bedd452f72"
+    },
+    {
+      "path": "Data_Acquisition_Code/support scripts/convolveSpikeRate_input.m",
+      "sha256": "edfac377bd21bb04d4b7c47df3de79242c2b84111f67b509cd29c4ce43d859ab"
+    }
+  ],
+  "dataset": {
+    "version_record_id": 15474938,
+    "concept_record_id": 15474937,
+    "url": "https://zenodo.org/records/15474938",
+    "api_license": {
+      "id": "cc-by-4.0"
+    },
+    "modified": "2026-02-19T19:32:46.460298+00:00",
+    "archives": [
+      {
+        "name": "AOTU019 Motion Pulse NoP1.zip",
+        "bytes": 269524276,
+        "published_md5": "md5:6ebc8edd2bb348fa14b9dbd8f2cbea01",
+        "url": "https://zenodo.org/api/records/15474938/files/AOTU019%20Motion%20Pulse%20NoP1.zip/content",
+        "recording_members": 12,
+        "members": [
+          "AOTU019 Motion Pulse No P1/2023_06_15_fly01_int.mat",
+          "AOTU019 Motion Pulse No P1/2023_06_15_fly03_int.mat",
+          "AOTU019 Motion Pulse No P1/2023_06_19_fly01_int.mat",
+          "AOTU019 Motion Pulse No P1/2023_06_19_fly02_int.mat",
+          "AOTU019 Motion Pulse No P1/2023_06_19_fly03_int.mat",
+          "AOTU019 Motion Pulse No P1/2023_06_20_fly02_int.mat",
+          "AOTU019 Motion Pulse No P1/2023_06_21_fly01_int.mat",
+          "AOTU019 Motion Pulse No P1/2023_06_23_fly01_int.mat",
+          "AOTU019 Motion Pulse No P1/2023_10_25_fly03_int.mat",
+          "AOTU019 Motion Pulse No P1/2023_10_26_fly01_int.mat",
+          "AOTU019 Motion Pulse No P1/2023_10_27_fly04_int.mat",
+          "AOTU019 Motion Pulse No P1/2023_10_31_fly01_int.mat",
+          "AOTU019 Motion Pulse No P1/trackLR.mat"
+        ]
+      },
+      {
+        "name": "AOTU025 Motion Pulse NoP1.zip",
+        "bytes": 229423097,
+        "published_md5": "md5:ebeace816547366b8325182f80a08a5b",
+        "url": "https://zenodo.org/api/records/15474938/files/AOTU025%20Motion%20Pulse%20NoP1.zip/content",
+        "recording_members": 12,
+        "members": [
+          "AOTU025 Motion Pulse No P1/2024_05_31_fly02_int.mat",
+          "AOTU025 Motion Pulse No P1/2024_06_26_fly01_int.mat",
+          "AOTU025 Motion Pulse No P1/2024_06_27_fly01_int.mat",
+          "AOTU025 Motion Pulse No P1/2024_06_28_fly01_int.mat",
+          "AOTU025 Motion Pulse No P1/2024_07_02_fly03_int.mat",
+          "AOTU025 Motion Pulse No P1/2024_07_03_fly01_int.mat",
+          "AOTU025 Motion Pulse No P1/2025_02_24_fly02_int.mat",
+          "AOTU025 Motion Pulse No P1/2025_03_06_fly02_int.mat",
+          "AOTU025 Motion Pulse No P1/2025_03_13_fly02_int.mat",
+          "AOTU025 Motion Pulse No P1/2025_03_25_fly01_int.mat",
+          "AOTU025 Motion Pulse No P1/2025_03_25_fly02_int.mat",
+          "AOTU025 Motion Pulse No P1/2025_03_25_fly03_int.mat",
+          "AOTU025 Motion Pulse No P1/trackLR.mat"
+        ]
+      }
+    ]
+  },
+  "samples": [
+    {
+      "archive": "AOTU019 Motion Pulse NoP1.zip",
+      "archive_md5_published_not_full_download_verified": "md5:6ebc8edd2bb348fa14b9dbd8f2cbea01",
+      "member": "AOTU019 Motion Pulse No P1/2023_06_19_fly01_int.mat",
+      "bytes": 12011676,
+      "crc32_verified": true,
+      "sha256": "0428b1bb23caded3aa1e1f9320aa13b232093c34cb9f6bb83912297a8db751a8",
+      "local_path": "fly-creature\\outputs\\research\\sensory-constraints\\AOTU019_2023_06_19_fly01_int.mat"
+    },
+    {
+      "archive": "AOTU025 Motion Pulse NoP1.zip",
+      "archive_md5_published_not_full_download_verified": "md5:ebeace816547366b8325182f80a08a5b",
+      "member": "AOTU025 Motion Pulse No P1/2024_06_27_fly01_int.mat",
+      "bytes": 8293759,
+      "crc32_verified": true,
+      "sha256": "bb3e2f3841d3caf6413563e64e95a6022f74315790e1eeb869c20469d0fc9935",
+      "local_path": "fly-creature\\outputs\\research\\sensory-constraints\\AOTU025_2024_06_27_fly01_int.mat"
+    }
+  ],
+  "sample_schema": [
+    {
+      "file": "AOTU019_2023_06_19_fly01_int.mat",
+      "variables": {
+        "int_angular": {
+          "size": [
+            40000,
+            10
+          ],
+          "class": "double",
+          "minimum": -351.01683667483127,
+          "maximum": 375.4370532731355,
+          "finite_fraction": 1
+        },
+        "int_forward": {
+          "size": [
+            40000,
+            10
+          ],
+          "class": "double",
+          "minimum": -4.479559222476675,
+          "maximum": 10.576591979234555,
+          "finite_fraction": 1
+        },
+        "int_panelps": {
+          "size": [
+            40000,
+            10
+          ],
+          "class": "double",
+          "minimum": -112.57,
+          "maximum": 112.59,
+          "finite_fraction": 0.3977925
+        },
+        "int_sideway": {
+          "size": [
+            40000,
+            10
+          ],
+          "class": "double",
+          "minimum": -5.313856347123621,
+          "maximum": 4.630970698444845,
+          "finite_fraction": 1
+        },
+        "int_spikert": {
+          "size": [
+            40000,
+            10
+          ],
+          "class": "double",
+          "minimum": 0,
+          "maximum": 25.46100955074786,
+          "finite_fraction": 1
+        },
+        "int_time": {
+          "size": [
+            1,
+            40000
+          ],
+          "class": "double",
+          "minimum": 0,
+          "maximum": 59.9985,
+          "finite_fraction": 1
+        },
+        "int_voltage": {
+          "size": [
+            40000,
+            10
+          ],
+          "class": "double",
+          "minimum": -45.470849153441144,
+          "maximum": -27.711700544053166,
+          "finite_fraction": 1
+        }
+      },
+      "median_dt": 0.0015000000000000568
+    },
+    {
+      "file": "AOTU025_2024_06_27_fly01_int.mat",
+      "variables": {
+        "int_angular": {
+          "size": [
+            58000,
+            4
+          ],
+          "class": "double",
+          "minimum": -329.0317752516061,
+          "maximum": 320.5193031419359,
+          "finite_fraction": 1
+        },
+        "int_forward": {
+          "size": [
+            58000,
+            4
+          ],
+          "class": "double",
+          "minimum": -5.733257636658275,
+          "maximum": 6.1595647980023305,
+          "finite_fraction": 1
+        },
+        "int_panelps": {
+          "size": [
+            58000,
+            4
+          ],
+          "class": "double",
+          "minimum": -157.54,
+          "maximum": 157.57,
+          "finite_fraction": 0.39626293103448273
+        },
+        "int_sideway": {
+          "size": [
+            58000,
+            4
+          ],
+          "class": "double",
+          "minimum": -4.855918749042738,
+          "maximum": 6.195777407248872,
+          "finite_fraction": 1
+        },
+        "int_spikert": {
+          "size": [
+            58000,
+            4
+          ],
+          "class": "double",
+          "minimum": 0,
+          "maximum": 100.53581778498429,
+          "finite_fraction": 1
+        },
+        "int_time": {
+          "size": [
+            1,
+            58000
+          ],
+          "class": "double",
+          "minimum": 0,
+          "maximum": 86.9985,
+          "finite_fraction": 1
+        },
+        "int_voltage": {
+          "size": [
+            58000,
+            4
+          ],
+          "class": "double",
+          "minimum": -59.71041630270554,
+          "maximum": -33.39720449833311,
+          "finite_fraction": 1
+        }
+      },
+      "median_dt": 0.0015000000000000568
+    }
+  ],
+  "limits": [
+    "Only two recordings loaded; not representative physiological estimates",
+    "ZIP members verified by CRC32 and local SHA256; full-archive published MD5 not verified",
+    "Samples chosen by smallest compressed recording size, not response quality",
+    "Already processed int_* data; source preprocessing mirrors left recordings into ipsilateral-positive coordinates",
+    "No per-MaleCNS LC10a receptive-field crosswalk established",
+    "No production parameters or fresh behavioral validation changed"
+  ]
+}

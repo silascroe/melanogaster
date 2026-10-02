@@ -1,5 +1,17 @@
 # Fly Creature decisions
 
+## Measured sensory responses before another input rewrite
+
+The refreshed [review](lc10a_visual_input_research.md) separates LC10a size
+tuning from retinal receptive-field width and calcium from firing rate.
+The public AOTU dataset is accessible; two recordings load in portable Octave.
+Next build an offline, stimulus/state-matched response benchmark upstream of
+the motor decoder, with animal-level holdouts and equal observation-calibration
+allowances for anatomy and controls. Preserve the playable controller and
+fresh behavioral validation. AOTU recordings constrain aggregate responses;
+they do not uniquely identify 275 LC10a fields. Do not infer fitted widths from
+the source regression's fixed 20-degree predictor or fit pursuit scores again.
+
 ## Column footprints: preserve the candidate without promotion
 
 The [candidate](pursuit_footprint_result.md) passes fixed-fly implementation and

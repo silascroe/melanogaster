@@ -25,6 +25,9 @@ The [response diagnosis](fly-creature/docs/pursuit_response_result.md) now
 isolates weak wide-angle input profiles and additional nonlinear attenuation.
 The [column-footprint experiment](fly-creature/docs/pursuit_footprint_result.md)
 retains more upstream spatial detail but does not improve tracking; it remains offline.
+The [sensory evidence review](fly-creature/docs/lc10a_visual_input_research.md)
+now identifies actual AOTU recordings and a bounded measured-response comparison
+as the next milestone. Two public samples load; no physiological fit has run.
 See [the handoff](docs/HANDOFF.md) for continuation.
 The [interactive playground](fly-creature/docs/playground.md) now exposes
 simultaneous comparisons, target presets/manual placement and live errors.

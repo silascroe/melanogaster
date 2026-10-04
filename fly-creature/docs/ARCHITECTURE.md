@@ -25,6 +25,7 @@ NumPy and Godot runtimes are still required.
 | `pursuit_revision.py`, `tools/check_pursuit_cycle.py`, `tools/plot_pursuit_cycle.py` | Offline bounded direction-skew/visible-offset hypothesis, matched control fits, independent reconstruction and figures; rejected, never imported by production |
 | `docs/lc10a_sensor_contract.md`, `tools/build_lc10a_probe_matrix.py` | Source-grounded finite-object interface and reproducible stimulus specifications only; no neural response implementation |
 | `retina.py`, `tools/run_lc10a_probes.py` | Finite angular luminance frames and temporal geometry summaries; no modeled neuron response or behavioral readout |
+| `docs/lc10a_response_design.md`, `tools/check_lc10a_response_design.py` | Frozen next-response hypothesis/protocol and scalar construction checks; no LC10a response implementation or new physiology fit |
 
 Comparison endpoints are `POST /playground` and
 `POST /playground/{world_id}/step`. They have a separate single-world store

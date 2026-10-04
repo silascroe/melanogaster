@@ -35,12 +35,15 @@ adapter remains untouched and outside this renderer.
 
 ## Next experiment boundary
 
-First inspect whether the finite raster preserves the declared geometry and its
-mirrors. Then specify one shared hypothetical center/surround response rule with
-a small frozen parameter budget, citing the source constraint for each parameter.
-Keep any LC10a rate/state dynamics separate from image geometry. Do not fit 275
-individual fields to downstream AOTU responses, treat calcium amplitude as
-spikes/s, or infer receptive field width from preferred object size.
+The [response design and comparison protocol](lc10a_response_design.md) now
+specifies one frozen shared hypothesis: image-based local motion, synthetic
+center/surround pooling, explicit vertical pooling, and a pinned author-model
+temporal envelope. Its source-derived and synthetic constants are separately
+labelled. Equation/integration checks pass; the neural rule and physiological
+comparison have not been implemented. Next implement the offline rule/probe
+runner, including raster-convergence and independent arithmetic checks, before
+launching the recorded benchmark. Keep rate/state assumptions separate from
+image geometry and do not fit individual fields to downstream recordings.
 
 Replay the existing AOTU benchmark only after that sensor contract check, using
 the frozen recording coverage and exact recorded timestamps. Apply equal visual
@@ -55,7 +58,7 @@ keep it labeled synthetic. If sensory fit improves but intact anatomy does not
 beat matched controls, report that plainly. Godot still requires existing
 closed-loop stability and fresh-path controls.
 
-**Recommended settings:** Sol medium for designing/interpreting the response
-hypothesis; Luna Max for a frozen implementation and checks. A rendered retinal
-image is the new concrete output. It is not a claim that the biological input
-path or pursuit behavior has been fixed.
+**Recommended settings:** Luna Max for the frozen response-rule/probe-runner
+implementation; Sol medium for consequential recorded-comparison review and
+interpretation. The design includes explicit failure gates and matched visual
+information for wiring controls. No biological input or pursuit fix is claimed.

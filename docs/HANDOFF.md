@@ -1,5 +1,35 @@
 # FlyTest handoff
 
+## 2026-10-04: LC10a response design frozen; implementation next
+
+Read the [response design](../fly-creature/docs/lc10a_response_design.md) and
+[machine-readable manifest](../fly-creature/docs/evidence/lc10a_response_design_v1.json).
+This is design plus scalar equation checks, with no new neural response or fit.
+Primary rule reads only float luminance/history and explicit gain, using local
+ON/OFF motion correlation, synthetic 7.5/22.5-degree center/surround kernels,
+per-pixel eye aperture, shared vertical maximum pooling and a fixed causal
+response envelope. Same 275 IDs, 164 mapped/111 fallback labels, prior production
+and stimulus contract. Missing per-cell elevations remain explicit.
+
+New primary source: ruta laboratory LC10NetworkModel revision
+`d15afdfd21b93774cef963f5c92d511a9ea0d15e`, temporalRF_LC10.m. Its fitted-envelope
+shape peaks at 411.38 ms with a 587.78 ms mean lag after our unit-area/3 s
+normalization. Stable equation agrees with source expression within 3.34e-16;
+1.5/2 ms bin-integrated held-input checks agree with quadrature within 1.67e-16.
+It is a published model shape, not a MaleCNS spiking measurement. Static 1D
+spatial illustration peaks at 23.58 degrees by construction, not measurement.
+Source files remain ignored; hashes and construction figure are tracked.
+
+Next implement the frozen offline rule/probe runner and independent checks,
+including raster aliasing and causality, before recorded scoring. Protocol pins
+the old recording coverage/calibration, same 32 shuffles and new ordinary weights
+with identical visual information; preserves 5%/60% predictive and 1%/30-of-32
+wiring gates. No arbitrary fitted fields, filename-derived P1 gain or downstream
+direction penalty duplicated after LC10a. Negative isolated responses remain a
+structural limitation; the source envelope may permit history-dependent negative
+evoked values. Metadata associations/sensitivity and dataset reuse remain explicit.
+Luna Max suits fixed implementation; Sol medium suits consequential assay review.
+
 ## 2026-10-02: LC10a finite-object retinal renderer complete
 
 Read [contract](../fly-creature/docs/lc10a_sensor_contract.md),

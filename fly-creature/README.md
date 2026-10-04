@@ -117,6 +117,10 @@ but archive-specific stimulus metadata and quantitative LC10a response laws rema
 incomplete. The [renderer and probe runner](docs/lc10a_sensor_renderer.md) now
 produce inspectable retinal movies, traces and summaries; this ends at the image
 input and adds no neural response rule.
+The [frozen response design](docs/lc10a_response_design.md) now defines the next
+offline rule and matched recording comparison. A pinned author-model temporal
+envelope supplements explicit synthetic spatial/motion assumptions; construction
+checks pass, but neural implementation and physiological scoring have not begun.
 The optional `physiology-research` extra and reproduction commands are in the
 result; full recordings stay in ignored outputs.
 The [first skeleton-derived input experiment](docs/visual_input_experiment.md)

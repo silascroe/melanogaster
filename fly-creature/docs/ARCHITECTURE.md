@@ -28,6 +28,7 @@ NumPy and Godot runtimes are still required.
 | `lc10a_response.py` | Offline causal image-to-LC10a activity hypothesis over the existing 275 IDs; not imported by production, and not a spike model |
 | `tools/run_lc10a_response_probes.py`, `tools/check_lc10a_response.py` | Frozen 68-probe replay and independent spatial, temporal, causal, identity, repeatability, and raster checks; full traces stay ignored |
 | `docs/lc10a_response_design.md`, `docs/lc10a_response_result.md`, `docs/evidence/lc10a_response_*_v1.*` | Frozen assumptions, checked probe result, compact artifacts, and boundaries for the not-yet-run AOTU benchmark |
+| `docs/lc10a_response_benchmark_protocol.md`, `tools/review_lc10a_benchmark.py`, `docs/evidence/lc10a_benchmark_*_v1.json` | Reviewed next-assay contract, native target/fold/legacy reconstruction, explicit controls and numerical/performance gates; no new recorded-response scoring |
 
 Comparison endpoints are `POST /playground` and
 `POST /playground/{world_id}/step`. They have a separate single-world store

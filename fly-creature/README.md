@@ -124,6 +124,11 @@ used the LC10a-to-AOTU contacts, been compared with recorded physiology, or been
 integrated into Godot. The spatial and direction constants remain synthetic,
 and the published-model envelope is not a measured LC10a spike response. The
 next step is a separate offline AOTU benchmark with the frozen wiring controls.
+Its [reviewed implementation contract](docs/lc10a_response_benchmark_protocol.md)
+now pins all 69 recording folds, calibration rows, explicit shuffle permutations,
+native movie history and activation/pooling order. Raw target reconstruction
+matches exactly and previous calibrated predictions match to floating-point
+precision. The new recorded-response runner has not been implemented or scored.
 Full activity traces stay in ignored outputs.
 The [first skeleton-derived input experiment](docs/visual_input_experiment.md)
 found wiring-specific alignment but worse tracking than the current input.

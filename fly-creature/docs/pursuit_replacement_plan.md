@@ -45,6 +45,13 @@ scored against recorded physiology. Production and Godot are unchanged.
 
 ## Next experiment boundary: recorded AOTU comparison
 
+The [reviewed implementation contract](lc10a_response_benchmark_protocol.md)
+now specifies exact full-trial history, post-ELU hemisphere averaging, fixed
+lookup/quantization handling, audited calibration indices and explicit shuffle
+matrices. The raw target and legacy calibration audit passes. Use that contract
+and its machine-readable freeze for the next runner; the new responses have
+not been scored against recordings.
+
 Implement the separate frozen `lc10a_response_benchmark.py` runner using the
 existing recording readers, extraction, and scoring. Verify extraction,
 calibration indices, legacy outputs, and contact weights against old evidence

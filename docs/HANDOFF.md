@@ -1,5 +1,37 @@
 # FlyTest handoff
 
+## 2026-10-04: recorded-AOTU protocol review complete; runner not implemented
+
+Read the [reviewed implementation contract](../fly-creature/docs/lc10a_response_benchmark_protocol.md)
+and its compact `lc10a_benchmark_contract_v1.json` / `lc10a_benchmark_protocol_v1.json`
+artifacts. `fly-creature/tools/review_lc10a_benchmark.py` rereads all four verified
+archives and reconstructs all 35,484 quiet targets exactly, the 34,554 held
+trial-cell set, and all 69 inner/outer fold budgets. Legacy calibrated
+predictions agree with saved evidence to `1.07e-14`. Explicit shuffle row
+permutations, fixed ELU peaks and matched-spatial/flat matrix hashes are pinned.
+
+The clarified boundaries matter: render every finite sample in each full trial,
+even pulses excluded from scoring; keep history across NaNs; reset only per
+trial. Use canonical/right and mirrored/left activation separately, then
+average after ELU. Do not pool raw drives before the nonlinearity. Keep the
+fixed lookup and its positive-raw/zero-bin limitations visible; eight synthetic
+bar pairs use only about 0.06%-3.40% of the old type peak range. This is a
+representation warning, not an invitation to normalize peaks to new outputs.
+
+There are 76,786,718 relevant native frames before mirrors/controls. Share image
+and LC10a calculations across the fixed wiring controls; an optimized separable
+rectangle/motion path and linear envelope/projection commutation are allowed
+only with canonical-path and lookup-bin parity. The protocol freezes 345 new
+configuration/predictor combinations plus legacy anatomy/simple, constant and
+zero. It preserves the 5%/60% predictive and 1%/30-of-32 wiring gates.
+
+No new recorded LC10a predictions were generated or fitted in this review.
+Next implement the standalone offline runner and independent checker in the
+specified order; preserve the passing response component and production.
+Luna Max is recommended for that now-fixed implementation; Sol medium for
+protocol failures and result interpretation. Reproduce review from root with
+`.\.venv\Scripts\python.exe fly-creature/tools/review_lc10a_benchmark.py`.
+
 ## 2026-10-04: frozen LC10a image-response checkpoint complete
 
 Read the [result](../fly-creature/docs/lc10a_response_result.md),

@@ -27,8 +27,10 @@ NumPy and Godot runtimes are still required.
 | `retina.py`, `tools/run_lc10a_probes.py` | Finite angular luminance frames and temporal geometry summaries; no modeled neuron response or behavioral readout |
 | `lc10a_response.py` | Offline causal image-to-LC10a activity hypothesis over the existing 275 IDs; not imported by production, and not a spike model |
 | `tools/run_lc10a_response_probes.py`, `tools/check_lc10a_response.py` | Frozen 68-probe replay and independent spatial, temporal, causal, identity, repeatability, and raster checks; full traces stay ignored |
-| `docs/lc10a_response_design.md`, `docs/lc10a_response_result.md`, `docs/evidence/lc10a_response_*_v1.*` | Frozen assumptions, checked probe result, compact artifacts, and boundaries for the not-yet-run AOTU benchmark |
-| `docs/lc10a_response_benchmark_protocol.md`, `tools/review_lc10a_benchmark.py`, `docs/evidence/lc10a_benchmark_*_v1.json` | Reviewed next-assay contract, native target/fold/legacy reconstruction, explicit controls and numerical/performance gates; no new recorded-response scoring |
+| `docs/lc10a_response_design.md`, `docs/lc10a_response_result.md`, `docs/evidence/lc10a_response_*_v1.*` | Frozen assumptions, checked probe result, compact artifacts, and boundaries for the recorded-AOTU benchmark |
+| `docs/lc10a_response_benchmark_protocol.md`, `tools/review_lc10a_benchmark.py`, `docs/evidence/lc10a_benchmark_*_v1.json` | Frozen assay contract, target/fold/legacy reconstruction, matched controls, and predeclared numerical and performance gates |
+| `lc10a_response_benchmark.py`, `tools/check_lc10a_response_benchmark.py` | Offline 69-unit native-trial replay and independent score/refit/sensory-witness checks; compact outcome is in docs/lc10a_recorded_benchmark_result.md |
+| `tools/assemble_lc10a_benchmark.py` | Audits parallel worker checkpoints and routes condition-specific caches through the frozen runner because 23 recording filenames recur across NoP1/P1 |
 
 Comparison endpoints are `POST /playground` and
 `POST /playground/{world_id}/step`. They have a separate single-world store

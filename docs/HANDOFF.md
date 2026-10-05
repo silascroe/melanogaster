@@ -1,5 +1,28 @@
 # FlyTest handoff
 
+## 2026-10-05: recorded-AOTU benchmark complete; practical gates failed
+
+The frozen offline runner and independent checker completed all 69
+condition/type/recording units. Artifact validation passed: 24,081
+recording-score rows across 349 predictors, exact held-prediction reconstruction,
+zero fold-fit differences, and independent replay of eight canonical/mirror
+sensor movies with maximum activity difference 1.50e-15.
+
+The scientific gates did not pass. For both AOTU019 and AOTU025, intact wiring
+was worse than the legacy contact-input predictor and won fewer recordings than
+the frozen 60% requirement. It beat all 32 shuffled circuits on aggregate RMSE,
+but missed the matched-spatial improvement threshold for an anatomical
+advantage. Keep that distinction: the result shows sensitivity to the specific
+wiring against shuffles, not useful prediction beyond simpler controls. The
+engineered visual response rule is not measured LC10a firing, and no controller
+or Godot behavior is promoted.
+
+See the [compact result](../fly-creature/docs/lc10a_recorded_benchmark_result.md)
+and [machine-readable evidence](../fly-creature/docs/evidence/lc10a_recorded_benchmark_summary_v1.json).
+The full score arrays, predictions, and traces remain in ignored local output.
+The frozen runner SHA-256 is
+5c6498f18ec20e39f119c600f39cc1fcef21fc8d0bd782cb6338eaaeec27fad7.
+
 ## 2026-10-04: recorded-AOTU protocol review complete; runner not implemented
 
 Read the [reviewed implementation contract](../fly-creature/docs/lc10a_response_benchmark_protocol.md)

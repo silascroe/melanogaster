@@ -38,10 +38,12 @@ association limit condition/hemisphere claims. The
 adds nested holdouts and speed transfer; bounded memory improves less than 1%
 and fails its frozen criteria. Production remains unchanged.
 See [the handoff](docs/HANDOFF.md) for continuation.
-The [LC10a image renderer](fly-creature/docs/lc10a_sensor_renderer.md) is complete;
-the [frozen response design](fly-creature/docs/lc10a_response_design.md) defines
-its next offline neural-input hypothesis and matched physiology comparison.
-Only design arithmetic has run; the response rule and new fit are pending.
+The [LC10a image-response hypothesis](fly-creature/docs/lc10a_response_result.md)
+has been run against recorded AOTU responses in a frozen offline benchmark.
+Artifact checks pass, but the intact circuit misses the predeclared practical
+prediction gates against simpler controls; see the
+[benchmark result](fly-creature/docs/lc10a_recorded_benchmark_result.md).
+No behavior controller was promoted.
 The [interactive playground](fly-creature/docs/playground.md) now exposes
 simultaneous comparisons, target presets/manual placement and live errors.
 

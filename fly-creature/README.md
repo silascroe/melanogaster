@@ -119,16 +119,27 @@ produce inspectable retinal movies, traces and summaries. The frozen image-to-
 LC10a hypothesis is now implemented and passes all 68 six-second probes,
 independent pooling/envelope checks, raster convergence, and a byte-identical
 full repeat; see the [result](docs/lc10a_response_result.md). It emits
-dimensionless per-cell activity for the existing 275 LC10a IDs. It has not yet
-used the LC10a-to-AOTU contacts, been compared with recorded physiology, or been
+dimensionless per-cell activity for the existing 275 LC10a IDs. A separate
+offline recorded-AOTU runner now replays it through the LC10a-to-AOTU contacts;
+the completed [recorded-AOTU benchmark result](docs/lc10a_recorded_benchmark_result.md)
+includes the compact scores and independent checks. It has not been
 integrated into Godot. The spatial and direction constants remain synthetic,
 and the published-model envelope is not a measured LC10a spike response. The
-next step is a separate offline AOTU benchmark with the frozen wiring controls.
+current assay is the separate offline AOTU benchmark with frozen wiring controls.
 Its [reviewed implementation contract](docs/lc10a_response_benchmark_protocol.md)
 now pins all 69 recording folds, calibration rows, explicit shuffle permutations,
 native movie history and activation/pooling order. Raw target reconstruction
 matches exactly and previous calibrated predictions match to floating-point
-precision. The new recorded-response runner has not been implemented or scored.
+precision. `lc10a_response_benchmark.py` and its independent checker are
+implemented; the independent checker passed, but the practical prediction
+gates failed for both AOTU types. Intact wiring strictly beat all 32 shuffles
+on aggregate error, but it did not clear the frozen practical-advantage
+thresholds. The result report records the scores, assumptions, and limits.
+The checkpoint assembler
+`tools/assemble_lc10a_benchmark.py` audits the six worker ledgers and preserves
+condition-specific caches because 23 names recur across NoP1/P1 archives.
+Run the assembler without flags for an audit, or with `--run` after all 69 units
+finish; then run `tools/check_lc10a_response_benchmark.py`.
 Full activity traces stay in ignored outputs.
 The [first skeleton-derived input experiment](docs/visual_input_experiment.md)
 found wiring-specific alignment but worse tracking than the current input.

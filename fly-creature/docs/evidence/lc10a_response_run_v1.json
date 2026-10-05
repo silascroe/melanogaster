@@ -1,0 +1,92 @@
+{
+  "activity_units": "dimensionless hypothesized drive; not voltage or spikes",
+  "auxiliary_and_numerical_checks": {
+    "absent_equals_zero_contrast_frames": true,
+    "auxiliary_movies": [
+      {
+        "duration_s": 6.0,
+        "integrated_activity": 1.1153735448213111,
+        "max_feature": 0.06946573439003213,
+        "probe_id": "paused_disc_R"
+      },
+      {
+        "duration_s": 10.0,
+        "integrated_activity": 0.812742212417036,
+        "max_feature": 0.06934761913847426,
+        "probe_id": "isolated_disc_R"
+      },
+      {
+        "duration_s": 6.0,
+        "integrated_activity": 1.112469512835446,
+        "max_feature": 0.06956648107632717,
+        "probe_id": "paused_disc_L"
+      },
+      {
+        "duration_s": 10.0,
+        "integrated_activity": 0.814043830910027,
+        "max_feature": 0.06935487223558479,
+        "probe_id": "isolated_disc_L"
+      }
+    ],
+    "envelope_discrete_mass_1_5ms": 0.9999999999999999,
+    "envelope_discrete_mass_2ms": 0.9999999999999999,
+    "explicit_gain_two_max_abs_error": 0.0,
+    "first_sample_drive_max": 0.14234173709574566,
+    "first_sample_response_max": 0.0,
+    "invisible_target_metadata_does_not_change_frames": true,
+    "label_swap_max_abs_error": 0.0,
+    "post_reset_second_sample_max": 2.2491404690247674e-05,
+    "reset_clears_history_max": 0.0,
+    "second_sample_response_max": 2.2468850566981115e-05,
+    "stationary_object_motion_max": 0.0,
+    "uniform_local_motion_max_drive": 2.498001805406602e-16,
+    "whole_panel_flash_motion_max": 0.0,
+    "whole_panel_flashes": [
+      {
+        "max_motion": 0.0,
+        "max_static_contrast": 1.0,
+        "probe_id": "whole_panel_flash_dark_R"
+      },
+      {
+        "max_motion": 0.0,
+        "max_static_contrast": 1.0,
+        "probe_id": "whole_panel_flash_bright_R"
+      },
+      {
+        "max_motion": 0.0,
+        "max_static_contrast": 1.0,
+        "probe_id": "whole_panel_flash_dark_L"
+      },
+      {
+        "max_motion": 0.0,
+        "max_static_contrast": 1.0,
+        "probe_id": "whole_panel_flash_bright_L"
+      }
+    ]
+  },
+  "block_frames": 32,
+  "cell_count": 275,
+  "design": "docs/lc10a_response_design.md",
+  "design_manifest_sha256": "c99b89e6ed4dc08486ee74171034402e049780d9ee1747f6258b6e4529576240",
+  "dt_s": 0.002,
+  "duration_s": 6.0,
+  "fallback_centers": 111,
+  "frames_per_probe": 3000,
+  "godot_or_production_changed": false,
+  "mapped_centers": 164,
+  "physiology_benchmark_started": false,
+  "probe_count": 68,
+  "probe_matrix": "docs/evidence/lc10a_sensor_probes_v1.csv",
+  "probe_matrix_sha256": "864e9724694a2a6e33d14f558061e541f0abf0f29db94f61af75fe99f9222f9f",
+  "renderer_sha256": "1f8b190260cf1dcc9c84d6165552801399be7ce685f3ea2fd201ddd2a03871a6",
+  "response_module_sha256": "f4f587f0e4141f97c3f4452845954f041bcce26348254456937af6b34e52e404",
+  "runner_sha256": "6db8a05b487242af0d03546f8364d86f274007b11e855a8a8d439b48ee2aa558",
+  "source_identity": "existing sorted LC10a IDs and unchanged selected MaleCNS contacts",
+  "status": "completed frozen image-to-LC10a probe stage; no physiology fit performed",
+  "summary_csv": "probe_summary.csv",
+  "summary_csv_sha256": "a19ef1031ea6803e86bbb6b7704c15264adcaf37d8872f3703c199ca594ed3ef",
+  "surround_absent_csv": "surround_absent_contrasts.csv",
+  "surround_absent_csv_sha256": "4e187ad33cd26aca9aa7e68542e893e1bda89533e184d10341a17bcae6832cf3",
+  "trace_archive": "activity_traces.npz",
+  "trace_archive_sha256": "d6d32c438a1c5bbe37cae05e3d8dfbf55d193f7833b91e09a21a6fe8c75b8bf1"
+}

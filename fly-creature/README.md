@@ -115,14 +115,16 @@ The [replacement plan](docs/pursuit_replacement_plan.md) now has a completed
 probe specifications. A fresh source check recovered the paper's actual bar size,
 but archive-specific stimulus metadata and quantitative LC10a response laws remain
 incomplete. The [renderer and probe runner](docs/lc10a_sensor_renderer.md) now
-produce inspectable retinal movies, traces and summaries; this ends at the image
-input and adds no neural response rule.
-The [frozen response design](docs/lc10a_response_design.md) now defines the next
-offline rule and matched recording comparison. A pinned author-model temporal
-envelope supplements explicit synthetic spatial/motion assumptions; construction
-checks pass, but neural implementation and physiological scoring have not begun.
-The optional `physiology-research` extra and reproduction commands are in the
-result; full recordings stay in ignored outputs.
+produce inspectable retinal movies, traces and summaries. The frozen image-to-
+LC10a hypothesis is now implemented and passes all 68 six-second probes,
+independent pooling/envelope checks, raster convergence, and a byte-identical
+full repeat; see the [result](docs/lc10a_response_result.md). It emits
+dimensionless per-cell activity for the existing 275 LC10a IDs. It has not yet
+used the LC10a-to-AOTU contacts, been compared with recorded physiology, or been
+integrated into Godot. The spatial and direction constants remain synthetic,
+and the published-model envelope is not a measured LC10a spike response. The
+next step is a separate offline AOTU benchmark with the frozen wiring controls.
+Full activity traces stay in ignored outputs.
 The [first skeleton-derived input experiment](docs/visual_input_experiment.md)
 found wiring-specific alignment but worse tracking than the current input.
 

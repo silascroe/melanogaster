@@ -1,7 +1,8 @@
 # LC10a retinal response v1: frozen design and comparison protocol
 
-2026-10-04. **Design only. No LC10a response implementation, fit, or new
-physiology result exists yet.** This continues the [retinal renderer](lc10a_sensor_renderer.md)
+2026-10-04. **The design is frozen. The offline LC10a image-response
+implementation and 68-probe numerical checkpoint pass; no recorded physiology
+fit or new biological result exists.** This continues the [retinal renderer](lc10a_sensor_renderer.md)
 and [input contract](lc10a_sensor_contract.md). The machine-readable
 [manifest](evidence/lc10a_response_design_v1.json) pins the constants and sources.
 
@@ -383,42 +384,42 @@ If all benefits fail, retain the evidence and reassess missing inhibition/state
 or the appropriateness of this recording target. Do not start another gain or
 kernel sweep. Independent confirmation needs genuinely new data/stimuli.
 
-## Implementation handoff and completion checks
+## Probe implementation checkpoint: complete
 
-First implement `src/fly_creature/lc10a_response.py` as an offline component,
-then `tools/run_lc10a_response_probes.py` and a checker independent of the
-optimized pooling/convolution implementation. Existing renderer and production
-modules stay pinned. NumPy is already present; native replay/figures may use
-the existing optional SciPy/Matplotlib research dependencies. No new app or GPU
-runtime is needed. Use separable pooling and streamed frames; do not retain a
-whole movie, snap the registered centers, or cache responses by bearing alone.
+`src/fly_creature/lc10a_response.py` implements the frozen image-only rule;
+`tools/run_lc10a_response_probes.py` streams the existing renderer through all
+68 probes at six seconds and 2 ms; `tools/check_lc10a_response.py` independently
+checks pooling, timing, history, source hashes and raster convergence. Compact
+results and the claim boundary are in the [implementation report](lc10a_response_result.md).
+The exact-repeat hashes are in
+[`lc10a_response_repeatability_v1.json`](evidence/lc10a_response_repeatability_v1.json).
 
-Benchmark ten synthetic seconds and estimate the full replay cost before
-launching the archives. Full-height uniform-bar rows are identical, so an exact
-reduced-row path is allowed **only** after parity checks against full images
-across transitions and random native-size intervals. Temporal linearity permits
-filtering the four `f @ W` drives before AOTU activation when gain is constant;
-prove parity with per-cell filtering first. Apply the ELU afterwards, and never
-move a nonlinear spatial maximum/rectifier across a filter or projection.
+The source renderer, selected 275 IDs, map, connections, probe matrix, and
+playable production code remain unchanged. The new output is dimensionless
+LC10a activity; no AOTU contact projection, recorded fit, spike model, or
+Godot integration is part of this checkpoint. Full activity traces remain in
+ignored outputs. Reproduce from the workspace root with:
 
-After the probe checks, implement a separate `lc10a_response_benchmark.py`
-research runner using existing readers/extraction/scoring. Publish compact
-JSON, probe/recording CSVs, construction/response plots and a plain-language
-result; retain full traces, folds, raw source and recordings in ignored outputs.
-Pin source/protocol hashes before any candidate response or fit is inspected.
-Tests should exercise causality, hidden-input equivalence, mirror conventions,
-actual-time integration and independent arithmetic; do not write tests that
-merely repeat a formula with the same helper.
+```powershell
+.\.venv\Scripts\python.exe fly-creature/tools/run_lc10a_response_probes.py
+.\.venv\Scripts\python.exe fly-creature/tools/check_lc10a_response.py
+```
 
-Verify extraction and calibration indices/targets against old evidence, frozen
-legacy predictions against the old lookup builder, kernel/feature arithmetic
-against independent direct calculations, source/data hashes, and a full repeat
-run's deterministic outputs. Response implementation and recorded fitting are
-two checkpoints: finish and inspect the first before launching the second.
+## Next checkpoint: recorded AOTU comparison
 
-**Next implementation setting:** Luna Max for the frozen rule/probe runner with
-these checks. Sol medium for consequential review of the recorded comparison
-and interpretation of a failure or pass.
+Implement a separate offline `lc10a_response_benchmark.py` using the existing
+recording readers, extraction, and scoring. First verify the frozen extraction
+and calibration indices/targets, legacy predictions, and exact `LC10a→AOTU`
+weights against prior evidence. Then compare the frozen response through those
+unchanged contacts against legacy, matched-spatial, flat, and the existing 32
+within-side wiring shuffles with identical visual information and fit allowance.
+Pin source/protocol hashes before inspecting candidate scores; preserve the
+declared 5%/60% predictive and 1%/30-of-32 wiring gates. Keep complete traces,
+folds, and raw recordings ignored. A failure retains the frozen result; it does
+not authorize a gain/kernel sweep or Godot promotion.
+
+**Recommended settings:** Luna Max for the bounded benchmark implementation;
+Sol medium for protocol review and interpretation of the recorded comparison.
 
 ## Reproduce the design arithmetic
 

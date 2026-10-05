@@ -1,10 +1,45 @@
 # FlyTest handoff
 
-## 2026-10-04: LC10a response design frozen; implementation next
+## 2026-10-04: frozen LC10a image-response checkpoint complete
+
+Read the [result](../fly-creature/docs/lc10a_response_result.md),
+[design](../fly-creature/docs/lc10a_response_design.md),
+[repeatability record](../fly-creature/docs/evidence/lc10a_response_repeatability_v1.json),
+and workspace's compact `lc10a_response_*_v1.*` evidence. The offline rule in
+`fly_creature.lc10a_response` maps luminance and causal image history to
+dimensionless activity over the existing 275 LC10a IDs (164 mapped centers,
+111 fallback centers). It has no spike dynamics, AOTU projection, physiology
+fit, or Godot integration.
+
+All 68 six-second, 2 ms probes pass. Independent direct pooling differs by at
+most `6.94e-17`; held-pulse envelope quadrature differs by `2.78e-17`; nulls
+are exactly zero; bright/dark and mirrored checks pass; chunk sizes 8/32 match.
+Across mirrored 8/16/32 raster checks and exact rectangle coverage, the largest
+integrated-response difference is 0.197% against a frozen 5% ceiling. Two full
+runs have byte-identical report, probe CSVs and 94 MB compressed activity trace
+archive. Nineteen frozen source/protocol hashes pass.
+
+Reproduce from the workspace root:
+
+```powershell
+.\.venv\Scripts\python.exe fly-creature/tools/run_lc10a_response_probes.py
+.\.venv\Scripts\python.exe fly-creature/tools/check_lc10a_response.py
+```
+
+Full traces stay in ignored `fly-creature/outputs/research/`. Legacy source,
+renderer, 275-ID selection, contacts, and production remain unchanged. Next is
+the separate recorded-AOTU comparison through the unchanged LC10a→AOTU counts,
+with matched-spatial, flat, and existing 32 wiring shuffles. Keep that offline;
+probe arithmetic is not evidence of biological validity or a connectome-specific
+advantage. Luna Max for the bounded runner implementation; Sol medium for its
+protocol review and interpretation.
+
+## 2026-10-04: LC10a response design frozen (before implementation)
 
 Read the [response design](../fly-creature/docs/lc10a_response_design.md) and
 [machine-readable manifest](../fly-creature/docs/evidence/lc10a_response_design_v1.json).
-This is design plus scalar equation checks, with no new neural response or fit.
+At this freeze-only checkpoint, there was design plus scalar equation checks,
+with no new image-response implementation or fit.
 Primary rule reads only float luminance/history and explicit gain, using local
 ON/OFF motion correlation, synthetic 7.5/22.5-degree center/surround kernels,
 per-pixel eye aperture, shared vertical maximum pooling and a fixed causal

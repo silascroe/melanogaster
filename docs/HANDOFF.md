@@ -1,22 +1,31 @@
 # FlyTest handoff
 
-## 2026-10-09: next scientific question designed; metadata audit comes first
+## 2026-10-09: downstream Phase A complete; stop before response fitting
 
-Read [the downstream contract](../fly-creature/docs/pursuit_downstream_contract.md).
-Next ask whether measured AOTU population inputs passed through the selected
+Read [the readiness report](../fly-creature/docs/pursuit_downstream_readiness.md),
+[source audit](../fly-creature/docs/pursuit_downstream_metadata_sources.md) and
+[downstream contract](../fly-creature/docs/pursuit_downstream_contract.md).
+The designed question is whether measured AOTU population inputs passed through the selected
 signed MaleCNS AOTU→DNa02 bridge predict DNa02 pulse responses better than simple
-equally weighted signed routing. The public DNa02 archive lists 11 recordings
-plus trackLR; the pinned author loader selects 25°/s. Arrays/coverage/cohort
-compatibility have not been verified, and no DNa02 response was opened or scored.
+equally weighted signed routing. Five archive MD5 values/member CRCs verify;
+all 11 DNa02 and 69 retained AOTU recordings have metadata-only audits. Common
+coverage passes: 18 cells and all 11 DNa02 units, requiring four distinct trial
+repeats, four supporting units per type and mirrored AOTU019 coverage.
+No DNa02 response value was opened or scored.
 
-Implement Phase A only next (Luna Max): stream-verify archive size/MD5 and member
-hashes, audit metadata/position/movement/schema across all files, and freeze a
-pass/stop/unresolved report without response-value inspection. Source code
-already side-normalizes saved positions; do not mirror them again. Saved arrays
-do not include optostimulation metadata, so establish state from independent
-experiment evidence or stop. Require matching stimulus geometry, baseline,
-quiet state and sufficient common recording/trial coverage. Never select P1
-versus NoP1 by fit quality.
+Readiness is **STOP: metadata unresolved**, not a failed neural prediction.
+Primary preprint/loader support 25°/s P1 prospectively; all three types use
+50 ms Gaussian rate smoothing. Saved files omit target dimensions/contrast
+and stimulation timing, and external pattern/tracker associations are absent.
+Recover recording metadata or an explicit author mapping before Phase B;
+do not infer parity from filenames. Sol medium suits that evidence review.
+Source code already side-normalizes positions; never mirror twice or smooth
+stored measured rates again. Preserve actual native chronology (typical hidden
+gaps about one second) rather than inserting nominal paper timing.
+Synthetic checks and independent metadata-artifact coverage checks pass.
+Reproduce with `fly-creature/tools/audit_downstream_recordings.py --fetch --write-evidence`
+and `fly-creature/tools/check_downstream_metadata_audit.py --report fly-creature/outputs/research/downstream-readiness-v1/audit.json`
+with the root virtual-environment Python (full commands in readiness report).
 
 Phase B remains conditional on that audit and a frozen coverage/fold manifest.
 It uses measured AOTU templates, four signed output edges once, one common

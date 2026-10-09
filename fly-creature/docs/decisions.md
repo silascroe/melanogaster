@@ -9,7 +9,11 @@ population templates can test the selected four signed AOTU→DNa02 edges agains
 equal-strength and altered-route controls. Separate cohorts and omitted inputs
 limit this to population compatibility. Unknown metadata stops the experiment;
 no useful contact-strength advantage stops the candidate. No new simulator or
-Godot integration follows merely from drafting the contract.
+Godot integration follows merely from drafting the contract. Phase A now
+verifies archive integrity and common coverage, but the
+[readiness report](pursuit_downstream_readiness.md) stops on missing stimulus/state
+provenance. Preserve unread DNa02 responses; resolve recording/pattern metadata
+before a conditional comparison rather than assuming compatibility.
 
 ## 2026-10-09: retire the transferred-envelope primary candidate
 

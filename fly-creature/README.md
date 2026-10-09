@@ -149,7 +149,11 @@ renderer/anatomy components remain available.
 The [next downstream contract](docs/pursuit_downstream_contract.md) bypasses
 that uncertain sensory model: measured AOTU inputs would test the selected
 AOTU→DNa02 bridge against recorded DNa02 responses. First comes a metadata and
-common-coverage audit; no DNa02 response has been scored or new controller built.
+common-coverage audit. The [completed Phase A report](docs/pursuit_downstream_readiness.md)
+verifies the files and adequate common coverage (18 stimulus cells across all
+11 DNa02 units), but stops before response fitting because target/stimulation
+metadata is incomplete. No DNa02 response has been read or scored and no new
+controller was built.
 The [first skeleton-derived input experiment](docs/visual_input_experiment.md)
 found wiring-specific alignment but worse tracking than the current input.
 

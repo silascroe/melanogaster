@@ -66,12 +66,14 @@ Keep the frozen runner/results, renderer and anatomy as inspectable evidence.
 The [downstream contract](pursuit_downstream_contract.md) now defines a smaller
 question: supply measured AOTU population responses to the signed MaleCNS
 AOTU→DNa02 bridge and compare its predicted pulse responses with independently
-recorded DNa02 responses and equally weighted signed routing. First implement
-only Phase A: verify archive metadata, state, geometry, filtering and common
-25°/s quiet-pulse coverage before opening DNa02 response values. Stop if
-compatibility is unresolved. No new neural simulator or controller is needed.
+recorded DNa02 responses and equally weighted signed routing. The
+[completed Phase A audit](pursuit_downstream_readiness.md) verifies integrity,
+native schema and enough common 25°/s quiet-pulse coverage, but stimulus/state
+provenance is unresolved. Stop before DNa02 response access or fitting;
+recover pattern/recording metadata or an explicit author mapping first.
+No new neural simulator or controller is needed.
 
-**Recommended settings:** Luna Max for the bounded Phase A metadata audit;
-Sol medium for compatibility gaps and final Phase B protocol review.
+**Recommended settings:** Sol medium for the missing-provenance review;
+Luna Max for a fixed conditional implementation after compatibility passes.
 The passing probe checks validate implementation arithmetic, not biology or a
 connectome-specific advantage.

@@ -1,9 +1,12 @@
 # Next question: measured AOTU input to the DNa02 bridge
 
-Codex, 2026-10-09. **Design complete; data compatibility is not yet established.**
+Codex, 2026-10-09. **Phase A complete; required metadata remains unresolved.**
 No DNa02 recording response has been opened or scored for this design. This
 replaces further tuning of the [retired input candidate](lc10a_response_diagnosis.md).
-The next execution is the metadata/coverage audit below, not a new simulator.
+The [readiness report](pursuit_downstream_readiness.md) verifies archive integrity
+and adequate common coverage, but stops before Phase B because stimulus/state
+provenance remains incomplete. The design below is preserved; do not treat
+coverage passing as permission to fit responses or build a new simulator.
 
 ## Question and why it is worth asking
 
@@ -25,8 +28,10 @@ The [Collie dataset](https://zenodo.org/records/15474938) lists
 `DNa02 Motion Pulse.zip`, 260,077,425 bytes, MD5
 `a650c298d8e5368109f9c295b01c7171`. The
 [archive preview](https://zenodo.org/records/15474938/preview/DNa02%20Motion%20Pulse.zip?include_deleted=0)
-lists 11 `*_int.mat` recordings and `trackLR.mat`. File availability is verified;
-their actual arrays, valid pulse coverage and cohort conditions are not.
+lists 11 `*_int.mat` recordings and `trackLR.mat`. Phase A now verifies all
+11 recordings' metadata schema/time/position/movement and common pulse coverage.
+Neural response values remain unread; archive-specific stimulus/state provenance
+is still unresolved. See the [source audit](pursuit_downstream_metadata_sources.md).
 
 The existing [pinned author repository](https://github.com/wilson-lab/CollieWilson/tree/65d72773121ffe148b56b8ba4f594a7a51c51789)
 provides two critical interpretation checks:

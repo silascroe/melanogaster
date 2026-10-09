@@ -146,6 +146,10 @@ transferred temporal envelope as the main recoverable loss. Removing it returns
 fit only to roughly legacy performance and does not qualify a replacement.
 The primary candidate is retired from promotion; frozen evidence and useful
 renderer/anatomy components remain available.
+The [next downstream contract](docs/pursuit_downstream_contract.md) bypasses
+that uncertain sensory model: measured AOTU inputs would test the selected
+AOTU→DNa02 bridge against recorded DNa02 responses. First comes a metadata and
+common-coverage audit; no DNa02 response has been scored or new controller built.
 The [first skeleton-derived input experiment](docs/visual_input_experiment.md)
 found wiring-specific alignment but worse tracking than the current input.
 

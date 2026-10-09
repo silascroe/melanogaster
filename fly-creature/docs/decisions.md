@@ -1,5 +1,16 @@
 # Fly Creature decisions
 
+## 2026-10-09: test a measurable downstream link before another sensory model
+
+The [new contract](pursuit_downstream_contract.md) starts with compatibility of
+the public DNa02 and existing AOTU motion-pulse archives, not another retinal
+response rule. If state/geometry/coverage can be established, measured AOTU
+population templates can test the selected four signed AOTU→DNa02 edges against
+equal-strength and altered-route controls. Separate cohorts and omitted inputs
+limit this to population compatibility. Unknown metadata stops the experiment;
+no useful contact-strength advantage stops the candidate. No new simulator or
+Godot integration follows merely from drafting the contract.
+
 ## 2026-10-09: retire the transferred-envelope primary candidate
 
 The [bounded posthoc diagnosis](lc10a_response_diagnosis.md) localizes most

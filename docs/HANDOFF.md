@@ -1,5 +1,30 @@
 # FlyTest handoff
 
+## 2026-10-09: next scientific question designed; metadata audit comes first
+
+Read [the downstream contract](../fly-creature/docs/pursuit_downstream_contract.md).
+Next ask whether measured AOTU population inputs passed through the selected
+signed MaleCNS AOTU→DNa02 bridge predict DNa02 pulse responses better than simple
+equally weighted signed routing. The public DNa02 archive lists 11 recordings
+plus trackLR; the pinned author loader selects 25°/s. Arrays/coverage/cohort
+compatibility have not been verified, and no DNa02 response was opened or scored.
+
+Implement Phase A only next (Luna Max): stream-verify archive size/MD5 and member
+hashes, audit metadata/position/movement/schema across all files, and freeze a
+pass/stop/unresolved report without response-value inspection. Source code
+already side-normalizes saved positions; do not mirror them again. Saved arrays
+do not include optostimulation metadata, so establish state from independent
+experiment evidence or stop. Require matching stimulus geometry, baseline,
+quiet state and sufficient common recording/trial coverage. Never select P1
+versus NoP1 by fit quality.
+
+Phase B remains conditional on that audit and a frozen coverage/fold manifest.
+It uses measured AOTU templates, four signed output edges once, one common
+nonnegative gain, no intercept, and matched route/weight controls. It is a
+selected-pathway population compatibility test, not simultaneous-neuron
+transfer or complete DNa02 physiology. Stop on no practical count advantage;
+do not start another LIF/timing tuning campaign. Production remains unchanged.
+
 ## 2026-10-09: bounded diagnosis complete; retire transferred-envelope primary
 
 Read [the diagnosis](../fly-creature/docs/lc10a_response_diagnosis.md) before

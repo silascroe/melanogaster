@@ -63,13 +63,15 @@ Keep the frozen runner/results, renderer and anatomy as inspectable evidence.
 
 ## Next decision boundary
 
-Define a new bounded question whose sensory-to-neural transformation has
-testable source constraints. A source-model reproduction and a MaleCNS-specific
-wiring experiment are different claims. No replacement rule or Godot promotion
-is authorized by the diagnosis. Reused archive results remain exploratory.
+The [downstream contract](pursuit_downstream_contract.md) now defines a smaller
+question: supply measured AOTU population responses to the signed MaleCNS
+AOTU→DNa02 bridge and compare its predicted pulse responses with independently
+recorded DNa02 responses and equally weighted signed routing. First implement
+only Phase A: verify archive metadata, state, geometry, filtering and common
+25°/s quiet-pulse coverage before opening DNa02 response values. Stop if
+compatibility is unresolved. No new neural simulator or controller is needed.
 
-**Recommended settings:** Sol medium for the next scientific question/design;
-Luna Max for implementation once its input/output, evidence and stopping rule
-are specified.
+**Recommended settings:** Luna Max for the bounded Phase A metadata audit;
+Sol medium for compatibility gaps and final Phase B protocol review.
 The passing probe checks validate implementation arithmetic, not biology or a
 connectome-specific advantage.

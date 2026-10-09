@@ -40,35 +40,36 @@ The [frozen design](lc10a_response_design.md) is now implemented offline by
 records the 68 six-second probes, paired target-absent surround conditions,
 independent arithmetic/history checks, 0.197% worst raster difference against
 the 5% limit, and byte-identical repeat. Its output is dimensionless LC10a
-activity. It has not yet been projected through the LC10a-to-AOTU contacts or
-scored against recorded physiology. Production and Godot are unchanged.
+activity. The later recorded benchmark projects it through LC10a-to-AOTU
+contacts and scores it against physiology. Production and Godot are unchanged.
 
-## Next experiment boundary: recorded AOTU comparison
+## Completed: recorded AOTU comparison and bounded diagnosis
 
 The [reviewed implementation contract](lc10a_response_benchmark_protocol.md)
 now specifies exact full-trial history, post-ELU hemisphere averaging, fixed
 lookup/quantization handling, audited calibration indices and explicit shuffle
-matrices. The raw target and legacy calibration audit passes. Use that contract
-and its machine-readable freeze for the next runner; the new responses have
-not been scored against recordings.
+matrices. The raw target and legacy calibration audit passes. The frozen runner
+and independent checker completed all 69 units; see the
+[recorded result](lc10a_recorded_benchmark_result.md). Both practical P1
+prediction gates failed. Intact wiring beats shuffled wiring but does not
+establish useful superiority over matched spatial weights.
 
-Implement the separate frozen `lc10a_response_benchmark.py` runner using the
-existing recording readers, extraction, and scoring. Verify extraction,
-calibration indices, legacy outputs, and contact weights against old evidence
-before candidate scoring. Compare the fixed image response through the
-unchanged LC10a-to-AOTU weights against legacy, matched-spatial, flat, and the
-existing 32 within-side wiring shuffles under equal information and calibration
-budgets. Keep the existing gates and holdouts; do not fit fields to the archived
-responses. Reused recording holdouts remain exploratory. If intact wiring does
-not beat matched controls, report that plainly. Godot still requires separate
-closed-loop stability and fresh-path evidence.
+The [bounded diagnosis](lc10a_response_diagnosis.md), completed 9 October,
+localizes most recoverable loss to the transferred temporal envelope. Removing
+it recovers fit only to approximately legacy performance and still fails the
+joint practical gates. Native/cache replay and source-equation checks pass.
+Retire this primary candidate rather than tuning its constants on the archive.
+Keep the frozen runner/results, renderer and anatomy as inspectable evidence.
 
-If sources cannot constrain the proposed response rule, document the gap and
-keep it labeled synthetic. If sensory fit improves but intact anatomy does not
-beat matched controls, report that plainly. Godot still requires existing
-closed-loop stability and fresh-path controls.
+## Next decision boundary
 
-**Recommended settings:** Luna Max for the bounded benchmark implementation;
-Sol medium for protocol review and interpretation of the recorded comparison.
+Define a new bounded question whose sensory-to-neural transformation has
+testable source constraints. A source-model reproduction and a MaleCNS-specific
+wiring experiment are different claims. No replacement rule or Godot promotion
+is authorized by the diagnosis. Reused archive results remain exploratory.
+
+**Recommended settings:** Sol medium for the next scientific question/design;
+Luna Max for implementation once its input/output, evidence and stopping rule
+are specified.
 The passing probe checks validate implementation arithmetic, not biology or a
 connectome-specific advantage.

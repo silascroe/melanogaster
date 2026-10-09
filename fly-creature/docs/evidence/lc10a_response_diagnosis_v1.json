@@ -1,0 +1,409 @@
+{
+  "date": "2026-10-09",
+  "status": "diagnosis_complete_no_promotion",
+  "scope": "posthoc; two native P1 trial-zero replays, eight geometry-selected pulses; no tuning",
+  "verdict": "Retire the transferred-envelope primary candidate; instantaneous is diagnostic, not promoted.",
+  "pinned_author_sources": {
+    "LICENSE": "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499",
+    "Tethered/sampleLC10Model_tethered.m": "304ab9f31c2739441a810e61bf40e14115bc3eb977c20d4ecded3414aea7c496",
+    "Tethered/temporalRF_LC10.m": "a24f609650c4a4780140963dff4f5247be1d453b0a9af00e639d7bdf4097f373"
+  },
+  "output_units": "Raw contact drive and pre-calibration dimensionless lookup responses; not firing rates.",
+  "reproduced_primary_failure": true,
+  "kernel": {
+    "source_equation_max_error": 2.220446049250313e-16,
+    "peak_lag_s": 0.41140000000000004,
+    "mean_lag_s": 0.5877823793094498,
+    "mass_before_300ms": 0.17587354024968066
+  },
+  "ablations": [
+    {
+      "type": "AOTU019",
+      "predictor": "primary:intact",
+      "rmse": 7.556189641226574,
+      "improvement_vs_legacy_pct": -17.125101323189938,
+      "wins_vs_legacy": 8,
+      "recordings": 24
+    },
+    {
+      "type": "AOTU019",
+      "predictor": "instantaneous:intact",
+      "rmse": 6.46996508225055,
+      "improvement_vs_legacy_pct": -0.2880223759293976,
+      "wins_vs_legacy": 13,
+      "recordings": 24
+    },
+    {
+      "type": "AOTU019",
+      "predictor": "instantaneous:matched_spatial",
+      "rmse": 6.338786092179082,
+      "improvement_vs_legacy_pct": 1.7453242224363175,
+      "wins_vs_legacy": 16,
+      "recordings": 24
+    },
+    {
+      "type": "AOTU019",
+      "predictor": "no_surround:intact",
+      "rmse": 7.5626671980730125,
+      "improvement_vs_legacy_pct": -17.225507022092266,
+      "wins_vs_legacy": 8,
+      "recordings": 24
+    },
+    {
+      "type": "AOTU019",
+      "predictor": "no_static:intact",
+      "rmse": 7.717252792879658,
+      "improvement_vs_legacy_pct": -19.62166888600956,
+      "wins_vs_legacy": 7,
+      "recordings": 24
+    },
+    {
+      "type": "AOTU019",
+      "predictor": "direction_neutral:intact",
+      "rmse": 7.569638355202773,
+      "improvement_vs_legacy_pct": -17.33356379725688,
+      "wins_vs_legacy": 8,
+      "recordings": 24
+    },
+    {
+      "type": "AOTU019",
+      "predictor": "width_half:intact",
+      "rmse": 7.548393072825984,
+      "improvement_vs_legacy_pct": -17.00425021869807,
+      "wins_vs_legacy": 8,
+      "recordings": 24
+    },
+    {
+      "type": "AOTU019",
+      "predictor": "width_double:intact",
+      "rmse": 7.568969308201441,
+      "improvement_vs_legacy_pct": -17.323193200230904,
+      "wins_vs_legacy": 7,
+      "recordings": 24
+    },
+    {
+      "type": "AOTU019",
+      "predictor": "legacy_intact",
+      "rmse": 6.451383653770638,
+      "improvement_vs_legacy_pct": 0.0,
+      "wins_vs_legacy": 0,
+      "recordings": 24
+    },
+    {
+      "type": "AOTU025",
+      "predictor": "primary:intact",
+      "rmse": 10.12736640294594,
+      "improvement_vs_legacy_pct": -9.89180522059485,
+      "wins_vs_legacy": 7,
+      "recordings": 22
+    },
+    {
+      "type": "AOTU025",
+      "predictor": "instantaneous:intact",
+      "rmse": 9.152916936178379,
+      "improvement_vs_legacy_pct": 0.6819221176580514,
+      "wins_vs_legacy": 13,
+      "recordings": 22
+    },
+    {
+      "type": "AOTU025",
+      "predictor": "instantaneous:matched_spatial",
+      "rmse": 9.278168609229034,
+      "improvement_vs_legacy_pct": -0.6771807241658934,
+      "wins_vs_legacy": 9,
+      "recordings": 22
+    },
+    {
+      "type": "AOTU025",
+      "predictor": "no_surround:intact",
+      "rmse": 10.13430453495274,
+      "improvement_vs_legacy_pct": -9.967090721360794,
+      "wins_vs_legacy": 7,
+      "recordings": 22
+    },
+    {
+      "type": "AOTU025",
+      "predictor": "no_static:intact",
+      "rmse": 10.112811467099961,
+      "improvement_vs_legacy_pct": -9.733869967603571,
+      "wins_vs_legacy": 8,
+      "recordings": 22
+    },
+    {
+      "type": "AOTU025",
+      "predictor": "direction_neutral:intact",
+      "rmse": 10.137692975564256,
+      "improvement_vs_legacy_pct": -10.003858607587745,
+      "wins_vs_legacy": 7,
+      "recordings": 22
+    },
+    {
+      "type": "AOTU025",
+      "predictor": "width_half:intact",
+      "rmse": 10.114047695361277,
+      "improvement_vs_legacy_pct": -9.747284250240874,
+      "wins_vs_legacy": 7,
+      "recordings": 22
+    },
+    {
+      "type": "AOTU025",
+      "predictor": "width_double:intact",
+      "rmse": 10.1520287974776,
+      "improvement_vs_legacy_pct": -10.159416260653419,
+      "wins_vs_legacy": 7,
+      "recordings": 22
+    },
+    {
+      "type": "AOTU025",
+      "predictor": "legacy_intact",
+      "rmse": 9.215761250455797,
+      "improvement_vs_legacy_pct": 0.0,
+      "wins_vs_legacy": 0,
+      "recordings": 22
+    }
+  ],
+  "replay_checks": [
+    {
+      "type": "AOTU019",
+      "recording": "AOTU019/2023_05_08_fly01",
+      "member": "AOTU019 Motion Pulse/2023_05_08_fly01_int.mat",
+      "member_sha256": "69b046a4103d74defb771b5621baccad2b672b0dc851dfd185fe4cad53c8fbe5",
+      "native_frames": 64667,
+      "scored_trial0_cells": 29,
+      "cached_prediction_max_error": 1.0408340855860843e-17,
+      "linear_commutation_max_error": 2.842170943040401e-14,
+      "quantization": [
+        {
+          "variant": "primary",
+          "control": "intact",
+          "positive_samples": 108537,
+          "positive_to_zero": 66710,
+          "raw_peak_fraction": 0.03691830805162316
+        },
+        {
+          "variant": "primary",
+          "control": "matched_spatial",
+          "positive_samples": 109606,
+          "positive_to_zero": 67140,
+          "raw_peak_fraction": 0.034853507468012135
+        },
+        {
+          "variant": "instantaneous",
+          "control": "intact",
+          "positive_samples": 17950,
+          "positive_to_zero": 2447,
+          "raw_peak_fraction": 0.0772183012531224
+        },
+        {
+          "variant": "instantaneous",
+          "control": "matched_spatial",
+          "positive_samples": 18086,
+          "positive_to_zero": 1835,
+          "raw_peak_fraction": 0.06458278369730383
+        }
+      ]
+    },
+    {
+      "type": "AOTU025",
+      "recording": "AOTU025/2024_05_31_fly02",
+      "member": "AOTU025 Motion Pulse/2024_05_31_fly02_int.mat",
+      "member_sha256": "3d6a9ef6deab8aae3cdacf9ae3da3349d17e721b1c5122660d731ee2ee0e19c6",
+      "native_frames": 58000,
+      "scored_trial0_cells": 23,
+      "cached_prediction_max_error": 2.7755575615628914e-17,
+      "linear_commutation_max_error": 5.684341886080802e-14,
+      "quantization": [
+        {
+          "variant": "primary",
+          "control": "intact",
+          "positive_samples": 104890,
+          "positive_to_zero": 64405,
+          "raw_peak_fraction": 0.0380982816997366
+        },
+        {
+          "variant": "primary",
+          "control": "matched_spatial",
+          "positive_samples": 106065,
+          "positive_to_zero": 61924,
+          "raw_peak_fraction": 0.039647314487801316
+        },
+        {
+          "variant": "instantaneous",
+          "control": "intact",
+          "positive_samples": 20969,
+          "positive_to_zero": 5072,
+          "raw_peak_fraction": 0.0706795433504946
+        },
+        {
+          "variant": "instantaneous",
+          "control": "matched_spatial",
+          "positive_samples": 23995,
+          "positive_to_zero": 5198,
+          "raw_peak_fraction": 0.07093359228823257
+        }
+      ]
+    }
+  ],
+  "pulses": [
+    {
+      "type": "AOTU019",
+      "recording": "AOTU019/2023_05_08_fly01",
+      "trial": 0,
+      "start_sample": 58493,
+      "speed": 25,
+      "direction": -1,
+      "center_deg": 33.724999999999994,
+      "duration_s": 0.9885000000000375,
+      "measured_evoked": 20.080781928759706,
+      "primary_raw_peak_after_onset_s": 1.0995000000000417,
+      "primary_raw_visible_mean": 52.14814763093503,
+      "primary_nearest_evoked": 0.0047209030333377556,
+      "primary_linear_evoked": 0.004726352199036326,
+      "instantaneous_raw_peak_after_onset_s": 0.5325000000000202,
+      "instantaneous_raw_visible_mean": 127.83626255779447,
+      "instantaneous_nearest_evoked": 0.01123784578993198,
+      "instantaneous_linear_evoked": 0.011249166432954186
+    },
+    {
+      "type": "AOTU019",
+      "recording": "AOTU019/2023_05_08_fly01",
+      "trial": 0,
+      "start_sample": 37880,
+      "speed": 25,
+      "direction": 1,
+      "center_deg": 33.715,
+      "duration_s": 0.9885000000000375,
+      "measured_evoked": 21.943488330091895,
+      "primary_raw_peak_after_onset_s": 1.05750000000004,
+      "primary_raw_visible_mean": 61.57072571805303,
+      "primary_nearest_evoked": 0.0055872338349908434,
+      "primary_linear_evoked": 0.005585187831651263,
+      "instantaneous_raw_peak_after_onset_s": 0.4560000000000173,
+      "instantaneous_raw_visible_mean": 140.94008637891503,
+      "instantaneous_nearest_evoked": 0.01247016428031625,
+      "instantaneous_linear_evoked": 0.01247095945069539
+    },
+    {
+      "type": "AOTU019",
+      "recording": "AOTU019/2023_05_08_fly01",
+      "trial": 0,
+      "start_sample": 12767,
+      "speed": 75,
+      "direction": -1,
+      "center_deg": 33.725,
+      "duration_s": 0.3405000000000129,
+      "measured_evoked": 10.016435519898856,
+      "primary_raw_peak_after_onset_s": 0.6255000000000237,
+      "primary_raw_visible_mean": 9.42033243016792,
+      "primary_nearest_evoked": 0.0008847033456197335,
+      "primary_linear_evoked": 0.0008798335959909932,
+      "instantaneous_raw_peak_after_onset_s": 0.18150000000000688,
+      "instantaneous_raw_visible_mean": 142.70551606716788,
+      "instantaneous_nearest_evoked": 0.011671861272911609,
+      "instantaneous_linear_evoked": 0.01167758453431249
+    },
+    {
+      "type": "AOTU019",
+      "recording": "AOTU019/2023_05_08_fly01",
+      "trial": 0,
+      "start_sample": 23679,
+      "speed": 75,
+      "direction": 1,
+      "center_deg": 33.725,
+      "duration_s": 0.3375000000000128,
+      "measured_evoked": 24.692372217332938,
+      "primary_raw_peak_after_onset_s": 0.6165000000000234,
+      "primary_raw_visible_mean": 11.763880176313934,
+      "primary_nearest_evoked": 0.0011058850081551443,
+      "primary_linear_evoked": 0.0011202639409103215,
+      "instantaneous_raw_peak_after_onset_s": 0.1560000000000059,
+      "instantaneous_raw_visible_mean": 170.90668945210862,
+      "instantaneous_nearest_evoked": 0.014118150958859457,
+      "instantaneous_linear_evoked": 0.014121533893136787
+    },
+    {
+      "type": "AOTU025",
+      "recording": "AOTU025/2024_05_31_fly02",
+      "trial": 0,
+      "start_sample": 14862,
+      "speed": 25,
+      "direction": -1,
+      "center_deg": 56.254999999999995,
+      "duration_s": 0.9885000000000375,
+      "measured_evoked": 42.32815722024302,
+      "primary_raw_peak_after_onset_s": 1.0980000000000416,
+      "primary_raw_visible_mean": 33.71096017948279,
+      "primary_nearest_evoked": 0.006369552760337637,
+      "primary_linear_evoked": 0.006372658783805452,
+      "instantaneous_raw_peak_after_onset_s": 0.6840000000000259,
+      "instantaneous_raw_visible_mean": 81.43237010158288,
+      "instantaneous_nearest_evoked": 0.014961588862864847,
+      "instantaneous_linear_evoked": 0.014963257140828728
+    },
+    {
+      "type": "AOTU025",
+      "recording": "AOTU025/2024_05_31_fly02",
+      "trial": 0,
+      "start_sample": 8209,
+      "speed": 25,
+      "direction": 1,
+      "center_deg": 56.245000000000005,
+      "duration_s": 0.9885000000000375,
+      "measured_evoked": 49.52406358613389,
+      "primary_raw_peak_after_onset_s": 1.0755000000000408,
+      "primary_raw_visible_mean": 38.71673791991412,
+      "primary_nearest_evoked": 0.007336329572312653,
+      "primary_linear_evoked": 0.007339476326092893,
+      "instantaneous_raw_peak_after_onset_s": 0.30450000000001154,
+      "instantaneous_raw_visible_mean": 89.82520248966885,
+      "instantaneous_nearest_evoked": 0.01662874949929518,
+      "instantaneous_linear_evoked": 0.01662472277150131
+    },
+    {
+      "type": "AOTU025",
+      "recording": "AOTU025/2024_05_31_fly02",
+      "trial": 0,
+      "start_sample": 5534,
+      "speed": 75,
+      "direction": -1,
+      "center_deg": 78.73,
+      "duration_s": 0.33900000000001285,
+      "measured_evoked": 26.064372923009362,
+      "primary_raw_peak_after_onset_s": 0.6300000000000239,
+      "primary_raw_visible_mean": 4.617674007207892,
+      "primary_nearest_evoked": 0.0009049255547089824,
+      "primary_linear_evoked": 0.0009186700196207037,
+      "instantaneous_raw_peak_after_onset_s": 0.28650000000001086,
+      "instantaneous_raw_visible_mean": 75.79904156449535,
+      "instantaneous_nearest_evoked": 0.012847063308445256,
+      "instantaneous_linear_evoked": 0.012843822825456748
+    },
+    {
+      "type": "AOTU025",
+      "recording": "AOTU025/2024_05_31_fly02",
+      "trial": 0,
+      "start_sample": 11752,
+      "speed": 75,
+      "direction": 1,
+      "center_deg": 56.239999999999995,
+      "duration_s": 0.3375000000000128,
+      "measured_evoked": 21.61453132880992,
+      "primary_raw_peak_after_onset_s": 0.6180000000000234,
+      "primary_raw_visible_mean": 7.429000730475875,
+      "primary_nearest_evoked": 0.0014598127205423376,
+      "primary_linear_evoked": 0.001471962945110038,
+      "instantaneous_raw_peak_after_onset_s": 0.10350000000000392,
+      "instantaneous_raw_visible_mean": 108.90644312918342,
+      "instantaneous_nearest_evoked": 0.018809478925326546,
+      "instantaneous_linear_evoked": 0.018799794382995505
+    }
+  ],
+  "source_hashes": {
+    "src\\fly_creature\\lc10a_response.py": "f4f587f0e4141f97c3f4452845954f041bcce26348254456937af6b34e52e404",
+    "src\\fly_creature\\lc10a_response_benchmark.py": "5c6498f18ec20e39f119c600f39cc1fcef21fc8d0bd782cb6338eaaeec27fad7",
+    "docs\\evidence\\lc10a_benchmark_contract_v1.json": "e448782fe16800b8a681aa4cf264a806b4c18485ebf4c9531138273ec461c41f",
+    "outputs\\research\\lc10a-recorded-benchmark-v1\\configuration_summary.csv": "a6f0f7076a247f0e4c3570f3880aedd543ed0a8ab95443979c70123bdc41e5fd",
+    "outputs\\research\\lc10a-recorded-benchmark-v1\\recording_scores.csv": "c0ddc2517411d223e24d8cac2286f047b069a538d31b103930a73bb724a940b4"
+  },
+  "elapsed_s": 28.93700000003446
+}

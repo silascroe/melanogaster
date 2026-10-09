@@ -1,5 +1,15 @@
 # Fly Creature decisions
 
+## 2026-10-09: retire the transferred-envelope primary candidate
+
+The [bounded posthoc diagnosis](lc10a_response_diagnosis.md) localizes most
+recoverable prediction loss to the borrowed temporal envelope. Source-equation
+and native/cache checks pass; the transfer into our activity/AOTU model remains
+unsupported. Removing the envelope still fails the joint practical gates.
+Preserve frozen results and useful components, but stop tuning this candidate
+against the reused archive. Define a new source-constrained question before
+another model or behavior; do not promote an ablation after inspecting its score.
+
 ## LC10a sensor contract: geometry before a fitted response law
 
 The [contract](lc10a_sensor_contract.md) and [source refresh](lc10a_sensor_source_refresh.md)

@@ -141,6 +141,11 @@ condition-specific caches because 23 names recur across NoP1/P1 archives.
 Run the assembler without flags for an audit, or with `--run` after all 69 units
 finish; then run `tools/check_lc10a_response_benchmark.py`.
 Full activity traces stay in ignored outputs.
+The [bounded diagnosis](docs/lc10a_response_diagnosis.md) now identifies the
+transferred temporal envelope as the main recoverable loss. Removing it returns
+fit only to roughly legacy performance and does not qualify a replacement.
+The primary candidate is retired from promotion; frozen evidence and useful
+renderer/anatomy components remain available.
 The [first skeleton-derived input experiment](docs/visual_input_experiment.md)
 found wiring-specific alignment but worse tracking than the current input.
 

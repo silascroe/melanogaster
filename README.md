@@ -44,6 +44,10 @@ Artifact checks pass, but the intact circuit misses the predeclared practical
 prediction gates against simpler controls; see the
 [benchmark result](fly-creature/docs/lc10a_recorded_benchmark_result.md).
 No behavior controller was promoted.
+The [bounded diagnosis](fly-creature/docs/lc10a_response_diagnosis.md) identifies
+the transferred temporal envelope as the main recoverable loss. That primary
+candidate is retired from promotion; removing the envelope still does not
+qualify a replacement or establish useful wiring advantage across both types.
 The [interactive playground](fly-creature/docs/playground.md) now exposes
 simultaneous comparisons, target presets/manual placement and live errors.
 

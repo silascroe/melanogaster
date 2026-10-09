@@ -1,5 +1,28 @@
 # FlyTest handoff
 
+## 2026-10-09: bounded diagnosis complete; retire transferred-envelope primary
+
+Read [the diagnosis](../fly-creature/docs/lc10a_response_diagnosis.md) before
+proposing another pursuit experiment. The borrowed temporal-envelope equation
+matches pinned author MATLAB within 2.22e-16; two full native P1 trial-zero
+replays reproduce cached predictor cells within 2.78e-17. Four selected fast
+pulses finish around 338–341 ms, while primary raw drive peaks around 617–630 ms.
+Removing the envelope recovers most lost fit, but returns only to approximately
+legacy performance: RMSE 6.470/9.153, 13/24 and 13/22 wins versus legacy. Neither
+type clears the frozen practical gates; matched-spatial performance remains close.
+
+Retire this primary rule from promotion. No production fix, new physiology
+claim, replacement model or Godot change was made. Preserve the renderer,
+anatomical map, frozen source/protocol/results and the exploratory ablations.
+Do not retune time constants or promote instantaneous just because it wins this
+posthoc comparison. The source envelope computes model input current before
+LIF/adaptation; our activity/contact/AOTU conversion is a different hypothesis.
+
+Reproduce with `.\.venv\Scripts\python.exe fly-creature\tools\diagnose_lc10a_response.py`.
+Compact JSON/figure are in `fly-creature/docs/evidence/lc10a_response_diagnosis_v1.*`;
+full traces stay ignored. Next choose a bounded source-constrained input/output
+question and stopping rule (Sol medium); use Luna Max for execution once specified.
+
 ## 2026-10-05: recorded-AOTU benchmark complete; practical gates failed
 
 The frozen offline runner and independent checker completed all 69

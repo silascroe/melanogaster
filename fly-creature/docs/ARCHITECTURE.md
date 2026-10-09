@@ -31,6 +31,7 @@ NumPy and Godot runtimes are still required.
 | `docs/lc10a_response_benchmark_protocol.md`, `tools/review_lc10a_benchmark.py`, `docs/evidence/lc10a_benchmark_*_v1.json` | Frozen assay contract, target/fold/legacy reconstruction, matched controls, and predeclared numerical and performance gates |
 | `lc10a_response_benchmark.py`, `tools/check_lc10a_response_benchmark.py` | Offline 69-unit native-trial replay and independent score/refit/sensory-witness checks; compact outcome is in docs/lc10a_recorded_benchmark_result.md |
 | `tools/assemble_lc10a_benchmark.py` | Audits parallel worker checkpoints and routes condition-specific caches through the frozen runner because 23 recording filenames recur across NoP1/P1 |
+| `tools/diagnose_lc10a_response.py` | Bounded posthoc ablation/native-trace diagnosis; preserves the frozen benchmark and explains retirement of the transferred-envelope primary candidate |
 
 Comparison endpoints are `POST /playground` and
 `POST /playground/{world_id}/step`. They have a separate single-world store

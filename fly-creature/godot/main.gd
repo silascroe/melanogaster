@@ -12,6 +12,9 @@ const BALL_SPEED := 4.0
 const BALL_RADIUS := 0.45
 const NEURAL_STEP_S := 0.05
 const PURSUIT_WALK_SPEED := 0.55
+const BEACON_WALK_SPEED := 0.9
+const BEACON_REACHED_M := 0.55
+const SEARCH_TURN_RATE := 1.6
 
 @onready var bridge: NeuralBridge = $NeuralBridge
 @onready var fly_actor: FlyActor = $Fly
@@ -44,6 +47,11 @@ var roam_goal := Vector3(4.0, 0.0, -4.0)
 var roam_rng := RandomNumberGenerator.new()
 var pursuit_enabled := false
 var pursuit_demo := false
+const BrainViewScript := preload("res://brain_view.gd")
+const KitchenWorldScript := preload("res://kitchen_world.gd")
+var brain_view: Control
+# Click-placed target: the fly approaches it on its own, steering by DNa02.
+var beacon_mode := false
 var pursuit_time := 0.0
 var target_position := Vector3(-2.9, 0.45, -6.5)
 var steering_turn_rate := 0.0
@@ -78,7 +86,8 @@ func _ready() -> void:
 		condition = "disconnected"
 	if pursuit_demo:
 		close_camera = false
-	roam_enabled = animation_demo
+	# The fly lives on its own by default; WASD takes over while held.
+	roam_enabled = not (pursuit_demo or walking_demo)
 	if animation_demo:
 		roam_rng.seed = 340617
 	else:
@@ -144,6 +153,42 @@ func _process(delta: float) -> void:
 		}))
 
 
+func _unhandled_input(event: InputEvent) -> void:
+	var click := event as InputEventMouseButton
+	if click == null or not click.pressed or click.button_index != MOUSE_BUTTON_LEFT:
+		return
+	if animation_demo or walking_demo or pursuit_demo or session_id.is_empty():
+		return
+	if steering_model == "activity_v1":
+		return
+	var ray_origin := camera.project_ray_origin(click.position)
+	var ray_direction := camera.project_ray_normal(click.position)
+	var hit: Variant = Plane(Vector3.UP, 0.0).intersects_ray(ray_origin, ray_direction)
+	if hit == null:
+		return
+	place_beacon(hit)
+
+
+func place_beacon(floor_point: Vector3) -> void:
+	var point := floor_point
+	point.x = clampf(point.x, -ROOM_HALF_SIZE + 1.0, ROOM_HALF_SIZE - 1.0)
+	point.z = clampf(point.z, -ROOM_HALF_SIZE + 1.0, ROOM_HALF_SIZE - 1.0)
+	beacon_mode = true
+	pursuit_enabled = true
+	roam_enabled = false
+	target_position = Vector3(point.x, 0.45, point.z)
+	service_message = "Target placed: the fly decides how to reach it"
+
+
+func _end_beacon() -> void:
+	beacon_mode = false
+	pursuit_enabled = false
+	steering_turn_rate = 0.0
+	roam_enabled = true
+	roam_goal = fly_position
+	service_message = "Reached the target; roaming again"
+
+
 func _unhandled_key_input(event: InputEvent) -> void:
 	var key_event := event as InputEventKey
 	if key_event == null or not key_event.pressed or key_event.echo:
@@ -170,7 +215,7 @@ func _unhandled_key_input(event: InputEvent) -> void:
 			pursuit_enabled = not pursuit_enabled
 			if not pursuit_enabled and steering_model == "activity_v1":
 				steering_model = "lif"
-			roam_enabled = false
+			roam_enabled = not pursuit_enabled
 			_start_session()
 			service_message = "Neural pursuit: moving target" if pursuit_enabled else "Manual walking"
 		KEY_B:
@@ -209,15 +254,31 @@ func _move_fly(delta: float) -> void:
 		walking_now = false
 		return
 	if pursuit_enabled:
+		var walk_speed := PURSUIT_WALK_SPEED
+		if beacon_mode:
+			var to_target := target_position - fly_position
+			to_target.y = 0.0
+			if to_target.length() < BEACON_REACHED_M:
+				_end_beacon()
+				walking_now = false
+				return
+			var bearing := wrapf(atan2(to_target.x, -to_target.z) - heading_rad, -PI, PI)
+			if absf(bearing) > deg_to_rad(65.0):
+				# Outside the 65-degree view the neural input is silent, so an
+				# engineered search turn brings the target into view first.
+				heading_rad = wrapf(heading_rad + signf(bearing) * SEARCH_TURN_RATE * delta, -PI, PI)
+				walking_now = false
+				return
+			walk_speed = BEACON_WALK_SPEED
 		heading_rad = wrapf(heading_rad + steering_turn_rate * delta, -PI, PI)
 		var forward := Vector3(sin(heading_rad), 0.0, -cos(heading_rad))
-		fly_position.x = clampf(fly_position.x + forward.x * PURSUIT_WALK_SPEED * delta,
+		fly_position.x = clampf(fly_position.x + forward.x * walk_speed * delta,
 			-ROOM_HALF_SIZE, ROOM_HALF_SIZE)
-		fly_position.z = clampf(fly_position.z + forward.z * PURSUIT_WALK_SPEED * delta,
+		fly_position.z = clampf(fly_position.z + forward.z * walk_speed * delta,
 			-ROOM_HALF_SIZE, ROOM_HALF_SIZE)
 		walking_now = true
 		return
-	if roam_enabled:
+	if roam_enabled and not _manual_keys_pressed():
 		_move_fly_autonomously(delta)
 		return
 	var movement := Vector2.ZERO
@@ -235,6 +296,11 @@ func _move_fly(delta: float) -> void:
 		fly_position.x = clampf(fly_position.x + movement.x * WALK_SPEED * delta, -ROOM_HALF_SIZE, ROOM_HALF_SIZE)
 		fly_position.z = clampf(fly_position.z + movement.y * WALK_SPEED * delta, -ROOM_HALF_SIZE, ROOM_HALF_SIZE)
 		heading_rad = atan2(movement.x, -movement.y)
+
+
+func _manual_keys_pressed() -> bool:
+	return Input.is_key_pressed(KEY_W) or Input.is_key_pressed(KEY_A) \
+		or Input.is_key_pressed(KEY_S) or Input.is_key_pressed(KEY_D)
 
 
 func _move_fly_autonomously(delta: float) -> void:
@@ -257,6 +323,12 @@ func _move_fly_autonomously(delta: float) -> void:
 func _move_ball(delta: float) -> void:
 	if not ball_active:
 		return
+	if roam_enabled or beacon_mode:
+		# A roaming fly keeps moving, so the thrown object homes in on it;
+		# otherwise a straight throw would usually miss and never loom.
+		var toward := fly_position + Vector3(0.0, 0.55, 0.0) - ball_position
+		if toward.length() > 0.001:
+			ball_velocity = toward.normalized() * BALL_SPEED
 	ball_position += ball_velocity * delta
 	if ball_position.distance_to(fly_position + Vector3(0.0, 0.55, 0.0)) < 0.25:
 		ball_active = false
@@ -265,7 +337,7 @@ func _move_ball(delta: float) -> void:
 
 
 func _move_target(delta: float) -> void:
-	if not pursuit_enabled:
+	if not pursuit_enabled or beacon_mode:
 		return
 	pursuit_time += delta
 	if steering_model == "activity_v1":
@@ -328,6 +400,10 @@ func _launch_ball() -> void:
 
 
 func _start_session() -> void:
+	if beacon_mode:
+		beacon_mode = false
+		pursuit_enabled = false
+		roam_enabled = true
 	session_id = ""
 	last_trace = {}
 	step_clock = 0.0
@@ -351,6 +427,8 @@ func _on_session_ready(payload: Dictionary) -> void:
 
 func _on_step_ready(payload: Dictionary) -> void:
 	last_trace = payload
+	if brain_view != null:
+		brain_view.update_trace(payload)
 	var steering: Dictionary = payload.get("steering", {})
 	steering_turn_rate = float(steering.get("turn_rate_rad_s", 0.0)) if pursuit_enabled else 0.0
 	if bool(payload.get("jump", false)):
@@ -372,7 +450,8 @@ func _update_hud() -> void:
 	var bearing_text := "%.2f" % float(steering["bearing_deg"]) if steering.has("bearing_deg") else "--"
 	var turn_text := "%.3f" % float(steering["turn_rate_rad_s"]) if steering.has("turn_rate_rad_s") else "--"
 	var units := "activity units" if steering_model == "activity_v1" else "mV"
-	detail_label.text = "WASD move  |  P playground  |  V pursuit  |  B models  |  C disconnect  |  G roam  |  T fly  |  SPACE approach  |  F camera  |  R reset\n" \
+	detail_label.text = "Fly roams on its own  |  CLICK floor: place a target  |  SPACE: throw an object  |  WASD: take over  |  C: disconnect wiring  |  V: moving target\n" \
+		+ "P playground  |  B models  |  G roaming on/off  |  T fly  |  F camera  |  R reset\n" \
 		+ "Object angle: %s deg   expansion: %s deg/s\n" % [visual.get("angle_deg", "--"), visual.get("expansion_deg_s", "--")] \
 		+ "LC4 spikes: %s   LPLC2 spikes: %s   giant fiber spikes: %s\n" % [spikes.get("LC4", "--"), spikes.get("LPLC2", "--"), spikes.get("DNp01", "--")] \
 		+ "Target bearing: %s deg   DNa02 right-left: %s %s   neural turn: %s rad/s\n" % [bearing_text, readout_signal, units, turn_text] \
@@ -380,27 +459,8 @@ func _update_hud() -> void:
 
 
 func _build_world() -> void:
-	var floor_mesh := BoxMesh.new()
-	floor_mesh.size = Vector3(18.0, 0.2, 18.0)
-	var floor_body := MeshInstance3D.new()
-	floor_body.mesh = floor_mesh
-	floor_body.position.y = -0.15
-	floor_body.material_override = _material(Color(0.16, 0.21, 0.25))
-	add_child(floor_body)
-	for index in range(-8, 9):
-		_add_rail(Vector3(index, -0.045, -8.5), Vector3(index, -0.045, 8.5), Color(0.24, 0.31, 0.35))
-		_add_rail(Vector3(-8.5, -0.045, index), Vector3(8.5, -0.045, index), Color(0.24, 0.31, 0.35))
-	var light := DirectionalLight3D.new()
-	light.rotation_degrees = Vector3(-55.0, -30.0, 0.0)
-	light.light_energy = 1.35
-	add_child(light)
-	var world_environment := WorldEnvironment.new()
-	var environment := Environment.new()
-	environment.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR
-	environment.ambient_light_color = Color(0.58, 0.68, 0.74)
-	environment.ambient_light_energy = 0.48
-	world_environment.environment = environment
-	add_child(world_environment)
+	# Kitchen-table set dressing; presentation only (see kitchen_world.gd).
+	add_child(KitchenWorldScript.new())
 	camera = Camera3D.new()
 	camera.position = Vector3(2.8, 2.2, 3.5)
 	camera.fov = 47.0
@@ -437,20 +497,6 @@ func _update_camera(delta: float) -> void:
 		var desired := fly_position + Vector3(0.0, 10.0, 12.0)
 		camera.position = camera.position.lerp(desired, clampf(delta * 3.0, 0.0, 1.0))
 		camera.look_at(fly_position + Vector3(0.0, 0.0, -2.0), Vector3.UP)
-
-
-func _add_rail(start: Vector3, finish: Vector3, color: Color) -> void:
-	var length := start.distance_to(finish)
-	var rail := MeshInstance3D.new()
-	var mesh := CylinderMesh.new()
-	mesh.top_radius = 0.008
-	mesh.bottom_radius = 0.008
-	mesh.height = length
-	rail.mesh = mesh
-	rail.position = (start + finish) * 0.5
-	rail.quaternion = Quaternion(Vector3.UP, (finish - start).normalized())
-	rail.material_override = _material(color)
-	add_child(rail)
 
 
 func _build_ball() -> void:
@@ -505,3 +551,9 @@ func _build_hud() -> void:
 	detail_label = Label.new()
 	detail_label.add_theme_font_size_override("font_size", 16)
 	detail_panel.add_child(detail_label)
+	brain_view = BrainViewScript.new()
+	layer.add_child(brain_view)
+	var place_brain := func() -> void:
+		brain_view.position = Vector2(get_viewport().get_visible_rect().size.x - BrainViewScript.PANEL_WIDTH - 22.0, 20.0)
+	place_brain.call()
+	get_viewport().size_changed.connect(place_brain)

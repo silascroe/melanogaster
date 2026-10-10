@@ -7,6 +7,27 @@ inspectable research lab—not a validated biophysical brain or behavior model.
 Its intended experience does not turn the old arena's chosen circuit or action
 rules into established fly biology.
 
+## Current direction (set 2026-10-10)
+
+The goal is a playable, inspectable fly creature built from the raw MaleCNS
+connectome, not a scientific validation of it. The owner is a software
+beginner and does not need publishable evidence; they want a creature that
+visibly reacts, with honest labels on what is real wiring and what is our
+engineering.
+
+- Pause the recorded-response validation campaign (LC10a benchmark, AOTU/DNa02
+  "Phase B"). Its frozen results stay as the record. Do not resume it, design
+  new offline benchmarks, or start another tuning/diagnosis cycle unless the
+  owner asks.
+- Prefer work the owner can see: a runnable creature, a new visible reaction,
+  clearer demos, and folder/repo cleanup.
+- For a new reaction, still state the input, the selected neurons, the output,
+  and how the body responds. A quick intact-versus-disconnected check is
+  enough; it does not need a pre-registered protocol. Keep the rule against
+  claiming the connectome caused a behavior without such a control.
+- If a task starts to look like open-ended research with no visible payoff,
+  stop and say so instead of continuing.
+
 ## Keep the two projects distinct
 
 - Preserve `src/flytest/` diagnostics, `arena3d/`, and their compact results as

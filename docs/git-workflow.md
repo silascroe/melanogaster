@@ -31,10 +31,10 @@ From the project root:
 ```powershell
 git status
 git switch -c experiment/name-of-experiment
-.\.venv\Scripts\python.exe -m pytest
+.\.venv\Scripts\python.exe -m pytest lab/tests
 .\.venv\Scripts\python.exe -m flytest.verify
 git diff
-git add src tests docs README.md pyproject.toml data/metadata outputs
+git add lab docs README.md data/metadata outputs
 git diff --cached --check
 git commit -m "Describe the experiment"
 ```
@@ -50,7 +50,7 @@ official release into `data/original-data/male-cns-v1.0/`, make the separate
 working copy under `data/working/male-cns-v1.0/`, and run:
 
 ```powershell
-.\.venv\Scripts\python.exe -m pip install -e ".[dev]"
+.\.venv\Scripts\python.exe -m pip install -e "lab[dev]"
 .\.venv\Scripts\python.exe -m flytest.verify
 ```
 

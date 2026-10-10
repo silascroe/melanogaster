@@ -4,7 +4,7 @@ This repository is a small, local-first exploration of the official FlyEM Male C
 
 ## Workspace map
 
-- `src/flytest/`, `tests/`, `outputs/`, and `arena3d/` are the existing experimental lab. Keep its diagnostics and Godot demo intact as a record of what was tried.
+- `lab/` (its `src/flytest/`, `tests/`, `arena3d/`, `docs/`, `deploy/`, and `artwork/`) plus the root `outputs/` are the existing experimental lab. Keep its diagnostics and Godot demo intact as a record of what was tried.
 - `fly-creature/` is the separate, portable home for the next interactive fly project. It may adapt useful lab code, but its runnable version must carry its own code, assets, dependency manifest, and selected circuit data.
 - `data/` holds the original release and its byte-identical working copy. Neither project should move or alter those files.
 
@@ -54,7 +54,7 @@ simultaneous comparisons, target presets/manual placement and live errors.
 The tested interpreter is Python 3.12. Create or activate the project environment, then install the package and development dependencies:
 
 ```powershell
-.\.venv\Scripts\python.exe -m pip install -e ".[dev]"
+.\.venv\Scripts\python.exe -m pip install -e "lab[dev]"
 ```
 
 The checked-in code expects the release files to already exist locally. The provenance and hashes are recorded in [data/metadata/source_manifest.json](data/metadata/source_manifest.json).
@@ -94,7 +94,7 @@ Outputs are ordinary CSV/JSON files: selected neuron metadata, selected directed
 Run tests with:
 
 ```powershell
-.\.venv\Scripts\python.exe -m pytest
+.\.venv\Scripts\python.exe -m pytest lab/tests
 ```
 
 ## Version control
@@ -265,7 +265,7 @@ $env:FLYTEST_DISCORD_CHANNEL_ID = "target-channel-id"
 ```
 
 Jobs can append completion or failure events with `flytest-discord emit`; see
-[docs/discord-bridge.md](docs/discord-bridge.md) for the event format, dry-run
+[lab/docs/discord-bridge.md](lab/docs/discord-bridge.md) for the event format, dry-run
 path, and the always-on droplet deployment. The token is never part of the
 repository or event spool.
 
@@ -274,7 +274,7 @@ repository root, update it with the secret-blind deployment script and inspect
 its logs with:
 
 ```powershell
-powershell -NoProfile -File deploy/flybot/deploy.ps1 -HostAlias first-droplet
+powershell -NoProfile -File lab/deploy/flybot/deploy.ps1 -HostAlias first-droplet
 ssh first-droplet "systemctl status flybot.service --no-pager"
 ssh first-droplet "journalctl -u flybot.service -n 50 --no-pager"
 ```
@@ -292,7 +292,7 @@ existing SSH alias:
 
 The wrapper reports start and completion through the droplet, streams the local
 command's output, and preserves its exit code. See
-[docs/discord-bridge.md](docs/discord-bridge.md) for one-off notifications and
+[lab/docs/discord-bridge.md](lab/docs/discord-bridge.md) for one-off notifications and
 failure behavior.
 
 ## Compare synaptic dynamics
@@ -317,4 +317,4 @@ synapse-count current; no new weight normalization is introduced.
 
 The official full weights table is segment-to-segment and contains many uncurated IDs. The baseline filters both endpoints to annotation rows whose release status is `Traced`, making the neuron-level assumption visible and reproducible. A future analysis can deliberately compare this with the full segment graph or use the official traced-only derivative, but it should not silently mix the two.
 
-See [docs/data-dictionary.md](docs/data-dictionary.md) for the measured schemas and statistics, and [docs/decisions.md](docs/decisions.md) for the modelling choices.
+See [docs/data-dictionary.md](docs/data-dictionary.md) for the measured schemas and statistics, and [lab/docs/decisions.md](lab/docs/decisions.md) for the modelling choices.

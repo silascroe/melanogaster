@@ -78,8 +78,8 @@ outputs/**/synaptic_dynamics_traces.csv
 tools/godot/
 tools/blender/
 tools/ffmpeg/
-arena3d/.godot/
-arena3d/.import/
+lab/arena3d/.godot/
+lab/arena3d/.import/
 
 # Blender's rolling autosaves are redundant recovery copies.
 *.blend1

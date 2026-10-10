@@ -1,5 +1,16 @@
 # FlyTest handoff
 
+## 2026-10-10: folder cleanup and new direction
+
+The old experimental lab moved into `lab/` (its `src/`, `tests/`, `arena3d/`,
+`deploy/`, `artwork/`, and lab docs). `data/`, `outputs/`, `backups/`, and
+`fly-creature/` stay at the root. Entries below that mention `src/flytest/`,
+`tests/`, `arena3d/`, `deploy/`, `artwork/`, or `docs/decisions.md` use the
+pre-move paths; prefix them with `lab/`. Run lab tests with
+`.\.venv\Scripts\python.exe -m pytest lab/tests`; reinstall the lab package with
+`pip install -e "lab[dev]"`. The recorded-response validation campaign is
+paused (see "Current direction" in `AGENTS.md`). Branches were merged into `main`.
+
 ## 2026-10-09: downstream Phase A complete; stop before response fitting
 
 Read [the readiness report](../fly-creature/docs/pursuit_downstream_readiness.md),

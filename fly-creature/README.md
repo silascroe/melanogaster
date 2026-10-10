@@ -339,4 +339,4 @@ The exporter only reads the three official Feather tables. It does not edit them
 
 ## Project boundary
 
-This folder owns its Python package, Godot project, compact data, and instructions. It has no runtime imports from `../src/flytest/` and no runtime reads from `../data/`. The older FlyTest arena remains an independent experimental record outside this folder.
+This folder owns its Python package, Godot project, compact data, and instructions. It has no runtime imports from `../lab/src/flytest/` and no runtime reads from `../data/`. The older FlyTest arena remains an independent experimental record outside this folder.

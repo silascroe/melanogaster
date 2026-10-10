@@ -1,0 +1,8 @@
+{
+  "byte_identical_repeat": true,
+  "paired_reference_arithmetic_max_error": 0.0,
+  "near_response_matches_previous": true,
+  "initial_frozen_strata_unchanged": true,
+  "recording_and_population_aggregates_reconstructed": true,
+  "quiet_pulses": 35484
+}

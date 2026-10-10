@@ -1,0 +1,96 @@
+{
+  "full_independent_repeat_byte_equal": {
+    "report.json": true,
+    "folds.csv": true,
+    "summary.csv": true,
+    "ranks.csv": true,
+    "temporal.png": true
+  },
+  "source_and_protocol_hashes_current": true,
+  "production_and_prior_benchmark_hashes_unchanged": true,
+  "known_duplicate_excluded": true,
+  "matched_fold_training_counts_and_held_pulse_counts_correct": true,
+  "nonnegative_gains_and_static_zero_timing": true,
+  "primary_recordings": 69,
+  "primary_quiescent_pulses": 35484,
+  "full_fold_rows": 43470,
+  "max_full_trial_static_filter_error": 1.1102230246251565e-15,
+  "design_arithmetic": {
+    "filter_order_max_abs_error": 7.771561172376096e-16,
+    "recurrence_max_abs_error": 0.0,
+    "realized_timing_grid": [
+      {
+        "tau_ms": 0,
+        "lag_nominal_ms": 0,
+        "lag_samples": 0,
+        "lag_realized_ms": 0.0
+      },
+      {
+        "tau_ms": 0,
+        "lag_nominal_ms": 40,
+        "lag_samples": 27,
+        "lag_realized_ms": 40.500000000001535
+      },
+      {
+        "tau_ms": 0,
+        "lag_nominal_ms": 80,
+        "lag_samples": 53,
+        "lag_realized_ms": 79.50000000000301
+      },
+      {
+        "tau_ms": 40,
+        "lag_nominal_ms": 0,
+        "lag_samples": 0,
+        "lag_realized_ms": 0.0
+      },
+      {
+        "tau_ms": 40,
+        "lag_nominal_ms": 40,
+        "lag_samples": 27,
+        "lag_realized_ms": 40.500000000001535
+      },
+      {
+        "tau_ms": 40,
+        "lag_nominal_ms": 80,
+        "lag_samples": 53,
+        "lag_realized_ms": 79.50000000000301
+      },
+      {
+        "tau_ms": 100,
+        "lag_nominal_ms": 0,
+        "lag_samples": 0,
+        "lag_realized_ms": 0.0
+      },
+      {
+        "tau_ms": 100,
+        "lag_nominal_ms": 40,
+        "lag_samples": 27,
+        "lag_realized_ms": 40.500000000001535
+      },
+      {
+        "tau_ms": 100,
+        "lag_nominal_ms": 80,
+        "lag_samples": 53,
+        "lag_realized_ms": 79.50000000000301
+      },
+      {
+        "tau_ms": 200,
+        "lag_nominal_ms": 0,
+        "lag_samples": 0,
+        "lag_realized_ms": 0.0
+      },
+      {
+        "tau_ms": 200,
+        "lag_nominal_ms": 40,
+        "lag_samples": 27,
+        "lag_realized_ms": 40.500000000001535
+      },
+      {
+        "tau_ms": 200,
+        "lag_nominal_ms": 80,
+        "lag_samples": 53,
+        "lag_realized_ms": 79.50000000000301
+      }
+    ]
+  }
+}

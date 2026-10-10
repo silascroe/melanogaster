@@ -1,0 +1,324 @@
+{
+  "status": "diagnostic only; source curves are not independent validation for a fitted angle scale",
+  "source_commit": "65d72773121ffe148b56b8ba4f594a7a51c51789",
+  "baseline": {
+    "AOTU019": {
+      "peak_deg": 28,
+      "reference_peak_deg": 26,
+      "normalized_shape_pearson": 0.9042042825812127,
+      "normalized_shape_mean_absolute_difference": 0.18343667491555515
+    },
+    "AOTU025": {
+      "peak_deg": 45,
+      "reference_peak_deg": 72,
+      "normalized_shape_pearson": 0.263244843925235,
+      "normalized_shape_mean_absolute_difference": 0.38585059799458415
+    }
+  },
+  "opposite_hemisphere_baseline": {
+    "AOTU019": {
+      "absolute_peak_deg": 27,
+      "reference_peak_deg": 26,
+      "normalized_shape_pearson": 0.8968818653799098
+    },
+    "AOTU025": {
+      "absolute_peak_deg": 44,
+      "reference_peak_deg": 72,
+      "normalized_shape_pearson": 0.22918910359991562
+    }
+  },
+  "width_sweep_deg": {
+    "5.0": {
+      "AOTU019": {
+        "peak_deg": 27,
+        "reference_peak_deg": 26,
+        "normalized_shape_pearson": 0.7409915241834827,
+        "normalized_shape_mean_absolute_difference": 0.27936817436345157
+      },
+      "AOTU025": {
+        "peak_deg": 46,
+        "reference_peak_deg": 72,
+        "normalized_shape_pearson": 0.15932531818383153,
+        "normalized_shape_mean_absolute_difference": 0.42276754389412663
+      }
+    },
+    "10.0": {
+      "AOTU019": {
+        "peak_deg": 27,
+        "reference_peak_deg": 26,
+        "normalized_shape_pearson": 0.8086666021387108,
+        "normalized_shape_mean_absolute_difference": 0.2507151221004074
+      },
+      "AOTU025": {
+        "peak_deg": 45,
+        "reference_peak_deg": 72,
+        "normalized_shape_pearson": 0.1987920994758989,
+        "normalized_shape_mean_absolute_difference": 0.3983349918953209
+      }
+    },
+    "18.0": {
+      "AOTU019": {
+        "peak_deg": 28,
+        "reference_peak_deg": 26,
+        "normalized_shape_pearson": 0.9042042825812127,
+        "normalized_shape_mean_absolute_difference": 0.18343667491555515
+      },
+      "AOTU025": {
+        "peak_deg": 45,
+        "reference_peak_deg": 72,
+        "normalized_shape_pearson": 0.263244843925235,
+        "normalized_shape_mean_absolute_difference": 0.38585059799458415
+      }
+    },
+    "30.0": {
+      "AOTU019": {
+        "peak_deg": 28,
+        "reference_peak_deg": 26,
+        "normalized_shape_pearson": 0.9722710036230952,
+        "normalized_shape_mean_absolute_difference": 0.08313678193807275
+      },
+      "AOTU025": {
+        "peak_deg": 45,
+        "reference_peak_deg": 72,
+        "normalized_shape_pearson": 0.36956383010161253,
+        "normalized_shape_mean_absolute_difference": 0.3611439995356045
+      }
+    }
+  },
+  "minimum_lc10a_to_aotu_contact_sweep": {
+    "1": {
+      "AOTU019": {
+        "peak_deg": 28,
+        "reference_peak_deg": 26,
+        "normalized_shape_pearson": 0.9042042825812127,
+        "normalized_shape_mean_absolute_difference": 0.18343667491555515
+      },
+      "AOTU025": {
+        "peak_deg": 45,
+        "reference_peak_deg": 72,
+        "normalized_shape_pearson": 0.263244843925235,
+        "normalized_shape_mean_absolute_difference": 0.38585059799458415
+      }
+    },
+    "5": {
+      "AOTU019": {
+        "peak_deg": 28,
+        "reference_peak_deg": 26,
+        "normalized_shape_pearson": 0.9036211064899035,
+        "normalized_shape_mean_absolute_difference": 0.18395242515443683
+      },
+      "AOTU025": {
+        "peak_deg": 45,
+        "reference_peak_deg": 72,
+        "normalized_shape_pearson": 0.26400997214146515,
+        "normalized_shape_mean_absolute_difference": 0.38558662437637553
+      }
+    },
+    "10": {
+      "AOTU019": {
+        "peak_deg": 28,
+        "reference_peak_deg": 26,
+        "normalized_shape_pearson": 0.9031517358298689,
+        "normalized_shape_mean_absolute_difference": 0.18435974541288913
+      },
+      "AOTU025": {
+        "peak_deg": 45,
+        "reference_peak_deg": 72,
+        "normalized_shape_pearson": 0.2666785029890414,
+        "normalized_shape_mean_absolute_difference": 0.38467130248845666
+      }
+    },
+    "20": {
+      "AOTU019": {
+        "peak_deg": 28,
+        "reference_peak_deg": 26,
+        "normalized_shape_pearson": 0.9021816951302774,
+        "normalized_shape_mean_absolute_difference": 0.18519705271976145
+      },
+      "AOTU025": {
+        "peak_deg": 45,
+        "reference_peak_deg": 72,
+        "normalized_shape_pearson": 0.270407876978743,
+        "normalized_shape_mean_absolute_difference": 0.383396960274453
+      }
+    }
+  },
+  "lc10a_to_aotu_contact_cap_sweep": {
+    "50": {
+      "AOTU019": {
+        "peak_deg": 30,
+        "reference_peak_deg": 26,
+        "normalized_shape_pearson": 0.9130769856827239,
+        "normalized_shape_mean_absolute_difference": 0.17368037825453672
+      },
+      "AOTU025": {
+        "peak_deg": 45,
+        "reference_peak_deg": 72,
+        "normalized_shape_pearson": 0.25362021143307945,
+        "normalized_shape_mean_absolute_difference": 0.38932512895443266
+      }
+    },
+    "100": {
+      "AOTU019": {
+        "peak_deg": 29,
+        "reference_peak_deg": 26,
+        "normalized_shape_pearson": 0.9071840859768079,
+        "normalized_shape_mean_absolute_difference": 0.18031856775647973
+      },
+      "AOTU025": {
+        "peak_deg": 45,
+        "reference_peak_deg": 72,
+        "normalized_shape_pearson": 0.26168433467192226,
+        "normalized_shape_mean_absolute_difference": 0.3863991135909172
+      }
+    },
+    "170": {
+      "AOTU019": {
+        "peak_deg": 28,
+        "reference_peak_deg": 26,
+        "normalized_shape_pearson": 0.9042233265670009,
+        "normalized_shape_mean_absolute_difference": 0.18341771545552102
+      },
+      "AOTU025": {
+        "peak_deg": 45,
+        "reference_peak_deg": 72,
+        "normalized_shape_pearson": 0.263244843925235,
+        "normalized_shape_mean_absolute_difference": 0.38585059799458415
+      }
+    }
+  },
+  "rank_based_upper_span_sweep_deg": {
+    "60.0": {
+      "AOTU019": {
+        "peak_deg": 28,
+        "reference_peak_deg": 26,
+        "normalized_shape_pearson": 0.9042042825812127,
+        "normalized_shape_mean_absolute_difference": 0.18343667491555515
+      },
+      "AOTU025": {
+        "peak_deg": 45,
+        "reference_peak_deg": 72,
+        "normalized_shape_pearson": 0.263244843925235,
+        "normalized_shape_mean_absolute_difference": 0.38585059799458415
+      }
+    },
+    "75.0": {
+      "AOTU019": {
+        "peak_deg": 34,
+        "reference_peak_deg": 26,
+        "normalized_shape_pearson": 0.9219942889177125,
+        "normalized_shape_mean_absolute_difference": 0.1528550295767802
+      },
+      "AOTU025": {
+        "peak_deg": 56,
+        "reference_peak_deg": 72,
+        "normalized_shape_pearson": 0.6024859655037976,
+        "normalized_shape_mean_absolute_difference": 0.2754493421443215
+      }
+    },
+    "90.0": {
+      "AOTU019": {
+        "peak_deg": 40,
+        "reference_peak_deg": 26,
+        "normalized_shape_pearson": 0.9049784467840881,
+        "normalized_shape_mean_absolute_difference": 0.13287555885713243
+      },
+      "AOTU025": {
+        "peak_deg": 67,
+        "reference_peak_deg": 72,
+        "normalized_shape_pearson": 0.8525005931469972,
+        "normalized_shape_mean_absolute_difference": 0.19154492690524832
+      }
+    },
+    "120.0": {
+      "AOTU019": {
+        "peak_deg": 52,
+        "reference_peak_deg": 26,
+        "normalized_shape_pearson": 0.77046834048195,
+        "normalized_shape_mean_absolute_difference": 0.17482521212008395
+      },
+      "AOTU025": {
+        "peak_deg": 89,
+        "reference_peak_deg": 72,
+        "normalized_shape_pearson": 0.8872202114382437,
+        "normalized_shape_mean_absolute_difference": 0.1616322171669532
+      }
+    }
+  },
+  "raw_horizontal_position_counterfactuals": {
+    "0_to_90": {
+      "AOTU019": {
+        "peak_deg": 26,
+        "reference_peak_deg": 26,
+        "normalized_shape_pearson": 0.9196016630650472,
+        "normalized_shape_mean_absolute_difference": 0.1680464544292061
+      },
+      "AOTU025": {
+        "peak_deg": 51,
+        "reference_peak_deg": 72,
+        "normalized_shape_pearson": 0.4859390883243862,
+        "normalized_shape_mean_absolute_difference": 0.3197322063876938
+      }
+    },
+    "source_stated_minus15_to_165_clipped": {
+      "AOTU019": {
+        "peak_deg": 33,
+        "reference_peak_deg": 26,
+        "normalized_shape_pearson": 0.966790320608961,
+        "normalized_shape_mean_absolute_difference": 0.0580203707049592
+      },
+      "AOTU025": {
+        "peak_deg": 86,
+        "reference_peak_deg": 72,
+        "normalized_shape_pearson": 0.9328810843745208,
+        "normalized_shape_mean_absolute_difference": 0.1103033872890096
+      }
+    }
+  },
+  "branch_input_position_coverage": {
+    "AOTU019": {
+      "L": {
+        "contacts": 6615,
+        "direct_upstream_position_contact_fraction": 0.4255479969765684,
+        "mean_assumed_center_deg_weighted_by_contacts": 26.709487482993197
+      },
+      "R": {
+        "contacts": 7595,
+        "direct_upstream_position_contact_fraction": 0.9797235023041475,
+        "mean_assumed_center_deg_weighted_by_contacts": 27.952037919684003
+      }
+    },
+    "AOTU025": {
+      "L": {
+        "contacts": 3303,
+        "direct_upstream_position_contact_fraction": 0.35392067817135936,
+        "mean_assumed_center_deg_weighted_by_contacts": 43.78911613684529
+      },
+      "R": {
+        "contacts": 3728,
+        "direct_upstream_position_contact_fraction": 0.9466201716738197,
+        "mean_assumed_center_deg_weighted_by_contacts": 44.88070641094421
+      }
+    }
+  },
+  "coarse_peak_fit_demonstrating_nonidentifiability": {
+    "lower_deg": -26,
+    "upper_deg": 108,
+    "total_peak_error_deg": 1,
+    "comparison": {
+      "AOTU019": {
+        "peak_deg": 25,
+        "reference_peak_deg": 26,
+        "normalized_shape_pearson": 0.9765125093965271,
+        "normalized_shape_mean_absolute_difference": 0.06798634735914567
+      },
+      "AOTU025": {
+        "peak_deg": 72,
+        "reference_peak_deg": 72,
+        "normalized_shape_pearson": 0.9431040335773604,
+        "normalized_shape_mean_absolute_difference": 0.12274172414449072
+      }
+    },
+    "warning": "Fit uses the two output peaks being evaluated; never promote it as a measured visual map"
+  }
+}

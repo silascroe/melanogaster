@@ -1,0 +1,1680 @@
+{
+  "archives": [
+    {
+      "accepted": 360,
+      "archive_md5": "6ebc8edd2bb348fa14b9dbd8f2cbea01",
+      "condition": "NoP1",
+      "member_sha256": "af450cb0430f42da375d51cb91b4a9bdcf165d9f4009dfe3885f4ba14d1bf592",
+      "quiet": 311,
+      "recording": "AOTU019/2023_06_15_fly01",
+      "rejected": {}
+    },
+    {
+      "accepted": 360,
+      "archive_md5": "6ebc8edd2bb348fa14b9dbd8f2cbea01",
+      "condition": "NoP1",
+      "member_sha256": "0428b1bb23caded3aa1e1f9320aa13b232093c34cb9f6bb83912297a8db751a8",
+      "quiet": 242,
+      "recording": "AOTU019/2023_06_19_fly01",
+      "rejected": {}
+    },
+    {
+      "accepted": 359,
+      "archive_md5": "6ebc8edd2bb348fa14b9dbd8f2cbea01",
+      "condition": "NoP1",
+      "member_sha256": "42ed99e00b83b1ceb9c5788b147de4721e6b6df838a527d646dbe814e9916321",
+      "quiet": 347,
+      "recording": "AOTU019/2023_06_19_fly02",
+      "rejected": {
+        "span": 1
+      }
+    },
+    {
+      "accepted": 360,
+      "archive_md5": "6ebc8edd2bb348fa14b9dbd8f2cbea01",
+      "condition": "NoP1",
+      "member_sha256": "1be9193f3959dee7442699980eb47fd68e3eeb8d3b4f1b34ec62473278caa348",
+      "quiet": 360,
+      "recording": "AOTU019/2023_06_19_fly03",
+      "rejected": {}
+    },
+    {
+      "accepted": 360,
+      "archive_md5": "6ebc8edd2bb348fa14b9dbd8f2cbea01",
+      "condition": "NoP1",
+      "member_sha256": "8410a7b8c4f3d1c70c6b7490d901502a1eed7185d60045f480a17dc370434454",
+      "quiet": 280,
+      "recording": "AOTU019/2023_06_20_fly02",
+      "rejected": {}
+    },
+    {
+      "accepted": 360,
+      "archive_md5": "6ebc8edd2bb348fa14b9dbd8f2cbea01",
+      "condition": "NoP1",
+      "member_sha256": "43b4cd5e4321227ea4133288ef59066e51cbf3693e799d7454d6b783b7c90a78",
+      "quiet": 124,
+      "recording": "AOTU019/2023_06_21_fly01",
+      "rejected": {}
+    },
+    {
+      "accepted": 360,
+      "archive_md5": "6ebc8edd2bb348fa14b9dbd8f2cbea01",
+      "condition": "NoP1",
+      "member_sha256": "17c57432d59259f036affda2117f89db5dca5fa2d70601c9a75437b6711c8784",
+      "quiet": 114,
+      "recording": "AOTU019/2023_06_23_fly01",
+      "rejected": {}
+    },
+    {
+      "accepted": 648,
+      "archive_md5": "6ebc8edd2bb348fa14b9dbd8f2cbea01",
+      "condition": "NoP1",
+      "member_sha256": "83ef2ba0bd3bd8195e067fe598c5c583fc7b67d985d1a2c5e7db55c34fc49a5a",
+      "quiet": 435,
+      "recording": "AOTU019/2023_10_25_fly03",
+      "rejected": {}
+    },
+    {
+      "accepted": 1078,
+      "archive_md5": "6ebc8edd2bb348fa14b9dbd8f2cbea01",
+      "condition": "NoP1",
+      "member_sha256": "0979046daf223eed9d9403250fa2e607c6ad622fe4d909203eb021960e3aa801",
+      "quiet": 678,
+      "recording": "AOTU019/2023_10_26_fly01",
+      "rejected": {
+        "duration": 1,
+        "neighboring_stimulus": 1,
+        "span": 1
+      }
+    },
+    {
+      "accepted": 720,
+      "archive_md5": "6ebc8edd2bb348fa14b9dbd8f2cbea01",
+      "condition": "NoP1",
+      "member_sha256": "aacf963a7a49a718032079744a748a3c91fcf2145ea7245b0381503854686e44",
+      "quiet": 275,
+      "recording": "AOTU019/2023_10_27_fly04",
+      "rejected": {}
+    },
+    {
+      "accepted": 718,
+      "archive_md5": "6ebc8edd2bb348fa14b9dbd8f2cbea01",
+      "condition": "NoP1",
+      "member_sha256": "23ca2a2f2a0a7202b694899df5efd8c3f11cdb2f77b8e2ff009a0ac29770534b",
+      "quiet": 428,
+      "recording": "AOTU019/2023_10_31_fly01",
+      "rejected": {
+        "duration": 2,
+        "span": 1
+      }
+    },
+    {
+      "accepted": 520,
+      "archive_md5": "ebeace816547366b8325182f80a08a5b",
+      "condition": "NoP1",
+      "member_sha256": "a15e4c5d3483b940b6388c32b5784a5b416b9d1079dcd82b37c571f745ec9c81",
+      "quiet": 460,
+      "recording": "AOTU025/2024_05_31_fly02",
+      "rejected": {}
+    },
+    {
+      "accepted": 520,
+      "archive_md5": "ebeace816547366b8325182f80a08a5b",
+      "condition": "NoP1",
+      "member_sha256": "238171647ad5edd448958cb5dd77c25ef871a425bbcd9ae5272efbec164fcee4",
+      "quiet": 500,
+      "recording": "AOTU025/2024_06_26_fly01",
+      "rejected": {}
+    },
+    {
+      "accepted": 208,
+      "archive_md5": "ebeace816547366b8325182f80a08a5b",
+      "condition": "NoP1",
+      "member_sha256": "bb3e2f3841d3caf6413563e64e95a6022f74315790e1eeb869c20469d0fc9935",
+      "quiet": 137,
+      "recording": "AOTU025/2024_06_27_fly01",
+      "rejected": {}
+    },
+    {
+      "accepted": 520,
+      "archive_md5": "ebeace816547366b8325182f80a08a5b",
+      "condition": "NoP1",
+      "member_sha256": "63bfd05c8a616b0fc558a0781d23570fc66b673d6d87b3a76cf1280a4143c2a7",
+      "quiet": 234,
+      "recording": "AOTU025/2024_06_28_fly01",
+      "rejected": {}
+    },
+    {
+      "accepted": 520,
+      "archive_md5": "ebeace816547366b8325182f80a08a5b",
+      "condition": "NoP1",
+      "member_sha256": "92b73a4a767a31e5067fd0cdbcf64c0b74866a9c668a6968c2edf089a9fb527f",
+      "quiet": 374,
+      "recording": "AOTU025/2024_07_02_fly03",
+      "rejected": {}
+    },
+    {
+      "accepted": 519,
+      "archive_md5": "ebeace816547366b8325182f80a08a5b",
+      "condition": "NoP1",
+      "member_sha256": "f0a35ee5f0130255bceef5aee0cd291f1d12384e13c3edf7e9326b96e999c4e5",
+      "quiet": 196,
+      "recording": "AOTU025/2024_07_03_fly01",
+      "rejected": {
+        "span": 1
+      }
+    },
+    {
+      "accepted": 518,
+      "archive_md5": "ebeace816547366b8325182f80a08a5b",
+      "condition": "NoP1",
+      "member_sha256": "d32cb4728f1d58ea7a41c813d06de33f0fa58533632c445c1c883767f1ccd74e",
+      "quiet": 401,
+      "recording": "AOTU025/2025_02_24_fly02",
+      "rejected": {
+        "duration": 2,
+        "span": 1
+      }
+    },
+    {
+      "accepted": 519,
+      "archive_md5": "ebeace816547366b8325182f80a08a5b",
+      "condition": "NoP1",
+      "member_sha256": "5a1c17772f0aae05d3203dcd3c313029b2c44a92578faecb2606b50eea45edfb",
+      "quiet": 300,
+      "recording": "AOTU025/2025_03_06_fly02",
+      "rejected": {
+        "duration": 1,
+        "span": 1
+      }
+    },
+    {
+      "accepted": 519,
+      "archive_md5": "ebeace816547366b8325182f80a08a5b",
+      "condition": "NoP1",
+      "member_sha256": "4e040976b2b81fe47715001b1e0a958fb05898dd677ce21d6d9cbd64120c32bb",
+      "quiet": 389,
+      "recording": "AOTU025/2025_03_13_fly02",
+      "rejected": {
+        "span": 1
+      }
+    },
+    {
+      "accepted": 518,
+      "archive_md5": "ebeace816547366b8325182f80a08a5b",
+      "condition": "NoP1",
+      "member_sha256": "9555dde0683f94faa3a1cc22b34e53ede96084b13cac203b446b4f6dd235277d",
+      "quiet": 239,
+      "recording": "AOTU025/2025_03_25_fly01",
+      "rejected": {
+        "duration": 2,
+        "span": 1
+      }
+    },
+    {
+      "accepted": 518,
+      "archive_md5": "ebeace816547366b8325182f80a08a5b",
+      "condition": "NoP1",
+      "member_sha256": "e0cea706ecb55655cb1916ec57e2a72edea38533ac6f9231394d9097d3ed5853",
+      "quiet": 459,
+      "recording": "AOTU025/2025_03_25_fly02",
+      "rejected": {
+        "span": 2
+      }
+    },
+    {
+      "accepted": 519,
+      "archive_md5": "ebeace816547366b8325182f80a08a5b",
+      "condition": "NoP1",
+      "member_sha256": "2c6ba42a361b4cd40420d161edb8c37f6fec80c11ce0a51a383198d9a0278379",
+      "quiet": 167,
+      "recording": "AOTU025/2025_03_25_fly03",
+      "rejected": {
+        "duration": 1,
+        "span": 1
+      }
+    },
+    {
+      "accepted": 1796,
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "condition": "P1",
+      "member_sha256": "69b046a4103d74defb771b5621baccad2b672b0dc851dfd185fe4cad53c8fbe5",
+      "quiet": 1472,
+      "recording": "AOTU019/2023_05_08_fly01",
+      "rejected": {
+        "duration": 6,
+        "span": 1
+      }
+    },
+    {
+      "accepted": 1077,
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "condition": "P1",
+      "member_sha256": "b3e0196a2782ad6dbc5c82b8ea6b0dc563720baa6536656dc3906f1fa9be7861",
+      "quiet": 666,
+      "recording": "AOTU019/2023_05_09_fly03",
+      "rejected": {
+        "duration": 1,
+        "neighboring_stimulus": 1,
+        "span": 2
+      }
+    },
+    {
+      "accepted": 1580,
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "condition": "P1",
+      "member_sha256": "78c86349bd9eb8540522744d8cad038b79eb1319880ab9f3749d65acd85eaf5e",
+      "quiet": 1363,
+      "recording": "AOTU019/2023_05_11_fly01",
+      "rejected": {
+        "duration": 1,
+        "span": 4
+      }
+    },
+    {
+      "accepted": 1079,
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "condition": "P1",
+      "member_sha256": "b6cb8029969cfdebc1d6151744a31ed414b93a5488b2eb799aa4be5f5126241c",
+      "quiet": 725,
+      "recording": "AOTU019/2023_05_30_fly01",
+      "rejected": {
+        "span": 1
+      }
+    },
+    {
+      "accepted": 1797,
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "condition": "P1",
+      "member_sha256": "fca3f328b6669f0c417a8a9ffc704c1c0e221f5a4dd75653a2fc77e7d393e4db",
+      "quiet": 779,
+      "recording": "AOTU019/2023_06_13_fly01",
+      "rejected": {
+        "duration": 1,
+        "span": 3
+      }
+    },
+    {
+      "accepted": 718,
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "condition": "P1",
+      "member_sha256": "7ccfec1fc0763e94fa87c881548807810c20576716e280f536a7726f5ab7f573",
+      "quiet": 550,
+      "recording": "AOTU019/2023_06_13_fly02",
+      "rejected": {
+        "duration": 2,
+        "span": 1
+      }
+    },
+    {
+      "accepted": 1367,
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "condition": "P1",
+      "member_sha256": "64cc5d93efb38755f6eefb2c8d3d290e2394c854897e469b6d7ee55895803763",
+      "quiet": 874,
+      "recording": "AOTU019/2023_06_14_fly02",
+      "rejected": {
+        "span": 1
+      }
+    },
+    {
+      "accepted": 1797,
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "condition": "P1",
+      "member_sha256": "9d276e57b790a958d452222c8a1760146dfcaf2d2e1f4240816fddd2047863a8",
+      "quiet": 726,
+      "recording": "AOTU019/2023_06_15_fly01",
+      "rejected": {
+        "duration": 2,
+        "span": 2
+      }
+    },
+    {
+      "accepted": 1438,
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "condition": "P1",
+      "member_sha256": "704ccb66637e7d01e0f1e1efecbe01baf77eaf3b0d53ecf3f5992640c9e13cd0",
+      "quiet": 665,
+      "recording": "AOTU019/2023_06_19_fly01",
+      "rejected": {
+        "span": 2
+      }
+    },
+    {
+      "accepted": 1440,
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "condition": "P1",
+      "member_sha256": "8feae93c073a3fb31ff729b15fa551c92e1d53603df24b933def5c5b673b99cc",
+      "quiet": 928,
+      "recording": "AOTU019/2023_06_19_fly02",
+      "rejected": {}
+    },
+    {
+      "accepted": 1440,
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "condition": "P1",
+      "member_sha256": "06764d54b14c2fa2ac3580b6e5aada1fdd8266f8fd63d8acbf7aea31b1234a79",
+      "quiet": 680,
+      "recording": "AOTU019/2023_06_19_fly03",
+      "rejected": {}
+    },
+    {
+      "accepted": 1438,
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "condition": "P1",
+      "member_sha256": "968d2979b391081d85f0ce84823051175c8096c92344c2e748fa9e9aeb54d862",
+      "quiet": 1066,
+      "recording": "AOTU019/2023_06_20_fly02",
+      "rejected": {
+        "duration": 1,
+        "span": 2
+      }
+    },
+    {
+      "accepted": 1439,
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "condition": "P1",
+      "member_sha256": "075fc0ec65354e20862212fe1371d3b73bf344ea09388620cdc37bd3e71004c5",
+      "quiet": 271,
+      "recording": "AOTU019/2023_06_21_fly01",
+      "rejected": {
+        "span": 1
+      }
+    },
+    {
+      "accepted": 287,
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "condition": "P1",
+      "member_sha256": "1751e00535b671079c3be074489eafa4eb7bcedd57cfbda89a9b43c17378acb5",
+      "quiet": 100,
+      "recording": "AOTU019/2023_06_21_fly02",
+      "rejected": {
+        "duration": 1,
+        "span": 1
+      }
+    },
+    {
+      "accepted": 1115,
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "condition": "P1",
+      "member_sha256": "6c5230176550f88e46ac7c171fe311a7e2fabf0ac1f6d2b94e92d3a2a73d217f",
+      "quiet": 208,
+      "recording": "AOTU019/2023_06_22_fly01",
+      "rejected": {
+        "span": 1
+      }
+    },
+    {
+      "accepted": 1293,
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "condition": "P1",
+      "member_sha256": "720f847ccda61206e84ee83c61d3b272064d54de5f54e6381690b7c33a584cfb",
+      "quiet": 541,
+      "recording": "AOTU019/2023_06_23_fly01",
+      "rejected": {
+        "duration": 1,
+        "span": 3
+      }
+    },
+    {
+      "accepted": 1185,
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "condition": "P1",
+      "member_sha256": "9f0a39c271051e98f3766122c8723cb07067227708cb8b0c3aae13a1d42b621c",
+      "quiet": 1047,
+      "recording": "AOTU019/2023_06_23_fly02",
+      "rejected": {
+        "span": 3
+      }
+    },
+    {
+      "accepted": 1437,
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "condition": "P1",
+      "member_sha256": "9f04b89ad4410afe376628073c08592f40f8833873b98505117bfa78219c7bfd",
+      "quiet": 702,
+      "recording": "AOTU019/2023_10_25_fly03",
+      "rejected": {
+        "span": 3
+      }
+    },
+    {
+      "accepted": 1438,
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "condition": "P1",
+      "member_sha256": "3fd08b7d77b8f378bc89e6e7424b9418a97872cc433ebe0b54f6f542111ec1a3",
+      "quiet": 468,
+      "recording": "AOTU019/2023_10_26_fly01",
+      "rejected": {
+        "span": 2
+      }
+    },
+    {
+      "accepted": 324,
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "condition": "P1",
+      "member_sha256": "b2db8b37187afcb461d587483c61a4d1799f2c7a503ab6c1ad90fef4a4de1715",
+      "quiet": 66,
+      "recording": "AOTU019/2023_10_27_fly03",
+      "rejected": {}
+    },
+    {
+      "accepted": 1439,
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "condition": "P1",
+      "member_sha256": "b77d5b0d1eec88a8e9704b6a423143919a63b842e5b78f859546d0c13603fb7b",
+      "quiet": 282,
+      "recording": "AOTU019/2023_10_27_fly04",
+      "rejected": {
+        "span": 1
+      }
+    },
+    {
+      "accepted": 1437,
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "condition": "P1",
+      "member_sha256": "16f5af5d91dd05cb3f87b84cfca5385369626598b82f49667c2c5c32bdaaf631",
+      "quiet": 771,
+      "recording": "AOTU019/2023_10_31_fly01",
+      "rejected": {
+        "span": 3
+      }
+    },
+    {
+      "accepted": 719,
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "condition": "P1",
+      "member_sha256": "b6070e05c359652cd7712a8691b49e83164893edc3075bf2cfec532cbffcb3e3",
+      "quiet": 335,
+      "recording": "AOTU019/2023_10_31_fly03",
+      "rejected": {
+        "span": 1
+      }
+    },
+    {
+      "accepted": 287,
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "condition": "P1",
+      "member_sha256": "2064d67e32cecd32a31a23c003eaa1618e23344f0a9e51729f8c5b395adb916e",
+      "quiet": 80,
+      "recording": "AOTU019/2023_11_01_fly01",
+      "rejected": {
+        "span": 1
+      }
+    },
+    {
+      "accepted": 2077,
+      "archive_md5": "eae5a827f7e75b373c95b1ce9ee76c9b",
+      "condition": "P1",
+      "member_sha256": "3d6a9ef6deab8aae3cdacf9ae3da3349d17e721b1c5122660d731ee2ee0e19c6",
+      "quiet": 1016,
+      "recording": "AOTU025/2024_05_31_fly02",
+      "rejected": {
+        "duration": 1,
+        "span": 3
+      }
+    },
+    {
+      "accepted": 1036,
+      "archive_md5": "eae5a827f7e75b373c95b1ce9ee76c9b",
+      "condition": "P1",
+      "member_sha256": "8946314ff12ea8d1aef97ffa289a7972ba8826d912919b2cb491ec57158fb058",
+      "quiet": 939,
+      "recording": "AOTU025/2024_05_31_fly03",
+      "rejected": {
+        "duration": 5,
+        "span": 2
+      }
+    },
+    {
+      "accepted": 519,
+      "archive_md5": "eae5a827f7e75b373c95b1ce9ee76c9b",
+      "condition": "P1",
+      "member_sha256": "543f675058218fe8e55ec477c26ac1ed2b66c44a021b41c393109400db3557e2",
+      "quiet": 315,
+      "recording": "AOTU025/2024_06_10_fly02",
+      "rejected": {
+        "duration": 1,
+        "span": 1
+      }
+    },
+    {
+      "accepted": 1610,
+      "archive_md5": "eae5a827f7e75b373c95b1ce9ee76c9b",
+      "condition": "P1",
+      "member_sha256": "ae951dc8ad56ff80d27b6a9f24e5dad16e92ad180622683d9f172bf2bbd185c7",
+      "quiet": 1015,
+      "recording": "AOTU025/2024_06_11_fly01",
+      "rejected": {
+        "duration": 1,
+        "span": 2
+      }
+    },
+    {
+      "accepted": 830,
+      "archive_md5": "eae5a827f7e75b373c95b1ce9ee76c9b",
+      "condition": "P1",
+      "member_sha256": "2135ea3de954f5f3efbcd7c3b9185589a711328331ff3e8fb03ee06dbff24506",
+      "quiet": 512,
+      "recording": "AOTU025/2024_06_11_fly02",
+      "rejected": {
+        "span": 2
+      }
+    },
+    {
+      "accepted": 570,
+      "archive_md5": "eae5a827f7e75b373c95b1ce9ee76c9b",
+      "condition": "P1",
+      "member_sha256": "440630a45771bbbc35c7a937f63cca9c753f37aca01e8ea786fb15a2d4592b17",
+      "quiet": 266,
+      "recording": "AOTU025/2024_06_12_fly02",
+      "rejected": {
+        "span": 2
+      }
+    },
+    {
+      "accepted": 1920,
+      "archive_md5": "eae5a827f7e75b373c95b1ce9ee76c9b",
+      "condition": "P1",
+      "member_sha256": "2b64fcdcb2047b4158085117d4ae919eaa0f312ce92358a29fa6e54b4d2cbba8",
+      "quiet": 636,
+      "recording": "AOTU025/2024_06_13_fly01",
+      "rejected": {
+        "duration": 3,
+        "neighboring_stimulus": 1,
+        "span": 2
+      }
+    },
+    {
+      "accepted": 1038,
+      "archive_md5": "eae5a827f7e75b373c95b1ce9ee76c9b",
+      "condition": "P1",
+      "member_sha256": "d7fbb205e9acc39f8a77a2ce15f103d59c4665802ee200d76061c34167549ef2",
+      "quiet": 672,
+      "recording": "AOTU025/2024_06_21_fly01",
+      "rejected": {
+        "duration": 1,
+        "span": 2
+      }
+    },
+    {
+      "accepted": 622,
+      "archive_md5": "eae5a827f7e75b373c95b1ce9ee76c9b",
+      "condition": "P1",
+      "member_sha256": "07bb068748f690b3df407bb7625e7e8a03cebb46867ed534186f0e768da3a18e",
+      "quiet": 153,
+      "recording": "AOTU025/2024_06_21_fly02",
+      "rejected": {
+        "duration": 3,
+        "neighboring_stimulus": 1
+      }
+    },
+    {
+      "accepted": 1558,
+      "archive_md5": "eae5a827f7e75b373c95b1ce9ee76c9b",
+      "condition": "P1",
+      "member_sha256": "50226a4184345c5b7dfd054e1f8a34d90587b67085447cd1640861604fbda177",
+      "quiet": 1209,
+      "recording": "AOTU025/2024_06_26_fly01",
+      "rejected": {
+        "span": 2
+      }
+    },
+    {
+      "accepted": 1414,
+      "archive_md5": "eae5a827f7e75b373c95b1ce9ee76c9b",
+      "condition": "P1",
+      "member_sha256": "a4867fd9be9ee1efb9cd52123db35baf0fe9c7ddcb2f9aaf02bb578483144103",
+      "quiet": 938,
+      "recording": "AOTU025/2024_06_27_fly01",
+      "rejected": {
+        "duration": 2,
+        "span": 5
+      }
+    },
+    {
+      "accepted": 1555,
+      "archive_md5": "eae5a827f7e75b373c95b1ce9ee76c9b",
+      "condition": "P1",
+      "member_sha256": "d2440d2879a4ccf002d82da9dee12ceb80ad623fd6931c031979300fb9cb9615",
+      "quiet": 735,
+      "recording": "AOTU025/2024_06_28_fly01",
+      "rejected": {
+        "span": 5
+      }
+    },
+    {
+      "accepted": 935,
+      "archive_md5": "eae5a827f7e75b373c95b1ce9ee76c9b",
+      "condition": "P1",
+      "member_sha256": "c1e15bf08abdf3e9a213067acb4e7e6f9cd7ba64af7162148faa5da2c24aa586",
+      "quiet": 266,
+      "recording": "AOTU025/2024_07_01_fly01",
+      "rejected": {
+        "span": 1
+      }
+    },
+    {
+      "accepted": 1658,
+      "archive_md5": "eae5a827f7e75b373c95b1ce9ee76c9b",
+      "condition": "P1",
+      "member_sha256": "b6c9be15e0c7e74fe291d23a80b65b0c79eeb50d968e656fe1aa7e197c653ee5",
+      "quiet": 1014,
+      "recording": "AOTU025/2024_07_02_fly03",
+      "rejected": {
+        "duration": 6,
+        "span": 4
+      }
+    },
+    {
+      "accepted": 2073,
+      "archive_md5": "eae5a827f7e75b373c95b1ce9ee76c9b",
+      "condition": "P1",
+      "member_sha256": "1383a9841c0a6ac1094834c94d002a892a90f4fe340ec49e4d7a08e7bd9c7540",
+      "quiet": 635,
+      "recording": "AOTU025/2024_07_03_fly01",
+      "rejected": {
+        "duration": 3,
+        "span": 6
+      }
+    },
+    {
+      "accepted": 1039,
+      "archive_md5": "eae5a827f7e75b373c95b1ce9ee76c9b",
+      "condition": "P1",
+      "member_sha256": "b28db22fa8de0bd615dfe43d085824bf8304f4564f666e9f4eba0632fcd16aa4",
+      "quiet": 406,
+      "recording": "AOTU025/2025_02_24_fly02",
+      "rejected": {
+        "span": 1
+      }
+    },
+    {
+      "accepted": 1037,
+      "archive_md5": "eae5a827f7e75b373c95b1ce9ee76c9b",
+      "condition": "P1",
+      "member_sha256": "620b97197398713ed02a9dab5a0ddf83551a732960dddebca6dd6421bfe6160d",
+      "quiet": 425,
+      "recording": "AOTU025/2025_03_06_fly02",
+      "rejected": {
+        "span": 3
+      }
+    },
+    {
+      "accepted": 1038,
+      "archive_md5": "eae5a827f7e75b373c95b1ce9ee76c9b",
+      "condition": "P1",
+      "member_sha256": "b7c93498e463a3f5b7f526d4b5737b3270029e3ce47a3accedd9b91cc6a14f42",
+      "quiet": 655,
+      "recording": "AOTU025/2025_03_13_fly02",
+      "rejected": {
+        "duration": 1,
+        "span": 2
+      }
+    },
+    {
+      "accepted": 520,
+      "archive_md5": "eae5a827f7e75b373c95b1ce9ee76c9b",
+      "condition": "P1",
+      "member_sha256": "ede67fef6e60d22babc3fb78ede766748998b4197bf174889e117b136b83e979",
+      "quiet": 226,
+      "recording": "AOTU025/2025_03_25_fly01",
+      "rejected": {}
+    },
+    {
+      "accepted": 516,
+      "archive_md5": "eae5a827f7e75b373c95b1ce9ee76c9b",
+      "condition": "P1",
+      "member_sha256": "d76ca07fbbe24de535b2dfe1a1c297a4b3e1e53d16acdaef766cb60a19911e42",
+      "quiet": 372,
+      "recording": "AOTU025/2025_03_25_fly02",
+      "rejected": {
+        "duration": 1,
+        "neighboring_stimulus": 1,
+        "span": 3
+      }
+    },
+    {
+      "accepted": 519,
+      "archive_md5": "eae5a827f7e75b373c95b1ce9ee76c9b",
+      "condition": "P1",
+      "member_sha256": "224584c9e46c8e945d83ed29787dc39178c768dd43ee6527896a6235747e155d",
+      "quiet": 145,
+      "recording": "AOTU025/2025_03_25_fly03",
+      "rejected": {
+        "duration": 1,
+        "span": 1
+      }
+    },
+    {
+      "accepted": 364,
+      "archive_md5": "eae5a827f7e75b373c95b1ce9ee76c9b",
+      "condition": "P1",
+      "member_sha256": "b6a5ce3ae9361e2a2bb3596da0f1d26841f1c1e86d99d60ab086ef7f8a2cc3e8",
+      "quiet": 119,
+      "recording": "AOTU025/2025_03_26_fly03",
+      "rejected": {}
+    }
+  ],
+  "coverage": [
+    {
+      "condition": "NoP1",
+      "eligible_recordings": 11,
+      "gap_quantiles": [
+        0.34650000000001313,
+        0.9990000000000379,
+        1.000500000000038,
+        1.000500000000038,
+        1.003500000000038
+      ],
+      "pulses": 3594,
+      "stratum": "original",
+      "type": "AOTU019"
+    },
+    {
+      "condition": "NoP1",
+      "eligible_recordings": 11,
+      "gap_quantiles": [
+        1.000500000000038,
+        1.000500000000038,
+        1.000500000000038,
+        1.000500000000038,
+        1.003500000000038
+      ],
+      "pulses": 2280,
+      "stratum": "isolated_1s",
+      "type": "AOTU019"
+    },
+    {
+      "condition": "NoP1",
+      "eligible_recordings": 0,
+      "gap_quantiles": [],
+      "pulses": 0,
+      "stratum": "isolated_2s",
+      "type": "AOTU019"
+    },
+    {
+      "condition": "NoP1",
+      "eligible_recordings": 0,
+      "gap_quantiles": [],
+      "pulses": 0,
+      "stratum": "first",
+      "type": "AOTU019"
+    },
+    {
+      "condition": "NoP1",
+      "eligible_recordings": 11,
+      "gap_quantiles": [
+        0.9975000000000378,
+        0.9990000000000379,
+        1.000500000000038,
+        1.000500000000038,
+        1.003500000000038
+      ],
+      "pulses": 3495,
+      "stratum": "nominal_1s",
+      "type": "AOTU019"
+    },
+    {
+      "condition": "NoP1",
+      "eligible_recordings": 12,
+      "gap_quantiles": [
+        0.31500000000001194,
+        0.9990000000000379,
+        1.000500000000038,
+        1.000500000000038,
+        1.003500000000038
+      ],
+      "pulses": 3856,
+      "stratum": "original",
+      "type": "AOTU025"
+    },
+    {
+      "condition": "NoP1",
+      "eligible_recordings": 12,
+      "gap_quantiles": [
+        1.000500000000038,
+        1.000500000000038,
+        1.000500000000038,
+        1.000500000000038,
+        1.003500000000038
+      ],
+      "pulses": 2487,
+      "stratum": "isolated_1s",
+      "type": "AOTU025"
+    },
+    {
+      "condition": "NoP1",
+      "eligible_recordings": 0,
+      "gap_quantiles": [],
+      "pulses": 0,
+      "stratum": "isolated_2s",
+      "type": "AOTU025"
+    },
+    {
+      "condition": "NoP1",
+      "eligible_recordings": 0,
+      "gap_quantiles": [],
+      "pulses": 0,
+      "stratum": "first",
+      "type": "AOTU025"
+    },
+    {
+      "condition": "NoP1",
+      "eligible_recordings": 12,
+      "gap_quantiles": [
+        0.9975000000000378,
+        0.9990000000000379,
+        1.000500000000038,
+        1.000500000000038,
+        1.003500000000038
+      ],
+      "pulses": 3784,
+      "stratum": "nominal_1s",
+      "type": "AOTU025"
+    },
+    {
+      "condition": "P1",
+      "eligible_recordings": 24,
+      "gap_quantiles": [
+        0.3375000000000128,
+        0.9990000000000379,
+        1.000500000000038,
+        1.9995000000000758,
+        2.002500000000076
+      ],
+      "pulses": 15365,
+      "stratum": "original",
+      "type": "AOTU019"
+    },
+    {
+      "condition": "P1",
+      "eligible_recordings": 24,
+      "gap_quantiles": [
+        1.000500000000038,
+        1.000500000000038,
+        1.000500000000038,
+        2.001000000000076,
+        2.002500000000076
+      ],
+      "pulses": 11402,
+      "stratum": "isolated_1s",
+      "type": "AOTU019"
+    },
+    {
+      "condition": "P1",
+      "eligible_recordings": 4,
+      "gap_quantiles": [
+        2.001000000000076,
+        2.001000000000076,
+        2.001000000000076,
+        2.002500000000076,
+        2.002500000000076
+      ],
+      "pulses": 1455,
+      "stratum": "isolated_2s",
+      "type": "AOTU019"
+    },
+    {
+      "condition": "P1",
+      "eligible_recordings": 0,
+      "gap_quantiles": [],
+      "pulses": 0,
+      "stratum": "first",
+      "type": "AOTU019"
+    },
+    {
+      "condition": "P1",
+      "eligible_recordings": 24,
+      "gap_quantiles": [
+        0.9975000000000378,
+        0.9990000000000379,
+        1.000500000000038,
+        1.9995000000000758,
+        2.002500000000076
+      ],
+      "pulses": 15172,
+      "stratum": "nominal_1s",
+      "type": "AOTU019"
+    },
+    {
+      "condition": "P1",
+      "eligible_recordings": 22,
+      "gap_quantiles": [
+        0.30750000000001165,
+        0.9990000000000379,
+        1.000500000000038,
+        1.000500000000038,
+        1.002000000000038
+      ],
+      "pulses": 12669,
+      "stratum": "original",
+      "type": "AOTU025"
+    },
+    {
+      "condition": "P1",
+      "eligible_recordings": 22,
+      "gap_quantiles": [
+        1.000500000000038,
+        1.000500000000038,
+        1.000500000000038,
+        1.000500000000038,
+        1.002000000000038
+      ],
+      "pulses": 8255,
+      "stratum": "isolated_1s",
+      "type": "AOTU025"
+    },
+    {
+      "condition": "P1",
+      "eligible_recordings": 0,
+      "gap_quantiles": [],
+      "pulses": 0,
+      "stratum": "isolated_2s",
+      "type": "AOTU025"
+    },
+    {
+      "condition": "P1",
+      "eligible_recordings": 0,
+      "gap_quantiles": [],
+      "pulses": 0,
+      "stratum": "first",
+      "type": "AOTU025"
+    },
+    {
+      "condition": "P1",
+      "eligible_recordings": 22,
+      "gap_quantiles": [
+        0.9975000000000378,
+        0.9990000000000379,
+        1.000500000000038,
+        1.000500000000038,
+        1.002000000000038
+      ],
+      "pulses": 12535,
+      "stratum": "nominal_1s",
+      "type": "AOTU025"
+    }
+  ],
+  "implementation_sha256": "ead60406dd4af8590383a73bbd25cb425d0582279a2478796c621bf1f8099c44",
+  "posthoc_sensitivity_sha256": "5981c65981dc304c08fa4c0ec1c8d6442d5635b04180b2c61bcef7367aa24e03",
+  "protocol_sha256": "a87486ac46f5610cccdb52af4b2b837c2cfcbbebddd1549be7ecfba7fc26c811",
+  "quiet_pulses": 35484,
+  "summary": [
+    {
+      "baseline": "near",
+      "condition": "NoP1",
+      "nonpreferred_mean": 1.0397334183363995,
+      "nonpreferred_negative_recordings": 2,
+      "nonpreferred_recordings": 11,
+      "peak_centers_deg": {
+        "25/-1": -11.25,
+        "25/1": -33.75,
+        "75/-1": 11.25,
+        "75/1": 11.25
+      },
+      "stratum": "original",
+      "type": "AOTU019"
+    },
+    {
+      "baseline": "near",
+      "condition": "NoP1",
+      "nonpreferred_mean": 1.7325373008820235,
+      "nonpreferred_negative_recordings": 0,
+      "nonpreferred_recordings": 11,
+      "peak_centers_deg": {
+        "25/-1": -11.25,
+        "25/1": -33.75,
+        "75/-1": 11.25,
+        "75/1": 11.25
+      },
+      "stratum": "isolated_1s",
+      "type": "AOTU019"
+    },
+    {
+      "baseline": "early",
+      "condition": "NoP1",
+      "nonpreferred_mean": 1.5587275275339578,
+      "nonpreferred_negative_recordings": 1,
+      "nonpreferred_recordings": 11,
+      "peak_centers_deg": {
+        "25/-1": 56.25,
+        "25/1": -11.25,
+        "75/-1": 56.25,
+        "75/1": 11.25
+      },
+      "stratum": "isolated_1s",
+      "type": "AOTU019"
+    },
+    {
+      "baseline": "far",
+      "condition": "NoP1",
+      "nonpreferred_mean": 0.5923619398324611,
+      "nonpreferred_negative_recordings": 3,
+      "nonpreferred_recordings": 11,
+      "peak_centers_deg": {
+        "25/-1": -11.25,
+        "25/1": 56.25,
+        "75/-1": 56.25,
+        "75/1": 11.25
+      },
+      "stratum": "isolated_1s",
+      "type": "AOTU019"
+    },
+    {
+      "baseline": "near",
+      "condition": "NoP1",
+      "nonpreferred_mean": null,
+      "nonpreferred_negative_recordings": 0,
+      "nonpreferred_recordings": 0,
+      "peak_centers_deg": {},
+      "stratum": "isolated_2s",
+      "type": "AOTU019"
+    },
+    {
+      "baseline": "early",
+      "condition": "NoP1",
+      "nonpreferred_mean": null,
+      "nonpreferred_negative_recordings": 0,
+      "nonpreferred_recordings": 0,
+      "peak_centers_deg": {},
+      "stratum": "isolated_2s",
+      "type": "AOTU019"
+    },
+    {
+      "baseline": "far",
+      "condition": "NoP1",
+      "nonpreferred_mean": null,
+      "nonpreferred_negative_recordings": 0,
+      "nonpreferred_recordings": 0,
+      "peak_centers_deg": {},
+      "stratum": "isolated_2s",
+      "type": "AOTU019"
+    },
+    {
+      "baseline": "near",
+      "condition": "NoP1",
+      "nonpreferred_mean": null,
+      "nonpreferred_negative_recordings": 0,
+      "nonpreferred_recordings": 0,
+      "peak_centers_deg": {},
+      "stratum": "first",
+      "type": "AOTU019"
+    },
+    {
+      "baseline": "early",
+      "condition": "NoP1",
+      "nonpreferred_mean": null,
+      "nonpreferred_negative_recordings": 0,
+      "nonpreferred_recordings": 0,
+      "peak_centers_deg": {},
+      "stratum": "first",
+      "type": "AOTU019"
+    },
+    {
+      "baseline": "far",
+      "condition": "NoP1",
+      "nonpreferred_mean": null,
+      "nonpreferred_negative_recordings": 0,
+      "nonpreferred_recordings": 0,
+      "peak_centers_deg": {},
+      "stratum": "first",
+      "type": "AOTU019"
+    },
+    {
+      "baseline": "near",
+      "condition": "NoP1",
+      "nonpreferred_mean": 1.0188982104779376,
+      "nonpreferred_negative_recordings": 2,
+      "nonpreferred_recordings": 11,
+      "peak_centers_deg": {
+        "25/-1": -11.25,
+        "25/1": -33.75,
+        "75/-1": 11.25,
+        "75/1": 11.25
+      },
+      "stratum": "nominal_1s",
+      "type": "AOTU019"
+    },
+    {
+      "baseline": "early",
+      "condition": "NoP1",
+      "nonpreferred_mean": 0.9293682433240146,
+      "nonpreferred_negative_recordings": 1,
+      "nonpreferred_recordings": 11,
+      "peak_centers_deg": {
+        "25/-1": 11.25,
+        "25/1": -11.25,
+        "75/-1": 33.75,
+        "75/1": 11.25
+      },
+      "stratum": "nominal_1s",
+      "type": "AOTU019"
+    },
+    {
+      "baseline": "far",
+      "condition": "NoP1",
+      "nonpreferred_mean": 0.1095618181160105,
+      "nonpreferred_negative_recordings": 6,
+      "nonpreferred_recordings": 11,
+      "peak_centers_deg": {
+        "25/-1": 11.25,
+        "25/1": 78.75,
+        "75/-1": 56.25,
+        "75/1": 11.25
+      },
+      "stratum": "nominal_1s",
+      "type": "AOTU019"
+    },
+    {
+      "baseline": "near",
+      "condition": "NoP1",
+      "nonpreferred_mean": -0.857058838656304,
+      "nonpreferred_negative_recordings": 9,
+      "nonpreferred_recordings": 12,
+      "peak_centers_deg": {
+        "25/-1": 101.25,
+        "25/1": 56.25,
+        "75/-1": 78.75,
+        "75/1": 56.25
+      },
+      "stratum": "original",
+      "type": "AOTU025"
+    },
+    {
+      "baseline": "near",
+      "condition": "NoP1",
+      "nonpreferred_mean": -1.6030353010248666,
+      "nonpreferred_negative_recordings": 10,
+      "nonpreferred_recordings": 12,
+      "peak_centers_deg": {
+        "25/-1": 101.25,
+        "25/1": 56.25,
+        "75/-1": 101.25,
+        "75/1": 78.75
+      },
+      "stratum": "isolated_1s",
+      "type": "AOTU025"
+    },
+    {
+      "baseline": "early",
+      "condition": "NoP1",
+      "nonpreferred_mean": -0.7232131838905068,
+      "nonpreferred_negative_recordings": 10,
+      "nonpreferred_recordings": 12,
+      "peak_centers_deg": {
+        "25/-1": 101.25,
+        "25/1": 56.25,
+        "75/-1": 101.25,
+        "75/1": 78.75
+      },
+      "stratum": "isolated_1s",
+      "type": "AOTU025"
+    },
+    {
+      "baseline": "far",
+      "condition": "NoP1",
+      "nonpreferred_mean": -1.2650268433492777,
+      "nonpreferred_negative_recordings": 12,
+      "nonpreferred_recordings": 12,
+      "peak_centers_deg": {
+        "25/-1": 101.25,
+        "25/1": 56.25,
+        "75/-1": 101.25,
+        "75/1": 78.75
+      },
+      "stratum": "isolated_1s",
+      "type": "AOTU025"
+    },
+    {
+      "baseline": "near",
+      "condition": "NoP1",
+      "nonpreferred_mean": null,
+      "nonpreferred_negative_recordings": 0,
+      "nonpreferred_recordings": 0,
+      "peak_centers_deg": {},
+      "stratum": "isolated_2s",
+      "type": "AOTU025"
+    },
+    {
+      "baseline": "early",
+      "condition": "NoP1",
+      "nonpreferred_mean": null,
+      "nonpreferred_negative_recordings": 0,
+      "nonpreferred_recordings": 0,
+      "peak_centers_deg": {},
+      "stratum": "isolated_2s",
+      "type": "AOTU025"
+    },
+    {
+      "baseline": "far",
+      "condition": "NoP1",
+      "nonpreferred_mean": null,
+      "nonpreferred_negative_recordings": 0,
+      "nonpreferred_recordings": 0,
+      "peak_centers_deg": {},
+      "stratum": "isolated_2s",
+      "type": "AOTU025"
+    },
+    {
+      "baseline": "near",
+      "condition": "NoP1",
+      "nonpreferred_mean": null,
+      "nonpreferred_negative_recordings": 0,
+      "nonpreferred_recordings": 0,
+      "peak_centers_deg": {},
+      "stratum": "first",
+      "type": "AOTU025"
+    },
+    {
+      "baseline": "early",
+      "condition": "NoP1",
+      "nonpreferred_mean": null,
+      "nonpreferred_negative_recordings": 0,
+      "nonpreferred_recordings": 0,
+      "peak_centers_deg": {},
+      "stratum": "first",
+      "type": "AOTU025"
+    },
+    {
+      "baseline": "far",
+      "condition": "NoP1",
+      "nonpreferred_mean": null,
+      "nonpreferred_negative_recordings": 0,
+      "nonpreferred_recordings": 0,
+      "peak_centers_deg": {},
+      "stratum": "first",
+      "type": "AOTU025"
+    },
+    {
+      "baseline": "near",
+      "condition": "NoP1",
+      "nonpreferred_mean": -0.9157500755156908,
+      "nonpreferred_negative_recordings": 10,
+      "nonpreferred_recordings": 12,
+      "peak_centers_deg": {
+        "25/-1": 101.25,
+        "25/1": 56.25,
+        "75/-1": 78.75,
+        "75/1": 78.75
+      },
+      "stratum": "nominal_1s",
+      "type": "AOTU025"
+    },
+    {
+      "baseline": "early",
+      "condition": "NoP1",
+      "nonpreferred_mean": -0.566727817451579,
+      "nonpreferred_negative_recordings": 9,
+      "nonpreferred_recordings": 12,
+      "peak_centers_deg": {
+        "25/-1": 101.25,
+        "25/1": 56.25,
+        "75/-1": 78.75,
+        "75/1": 78.75
+      },
+      "stratum": "nominal_1s",
+      "type": "AOTU025"
+    },
+    {
+      "baseline": "far",
+      "condition": "NoP1",
+      "nonpreferred_mean": -1.5002610752474759,
+      "nonpreferred_negative_recordings": 11,
+      "nonpreferred_recordings": 12,
+      "peak_centers_deg": {
+        "25/-1": 101.25,
+        "25/1": 101.25,
+        "75/-1": 78.75,
+        "75/1": 56.25
+      },
+      "stratum": "nominal_1s",
+      "type": "AOTU025"
+    },
+    {
+      "baseline": "near",
+      "condition": "P1",
+      "nonpreferred_mean": 0.7003793302923365,
+      "nonpreferred_negative_recordings": 9,
+      "nonpreferred_recordings": 24,
+      "peak_centers_deg": {
+        "25/-1": 11.25,
+        "25/1": 33.75,
+        "75/-1": 33.75,
+        "75/1": 33.75
+      },
+      "stratum": "original",
+      "type": "AOTU019"
+    },
+    {
+      "baseline": "near",
+      "condition": "P1",
+      "nonpreferred_mean": 1.1531111690705957,
+      "nonpreferred_negative_recordings": 7,
+      "nonpreferred_recordings": 24,
+      "peak_centers_deg": {
+        "25/-1": 11.25,
+        "25/1": 33.75,
+        "75/-1": 11.25,
+        "75/1": 33.75
+      },
+      "stratum": "isolated_1s",
+      "type": "AOTU019"
+    },
+    {
+      "baseline": "early",
+      "condition": "P1",
+      "nonpreferred_mean": 0.33824511064745844,
+      "nonpreferred_negative_recordings": 8,
+      "nonpreferred_recordings": 24,
+      "peak_centers_deg": {
+        "25/-1": 11.25,
+        "25/1": 33.75,
+        "75/-1": 33.75,
+        "75/1": 11.25
+      },
+      "stratum": "isolated_1s",
+      "type": "AOTU019"
+    },
+    {
+      "baseline": "far",
+      "condition": "P1",
+      "nonpreferred_mean": -2.586164975037715,
+      "nonpreferred_negative_recordings": 13,
+      "nonpreferred_recordings": 24,
+      "peak_centers_deg": {
+        "25/-1": 33.75,
+        "25/1": 33.75,
+        "75/-1": 33.75,
+        "75/1": 33.75
+      },
+      "stratum": "isolated_1s",
+      "type": "AOTU019"
+    },
+    {
+      "baseline": "near",
+      "condition": "P1",
+      "nonpreferred_mean": 2.748729371296359,
+      "nonpreferred_negative_recordings": 0,
+      "nonpreferred_recordings": 4,
+      "peak_centers_deg": {
+        "25/-1": 11.25,
+        "25/1": 11.25,
+        "75/-1": 11.25,
+        "75/1": 11.25
+      },
+      "stratum": "isolated_2s",
+      "type": "AOTU019"
+    },
+    {
+      "baseline": "early",
+      "condition": "P1",
+      "nonpreferred_mean": 2.330293309866425,
+      "nonpreferred_negative_recordings": 1,
+      "nonpreferred_recordings": 4,
+      "peak_centers_deg": {
+        "25/-1": 11.25,
+        "25/1": 11.25,
+        "75/-1": 78.75,
+        "75/1": 11.25
+      },
+      "stratum": "isolated_2s",
+      "type": "AOTU019"
+    },
+    {
+      "baseline": "far",
+      "condition": "P1",
+      "nonpreferred_mean": 1.5317867542941446,
+      "nonpreferred_negative_recordings": 2,
+      "nonpreferred_recordings": 4,
+      "peak_centers_deg": {
+        "25/-1": 56.25,
+        "25/1": 11.25,
+        "75/-1": 56.25,
+        "75/1": 11.25
+      },
+      "stratum": "isolated_2s",
+      "type": "AOTU019"
+    },
+    {
+      "baseline": "near",
+      "condition": "P1",
+      "nonpreferred_mean": null,
+      "nonpreferred_negative_recordings": 0,
+      "nonpreferred_recordings": 0,
+      "peak_centers_deg": {},
+      "stratum": "first",
+      "type": "AOTU019"
+    },
+    {
+      "baseline": "early",
+      "condition": "P1",
+      "nonpreferred_mean": null,
+      "nonpreferred_negative_recordings": 0,
+      "nonpreferred_recordings": 0,
+      "peak_centers_deg": {},
+      "stratum": "first",
+      "type": "AOTU019"
+    },
+    {
+      "baseline": "far",
+      "condition": "P1",
+      "nonpreferred_mean": null,
+      "nonpreferred_negative_recordings": 0,
+      "nonpreferred_recordings": 0,
+      "peak_centers_deg": {},
+      "stratum": "first",
+      "type": "AOTU019"
+    },
+    {
+      "baseline": "near",
+      "condition": "P1",
+      "nonpreferred_mean": 0.768005222223386,
+      "nonpreferred_negative_recordings": 9,
+      "nonpreferred_recordings": 24,
+      "peak_centers_deg": {
+        "25/-1": 11.25,
+        "25/1": 33.75,
+        "75/-1": 33.75,
+        "75/1": 33.75
+      },
+      "stratum": "nominal_1s",
+      "type": "AOTU019"
+    },
+    {
+      "baseline": "early",
+      "condition": "P1",
+      "nonpreferred_mean": 0.005562493604686469,
+      "nonpreferred_negative_recordings": 9,
+      "nonpreferred_recordings": 24,
+      "peak_centers_deg": {
+        "25/-1": 11.25,
+        "25/1": 33.75,
+        "75/-1": 33.75,
+        "75/1": 11.25
+      },
+      "stratum": "nominal_1s",
+      "type": "AOTU019"
+    },
+    {
+      "baseline": "far",
+      "condition": "P1",
+      "nonpreferred_mean": -3.021565623636862,
+      "nonpreferred_negative_recordings": 15,
+      "nonpreferred_recordings": 24,
+      "peak_centers_deg": {
+        "25/-1": 11.25,
+        "25/1": 33.75,
+        "75/-1": 33.75,
+        "75/1": 33.75
+      },
+      "stratum": "nominal_1s",
+      "type": "AOTU019"
+    },
+    {
+      "baseline": "near",
+      "condition": "P1",
+      "nonpreferred_mean": -1.8860412805699076,
+      "nonpreferred_negative_recordings": 18,
+      "nonpreferred_recordings": 22,
+      "peak_centers_deg": {
+        "25/-1": 78.75,
+        "25/1": 56.25,
+        "75/-1": 78.75,
+        "75/1": 56.25
+      },
+      "stratum": "original",
+      "type": "AOTU025"
+    },
+    {
+      "baseline": "near",
+      "condition": "P1",
+      "nonpreferred_mean": -1.666369353594007,
+      "nonpreferred_negative_recordings": 19,
+      "nonpreferred_recordings": 22,
+      "peak_centers_deg": {
+        "25/-1": 78.75,
+        "25/1": 56.25,
+        "75/-1": 78.75,
+        "75/1": 56.25
+      },
+      "stratum": "isolated_1s",
+      "type": "AOTU025"
+    },
+    {
+      "baseline": "early",
+      "condition": "P1",
+      "nonpreferred_mean": -3.1651342178252175,
+      "nonpreferred_negative_recordings": 19,
+      "nonpreferred_recordings": 22,
+      "peak_centers_deg": {
+        "25/-1": 78.75,
+        "25/1": 56.25,
+        "75/-1": 78.75,
+        "75/1": 78.75
+      },
+      "stratum": "isolated_1s",
+      "type": "AOTU025"
+    },
+    {
+      "baseline": "far",
+      "condition": "P1",
+      "nonpreferred_mean": -4.390582898674068,
+      "nonpreferred_negative_recordings": 20,
+      "nonpreferred_recordings": 22,
+      "peak_centers_deg": {
+        "25/-1": 78.75,
+        "25/1": 56.25,
+        "75/-1": 78.75,
+        "75/1": 78.75
+      },
+      "stratum": "isolated_1s",
+      "type": "AOTU025"
+    },
+    {
+      "baseline": "near",
+      "condition": "P1",
+      "nonpreferred_mean": null,
+      "nonpreferred_negative_recordings": 0,
+      "nonpreferred_recordings": 0,
+      "peak_centers_deg": {},
+      "stratum": "isolated_2s",
+      "type": "AOTU025"
+    },
+    {
+      "baseline": "early",
+      "condition": "P1",
+      "nonpreferred_mean": null,
+      "nonpreferred_negative_recordings": 0,
+      "nonpreferred_recordings": 0,
+      "peak_centers_deg": {},
+      "stratum": "isolated_2s",
+      "type": "AOTU025"
+    },
+    {
+      "baseline": "far",
+      "condition": "P1",
+      "nonpreferred_mean": null,
+      "nonpreferred_negative_recordings": 0,
+      "nonpreferred_recordings": 0,
+      "peak_centers_deg": {},
+      "stratum": "isolated_2s",
+      "type": "AOTU025"
+    },
+    {
+      "baseline": "near",
+      "condition": "P1",
+      "nonpreferred_mean": null,
+      "nonpreferred_negative_recordings": 0,
+      "nonpreferred_recordings": 0,
+      "peak_centers_deg": {},
+      "stratum": "first",
+      "type": "AOTU025"
+    },
+    {
+      "baseline": "early",
+      "condition": "P1",
+      "nonpreferred_mean": null,
+      "nonpreferred_negative_recordings": 0,
+      "nonpreferred_recordings": 0,
+      "peak_centers_deg": {},
+      "stratum": "first",
+      "type": "AOTU025"
+    },
+    {
+      "baseline": "far",
+      "condition": "P1",
+      "nonpreferred_mean": null,
+      "nonpreferred_negative_recordings": 0,
+      "nonpreferred_recordings": 0,
+      "peak_centers_deg": {},
+      "stratum": "first",
+      "type": "AOTU025"
+    },
+    {
+      "baseline": "near",
+      "condition": "P1",
+      "nonpreferred_mean": -2.0059611555859918,
+      "nonpreferred_negative_recordings": 18,
+      "nonpreferred_recordings": 22,
+      "peak_centers_deg": {
+        "25/-1": 78.75,
+        "25/1": 56.25,
+        "75/-1": 78.75,
+        "75/1": 56.25
+      },
+      "stratum": "nominal_1s",
+      "type": "AOTU025"
+    },
+    {
+      "baseline": "early",
+      "condition": "P1",
+      "nonpreferred_mean": -3.073652828824187,
+      "nonpreferred_negative_recordings": 19,
+      "nonpreferred_recordings": 22,
+      "peak_centers_deg": {
+        "25/-1": 78.75,
+        "25/1": 56.25,
+        "75/-1": 78.75,
+        "75/1": 78.75
+      },
+      "stratum": "nominal_1s",
+      "type": "AOTU025"
+    },
+    {
+      "baseline": "far",
+      "condition": "P1",
+      "nonpreferred_mean": -5.254001930088067,
+      "nonpreferred_negative_recordings": 21,
+      "nonpreferred_recordings": 22,
+      "peak_centers_deg": {
+        "25/-1": 78.75,
+        "25/1": 56.25,
+        "75/-1": 78.75,
+        "75/1": 78.75
+      },
+      "stratum": "nominal_1s",
+      "type": "AOTU025"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "status": "byte-identical full repeat",
+  "runs": [
+    "outputs/research/lc10a-response-v1",
+    "outputs/research/lc10a-response-v1-repeat"
+  ],
+  "artifacts": {
+    "report.json": "17556bfbae7b0b1d229cf73a183f9645cccdf671e18fc099aed93036ab216ada",
+    "probe_summary.csv": "a19ef1031ea6803e86bbb6b7704c15264adcaf37d8872f3703c199ca594ed3ef",
+    "surround_absent_contrasts.csv": "4e187ad33cd26aca9aa7e68542e893e1bda89533e184d10341a17bcae6832cf3",
+    "activity_traces.npz": "d6d32c438a1c5bbe37cae05e3d8dfbf55d193f7833b91e09a21a6fe8c75b8bf1"
+  },
+  "scope": "SHA-256 matches for each complete runner output; activity traces remain ignored and local"
+}

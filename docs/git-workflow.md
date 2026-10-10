@@ -59,6 +59,7 @@ local backup folder is not required for normal operation.
 
 ## Remote repository
 
-No remote is configured yet. A remote should be added only after choosing the
-hosting account and repository visibility. Until then, local commits provide
-history without uploading the connectome or any other project files.
+The configured `origin` is `https://github.com/silascroe/fly-test.git`. It backs
+up tracked source, documentation and compact evidence. The raw connectome,
+recordings, portable runtimes, local environments and bulky outputs remain
+excluded. Review the staged paths before committing and pushing a checkpoint.

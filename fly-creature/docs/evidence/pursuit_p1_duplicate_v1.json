@@ -1,0 +1,9 @@
+{
+  "int_angular": true,
+  "int_forward": true,
+  "int_panelps": true,
+  "int_sideway": true,
+  "int_spikert": true,
+  "int_time": true,
+  "int_voltage": true
+}

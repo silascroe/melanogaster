@@ -1,0 +1,1176 @@
+{
+  "archives": [
+    {
+      "accepted": 360,
+      "archive_md5": "6ebc8edd2bb348fa14b9dbd8f2cbea01",
+      "condition": "NoP1",
+      "member": "AOTU019 Motion Pulse No P1/2023_06_15_fly01_int.mat",
+      "member_sha256": "af450cb0430f42da375d51cb91b4a9bdcf165d9f4009dfe3885f4ba14d1bf592",
+      "quiescent_pulses": 311,
+      "recording": "AOTU019/2023_06_15_fly01",
+      "rejected": {},
+      "segments": 360,
+      "trial_cells": 311
+    },
+    {
+      "condition": "NoP1",
+      "excluded": "known duplicate",
+      "recording": "AOTU019/2023_06_15_fly03"
+    },
+    {
+      "accepted": 360,
+      "archive_md5": "6ebc8edd2bb348fa14b9dbd8f2cbea01",
+      "condition": "NoP1",
+      "member": "AOTU019 Motion Pulse No P1/2023_06_19_fly01_int.mat",
+      "member_sha256": "0428b1bb23caded3aa1e1f9320aa13b232093c34cb9f6bb83912297a8db751a8",
+      "quiescent_pulses": 242,
+      "recording": "AOTU019/2023_06_19_fly01",
+      "rejected": {},
+      "segments": 360,
+      "trial_cells": 242
+    },
+    {
+      "accepted": 359,
+      "archive_md5": "6ebc8edd2bb348fa14b9dbd8f2cbea01",
+      "condition": "NoP1",
+      "member": "AOTU019 Motion Pulse No P1/2023_06_19_fly02_int.mat",
+      "member_sha256": "42ed99e00b83b1ceb9c5788b147de4721e6b6df838a527d646dbe814e9916321",
+      "quiescent_pulses": 347,
+      "recording": "AOTU019/2023_06_19_fly02",
+      "rejected": {
+        "span": 1
+      },
+      "segments": 360,
+      "trial_cells": 347
+    },
+    {
+      "accepted": 360,
+      "archive_md5": "6ebc8edd2bb348fa14b9dbd8f2cbea01",
+      "condition": "NoP1",
+      "member": "AOTU019 Motion Pulse No P1/2023_06_19_fly03_int.mat",
+      "member_sha256": "1be9193f3959dee7442699980eb47fd68e3eeb8d3b4f1b34ec62473278caa348",
+      "quiescent_pulses": 360,
+      "recording": "AOTU019/2023_06_19_fly03",
+      "rejected": {},
+      "segments": 360,
+      "trial_cells": 360
+    },
+    {
+      "accepted": 360,
+      "archive_md5": "6ebc8edd2bb348fa14b9dbd8f2cbea01",
+      "condition": "NoP1",
+      "member": "AOTU019 Motion Pulse No P1/2023_06_20_fly02_int.mat",
+      "member_sha256": "8410a7b8c4f3d1c70c6b7490d901502a1eed7185d60045f480a17dc370434454",
+      "quiescent_pulses": 280,
+      "recording": "AOTU019/2023_06_20_fly02",
+      "rejected": {},
+      "segments": 360,
+      "trial_cells": 280
+    },
+    {
+      "accepted": 360,
+      "archive_md5": "6ebc8edd2bb348fa14b9dbd8f2cbea01",
+      "condition": "NoP1",
+      "member": "AOTU019 Motion Pulse No P1/2023_06_21_fly01_int.mat",
+      "member_sha256": "43b4cd5e4321227ea4133288ef59066e51cbf3693e799d7454d6b783b7c90a78",
+      "quiescent_pulses": 124,
+      "recording": "AOTU019/2023_06_21_fly01",
+      "rejected": {},
+      "segments": 360,
+      "trial_cells": 124
+    },
+    {
+      "accepted": 360,
+      "archive_md5": "6ebc8edd2bb348fa14b9dbd8f2cbea01",
+      "condition": "NoP1",
+      "member": "AOTU019 Motion Pulse No P1/2023_06_23_fly01_int.mat",
+      "member_sha256": "17c57432d59259f036affda2117f89db5dca5fa2d70601c9a75437b6711c8784",
+      "quiescent_pulses": 114,
+      "recording": "AOTU019/2023_06_23_fly01",
+      "rejected": {},
+      "segments": 360,
+      "trial_cells": 114
+    },
+    {
+      "accepted": 648,
+      "archive_md5": "6ebc8edd2bb348fa14b9dbd8f2cbea01",
+      "condition": "NoP1",
+      "member": "AOTU019 Motion Pulse No P1/2023_10_25_fly03_int.mat",
+      "member_sha256": "83ef2ba0bd3bd8195e067fe598c5c583fc7b67d985d1a2c5e7db55c34fc49a5a",
+      "quiescent_pulses": 435,
+      "recording": "AOTU019/2023_10_25_fly03",
+      "rejected": {},
+      "segments": 648,
+      "trial_cells": 435
+    },
+    {
+      "accepted": 1078,
+      "archive_md5": "6ebc8edd2bb348fa14b9dbd8f2cbea01",
+      "condition": "NoP1",
+      "member": "AOTU019 Motion Pulse No P1/2023_10_26_fly01_int.mat",
+      "member_sha256": "0979046daf223eed9d9403250fa2e607c6ad622fe4d909203eb021960e3aa801",
+      "quiescent_pulses": 678,
+      "recording": "AOTU019/2023_10_26_fly01",
+      "rejected": {
+        "duration": 1,
+        "neighboring_stimulus": 1,
+        "span": 1
+      },
+      "segments": 1081,
+      "trial_cells": 678
+    },
+    {
+      "accepted": 720,
+      "archive_md5": "6ebc8edd2bb348fa14b9dbd8f2cbea01",
+      "condition": "NoP1",
+      "member": "AOTU019 Motion Pulse No P1/2023_10_27_fly04_int.mat",
+      "member_sha256": "aacf963a7a49a718032079744a748a3c91fcf2145ea7245b0381503854686e44",
+      "quiescent_pulses": 275,
+      "recording": "AOTU019/2023_10_27_fly04",
+      "rejected": {},
+      "segments": 720,
+      "trial_cells": 275
+    },
+    {
+      "accepted": 718,
+      "archive_md5": "6ebc8edd2bb348fa14b9dbd8f2cbea01",
+      "condition": "NoP1",
+      "member": "AOTU019 Motion Pulse No P1/2023_10_31_fly01_int.mat",
+      "member_sha256": "23ca2a2f2a0a7202b694899df5efd8c3f11cdb2f77b8e2ff009a0ac29770534b",
+      "quiescent_pulses": 428,
+      "recording": "AOTU019/2023_10_31_fly01",
+      "rejected": {
+        "duration": 2,
+        "span": 1
+      },
+      "segments": 721,
+      "trial_cells": 428
+    },
+    {
+      "accepted": 520,
+      "archive_md5": "ebeace816547366b8325182f80a08a5b",
+      "condition": "NoP1",
+      "member": "AOTU025 Motion Pulse No P1/2024_05_31_fly02_int.mat",
+      "member_sha256": "a15e4c5d3483b940b6388c32b5784a5b416b9d1079dcd82b37c571f745ec9c81",
+      "quiescent_pulses": 460,
+      "recording": "AOTU025/2024_05_31_fly02",
+      "rejected": {},
+      "segments": 520,
+      "trial_cells": 460
+    },
+    {
+      "accepted": 520,
+      "archive_md5": "ebeace816547366b8325182f80a08a5b",
+      "condition": "NoP1",
+      "member": "AOTU025 Motion Pulse No P1/2024_06_26_fly01_int.mat",
+      "member_sha256": "238171647ad5edd448958cb5dd77c25ef871a425bbcd9ae5272efbec164fcee4",
+      "quiescent_pulses": 500,
+      "recording": "AOTU025/2024_06_26_fly01",
+      "rejected": {},
+      "segments": 520,
+      "trial_cells": 500
+    },
+    {
+      "accepted": 208,
+      "archive_md5": "ebeace816547366b8325182f80a08a5b",
+      "condition": "NoP1",
+      "member": "AOTU025 Motion Pulse No P1/2024_06_27_fly01_int.mat",
+      "member_sha256": "bb3e2f3841d3caf6413563e64e95a6022f74315790e1eeb869c20469d0fc9935",
+      "quiescent_pulses": 137,
+      "recording": "AOTU025/2024_06_27_fly01",
+      "rejected": {},
+      "segments": 208,
+      "trial_cells": 137
+    },
+    {
+      "accepted": 520,
+      "archive_md5": "ebeace816547366b8325182f80a08a5b",
+      "condition": "NoP1",
+      "member": "AOTU025 Motion Pulse No P1/2024_06_28_fly01_int.mat",
+      "member_sha256": "63bfd05c8a616b0fc558a0781d23570fc66b673d6d87b3a76cf1280a4143c2a7",
+      "quiescent_pulses": 234,
+      "recording": "AOTU025/2024_06_28_fly01",
+      "rejected": {},
+      "segments": 520,
+      "trial_cells": 234
+    },
+    {
+      "accepted": 520,
+      "archive_md5": "ebeace816547366b8325182f80a08a5b",
+      "condition": "NoP1",
+      "member": "AOTU025 Motion Pulse No P1/2024_07_02_fly03_int.mat",
+      "member_sha256": "92b73a4a767a31e5067fd0cdbcf64c0b74866a9c668a6968c2edf089a9fb527f",
+      "quiescent_pulses": 374,
+      "recording": "AOTU025/2024_07_02_fly03",
+      "rejected": {},
+      "segments": 520,
+      "trial_cells": 374
+    },
+    {
+      "accepted": 519,
+      "archive_md5": "ebeace816547366b8325182f80a08a5b",
+      "condition": "NoP1",
+      "member": "AOTU025 Motion Pulse No P1/2024_07_03_fly01_int.mat",
+      "member_sha256": "f0a35ee5f0130255bceef5aee0cd291f1d12384e13c3edf7e9326b96e999c4e5",
+      "quiescent_pulses": 196,
+      "recording": "AOTU025/2024_07_03_fly01",
+      "rejected": {
+        "span": 1
+      },
+      "segments": 520,
+      "trial_cells": 196
+    },
+    {
+      "accepted": 518,
+      "archive_md5": "ebeace816547366b8325182f80a08a5b",
+      "condition": "NoP1",
+      "member": "AOTU025 Motion Pulse No P1/2025_02_24_fly02_int.mat",
+      "member_sha256": "d32cb4728f1d58ea7a41c813d06de33f0fa58533632c445c1c883767f1ccd74e",
+      "quiescent_pulses": 401,
+      "recording": "AOTU025/2025_02_24_fly02",
+      "rejected": {
+        "duration": 2,
+        "span": 1
+      },
+      "segments": 521,
+      "trial_cells": 401
+    },
+    {
+      "accepted": 519,
+      "archive_md5": "ebeace816547366b8325182f80a08a5b",
+      "condition": "NoP1",
+      "member": "AOTU025 Motion Pulse No P1/2025_03_06_fly02_int.mat",
+      "member_sha256": "5a1c17772f0aae05d3203dcd3c313029b2c44a92578faecb2606b50eea45edfb",
+      "quiescent_pulses": 300,
+      "recording": "AOTU025/2025_03_06_fly02",
+      "rejected": {
+        "duration": 1,
+        "span": 1
+      },
+      "segments": 521,
+      "trial_cells": 300
+    },
+    {
+      "accepted": 519,
+      "archive_md5": "ebeace816547366b8325182f80a08a5b",
+      "condition": "NoP1",
+      "member": "AOTU025 Motion Pulse No P1/2025_03_13_fly02_int.mat",
+      "member_sha256": "4e040976b2b81fe47715001b1e0a958fb05898dd677ce21d6d9cbd64120c32bb",
+      "quiescent_pulses": 389,
+      "recording": "AOTU025/2025_03_13_fly02",
+      "rejected": {
+        "span": 1
+      },
+      "segments": 520,
+      "trial_cells": 389
+    },
+    {
+      "accepted": 518,
+      "archive_md5": "ebeace816547366b8325182f80a08a5b",
+      "condition": "NoP1",
+      "member": "AOTU025 Motion Pulse No P1/2025_03_25_fly01_int.mat",
+      "member_sha256": "9555dde0683f94faa3a1cc22b34e53ede96084b13cac203b446b4f6dd235277d",
+      "quiescent_pulses": 239,
+      "recording": "AOTU025/2025_03_25_fly01",
+      "rejected": {
+        "duration": 2,
+        "span": 1
+      },
+      "segments": 521,
+      "trial_cells": 239
+    },
+    {
+      "accepted": 518,
+      "archive_md5": "ebeace816547366b8325182f80a08a5b",
+      "condition": "NoP1",
+      "member": "AOTU025 Motion Pulse No P1/2025_03_25_fly02_int.mat",
+      "member_sha256": "e0cea706ecb55655cb1916ec57e2a72edea38533ac6f9231394d9097d3ed5853",
+      "quiescent_pulses": 459,
+      "recording": "AOTU025/2025_03_25_fly02",
+      "rejected": {
+        "span": 2
+      },
+      "segments": 520,
+      "trial_cells": 459
+    },
+    {
+      "accepted": 519,
+      "archive_md5": "ebeace816547366b8325182f80a08a5b",
+      "condition": "NoP1",
+      "member": "AOTU025 Motion Pulse No P1/2025_03_25_fly03_int.mat",
+      "member_sha256": "2c6ba42a361b4cd40420d161edb8c37f6fec80c11ce0a51a383198d9a0278379",
+      "quiescent_pulses": 167,
+      "recording": "AOTU025/2025_03_25_fly03",
+      "rejected": {
+        "duration": 1,
+        "span": 1
+      },
+      "segments": 521,
+      "trial_cells": 167
+    },
+    {
+      "accepted": 1796,
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "condition": "P1",
+      "member": "AOTU019 Motion Pulse/2023_05_08_fly01_int.mat",
+      "member_sha256": "69b046a4103d74defb771b5621baccad2b672b0dc851dfd185fe4cad53c8fbe5",
+      "quiescent_pulses": 1472,
+      "recording": "AOTU019/2023_05_08_fly01",
+      "rejected": {
+        "duration": 6,
+        "span": 1
+      },
+      "segments": 1803,
+      "trial_cells": 1472
+    },
+    {
+      "accepted": 1077,
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "condition": "P1",
+      "member": "AOTU019 Motion Pulse/2023_05_09_fly03_int.mat",
+      "member_sha256": "b3e0196a2782ad6dbc5c82b8ea6b0dc563720baa6536656dc3906f1fa9be7861",
+      "quiescent_pulses": 666,
+      "recording": "AOTU019/2023_05_09_fly03",
+      "rejected": {
+        "duration": 1,
+        "neighboring_stimulus": 1,
+        "span": 2
+      },
+      "segments": 1081,
+      "trial_cells": 666
+    },
+    {
+      "accepted": 1580,
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "condition": "P1",
+      "member": "AOTU019 Motion Pulse/2023_05_11_fly01_int.mat",
+      "member_sha256": "78c86349bd9eb8540522744d8cad038b79eb1319880ab9f3749d65acd85eaf5e",
+      "quiescent_pulses": 1363,
+      "recording": "AOTU019/2023_05_11_fly01",
+      "rejected": {
+        "duration": 1,
+        "span": 4
+      },
+      "segments": 1585,
+      "trial_cells": 1363
+    },
+    {
+      "accepted": 1079,
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "condition": "P1",
+      "member": "AOTU019 Motion Pulse/2023_05_30_fly01_int.mat",
+      "member_sha256": "b6cb8029969cfdebc1d6151744a31ed414b93a5488b2eb799aa4be5f5126241c",
+      "quiescent_pulses": 725,
+      "recording": "AOTU019/2023_05_30_fly01",
+      "rejected": {
+        "span": 1
+      },
+      "segments": 1080,
+      "trial_cells": 725
+    },
+    {
+      "accepted": 1797,
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "condition": "P1",
+      "member": "AOTU019 Motion Pulse/2023_06_13_fly01_int.mat",
+      "member_sha256": "fca3f328b6669f0c417a8a9ffc704c1c0e221f5a4dd75653a2fc77e7d393e4db",
+      "quiescent_pulses": 779,
+      "recording": "AOTU019/2023_06_13_fly01",
+      "rejected": {
+        "duration": 1,
+        "span": 3
+      },
+      "segments": 1801,
+      "trial_cells": 779
+    },
+    {
+      "accepted": 718,
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "condition": "P1",
+      "member": "AOTU019 Motion Pulse/2023_06_13_fly02_int.mat",
+      "member_sha256": "7ccfec1fc0763e94fa87c881548807810c20576716e280f536a7726f5ab7f573",
+      "quiescent_pulses": 550,
+      "recording": "AOTU019/2023_06_13_fly02",
+      "rejected": {
+        "duration": 2,
+        "span": 1
+      },
+      "segments": 721,
+      "trial_cells": 550
+    },
+    {
+      "accepted": 1367,
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "condition": "P1",
+      "member": "AOTU019 Motion Pulse/2023_06_14_fly02_int.mat",
+      "member_sha256": "64cc5d93efb38755f6eefb2c8d3d290e2394c854897e469b6d7ee55895803763",
+      "quiescent_pulses": 874,
+      "recording": "AOTU019/2023_06_14_fly02",
+      "rejected": {
+        "span": 1
+      },
+      "segments": 1368,
+      "trial_cells": 874
+    },
+    {
+      "accepted": 1797,
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "condition": "P1",
+      "member": "AOTU019 Motion Pulse/2023_06_15_fly01_int.mat",
+      "member_sha256": "9d276e57b790a958d452222c8a1760146dfcaf2d2e1f4240816fddd2047863a8",
+      "quiescent_pulses": 726,
+      "recording": "AOTU019/2023_06_15_fly01",
+      "rejected": {
+        "duration": 2,
+        "span": 2
+      },
+      "segments": 1801,
+      "trial_cells": 726
+    },
+    {
+      "condition": "P1",
+      "excluded": "known duplicate",
+      "recording": "AOTU019/2023_06_15_fly03"
+    },
+    {
+      "accepted": 1438,
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "condition": "P1",
+      "member": "AOTU019 Motion Pulse/2023_06_19_fly01_int.mat",
+      "member_sha256": "704ccb66637e7d01e0f1e1efecbe01baf77eaf3b0d53ecf3f5992640c9e13cd0",
+      "quiescent_pulses": 665,
+      "recording": "AOTU019/2023_06_19_fly01",
+      "rejected": {
+        "span": 2
+      },
+      "segments": 1440,
+      "trial_cells": 665
+    },
+    {
+      "accepted": 1440,
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "condition": "P1",
+      "member": "AOTU019 Motion Pulse/2023_06_19_fly02_int.mat",
+      "member_sha256": "8feae93c073a3fb31ff729b15fa551c92e1d53603df24b933def5c5b673b99cc",
+      "quiescent_pulses": 928,
+      "recording": "AOTU019/2023_06_19_fly02",
+      "rejected": {},
+      "segments": 1440,
+      "trial_cells": 928
+    },
+    {
+      "accepted": 1440,
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "condition": "P1",
+      "member": "AOTU019 Motion Pulse/2023_06_19_fly03_int.mat",
+      "member_sha256": "06764d54b14c2fa2ac3580b6e5aada1fdd8266f8fd63d8acbf7aea31b1234a79",
+      "quiescent_pulses": 680,
+      "recording": "AOTU019/2023_06_19_fly03",
+      "rejected": {},
+      "segments": 1440,
+      "trial_cells": 680
+    },
+    {
+      "accepted": 1438,
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "condition": "P1",
+      "member": "AOTU019 Motion Pulse/2023_06_20_fly02_int.mat",
+      "member_sha256": "968d2979b391081d85f0ce84823051175c8096c92344c2e748fa9e9aeb54d862",
+      "quiescent_pulses": 1066,
+      "recording": "AOTU019/2023_06_20_fly02",
+      "rejected": {
+        "duration": 1,
+        "span": 2
+      },
+      "segments": 1441,
+      "trial_cells": 1066
+    },
+    {
+      "accepted": 1439,
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "condition": "P1",
+      "member": "AOTU019 Motion Pulse/2023_06_21_fly01_int.mat",
+      "member_sha256": "075fc0ec65354e20862212fe1371d3b73bf344ea09388620cdc37bd3e71004c5",
+      "quiescent_pulses": 271,
+      "recording": "AOTU019/2023_06_21_fly01",
+      "rejected": {
+        "span": 1
+      },
+      "segments": 1440,
+      "trial_cells": 271
+    },
+    {
+      "accepted": 287,
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "condition": "P1",
+      "member": "AOTU019 Motion Pulse/2023_06_21_fly02_int.mat",
+      "member_sha256": "1751e00535b671079c3be074489eafa4eb7bcedd57cfbda89a9b43c17378acb5",
+      "quiescent_pulses": 100,
+      "recording": "AOTU019/2023_06_21_fly02",
+      "rejected": {
+        "duration": 1,
+        "span": 1
+      },
+      "segments": 289,
+      "trial_cells": 100
+    },
+    {
+      "accepted": 1115,
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "condition": "P1",
+      "member": "AOTU019 Motion Pulse/2023_06_22_fly01_int.mat",
+      "member_sha256": "6c5230176550f88e46ac7c171fe311a7e2fabf0ac1f6d2b94e92d3a2a73d217f",
+      "quiescent_pulses": 208,
+      "recording": "AOTU019/2023_06_22_fly01",
+      "rejected": {
+        "span": 1
+      },
+      "segments": 1116,
+      "trial_cells": 208
+    },
+    {
+      "accepted": 1293,
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "condition": "P1",
+      "member": "AOTU019 Motion Pulse/2023_06_23_fly01_int.mat",
+      "member_sha256": "720f847ccda61206e84ee83c61d3b272064d54de5f54e6381690b7c33a584cfb",
+      "quiescent_pulses": 541,
+      "recording": "AOTU019/2023_06_23_fly01",
+      "rejected": {
+        "duration": 1,
+        "span": 3
+      },
+      "segments": 1297,
+      "trial_cells": 541
+    },
+    {
+      "accepted": 1185,
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "condition": "P1",
+      "member": "AOTU019 Motion Pulse/2023_06_23_fly02_int.mat",
+      "member_sha256": "9f0a39c271051e98f3766122c8723cb07067227708cb8b0c3aae13a1d42b621c",
+      "quiescent_pulses": 1047,
+      "recording": "AOTU019/2023_06_23_fly02",
+      "rejected": {
+        "span": 3
+      },
+      "segments": 1188,
+      "trial_cells": 1047
+    },
+    {
+      "accepted": 1437,
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "condition": "P1",
+      "member": "AOTU019 Motion Pulse/2023_10_25_fly03_int.mat",
+      "member_sha256": "9f04b89ad4410afe376628073c08592f40f8833873b98505117bfa78219c7bfd",
+      "quiescent_pulses": 702,
+      "recording": "AOTU019/2023_10_25_fly03",
+      "rejected": {
+        "span": 3
+      },
+      "segments": 1440,
+      "trial_cells": 702
+    },
+    {
+      "accepted": 1438,
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "condition": "P1",
+      "member": "AOTU019 Motion Pulse/2023_10_26_fly01_int.mat",
+      "member_sha256": "3fd08b7d77b8f378bc89e6e7424b9418a97872cc433ebe0b54f6f542111ec1a3",
+      "quiescent_pulses": 468,
+      "recording": "AOTU019/2023_10_26_fly01",
+      "rejected": {
+        "span": 2
+      },
+      "segments": 1440,
+      "trial_cells": 468
+    },
+    {
+      "accepted": 324,
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "condition": "P1",
+      "member": "AOTU019 Motion Pulse/2023_10_27_fly03_int.mat",
+      "member_sha256": "b2db8b37187afcb461d587483c61a4d1799f2c7a503ab6c1ad90fef4a4de1715",
+      "quiescent_pulses": 66,
+      "recording": "AOTU019/2023_10_27_fly03",
+      "rejected": {},
+      "segments": 324,
+      "trial_cells": 66
+    },
+    {
+      "accepted": 1439,
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "condition": "P1",
+      "member": "AOTU019 Motion Pulse/2023_10_27_fly04_int.mat",
+      "member_sha256": "b77d5b0d1eec88a8e9704b6a423143919a63b842e5b78f859546d0c13603fb7b",
+      "quiescent_pulses": 282,
+      "recording": "AOTU019/2023_10_27_fly04",
+      "rejected": {
+        "span": 1
+      },
+      "segments": 1440,
+      "trial_cells": 282
+    },
+    {
+      "accepted": 1437,
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "condition": "P1",
+      "member": "AOTU019 Motion Pulse/2023_10_31_fly01_int.mat",
+      "member_sha256": "16f5af5d91dd05cb3f87b84cfca5385369626598b82f49667c2c5c32bdaaf631",
+      "quiescent_pulses": 771,
+      "recording": "AOTU019/2023_10_31_fly01",
+      "rejected": {
+        "span": 3
+      },
+      "segments": 1440,
+      "trial_cells": 771
+    },
+    {
+      "accepted": 719,
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "condition": "P1",
+      "member": "AOTU019 Motion Pulse/2023_10_31_fly03_int.mat",
+      "member_sha256": "b6070e05c359652cd7712a8691b49e83164893edc3075bf2cfec532cbffcb3e3",
+      "quiescent_pulses": 335,
+      "recording": "AOTU019/2023_10_31_fly03",
+      "rejected": {
+        "span": 1
+      },
+      "segments": 720,
+      "trial_cells": 335
+    },
+    {
+      "accepted": 287,
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "condition": "P1",
+      "member": "AOTU019 Motion Pulse/2023_11_01_fly01_int.mat",
+      "member_sha256": "2064d67e32cecd32a31a23c003eaa1618e23344f0a9e51729f8c5b395adb916e",
+      "quiescent_pulses": 80,
+      "recording": "AOTU019/2023_11_01_fly01",
+      "rejected": {
+        "span": 1
+      },
+      "segments": 288,
+      "trial_cells": 80
+    },
+    {
+      "accepted": 2077,
+      "archive_md5": "eae5a827f7e75b373c95b1ce9ee76c9b",
+      "condition": "P1",
+      "member": "AOTU025 Motion Pulse/2024_05_31_fly02_int.mat",
+      "member_sha256": "3d6a9ef6deab8aae3cdacf9ae3da3349d17e721b1c5122660d731ee2ee0e19c6",
+      "quiescent_pulses": 1016,
+      "recording": "AOTU025/2024_05_31_fly02",
+      "rejected": {
+        "duration": 1,
+        "span": 3
+      },
+      "segments": 2081,
+      "trial_cells": 1016
+    },
+    {
+      "accepted": 1036,
+      "archive_md5": "eae5a827f7e75b373c95b1ce9ee76c9b",
+      "condition": "P1",
+      "member": "AOTU025 Motion Pulse/2024_05_31_fly03_int.mat",
+      "member_sha256": "8946314ff12ea8d1aef97ffa289a7972ba8826d912919b2cb491ec57158fb058",
+      "quiescent_pulses": 939,
+      "recording": "AOTU025/2024_05_31_fly03",
+      "rejected": {
+        "duration": 5,
+        "span": 2
+      },
+      "segments": 1043,
+      "trial_cells": 939
+    },
+    {
+      "accepted": 519,
+      "archive_md5": "eae5a827f7e75b373c95b1ce9ee76c9b",
+      "condition": "P1",
+      "member": "AOTU025 Motion Pulse/2024_06_10_fly02_int.mat",
+      "member_sha256": "543f675058218fe8e55ec477c26ac1ed2b66c44a021b41c393109400db3557e2",
+      "quiescent_pulses": 315,
+      "recording": "AOTU025/2024_06_10_fly02",
+      "rejected": {
+        "duration": 1,
+        "span": 1
+      },
+      "segments": 521,
+      "trial_cells": 315
+    },
+    {
+      "accepted": 1610,
+      "archive_md5": "eae5a827f7e75b373c95b1ce9ee76c9b",
+      "condition": "P1",
+      "member": "AOTU025 Motion Pulse/2024_06_11_fly01_int.mat",
+      "member_sha256": "ae951dc8ad56ff80d27b6a9f24e5dad16e92ad180622683d9f172bf2bbd185c7",
+      "quiescent_pulses": 1015,
+      "recording": "AOTU025/2024_06_11_fly01",
+      "rejected": {
+        "duration": 1,
+        "span": 2
+      },
+      "segments": 1613,
+      "trial_cells": 1015
+    },
+    {
+      "accepted": 830,
+      "archive_md5": "eae5a827f7e75b373c95b1ce9ee76c9b",
+      "condition": "P1",
+      "member": "AOTU025 Motion Pulse/2024_06_11_fly02_int.mat",
+      "member_sha256": "2135ea3de954f5f3efbcd7c3b9185589a711328331ff3e8fb03ee06dbff24506",
+      "quiescent_pulses": 512,
+      "recording": "AOTU025/2024_06_11_fly02",
+      "rejected": {
+        "span": 2
+      },
+      "segments": 832,
+      "trial_cells": 512
+    },
+    {
+      "accepted": 570,
+      "archive_md5": "eae5a827f7e75b373c95b1ce9ee76c9b",
+      "condition": "P1",
+      "member": "AOTU025 Motion Pulse/2024_06_12_fly02_int.mat",
+      "member_sha256": "440630a45771bbbc35c7a937f63cca9c753f37aca01e8ea786fb15a2d4592b17",
+      "quiescent_pulses": 266,
+      "recording": "AOTU025/2024_06_12_fly02",
+      "rejected": {
+        "span": 2
+      },
+      "segments": 572,
+      "trial_cells": 266
+    },
+    {
+      "accepted": 1920,
+      "archive_md5": "eae5a827f7e75b373c95b1ce9ee76c9b",
+      "condition": "P1",
+      "member": "AOTU025 Motion Pulse/2024_06_13_fly01_int.mat",
+      "member_sha256": "2b64fcdcb2047b4158085117d4ae919eaa0f312ce92358a29fa6e54b4d2cbba8",
+      "quiescent_pulses": 636,
+      "recording": "AOTU025/2024_06_13_fly01",
+      "rejected": {
+        "duration": 3,
+        "neighboring_stimulus": 1,
+        "span": 2
+      },
+      "segments": 1926,
+      "trial_cells": 636
+    },
+    {
+      "accepted": 1038,
+      "archive_md5": "eae5a827f7e75b373c95b1ce9ee76c9b",
+      "condition": "P1",
+      "member": "AOTU025 Motion Pulse/2024_06_21_fly01_int.mat",
+      "member_sha256": "d7fbb205e9acc39f8a77a2ce15f103d59c4665802ee200d76061c34167549ef2",
+      "quiescent_pulses": 672,
+      "recording": "AOTU025/2024_06_21_fly01",
+      "rejected": {
+        "duration": 1,
+        "span": 2
+      },
+      "segments": 1041,
+      "trial_cells": 672
+    },
+    {
+      "accepted": 622,
+      "archive_md5": "eae5a827f7e75b373c95b1ce9ee76c9b",
+      "condition": "P1",
+      "member": "AOTU025 Motion Pulse/2024_06_21_fly02_int.mat",
+      "member_sha256": "07bb068748f690b3df407bb7625e7e8a03cebb46867ed534186f0e768da3a18e",
+      "quiescent_pulses": 153,
+      "recording": "AOTU025/2024_06_21_fly02",
+      "rejected": {
+        "duration": 3,
+        "neighboring_stimulus": 1
+      },
+      "segments": 626,
+      "trial_cells": 153
+    },
+    {
+      "accepted": 1558,
+      "archive_md5": "eae5a827f7e75b373c95b1ce9ee76c9b",
+      "condition": "P1",
+      "member": "AOTU025 Motion Pulse/2024_06_26_fly01_int.mat",
+      "member_sha256": "50226a4184345c5b7dfd054e1f8a34d90587b67085447cd1640861604fbda177",
+      "quiescent_pulses": 1209,
+      "recording": "AOTU025/2024_06_26_fly01",
+      "rejected": {
+        "span": 2
+      },
+      "segments": 1560,
+      "trial_cells": 1209
+    },
+    {
+      "accepted": 1414,
+      "archive_md5": "eae5a827f7e75b373c95b1ce9ee76c9b",
+      "condition": "P1",
+      "member": "AOTU025 Motion Pulse/2024_06_27_fly01_int.mat",
+      "member_sha256": "a4867fd9be9ee1efb9cd52123db35baf0fe9c7ddcb2f9aaf02bb578483144103",
+      "quiescent_pulses": 938,
+      "recording": "AOTU025/2024_06_27_fly01",
+      "rejected": {
+        "duration": 2,
+        "span": 5
+      },
+      "segments": 1421,
+      "trial_cells": 938
+    },
+    {
+      "accepted": 1555,
+      "archive_md5": "eae5a827f7e75b373c95b1ce9ee76c9b",
+      "condition": "P1",
+      "member": "AOTU025 Motion Pulse/2024_06_28_fly01_int.mat",
+      "member_sha256": "d2440d2879a4ccf002d82da9dee12ceb80ad623fd6931c031979300fb9cb9615",
+      "quiescent_pulses": 735,
+      "recording": "AOTU025/2024_06_28_fly01",
+      "rejected": {
+        "span": 5
+      },
+      "segments": 1560,
+      "trial_cells": 735
+    },
+    {
+      "accepted": 935,
+      "archive_md5": "eae5a827f7e75b373c95b1ce9ee76c9b",
+      "condition": "P1",
+      "member": "AOTU025 Motion Pulse/2024_07_01_fly01_int.mat",
+      "member_sha256": "c1e15bf08abdf3e9a213067acb4e7e6f9cd7ba64af7162148faa5da2c24aa586",
+      "quiescent_pulses": 266,
+      "recording": "AOTU025/2024_07_01_fly01",
+      "rejected": {
+        "span": 1
+      },
+      "segments": 936,
+      "trial_cells": 266
+    },
+    {
+      "accepted": 1658,
+      "archive_md5": "eae5a827f7e75b373c95b1ce9ee76c9b",
+      "condition": "P1",
+      "member": "AOTU025 Motion Pulse/2024_07_02_fly03_int.mat",
+      "member_sha256": "b6c9be15e0c7e74fe291d23a80b65b0c79eeb50d968e656fe1aa7e197c653ee5",
+      "quiescent_pulses": 1014,
+      "recording": "AOTU025/2024_07_02_fly03",
+      "rejected": {
+        "duration": 6,
+        "span": 4
+      },
+      "segments": 1668,
+      "trial_cells": 1014
+    },
+    {
+      "accepted": 2073,
+      "archive_md5": "eae5a827f7e75b373c95b1ce9ee76c9b",
+      "condition": "P1",
+      "member": "AOTU025 Motion Pulse/2024_07_03_fly01_int.mat",
+      "member_sha256": "1383a9841c0a6ac1094834c94d002a892a90f4fe340ec49e4d7a08e7bd9c7540",
+      "quiescent_pulses": 635,
+      "recording": "AOTU025/2024_07_03_fly01",
+      "rejected": {
+        "duration": 3,
+        "span": 6
+      },
+      "segments": 2082,
+      "trial_cells": 635
+    },
+    {
+      "accepted": 1039,
+      "archive_md5": "eae5a827f7e75b373c95b1ce9ee76c9b",
+      "condition": "P1",
+      "member": "AOTU025 Motion Pulse/2025_02_24_fly02_int.mat",
+      "member_sha256": "b28db22fa8de0bd615dfe43d085824bf8304f4564f666e9f4eba0632fcd16aa4",
+      "quiescent_pulses": 406,
+      "recording": "AOTU025/2025_02_24_fly02",
+      "rejected": {
+        "span": 1
+      },
+      "segments": 1040,
+      "trial_cells": 406
+    },
+    {
+      "accepted": 1037,
+      "archive_md5": "eae5a827f7e75b373c95b1ce9ee76c9b",
+      "condition": "P1",
+      "member": "AOTU025 Motion Pulse/2025_03_06_fly02_int.mat",
+      "member_sha256": "620b97197398713ed02a9dab5a0ddf83551a732960dddebca6dd6421bfe6160d",
+      "quiescent_pulses": 425,
+      "recording": "AOTU025/2025_03_06_fly02",
+      "rejected": {
+        "span": 3
+      },
+      "segments": 1040,
+      "trial_cells": 425
+    },
+    {
+      "accepted": 1038,
+      "archive_md5": "eae5a827f7e75b373c95b1ce9ee76c9b",
+      "condition": "P1",
+      "member": "AOTU025 Motion Pulse/2025_03_13_fly02_int.mat",
+      "member_sha256": "b7c93498e463a3f5b7f526d4b5737b3270029e3ce47a3accedd9b91cc6a14f42",
+      "quiescent_pulses": 655,
+      "recording": "AOTU025/2025_03_13_fly02",
+      "rejected": {
+        "duration": 1,
+        "span": 2
+      },
+      "segments": 1041,
+      "trial_cells": 655
+    },
+    {
+      "accepted": 520,
+      "archive_md5": "eae5a827f7e75b373c95b1ce9ee76c9b",
+      "condition": "P1",
+      "member": "AOTU025 Motion Pulse/2025_03_25_fly01_int.mat",
+      "member_sha256": "ede67fef6e60d22babc3fb78ede766748998b4197bf174889e117b136b83e979",
+      "quiescent_pulses": 226,
+      "recording": "AOTU025/2025_03_25_fly01",
+      "rejected": {},
+      "segments": 520,
+      "trial_cells": 226
+    },
+    {
+      "accepted": 516,
+      "archive_md5": "eae5a827f7e75b373c95b1ce9ee76c9b",
+      "condition": "P1",
+      "member": "AOTU025 Motion Pulse/2025_03_25_fly02_int.mat",
+      "member_sha256": "d76ca07fbbe24de535b2dfe1a1c297a4b3e1e53d16acdaef766cb60a19911e42",
+      "quiescent_pulses": 372,
+      "recording": "AOTU025/2025_03_25_fly02",
+      "rejected": {
+        "duration": 1,
+        "neighboring_stimulus": 1,
+        "span": 3
+      },
+      "segments": 521,
+      "trial_cells": 372
+    },
+    {
+      "accepted": 519,
+      "archive_md5": "eae5a827f7e75b373c95b1ce9ee76c9b",
+      "condition": "P1",
+      "member": "AOTU025 Motion Pulse/2025_03_25_fly03_int.mat",
+      "member_sha256": "224584c9e46c8e945d83ed29787dc39178c768dd43ee6527896a6235747e155d",
+      "quiescent_pulses": 145,
+      "recording": "AOTU025/2025_03_25_fly03",
+      "rejected": {
+        "duration": 1,
+        "span": 1
+      },
+      "segments": 521,
+      "trial_cells": 145
+    },
+    {
+      "accepted": 364,
+      "archive_md5": "eae5a827f7e75b373c95b1ce9ee76c9b",
+      "condition": "P1",
+      "member": "AOTU025 Motion Pulse/2025_03_26_fly03_int.mat",
+      "member_sha256": "b6a5ce3ae9361e2a2bb3596da0f1d26841f1c1e86d99d60ab086ef7f8a2cc3e8",
+      "quiescent_pulses": 119,
+      "recording": "AOTU025/2025_03_26_fly03",
+      "rejected": {},
+      "segments": 364,
+      "trial_cells": 119
+    }
+  ],
+  "caveat": "Empirical template has additional per-cell fitted values; identical final gain allowance is not equal model complexity.",
+  "checks": {
+    "compact_lookup_max_error": 0.0,
+    "direct_convolution_max_error": 1.1102230246251565e-15,
+    "previous_response_and_coverage_match": true,
+    "recordings": 69,
+    "scored_trial_cells": 34554,
+    "singleton_segments": 0
+  },
+  "frozen_component_sha256": {
+    "src/fly_creature/__init__.py": "650fc66fc36e515c48d0b2fb6b3208c9b663e68e13beae17313007c3ec7f08ca",
+    "src/fly_creature/circuit.py": "ae309e62a8a844cf259f92d64c69c4c7fa2fd0ea2fda9f172793024f7e212a08",
+    "src/fly_creature/controller.py": "78291df7df9b2251b272af6ed556dce2eb32d4d4274facb369c904371a8290c8",
+    "src/fly_creature/data/lc10a_anatomy_hypothesis_v1.json": "547d25cd3033a45deb6dc4471872d5a14ebdc2e9557065f0b186b88793e93bb5",
+    "src/fly_creature/data/lc10a_column_footprints_v1.json": "dc1ade18d9144be4f0448e454e00e5aa742ac45bb13d5d4ab427d48f5fb57042",
+    "src/fly_creature/data/lc10a_registered_eyemap_hypothesis_v3.json": "690fabf4df864d5d8ca007a1dccef8263498c735aa6ee2d38a78866ed1e4ba90",
+    "src/fly_creature/data/lc10a_registered_shift_p-1_q0.json": "5762cf373e17695e9c4668b0d912584418b73f5456de689648c956fab5451730",
+    "src/fly_creature/data/lc10a_registered_shift_p0_q-1.json": "9f8b361a164043ec3f65dd6417a457256b9b2999f09a1b2bed6b9ecd629719e4",
+    "src/fly_creature/data/lc10a_registered_shift_p0_q1.json": "1e40fb873322b68ab8b324db66103181299146f3d171452dc8e7ccc4890ee4bf",
+    "src/fly_creature/data/lc10a_registered_shift_p1_q0.json": "eeb38d0112273cf2443874832e8bc81e9d9ef19ed0fd6b791ac4b031fdba6313",
+    "src/fly_creature/data/lc10a_upstream_hypothesis_v2.json": "1b4e450ab3834254332e533996d71c7d4239e693161f60bcab182d580f158f1b",
+    "src/fly_creature/data/loom_escape_v1.json": "df4026d10aee671ef7ab10d094b4781d035508249698adf03d95d7ebd85875a7",
+    "src/fly_creature/data/visual_steering_v1.json": "e695c15db69acfca5bd029b88c699674edac5e1344a56cf230b0fadf536c64b2",
+    "src/fly_creature/diagnostic.py": "286f9c28e0e033fccafa2c99533a84573ab1ac97c7261fcdb294ddbbdcd42c5c",
+    "src/fly_creature/fixed_fly_dn_firing.py": "6775a4c5fda09469cc9f73fd1f4b1a398556363ecd7c712f60b72542669bfb1e",
+    "src/fly_creature/input_readout_audit.py": "13539b593c32820e315c9b1f94274c8928095069ed1aeb8fac0a882c20b8c283",
+    "src/fly_creature/lif.py": "46099805a801bb1c8b8519fc138b7ef6eaf3254395600c13d4b2d7af76f0b164",
+    "src/fly_creature/local_motion_experiment.py": "371e4f07ac5599e7ca3a4db08997bf0799c4b8c01fff17a354ada7d598f897c5",
+    "src/fly_creature/playground.py": "f821a64a2b0afef7cd6853acd301e8242309860e0178adac3c56a89a6a18d7a4",
+    "src/fly_creature/pursuit_activity.py": "3a9b6de9342f098dd468102c770d55f8f2a0dbaf6ab6d51a3904be784e60827e",
+    "src/fly_creature/pursuit_controller.py": "fe7f4d6ecf86b3a816549bfd4fedf3a7ce124a7b2f92e28daf891404d7dc6584",
+    "src/fly_creature/pursuit_delay_diagnostic.py": "fa7282fc335399a5dec07560eb2aae3df81461de86742df60d94670d8afb79a1",
+    "src/fly_creature/pursuit_diagnostic.py": "17a4673f8748a66a5fe000628bda9ebd3b9cf6558b3025fc3f6ad67b8d3ef894",
+    "src/fly_creature/pursuit_footprint_diagnostic.py": "29622189fee27eb2e6ff609f6917967d8f704dae2ea010fe89eaeb4f55645596",
+    "src/fly_creature/pursuit_footprints.py": "f291e5312f422f8cfc30b411620939af55d25973740b8b1b5878c7d01dfa4b59",
+    "src/fly_creature/pursuit_motion_diagnostic.py": "b22cd291b9c9d1483ad1ef7460828a37eb8102cc33cf137daeb3307ed01b532c",
+    "src/fly_creature/pursuit_p1_comparison.py": "299f3d9a29ff8c96bf9aabb2273f63f391488b658a6fc11b884dbe90ab4423fc",
+    "src/fly_creature/pursuit_physiology.py": "c2020f4d4b0d35ec8a868c5dbb98d4801c55310f4b994923db83f809ced8bc85",
+    "src/fly_creature/pursuit_physiology_sensitivity.py": "7b7cf0e5e209b4d90e220fe1bfd733c96d1ae0a6546f0bfd4f1dd36a33581f61",
+    "src/fly_creature/pursuit_reference.py": "7459bc0368cf3fe0e65498c8272876868a1397d9018b0294e96b802c35da0375",
+    "src/fly_creature/pursuit_repeatability.py": "47990abb8a648766a78ddd21fdb56f7786a081d4cc78db270a349955f63dc43b",
+    "src/fly_creature/pursuit_response_diagnostic.py": "b59c1ef764fd4f724713b6db862300bb67617360cd022bf477f9972fe69bd70c",
+    "src/fly_creature/pursuit_retinal_benchmark.py": "c52b2fe76c0252da731ab0a5977a30a64a79a050e62215f390f866458112c351",
+    "src/fly_creature/pursuit_step4.py": "e03e9b001e2c33c43d83a215092386760257f3cd038c7c8b26999f4b2875d1fc",
+    "src/fly_creature/pursuit_stress.py": "c654bd11c5cc9eea6fe2c530b79fd0da97a69bc8b1eb9059d3ed865de92d17d8",
+    "src/fly_creature/pursuit_temporal.py": "78dc175e5c4738df9dbd6f3fb44d05ff1662b8569065b073ad9cd15897403b57",
+    "src/fly_creature/pursuit_trust_audit.py": "52f86f0d7d08324e2301bbfdce51e942698182a091de096d600b84abf626fec2",
+    "src/fly_creature/server.py": "038d3e0495dd9eeb5b69432a12c24faa252dd1acf56441ad2ef7af90b3e16a0e",
+    "src/fly_creature/steering.py": "d21fe5f61f76b9a5c751a248d7c17d1dba668e49bb8ed3cdf79e8553e10a27b5",
+    "src/fly_creature/steering_diagnostic.py": "e140537ce6ec468b309f86adbd426543256f18aafeceeffc174207cbe55c65cf",
+    "src/fly_creature/visual_input_experiment.py": "6660f16cb4c6c7d0ca18f8cf97f1597e2ba29db15fd1a58469dab329cb636732",
+    "src/fly_creature/visual_motion_experiment.py": "6bc6c23b830960a3bf0c4d8ffdc1a4601624586347bd285a35815a2dbeca5b33",
+    "src/fly_creature/visual_pathway_probe.py": "1a83033c6191dc96f22b7e3e3b9c1b803391ecd1d996e9df10fcf415fcdc7d49"
+  },
+  "implementation_sha256": "504c1903b78c5528783883eaf345fd2d2f3cfcebeca5be7fe3fba36b80f1b1be",
+  "protocol_sha256": "791a248d0665cd56f50d6d6908865797a3e714a44aa4855634a85e9b462d895b",
+  "repeatability_folds_sha256": "adc97573f9a81031cef79fcdca4475c60c05622d2499a1721b179a4db394a450",
+  "repeatability_observations_sha256": "92f7e7d443da1dd5e7eea1015fa1dd9a47fcb866182003935e4dfbd03a8d58c6",
+  "summary": [
+    {
+      "anatomy_gain_range": [
+        2.6902316777654436,
+        4.144613084881315
+      ],
+      "anatomy_median_cell_correlation": 0.08172929009855552,
+      "anatomy_rmse": 6.632617160520092,
+      "anatomy_vs_constant_recordings_improved": 2,
+      "anatomy_vs_constant_reduction_percent": -0.6465002055157099,
+      "anatomy_vs_simple_spatial_recordings_improved": 7,
+      "anatomy_vs_simple_spatial_reduction_percent": -0.026057711326599176,
+      "condition": "NoP1",
+      "constant_rmse": 6.590012714775557,
+      "empirical_gain_range": [
+        0.5716361265976169,
+        0.7536499459032617
+      ],
+      "empirical_median_cell_correlation": 0.04647018636472135,
+      "empirical_rmse": 6.595487659239171,
+      "empirical_unscaled_rmse": 6.62551989531911,
+      "empirical_vs_anatomy_recordings_improved": 9,
+      "empirical_vs_anatomy_reduction_percent": 0.5598016647475168,
+      "empirical_vs_simple_spatial_recordings_improved": 8,
+      "empirical_vs_simple_spatial_reduction_percent": 0.5338898249227286,
+      "recordings": 11,
+      "scored_trial_cells": 3493,
+      "simple_spatial_gain_range": [
+        2.130377039916254,
+        3.195610567913727
+      ],
+      "simple_spatial_median_cell_correlation": 0.07066908822291791,
+      "simple_spatial_rmse": 6.630889302527254,
+      "type": "AOTU019",
+      "zero_rmse": 6.675604644985108
+    },
+    {
+      "anatomy_gain_range": [
+        5.4400017916248435,
+        6.7481005281038655
+      ],
+      "anatomy_median_cell_correlation": 0.4425911742636446,
+      "anatomy_rmse": 9.294198361252095,
+      "anatomy_vs_constant_recordings_improved": 10,
+      "anatomy_vs_constant_reduction_percent": 1.8082679736268759,
+      "anatomy_vs_simple_spatial_recordings_improved": 7,
+      "anatomy_vs_simple_spatial_reduction_percent": -0.0010054648927004806,
+      "condition": "NoP1",
+      "constant_rmse": 9.465357387479207,
+      "empirical_gain_range": [
+        0.7829130336997587,
+        0.8460511795970328
+      ],
+      "empirical_median_cell_correlation": 0.45906692360596113,
+      "empirical_rmse": 9.250760811400177,
+      "empirical_unscaled_rmse": 9.26401164280437,
+      "empirical_vs_anatomy_recordings_improved": 7,
+      "empirical_vs_anatomy_reduction_percent": 0.46736198393408923,
+      "empirical_vs_simple_spatial_recordings_improved": 6,
+      "empirical_vs_simple_spatial_reduction_percent": 0.46636121820206045,
+      "recordings": 12,
+      "scored_trial_cells": 3531,
+      "simple_spatial_gain_range": [
+        5.570161143429226,
+        6.931317242391868
+      ],
+      "simple_spatial_median_cell_correlation": 0.45502033933066743,
+      "simple_spatial_rmse": 9.294104912290111,
+      "type": "AOTU025",
+      "zero_rmse": 9.478823878447708
+    },
+    {
+      "anatomy_gain_range": [
+        23.297621458654092,
+        25.702645496015403
+      ],
+      "anatomy_median_cell_correlation": 0.8016595658105927,
+      "anatomy_rmse": 11.028394204339826,
+      "anatomy_vs_constant_recordings_improved": 17,
+      "anatomy_vs_constant_reduction_percent": 6.29099641758688,
+      "anatomy_vs_simple_spatial_recordings_improved": 9,
+      "anatomy_vs_simple_spatial_reduction_percent": 0.23913605633545387,
+      "condition": "P1",
+      "constant_rmse": 11.768766908977767,
+      "empirical_gain_range": [
+        0.9704215846479841,
+        1.0057398646271338
+      ],
+      "empirical_median_cell_correlation": 0.7680767213605157,
+      "empirical_rmse": 10.791551154459617,
+      "empirical_unscaled_rmse": 10.793559264669469,
+      "empirical_vs_anatomy_recordings_improved": 17,
+      "empirical_vs_anatomy_reduction_percent": 2.1475751182978953,
+      "empirical_vs_simple_spatial_recordings_improved": 19,
+      "empirical_vs_simple_spatial_reduction_percent": 2.381575548188608,
+      "recordings": 24,
+      "scored_trial_cells": 15198,
+      "simple_spatial_gain_range": [
+        17.19027084982748,
+        19.106432119101775
+      ],
+      "simple_spatial_median_cell_correlation": 0.6882953648361507,
+      "simple_spatial_rmse": 11.054830289528782,
+      "type": "AOTU019",
+      "zero_rmse": 12.556310883172491
+    },
+    {
+      "anatomy_gain_range": [
+        23.17654253880239,
+        26.492951128344274
+      ],
+      "anatomy_median_cell_correlation": 0.6611945415699897,
+      "anatomy_rmse": 14.518480574762835,
+      "anatomy_vs_constant_recordings_improved": 15,
+      "anatomy_vs_constant_reduction_percent": 6.527220745094187,
+      "anatomy_vs_simple_spatial_recordings_improved": 13,
+      "anatomy_vs_simple_spatial_reduction_percent": 0.5273756415312469,
+      "condition": "P1",
+      "constant_rmse": 15.532308646959216,
+      "empirical_gain_range": [
+        1.017373423363131,
+        1.0656573397466549
+      ],
+      "empirical_median_cell_correlation": 0.7617817761706502,
+      "empirical_rmse": 14.199960216404806,
+      "empirical_unscaled_rmse": 14.166726068951913,
+      "empirical_vs_anatomy_recordings_improved": 13,
+      "empirical_vs_anatomy_reduction_percent": 2.193895957072156,
+      "empirical_vs_simple_spatial_recordings_improved": 14,
+      "empirical_vs_simple_spatial_reduction_percent": 2.709701525725272,
+      "recordings": 22,
+      "scored_trial_cells": 12332,
+      "simple_spatial_gain_range": [
+        22.999906503424583,
+        26.266817678758105
+      ],
+      "simple_spatial_median_cell_correlation": 0.6723229816237105,
+      "simple_spatial_rmse": 14.595453440981606,
+      "type": "AOTU025",
+      "zero_rmse": 15.856447537927977
+    }
+  ]
+}

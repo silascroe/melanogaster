@@ -1,0 +1,6053 @@
+{
+  "protocol": "pursuit_temporal_protocol.md",
+  "protocol_sha256": "a0de19444c6f9508e99c7f6790d37070887300c19270cdbacc6a8190fc2f0a71",
+  "source_sha256": "78dc175e5c4738df9dbd6f3fb44d05ff1662b8569065b073ad9cd15897403b57",
+  "seed": 20261006,
+  "grid": [
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      40
+    ],
+    [
+      0,
+      80
+    ],
+    [
+      40,
+      0
+    ],
+    [
+      40,
+      40
+    ],
+    [
+      40,
+      80
+    ],
+    [
+      100,
+      0
+    ],
+    [
+      100,
+      40
+    ],
+    [
+      100,
+      80
+    ],
+    [
+      200,
+      0
+    ],
+    [
+      200,
+      40
+    ],
+    [
+      200,
+      80
+    ]
+  ],
+  "variants": [
+    "baseline",
+    "baseline_shuffle_00",
+    "baseline_shuffle_01",
+    "baseline_shuffle_02",
+    "baseline_shuffle_03",
+    "baseline_shuffle_04",
+    "baseline_shuffle_05",
+    "baseline_shuffle_06",
+    "baseline_shuffle_07",
+    "baseline_shuffle_08",
+    "baseline_shuffle_09",
+    "baseline_shuffle_10",
+    "baseline_shuffle_11",
+    "baseline_shuffle_12",
+    "baseline_shuffle_13",
+    "baseline_shuffle_14",
+    "baseline_shuffle_15",
+    "baseline_shuffle_16",
+    "baseline_shuffle_17",
+    "baseline_shuffle_18",
+    "baseline_shuffle_19",
+    "baseline_shuffle_20",
+    "baseline_shuffle_21",
+    "baseline_shuffle_22",
+    "baseline_shuffle_23",
+    "baseline_shuffle_24",
+    "baseline_shuffle_25",
+    "baseline_shuffle_26",
+    "baseline_shuffle_27",
+    "baseline_shuffle_28",
+    "baseline_shuffle_29",
+    "baseline_shuffle_30",
+    "baseline_shuffle_31",
+    "simple_spatial",
+    "intercept_only"
+  ],
+  "excluded_duplicate": "AOTU019/2023_06_15_fly03",
+  "audit": [
+    {
+      "condition": "NoP1",
+      "fly": "AOTU019/2023_06_15_fly01",
+      "member_sha256": "af450cb0430f42da375d51cb91b4a9bdcf165d9f4009dfe3885f4ba14d1bf592",
+      "archive_md5": "6ebc8edd2bb348fa14b9dbd8f2cbea01",
+      "accepted_pulses": 360,
+      "quiescent_pulses": 311,
+      "rejected": {},
+      "finite_segments": 360,
+      "dt_s": 0.0015000000000000568,
+      "singleton_segments_zeroed": 0,
+      "static_filter_error": 5.551115123125783e-16
+    },
+    {
+      "condition": "NoP1",
+      "fly": "AOTU019/2023_06_15_fly03",
+      "excluded_duplicate": true
+    },
+    {
+      "condition": "NoP1",
+      "fly": "AOTU019/2023_06_19_fly01",
+      "member_sha256": "0428b1bb23caded3aa1e1f9320aa13b232093c34cb9f6bb83912297a8db751a8",
+      "archive_md5": "6ebc8edd2bb348fa14b9dbd8f2cbea01",
+      "accepted_pulses": 360,
+      "quiescent_pulses": 242,
+      "rejected": {},
+      "finite_segments": 360,
+      "dt_s": 0.0015000000000000568,
+      "singleton_segments_zeroed": 0,
+      "static_filter_error": 5.551115123125783e-16
+    },
+    {
+      "condition": "NoP1",
+      "fly": "AOTU019/2023_06_19_fly02",
+      "member_sha256": "42ed99e00b83b1ceb9c5788b147de4721e6b6df838a527d646dbe814e9916321",
+      "archive_md5": "6ebc8edd2bb348fa14b9dbd8f2cbea01",
+      "accepted_pulses": 359,
+      "quiescent_pulses": 347,
+      "rejected": {
+        "span": 1
+      },
+      "finite_segments": 360,
+      "dt_s": 0.0015000000000000568,
+      "singleton_segments_zeroed": 0,
+      "static_filter_error": 6.661338147750939e-16
+    },
+    {
+      "condition": "NoP1",
+      "fly": "AOTU019/2023_06_19_fly03",
+      "member_sha256": "1be9193f3959dee7442699980eb47fd68e3eeb8d3b4f1b34ec62473278caa348",
+      "archive_md5": "6ebc8edd2bb348fa14b9dbd8f2cbea01",
+      "accepted_pulses": 360,
+      "quiescent_pulses": 360,
+      "rejected": {},
+      "finite_segments": 360,
+      "dt_s": 0.0015000000000000568,
+      "singleton_segments_zeroed": 0,
+      "static_filter_error": 6.661338147750939e-16
+    },
+    {
+      "condition": "NoP1",
+      "fly": "AOTU019/2023_06_20_fly02",
+      "member_sha256": "8410a7b8c4f3d1c70c6b7490d901502a1eed7185d60045f480a17dc370434454",
+      "archive_md5": "6ebc8edd2bb348fa14b9dbd8f2cbea01",
+      "accepted_pulses": 360,
+      "quiescent_pulses": 280,
+      "rejected": {},
+      "finite_segments": 360,
+      "dt_s": 0.0015000000000000568,
+      "singleton_segments_zeroed": 0,
+      "static_filter_error": 5.551115123125783e-16
+    },
+    {
+      "condition": "NoP1",
+      "fly": "AOTU019/2023_06_21_fly01",
+      "member_sha256": "43b4cd5e4321227ea4133288ef59066e51cbf3693e799d7454d6b783b7c90a78",
+      "archive_md5": "6ebc8edd2bb348fa14b9dbd8f2cbea01",
+      "accepted_pulses": 360,
+      "quiescent_pulses": 124,
+      "rejected": {},
+      "finite_segments": 360,
+      "dt_s": 0.0015000000000000568,
+      "singleton_segments_zeroed": 0,
+      "static_filter_error": 5.551115123125783e-16
+    },
+    {
+      "condition": "NoP1",
+      "fly": "AOTU019/2023_06_23_fly01",
+      "member_sha256": "17c57432d59259f036affda2117f89db5dca5fa2d70601c9a75437b6711c8784",
+      "archive_md5": "6ebc8edd2bb348fa14b9dbd8f2cbea01",
+      "accepted_pulses": 360,
+      "quiescent_pulses": 114,
+      "rejected": {},
+      "finite_segments": 360,
+      "dt_s": 0.0015000000000000568,
+      "singleton_segments_zeroed": 0,
+      "static_filter_error": 5.551115123125783e-16
+    },
+    {
+      "condition": "NoP1",
+      "fly": "AOTU019/2023_10_25_fly03",
+      "member_sha256": "83ef2ba0bd3bd8195e067fe598c5c583fc7b67d985d1a2c5e7db55c34fc49a5a",
+      "archive_md5": "6ebc8edd2bb348fa14b9dbd8f2cbea01",
+      "accepted_pulses": 648,
+      "quiescent_pulses": 435,
+      "rejected": {},
+      "finite_segments": 648,
+      "dt_s": 0.0015000000000000568,
+      "singleton_segments_zeroed": 0,
+      "static_filter_error": 5.551115123125783e-16
+    },
+    {
+      "condition": "NoP1",
+      "fly": "AOTU019/2023_10_26_fly01",
+      "member_sha256": "0979046daf223eed9d9403250fa2e607c6ad622fe4d909203eb021960e3aa801",
+      "archive_md5": "6ebc8edd2bb348fa14b9dbd8f2cbea01",
+      "accepted_pulses": 1078,
+      "quiescent_pulses": 678,
+      "rejected": {
+        "span": 1,
+        "neighboring_stimulus": 1,
+        "duration": 1
+      },
+      "finite_segments": 1081,
+      "dt_s": 0.0015000000000000568,
+      "singleton_segments_zeroed": 0,
+      "static_filter_error": 6.661338147750939e-16
+    },
+    {
+      "condition": "NoP1",
+      "fly": "AOTU019/2023_10_27_fly04",
+      "member_sha256": "aacf963a7a49a718032079744a748a3c91fcf2145ea7245b0381503854686e44",
+      "archive_md5": "6ebc8edd2bb348fa14b9dbd8f2cbea01",
+      "accepted_pulses": 720,
+      "quiescent_pulses": 275,
+      "rejected": {},
+      "finite_segments": 720,
+      "dt_s": 0.0015000000000000568,
+      "singleton_segments_zeroed": 0,
+      "static_filter_error": 6.661338147750939e-16
+    },
+    {
+      "condition": "NoP1",
+      "fly": "AOTU019/2023_10_31_fly01",
+      "member_sha256": "23ca2a2f2a0a7202b694899df5efd8c3f11cdb2f77b8e2ff009a0ac29770534b",
+      "archive_md5": "6ebc8edd2bb348fa14b9dbd8f2cbea01",
+      "accepted_pulses": 718,
+      "quiescent_pulses": 428,
+      "rejected": {
+        "span": 1,
+        "duration": 2
+      },
+      "finite_segments": 721,
+      "dt_s": 0.0015000000000000568,
+      "singleton_segments_zeroed": 0,
+      "static_filter_error": 7.771561172376096e-16
+    },
+    {
+      "condition": "NoP1",
+      "fly": "AOTU025/2024_05_31_fly02",
+      "member_sha256": "a15e4c5d3483b940b6388c32b5784a5b416b9d1079dcd82b37c571f745ec9c81",
+      "archive_md5": "ebeace816547366b8325182f80a08a5b",
+      "accepted_pulses": 520,
+      "quiescent_pulses": 460,
+      "rejected": {},
+      "finite_segments": 520,
+      "dt_s": 0.0015000000000000568,
+      "singleton_segments_zeroed": 0,
+      "static_filter_error": 8.881784197001252e-16
+    },
+    {
+      "condition": "NoP1",
+      "fly": "AOTU025/2024_06_26_fly01",
+      "member_sha256": "238171647ad5edd448958cb5dd77c25ef871a425bbcd9ae5272efbec164fcee4",
+      "archive_md5": "ebeace816547366b8325182f80a08a5b",
+      "accepted_pulses": 520,
+      "quiescent_pulses": 500,
+      "rejected": {},
+      "finite_segments": 520,
+      "dt_s": 0.0015000000000000568,
+      "singleton_segments_zeroed": 0,
+      "static_filter_error": 6.661338147750939e-16
+    },
+    {
+      "condition": "NoP1",
+      "fly": "AOTU025/2024_06_27_fly01",
+      "member_sha256": "bb3e2f3841d3caf6413563e64e95a6022f74315790e1eeb869c20469d0fc9935",
+      "archive_md5": "ebeace816547366b8325182f80a08a5b",
+      "accepted_pulses": 208,
+      "quiescent_pulses": 137,
+      "rejected": {},
+      "finite_segments": 208,
+      "dt_s": 0.0015000000000000568,
+      "singleton_segments_zeroed": 0,
+      "static_filter_error": 7.771561172376096e-16
+    },
+    {
+      "condition": "NoP1",
+      "fly": "AOTU025/2024_06_28_fly01",
+      "member_sha256": "63bfd05c8a616b0fc558a0781d23570fc66b673d6d87b3a76cf1280a4143c2a7",
+      "archive_md5": "ebeace816547366b8325182f80a08a5b",
+      "accepted_pulses": 520,
+      "quiescent_pulses": 234,
+      "rejected": {},
+      "finite_segments": 520,
+      "dt_s": 0.0015000000000000568,
+      "singleton_segments_zeroed": 0,
+      "static_filter_error": 7.771561172376096e-16
+    },
+    {
+      "condition": "NoP1",
+      "fly": "AOTU025/2024_07_02_fly03",
+      "member_sha256": "92b73a4a767a31e5067fd0cdbcf64c0b74866a9c668a6968c2edf089a9fb527f",
+      "archive_md5": "ebeace816547366b8325182f80a08a5b",
+      "accepted_pulses": 520,
+      "quiescent_pulses": 374,
+      "rejected": {},
+      "finite_segments": 520,
+      "dt_s": 0.0015000000000000568,
+      "singleton_segments_zeroed": 0,
+      "static_filter_error": 7.771561172376096e-16
+    },
+    {
+      "condition": "NoP1",
+      "fly": "AOTU025/2024_07_03_fly01",
+      "member_sha256": "f0a35ee5f0130255bceef5aee0cd291f1d12384e13c3edf7e9326b96e999c4e5",
+      "archive_md5": "ebeace816547366b8325182f80a08a5b",
+      "accepted_pulses": 519,
+      "quiescent_pulses": 196,
+      "rejected": {
+        "span": 1
+      },
+      "finite_segments": 520,
+      "dt_s": 0.0015000000000000568,
+      "singleton_segments_zeroed": 0,
+      "static_filter_error": 8.881784197001252e-16
+    },
+    {
+      "condition": "NoP1",
+      "fly": "AOTU025/2025_02_24_fly02",
+      "member_sha256": "d32cb4728f1d58ea7a41c813d06de33f0fa58533632c445c1c883767f1ccd74e",
+      "archive_md5": "ebeace816547366b8325182f80a08a5b",
+      "accepted_pulses": 518,
+      "quiescent_pulses": 401,
+      "rejected": {
+        "duration": 2,
+        "span": 1
+      },
+      "finite_segments": 521,
+      "dt_s": 0.0015000000000000568,
+      "singleton_segments_zeroed": 0,
+      "static_filter_error": 6.661338147750939e-16
+    },
+    {
+      "condition": "NoP1",
+      "fly": "AOTU025/2025_03_06_fly02",
+      "member_sha256": "5a1c17772f0aae05d3203dcd3c313029b2c44a92578faecb2606b50eea45edfb",
+      "archive_md5": "ebeace816547366b8325182f80a08a5b",
+      "accepted_pulses": 519,
+      "quiescent_pulses": 300,
+      "rejected": {
+        "duration": 1,
+        "span": 1
+      },
+      "finite_segments": 521,
+      "dt_s": 0.0015000000000000568,
+      "singleton_segments_zeroed": 0,
+      "static_filter_error": 7.771561172376096e-16
+    },
+    {
+      "condition": "NoP1",
+      "fly": "AOTU025/2025_03_13_fly02",
+      "member_sha256": "4e040976b2b81fe47715001b1e0a958fb05898dd677ce21d6d9cbd64120c32bb",
+      "archive_md5": "ebeace816547366b8325182f80a08a5b",
+      "accepted_pulses": 519,
+      "quiescent_pulses": 389,
+      "rejected": {
+        "span": 1
+      },
+      "finite_segments": 520,
+      "dt_s": 0.0015000000000000568,
+      "singleton_segments_zeroed": 0,
+      "static_filter_error": 9.992007221626409e-16
+    },
+    {
+      "condition": "NoP1",
+      "fly": "AOTU025/2025_03_25_fly01",
+      "member_sha256": "9555dde0683f94faa3a1cc22b34e53ede96084b13cac203b446b4f6dd235277d",
+      "archive_md5": "ebeace816547366b8325182f80a08a5b",
+      "accepted_pulses": 518,
+      "quiescent_pulses": 239,
+      "rejected": {
+        "duration": 2,
+        "span": 1
+      },
+      "finite_segments": 521,
+      "dt_s": 0.0015000000000000568,
+      "singleton_segments_zeroed": 0,
+      "static_filter_error": 6.661338147750939e-16
+    },
+    {
+      "condition": "NoP1",
+      "fly": "AOTU025/2025_03_25_fly02",
+      "member_sha256": "e0cea706ecb55655cb1916ec57e2a72edea38533ac6f9231394d9097d3ed5853",
+      "archive_md5": "ebeace816547366b8325182f80a08a5b",
+      "accepted_pulses": 518,
+      "quiescent_pulses": 459,
+      "rejected": {
+        "span": 2
+      },
+      "finite_segments": 520,
+      "dt_s": 0.0015000000000000568,
+      "singleton_segments_zeroed": 0,
+      "static_filter_error": 6.661338147750939e-16
+    },
+    {
+      "condition": "NoP1",
+      "fly": "AOTU025/2025_03_25_fly03",
+      "member_sha256": "2c6ba42a361b4cd40420d161edb8c37f6fec80c11ce0a51a383198d9a0278379",
+      "archive_md5": "ebeace816547366b8325182f80a08a5b",
+      "accepted_pulses": 519,
+      "quiescent_pulses": 167,
+      "rejected": {
+        "duration": 1,
+        "span": 1
+      },
+      "finite_segments": 521,
+      "dt_s": 0.0015000000000000568,
+      "singleton_segments_zeroed": 0,
+      "static_filter_error": 7.771561172376096e-16
+    },
+    {
+      "condition": "P1",
+      "fly": "AOTU019/2023_05_08_fly01",
+      "member_sha256": "69b046a4103d74defb771b5621baccad2b672b0dc851dfd185fe4cad53c8fbe5",
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "accepted_pulses": 1796,
+      "quiescent_pulses": 1472,
+      "rejected": {
+        "duration": 6,
+        "span": 1
+      },
+      "finite_segments": 1803,
+      "dt_s": 0.0015000000000000568,
+      "singleton_segments_zeroed": 0,
+      "static_filter_error": 6.661338147750939e-16
+    },
+    {
+      "condition": "P1",
+      "fly": "AOTU019/2023_05_09_fly03",
+      "member_sha256": "b3e0196a2782ad6dbc5c82b8ea6b0dc563720baa6536656dc3906f1fa9be7861",
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "accepted_pulses": 1077,
+      "quiescent_pulses": 666,
+      "rejected": {
+        "span": 2,
+        "duration": 1,
+        "neighboring_stimulus": 1
+      },
+      "finite_segments": 1081,
+      "dt_s": 0.0015000000000000568,
+      "singleton_segments_zeroed": 0,
+      "static_filter_error": 5.551115123125783e-16
+    },
+    {
+      "condition": "P1",
+      "fly": "AOTU019/2023_05_11_fly01",
+      "member_sha256": "78c86349bd9eb8540522744d8cad038b79eb1319880ab9f3749d65acd85eaf5e",
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "accepted_pulses": 1580,
+      "quiescent_pulses": 1363,
+      "rejected": {
+        "span": 4,
+        "duration": 1
+      },
+      "finite_segments": 1585,
+      "dt_s": 0.0015000000000000568,
+      "singleton_segments_zeroed": 0,
+      "static_filter_error": 5.551115123125783e-16
+    },
+    {
+      "condition": "P1",
+      "fly": "AOTU019/2023_05_30_fly01",
+      "member_sha256": "b6cb8029969cfdebc1d6151744a31ed414b93a5488b2eb799aa4be5f5126241c",
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "accepted_pulses": 1079,
+      "quiescent_pulses": 725,
+      "rejected": {
+        "span": 1
+      },
+      "finite_segments": 1080,
+      "dt_s": 0.0015000000000000568,
+      "singleton_segments_zeroed": 0,
+      "static_filter_error": 6.661338147750939e-16
+    },
+    {
+      "condition": "P1",
+      "fly": "AOTU019/2023_06_13_fly01",
+      "member_sha256": "fca3f328b6669f0c417a8a9ffc704c1c0e221f5a4dd75653a2fc77e7d393e4db",
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "accepted_pulses": 1797,
+      "quiescent_pulses": 779,
+      "rejected": {
+        "span": 3,
+        "duration": 1
+      },
+      "finite_segments": 1801,
+      "dt_s": 0.0015000000000000568,
+      "singleton_segments_zeroed": 0,
+      "static_filter_error": 6.661338147750939e-16
+    },
+    {
+      "condition": "P1",
+      "fly": "AOTU019/2023_06_13_fly02",
+      "member_sha256": "7ccfec1fc0763e94fa87c881548807810c20576716e280f536a7726f5ab7f573",
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "accepted_pulses": 718,
+      "quiescent_pulses": 550,
+      "rejected": {
+        "duration": 2,
+        "span": 1
+      },
+      "finite_segments": 721,
+      "dt_s": 0.0015000000000000568,
+      "singleton_segments_zeroed": 0,
+      "static_filter_error": 5.551115123125783e-16
+    },
+    {
+      "condition": "P1",
+      "fly": "AOTU019/2023_06_14_fly02",
+      "member_sha256": "64cc5d93efb38755f6eefb2c8d3d290e2394c854897e469b6d7ee55895803763",
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "accepted_pulses": 1367,
+      "quiescent_pulses": 874,
+      "rejected": {
+        "span": 1
+      },
+      "finite_segments": 1368,
+      "dt_s": 0.0015000000000000568,
+      "singleton_segments_zeroed": 0,
+      "static_filter_error": 6.661338147750939e-16
+    },
+    {
+      "condition": "P1",
+      "fly": "AOTU019/2023_06_15_fly01",
+      "member_sha256": "9d276e57b790a958d452222c8a1760146dfcaf2d2e1f4240816fddd2047863a8",
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "accepted_pulses": 1797,
+      "quiescent_pulses": 726,
+      "rejected": {
+        "span": 2,
+        "duration": 2
+      },
+      "finite_segments": 1801,
+      "dt_s": 0.0015000000000000568,
+      "singleton_segments_zeroed": 0,
+      "static_filter_error": 5.551115123125783e-16
+    },
+    {
+      "condition": "P1",
+      "fly": "AOTU019/2023_06_15_fly03",
+      "excluded_duplicate": true
+    },
+    {
+      "condition": "P1",
+      "fly": "AOTU019/2023_06_19_fly01",
+      "member_sha256": "704ccb66637e7d01e0f1e1efecbe01baf77eaf3b0d53ecf3f5992640c9e13cd0",
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "accepted_pulses": 1438,
+      "quiescent_pulses": 665,
+      "rejected": {
+        "span": 2
+      },
+      "finite_segments": 1440,
+      "dt_s": 0.0015000000000000568,
+      "singleton_segments_zeroed": 0,
+      "static_filter_error": 5.551115123125783e-16
+    },
+    {
+      "condition": "P1",
+      "fly": "AOTU019/2023_06_19_fly02",
+      "member_sha256": "8feae93c073a3fb31ff729b15fa551c92e1d53603df24b933def5c5b673b99cc",
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "accepted_pulses": 1440,
+      "quiescent_pulses": 928,
+      "rejected": {},
+      "finite_segments": 1440,
+      "dt_s": 0.0015000000000000568,
+      "singleton_segments_zeroed": 0,
+      "static_filter_error": 6.661338147750939e-16
+    },
+    {
+      "condition": "P1",
+      "fly": "AOTU019/2023_06_19_fly03",
+      "member_sha256": "06764d54b14c2fa2ac3580b6e5aada1fdd8266f8fd63d8acbf7aea31b1234a79",
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "accepted_pulses": 1440,
+      "quiescent_pulses": 680,
+      "rejected": {},
+      "finite_segments": 1440,
+      "dt_s": 0.0015000000000000568,
+      "singleton_segments_zeroed": 0,
+      "static_filter_error": 7.771561172376096e-16
+    },
+    {
+      "condition": "P1",
+      "fly": "AOTU019/2023_06_20_fly02",
+      "member_sha256": "968d2979b391081d85f0ce84823051175c8096c92344c2e748fa9e9aeb54d862",
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "accepted_pulses": 1438,
+      "quiescent_pulses": 1066,
+      "rejected": {
+        "span": 2,
+        "duration": 1
+      },
+      "finite_segments": 1441,
+      "dt_s": 0.0015000000000000568,
+      "singleton_segments_zeroed": 0,
+      "static_filter_error": 6.661338147750939e-16
+    },
+    {
+      "condition": "P1",
+      "fly": "AOTU019/2023_06_21_fly01",
+      "member_sha256": "075fc0ec65354e20862212fe1371d3b73bf344ea09388620cdc37bd3e71004c5",
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "accepted_pulses": 1439,
+      "quiescent_pulses": 271,
+      "rejected": {
+        "span": 1
+      },
+      "finite_segments": 1440,
+      "dt_s": 0.0015000000000000568,
+      "singleton_segments_zeroed": 0,
+      "static_filter_error": 6.661338147750939e-16
+    },
+    {
+      "condition": "P1",
+      "fly": "AOTU019/2023_06_21_fly02",
+      "member_sha256": "1751e00535b671079c3be074489eafa4eb7bcedd57cfbda89a9b43c17378acb5",
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "accepted_pulses": 287,
+      "quiescent_pulses": 100,
+      "rejected": {
+        "duration": 1,
+        "span": 1
+      },
+      "finite_segments": 289,
+      "dt_s": 0.0015000000000000568,
+      "singleton_segments_zeroed": 0,
+      "static_filter_error": 5.551115123125783e-16
+    },
+    {
+      "condition": "P1",
+      "fly": "AOTU019/2023_06_22_fly01",
+      "member_sha256": "6c5230176550f88e46ac7c171fe311a7e2fabf0ac1f6d2b94e92d3a2a73d217f",
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "accepted_pulses": 1115,
+      "quiescent_pulses": 208,
+      "rejected": {
+        "span": 1
+      },
+      "finite_segments": 1116,
+      "dt_s": 0.0015000000000000568,
+      "singleton_segments_zeroed": 0,
+      "static_filter_error": 5.551115123125783e-16
+    },
+    {
+      "condition": "P1",
+      "fly": "AOTU019/2023_06_23_fly01",
+      "member_sha256": "720f847ccda61206e84ee83c61d3b272064d54de5f54e6381690b7c33a584cfb",
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "accepted_pulses": 1293,
+      "quiescent_pulses": 541,
+      "rejected": {
+        "span": 3,
+        "duration": 1
+      },
+      "finite_segments": 1297,
+      "dt_s": 0.0015000000000000568,
+      "singleton_segments_zeroed": 0,
+      "static_filter_error": 6.661338147750939e-16
+    },
+    {
+      "condition": "P1",
+      "fly": "AOTU019/2023_06_23_fly02",
+      "member_sha256": "9f0a39c271051e98f3766122c8723cb07067227708cb8b0c3aae13a1d42b621c",
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "accepted_pulses": 1185,
+      "quiescent_pulses": 1047,
+      "rejected": {
+        "span": 3
+      },
+      "finite_segments": 1188,
+      "dt_s": 0.0015000000000000568,
+      "singleton_segments_zeroed": 0,
+      "static_filter_error": 6.661338147750939e-16
+    },
+    {
+      "condition": "P1",
+      "fly": "AOTU019/2023_10_25_fly03",
+      "member_sha256": "9f04b89ad4410afe376628073c08592f40f8833873b98505117bfa78219c7bfd",
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "accepted_pulses": 1437,
+      "quiescent_pulses": 702,
+      "rejected": {
+        "span": 3
+      },
+      "finite_segments": 1440,
+      "dt_s": 0.0015000000000000568,
+      "singleton_segments_zeroed": 0,
+      "static_filter_error": 5.551115123125783e-16
+    },
+    {
+      "condition": "P1",
+      "fly": "AOTU019/2023_10_26_fly01",
+      "member_sha256": "3fd08b7d77b8f378bc89e6e7424b9418a97872cc433ebe0b54f6f542111ec1a3",
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "accepted_pulses": 1438,
+      "quiescent_pulses": 468,
+      "rejected": {
+        "span": 2
+      },
+      "finite_segments": 1440,
+      "dt_s": 0.0015000000000000568,
+      "singleton_segments_zeroed": 0,
+      "static_filter_error": 7.771561172376096e-16
+    },
+    {
+      "condition": "P1",
+      "fly": "AOTU019/2023_10_27_fly03",
+      "member_sha256": "b2db8b37187afcb461d587483c61a4d1799f2c7a503ab6c1ad90fef4a4de1715",
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "accepted_pulses": 324,
+      "quiescent_pulses": 66,
+      "rejected": {},
+      "finite_segments": 324,
+      "dt_s": 0.0015000000000000568,
+      "singleton_segments_zeroed": 0,
+      "static_filter_error": 6.661338147750939e-16
+    },
+    {
+      "condition": "P1",
+      "fly": "AOTU019/2023_10_27_fly04",
+      "member_sha256": "b77d5b0d1eec88a8e9704b6a423143919a63b842e5b78f859546d0c13603fb7b",
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "accepted_pulses": 1439,
+      "quiescent_pulses": 282,
+      "rejected": {
+        "span": 1
+      },
+      "finite_segments": 1440,
+      "dt_s": 0.0015000000000000568,
+      "singleton_segments_zeroed": 0,
+      "static_filter_error": 6.661338147750939e-16
+    },
+    {
+      "condition": "P1",
+      "fly": "AOTU019/2023_10_31_fly01",
+      "member_sha256": "16f5af5d91dd05cb3f87b84cfca5385369626598b82f49667c2c5c32bdaaf631",
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "accepted_pulses": 1437,
+      "quiescent_pulses": 771,
+      "rejected": {
+        "span": 3
+      },
+      "finite_segments": 1440,
+      "dt_s": 0.0015000000000000568,
+      "singleton_segments_zeroed": 0,
+      "static_filter_error": 5.551115123125783e-16
+    },
+    {
+      "condition": "P1",
+      "fly": "AOTU019/2023_10_31_fly03",
+      "member_sha256": "b6070e05c359652cd7712a8691b49e83164893edc3075bf2cfec532cbffcb3e3",
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "accepted_pulses": 719,
+      "quiescent_pulses": 335,
+      "rejected": {
+        "span": 1
+      },
+      "finite_segments": 720,
+      "dt_s": 0.0015000000000000568,
+      "singleton_segments_zeroed": 0,
+      "static_filter_error": 5.551115123125783e-16
+    },
+    {
+      "condition": "P1",
+      "fly": "AOTU019/2023_11_01_fly01",
+      "member_sha256": "2064d67e32cecd32a31a23c003eaa1618e23344f0a9e51729f8c5b395adb916e",
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "accepted_pulses": 287,
+      "quiescent_pulses": 80,
+      "rejected": {
+        "span": 1
+      },
+      "finite_segments": 288,
+      "dt_s": 0.0015000000000000568,
+      "singleton_segments_zeroed": 0,
+      "static_filter_error": 5.551115123125783e-16
+    },
+    {
+      "condition": "P1",
+      "fly": "AOTU025/2024_05_31_fly02",
+      "member_sha256": "3d6a9ef6deab8aae3cdacf9ae3da3349d17e721b1c5122660d731ee2ee0e19c6",
+      "archive_md5": "eae5a827f7e75b373c95b1ce9ee76c9b",
+      "accepted_pulses": 2077,
+      "quiescent_pulses": 1016,
+      "rejected": {
+        "span": 3,
+        "duration": 1
+      },
+      "finite_segments": 2081,
+      "dt_s": 0.0015000000000000568,
+      "singleton_segments_zeroed": 0,
+      "static_filter_error": 8.881784197001252e-16
+    },
+    {
+      "condition": "P1",
+      "fly": "AOTU025/2024_05_31_fly03",
+      "member_sha256": "8946314ff12ea8d1aef97ffa289a7972ba8826d912919b2cb491ec57158fb058",
+      "archive_md5": "eae5a827f7e75b373c95b1ce9ee76c9b",
+      "accepted_pulses": 1036,
+      "quiescent_pulses": 939,
+      "rejected": {
+        "duration": 5,
+        "span": 2
+      },
+      "finite_segments": 1043,
+      "dt_s": 0.0015000000000000568,
+      "singleton_segments_zeroed": 0,
+      "static_filter_error": 9.992007221626409e-16
+    },
+    {
+      "condition": "P1",
+      "fly": "AOTU025/2024_06_10_fly02",
+      "member_sha256": "543f675058218fe8e55ec477c26ac1ed2b66c44a021b41c393109400db3557e2",
+      "archive_md5": "eae5a827f7e75b373c95b1ce9ee76c9b",
+      "accepted_pulses": 519,
+      "quiescent_pulses": 315,
+      "rejected": {
+        "span": 1,
+        "duration": 1
+      },
+      "finite_segments": 521,
+      "dt_s": 0.0015000000000000568,
+      "singleton_segments_zeroed": 0,
+      "static_filter_error": 9.992007221626409e-16
+    },
+    {
+      "condition": "P1",
+      "fly": "AOTU025/2024_06_11_fly01",
+      "member_sha256": "ae951dc8ad56ff80d27b6a9f24e5dad16e92ad180622683d9f172bf2bbd185c7",
+      "archive_md5": "eae5a827f7e75b373c95b1ce9ee76c9b",
+      "accepted_pulses": 1610,
+      "quiescent_pulses": 1015,
+      "rejected": {
+        "span": 2,
+        "duration": 1
+      },
+      "finite_segments": 1613,
+      "dt_s": 0.0015000000000000568,
+      "singleton_segments_zeroed": 0,
+      "static_filter_error": 8.881784197001252e-16
+    },
+    {
+      "condition": "P1",
+      "fly": "AOTU025/2024_06_11_fly02",
+      "member_sha256": "2135ea3de954f5f3efbcd7c3b9185589a711328331ff3e8fb03ee06dbff24506",
+      "archive_md5": "eae5a827f7e75b373c95b1ce9ee76c9b",
+      "accepted_pulses": 830,
+      "quiescent_pulses": 512,
+      "rejected": {
+        "span": 2
+      },
+      "finite_segments": 832,
+      "dt_s": 0.0015000000000000568,
+      "singleton_segments_zeroed": 0,
+      "static_filter_error": 7.771561172376096e-16
+    },
+    {
+      "condition": "P1",
+      "fly": "AOTU025/2024_06_12_fly02",
+      "member_sha256": "440630a45771bbbc35c7a937f63cca9c753f37aca01e8ea786fb15a2d4592b17",
+      "archive_md5": "eae5a827f7e75b373c95b1ce9ee76c9b",
+      "accepted_pulses": 570,
+      "quiescent_pulses": 266,
+      "rejected": {
+        "span": 2
+      },
+      "finite_segments": 572,
+      "dt_s": 0.0015000000000000568,
+      "singleton_segments_zeroed": 0,
+      "static_filter_error": 7.771561172376096e-16
+    },
+    {
+      "condition": "P1",
+      "fly": "AOTU025/2024_06_13_fly01",
+      "member_sha256": "2b64fcdcb2047b4158085117d4ae919eaa0f312ce92358a29fa6e54b4d2cbba8",
+      "archive_md5": "eae5a827f7e75b373c95b1ce9ee76c9b",
+      "accepted_pulses": 1920,
+      "quiescent_pulses": 636,
+      "rejected": {
+        "span": 2,
+        "duration": 3,
+        "neighboring_stimulus": 1
+      },
+      "finite_segments": 1926,
+      "dt_s": 0.0015000000000000568,
+      "singleton_segments_zeroed": 0,
+      "static_filter_error": 7.771561172376096e-16
+    },
+    {
+      "condition": "P1",
+      "fly": "AOTU025/2024_06_21_fly01",
+      "member_sha256": "d7fbb205e9acc39f8a77a2ce15f103d59c4665802ee200d76061c34167549ef2",
+      "archive_md5": "eae5a827f7e75b373c95b1ce9ee76c9b",
+      "accepted_pulses": 1038,
+      "quiescent_pulses": 672,
+      "rejected": {
+        "duration": 1,
+        "span": 2
+      },
+      "finite_segments": 1041,
+      "dt_s": 0.0015000000000000568,
+      "singleton_segments_zeroed": 0,
+      "static_filter_error": 7.771561172376096e-16
+    },
+    {
+      "condition": "P1",
+      "fly": "AOTU025/2024_06_21_fly02",
+      "member_sha256": "07bb068748f690b3df407bb7625e7e8a03cebb46867ed534186f0e768da3a18e",
+      "archive_md5": "eae5a827f7e75b373c95b1ce9ee76c9b",
+      "accepted_pulses": 622,
+      "quiescent_pulses": 153,
+      "rejected": {
+        "duration": 3,
+        "neighboring_stimulus": 1
+      },
+      "finite_segments": 626,
+      "dt_s": 0.0015000000000000568,
+      "singleton_segments_zeroed": 0,
+      "static_filter_error": 9.992007221626409e-16
+    },
+    {
+      "condition": "P1",
+      "fly": "AOTU025/2024_06_26_fly01",
+      "member_sha256": "50226a4184345c5b7dfd054e1f8a34d90587b67085447cd1640861604fbda177",
+      "archive_md5": "eae5a827f7e75b373c95b1ce9ee76c9b",
+      "accepted_pulses": 1558,
+      "quiescent_pulses": 1209,
+      "rejected": {
+        "span": 2
+      },
+      "finite_segments": 1560,
+      "dt_s": 0.0015000000000000568,
+      "singleton_segments_zeroed": 0,
+      "static_filter_error": 6.661338147750939e-16
+    },
+    {
+      "condition": "P1",
+      "fly": "AOTU025/2024_06_27_fly01",
+      "member_sha256": "a4867fd9be9ee1efb9cd52123db35baf0fe9c7ddcb2f9aaf02bb578483144103",
+      "archive_md5": "eae5a827f7e75b373c95b1ce9ee76c9b",
+      "accepted_pulses": 1414,
+      "quiescent_pulses": 938,
+      "rejected": {
+        "span": 5,
+        "duration": 2
+      },
+      "finite_segments": 1421,
+      "dt_s": 0.0015000000000000568,
+      "singleton_segments_zeroed": 0,
+      "static_filter_error": 7.771561172376096e-16
+    },
+    {
+      "condition": "P1",
+      "fly": "AOTU025/2024_06_28_fly01",
+      "member_sha256": "d2440d2879a4ccf002d82da9dee12ceb80ad623fd6931c031979300fb9cb9615",
+      "archive_md5": "eae5a827f7e75b373c95b1ce9ee76c9b",
+      "accepted_pulses": 1555,
+      "quiescent_pulses": 735,
+      "rejected": {
+        "span": 5
+      },
+      "finite_segments": 1560,
+      "dt_s": 0.0015000000000000568,
+      "singleton_segments_zeroed": 0,
+      "static_filter_error": 7.771561172376096e-16
+    },
+    {
+      "condition": "P1",
+      "fly": "AOTU025/2024_07_01_fly01",
+      "member_sha256": "c1e15bf08abdf3e9a213067acb4e7e6f9cd7ba64af7162148faa5da2c24aa586",
+      "archive_md5": "eae5a827f7e75b373c95b1ce9ee76c9b",
+      "accepted_pulses": 935,
+      "quiescent_pulses": 266,
+      "rejected": {
+        "span": 1
+      },
+      "finite_segments": 936,
+      "dt_s": 0.0015000000000000568,
+      "singleton_segments_zeroed": 0,
+      "static_filter_error": 1.1102230246251565e-15
+    },
+    {
+      "condition": "P1",
+      "fly": "AOTU025/2024_07_02_fly03",
+      "member_sha256": "b6c9be15e0c7e74fe291d23a80b65b0c79eeb50d968e656fe1aa7e197c653ee5",
+      "archive_md5": "eae5a827f7e75b373c95b1ce9ee76c9b",
+      "accepted_pulses": 1658,
+      "quiescent_pulses": 1014,
+      "rejected": {
+        "span": 4,
+        "duration": 6
+      },
+      "finite_segments": 1668,
+      "dt_s": 0.0015000000000000568,
+      "singleton_segments_zeroed": 0,
+      "static_filter_error": 7.771561172376096e-16
+    },
+    {
+      "condition": "P1",
+      "fly": "AOTU025/2024_07_03_fly01",
+      "member_sha256": "1383a9841c0a6ac1094834c94d002a892a90f4fe340ec49e4d7a08e7bd9c7540",
+      "archive_md5": "eae5a827f7e75b373c95b1ce9ee76c9b",
+      "accepted_pulses": 2073,
+      "quiescent_pulses": 635,
+      "rejected": {
+        "span": 6,
+        "duration": 3
+      },
+      "finite_segments": 2082,
+      "dt_s": 0.0015000000000000568,
+      "singleton_segments_zeroed": 0,
+      "static_filter_error": 9.992007221626409e-16
+    },
+    {
+      "condition": "P1",
+      "fly": "AOTU025/2025_02_24_fly02",
+      "member_sha256": "b28db22fa8de0bd615dfe43d085824bf8304f4564f666e9f4eba0632fcd16aa4",
+      "archive_md5": "eae5a827f7e75b373c95b1ce9ee76c9b",
+      "accepted_pulses": 1039,
+      "quiescent_pulses": 406,
+      "rejected": {
+        "span": 1
+      },
+      "finite_segments": 1040,
+      "dt_s": 0.0015000000000000568,
+      "singleton_segments_zeroed": 0,
+      "static_filter_error": 7.771561172376096e-16
+    },
+    {
+      "condition": "P1",
+      "fly": "AOTU025/2025_03_06_fly02",
+      "member_sha256": "620b97197398713ed02a9dab5a0ddf83551a732960dddebca6dd6421bfe6160d",
+      "archive_md5": "eae5a827f7e75b373c95b1ce9ee76c9b",
+      "accepted_pulses": 1037,
+      "quiescent_pulses": 425,
+      "rejected": {
+        "span": 3
+      },
+      "finite_segments": 1040,
+      "dt_s": 0.0015000000000000568,
+      "singleton_segments_zeroed": 0,
+      "static_filter_error": 6.661338147750939e-16
+    },
+    {
+      "condition": "P1",
+      "fly": "AOTU025/2025_03_13_fly02",
+      "member_sha256": "b7c93498e463a3f5b7f526d4b5737b3270029e3ce47a3accedd9b91cc6a14f42",
+      "archive_md5": "eae5a827f7e75b373c95b1ce9ee76c9b",
+      "accepted_pulses": 1038,
+      "quiescent_pulses": 655,
+      "rejected": {
+        "duration": 1,
+        "span": 2
+      },
+      "finite_segments": 1041,
+      "dt_s": 0.0015000000000000568,
+      "singleton_segments_zeroed": 0,
+      "static_filter_error": 8.881784197001252e-16
+    },
+    {
+      "condition": "P1",
+      "fly": "AOTU025/2025_03_25_fly01",
+      "member_sha256": "ede67fef6e60d22babc3fb78ede766748998b4197bf174889e117b136b83e979",
+      "archive_md5": "eae5a827f7e75b373c95b1ce9ee76c9b",
+      "accepted_pulses": 520,
+      "quiescent_pulses": 226,
+      "rejected": {},
+      "finite_segments": 520,
+      "dt_s": 0.0015000000000000568,
+      "singleton_segments_zeroed": 0,
+      "static_filter_error": 7.771561172376096e-16
+    },
+    {
+      "condition": "P1",
+      "fly": "AOTU025/2025_03_25_fly02",
+      "member_sha256": "d76ca07fbbe24de535b2dfe1a1c297a4b3e1e53d16acdaef766cb60a19911e42",
+      "archive_md5": "eae5a827f7e75b373c95b1ce9ee76c9b",
+      "accepted_pulses": 516,
+      "quiescent_pulses": 372,
+      "rejected": {
+        "duration": 1,
+        "neighboring_stimulus": 1,
+        "span": 3
+      },
+      "finite_segments": 521,
+      "dt_s": 0.0015000000000000568,
+      "singleton_segments_zeroed": 0,
+      "static_filter_error": 6.661338147750939e-16
+    },
+    {
+      "condition": "P1",
+      "fly": "AOTU025/2025_03_25_fly03",
+      "member_sha256": "224584c9e46c8e945d83ed29787dc39178c768dd43ee6527896a6235747e155d",
+      "archive_md5": "eae5a827f7e75b373c95b1ce9ee76c9b",
+      "accepted_pulses": 519,
+      "quiescent_pulses": 145,
+      "rejected": {
+        "span": 1,
+        "duration": 1
+      },
+      "finite_segments": 521,
+      "dt_s": 0.0015000000000000568,
+      "singleton_segments_zeroed": 0,
+      "static_filter_error": 8.881784197001252e-16
+    },
+    {
+      "condition": "P1",
+      "fly": "AOTU025/2025_03_26_fly03",
+      "member_sha256": "b6a5ce3ae9361e2a2bb3596da0f1d26841f1c1e86d99d60ab086ef7f8a2cc3e8",
+      "archive_md5": "eae5a827f7e75b373c95b1ce9ee76c9b",
+      "accepted_pulses": 364,
+      "quiescent_pulses": 119,
+      "rejected": {},
+      "finite_segments": 364,
+      "dt_s": 0.0015000000000000568,
+      "singleton_segments_zeroed": 0,
+      "static_filter_error": 8.881784197001252e-16
+    }
+  ],
+  "summary": [
+    {
+      "condition": "NoP1",
+      "type": "AOTU019",
+      "scenario": "all_L",
+      "transfer": "25_to_75",
+      "variant": "baseline",
+      "mode": "static",
+      "recordings": 11,
+      "pulses": 1795,
+      "window_rmse_spikes_s": 6.661221165899774,
+      "window_rmse_sem": 0.6036828210405057,
+      "tail_rmse_spikes_s": 7.729480923442071,
+      "pulse_mean_rmse_spikes_s": 6.262648505400261,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 11
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU019",
+      "scenario": "all_L",
+      "transfer": "25_to_75",
+      "variant": "baseline",
+      "mode": "temporal",
+      "recordings": 11,
+      "pulses": 1795,
+      "window_rmse_spikes_s": 6.661221165899774,
+      "window_rmse_sem": 0.6036828210405057,
+      "tail_rmse_spikes_s": 7.729480923442071,
+      "pulse_mean_rmse_spikes_s": 6.262648505400261,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 11
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU019",
+      "scenario": "all_L",
+      "transfer": "25_to_75",
+      "variant": "intercept_only",
+      "mode": "static",
+      "recordings": 11,
+      "pulses": 1795,
+      "window_rmse_spikes_s": 6.695278732601995,
+      "window_rmse_sem": 0.6070985977896408,
+      "tail_rmse_spikes_s": 7.73040556029388,
+      "pulse_mean_rmse_spikes_s": 6.344288598228999,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 11
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU019",
+      "scenario": "all_L",
+      "transfer": "25_to_75",
+      "variant": "intercept_only",
+      "mode": "temporal",
+      "recordings": 11,
+      "pulses": 1795,
+      "window_rmse_spikes_s": 6.695278732601995,
+      "window_rmse_sem": 0.6070985977896408,
+      "tail_rmse_spikes_s": 7.73040556029388,
+      "pulse_mean_rmse_spikes_s": 6.344288598228999,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 11
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU019",
+      "scenario": "all_L",
+      "transfer": "25_to_75",
+      "variant": "simple_spatial",
+      "mode": "static",
+      "recordings": 11,
+      "pulses": 1795,
+      "window_rmse_spikes_s": 6.667509017888791,
+      "window_rmse_sem": 0.6045582890806329,
+      "tail_rmse_spikes_s": 7.729757891271578,
+      "pulse_mean_rmse_spikes_s": 6.276503298191591,
+      "temporal_reduction_percent": 0.0022877874727357055,
+      "paired_improvement_mean": 0.0001525384360540969,
+      "paired_improvement_sem": 0.0001487601038692951,
+      "fraction_recordings_improved": 0.18181818181818182,
+      "selected_timing_counts": {
+        "0/0": 9,
+        "0/40": 2
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU019",
+      "scenario": "all_L",
+      "transfer": "25_to_75",
+      "variant": "simple_spatial",
+      "mode": "temporal",
+      "recordings": 11,
+      "pulses": 1795,
+      "window_rmse_spikes_s": 6.667356479452736,
+      "window_rmse_sem": 0.6045674920271229,
+      "tail_rmse_spikes_s": 7.730238006549308,
+      "pulse_mean_rmse_spikes_s": 6.276128972061997,
+      "temporal_reduction_percent": 0.0022877874727357055,
+      "paired_improvement_mean": 0.0001525384360540969,
+      "paired_improvement_sem": 0.0001487601038692951,
+      "fraction_recordings_improved": 0.18181818181818182,
+      "selected_timing_counts": {
+        "0/0": 9,
+        "0/40": 2
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU019",
+      "scenario": "all_L",
+      "transfer": "75_to_25",
+      "variant": "baseline",
+      "mode": "static",
+      "recordings": 11,
+      "pulses": 1799,
+      "window_rmse_spikes_s": 8.169735949179056,
+      "window_rmse_sem": 0.8463407448947687,
+      "tail_rmse_spikes_s": 9.400848775027075,
+      "pulse_mean_rmse_spikes_s": 6.7576175129942095,
+      "temporal_reduction_percent": -0.5004795683568044,
+      "paired_improvement_mean": -0.040887859214345686,
+      "paired_improvement_sem": 0.015801948472286446,
+      "fraction_recordings_improved": 0.09090909090909091,
+      "selected_timing_counts": {
+        "100/0": 10,
+        "40/0": 1
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU019",
+      "scenario": "all_L",
+      "transfer": "75_to_25",
+      "variant": "baseline",
+      "mode": "temporal",
+      "recordings": 11,
+      "pulses": 1799,
+      "window_rmse_spikes_s": 8.210623808393398,
+      "window_rmse_sem": 0.8362891388818651,
+      "tail_rmse_spikes_s": 9.428966411990976,
+      "pulse_mean_rmse_spikes_s": 6.803857485277132,
+      "temporal_reduction_percent": -0.5004795683568044,
+      "paired_improvement_mean": -0.040887859214345686,
+      "paired_improvement_sem": 0.015801948472286446,
+      "fraction_recordings_improved": 0.09090909090909091,
+      "selected_timing_counts": {
+        "100/0": 10,
+        "40/0": 1
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU019",
+      "scenario": "all_L",
+      "transfer": "75_to_25",
+      "variant": "intercept_only",
+      "mode": "static",
+      "recordings": 11,
+      "pulses": 1799,
+      "window_rmse_spikes_s": 8.105277046390585,
+      "window_rmse_sem": 0.8724351273454887,
+      "tail_rmse_spikes_s": 9.400412876496866,
+      "pulse_mean_rmse_spikes_s": 6.6538333973706045,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 11
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU019",
+      "scenario": "all_L",
+      "transfer": "75_to_25",
+      "variant": "intercept_only",
+      "mode": "temporal",
+      "recordings": 11,
+      "pulses": 1799,
+      "window_rmse_spikes_s": 8.105277046390585,
+      "window_rmse_sem": 0.8724351273454887,
+      "tail_rmse_spikes_s": 9.400412876496866,
+      "pulse_mean_rmse_spikes_s": 6.6538333973706045,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 11
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU019",
+      "scenario": "all_L",
+      "transfer": "75_to_25",
+      "variant": "simple_spatial",
+      "mode": "static",
+      "recordings": 11,
+      "pulses": 1799,
+      "window_rmse_spikes_s": 8.159650412351247,
+      "window_rmse_sem": 0.8542939455595012,
+      "tail_rmse_spikes_s": 9.400397528247488,
+      "pulse_mean_rmse_spikes_s": 6.7417663835075325,
+      "temporal_reduction_percent": -0.40529275385836566,
+      "paired_improvement_mean": -0.03307047186143204,
+      "paired_improvement_sem": 0.013715482764914405,
+      "fraction_recordings_improved": 0.2727272727272727,
+      "selected_timing_counts": {
+        "100/0": 9,
+        "40/0": 2
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU019",
+      "scenario": "all_L",
+      "transfer": "75_to_25",
+      "variant": "simple_spatial",
+      "mode": "temporal",
+      "recordings": 11,
+      "pulses": 1799,
+      "window_rmse_spikes_s": 8.192720884212681,
+      "window_rmse_sem": 0.8461298246511123,
+      "tail_rmse_spikes_s": 9.421996916480465,
+      "pulse_mean_rmse_spikes_s": 6.781967038117759,
+      "temporal_reduction_percent": -0.40529275385836566,
+      "paired_improvement_mean": -0.03307047186143204,
+      "paired_improvement_sem": 0.013715482764914405,
+      "fraction_recordings_improved": 0.2727272727272727,
+      "selected_timing_counts": {
+        "100/0": 9,
+        "40/0": 2
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU019",
+      "scenario": "all_L",
+      "transfer": "matched",
+      "variant": "baseline",
+      "mode": "static",
+      "recordings": 11,
+      "pulses": 3594,
+      "window_rmse_spikes_s": 7.424528770757516,
+      "window_rmse_sem": 0.7333505049794895,
+      "tail_rmse_spikes_s": 8.617498017589048,
+      "pulse_mean_rmse_spikes_s": 6.478083204926936,
+      "temporal_reduction_percent": -0.004321611773588885,
+      "paired_improvement_mean": -0.00032085930949075285,
+      "paired_improvement_sem": 0.0024618550043030048,
+      "fraction_recordings_improved": 0.6363636363636364,
+      "selected_timing_counts": {
+        "0/40": 10,
+        "40/40": 1
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU019",
+      "scenario": "all_L",
+      "transfer": "matched",
+      "variant": "baseline",
+      "mode": "temporal",
+      "recordings": 11,
+      "pulses": 3594,
+      "window_rmse_spikes_s": 7.424849630067007,
+      "window_rmse_sem": 0.7326444219210418,
+      "tail_rmse_spikes_s": 8.618150925773307,
+      "pulse_mean_rmse_spikes_s": 6.480789706173471,
+      "temporal_reduction_percent": -0.004321611773588885,
+      "paired_improvement_mean": -0.00032085930949075285,
+      "paired_improvement_sem": 0.0024618550043030048,
+      "fraction_recordings_improved": 0.6363636363636364,
+      "selected_timing_counts": {
+        "0/40": 10,
+        "40/40": 1
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU019",
+      "scenario": "all_L",
+      "transfer": "matched",
+      "variant": "intercept_only",
+      "mode": "static",
+      "recordings": 11,
+      "pulses": 3594,
+      "window_rmse_spikes_s": 7.441586883768256,
+      "window_rmse_sem": 0.7412594761527015,
+      "tail_rmse_spikes_s": 8.61805697253014,
+      "pulse_mean_rmse_spikes_s": 6.529938519851327,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 11
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU019",
+      "scenario": "all_L",
+      "transfer": "matched",
+      "variant": "intercept_only",
+      "mode": "temporal",
+      "recordings": 11,
+      "pulses": 3594,
+      "window_rmse_spikes_s": 7.441586883768256,
+      "window_rmse_sem": 0.7412594761527015,
+      "tail_rmse_spikes_s": 8.61805697253014,
+      "pulse_mean_rmse_spikes_s": 6.529938519851327,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 11
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU019",
+      "scenario": "all_L",
+      "transfer": "matched",
+      "variant": "simple_spatial",
+      "mode": "static",
+      "recordings": 11,
+      "pulses": 3594,
+      "window_rmse_spikes_s": 7.426990034675387,
+      "window_rmse_sem": 0.7362293500025014,
+      "tail_rmse_spikes_s": 8.617549592665826,
+      "pulse_mean_rmse_spikes_s": 6.48511584918258,
+      "temporal_reduction_percent": 0.009760885452879427,
+      "paired_improvement_mean": 0.0007249399898832917,
+      "paired_improvement_sem": 0.0017015610632427289,
+      "fraction_recordings_improved": 0.6363636363636364,
+      "selected_timing_counts": {
+        "0/40": 11
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU019",
+      "scenario": "all_L",
+      "transfer": "matched",
+      "variant": "simple_spatial",
+      "mode": "temporal",
+      "recordings": 11,
+      "pulses": 3594,
+      "window_rmse_spikes_s": 7.4262650946855056,
+      "window_rmse_sem": 0.7355602734768834,
+      "tail_rmse_spikes_s": 8.616637486725882,
+      "pulse_mean_rmse_spikes_s": 6.486642427343312,
+      "temporal_reduction_percent": 0.009760885452879427,
+      "paired_improvement_mean": 0.0007249399898832917,
+      "paired_improvement_sem": 0.0017015610632427289,
+      "fraction_recordings_improved": 0.6363636363636364,
+      "selected_timing_counts": {
+        "0/40": 11
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU019",
+      "scenario": "all_R",
+      "transfer": "25_to_75",
+      "variant": "baseline",
+      "mode": "static",
+      "recordings": 11,
+      "pulses": 1795,
+      "window_rmse_spikes_s": 6.662039045656104,
+      "window_rmse_sem": 0.6036832931002549,
+      "tail_rmse_spikes_s": 7.729514160786059,
+      "pulse_mean_rmse_spikes_s": 6.264370962252745,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 11
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU019",
+      "scenario": "all_R",
+      "transfer": "25_to_75",
+      "variant": "baseline",
+      "mode": "temporal",
+      "recordings": 11,
+      "pulses": 1795,
+      "window_rmse_spikes_s": 6.662039045656104,
+      "window_rmse_sem": 0.6036832931002549,
+      "tail_rmse_spikes_s": 7.729514160786059,
+      "pulse_mean_rmse_spikes_s": 6.264370962252745,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 11
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU019",
+      "scenario": "all_R",
+      "transfer": "25_to_75",
+      "variant": "intercept_only",
+      "mode": "static",
+      "recordings": 11,
+      "pulses": 1795,
+      "window_rmse_spikes_s": 6.695278732601995,
+      "window_rmse_sem": 0.6070985977896408,
+      "tail_rmse_spikes_s": 7.73040556029388,
+      "pulse_mean_rmse_spikes_s": 6.344288598228999,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 11
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU019",
+      "scenario": "all_R",
+      "transfer": "25_to_75",
+      "variant": "intercept_only",
+      "mode": "temporal",
+      "recordings": 11,
+      "pulses": 1795,
+      "window_rmse_spikes_s": 6.695278732601995,
+      "window_rmse_sem": 0.6070985977896408,
+      "tail_rmse_spikes_s": 7.73040556029388,
+      "pulse_mean_rmse_spikes_s": 6.344288598228999,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 11
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU019",
+      "scenario": "all_R",
+      "transfer": "25_to_75",
+      "variant": "simple_spatial",
+      "mode": "static",
+      "recordings": 11,
+      "pulses": 1795,
+      "window_rmse_spikes_s": 6.667509017888791,
+      "window_rmse_sem": 0.6045582890806329,
+      "tail_rmse_spikes_s": 7.729757891271578,
+      "pulse_mean_rmse_spikes_s": 6.276503298191591,
+      "temporal_reduction_percent": 0.0022877874727357055,
+      "paired_improvement_mean": 0.0001525384360540969,
+      "paired_improvement_sem": 0.0001487601038692951,
+      "fraction_recordings_improved": 0.18181818181818182,
+      "selected_timing_counts": {
+        "0/0": 9,
+        "0/40": 2
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU019",
+      "scenario": "all_R",
+      "transfer": "25_to_75",
+      "variant": "simple_spatial",
+      "mode": "temporal",
+      "recordings": 11,
+      "pulses": 1795,
+      "window_rmse_spikes_s": 6.667356479452736,
+      "window_rmse_sem": 0.6045674920271229,
+      "tail_rmse_spikes_s": 7.730238006549308,
+      "pulse_mean_rmse_spikes_s": 6.276128972061997,
+      "temporal_reduction_percent": 0.0022877874727357055,
+      "paired_improvement_mean": 0.0001525384360540969,
+      "paired_improvement_sem": 0.0001487601038692951,
+      "fraction_recordings_improved": 0.18181818181818182,
+      "selected_timing_counts": {
+        "0/0": 9,
+        "0/40": 2
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU019",
+      "scenario": "all_R",
+      "transfer": "75_to_25",
+      "variant": "baseline",
+      "mode": "static",
+      "recordings": 11,
+      "pulses": 1799,
+      "window_rmse_spikes_s": 8.16812467137773,
+      "window_rmse_sem": 0.8470823936691271,
+      "tail_rmse_spikes_s": 9.400806081591524,
+      "pulse_mean_rmse_spikes_s": 6.755426122756409,
+      "temporal_reduction_percent": -0.48192344821366406,
+      "paired_improvement_mean": -0.03936410807069312,
+      "paired_improvement_sem": 0.01545292002252889,
+      "fraction_recordings_improved": 0.09090909090909091,
+      "selected_timing_counts": {
+        "100/0": 10,
+        "40/0": 1
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU019",
+      "scenario": "all_R",
+      "transfer": "75_to_25",
+      "variant": "baseline",
+      "mode": "temporal",
+      "recordings": 11,
+      "pulses": 1799,
+      "window_rmse_spikes_s": 8.207488779448424,
+      "window_rmse_sem": 0.8371939079727058,
+      "tail_rmse_spikes_s": 9.427589348883496,
+      "pulse_mean_rmse_spikes_s": 6.800472368283343,
+      "temporal_reduction_percent": -0.48192344821366406,
+      "paired_improvement_mean": -0.03936410807069312,
+      "paired_improvement_sem": 0.01545292002252889,
+      "fraction_recordings_improved": 0.09090909090909091,
+      "selected_timing_counts": {
+        "100/0": 10,
+        "40/0": 1
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU019",
+      "scenario": "all_R",
+      "transfer": "75_to_25",
+      "variant": "intercept_only",
+      "mode": "static",
+      "recordings": 11,
+      "pulses": 1799,
+      "window_rmse_spikes_s": 8.105277046390585,
+      "window_rmse_sem": 0.8724351273454887,
+      "tail_rmse_spikes_s": 9.400412876496866,
+      "pulse_mean_rmse_spikes_s": 6.6538333973706045,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 11
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU019",
+      "scenario": "all_R",
+      "transfer": "75_to_25",
+      "variant": "intercept_only",
+      "mode": "temporal",
+      "recordings": 11,
+      "pulses": 1799,
+      "window_rmse_spikes_s": 8.105277046390585,
+      "window_rmse_sem": 0.8724351273454887,
+      "tail_rmse_spikes_s": 9.400412876496866,
+      "pulse_mean_rmse_spikes_s": 6.6538333973706045,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 11
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU019",
+      "scenario": "all_R",
+      "transfer": "75_to_25",
+      "variant": "simple_spatial",
+      "mode": "static",
+      "recordings": 11,
+      "pulses": 1799,
+      "window_rmse_spikes_s": 8.159650412351247,
+      "window_rmse_sem": 0.8542939455595012,
+      "tail_rmse_spikes_s": 9.400397528247488,
+      "pulse_mean_rmse_spikes_s": 6.7417663835075325,
+      "temporal_reduction_percent": -0.40529275385836566,
+      "paired_improvement_mean": -0.03307047186143204,
+      "paired_improvement_sem": 0.013715482764914405,
+      "fraction_recordings_improved": 0.2727272727272727,
+      "selected_timing_counts": {
+        "100/0": 9,
+        "40/0": 2
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU019",
+      "scenario": "all_R",
+      "transfer": "75_to_25",
+      "variant": "simple_spatial",
+      "mode": "temporal",
+      "recordings": 11,
+      "pulses": 1799,
+      "window_rmse_spikes_s": 8.192720884212681,
+      "window_rmse_sem": 0.8461298246511123,
+      "tail_rmse_spikes_s": 9.421996916480465,
+      "pulse_mean_rmse_spikes_s": 6.781967038117759,
+      "temporal_reduction_percent": -0.40529275385836566,
+      "paired_improvement_mean": -0.03307047186143204,
+      "paired_improvement_sem": 0.013715482764914405,
+      "fraction_recordings_improved": 0.2727272727272727,
+      "selected_timing_counts": {
+        "100/0": 9,
+        "40/0": 2
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU019",
+      "scenario": "all_R",
+      "transfer": "matched",
+      "variant": "baseline",
+      "mode": "static",
+      "recordings": 11,
+      "pulses": 3594,
+      "window_rmse_spikes_s": 7.424938780035691,
+      "window_rmse_sem": 0.7335308041045207,
+      "tail_rmse_spikes_s": 8.61751067308751,
+      "pulse_mean_rmse_spikes_s": 6.47922810073976,
+      "temporal_reduction_percent": 0.009830082563902645,
+      "paired_improvement_mean": 0.0007298776123964517,
+      "paired_improvement_sem": 0.0016258792157263092,
+      "fraction_recordings_improved": 0.6363636363636364,
+      "selected_timing_counts": {
+        "0/40": 11
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU019",
+      "scenario": "all_R",
+      "transfer": "matched",
+      "variant": "baseline",
+      "mode": "temporal",
+      "recordings": 11,
+      "pulses": 3594,
+      "window_rmse_spikes_s": 7.4242089024232945,
+      "window_rmse_sem": 0.7328230609913705,
+      "tail_rmse_spikes_s": 8.616649329469853,
+      "pulse_mean_rmse_spikes_s": 6.481063616033777,
+      "temporal_reduction_percent": 0.009830082563902645,
+      "paired_improvement_mean": 0.0007298776123964517,
+      "paired_improvement_sem": 0.0016258792157263092,
+      "fraction_recordings_improved": 0.6363636363636364,
+      "selected_timing_counts": {
+        "0/40": 11
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU019",
+      "scenario": "all_R",
+      "transfer": "matched",
+      "variant": "intercept_only",
+      "mode": "static",
+      "recordings": 11,
+      "pulses": 3594,
+      "window_rmse_spikes_s": 7.441586883768256,
+      "window_rmse_sem": 0.7412594761527015,
+      "tail_rmse_spikes_s": 8.61805697253014,
+      "pulse_mean_rmse_spikes_s": 6.529938519851327,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 11
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU019",
+      "scenario": "all_R",
+      "transfer": "matched",
+      "variant": "intercept_only",
+      "mode": "temporal",
+      "recordings": 11,
+      "pulses": 3594,
+      "window_rmse_spikes_s": 7.441586883768256,
+      "window_rmse_sem": 0.7412594761527015,
+      "tail_rmse_spikes_s": 8.61805697253014,
+      "pulse_mean_rmse_spikes_s": 6.529938519851327,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 11
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU019",
+      "scenario": "all_R",
+      "transfer": "matched",
+      "variant": "simple_spatial",
+      "mode": "static",
+      "recordings": 11,
+      "pulses": 3594,
+      "window_rmse_spikes_s": 7.426990034675387,
+      "window_rmse_sem": 0.7362293500025014,
+      "tail_rmse_spikes_s": 8.617549592665826,
+      "pulse_mean_rmse_spikes_s": 6.48511584918258,
+      "temporal_reduction_percent": 0.009760885452879427,
+      "paired_improvement_mean": 0.0007249399898832917,
+      "paired_improvement_sem": 0.0017015610632427289,
+      "fraction_recordings_improved": 0.6363636363636364,
+      "selected_timing_counts": {
+        "0/40": 11
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU019",
+      "scenario": "all_R",
+      "transfer": "matched",
+      "variant": "simple_spatial",
+      "mode": "temporal",
+      "recordings": 11,
+      "pulses": 3594,
+      "window_rmse_spikes_s": 7.4262650946855056,
+      "window_rmse_sem": 0.7355602734768834,
+      "tail_rmse_spikes_s": 8.616637486725882,
+      "pulse_mean_rmse_spikes_s": 6.486642427343312,
+      "temporal_reduction_percent": 0.009760885452879427,
+      "paired_improvement_mean": 0.0007249399898832917,
+      "paired_improvement_sem": 0.0017015610632427289,
+      "fraction_recordings_improved": 0.6363636363636364,
+      "selected_timing_counts": {
+        "0/40": 11
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU019",
+      "scenario": "pooled",
+      "transfer": "25_to_75",
+      "variant": "baseline",
+      "mode": "static",
+      "recordings": 11,
+      "pulses": 1795,
+      "window_rmse_spikes_s": 6.661618116137501,
+      "window_rmse_sem": 0.6036778947588118,
+      "tail_rmse_spikes_s": 7.729497776832647,
+      "pulse_mean_rmse_spikes_s": 6.263470889135459,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 11
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU019",
+      "scenario": "pooled",
+      "transfer": "25_to_75",
+      "variant": "baseline",
+      "mode": "temporal",
+      "recordings": 11,
+      "pulses": 1795,
+      "window_rmse_spikes_s": 6.661618116137501,
+      "window_rmse_sem": 0.6036778947588118,
+      "tail_rmse_spikes_s": 7.729497776832647,
+      "pulse_mean_rmse_spikes_s": 6.263470889135459,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 11
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU019",
+      "scenario": "pooled",
+      "transfer": "25_to_75",
+      "variant": "intercept_only",
+      "mode": "static",
+      "recordings": 11,
+      "pulses": 1795,
+      "window_rmse_spikes_s": 6.695278732601995,
+      "window_rmse_sem": 0.6070985977896408,
+      "tail_rmse_spikes_s": 7.73040556029388,
+      "pulse_mean_rmse_spikes_s": 6.344288598228999,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 11
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU019",
+      "scenario": "pooled",
+      "transfer": "25_to_75",
+      "variant": "intercept_only",
+      "mode": "temporal",
+      "recordings": 11,
+      "pulses": 1795,
+      "window_rmse_spikes_s": 6.695278732601995,
+      "window_rmse_sem": 0.6070985977896408,
+      "tail_rmse_spikes_s": 7.73040556029388,
+      "pulse_mean_rmse_spikes_s": 6.344288598228999,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 11
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU019",
+      "scenario": "pooled",
+      "transfer": "25_to_75",
+      "variant": "simple_spatial",
+      "mode": "static",
+      "recordings": 11,
+      "pulses": 1795,
+      "window_rmse_spikes_s": 6.667509017888791,
+      "window_rmse_sem": 0.6045582890806329,
+      "tail_rmse_spikes_s": 7.729757891271578,
+      "pulse_mean_rmse_spikes_s": 6.276503298191591,
+      "temporal_reduction_percent": 0.0022877874727357055,
+      "paired_improvement_mean": 0.0001525384360540969,
+      "paired_improvement_sem": 0.0001487601038692951,
+      "fraction_recordings_improved": 0.18181818181818182,
+      "selected_timing_counts": {
+        "0/0": 9,
+        "0/40": 2
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU019",
+      "scenario": "pooled",
+      "transfer": "25_to_75",
+      "variant": "simple_spatial",
+      "mode": "temporal",
+      "recordings": 11,
+      "pulses": 1795,
+      "window_rmse_spikes_s": 6.667356479452736,
+      "window_rmse_sem": 0.6045674920271229,
+      "tail_rmse_spikes_s": 7.730238006549308,
+      "pulse_mean_rmse_spikes_s": 6.276128972061997,
+      "temporal_reduction_percent": 0.0022877874727357055,
+      "paired_improvement_mean": 0.0001525384360540969,
+      "paired_improvement_sem": 0.0001487601038692951,
+      "fraction_recordings_improved": 0.18181818181818182,
+      "selected_timing_counts": {
+        "0/0": 9,
+        "0/40": 2
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU019",
+      "scenario": "pooled",
+      "transfer": "75_to_25",
+      "variant": "baseline",
+      "mode": "static",
+      "recordings": 11,
+      "pulses": 1799,
+      "window_rmse_spikes_s": 8.168944520800931,
+      "window_rmse_sem": 0.846708235508909,
+      "tail_rmse_spikes_s": 9.400826109737459,
+      "pulse_mean_rmse_spikes_s": 6.756591889603111,
+      "temporal_reduction_percent": -0.4908185156572156,
+      "paired_improvement_mean": -0.04009469224185908,
+      "paired_improvement_sem": 0.01562544932646229,
+      "fraction_recordings_improved": 0.09090909090909091,
+      "selected_timing_counts": {
+        "100/0": 10,
+        "40/0": 1
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU019",
+      "scenario": "pooled",
+      "transfer": "75_to_25",
+      "variant": "baseline",
+      "mode": "temporal",
+      "recordings": 11,
+      "pulses": 1799,
+      "window_rmse_spikes_s": 8.209039213042788,
+      "window_rmse_sem": 0.8367354756728407,
+      "tail_rmse_spikes_s": 9.428263747718331,
+      "pulse_mean_rmse_spikes_s": 6.802210748373378,
+      "temporal_reduction_percent": -0.4908185156572156,
+      "paired_improvement_mean": -0.04009469224185908,
+      "paired_improvement_sem": 0.01562544932646229,
+      "fraction_recordings_improved": 0.09090909090909091,
+      "selected_timing_counts": {
+        "100/0": 10,
+        "40/0": 1
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU019",
+      "scenario": "pooled",
+      "transfer": "75_to_25",
+      "variant": "intercept_only",
+      "mode": "static",
+      "recordings": 11,
+      "pulses": 1799,
+      "window_rmse_spikes_s": 8.105277046390585,
+      "window_rmse_sem": 0.8724351273454887,
+      "tail_rmse_spikes_s": 9.400412876496866,
+      "pulse_mean_rmse_spikes_s": 6.6538333973706045,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 11
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU019",
+      "scenario": "pooled",
+      "transfer": "75_to_25",
+      "variant": "intercept_only",
+      "mode": "temporal",
+      "recordings": 11,
+      "pulses": 1799,
+      "window_rmse_spikes_s": 8.105277046390585,
+      "window_rmse_sem": 0.8724351273454887,
+      "tail_rmse_spikes_s": 9.400412876496866,
+      "pulse_mean_rmse_spikes_s": 6.6538333973706045,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 11
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU019",
+      "scenario": "pooled",
+      "transfer": "75_to_25",
+      "variant": "simple_spatial",
+      "mode": "static",
+      "recordings": 11,
+      "pulses": 1799,
+      "window_rmse_spikes_s": 8.159650412351247,
+      "window_rmse_sem": 0.8542939455595012,
+      "tail_rmse_spikes_s": 9.400397528247488,
+      "pulse_mean_rmse_spikes_s": 6.7417663835075325,
+      "temporal_reduction_percent": -0.40529275385836566,
+      "paired_improvement_mean": -0.03307047186143204,
+      "paired_improvement_sem": 0.013715482764914405,
+      "fraction_recordings_improved": 0.2727272727272727,
+      "selected_timing_counts": {
+        "100/0": 9,
+        "40/0": 2
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU019",
+      "scenario": "pooled",
+      "transfer": "75_to_25",
+      "variant": "simple_spatial",
+      "mode": "temporal",
+      "recordings": 11,
+      "pulses": 1799,
+      "window_rmse_spikes_s": 8.192720884212681,
+      "window_rmse_sem": 0.8461298246511123,
+      "tail_rmse_spikes_s": 9.421996916480465,
+      "pulse_mean_rmse_spikes_s": 6.781967038117759,
+      "temporal_reduction_percent": -0.40529275385836566,
+      "paired_improvement_mean": -0.03307047186143204,
+      "paired_improvement_sem": 0.013715482764914405,
+      "fraction_recordings_improved": 0.2727272727272727,
+      "selected_timing_counts": {
+        "100/0": 9,
+        "40/0": 2
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU019",
+      "scenario": "pooled",
+      "transfer": "matched",
+      "variant": "baseline",
+      "mode": "static",
+      "recordings": 11,
+      "pulses": 3594,
+      "window_rmse_spikes_s": 7.424727148879503,
+      "window_rmse_sem": 0.7334368090321418,
+      "tail_rmse_spikes_s": 8.617504135954283,
+      "pulse_mean_rmse_spikes_s": 6.4786395316852,
+      "temporal_reduction_percent": -0.004293876394758634,
+      "paired_improvement_mean": -0.0003188086064222243,
+      "paired_improvement_sem": 0.0024273481331713565,
+      "fraction_recordings_improved": 0.6363636363636364,
+      "selected_timing_counts": {
+        "0/40": 10,
+        "40/40": 1
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU019",
+      "scenario": "pooled",
+      "transfer": "matched",
+      "variant": "baseline",
+      "mode": "temporal",
+      "recordings": 11,
+      "pulses": 3594,
+      "window_rmse_spikes_s": 7.425045957485924,
+      "window_rmse_sem": 0.7327284964931475,
+      "tail_rmse_spikes_s": 8.618147733921383,
+      "pulse_mean_rmse_spikes_s": 6.481343415254115,
+      "temporal_reduction_percent": -0.004293876394758634,
+      "paired_improvement_mean": -0.0003188086064222243,
+      "paired_improvement_sem": 0.0024273481331713565,
+      "fraction_recordings_improved": 0.6363636363636364,
+      "selected_timing_counts": {
+        "0/40": 10,
+        "40/40": 1
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU019",
+      "scenario": "pooled",
+      "transfer": "matched",
+      "variant": "intercept_only",
+      "mode": "static",
+      "recordings": 11,
+      "pulses": 3594,
+      "window_rmse_spikes_s": 7.441586883768256,
+      "window_rmse_sem": 0.7412594761527015,
+      "tail_rmse_spikes_s": 8.61805697253014,
+      "pulse_mean_rmse_spikes_s": 6.529938519851327,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 11
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU019",
+      "scenario": "pooled",
+      "transfer": "matched",
+      "variant": "intercept_only",
+      "mode": "temporal",
+      "recordings": 11,
+      "pulses": 3594,
+      "window_rmse_spikes_s": 7.441586883768256,
+      "window_rmse_sem": 0.7412594761527015,
+      "tail_rmse_spikes_s": 8.61805697253014,
+      "pulse_mean_rmse_spikes_s": 6.529938519851327,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 11
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU019",
+      "scenario": "pooled",
+      "transfer": "matched",
+      "variant": "simple_spatial",
+      "mode": "static",
+      "recordings": 11,
+      "pulses": 3594,
+      "window_rmse_spikes_s": 7.426990034675387,
+      "window_rmse_sem": 0.7362293500025014,
+      "tail_rmse_spikes_s": 8.617549592665826,
+      "pulse_mean_rmse_spikes_s": 6.48511584918258,
+      "temporal_reduction_percent": 0.009760885452879427,
+      "paired_improvement_mean": 0.0007249399898832917,
+      "paired_improvement_sem": 0.0017015610632427289,
+      "fraction_recordings_improved": 0.6363636363636364,
+      "selected_timing_counts": {
+        "0/40": 11
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU019",
+      "scenario": "pooled",
+      "transfer": "matched",
+      "variant": "simple_spatial",
+      "mode": "temporal",
+      "recordings": 11,
+      "pulses": 3594,
+      "window_rmse_spikes_s": 7.4262650946855056,
+      "window_rmse_sem": 0.7355602734768834,
+      "tail_rmse_spikes_s": 8.616637486725882,
+      "pulse_mean_rmse_spikes_s": 6.486642427343312,
+      "temporal_reduction_percent": 0.009760885452879427,
+      "paired_improvement_mean": 0.0007249399898832917,
+      "paired_improvement_sem": 0.0017015610632427289,
+      "fraction_recordings_improved": 0.6363636363636364,
+      "selected_timing_counts": {
+        "0/40": 11
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU025",
+      "scenario": "all_L",
+      "transfer": "25_to_75",
+      "variant": "baseline",
+      "mode": "static",
+      "recordings": 12,
+      "pulses": 1952,
+      "window_rmse_spikes_s": 9.623693630974438,
+      "window_rmse_sem": 0.684607321925605,
+      "tail_rmse_spikes_s": 11.011954513753123,
+      "pulse_mean_rmse_spikes_s": 9.259507354785603,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 12
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU025",
+      "scenario": "all_L",
+      "transfer": "25_to_75",
+      "variant": "baseline",
+      "mode": "temporal",
+      "recordings": 12,
+      "pulses": 1952,
+      "window_rmse_spikes_s": 9.623693630974438,
+      "window_rmse_sem": 0.684607321925605,
+      "tail_rmse_spikes_s": 11.011954513753123,
+      "pulse_mean_rmse_spikes_s": 9.259507354785603,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 12
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU025",
+      "scenario": "all_L",
+      "transfer": "25_to_75",
+      "variant": "intercept_only",
+      "mode": "static",
+      "recordings": 12,
+      "pulses": 1952,
+      "window_rmse_spikes_s": 9.728912054778371,
+      "window_rmse_sem": 0.6934284939026039,
+      "tail_rmse_spikes_s": 11.012314652112117,
+      "pulse_mean_rmse_spikes_s": 9.504668996370109,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 12
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU025",
+      "scenario": "all_L",
+      "transfer": "25_to_75",
+      "variant": "intercept_only",
+      "mode": "temporal",
+      "recordings": 12,
+      "pulses": 1952,
+      "window_rmse_spikes_s": 9.728912054778371,
+      "window_rmse_sem": 0.6934284939026039,
+      "tail_rmse_spikes_s": 11.012314652112117,
+      "pulse_mean_rmse_spikes_s": 9.504668996370109,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 12
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU025",
+      "scenario": "all_L",
+      "transfer": "25_to_75",
+      "variant": "simple_spatial",
+      "mode": "static",
+      "recordings": 12,
+      "pulses": 1952,
+      "window_rmse_spikes_s": 9.627591124584825,
+      "window_rmse_sem": 0.685203613448997,
+      "tail_rmse_spikes_s": 11.011885552041909,
+      "pulse_mean_rmse_spikes_s": 9.267018656529983,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 12
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU025",
+      "scenario": "all_L",
+      "transfer": "25_to_75",
+      "variant": "simple_spatial",
+      "mode": "temporal",
+      "recordings": 12,
+      "pulses": 1952,
+      "window_rmse_spikes_s": 9.627591124584825,
+      "window_rmse_sem": 0.685203613448997,
+      "tail_rmse_spikes_s": 11.011885552041909,
+      "pulse_mean_rmse_spikes_s": 9.267018656529983,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 12
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU025",
+      "scenario": "all_L",
+      "transfer": "75_to_25",
+      "variant": "baseline",
+      "mode": "static",
+      "recordings": 12,
+      "pulses": 1904,
+      "window_rmse_spikes_s": 11.113547849735477,
+      "window_rmse_sem": 0.834373936993478,
+      "tail_rmse_spikes_s": 12.566888300905928,
+      "pulse_mean_rmse_spikes_s": 9.241436050072323,
+      "temporal_reduction_percent": -0.06872993555151347,
+      "paired_improvement_mean": -0.00763833427461047,
+      "paired_improvement_sem": 0.003413243270521639,
+      "fraction_recordings_improved": 0.08333333333333333,
+      "selected_timing_counts": {
+        "0/40": 4,
+        "0/0": 6,
+        "40/0": 2
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU025",
+      "scenario": "all_L",
+      "transfer": "75_to_25",
+      "variant": "baseline",
+      "mode": "temporal",
+      "recordings": 12,
+      "pulses": 1904,
+      "window_rmse_spikes_s": 11.121186184010087,
+      "window_rmse_sem": 0.8335271366121235,
+      "tail_rmse_spikes_s": 12.576093066120945,
+      "pulse_mean_rmse_spikes_s": 9.240528213967325,
+      "temporal_reduction_percent": -0.06872993555151347,
+      "paired_improvement_mean": -0.00763833427461047,
+      "paired_improvement_sem": 0.003413243270521639,
+      "fraction_recordings_improved": 0.08333333333333333,
+      "selected_timing_counts": {
+        "0/40": 4,
+        "0/0": 6,
+        "40/0": 2
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU025",
+      "scenario": "all_L",
+      "transfer": "75_to_25",
+      "variant": "intercept_only",
+      "mode": "static",
+      "recordings": 12,
+      "pulses": 1904,
+      "window_rmse_spikes_s": 11.117486789860054,
+      "window_rmse_sem": 0.8228534833373792,
+      "tail_rmse_spikes_s": 12.566610134902119,
+      "pulse_mean_rmse_spikes_s": 9.242437204612429,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 12
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU025",
+      "scenario": "all_L",
+      "transfer": "75_to_25",
+      "variant": "intercept_only",
+      "mode": "temporal",
+      "recordings": 12,
+      "pulses": 1904,
+      "window_rmse_spikes_s": 11.117486789860054,
+      "window_rmse_sem": 0.8228534833373792,
+      "tail_rmse_spikes_s": 12.566610134902119,
+      "pulse_mean_rmse_spikes_s": 9.242437204612429,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 12
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU025",
+      "scenario": "all_L",
+      "transfer": "75_to_25",
+      "variant": "simple_spatial",
+      "mode": "static",
+      "recordings": 12,
+      "pulses": 1904,
+      "window_rmse_spikes_s": 11.102138351208195,
+      "window_rmse_sem": 0.8347259081220976,
+      "tail_rmse_spikes_s": 12.566519840670736,
+      "pulse_mean_rmse_spikes_s": 9.216784840880267,
+      "temporal_reduction_percent": -0.09198750389067245,
+      "paired_improvement_mean": -0.01021257994776644,
+      "paired_improvement_sem": 0.004151848699100169,
+      "fraction_recordings_improved": 0.08333333333333333,
+      "selected_timing_counts": {
+        "40/0": 6,
+        "0/0": 5,
+        "0/40": 1
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU025",
+      "scenario": "all_L",
+      "transfer": "75_to_25",
+      "variant": "simple_spatial",
+      "mode": "temporal",
+      "recordings": 12,
+      "pulses": 1904,
+      "window_rmse_spikes_s": 11.11235093115596,
+      "window_rmse_sem": 0.8331725659076364,
+      "tail_rmse_spikes_s": 12.574553722679994,
+      "pulse_mean_rmse_spikes_s": 9.222474388333202,
+      "temporal_reduction_percent": -0.09198750389067245,
+      "paired_improvement_mean": -0.01021257994776644,
+      "paired_improvement_sem": 0.004151848699100169,
+      "fraction_recordings_improved": 0.08333333333333333,
+      "selected_timing_counts": {
+        "40/0": 6,
+        "0/0": 5,
+        "0/40": 1
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU025",
+      "scenario": "all_L",
+      "transfer": "matched",
+      "variant": "baseline",
+      "mode": "static",
+      "recordings": 12,
+      "pulses": 3856,
+      "window_rmse_spikes_s": 10.343533704362883,
+      "window_rmse_sem": 0.7432909968297043,
+      "tail_rmse_spikes_s": 11.8146047442967,
+      "pulse_mean_rmse_spikes_s": 9.186410363019496,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 12
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU025",
+      "scenario": "all_L",
+      "transfer": "matched",
+      "variant": "baseline",
+      "mode": "temporal",
+      "recordings": 12,
+      "pulses": 3856,
+      "window_rmse_spikes_s": 10.343533704362883,
+      "window_rmse_sem": 0.7432909968297043,
+      "tail_rmse_spikes_s": 11.8146047442967,
+      "pulse_mean_rmse_spikes_s": 9.186410363019496,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 12
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU025",
+      "scenario": "all_L",
+      "transfer": "matched",
+      "variant": "intercept_only",
+      "mode": "static",
+      "recordings": 12,
+      "pulses": 3856,
+      "window_rmse_spikes_s": 10.434128250575426,
+      "window_rmse_sem": 0.7412193136319865,
+      "tail_rmse_spikes_s": 11.814806780864936,
+      "pulse_mean_rmse_spikes_s": 9.384914272731109,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 12
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU025",
+      "scenario": "all_L",
+      "transfer": "matched",
+      "variant": "intercept_only",
+      "mode": "temporal",
+      "recordings": 12,
+      "pulses": 3856,
+      "window_rmse_spikes_s": 10.434128250575426,
+      "window_rmse_sem": 0.7412193136319865,
+      "tail_rmse_spikes_s": 11.814806780864936,
+      "pulse_mean_rmse_spikes_s": 9.384914272731109,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 12
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU025",
+      "scenario": "all_L",
+      "transfer": "matched",
+      "variant": "simple_spatial",
+      "mode": "static",
+      "recordings": 12,
+      "pulses": 3856,
+      "window_rmse_spikes_s": 10.345817451109118,
+      "window_rmse_sem": 0.7441676040468191,
+      "tail_rmse_spikes_s": 11.814460102057142,
+      "pulse_mean_rmse_spikes_s": 9.190510787568797,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 12
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU025",
+      "scenario": "all_L",
+      "transfer": "matched",
+      "variant": "simple_spatial",
+      "mode": "temporal",
+      "recordings": 12,
+      "pulses": 3856,
+      "window_rmse_spikes_s": 10.345817451109118,
+      "window_rmse_sem": 0.7441676040468191,
+      "tail_rmse_spikes_s": 11.814460102057142,
+      "pulse_mean_rmse_spikes_s": 9.190510787568797,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 12
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU025",
+      "scenario": "all_R",
+      "transfer": "25_to_75",
+      "variant": "baseline",
+      "mode": "static",
+      "recordings": 12,
+      "pulses": 1952,
+      "window_rmse_spikes_s": 9.62502285068069,
+      "window_rmse_sem": 0.6846562686704064,
+      "tail_rmse_spikes_s": 11.01194480119184,
+      "pulse_mean_rmse_spikes_s": 9.2624785481502,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 12
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU025",
+      "scenario": "all_R",
+      "transfer": "25_to_75",
+      "variant": "baseline",
+      "mode": "temporal",
+      "recordings": 12,
+      "pulses": 1952,
+      "window_rmse_spikes_s": 9.62502285068069,
+      "window_rmse_sem": 0.6846562686704064,
+      "tail_rmse_spikes_s": 11.01194480119184,
+      "pulse_mean_rmse_spikes_s": 9.2624785481502,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 12
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU025",
+      "scenario": "all_R",
+      "transfer": "25_to_75",
+      "variant": "intercept_only",
+      "mode": "static",
+      "recordings": 12,
+      "pulses": 1952,
+      "window_rmse_spikes_s": 9.728912054778371,
+      "window_rmse_sem": 0.6934284939026039,
+      "tail_rmse_spikes_s": 11.012314652112117,
+      "pulse_mean_rmse_spikes_s": 9.504668996370109,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 12
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU025",
+      "scenario": "all_R",
+      "transfer": "25_to_75",
+      "variant": "intercept_only",
+      "mode": "temporal",
+      "recordings": 12,
+      "pulses": 1952,
+      "window_rmse_spikes_s": 9.728912054778371,
+      "window_rmse_sem": 0.6934284939026039,
+      "tail_rmse_spikes_s": 11.012314652112117,
+      "pulse_mean_rmse_spikes_s": 9.504668996370109,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 12
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU025",
+      "scenario": "all_R",
+      "transfer": "25_to_75",
+      "variant": "simple_spatial",
+      "mode": "static",
+      "recordings": 12,
+      "pulses": 1952,
+      "window_rmse_spikes_s": 9.627591124584825,
+      "window_rmse_sem": 0.685203613448997,
+      "tail_rmse_spikes_s": 11.011885552041909,
+      "pulse_mean_rmse_spikes_s": 9.267018656529983,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 12
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU025",
+      "scenario": "all_R",
+      "transfer": "25_to_75",
+      "variant": "simple_spatial",
+      "mode": "temporal",
+      "recordings": 12,
+      "pulses": 1952,
+      "window_rmse_spikes_s": 9.627591124584825,
+      "window_rmse_sem": 0.685203613448997,
+      "tail_rmse_spikes_s": 11.011885552041909,
+      "pulse_mean_rmse_spikes_s": 9.267018656529983,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 12
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU025",
+      "scenario": "all_R",
+      "transfer": "75_to_25",
+      "variant": "baseline",
+      "mode": "static",
+      "recordings": 12,
+      "pulses": 1904,
+      "window_rmse_spikes_s": 11.111503082287252,
+      "window_rmse_sem": 0.8344043541793473,
+      "tail_rmse_spikes_s": 12.566730899686908,
+      "pulse_mean_rmse_spikes_s": 9.237239295385292,
+      "temporal_reduction_percent": -0.07626481283535057,
+      "paired_improvement_mean": -0.00847416702890221,
+      "paired_improvement_sem": 0.0036122823812226573,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/40": 3,
+        "40/0": 3,
+        "0/0": 6
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU025",
+      "scenario": "all_R",
+      "transfer": "75_to_25",
+      "variant": "baseline",
+      "mode": "temporal",
+      "recordings": 12,
+      "pulses": 1904,
+      "window_rmse_spikes_s": 11.119977249316152,
+      "window_rmse_sem": 0.8334540608617595,
+      "tail_rmse_spikes_s": 12.576200818945521,
+      "pulse_mean_rmse_spikes_s": 9.238151667636886,
+      "temporal_reduction_percent": -0.07626481283535057,
+      "paired_improvement_mean": -0.00847416702890221,
+      "paired_improvement_sem": 0.0036122823812226573,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/40": 3,
+        "40/0": 3,
+        "0/0": 6
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU025",
+      "scenario": "all_R",
+      "transfer": "75_to_25",
+      "variant": "intercept_only",
+      "mode": "static",
+      "recordings": 12,
+      "pulses": 1904,
+      "window_rmse_spikes_s": 11.117486789860054,
+      "window_rmse_sem": 0.8228534833373792,
+      "tail_rmse_spikes_s": 12.566610134902119,
+      "pulse_mean_rmse_spikes_s": 9.242437204612429,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 12
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU025",
+      "scenario": "all_R",
+      "transfer": "75_to_25",
+      "variant": "intercept_only",
+      "mode": "temporal",
+      "recordings": 12,
+      "pulses": 1904,
+      "window_rmse_spikes_s": 11.117486789860054,
+      "window_rmse_sem": 0.8228534833373792,
+      "tail_rmse_spikes_s": 12.566610134902119,
+      "pulse_mean_rmse_spikes_s": 9.242437204612429,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 12
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU025",
+      "scenario": "all_R",
+      "transfer": "75_to_25",
+      "variant": "simple_spatial",
+      "mode": "static",
+      "recordings": 12,
+      "pulses": 1904,
+      "window_rmse_spikes_s": 11.102138351208195,
+      "window_rmse_sem": 0.8347259081220976,
+      "tail_rmse_spikes_s": 12.566519840670736,
+      "pulse_mean_rmse_spikes_s": 9.216784840880267,
+      "temporal_reduction_percent": -0.09198750389067245,
+      "paired_improvement_mean": -0.01021257994776644,
+      "paired_improvement_sem": 0.004151848699100169,
+      "fraction_recordings_improved": 0.08333333333333333,
+      "selected_timing_counts": {
+        "40/0": 6,
+        "0/0": 5,
+        "0/40": 1
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU025",
+      "scenario": "all_R",
+      "transfer": "75_to_25",
+      "variant": "simple_spatial",
+      "mode": "temporal",
+      "recordings": 12,
+      "pulses": 1904,
+      "window_rmse_spikes_s": 11.11235093115596,
+      "window_rmse_sem": 0.8331725659076364,
+      "tail_rmse_spikes_s": 12.574553722679994,
+      "pulse_mean_rmse_spikes_s": 9.222474388333202,
+      "temporal_reduction_percent": -0.09198750389067245,
+      "paired_improvement_mean": -0.01021257994776644,
+      "paired_improvement_sem": 0.004151848699100169,
+      "fraction_recordings_improved": 0.08333333333333333,
+      "selected_timing_counts": {
+        "40/0": 6,
+        "0/0": 5,
+        "0/40": 1
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU025",
+      "scenario": "all_R",
+      "transfer": "matched",
+      "variant": "baseline",
+      "mode": "static",
+      "recordings": 12,
+      "pulses": 3856,
+      "window_rmse_spikes_s": 10.34450724907896,
+      "window_rmse_sem": 0.7434007708061822,
+      "tail_rmse_spikes_s": 11.814549406693663,
+      "pulse_mean_rmse_spikes_s": 9.188568002469951,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 12
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU025",
+      "scenario": "all_R",
+      "transfer": "matched",
+      "variant": "baseline",
+      "mode": "temporal",
+      "recordings": 12,
+      "pulses": 3856,
+      "window_rmse_spikes_s": 10.34450724907896,
+      "window_rmse_sem": 0.7434007708061822,
+      "tail_rmse_spikes_s": 11.814549406693663,
+      "pulse_mean_rmse_spikes_s": 9.188568002469951,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 12
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU025",
+      "scenario": "all_R",
+      "transfer": "matched",
+      "variant": "intercept_only",
+      "mode": "static",
+      "recordings": 12,
+      "pulses": 3856,
+      "window_rmse_spikes_s": 10.434128250575426,
+      "window_rmse_sem": 0.7412193136319865,
+      "tail_rmse_spikes_s": 11.814806780864936,
+      "pulse_mean_rmse_spikes_s": 9.384914272731109,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 12
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU025",
+      "scenario": "all_R",
+      "transfer": "matched",
+      "variant": "intercept_only",
+      "mode": "temporal",
+      "recordings": 12,
+      "pulses": 3856,
+      "window_rmse_spikes_s": 10.434128250575426,
+      "window_rmse_sem": 0.7412193136319865,
+      "tail_rmse_spikes_s": 11.814806780864936,
+      "pulse_mean_rmse_spikes_s": 9.384914272731109,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 12
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU025",
+      "scenario": "all_R",
+      "transfer": "matched",
+      "variant": "simple_spatial",
+      "mode": "static",
+      "recordings": 12,
+      "pulses": 3856,
+      "window_rmse_spikes_s": 10.345817451109118,
+      "window_rmse_sem": 0.7441676040468191,
+      "tail_rmse_spikes_s": 11.814460102057142,
+      "pulse_mean_rmse_spikes_s": 9.190510787568797,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 12
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU025",
+      "scenario": "all_R",
+      "transfer": "matched",
+      "variant": "simple_spatial",
+      "mode": "temporal",
+      "recordings": 12,
+      "pulses": 3856,
+      "window_rmse_spikes_s": 10.345817451109118,
+      "window_rmse_sem": 0.7441676040468191,
+      "tail_rmse_spikes_s": 11.814460102057142,
+      "pulse_mean_rmse_spikes_s": 9.190510787568797,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 12
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU025",
+      "scenario": "pooled",
+      "transfer": "25_to_75",
+      "variant": "baseline",
+      "mode": "static",
+      "recordings": 12,
+      "pulses": 1952,
+      "window_rmse_spikes_s": 9.62438860462528,
+      "window_rmse_sem": 0.6846312183740442,
+      "tail_rmse_spikes_s": 11.011949048391054,
+      "pulse_mean_rmse_spikes_s": 9.261060886180182,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 12
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU025",
+      "scenario": "pooled",
+      "transfer": "25_to_75",
+      "variant": "baseline",
+      "mode": "temporal",
+      "recordings": 12,
+      "pulses": 1952,
+      "window_rmse_spikes_s": 9.62438860462528,
+      "window_rmse_sem": 0.6846312183740442,
+      "tail_rmse_spikes_s": 11.011949048391054,
+      "pulse_mean_rmse_spikes_s": 9.261060886180182,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 12
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU025",
+      "scenario": "pooled",
+      "transfer": "25_to_75",
+      "variant": "intercept_only",
+      "mode": "static",
+      "recordings": 12,
+      "pulses": 1952,
+      "window_rmse_spikes_s": 9.728912054778371,
+      "window_rmse_sem": 0.6934284939026039,
+      "tail_rmse_spikes_s": 11.012314652112117,
+      "pulse_mean_rmse_spikes_s": 9.504668996370109,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 12
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU025",
+      "scenario": "pooled",
+      "transfer": "25_to_75",
+      "variant": "intercept_only",
+      "mode": "temporal",
+      "recordings": 12,
+      "pulses": 1952,
+      "window_rmse_spikes_s": 9.728912054778371,
+      "window_rmse_sem": 0.6934284939026039,
+      "tail_rmse_spikes_s": 11.012314652112117,
+      "pulse_mean_rmse_spikes_s": 9.504668996370109,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 12
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU025",
+      "scenario": "pooled",
+      "transfer": "25_to_75",
+      "variant": "simple_spatial",
+      "mode": "static",
+      "recordings": 12,
+      "pulses": 1952,
+      "window_rmse_spikes_s": 9.627591124584825,
+      "window_rmse_sem": 0.685203613448997,
+      "tail_rmse_spikes_s": 11.011885552041909,
+      "pulse_mean_rmse_spikes_s": 9.267018656529983,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 12
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU025",
+      "scenario": "pooled",
+      "transfer": "25_to_75",
+      "variant": "simple_spatial",
+      "mode": "temporal",
+      "recordings": 12,
+      "pulses": 1952,
+      "window_rmse_spikes_s": 9.627591124584825,
+      "window_rmse_sem": 0.685203613448997,
+      "tail_rmse_spikes_s": 11.011885552041909,
+      "pulse_mean_rmse_spikes_s": 9.267018656529983,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 12
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU025",
+      "scenario": "pooled",
+      "transfer": "75_to_25",
+      "variant": "baseline",
+      "mode": "static",
+      "recordings": 12,
+      "pulses": 1904,
+      "window_rmse_spikes_s": 11.112414995284942,
+      "window_rmse_sem": 0.8343940461094592,
+      "tail_rmse_spikes_s": 12.566801732762656,
+      "pulse_mean_rmse_spikes_s": 9.239137210922172,
+      "temporal_reduction_percent": -0.07614780338332343,
+      "paired_improvement_mean": -0.0084618599217506,
+      "paired_improvement_sem": 0.003598186297262596,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/40": 3,
+        "40/0": 3,
+        "0/0": 6
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU025",
+      "scenario": "pooled",
+      "transfer": "75_to_25",
+      "variant": "baseline",
+      "mode": "temporal",
+      "recordings": 12,
+      "pulses": 1904,
+      "window_rmse_spikes_s": 11.12087685520669,
+      "window_rmse_sem": 0.8334693101946096,
+      "tail_rmse_spikes_s": 12.576459919399104,
+      "pulse_mean_rmse_spikes_s": 9.23986545339251,
+      "temporal_reduction_percent": -0.07614780338332343,
+      "paired_improvement_mean": -0.0084618599217506,
+      "paired_improvement_sem": 0.003598186297262596,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/40": 3,
+        "40/0": 3,
+        "0/0": 6
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU025",
+      "scenario": "pooled",
+      "transfer": "75_to_25",
+      "variant": "intercept_only",
+      "mode": "static",
+      "recordings": 12,
+      "pulses": 1904,
+      "window_rmse_spikes_s": 11.117486789860054,
+      "window_rmse_sem": 0.8228534833373792,
+      "tail_rmse_spikes_s": 12.566610134902119,
+      "pulse_mean_rmse_spikes_s": 9.242437204612429,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 12
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU025",
+      "scenario": "pooled",
+      "transfer": "75_to_25",
+      "variant": "intercept_only",
+      "mode": "temporal",
+      "recordings": 12,
+      "pulses": 1904,
+      "window_rmse_spikes_s": 11.117486789860054,
+      "window_rmse_sem": 0.8228534833373792,
+      "tail_rmse_spikes_s": 12.566610134902119,
+      "pulse_mean_rmse_spikes_s": 9.242437204612429,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 12
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU025",
+      "scenario": "pooled",
+      "transfer": "75_to_25",
+      "variant": "simple_spatial",
+      "mode": "static",
+      "recordings": 12,
+      "pulses": 1904,
+      "window_rmse_spikes_s": 11.102138351208195,
+      "window_rmse_sem": 0.8347259081220976,
+      "tail_rmse_spikes_s": 12.566519840670736,
+      "pulse_mean_rmse_spikes_s": 9.216784840880267,
+      "temporal_reduction_percent": -0.09198750389067245,
+      "paired_improvement_mean": -0.01021257994776644,
+      "paired_improvement_sem": 0.004151848699100169,
+      "fraction_recordings_improved": 0.08333333333333333,
+      "selected_timing_counts": {
+        "40/0": 6,
+        "0/0": 5,
+        "0/40": 1
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU025",
+      "scenario": "pooled",
+      "transfer": "75_to_25",
+      "variant": "simple_spatial",
+      "mode": "temporal",
+      "recordings": 12,
+      "pulses": 1904,
+      "window_rmse_spikes_s": 11.11235093115596,
+      "window_rmse_sem": 0.8331725659076364,
+      "tail_rmse_spikes_s": 12.574553722679994,
+      "pulse_mean_rmse_spikes_s": 9.222474388333202,
+      "temporal_reduction_percent": -0.09198750389067245,
+      "paired_improvement_mean": -0.01021257994776644,
+      "paired_improvement_sem": 0.004151848699100169,
+      "fraction_recordings_improved": 0.08333333333333333,
+      "selected_timing_counts": {
+        "40/0": 6,
+        "0/0": 5,
+        "0/40": 1
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU025",
+      "scenario": "pooled",
+      "transfer": "matched",
+      "variant": "baseline",
+      "mode": "static",
+      "recordings": 12,
+      "pulses": 3856,
+      "window_rmse_spikes_s": 10.34403820884368,
+      "window_rmse_sem": 0.7433517353403518,
+      "tail_rmse_spikes_s": 11.814574240685582,
+      "pulse_mean_rmse_spikes_s": 9.187538082436937,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 12
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU025",
+      "scenario": "pooled",
+      "transfer": "matched",
+      "variant": "baseline",
+      "mode": "temporal",
+      "recordings": 12,
+      "pulses": 3856,
+      "window_rmse_spikes_s": 10.34403820884368,
+      "window_rmse_sem": 0.7433517353403518,
+      "tail_rmse_spikes_s": 11.814574240685582,
+      "pulse_mean_rmse_spikes_s": 9.187538082436937,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 12
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU025",
+      "scenario": "pooled",
+      "transfer": "matched",
+      "variant": "intercept_only",
+      "mode": "static",
+      "recordings": 12,
+      "pulses": 3856,
+      "window_rmse_spikes_s": 10.434128250575426,
+      "window_rmse_sem": 0.7412193136319865,
+      "tail_rmse_spikes_s": 11.814806780864936,
+      "pulse_mean_rmse_spikes_s": 9.384914272731109,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 12
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU025",
+      "scenario": "pooled",
+      "transfer": "matched",
+      "variant": "intercept_only",
+      "mode": "temporal",
+      "recordings": 12,
+      "pulses": 3856,
+      "window_rmse_spikes_s": 10.434128250575426,
+      "window_rmse_sem": 0.7412193136319865,
+      "tail_rmse_spikes_s": 11.814806780864936,
+      "pulse_mean_rmse_spikes_s": 9.384914272731109,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 12
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU025",
+      "scenario": "pooled",
+      "transfer": "matched",
+      "variant": "simple_spatial",
+      "mode": "static",
+      "recordings": 12,
+      "pulses": 3856,
+      "window_rmse_spikes_s": 10.345817451109118,
+      "window_rmse_sem": 0.7441676040468191,
+      "tail_rmse_spikes_s": 11.814460102057142,
+      "pulse_mean_rmse_spikes_s": 9.190510787568797,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 12
+      }
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU025",
+      "scenario": "pooled",
+      "transfer": "matched",
+      "variant": "simple_spatial",
+      "mode": "temporal",
+      "recordings": 12,
+      "pulses": 3856,
+      "window_rmse_spikes_s": 10.345817451109118,
+      "window_rmse_sem": 0.7441676040468191,
+      "tail_rmse_spikes_s": 11.814460102057142,
+      "pulse_mean_rmse_spikes_s": 9.190510787568797,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 12
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU019",
+      "scenario": "all_L",
+      "transfer": "25_to_75",
+      "variant": "baseline",
+      "mode": "static",
+      "recordings": 24,
+      "pulses": 7583,
+      "window_rmse_spikes_s": 11.247589223682999,
+      "window_rmse_sem": 0.8037649772029516,
+      "tail_rmse_spikes_s": 12.780071873418615,
+      "pulse_mean_rmse_spikes_s": 11.392654468854658,
+      "temporal_reduction_percent": 1.4000310177407058,
+      "paired_improvement_mean": 0.1574697378796234,
+      "paired_improvement_sem": 0.04227053732815431,
+      "fraction_recordings_improved": 0.875,
+      "selected_timing_counts": {
+        "100/0": 24
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU019",
+      "scenario": "all_L",
+      "transfer": "25_to_75",
+      "variant": "baseline",
+      "mode": "temporal",
+      "recordings": 24,
+      "pulses": 7583,
+      "window_rmse_spikes_s": 11.090119485803376,
+      "window_rmse_sem": 0.7847520735963003,
+      "tail_rmse_spikes_s": 12.526811236142587,
+      "pulse_mean_rmse_spikes_s": 11.420471885095877,
+      "temporal_reduction_percent": 1.4000310177407058,
+      "paired_improvement_mean": 0.1574697378796234,
+      "paired_improvement_sem": 0.04227053732815431,
+      "fraction_recordings_improved": 0.875,
+      "selected_timing_counts": {
+        "100/0": 24
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU019",
+      "scenario": "all_L",
+      "transfer": "25_to_75",
+      "variant": "intercept_only",
+      "mode": "static",
+      "recordings": 24,
+      "pulses": 7583,
+      "window_rmse_spikes_s": 12.071068074707616,
+      "window_rmse_sem": 0.9499710268829169,
+      "tail_rmse_spikes_s": 12.818150012676588,
+      "pulse_mean_rmse_spikes_s": 13.11669812885197,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 24
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU019",
+      "scenario": "all_L",
+      "transfer": "25_to_75",
+      "variant": "intercept_only",
+      "mode": "temporal",
+      "recordings": 24,
+      "pulses": 7583,
+      "window_rmse_spikes_s": 12.071068074707616,
+      "window_rmse_sem": 0.9499710268829169,
+      "tail_rmse_spikes_s": 12.818150012676588,
+      "pulse_mean_rmse_spikes_s": 13.11669812885197,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 24
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU019",
+      "scenario": "all_L",
+      "transfer": "25_to_75",
+      "variant": "simple_spatial",
+      "mode": "static",
+      "recordings": 24,
+      "pulses": 7583,
+      "window_rmse_spikes_s": 11.240344500039376,
+      "window_rmse_sem": 0.8314821613890926,
+      "tail_rmse_spikes_s": 12.780375927485844,
+      "pulse_mean_rmse_spikes_s": 11.388076151531623,
+      "temporal_reduction_percent": 1.0887436148540595,
+      "paired_improvement_mean": 0.12237853303178181,
+      "paired_improvement_sem": 0.034660447522700616,
+      "fraction_recordings_improved": 0.7916666666666666,
+      "selected_timing_counts": {
+        "100/0": 24
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU019",
+      "scenario": "all_L",
+      "transfer": "25_to_75",
+      "variant": "simple_spatial",
+      "mode": "temporal",
+      "recordings": 24,
+      "pulses": 7583,
+      "window_rmse_spikes_s": 11.117965967007597,
+      "window_rmse_sem": 0.8233638032273197,
+      "tail_rmse_spikes_s": 12.556510307575396,
+      "pulse_mean_rmse_spikes_s": 11.442376348432822,
+      "temporal_reduction_percent": 1.0887436148540595,
+      "paired_improvement_mean": 0.12237853303178181,
+      "paired_improvement_sem": 0.034660447522700616,
+      "fraction_recordings_improved": 0.7916666666666666,
+      "selected_timing_counts": {
+        "100/0": 24
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU019",
+      "scenario": "all_L",
+      "transfer": "75_to_25",
+      "variant": "baseline",
+      "mode": "static",
+      "recordings": 24,
+      "pulses": 7782,
+      "window_rmse_spikes_s": 13.546276798707723,
+      "window_rmse_sem": 0.7514507326036864,
+      "tail_rmse_spikes_s": 15.469431411521342,
+      "pulse_mean_rmse_spikes_s": 12.074697826116145,
+      "temporal_reduction_percent": -0.9779715186582578,
+      "paired_improvement_mean": -0.13247872892997145,
+      "paired_improvement_sem": 0.14419040500871277,
+      "fraction_recordings_improved": 0.4583333333333333,
+      "selected_timing_counts": {
+        "100/0": 24
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU019",
+      "scenario": "all_L",
+      "transfer": "75_to_25",
+      "variant": "baseline",
+      "mode": "temporal",
+      "recordings": 24,
+      "pulses": 7782,
+      "window_rmse_spikes_s": 13.678755527637696,
+      "window_rmse_sem": 0.7016997471197461,
+      "tail_rmse_spikes_s": 15.287839631405001,
+      "pulse_mean_rmse_spikes_s": 12.329820805348417,
+      "temporal_reduction_percent": -0.9779715186582578,
+      "paired_improvement_mean": -0.13247872892997145,
+      "paired_improvement_sem": 0.14419040500871277,
+      "fraction_recordings_improved": 0.4583333333333333,
+      "selected_timing_counts": {
+        "100/0": 24
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU019",
+      "scenario": "all_L",
+      "transfer": "75_to_25",
+      "variant": "intercept_only",
+      "mode": "static",
+      "recordings": 24,
+      "pulses": 7782,
+      "window_rmse_spikes_s": 14.561486270910294,
+      "window_rmse_sem": 0.9685636832613161,
+      "tail_rmse_spikes_s": 15.499481579669663,
+      "pulse_mean_rmse_spikes_s": 13.69620817148798,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 24
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU019",
+      "scenario": "all_L",
+      "transfer": "75_to_25",
+      "variant": "intercept_only",
+      "mode": "temporal",
+      "recordings": 24,
+      "pulses": 7782,
+      "window_rmse_spikes_s": 14.561486270910294,
+      "window_rmse_sem": 0.9685636832613161,
+      "tail_rmse_spikes_s": 15.499481579669663,
+      "pulse_mean_rmse_spikes_s": 13.69620817148798,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 24
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU019",
+      "scenario": "all_L",
+      "transfer": "75_to_25",
+      "variant": "simple_spatial",
+      "mode": "static",
+      "recordings": 24,
+      "pulses": 7782,
+      "window_rmse_spikes_s": 13.573562988475265,
+      "window_rmse_sem": 0.7690594562791415,
+      "tail_rmse_spikes_s": 15.469619370960631,
+      "pulse_mean_rmse_spikes_s": 12.146387599319928,
+      "temporal_reduction_percent": -0.8352881268417401,
+      "paired_improvement_mean": -0.1133783600321201,
+      "paired_improvement_sem": 0.12741235825422945,
+      "fraction_recordings_improved": 0.4583333333333333,
+      "selected_timing_counts": {
+        "100/0": 24
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU019",
+      "scenario": "all_L",
+      "transfer": "75_to_25",
+      "variant": "simple_spatial",
+      "mode": "temporal",
+      "recordings": 24,
+      "pulses": 7782,
+      "window_rmse_spikes_s": 13.686941348507384,
+      "window_rmse_sem": 0.7323683281046137,
+      "tail_rmse_spikes_s": 15.31015560129319,
+      "pulse_mean_rmse_spikes_s": 12.362142437153311,
+      "temporal_reduction_percent": -0.8352881268417401,
+      "paired_improvement_mean": -0.1133783600321201,
+      "paired_improvement_sem": 0.12741235825422945,
+      "fraction_recordings_improved": 0.4583333333333333,
+      "selected_timing_counts": {
+        "100/0": 24
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU019",
+      "scenario": "all_L",
+      "transfer": "matched",
+      "variant": "baseline",
+      "mode": "static",
+      "recordings": 24,
+      "pulses": 15365,
+      "window_rmse_spikes_s": 12.455415717004376,
+      "window_rmse_sem": 0.7525968662087179,
+      "tail_rmse_spikes_s": 14.252618840562542,
+      "pulse_mean_rmse_spikes_s": 11.703213266445632,
+      "temporal_reduction_percent": 0.8165813803926266,
+      "paired_improvement_mean": 0.10170860559555521,
+      "paired_improvement_sem": 0.057553455626747525,
+      "fraction_recordings_improved": 0.5416666666666666,
+      "selected_timing_counts": {
+        "100/0": 24
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU019",
+      "scenario": "all_L",
+      "transfer": "matched",
+      "variant": "baseline",
+      "mode": "temporal",
+      "recordings": 24,
+      "pulses": 15365,
+      "window_rmse_spikes_s": 12.353707111408822,
+      "window_rmse_sem": 0.7275719920267136,
+      "tail_rmse_spikes_s": 14.023562025359496,
+      "pulse_mean_rmse_spikes_s": 11.721859530087693,
+      "temporal_reduction_percent": 0.8165813803926266,
+      "paired_improvement_mean": 0.10170860559555521,
+      "paired_improvement_sem": 0.057553455626747525,
+      "fraction_recordings_improved": 0.5416666666666666,
+      "selected_timing_counts": {
+        "100/0": 24
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU019",
+      "scenario": "all_L",
+      "transfer": "matched",
+      "variant": "intercept_only",
+      "mode": "static",
+      "recordings": 24,
+      "pulses": 15365,
+      "window_rmse_spikes_s": 13.410894190348861,
+      "window_rmse_sem": 0.9194577559893702,
+      "tail_rmse_spikes_s": 14.28515924484923,
+      "pulse_mean_rmse_spikes_s": 13.404943304512237,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 24
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU019",
+      "scenario": "all_L",
+      "transfer": "matched",
+      "variant": "intercept_only",
+      "mode": "temporal",
+      "recordings": 24,
+      "pulses": 15365,
+      "window_rmse_spikes_s": 13.410894190348861,
+      "window_rmse_sem": 0.9194577559893702,
+      "tail_rmse_spikes_s": 14.28515924484923,
+      "pulse_mean_rmse_spikes_s": 13.404943304512237,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 24
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU019",
+      "scenario": "all_L",
+      "transfer": "matched",
+      "variant": "simple_spatial",
+      "mode": "static",
+      "recordings": 24,
+      "pulses": 15365,
+      "window_rmse_spikes_s": 12.47083976013881,
+      "window_rmse_sem": 0.7721978862255562,
+      "tail_rmse_spikes_s": 14.252930764177309,
+      "pulse_mean_rmse_spikes_s": 11.740641543351975,
+      "temporal_reduction_percent": 0.6163656265197129,
+      "paired_improvement_mean": 0.07686596961984656,
+      "paired_improvement_sem": 0.0512169077253315,
+      "fraction_recordings_improved": 0.5416666666666666,
+      "selected_timing_counts": {
+        "100/0": 24
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU019",
+      "scenario": "all_L",
+      "transfer": "matched",
+      "variant": "simple_spatial",
+      "mode": "temporal",
+      "recordings": 24,
+      "pulses": 15365,
+      "window_rmse_spikes_s": 12.393973790518961,
+      "window_rmse_sem": 0.7564087518830171,
+      "tail_rmse_spikes_s": 14.048548021226106,
+      "pulse_mean_rmse_spikes_s": 11.775073071745302,
+      "temporal_reduction_percent": 0.6163656265197129,
+      "paired_improvement_mean": 0.07686596961984656,
+      "paired_improvement_sem": 0.0512169077253315,
+      "fraction_recordings_improved": 0.5416666666666666,
+      "selected_timing_counts": {
+        "100/0": 24
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU019",
+      "scenario": "all_R",
+      "transfer": "25_to_75",
+      "variant": "baseline",
+      "mode": "static",
+      "recordings": 24,
+      "pulses": 7583,
+      "window_rmse_spikes_s": 11.224568211846574,
+      "window_rmse_sem": 0.8025842079370031,
+      "tail_rmse_spikes_s": 12.778804392302211,
+      "pulse_mean_rmse_spikes_s": 11.34670601808381,
+      "temporal_reduction_percent": 1.3858911695526888,
+      "paired_improvement_mean": 0.1555602996684026,
+      "paired_improvement_sem": 0.041665765966682346,
+      "fraction_recordings_improved": 0.875,
+      "selected_timing_counts": {
+        "100/0": 24
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU019",
+      "scenario": "all_R",
+      "transfer": "25_to_75",
+      "variant": "baseline",
+      "mode": "temporal",
+      "recordings": 24,
+      "pulses": 7583,
+      "window_rmse_spikes_s": 11.069007912178174,
+      "window_rmse_sem": 0.7851745619855048,
+      "tail_rmse_spikes_s": 12.522151595224434,
+      "pulse_mean_rmse_spikes_s": 11.382098647498529,
+      "temporal_reduction_percent": 1.3858911695526888,
+      "paired_improvement_mean": 0.1555602996684026,
+      "paired_improvement_sem": 0.041665765966682346,
+      "fraction_recordings_improved": 0.875,
+      "selected_timing_counts": {
+        "100/0": 24
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU019",
+      "scenario": "all_R",
+      "transfer": "25_to_75",
+      "variant": "intercept_only",
+      "mode": "static",
+      "recordings": 24,
+      "pulses": 7583,
+      "window_rmse_spikes_s": 12.071068074707616,
+      "window_rmse_sem": 0.9499710268829169,
+      "tail_rmse_spikes_s": 12.818150012676588,
+      "pulse_mean_rmse_spikes_s": 13.11669812885197,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 24
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU019",
+      "scenario": "all_R",
+      "transfer": "25_to_75",
+      "variant": "intercept_only",
+      "mode": "temporal",
+      "recordings": 24,
+      "pulses": 7583,
+      "window_rmse_spikes_s": 12.071068074707616,
+      "window_rmse_sem": 0.9499710268829169,
+      "tail_rmse_spikes_s": 12.818150012676588,
+      "pulse_mean_rmse_spikes_s": 13.11669812885197,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 24
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU019",
+      "scenario": "all_R",
+      "transfer": "25_to_75",
+      "variant": "simple_spatial",
+      "mode": "static",
+      "recordings": 24,
+      "pulses": 7583,
+      "window_rmse_spikes_s": 11.240344500039376,
+      "window_rmse_sem": 0.8314821613890926,
+      "tail_rmse_spikes_s": 12.780375927485844,
+      "pulse_mean_rmse_spikes_s": 11.388076151531623,
+      "temporal_reduction_percent": 1.0887436148540595,
+      "paired_improvement_mean": 0.12237853303178181,
+      "paired_improvement_sem": 0.034660447522700616,
+      "fraction_recordings_improved": 0.7916666666666666,
+      "selected_timing_counts": {
+        "100/0": 24
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU019",
+      "scenario": "all_R",
+      "transfer": "25_to_75",
+      "variant": "simple_spatial",
+      "mode": "temporal",
+      "recordings": 24,
+      "pulses": 7583,
+      "window_rmse_spikes_s": 11.117965967007597,
+      "window_rmse_sem": 0.8233638032273197,
+      "tail_rmse_spikes_s": 12.556510307575396,
+      "pulse_mean_rmse_spikes_s": 11.442376348432822,
+      "temporal_reduction_percent": 1.0887436148540595,
+      "paired_improvement_mean": 0.12237853303178181,
+      "paired_improvement_sem": 0.034660447522700616,
+      "fraction_recordings_improved": 0.7916666666666666,
+      "selected_timing_counts": {
+        "100/0": 24
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU019",
+      "scenario": "all_R",
+      "transfer": "75_to_25",
+      "variant": "baseline",
+      "mode": "static",
+      "recordings": 24,
+      "pulses": 7782,
+      "window_rmse_spikes_s": 13.518910415587028,
+      "window_rmse_sem": 0.7467764660701225,
+      "tail_rmse_spikes_s": 15.468518005943281,
+      "pulse_mean_rmse_spikes_s": 12.04024765238774,
+      "temporal_reduction_percent": -0.9677891624788607,
+      "paired_improvement_mean": -0.13083454988727747,
+      "paired_improvement_sem": 0.14492841110219032,
+      "fraction_recordings_improved": 0.4583333333333333,
+      "selected_timing_counts": {
+        "100/0": 24
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU019",
+      "scenario": "all_R",
+      "transfer": "75_to_25",
+      "variant": "baseline",
+      "mode": "temporal",
+      "recordings": 24,
+      "pulses": 7782,
+      "window_rmse_spikes_s": 13.649744965474305,
+      "window_rmse_sem": 0.6987534564381509,
+      "tail_rmse_spikes_s": 15.28916016682208,
+      "pulse_mean_rmse_spikes_s": 12.293224043289449,
+      "temporal_reduction_percent": -0.9677891624788607,
+      "paired_improvement_mean": -0.13083454988727747,
+      "paired_improvement_sem": 0.14492841110219032,
+      "fraction_recordings_improved": 0.4583333333333333,
+      "selected_timing_counts": {
+        "100/0": 24
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU019",
+      "scenario": "all_R",
+      "transfer": "75_to_25",
+      "variant": "intercept_only",
+      "mode": "static",
+      "recordings": 24,
+      "pulses": 7782,
+      "window_rmse_spikes_s": 14.561486270910294,
+      "window_rmse_sem": 0.9685636832613161,
+      "tail_rmse_spikes_s": 15.499481579669663,
+      "pulse_mean_rmse_spikes_s": 13.69620817148798,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 24
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU019",
+      "scenario": "all_R",
+      "transfer": "75_to_25",
+      "variant": "intercept_only",
+      "mode": "temporal",
+      "recordings": 24,
+      "pulses": 7782,
+      "window_rmse_spikes_s": 14.561486270910294,
+      "window_rmse_sem": 0.9685636832613161,
+      "tail_rmse_spikes_s": 15.499481579669663,
+      "pulse_mean_rmse_spikes_s": 13.69620817148798,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 24
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU019",
+      "scenario": "all_R",
+      "transfer": "75_to_25",
+      "variant": "simple_spatial",
+      "mode": "static",
+      "recordings": 24,
+      "pulses": 7782,
+      "window_rmse_spikes_s": 13.573562988475265,
+      "window_rmse_sem": 0.7690594562791415,
+      "tail_rmse_spikes_s": 15.469619370960631,
+      "pulse_mean_rmse_spikes_s": 12.146387599319928,
+      "temporal_reduction_percent": -0.8352881268417401,
+      "paired_improvement_mean": -0.1133783600321201,
+      "paired_improvement_sem": 0.12741235825422945,
+      "fraction_recordings_improved": 0.4583333333333333,
+      "selected_timing_counts": {
+        "100/0": 24
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU019",
+      "scenario": "all_R",
+      "transfer": "75_to_25",
+      "variant": "simple_spatial",
+      "mode": "temporal",
+      "recordings": 24,
+      "pulses": 7782,
+      "window_rmse_spikes_s": 13.686941348507384,
+      "window_rmse_sem": 0.7323683281046137,
+      "tail_rmse_spikes_s": 15.31015560129319,
+      "pulse_mean_rmse_spikes_s": 12.362142437153311,
+      "temporal_reduction_percent": -0.8352881268417401,
+      "paired_improvement_mean": -0.1133783600321201,
+      "paired_improvement_sem": 0.12741235825422945,
+      "fraction_recordings_improved": 0.4583333333333333,
+      "selected_timing_counts": {
+        "100/0": 24
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU019",
+      "scenario": "all_R",
+      "transfer": "matched",
+      "variant": "baseline",
+      "mode": "static",
+      "recordings": 24,
+      "pulses": 15365,
+      "window_rmse_spikes_s": 12.43032643362431,
+      "window_rmse_sem": 0.7493158039040408,
+      "tail_rmse_spikes_s": 14.251582057345864,
+      "pulse_mean_rmse_spikes_s": 11.66331837194746,
+      "temporal_reduction_percent": 0.8037177295343508,
+      "paired_improvement_mean": 0.09990473738603271,
+      "paired_improvement_sem": 0.05773764257824782,
+      "fraction_recordings_improved": 0.5416666666666666,
+      "selected_timing_counts": {
+        "100/0": 24
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU019",
+      "scenario": "all_R",
+      "transfer": "matched",
+      "variant": "baseline",
+      "mode": "temporal",
+      "recordings": 24,
+      "pulses": 15365,
+      "window_rmse_spikes_s": 12.330421696238277,
+      "window_rmse_sem": 0.7252527535143275,
+      "tail_rmse_spikes_s": 14.02126246941504,
+      "pulse_mean_rmse_spikes_s": 11.686835201245701,
+      "temporal_reduction_percent": 0.8037177295343508,
+      "paired_improvement_mean": 0.09990473738603271,
+      "paired_improvement_sem": 0.05773764257824782,
+      "fraction_recordings_improved": 0.5416666666666666,
+      "selected_timing_counts": {
+        "100/0": 24
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU019",
+      "scenario": "all_R",
+      "transfer": "matched",
+      "variant": "intercept_only",
+      "mode": "static",
+      "recordings": 24,
+      "pulses": 15365,
+      "window_rmse_spikes_s": 13.410894190348861,
+      "window_rmse_sem": 0.9194577559893702,
+      "tail_rmse_spikes_s": 14.28515924484923,
+      "pulse_mean_rmse_spikes_s": 13.404943304512237,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 24
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU019",
+      "scenario": "all_R",
+      "transfer": "matched",
+      "variant": "intercept_only",
+      "mode": "temporal",
+      "recordings": 24,
+      "pulses": 15365,
+      "window_rmse_spikes_s": 13.410894190348861,
+      "window_rmse_sem": 0.9194577559893702,
+      "tail_rmse_spikes_s": 14.28515924484923,
+      "pulse_mean_rmse_spikes_s": 13.404943304512237,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 24
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU019",
+      "scenario": "all_R",
+      "transfer": "matched",
+      "variant": "simple_spatial",
+      "mode": "static",
+      "recordings": 24,
+      "pulses": 15365,
+      "window_rmse_spikes_s": 12.47083976013881,
+      "window_rmse_sem": 0.7721978862255562,
+      "tail_rmse_spikes_s": 14.252930764177309,
+      "pulse_mean_rmse_spikes_s": 11.740641543351975,
+      "temporal_reduction_percent": 0.6163656265197129,
+      "paired_improvement_mean": 0.07686596961984656,
+      "paired_improvement_sem": 0.0512169077253315,
+      "fraction_recordings_improved": 0.5416666666666666,
+      "selected_timing_counts": {
+        "100/0": 24
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU019",
+      "scenario": "all_R",
+      "transfer": "matched",
+      "variant": "simple_spatial",
+      "mode": "temporal",
+      "recordings": 24,
+      "pulses": 15365,
+      "window_rmse_spikes_s": 12.393973790518961,
+      "window_rmse_sem": 0.7564087518830171,
+      "tail_rmse_spikes_s": 14.048548021226106,
+      "pulse_mean_rmse_spikes_s": 11.775073071745302,
+      "temporal_reduction_percent": 0.6163656265197129,
+      "paired_improvement_mean": 0.07686596961984656,
+      "paired_improvement_sem": 0.0512169077253315,
+      "fraction_recordings_improved": 0.5416666666666666,
+      "selected_timing_counts": {
+        "100/0": 24
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU019",
+      "scenario": "pooled",
+      "transfer": "25_to_75",
+      "variant": "baseline",
+      "mode": "static",
+      "recordings": 24,
+      "pulses": 7583,
+      "window_rmse_spikes_s": 11.23372992386721,
+      "window_rmse_sem": 0.802927183332794,
+      "tail_rmse_spikes_s": 12.779326599671748,
+      "pulse_mean_rmse_spikes_s": 11.364887324633711,
+      "temporal_reduction_percent": 1.3943476041962677,
+      "paired_improvement_mean": 0.15663724405531995,
+      "paired_improvement_sem": 0.04198905830035117,
+      "fraction_recordings_improved": 0.875,
+      "selected_timing_counts": {
+        "100/0": 24
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU019",
+      "scenario": "pooled",
+      "transfer": "25_to_75",
+      "variant": "baseline",
+      "mode": "temporal",
+      "recordings": 24,
+      "pulses": 7583,
+      "window_rmse_spikes_s": 11.077092679811889,
+      "window_rmse_sem": 0.7847586292861579,
+      "tail_rmse_spikes_s": 12.523894497914013,
+      "pulse_mean_rmse_spikes_s": 11.396837047865086,
+      "temporal_reduction_percent": 1.3943476041962677,
+      "paired_improvement_mean": 0.15663724405531995,
+      "paired_improvement_sem": 0.04198905830035117,
+      "fraction_recordings_improved": 0.875,
+      "selected_timing_counts": {
+        "100/0": 24
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU019",
+      "scenario": "pooled",
+      "transfer": "25_to_75",
+      "variant": "intercept_only",
+      "mode": "static",
+      "recordings": 24,
+      "pulses": 7583,
+      "window_rmse_spikes_s": 12.071068074707616,
+      "window_rmse_sem": 0.9499710268829169,
+      "tail_rmse_spikes_s": 12.818150012676588,
+      "pulse_mean_rmse_spikes_s": 13.11669812885197,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 24
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU019",
+      "scenario": "pooled",
+      "transfer": "25_to_75",
+      "variant": "intercept_only",
+      "mode": "temporal",
+      "recordings": 24,
+      "pulses": 7583,
+      "window_rmse_spikes_s": 12.071068074707616,
+      "window_rmse_sem": 0.9499710268829169,
+      "tail_rmse_spikes_s": 12.818150012676588,
+      "pulse_mean_rmse_spikes_s": 13.11669812885197,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 24
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU019",
+      "scenario": "pooled",
+      "transfer": "25_to_75",
+      "variant": "simple_spatial",
+      "mode": "static",
+      "recordings": 24,
+      "pulses": 7583,
+      "window_rmse_spikes_s": 11.240344500039376,
+      "window_rmse_sem": 0.8314821613890926,
+      "tail_rmse_spikes_s": 12.780375927485844,
+      "pulse_mean_rmse_spikes_s": 11.388076151531623,
+      "temporal_reduction_percent": 1.0887436148540595,
+      "paired_improvement_mean": 0.12237853303178181,
+      "paired_improvement_sem": 0.034660447522700616,
+      "fraction_recordings_improved": 0.7916666666666666,
+      "selected_timing_counts": {
+        "100/0": 24
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU019",
+      "scenario": "pooled",
+      "transfer": "25_to_75",
+      "variant": "simple_spatial",
+      "mode": "temporal",
+      "recordings": 24,
+      "pulses": 7583,
+      "window_rmse_spikes_s": 11.117965967007597,
+      "window_rmse_sem": 0.8233638032273197,
+      "tail_rmse_spikes_s": 12.556510307575396,
+      "pulse_mean_rmse_spikes_s": 11.442376348432822,
+      "temporal_reduction_percent": 1.0887436148540595,
+      "paired_improvement_mean": 0.12237853303178181,
+      "paired_improvement_sem": 0.034660447522700616,
+      "fraction_recordings_improved": 0.7916666666666666,
+      "selected_timing_counts": {
+        "100/0": 24
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU019",
+      "scenario": "pooled",
+      "transfer": "75_to_25",
+      "variant": "baseline",
+      "mode": "static",
+      "recordings": 24,
+      "pulses": 7782,
+      "window_rmse_spikes_s": 13.529618201452934,
+      "window_rmse_sem": 0.7486966981940618,
+      "tail_rmse_spikes_s": 15.468890666307024,
+      "pulse_mean_rmse_spikes_s": 12.053424540710324,
+      "temporal_reduction_percent": -0.9722994455615108,
+      "paired_improvement_mean": -0.13154840275931537,
+      "paired_improvement_sem": 0.1447705168759319,
+      "fraction_recordings_improved": 0.4583333333333333,
+      "selected_timing_counts": {
+        "100/0": 24
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU019",
+      "scenario": "pooled",
+      "transfer": "75_to_25",
+      "variant": "baseline",
+      "mode": "temporal",
+      "recordings": 24,
+      "pulses": 7782,
+      "window_rmse_spikes_s": 13.66116660421225,
+      "window_rmse_sem": 0.6999519275974914,
+      "tail_rmse_spikes_s": 15.28834413985347,
+      "pulse_mean_rmse_spikes_s": 12.307448207843933,
+      "temporal_reduction_percent": -0.9722994455615108,
+      "paired_improvement_mean": -0.13154840275931537,
+      "paired_improvement_sem": 0.1447705168759319,
+      "fraction_recordings_improved": 0.4583333333333333,
+      "selected_timing_counts": {
+        "100/0": 24
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU019",
+      "scenario": "pooled",
+      "transfer": "75_to_25",
+      "variant": "intercept_only",
+      "mode": "static",
+      "recordings": 24,
+      "pulses": 7782,
+      "window_rmse_spikes_s": 14.561486270910294,
+      "window_rmse_sem": 0.9685636832613161,
+      "tail_rmse_spikes_s": 15.499481579669663,
+      "pulse_mean_rmse_spikes_s": 13.69620817148798,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 24
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU019",
+      "scenario": "pooled",
+      "transfer": "75_to_25",
+      "variant": "intercept_only",
+      "mode": "temporal",
+      "recordings": 24,
+      "pulses": 7782,
+      "window_rmse_spikes_s": 14.561486270910294,
+      "window_rmse_sem": 0.9685636832613161,
+      "tail_rmse_spikes_s": 15.499481579669663,
+      "pulse_mean_rmse_spikes_s": 13.69620817148798,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 24
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU019",
+      "scenario": "pooled",
+      "transfer": "75_to_25",
+      "variant": "simple_spatial",
+      "mode": "static",
+      "recordings": 24,
+      "pulses": 7782,
+      "window_rmse_spikes_s": 13.573562988475265,
+      "window_rmse_sem": 0.7690594562791415,
+      "tail_rmse_spikes_s": 15.469619370960631,
+      "pulse_mean_rmse_spikes_s": 12.146387599319928,
+      "temporal_reduction_percent": -0.8352881268417401,
+      "paired_improvement_mean": -0.1133783600321201,
+      "paired_improvement_sem": 0.12741235825422945,
+      "fraction_recordings_improved": 0.4583333333333333,
+      "selected_timing_counts": {
+        "100/0": 24
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU019",
+      "scenario": "pooled",
+      "transfer": "75_to_25",
+      "variant": "simple_spatial",
+      "mode": "temporal",
+      "recordings": 24,
+      "pulses": 7782,
+      "window_rmse_spikes_s": 13.686941348507384,
+      "window_rmse_sem": 0.7323683281046137,
+      "tail_rmse_spikes_s": 15.31015560129319,
+      "pulse_mean_rmse_spikes_s": 12.362142437153311,
+      "temporal_reduction_percent": -0.8352881268417401,
+      "paired_improvement_mean": -0.1133783600321201,
+      "paired_improvement_sem": 0.12741235825422945,
+      "fraction_recordings_improved": 0.4583333333333333,
+      "selected_timing_counts": {
+        "100/0": 24
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU019",
+      "scenario": "pooled",
+      "transfer": "matched",
+      "variant": "baseline",
+      "mode": "static",
+      "recordings": 24,
+      "pulses": 15365,
+      "window_rmse_spikes_s": 12.440179378790868,
+      "window_rmse_sem": 0.7506176100155272,
+      "tail_rmse_spikes_s": 14.252007182972749,
+      "pulse_mean_rmse_spikes_s": 11.678831278328587,
+      "temporal_reduction_percent": 0.811106954930016,
+      "paired_improvement_mean": 0.10090316014714044,
+      "paired_improvement_sem": 0.0577293964489013,
+      "fraction_recordings_improved": 0.5416666666666666,
+      "selected_timing_counts": {
+        "100/0": 24
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU019",
+      "scenario": "pooled",
+      "transfer": "matched",
+      "variant": "baseline",
+      "mode": "temporal",
+      "recordings": 24,
+      "pulses": 15365,
+      "window_rmse_spikes_s": 12.339276218643725,
+      "window_rmse_sem": 0.7261061151842132,
+      "tail_rmse_spikes_s": 14.02198546131097,
+      "pulse_mean_rmse_spikes_s": 11.700077692659429,
+      "temporal_reduction_percent": 0.811106954930016,
+      "paired_improvement_mean": 0.10090316014714044,
+      "paired_improvement_sem": 0.0577293964489013,
+      "fraction_recordings_improved": 0.5416666666666666,
+      "selected_timing_counts": {
+        "100/0": 24
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU019",
+      "scenario": "pooled",
+      "transfer": "matched",
+      "variant": "intercept_only",
+      "mode": "static",
+      "recordings": 24,
+      "pulses": 15365,
+      "window_rmse_spikes_s": 13.410894190348861,
+      "window_rmse_sem": 0.9194577559893702,
+      "tail_rmse_spikes_s": 14.28515924484923,
+      "pulse_mean_rmse_spikes_s": 13.404943304512237,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 24
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU019",
+      "scenario": "pooled",
+      "transfer": "matched",
+      "variant": "intercept_only",
+      "mode": "temporal",
+      "recordings": 24,
+      "pulses": 15365,
+      "window_rmse_spikes_s": 13.410894190348861,
+      "window_rmse_sem": 0.9194577559893702,
+      "tail_rmse_spikes_s": 14.28515924484923,
+      "pulse_mean_rmse_spikes_s": 13.404943304512237,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 24
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU019",
+      "scenario": "pooled",
+      "transfer": "matched",
+      "variant": "simple_spatial",
+      "mode": "static",
+      "recordings": 24,
+      "pulses": 15365,
+      "window_rmse_spikes_s": 12.47083976013881,
+      "window_rmse_sem": 0.7721978862255562,
+      "tail_rmse_spikes_s": 14.252930764177309,
+      "pulse_mean_rmse_spikes_s": 11.740641543351975,
+      "temporal_reduction_percent": 0.6163656265197129,
+      "paired_improvement_mean": 0.07686596961984656,
+      "paired_improvement_sem": 0.0512169077253315,
+      "fraction_recordings_improved": 0.5416666666666666,
+      "selected_timing_counts": {
+        "100/0": 24
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU019",
+      "scenario": "pooled",
+      "transfer": "matched",
+      "variant": "simple_spatial",
+      "mode": "temporal",
+      "recordings": 24,
+      "pulses": 15365,
+      "window_rmse_spikes_s": 12.393973790518961,
+      "window_rmse_sem": 0.7564087518830171,
+      "tail_rmse_spikes_s": 14.048548021226106,
+      "pulse_mean_rmse_spikes_s": 11.775073071745302,
+      "temporal_reduction_percent": 0.6163656265197129,
+      "paired_improvement_mean": 0.07686596961984656,
+      "paired_improvement_sem": 0.0512169077253315,
+      "fraction_recordings_improved": 0.5416666666666666,
+      "selected_timing_counts": {
+        "100/0": 24
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU025",
+      "scenario": "all_L",
+      "transfer": "25_to_75",
+      "variant": "baseline",
+      "mode": "static",
+      "recordings": 22,
+      "pulses": 6439,
+      "window_rmse_spikes_s": 14.218693773806638,
+      "window_rmse_sem": 0.9196609523734341,
+      "tail_rmse_spikes_s": 16.056777490755355,
+      "pulse_mean_rmse_spikes_s": 14.35388149161132,
+      "temporal_reduction_percent": 0.6061228017946875,
+      "paired_improvement_mean": 0.08618274508040152,
+      "paired_improvement_sem": 0.020173070889469184,
+      "fraction_recordings_improved": 0.9090909090909091,
+      "selected_timing_counts": {
+        "40/0": 22
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU025",
+      "scenario": "all_L",
+      "transfer": "25_to_75",
+      "variant": "baseline",
+      "mode": "temporal",
+      "recordings": 22,
+      "pulses": 6439,
+      "window_rmse_spikes_s": 14.132511028726235,
+      "window_rmse_sem": 0.9121109557807703,
+      "tail_rmse_spikes_s": 15.98144530996578,
+      "pulse_mean_rmse_spikes_s": 14.342848752592689,
+      "temporal_reduction_percent": 0.6061228017946875,
+      "paired_improvement_mean": 0.08618274508040152,
+      "paired_improvement_sem": 0.020173070889469184,
+      "fraction_recordings_improved": 0.9090909090909091,
+      "selected_timing_counts": {
+        "40/0": 22
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU025",
+      "scenario": "all_L",
+      "transfer": "25_to_75",
+      "variant": "intercept_only",
+      "mode": "static",
+      "recordings": 22,
+      "pulses": 6439,
+      "window_rmse_spikes_s": 14.865551028837665,
+      "window_rmse_sem": 1.1030390004625752,
+      "tail_rmse_spikes_s": 16.08802258142491,
+      "pulse_mean_rmse_spikes_s": 15.685702186139018,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 22
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU025",
+      "scenario": "all_L",
+      "transfer": "25_to_75",
+      "variant": "intercept_only",
+      "mode": "temporal",
+      "recordings": 22,
+      "pulses": 6439,
+      "window_rmse_spikes_s": 14.865551028837665,
+      "window_rmse_sem": 1.1030390004625752,
+      "tail_rmse_spikes_s": 16.08802258142491,
+      "pulse_mean_rmse_spikes_s": 15.685702186139018,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 22
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU025",
+      "scenario": "all_L",
+      "transfer": "25_to_75",
+      "variant": "simple_spatial",
+      "mode": "static",
+      "recordings": 22,
+      "pulses": 6439,
+      "window_rmse_spikes_s": 14.267053846672633,
+      "window_rmse_sem": 0.934975490735194,
+      "tail_rmse_spikes_s": 16.058395050202126,
+      "pulse_mean_rmse_spikes_s": 14.44090714144166,
+      "temporal_reduction_percent": 0.5534750093099533,
+      "paired_improvement_mean": 0.07896457760613172,
+      "paired_improvement_sem": 0.01851131148953605,
+      "fraction_recordings_improved": 0.9090909090909091,
+      "selected_timing_counts": {
+        "40/0": 22
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU025",
+      "scenario": "all_L",
+      "transfer": "25_to_75",
+      "variant": "simple_spatial",
+      "mode": "temporal",
+      "recordings": 22,
+      "pulses": 6439,
+      "window_rmse_spikes_s": 14.188089269066506,
+      "window_rmse_sem": 0.9283664891644957,
+      "tail_rmse_spikes_s": 15.986650082809986,
+      "pulse_mean_rmse_spikes_s": 14.434375095607471,
+      "temporal_reduction_percent": 0.5534750093099533,
+      "paired_improvement_mean": 0.07896457760613172,
+      "paired_improvement_sem": 0.01851131148953605,
+      "fraction_recordings_improved": 0.9090909090909091,
+      "selected_timing_counts": {
+        "40/0": 22
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU025",
+      "scenario": "all_L",
+      "transfer": "75_to_25",
+      "variant": "baseline",
+      "mode": "static",
+      "recordings": 22,
+      "pulses": 6230,
+      "window_rmse_spikes_s": 16.216382938613148,
+      "window_rmse_sem": 0.9105765933179019,
+      "tail_rmse_spikes_s": 17.692118188065326,
+      "pulse_mean_rmse_spikes_s": 14.294543039212895,
+      "temporal_reduction_percent": -0.4895825934837481,
+      "paired_improvement_mean": -0.07939258816011838,
+      "paired_improvement_sem": 0.05963296605975034,
+      "fraction_recordings_improved": 0.36363636363636365,
+      "selected_timing_counts": {
+        "40/0": 18,
+        "100/0": 4
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU025",
+      "scenario": "all_L",
+      "transfer": "75_to_25",
+      "variant": "baseline",
+      "mode": "temporal",
+      "recordings": 22,
+      "pulses": 6230,
+      "window_rmse_spikes_s": 16.295775526773266,
+      "window_rmse_sem": 0.8779084423572244,
+      "tail_rmse_spikes_s": 17.720259631761586,
+      "pulse_mean_rmse_spikes_s": 14.407782949733429,
+      "temporal_reduction_percent": -0.4895825934837481,
+      "paired_improvement_mean": -0.07939258816011838,
+      "paired_improvement_sem": 0.05963296605975034,
+      "fraction_recordings_improved": 0.36363636363636365,
+      "selected_timing_counts": {
+        "40/0": 18,
+        "100/0": 4
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU025",
+      "scenario": "all_L",
+      "transfer": "75_to_25",
+      "variant": "intercept_only",
+      "mode": "static",
+      "recordings": 22,
+      "pulses": 6230,
+      "window_rmse_spikes_s": 17.008981004467383,
+      "window_rmse_sem": 1.2108267251445781,
+      "tail_rmse_spikes_s": 17.71249589867064,
+      "pulse_mean_rmse_spikes_s": 15.513772281230926,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 22
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU025",
+      "scenario": "all_L",
+      "transfer": "75_to_25",
+      "variant": "intercept_only",
+      "mode": "temporal",
+      "recordings": 22,
+      "pulses": 6230,
+      "window_rmse_spikes_s": 17.008981004467383,
+      "window_rmse_sem": 1.2108267251445781,
+      "tail_rmse_spikes_s": 17.71249589867064,
+      "pulse_mean_rmse_spikes_s": 15.513772281230926,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 22
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU025",
+      "scenario": "all_L",
+      "transfer": "75_to_25",
+      "variant": "simple_spatial",
+      "mode": "static",
+      "recordings": 22,
+      "pulses": 6230,
+      "window_rmse_spikes_s": 16.262984422089506,
+      "window_rmse_sem": 0.93173077483941,
+      "tail_rmse_spikes_s": 17.69328880884318,
+      "pulse_mean_rmse_spikes_s": 14.337773423393388,
+      "temporal_reduction_percent": -0.5289987491513501,
+      "paired_improvement_mean": -0.08603098416753152,
+      "paired_improvement_sem": 0.058066429200163965,
+      "fraction_recordings_improved": 0.36363636363636365,
+      "selected_timing_counts": {
+        "40/0": 17,
+        "100/0": 5
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU025",
+      "scenario": "all_L",
+      "transfer": "75_to_25",
+      "variant": "simple_spatial",
+      "mode": "temporal",
+      "recordings": 22,
+      "pulses": 6230,
+      "window_rmse_spikes_s": 16.34901540625704,
+      "window_rmse_sem": 0.8985104847005101,
+      "tail_rmse_spikes_s": 17.734495652963407,
+      "pulse_mean_rmse_spikes_s": 14.451261257589529,
+      "temporal_reduction_percent": -0.5289987491513501,
+      "paired_improvement_mean": -0.08603098416753152,
+      "paired_improvement_sem": 0.058066429200163965,
+      "fraction_recordings_improved": 0.36363636363636365,
+      "selected_timing_counts": {
+        "40/0": 17,
+        "100/0": 5
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU025",
+      "scenario": "all_L",
+      "transfer": "matched",
+      "variant": "baseline",
+      "mode": "static",
+      "recordings": 22,
+      "pulses": 12669,
+      "window_rmse_spikes_s": 15.239030061854088,
+      "window_rmse_sem": 0.9066710846325744,
+      "tail_rmse_spikes_s": 16.958082675901196,
+      "pulse_mean_rmse_spikes_s": 14.334481179305879,
+      "temporal_reduction_percent": 0.2794636013871223,
+      "paired_improvement_mean": 0.04258754222732364,
+      "paired_improvement_sem": 0.024815580138105562,
+      "fraction_recordings_improved": 0.5909090909090909,
+      "selected_timing_counts": {
+        "40/0": 22
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU025",
+      "scenario": "all_L",
+      "transfer": "matched",
+      "variant": "baseline",
+      "mode": "temporal",
+      "recordings": 22,
+      "pulses": 12669,
+      "window_rmse_spikes_s": 15.196442519626764,
+      "window_rmse_sem": 0.8911972988229252,
+      "tail_rmse_spikes_s": 16.89913113160968,
+      "pulse_mean_rmse_spikes_s": 14.347393251558128,
+      "temporal_reduction_percent": 0.2794636013871223,
+      "paired_improvement_mean": 0.04258754222732364,
+      "paired_improvement_sem": 0.024815580138105562,
+      "fraction_recordings_improved": 0.5909090909090909,
+      "selected_timing_counts": {
+        "40/0": 22
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU025",
+      "scenario": "all_L",
+      "transfer": "matched",
+      "variant": "intercept_only",
+      "mode": "static",
+      "recordings": 22,
+      "pulses": 12669,
+      "window_rmse_spikes_s": 15.980923942130511,
+      "window_rmse_sem": 1.142613018557187,
+      "tail_rmse_spikes_s": 16.98380102502556,
+      "pulse_mean_rmse_spikes_s": 15.639192060613,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 22
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU025",
+      "scenario": "all_L",
+      "transfer": "matched",
+      "variant": "intercept_only",
+      "mode": "temporal",
+      "recordings": 22,
+      "pulses": 12669,
+      "window_rmse_spikes_s": 15.980923942130511,
+      "window_rmse_sem": 1.142613018557187,
+      "tail_rmse_spikes_s": 16.98380102502556,
+      "pulse_mean_rmse_spikes_s": 15.639192060613,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 22
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU025",
+      "scenario": "all_L",
+      "transfer": "matched",
+      "variant": "simple_spatial",
+      "mode": "static",
+      "recordings": 22,
+      "pulses": 12669,
+      "window_rmse_spikes_s": 15.287659419667024,
+      "window_rmse_sem": 0.9242804437282384,
+      "tail_rmse_spikes_s": 16.959427114875577,
+      "pulse_mean_rmse_spikes_s": 14.403386917994254,
+      "temporal_reduction_percent": 0.2524163108052006,
+      "paired_improvement_mean": 0.03858854591558474,
+      "paired_improvement_sem": 0.022608278138275952,
+      "fraction_recordings_improved": 0.5909090909090909,
+      "selected_timing_counts": {
+        "40/0": 22
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU025",
+      "scenario": "all_L",
+      "transfer": "matched",
+      "variant": "simple_spatial",
+      "mode": "temporal",
+      "recordings": 22,
+      "pulses": 12669,
+      "window_rmse_spikes_s": 15.249070873751437,
+      "window_rmse_sem": 0.9100164073022883,
+      "tail_rmse_spikes_s": 16.90307641489167,
+      "pulse_mean_rmse_spikes_s": 14.417986177027029,
+      "temporal_reduction_percent": 0.2524163108052006,
+      "paired_improvement_mean": 0.03858854591558474,
+      "paired_improvement_sem": 0.022608278138275952,
+      "fraction_recordings_improved": 0.5909090909090909,
+      "selected_timing_counts": {
+        "40/0": 22
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU025",
+      "scenario": "all_R",
+      "transfer": "25_to_75",
+      "variant": "baseline",
+      "mode": "static",
+      "recordings": 22,
+      "pulses": 6439,
+      "window_rmse_spikes_s": 14.233221127596245,
+      "window_rmse_sem": 0.9228300769512922,
+      "tail_rmse_spikes_s": 16.05711480735469,
+      "pulse_mean_rmse_spikes_s": 14.381755765410226,
+      "temporal_reduction_percent": 0.5945235473101197,
+      "paired_improvement_mean": 0.08461985114428026,
+      "paired_improvement_sem": 0.01979127128172039,
+      "fraction_recordings_improved": 0.9090909090909091,
+      "selected_timing_counts": {
+        "40/0": 22
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU025",
+      "scenario": "all_R",
+      "transfer": "25_to_75",
+      "variant": "baseline",
+      "mode": "temporal",
+      "recordings": 22,
+      "pulses": 6439,
+      "window_rmse_spikes_s": 14.148601276451966,
+      "window_rmse_sem": 0.9154754935348388,
+      "tail_rmse_spikes_s": 15.98235404694289,
+      "pulse_mean_rmse_spikes_s": 14.371275282751828,
+      "temporal_reduction_percent": 0.5945235473101197,
+      "paired_improvement_mean": 0.08461985114428026,
+      "paired_improvement_sem": 0.01979127128172039,
+      "fraction_recordings_improved": 0.9090909090909091,
+      "selected_timing_counts": {
+        "40/0": 22
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU025",
+      "scenario": "all_R",
+      "transfer": "25_to_75",
+      "variant": "intercept_only",
+      "mode": "static",
+      "recordings": 22,
+      "pulses": 6439,
+      "window_rmse_spikes_s": 14.865551028837665,
+      "window_rmse_sem": 1.1030390004625752,
+      "tail_rmse_spikes_s": 16.08802258142491,
+      "pulse_mean_rmse_spikes_s": 15.685702186139018,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 22
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU025",
+      "scenario": "all_R",
+      "transfer": "25_to_75",
+      "variant": "intercept_only",
+      "mode": "temporal",
+      "recordings": 22,
+      "pulses": 6439,
+      "window_rmse_spikes_s": 14.865551028837665,
+      "window_rmse_sem": 1.1030390004625752,
+      "tail_rmse_spikes_s": 16.08802258142491,
+      "pulse_mean_rmse_spikes_s": 15.685702186139018,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 22
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU025",
+      "scenario": "all_R",
+      "transfer": "25_to_75",
+      "variant": "simple_spatial",
+      "mode": "static",
+      "recordings": 22,
+      "pulses": 6439,
+      "window_rmse_spikes_s": 14.267053846672633,
+      "window_rmse_sem": 0.934975490735194,
+      "tail_rmse_spikes_s": 16.058395050202126,
+      "pulse_mean_rmse_spikes_s": 14.44090714144166,
+      "temporal_reduction_percent": 0.5534750093099533,
+      "paired_improvement_mean": 0.07896457760613172,
+      "paired_improvement_sem": 0.01851131148953605,
+      "fraction_recordings_improved": 0.9090909090909091,
+      "selected_timing_counts": {
+        "40/0": 22
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU025",
+      "scenario": "all_R",
+      "transfer": "25_to_75",
+      "variant": "simple_spatial",
+      "mode": "temporal",
+      "recordings": 22,
+      "pulses": 6439,
+      "window_rmse_spikes_s": 14.188089269066506,
+      "window_rmse_sem": 0.9283664891644957,
+      "tail_rmse_spikes_s": 15.986650082809986,
+      "pulse_mean_rmse_spikes_s": 14.434375095607471,
+      "temporal_reduction_percent": 0.5534750093099533,
+      "paired_improvement_mean": 0.07896457760613172,
+      "paired_improvement_sem": 0.01851131148953605,
+      "fraction_recordings_improved": 0.9090909090909091,
+      "selected_timing_counts": {
+        "40/0": 22
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU025",
+      "scenario": "all_R",
+      "transfer": "75_to_25",
+      "variant": "baseline",
+      "mode": "static",
+      "recordings": 22,
+      "pulses": 6230,
+      "window_rmse_spikes_s": 16.22633497965798,
+      "window_rmse_sem": 0.9155791673310859,
+      "tail_rmse_spikes_s": 17.6925520295892,
+      "pulse_mean_rmse_spikes_s": 14.304468539020375,
+      "temporal_reduction_percent": -0.475520634948816,
+      "paired_improvement_mean": -0.07715957112418453,
+      "paired_improvement_sem": 0.05871583810579759,
+      "fraction_recordings_improved": 0.36363636363636365,
+      "selected_timing_counts": {
+        "40/0": 18,
+        "100/0": 4
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU025",
+      "scenario": "all_R",
+      "transfer": "75_to_25",
+      "variant": "baseline",
+      "mode": "temporal",
+      "recordings": 22,
+      "pulses": 6230,
+      "window_rmse_spikes_s": 16.303494550782172,
+      "window_rmse_sem": 0.8832067047644255,
+      "tail_rmse_spikes_s": 17.71865283861766,
+      "pulse_mean_rmse_spikes_s": 14.414840795997778,
+      "temporal_reduction_percent": -0.475520634948816,
+      "paired_improvement_mean": -0.07715957112418453,
+      "paired_improvement_sem": 0.05871583810579759,
+      "fraction_recordings_improved": 0.36363636363636365,
+      "selected_timing_counts": {
+        "40/0": 18,
+        "100/0": 4
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU025",
+      "scenario": "all_R",
+      "transfer": "75_to_25",
+      "variant": "intercept_only",
+      "mode": "static",
+      "recordings": 22,
+      "pulses": 6230,
+      "window_rmse_spikes_s": 17.008981004467383,
+      "window_rmse_sem": 1.2108267251445781,
+      "tail_rmse_spikes_s": 17.71249589867064,
+      "pulse_mean_rmse_spikes_s": 15.513772281230926,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 22
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU025",
+      "scenario": "all_R",
+      "transfer": "75_to_25",
+      "variant": "intercept_only",
+      "mode": "temporal",
+      "recordings": 22,
+      "pulses": 6230,
+      "window_rmse_spikes_s": 17.008981004467383,
+      "window_rmse_sem": 1.2108267251445781,
+      "tail_rmse_spikes_s": 17.71249589867064,
+      "pulse_mean_rmse_spikes_s": 15.513772281230926,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 22
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU025",
+      "scenario": "all_R",
+      "transfer": "75_to_25",
+      "variant": "simple_spatial",
+      "mode": "static",
+      "recordings": 22,
+      "pulses": 6230,
+      "window_rmse_spikes_s": 16.262984422089506,
+      "window_rmse_sem": 0.93173077483941,
+      "tail_rmse_spikes_s": 17.69328880884318,
+      "pulse_mean_rmse_spikes_s": 14.337773423393388,
+      "temporal_reduction_percent": -0.5289987491513501,
+      "paired_improvement_mean": -0.08603098416753152,
+      "paired_improvement_sem": 0.058066429200163965,
+      "fraction_recordings_improved": 0.36363636363636365,
+      "selected_timing_counts": {
+        "40/0": 17,
+        "100/0": 5
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU025",
+      "scenario": "all_R",
+      "transfer": "75_to_25",
+      "variant": "simple_spatial",
+      "mode": "temporal",
+      "recordings": 22,
+      "pulses": 6230,
+      "window_rmse_spikes_s": 16.34901540625704,
+      "window_rmse_sem": 0.8985104847005101,
+      "tail_rmse_spikes_s": 17.734495652963407,
+      "pulse_mean_rmse_spikes_s": 14.451261257589529,
+      "temporal_reduction_percent": -0.5289987491513501,
+      "paired_improvement_mean": -0.08603098416753152,
+      "paired_improvement_sem": 0.058066429200163965,
+      "fraction_recordings_improved": 0.36363636363636365,
+      "selected_timing_counts": {
+        "40/0": 17,
+        "100/0": 5
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU025",
+      "scenario": "all_R",
+      "transfer": "matched",
+      "variant": "baseline",
+      "mode": "static",
+      "recordings": 22,
+      "pulses": 12669,
+      "window_rmse_spikes_s": 15.252212190575456,
+      "window_rmse_sem": 0.9104044372595556,
+      "tail_rmse_spikes_s": 16.958456445653233,
+      "pulse_mean_rmse_spikes_s": 14.355267471154342,
+      "temporal_reduction_percent": 0.27348717126208494,
+      "paired_improvement_mean": 0.04171284367489602,
+      "paired_improvement_sem": 0.024338074928896638,
+      "fraction_recordings_improved": 0.5909090909090909,
+      "selected_timing_counts": {
+        "40/0": 22
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU025",
+      "scenario": "all_R",
+      "transfer": "matched",
+      "variant": "baseline",
+      "mode": "temporal",
+      "recordings": 22,
+      "pulses": 12669,
+      "window_rmse_spikes_s": 15.21049934690056,
+      "window_rmse_sem": 0.8951747005694317,
+      "tail_rmse_spikes_s": 16.900141805802605,
+      "pulse_mean_rmse_spikes_s": 14.368307408353127,
+      "temporal_reduction_percent": 0.27348717126208494,
+      "paired_improvement_mean": 0.04171284367489602,
+      "paired_improvement_sem": 0.024338074928896638,
+      "fraction_recordings_improved": 0.5909090909090909,
+      "selected_timing_counts": {
+        "40/0": 22
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU025",
+      "scenario": "all_R",
+      "transfer": "matched",
+      "variant": "intercept_only",
+      "mode": "static",
+      "recordings": 22,
+      "pulses": 12669,
+      "window_rmse_spikes_s": 15.980923942130511,
+      "window_rmse_sem": 1.142613018557187,
+      "tail_rmse_spikes_s": 16.98380102502556,
+      "pulse_mean_rmse_spikes_s": 15.639192060613,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 22
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU025",
+      "scenario": "all_R",
+      "transfer": "matched",
+      "variant": "intercept_only",
+      "mode": "temporal",
+      "recordings": 22,
+      "pulses": 12669,
+      "window_rmse_spikes_s": 15.980923942130511,
+      "window_rmse_sem": 1.142613018557187,
+      "tail_rmse_spikes_s": 16.98380102502556,
+      "pulse_mean_rmse_spikes_s": 15.639192060613,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 22
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU025",
+      "scenario": "all_R",
+      "transfer": "matched",
+      "variant": "simple_spatial",
+      "mode": "static",
+      "recordings": 22,
+      "pulses": 12669,
+      "window_rmse_spikes_s": 15.287659419667024,
+      "window_rmse_sem": 0.9242804437282384,
+      "tail_rmse_spikes_s": 16.959427114875577,
+      "pulse_mean_rmse_spikes_s": 14.403386917994254,
+      "temporal_reduction_percent": 0.2524163108052006,
+      "paired_improvement_mean": 0.03858854591558474,
+      "paired_improvement_sem": 0.022608278138275952,
+      "fraction_recordings_improved": 0.5909090909090909,
+      "selected_timing_counts": {
+        "40/0": 22
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU025",
+      "scenario": "all_R",
+      "transfer": "matched",
+      "variant": "simple_spatial",
+      "mode": "temporal",
+      "recordings": 22,
+      "pulses": 12669,
+      "window_rmse_spikes_s": 15.249070873751437,
+      "window_rmse_sem": 0.9100164073022883,
+      "tail_rmse_spikes_s": 16.90307641489167,
+      "pulse_mean_rmse_spikes_s": 14.417986177027029,
+      "temporal_reduction_percent": 0.2524163108052006,
+      "paired_improvement_mean": 0.03858854591558474,
+      "paired_improvement_sem": 0.022608278138275952,
+      "fraction_recordings_improved": 0.5909090909090909,
+      "selected_timing_counts": {
+        "40/0": 22
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU025",
+      "scenario": "pooled",
+      "transfer": "25_to_75",
+      "variant": "baseline",
+      "mode": "static",
+      "recordings": 22,
+      "pulses": 6439,
+      "window_rmse_spikes_s": 14.226461208415026,
+      "window_rmse_sem": 0.9213434805785771,
+      "tail_rmse_spikes_s": 16.05695265936062,
+      "pulse_mean_rmse_spikes_s": 14.368798907892433,
+      "temporal_reduction_percent": 0.5999299070433383,
+      "paired_improvement_mean": 0.08534879550319903,
+      "paired_improvement_sem": 0.019969317556121514,
+      "fraction_recordings_improved": 0.9090909090909091,
+      "selected_timing_counts": {
+        "40/0": 22
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU025",
+      "scenario": "pooled",
+      "transfer": "25_to_75",
+      "variant": "baseline",
+      "mode": "temporal",
+      "recordings": 22,
+      "pulses": 6439,
+      "window_rmse_spikes_s": 14.141112412911825,
+      "window_rmse_sem": 0.9138984249331291,
+      "tail_rmse_spikes_s": 15.981910418714039,
+      "pulse_mean_rmse_spikes_s": 14.358059842811269,
+      "temporal_reduction_percent": 0.5999299070433383,
+      "paired_improvement_mean": 0.08534879550319903,
+      "paired_improvement_sem": 0.019969317556121514,
+      "fraction_recordings_improved": 0.9090909090909091,
+      "selected_timing_counts": {
+        "40/0": 22
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU025",
+      "scenario": "pooled",
+      "transfer": "25_to_75",
+      "variant": "intercept_only",
+      "mode": "static",
+      "recordings": 22,
+      "pulses": 6439,
+      "window_rmse_spikes_s": 14.865551028837665,
+      "window_rmse_sem": 1.1030390004625752,
+      "tail_rmse_spikes_s": 16.08802258142491,
+      "pulse_mean_rmse_spikes_s": 15.685702186139018,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 22
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU025",
+      "scenario": "pooled",
+      "transfer": "25_to_75",
+      "variant": "intercept_only",
+      "mode": "temporal",
+      "recordings": 22,
+      "pulses": 6439,
+      "window_rmse_spikes_s": 14.865551028837665,
+      "window_rmse_sem": 1.1030390004625752,
+      "tail_rmse_spikes_s": 16.08802258142491,
+      "pulse_mean_rmse_spikes_s": 15.685702186139018,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 22
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU025",
+      "scenario": "pooled",
+      "transfer": "25_to_75",
+      "variant": "simple_spatial",
+      "mode": "static",
+      "recordings": 22,
+      "pulses": 6439,
+      "window_rmse_spikes_s": 14.267053846672633,
+      "window_rmse_sem": 0.934975490735194,
+      "tail_rmse_spikes_s": 16.058395050202126,
+      "pulse_mean_rmse_spikes_s": 14.44090714144166,
+      "temporal_reduction_percent": 0.5534750093099533,
+      "paired_improvement_mean": 0.07896457760613172,
+      "paired_improvement_sem": 0.01851131148953605,
+      "fraction_recordings_improved": 0.9090909090909091,
+      "selected_timing_counts": {
+        "40/0": 22
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU025",
+      "scenario": "pooled",
+      "transfer": "25_to_75",
+      "variant": "simple_spatial",
+      "mode": "temporal",
+      "recordings": 22,
+      "pulses": 6439,
+      "window_rmse_spikes_s": 14.188089269066506,
+      "window_rmse_sem": 0.9283664891644957,
+      "tail_rmse_spikes_s": 15.986650082809986,
+      "pulse_mean_rmse_spikes_s": 14.434375095607471,
+      "temporal_reduction_percent": 0.5534750093099533,
+      "paired_improvement_mean": 0.07896457760613172,
+      "paired_improvement_sem": 0.01851131148953605,
+      "fraction_recordings_improved": 0.9090909090909091,
+      "selected_timing_counts": {
+        "40/0": 22
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU025",
+      "scenario": "pooled",
+      "transfer": "75_to_25",
+      "variant": "baseline",
+      "mode": "static",
+      "recordings": 22,
+      "pulses": 6230,
+      "window_rmse_spikes_s": 16.22156076353595,
+      "window_rmse_sem": 0.9132362822524709,
+      "tail_rmse_spikes_s": 17.692349998258454,
+      "pulse_mean_rmse_spikes_s": 14.299647447333557,
+      "temporal_reduction_percent": -0.48194577246584214,
+      "paired_improvement_mean": -0.07817912632784124,
+      "paired_improvement_sem": 0.059143062573324925,
+      "fraction_recordings_improved": 0.36363636363636365,
+      "selected_timing_counts": {
+        "40/0": 18,
+        "100/0": 4
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU025",
+      "scenario": "pooled",
+      "transfer": "75_to_25",
+      "variant": "baseline",
+      "mode": "temporal",
+      "recordings": 22,
+      "pulses": 6230,
+      "window_rmse_spikes_s": 16.29973988986379,
+      "window_rmse_sem": 0.8807256074231682,
+      "tail_rmse_spikes_s": 17.719373701973584,
+      "pulse_mean_rmse_spikes_s": 14.411340921007367,
+      "temporal_reduction_percent": -0.48194577246584214,
+      "paired_improvement_mean": -0.07817912632784124,
+      "paired_improvement_sem": 0.059143062573324925,
+      "fraction_recordings_improved": 0.36363636363636365,
+      "selected_timing_counts": {
+        "40/0": 18,
+        "100/0": 4
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU025",
+      "scenario": "pooled",
+      "transfer": "75_to_25",
+      "variant": "intercept_only",
+      "mode": "static",
+      "recordings": 22,
+      "pulses": 6230,
+      "window_rmse_spikes_s": 17.008981004467383,
+      "window_rmse_sem": 1.2108267251445781,
+      "tail_rmse_spikes_s": 17.71249589867064,
+      "pulse_mean_rmse_spikes_s": 15.513772281230926,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 22
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU025",
+      "scenario": "pooled",
+      "transfer": "75_to_25",
+      "variant": "intercept_only",
+      "mode": "temporal",
+      "recordings": 22,
+      "pulses": 6230,
+      "window_rmse_spikes_s": 17.008981004467383,
+      "window_rmse_sem": 1.2108267251445781,
+      "tail_rmse_spikes_s": 17.71249589867064,
+      "pulse_mean_rmse_spikes_s": 15.513772281230926,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 22
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU025",
+      "scenario": "pooled",
+      "transfer": "75_to_25",
+      "variant": "simple_spatial",
+      "mode": "static",
+      "recordings": 22,
+      "pulses": 6230,
+      "window_rmse_spikes_s": 16.262984422089506,
+      "window_rmse_sem": 0.93173077483941,
+      "tail_rmse_spikes_s": 17.69328880884318,
+      "pulse_mean_rmse_spikes_s": 14.337773423393388,
+      "temporal_reduction_percent": -0.5289987491513501,
+      "paired_improvement_mean": -0.08603098416753152,
+      "paired_improvement_sem": 0.058066429200163965,
+      "fraction_recordings_improved": 0.36363636363636365,
+      "selected_timing_counts": {
+        "40/0": 17,
+        "100/0": 5
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU025",
+      "scenario": "pooled",
+      "transfer": "75_to_25",
+      "variant": "simple_spatial",
+      "mode": "temporal",
+      "recordings": 22,
+      "pulses": 6230,
+      "window_rmse_spikes_s": 16.34901540625704,
+      "window_rmse_sem": 0.8985104847005101,
+      "tail_rmse_spikes_s": 17.734495652963407,
+      "pulse_mean_rmse_spikes_s": 14.451261257589529,
+      "temporal_reduction_percent": -0.5289987491513501,
+      "paired_improvement_mean": -0.08603098416753152,
+      "paired_improvement_sem": 0.058066429200163965,
+      "fraction_recordings_improved": 0.36363636363636365,
+      "selected_timing_counts": {
+        "40/0": 17,
+        "100/0": 5
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU025",
+      "scenario": "pooled",
+      "transfer": "matched",
+      "variant": "baseline",
+      "mode": "static",
+      "recordings": 22,
+      "pulses": 12669,
+      "window_rmse_spikes_s": 15.246016178765728,
+      "window_rmse_sem": 0.9086500078611255,
+      "tail_rmse_spikes_s": 16.95827966691386,
+      "pulse_mean_rmse_spikes_s": 14.345520764341172,
+      "temporal_reduction_percent": 0.276273489164151,
+      "paired_improvement_mean": 0.04212070085561092,
+      "paired_improvement_sem": 0.024560375233229292,
+      "fraction_recordings_improved": 0.5909090909090909,
+      "selected_timing_counts": {
+        "40/0": 22
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU025",
+      "scenario": "pooled",
+      "transfer": "matched",
+      "variant": "baseline",
+      "mode": "temporal",
+      "recordings": 22,
+      "pulses": 12669,
+      "window_rmse_spikes_s": 15.203895477910121,
+      "window_rmse_sem": 0.8933065843669638,
+      "tail_rmse_spikes_s": 16.899658806436978,
+      "pulse_mean_rmse_spikes_s": 14.358503183578932,
+      "temporal_reduction_percent": 0.276273489164151,
+      "paired_improvement_mean": 0.04212070085561092,
+      "paired_improvement_sem": 0.024560375233229292,
+      "fraction_recordings_improved": 0.5909090909090909,
+      "selected_timing_counts": {
+        "40/0": 22
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU025",
+      "scenario": "pooled",
+      "transfer": "matched",
+      "variant": "intercept_only",
+      "mode": "static",
+      "recordings": 22,
+      "pulses": 12669,
+      "window_rmse_spikes_s": 15.980923942130511,
+      "window_rmse_sem": 1.142613018557187,
+      "tail_rmse_spikes_s": 16.98380102502556,
+      "pulse_mean_rmse_spikes_s": 15.639192060613,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 22
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU025",
+      "scenario": "pooled",
+      "transfer": "matched",
+      "variant": "intercept_only",
+      "mode": "temporal",
+      "recordings": 22,
+      "pulses": 12669,
+      "window_rmse_spikes_s": 15.980923942130511,
+      "window_rmse_sem": 1.142613018557187,
+      "tail_rmse_spikes_s": 16.98380102502556,
+      "pulse_mean_rmse_spikes_s": 15.639192060613,
+      "temporal_reduction_percent": 0.0,
+      "paired_improvement_mean": 0.0,
+      "paired_improvement_sem": 0.0,
+      "fraction_recordings_improved": 0.0,
+      "selected_timing_counts": {
+        "0/0": 22
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU025",
+      "scenario": "pooled",
+      "transfer": "matched",
+      "variant": "simple_spatial",
+      "mode": "static",
+      "recordings": 22,
+      "pulses": 12669,
+      "window_rmse_spikes_s": 15.287659419667024,
+      "window_rmse_sem": 0.9242804437282384,
+      "tail_rmse_spikes_s": 16.959427114875577,
+      "pulse_mean_rmse_spikes_s": 14.403386917994254,
+      "temporal_reduction_percent": 0.2524163108052006,
+      "paired_improvement_mean": 0.03858854591558474,
+      "paired_improvement_sem": 0.022608278138275952,
+      "fraction_recordings_improved": 0.5909090909090909,
+      "selected_timing_counts": {
+        "40/0": 22
+      }
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU025",
+      "scenario": "pooled",
+      "transfer": "matched",
+      "variant": "simple_spatial",
+      "mode": "temporal",
+      "recordings": 22,
+      "pulses": 12669,
+      "window_rmse_spikes_s": 15.249070873751437,
+      "window_rmse_sem": 0.9100164073022883,
+      "tail_rmse_spikes_s": 16.90307641489167,
+      "pulse_mean_rmse_spikes_s": 14.417986177027029,
+      "temporal_reduction_percent": 0.2524163108052006,
+      "paired_improvement_mean": 0.03858854591558474,
+      "paired_improvement_sem": 0.022608278138275952,
+      "fraction_recordings_improved": 0.5909090909090909,
+      "selected_timing_counts": {
+        "40/0": 22
+      }
+    }
+  ],
+  "ranks": [
+    {
+      "condition": "NoP1",
+      "type": "AOTU019",
+      "scenario": "pooled",
+      "transfer": "matched",
+      "baseline_beats_shuffles": 0,
+      "baseline_advantage_vs_simple_percent": 0.016416559118712176
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU019",
+      "scenario": "pooled",
+      "transfer": "25_to_75",
+      "baseline_beats_shuffles": 0,
+      "baseline_advantage_vs_simple_percent": 0.0860665442581198
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU019",
+      "scenario": "pooled",
+      "transfer": "75_to_25",
+      "baseline_beats_shuffles": 1,
+      "baseline_advantage_vs_simple_percent": -0.1991808223511144
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU019",
+      "scenario": "all_L",
+      "transfer": "matched",
+      "baseline_beats_shuffles": 4,
+      "baseline_advantage_vs_simple_percent": 0.019060249000697638
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU019",
+      "scenario": "all_L",
+      "transfer": "25_to_75",
+      "baseline_beats_shuffles": 3,
+      "baseline_advantage_vs_simple_percent": 0.09202018178973104
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU019",
+      "scenario": "all_L",
+      "transfer": "75_to_25",
+      "baseline_beats_shuffles": 3,
+      "baseline_advantage_vs_simple_percent": -0.21852232529019713
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU019",
+      "scenario": "all_R",
+      "transfer": "matched",
+      "baseline_beats_shuffles": 0,
+      "baseline_advantage_vs_simple_percent": 0.02768810749406968
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU019",
+      "scenario": "all_R",
+      "transfer": "25_to_75",
+      "baseline_beats_shuffles": 0,
+      "baseline_advantage_vs_simple_percent": 0.07975325472725658
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU019",
+      "scenario": "all_R",
+      "transfer": "75_to_25",
+      "baseline_beats_shuffles": 10,
+      "baseline_advantage_vs_simple_percent": -0.18025629634472276
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU025",
+      "scenario": "pooled",
+      "transfer": "matched",
+      "baseline_beats_shuffles": 32,
+      "baseline_advantage_vs_simple_percent": 0.017197696304297863
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU025",
+      "scenario": "pooled",
+      "transfer": "25_to_75",
+      "baseline_beats_shuffles": 32,
+      "baseline_advantage_vs_simple_percent": 0.03326397972352272
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU025",
+      "scenario": "pooled",
+      "transfer": "75_to_25",
+      "baseline_beats_shuffles": 32,
+      "baseline_advantage_vs_simple_percent": -0.07672475521651761
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU025",
+      "scenario": "all_L",
+      "transfer": "matched",
+      "baseline_beats_shuffles": 32,
+      "baseline_advantage_vs_simple_percent": 0.02207410634323588
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU025",
+      "scenario": "all_L",
+      "transfer": "25_to_75",
+      "baseline_beats_shuffles": 32,
+      "baseline_advantage_vs_simple_percent": 0.040482541893932765
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU025",
+      "scenario": "all_L",
+      "transfer": "75_to_25",
+      "baseline_beats_shuffles": 32,
+      "baseline_advantage_vs_simple_percent": -0.07950840383698507
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU025",
+      "scenario": "all_R",
+      "transfer": "matched",
+      "baseline_beats_shuffles": 32,
+      "baseline_advantage_vs_simple_percent": 0.01266407450498386
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU025",
+      "scenario": "all_R",
+      "transfer": "25_to_75",
+      "baseline_beats_shuffles": 32,
+      "baseline_advantage_vs_simple_percent": 0.026676183802371512
+    },
+    {
+      "condition": "NoP1",
+      "type": "AOTU025",
+      "scenario": "all_R",
+      "transfer": "75_to_25",
+      "baseline_beats_shuffles": 32,
+      "baseline_advantage_vs_simple_percent": -0.06862920553390345
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU019",
+      "scenario": "pooled",
+      "transfer": "matched",
+      "baseline_beats_shuffles": 7,
+      "baseline_advantage_vs_simple_percent": 0.4413239272546965
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU019",
+      "scenario": "pooled",
+      "transfer": "25_to_75",
+      "baseline_beats_shuffles": 0,
+      "baseline_advantage_vs_simple_percent": 0.3676327784866348
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU019",
+      "scenario": "pooled",
+      "transfer": "75_to_25",
+      "baseline_beats_shuffles": 22,
+      "baseline_advantage_vs_simple_percent": 0.18831632019775546
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU019",
+      "scenario": "all_L",
+      "transfer": "matched",
+      "baseline_beats_shuffles": 15,
+      "baseline_advantage_vs_simple_percent": 0.3248891742932558
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU019",
+      "scenario": "all_L",
+      "transfer": "25_to_75",
+      "baseline_beats_shuffles": 4,
+      "baseline_advantage_vs_simple_percent": 0.2504638104384889
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU019",
+      "scenario": "all_L",
+      "transfer": "75_to_25",
+      "baseline_beats_shuffles": 24,
+      "baseline_advantage_vs_simple_percent": 0.05980752500689706
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU019",
+      "scenario": "all_R",
+      "transfer": "matched",
+      "baseline_beats_shuffles": 12,
+      "baseline_advantage_vs_simple_percent": 0.5127660857996953
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU019",
+      "scenario": "all_R",
+      "transfer": "25_to_75",
+      "baseline_beats_shuffles": 0,
+      "baseline_advantage_vs_simple_percent": 0.4403508247345406
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU019",
+      "scenario": "all_R",
+      "transfer": "75_to_25",
+      "baseline_beats_shuffles": 22,
+      "baseline_advantage_vs_simple_percent": 0.2717654886212779
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU025",
+      "scenario": "pooled",
+      "transfer": "matched",
+      "baseline_beats_shuffles": 32,
+      "baseline_advantage_vs_simple_percent": 0.296250153306567
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU025",
+      "scenario": "pooled",
+      "transfer": "25_to_75",
+      "baseline_beats_shuffles": 32,
+      "baseline_advantage_vs_simple_percent": 0.3311006525529931
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU025",
+      "scenario": "pooled",
+      "transfer": "75_to_25",
+      "baseline_beats_shuffles": 32,
+      "baseline_advantage_vs_simple_percent": 0.30139745525219425
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU025",
+      "scenario": "all_L",
+      "transfer": "matched",
+      "baseline_beats_shuffles": 32,
+      "baseline_advantage_vs_simple_percent": 0.3451249886657907
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU025",
+      "scenario": "all_L",
+      "transfer": "25_to_75",
+      "baseline_beats_shuffles": 32,
+      "baseline_advantage_vs_simple_percent": 0.3917246310357311
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU025",
+      "scenario": "all_L",
+      "transfer": "75_to_25",
+      "baseline_beats_shuffles": 32,
+      "baseline_advantage_vs_simple_percent": 0.32564578453694976
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU025",
+      "scenario": "all_R",
+      "transfer": "matched",
+      "baseline_beats_shuffles": 32,
+      "baseline_advantage_vs_simple_percent": 0.2529434558355346
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU025",
+      "scenario": "all_R",
+      "transfer": "25_to_75",
+      "baseline_beats_shuffles": 32,
+      "baseline_advantage_vs_simple_percent": 0.2783179035998366
+    },
+    {
+      "condition": "P1",
+      "type": "AOTU025",
+      "scenario": "all_R",
+      "transfer": "75_to_25",
+      "baseline_beats_shuffles": 32,
+      "baseline_advantage_vs_simple_percent": 0.27843178530154333
+    }
+  ],
+  "promising_temporal_benefit_gate": {
+    "AOTU019": false,
+    "AOTU025": false
+  },
+  "frozen_code_and_input_sha256": {
+    "src\\fly_creature\\pursuit_controller.py": "fe7f4d6ecf86b3a816549bfd4fedf3a7ce124a7b2f92e28daf891404d7dc6584",
+    "src\\fly_creature\\pursuit_activity.py": "3a9b6de9342f098dd468102c770d55f8f2a0dbaf6ab6d51a3904be784e60827e",
+    "src\\fly_creature\\pursuit_step4.py": "e03e9b001e2c33c43d83a215092386760257f3cd038c7c8b26999f4b2875d1fc",
+    "src\\fly_creature\\pursuit_delay_diagnostic.py": "fa7282fc335399a5dec07560eb2aae3df81461de86742df60d94670d8afb79a1",
+    "src\\fly_creature\\pursuit_physiology.py": "c2020f4d4b0d35ec8a868c5dbb98d4801c55310f4b994923db83f809ced8bc85",
+    "src\\fly_creature\\data\\visual_steering_v1.json": "e695c15db69acfca5bd029b88c699674edac5e1344a56cf230b0fadf536c64b2",
+    "src\\fly_creature\\data\\lc10a_registered_eyemap_hypothesis_v3.json": "690fabf4df864d5d8ca007a1dccef8263498c735aa6ee2d38a78866ed1e4ba90",
+    "src\\fly_creature\\data\\lc10a_column_footprints_v1.json": "dc1ade18d9144be4f0448e454e00e5aa742ac45bb13d5d4ab427d48f5fb57042"
+  },
+  "checks": {
+    "filter_order_max_abs_error": 7.771561172376096e-16,
+    "recurrence_max_abs_error": 0.0,
+    "frozen_hashes_unchanged": true,
+    "held_recordings_excluded_from_all_training": true
+  },
+  "limitations": [
+    "Pooled hemispheres are a declared model average, not recovered physical side",
+    "Archive conditions lack per-trial stimulation verification",
+    "Evoked baseline uses recorded pre-stimulus activity",
+    "Single-pole dynamics are a hypothesis; no identified neural mechanism or causal P1 effect",
+    "Evaluation uses an every-seventh-native-sample grid; prior raw-rate benchmark is a different estimand",
+    "Previously inspected dataset is not a new cohort; nested holdouts protect this parameter selection only"
+  ],
+  "complete_output_report_sha256": "299e0f1be1c25c6eec0f53b2d61f31a55dbf67241e7ecafbc755b8982e03469c",
+  "summary_scope": "Primary/control variants; all shuffle errors are retained in summary CSV and the full ignored output report. Timing counts describe the nested temporal choice for each static/temporal pair."
+}

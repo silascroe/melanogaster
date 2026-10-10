@@ -1,0 +1,567 @@
+{
+  "question": "Does skeleton-position-specific LC10a input reveal a useful role for the selected MaleCNS wiring?",
+  "status": "offline hypothesis test; playable default unchanged",
+  "map_sha256": "1e76d4dc824877038e10bee8f4046c304feb122799b19fd456dca435c9734c80",
+  "protocol": {
+    "duration_ms": 8000,
+    "world_step_ms": 50,
+    "forward_speed_m_s": 0.55,
+    "input_mv": 90.0,
+    "paths": [
+      "crossing",
+      "mirrored",
+      "faster",
+      "slower",
+      "narrow",
+      "reverse_twice",
+      "offset_sweep",
+      "near_target",
+      "far_target",
+      "stop_go"
+    ],
+    "new_paths": [
+      "reverse_twice",
+      "offset_sweep",
+      "near_target",
+      "far_target",
+      "stop_go"
+    ],
+    "shuffled_wiring_seeds": [
+      101,
+      102,
+      103,
+      104,
+      105,
+      106,
+      107,
+      108,
+      109,
+      110,
+      111,
+      112
+    ],
+    "anatomical_input": "SWC-derived per-cell bearing centers, Gaussian width 18 deg, floor 0.1; normalize to preserve total current on each stimulated side.",
+    "wiring_shuffle": "Permute intact LC10a output bundles within each hemisphere; keep AOTU and DNa02 cells, bridge edges, synapse counts, and signs.",
+    "direct_control": "Same target feature and turn cap, no neural graph.",
+    "metric": "Mean absolute target bearing; lower is better only for centering.",
+    "interpretation_gate": "A strong anatomical advantage would need to hold across new paths against uniform input, wiring shuffles, and direct bearing; this audit reports all three separately and does not tune parameters."
+  },
+  "new_path_win_counts": {
+    "out_of": 5,
+    "versus_uniform": 0,
+    "versus_direct": 0,
+    "versus_shuffle_median": 5
+  },
+  "results": {
+    "crossing": {
+      "uniform_intact": {
+        "mean_abs_bearing_deg": 10.347,
+        "p90_abs_bearing_deg": 17.18,
+        "in_view_fraction": 1.0,
+        "DNa02_spikes": 0
+      },
+      "anatomy_intact": {
+        "mean_abs_bearing_deg": 12.017,
+        "p90_abs_bearing_deg": 22.109,
+        "in_view_fraction": 1.0,
+        "DNa02_spikes": 0
+      },
+      "anatomy_bridge_removed": {
+        "mean_abs_bearing_deg": 23.071,
+        "p90_abs_bearing_deg": 38.322,
+        "in_view_fraction": 1.0,
+        "DNa02_spikes": 0
+      },
+      "direct_bearing": {
+        "mean_abs_bearing_deg": 10.147,
+        "p90_abs_bearing_deg": 19.037,
+        "in_view_fraction": 1.0,
+        "DNa02_spikes": null
+      },
+      "uniform_shuffled_seed101": {
+        "mean_abs_bearing_deg": 10.347,
+        "p90_abs_bearing_deg": 17.18,
+        "in_view_fraction": 1.0,
+        "DNa02_spikes": 0
+      },
+      "anatomy_shuffled_summary": {
+        "median_mean_abs_bearing_deg": 12.889,
+        "minimum_mean_abs_bearing_deg": 12.512,
+        "maximum_mean_abs_bearing_deg": 13.128,
+        "seeds": {
+          "101": 12.918,
+          "102": 12.942,
+          "103": 12.627,
+          "104": 12.887,
+          "105": 12.512,
+          "106": 12.881,
+          "107": 13.065,
+          "108": 13.067,
+          "109": 12.891,
+          "110": 13.128,
+          "111": 12.86,
+          "112": 12.754
+        }
+      }
+    },
+    "mirrored": {
+      "uniform_intact": {
+        "mean_abs_bearing_deg": 10.387,
+        "p90_abs_bearing_deg": 17.023,
+        "in_view_fraction": 1.0,
+        "DNa02_spikes": 0
+      },
+      "anatomy_intact": {
+        "mean_abs_bearing_deg": 11.788,
+        "p90_abs_bearing_deg": 20.451,
+        "in_view_fraction": 1.0,
+        "DNa02_spikes": 0
+      },
+      "anatomy_bridge_removed": {
+        "mean_abs_bearing_deg": 23.071,
+        "p90_abs_bearing_deg": 38.322,
+        "in_view_fraction": 1.0,
+        "DNa02_spikes": 0
+      },
+      "direct_bearing": {
+        "mean_abs_bearing_deg": 10.147,
+        "p90_abs_bearing_deg": 19.037,
+        "in_view_fraction": 1.0,
+        "DNa02_spikes": null
+      },
+      "uniform_shuffled_seed101": {
+        "mean_abs_bearing_deg": 10.387,
+        "p90_abs_bearing_deg": 17.023,
+        "in_view_fraction": 1.0,
+        "DNa02_spikes": 0
+      },
+      "anatomy_shuffled_summary": {
+        "median_mean_abs_bearing_deg": 12.906,
+        "minimum_mean_abs_bearing_deg": 12.557,
+        "maximum_mean_abs_bearing_deg": 13.24,
+        "seeds": {
+          "101": 13.011,
+          "102": 12.891,
+          "103": 12.67,
+          "104": 12.828,
+          "105": 12.735,
+          "106": 13.006,
+          "107": 13.231,
+          "108": 12.921,
+          "109": 12.796,
+          "110": 13.24,
+          "111": 13.089,
+          "112": 12.557
+        }
+      }
+    },
+    "faster": {
+      "uniform_intact": {
+        "mean_abs_bearing_deg": 10.499,
+        "p90_abs_bearing_deg": 17.701,
+        "in_view_fraction": 1.0,
+        "DNa02_spikes": 0
+      },
+      "anatomy_intact": {
+        "mean_abs_bearing_deg": 12.127,
+        "p90_abs_bearing_deg": 21.284,
+        "in_view_fraction": 1.0,
+        "DNa02_spikes": 0
+      },
+      "anatomy_bridge_removed": {
+        "mean_abs_bearing_deg": 26.509,
+        "p90_abs_bearing_deg": 46.706,
+        "in_view_fraction": 1.0,
+        "DNa02_spikes": 0
+      },
+      "direct_bearing": {
+        "mean_abs_bearing_deg": 10.721,
+        "p90_abs_bearing_deg": 19.244,
+        "in_view_fraction": 1.0,
+        "DNa02_spikes": null
+      },
+      "uniform_shuffled_seed101": {
+        "mean_abs_bearing_deg": 10.499,
+        "p90_abs_bearing_deg": 17.701,
+        "in_view_fraction": 1.0,
+        "DNa02_spikes": 0
+      },
+      "anatomy_shuffled_summary": {
+        "median_mean_abs_bearing_deg": 13.048,
+        "minimum_mean_abs_bearing_deg": 12.691,
+        "maximum_mean_abs_bearing_deg": 13.221,
+        "seeds": {
+          "101": 13.065,
+          "102": 13.058,
+          "103": 12.691,
+          "104": 13.037,
+          "105": 12.912,
+          "106": 13.038,
+          "107": 13.217,
+          "108": 13.113,
+          "109": 12.956,
+          "110": 13.214,
+          "111": 13.221,
+          "112": 12.846
+        }
+      }
+    },
+    "slower": {
+      "uniform_intact": {
+        "mean_abs_bearing_deg": 8.773,
+        "p90_abs_bearing_deg": 10.933,
+        "in_view_fraction": 1.0,
+        "DNa02_spikes": 0
+      },
+      "anatomy_intact": {
+        "mean_abs_bearing_deg": 9.98,
+        "p90_abs_bearing_deg": 12.459,
+        "in_view_fraction": 1.0,
+        "DNa02_spikes": 0
+      },
+      "anatomy_bridge_removed": {
+        "mean_abs_bearing_deg": 25.329,
+        "p90_abs_bearing_deg": 50.669,
+        "in_view_fraction": 1.0,
+        "DNa02_spikes": 0
+      },
+      "direct_bearing": {
+        "mean_abs_bearing_deg": 7.387,
+        "p90_abs_bearing_deg": 9.728,
+        "in_view_fraction": 1.0,
+        "DNa02_spikes": null
+      },
+      "uniform_shuffled_seed101": {
+        "mean_abs_bearing_deg": 8.773,
+        "p90_abs_bearing_deg": 10.933,
+        "in_view_fraction": 1.0,
+        "DNa02_spikes": 0
+      },
+      "anatomy_shuffled_summary": {
+        "median_mean_abs_bearing_deg": 10.849,
+        "minimum_mean_abs_bearing_deg": 10.322,
+        "maximum_mean_abs_bearing_deg": 11.171,
+        "seeds": {
+          "101": 10.929,
+          "102": 10.86,
+          "103": 10.649,
+          "104": 10.838,
+          "105": 10.322,
+          "106": 10.797,
+          "107": 11.027,
+          "108": 11.085,
+          "109": 11.008,
+          "110": 11.171,
+          "111": 10.654,
+          "112": 10.745
+        }
+      }
+    },
+    "narrow": {
+      "uniform_intact": {
+        "mean_abs_bearing_deg": 6.832,
+        "p90_abs_bearing_deg": 11.401,
+        "in_view_fraction": 1.0,
+        "DNa02_spikes": 0
+      },
+      "anatomy_intact": {
+        "mean_abs_bearing_deg": 7.513,
+        "p90_abs_bearing_deg": 12.413,
+        "in_view_fraction": 1.0,
+        "DNa02_spikes": 0
+      },
+      "anatomy_bridge_removed": {
+        "mean_abs_bearing_deg": 9.454,
+        "p90_abs_bearing_deg": 16.509,
+        "in_view_fraction": 1.0,
+        "DNa02_spikes": 0
+      },
+      "direct_bearing": {
+        "mean_abs_bearing_deg": 5.433,
+        "p90_abs_bearing_deg": 10.312,
+        "in_view_fraction": 1.0,
+        "DNa02_spikes": null
+      },
+      "uniform_shuffled_seed101": {
+        "mean_abs_bearing_deg": 6.832,
+        "p90_abs_bearing_deg": 11.401,
+        "in_view_fraction": 1.0,
+        "DNa02_spikes": 0
+      },
+      "anatomy_shuffled_summary": {
+        "median_mean_abs_bearing_deg": 7.922,
+        "minimum_mean_abs_bearing_deg": 7.733,
+        "maximum_mean_abs_bearing_deg": 8.042,
+        "seeds": {
+          "101": 7.907,
+          "102": 7.97,
+          "103": 7.888,
+          "104": 7.887,
+          "105": 7.733,
+          "106": 7.938,
+          "107": 8.021,
+          "108": 7.976,
+          "109": 7.947,
+          "110": 8.042,
+          "111": 7.889,
+          "112": 7.842
+        }
+      }
+    },
+    "reverse_twice": {
+      "uniform_intact": {
+        "mean_abs_bearing_deg": 11.183,
+        "p90_abs_bearing_deg": 17.798,
+        "in_view_fraction": 1.0,
+        "DNa02_spikes": 0
+      },
+      "anatomy_intact": {
+        "mean_abs_bearing_deg": 12.611,
+        "p90_abs_bearing_deg": 19.753,
+        "in_view_fraction": 1.0,
+        "DNa02_spikes": 0
+      },
+      "anatomy_bridge_removed": {
+        "mean_abs_bearing_deg": 18.639,
+        "p90_abs_bearing_deg": 34.363,
+        "in_view_fraction": 1.0,
+        "DNa02_spikes": 0
+      },
+      "direct_bearing": {
+        "mean_abs_bearing_deg": 11.346,
+        "p90_abs_bearing_deg": 18.568,
+        "in_view_fraction": 1.0,
+        "DNa02_spikes": null
+      },
+      "uniform_shuffled_seed101": {
+        "mean_abs_bearing_deg": 11.183,
+        "p90_abs_bearing_deg": 17.798,
+        "in_view_fraction": 1.0,
+        "DNa02_spikes": 0
+      },
+      "anatomy_shuffled_summary": {
+        "median_mean_abs_bearing_deg": 13.319,
+        "minimum_mean_abs_bearing_deg": 13.04,
+        "maximum_mean_abs_bearing_deg": 13.509,
+        "seeds": {
+          "101": 13.319,
+          "102": 13.31,
+          "103": 13.04,
+          "104": 13.32,
+          "105": 13.193,
+          "106": 13.318,
+          "107": 13.509,
+          "108": 13.4,
+          "109": 13.239,
+          "110": 13.498,
+          "111": 13.409,
+          "112": 13.226
+        }
+      }
+    },
+    "offset_sweep": {
+      "uniform_intact": {
+        "mean_abs_bearing_deg": 6.99,
+        "p90_abs_bearing_deg": 9.557,
+        "in_view_fraction": 1.0,
+        "DNa02_spikes": 0
+      },
+      "anatomy_intact": {
+        "mean_abs_bearing_deg": 7.967,
+        "p90_abs_bearing_deg": 11.127,
+        "in_view_fraction": 1.0,
+        "DNa02_spikes": 0
+      },
+      "anatomy_bridge_removed": {
+        "mean_abs_bearing_deg": 30.308,
+        "p90_abs_bearing_deg": 47.452,
+        "in_view_fraction": 1.0,
+        "DNa02_spikes": 0
+      },
+      "direct_bearing": {
+        "mean_abs_bearing_deg": 5.173,
+        "p90_abs_bearing_deg": 7.591,
+        "in_view_fraction": 1.0,
+        "DNa02_spikes": null
+      },
+      "uniform_shuffled_seed101": {
+        "mean_abs_bearing_deg": 6.99,
+        "p90_abs_bearing_deg": 9.557,
+        "in_view_fraction": 1.0,
+        "DNa02_spikes": 0
+      },
+      "anatomy_shuffled_summary": {
+        "median_mean_abs_bearing_deg": 8.492,
+        "minimum_mean_abs_bearing_deg": 8.075,
+        "maximum_mean_abs_bearing_deg": 8.748,
+        "seeds": {
+          "101": 8.4,
+          "102": 8.561,
+          "103": 8.332,
+          "104": 8.504,
+          "105": 8.075,
+          "106": 8.351,
+          "107": 8.635,
+          "108": 8.735,
+          "109": 8.644,
+          "110": 8.748,
+          "111": 8.236,
+          "112": 8.48
+        }
+      }
+    },
+    "near_target": {
+      "uniform_intact": {
+        "mean_abs_bearing_deg": 13.0,
+        "p90_abs_bearing_deg": 27.696,
+        "in_view_fraction": 1.0,
+        "DNa02_spikes": 0
+      },
+      "anatomy_intact": {
+        "mean_abs_bearing_deg": 16.276,
+        "p90_abs_bearing_deg": 38.456,
+        "in_view_fraction": 1.0,
+        "DNa02_spikes": 0
+      },
+      "anatomy_bridge_removed": {
+        "mean_abs_bearing_deg": 38.931,
+        "p90_abs_bearing_deg": 86.17,
+        "in_view_fraction": 0.819,
+        "DNa02_spikes": 0
+      },
+      "direct_bearing": {
+        "mean_abs_bearing_deg": 13.087,
+        "p90_abs_bearing_deg": 28.945,
+        "in_view_fraction": 1.0,
+        "DNa02_spikes": null
+      },
+      "uniform_shuffled_seed101": {
+        "mean_abs_bearing_deg": 13.0,
+        "p90_abs_bearing_deg": 27.696,
+        "in_view_fraction": 1.0,
+        "DNa02_spikes": 0
+      },
+      "anatomy_shuffled_summary": {
+        "median_mean_abs_bearing_deg": 18.94,
+        "minimum_mean_abs_bearing_deg": 17.995,
+        "maximum_mean_abs_bearing_deg": 19.341,
+        "seeds": {
+          "101": 18.977,
+          "102": 18.675,
+          "103": 18.34,
+          "104": 19.165,
+          "105": 17.995,
+          "106": 18.862,
+          "107": 18.893,
+          "108": 19.014,
+          "109": 19.318,
+          "110": 19.341,
+          "111": 18.903,
+          "112": 19.208
+        }
+      }
+    },
+    "far_target": {
+      "uniform_intact": {
+        "mean_abs_bearing_deg": 8.868,
+        "p90_abs_bearing_deg": 14.255,
+        "in_view_fraction": 1.0,
+        "DNa02_spikes": 0
+      },
+      "anatomy_intact": {
+        "mean_abs_bearing_deg": 10.008,
+        "p90_abs_bearing_deg": 17.139,
+        "in_view_fraction": 1.0,
+        "DNa02_spikes": 0
+      },
+      "anatomy_bridge_removed": {
+        "mean_abs_bearing_deg": 17.487,
+        "p90_abs_bearing_deg": 30.082,
+        "in_view_fraction": 1.0,
+        "DNa02_spikes": 0
+      },
+      "direct_bearing": {
+        "mean_abs_bearing_deg": 8.024,
+        "p90_abs_bearing_deg": 14.438,
+        "in_view_fraction": 1.0,
+        "DNa02_spikes": null
+      },
+      "uniform_shuffled_seed101": {
+        "mean_abs_bearing_deg": 8.868,
+        "p90_abs_bearing_deg": 14.255,
+        "in_view_fraction": 1.0,
+        "DNa02_spikes": 0
+      },
+      "anatomy_shuffled_summary": {
+        "median_mean_abs_bearing_deg": 10.764,
+        "minimum_mean_abs_bearing_deg": 10.449,
+        "maximum_mean_abs_bearing_deg": 10.967,
+        "seeds": {
+          "101": 10.766,
+          "102": 10.809,
+          "103": 10.608,
+          "104": 10.762,
+          "105": 10.449,
+          "106": 10.787,
+          "107": 10.958,
+          "108": 10.915,
+          "109": 10.743,
+          "110": 10.967,
+          "111": 10.745,
+          "112": 10.641
+        }
+      }
+    },
+    "stop_go": {
+      "uniform_intact": {
+        "mean_abs_bearing_deg": 9.475,
+        "p90_abs_bearing_deg": 12.439,
+        "in_view_fraction": 1.0,
+        "DNa02_spikes": 0
+      },
+      "anatomy_intact": {
+        "mean_abs_bearing_deg": 10.747,
+        "p90_abs_bearing_deg": 14.123,
+        "in_view_fraction": 1.0,
+        "DNa02_spikes": 0
+      },
+      "anatomy_bridge_removed": {
+        "mean_abs_bearing_deg": 28.878,
+        "p90_abs_bearing_deg": 53.238,
+        "in_view_fraction": 1.0,
+        "DNa02_spikes": 0
+      },
+      "direct_bearing": {
+        "mean_abs_bearing_deg": 7.811,
+        "p90_abs_bearing_deg": 12.04,
+        "in_view_fraction": 1.0,
+        "DNa02_spikes": null
+      },
+      "uniform_shuffled_seed101": {
+        "mean_abs_bearing_deg": 9.475,
+        "p90_abs_bearing_deg": 12.439,
+        "in_view_fraction": 1.0,
+        "DNa02_spikes": 0
+      },
+      "anatomy_shuffled_summary": {
+        "median_mean_abs_bearing_deg": 11.785,
+        "minimum_mean_abs_bearing_deg": 11.164,
+        "maximum_mean_abs_bearing_deg": 12.093,
+        "seeds": {
+          "101": 11.821,
+          "102": 11.749,
+          "103": 11.449,
+          "104": 11.831,
+          "105": 11.164,
+          "106": 11.687,
+          "107": 12.093,
+          "108": 11.959,
+          "109": 11.91,
+          "110": 12.079,
+          "111": 11.57,
+          "112": 11.652
+        }
+      }
+    }
+  }
+}

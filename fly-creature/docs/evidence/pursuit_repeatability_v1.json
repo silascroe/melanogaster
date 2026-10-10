@@ -1,0 +1,1302 @@
+{
+  "archives": [
+    {
+      "accepted": 360,
+      "archive_md5": "6ebc8edd2bb348fa14b9dbd8f2cbea01",
+      "condition": "NoP1",
+      "dt_s": 0.0015000000000000568,
+      "member": "AOTU019 Motion Pulse No P1/2023_06_15_fly01_int.mat",
+      "member_sha256": "af450cb0430f42da375d51cb91b4a9bdcf165d9f4009dfe3885f4ba14d1bf592",
+      "quiescent_pulses": 311,
+      "recording": "AOTU019/2023_06_15_fly01",
+      "rejected": {},
+      "segments": 360,
+      "trial_cells": 311,
+      "trials": 10
+    },
+    {
+      "condition": "NoP1",
+      "excluded": "known duplicate",
+      "recording": "AOTU019/2023_06_15_fly03"
+    },
+    {
+      "accepted": 360,
+      "archive_md5": "6ebc8edd2bb348fa14b9dbd8f2cbea01",
+      "condition": "NoP1",
+      "dt_s": 0.0015000000000000568,
+      "member": "AOTU019 Motion Pulse No P1/2023_06_19_fly01_int.mat",
+      "member_sha256": "0428b1bb23caded3aa1e1f9320aa13b232093c34cb9f6bb83912297a8db751a8",
+      "quiescent_pulses": 242,
+      "recording": "AOTU019/2023_06_19_fly01",
+      "rejected": {},
+      "segments": 360,
+      "trial_cells": 242,
+      "trials": 10
+    },
+    {
+      "accepted": 359,
+      "archive_md5": "6ebc8edd2bb348fa14b9dbd8f2cbea01",
+      "condition": "NoP1",
+      "dt_s": 0.0015000000000000568,
+      "member": "AOTU019 Motion Pulse No P1/2023_06_19_fly02_int.mat",
+      "member_sha256": "42ed99e00b83b1ceb9c5788b147de4721e6b6df838a527d646dbe814e9916321",
+      "quiescent_pulses": 347,
+      "recording": "AOTU019/2023_06_19_fly02",
+      "rejected": {
+        "span": 1
+      },
+      "segments": 360,
+      "trial_cells": 347,
+      "trials": 10
+    },
+    {
+      "accepted": 360,
+      "archive_md5": "6ebc8edd2bb348fa14b9dbd8f2cbea01",
+      "condition": "NoP1",
+      "dt_s": 0.0015000000000000568,
+      "member": "AOTU019 Motion Pulse No P1/2023_06_19_fly03_int.mat",
+      "member_sha256": "1be9193f3959dee7442699980eb47fd68e3eeb8d3b4f1b34ec62473278caa348",
+      "quiescent_pulses": 360,
+      "recording": "AOTU019/2023_06_19_fly03",
+      "rejected": {},
+      "segments": 360,
+      "trial_cells": 360,
+      "trials": 10
+    },
+    {
+      "accepted": 360,
+      "archive_md5": "6ebc8edd2bb348fa14b9dbd8f2cbea01",
+      "condition": "NoP1",
+      "dt_s": 0.0015000000000000568,
+      "member": "AOTU019 Motion Pulse No P1/2023_06_20_fly02_int.mat",
+      "member_sha256": "8410a7b8c4f3d1c70c6b7490d901502a1eed7185d60045f480a17dc370434454",
+      "quiescent_pulses": 280,
+      "recording": "AOTU019/2023_06_20_fly02",
+      "rejected": {},
+      "segments": 360,
+      "trial_cells": 280,
+      "trials": 10
+    },
+    {
+      "accepted": 360,
+      "archive_md5": "6ebc8edd2bb348fa14b9dbd8f2cbea01",
+      "condition": "NoP1",
+      "dt_s": 0.0015000000000000568,
+      "member": "AOTU019 Motion Pulse No P1/2023_06_21_fly01_int.mat",
+      "member_sha256": "43b4cd5e4321227ea4133288ef59066e51cbf3693e799d7454d6b783b7c90a78",
+      "quiescent_pulses": 124,
+      "recording": "AOTU019/2023_06_21_fly01",
+      "rejected": {},
+      "segments": 360,
+      "trial_cells": 124,
+      "trials": 10
+    },
+    {
+      "accepted": 360,
+      "archive_md5": "6ebc8edd2bb348fa14b9dbd8f2cbea01",
+      "condition": "NoP1",
+      "dt_s": 0.0015000000000000568,
+      "member": "AOTU019 Motion Pulse No P1/2023_06_23_fly01_int.mat",
+      "member_sha256": "17c57432d59259f036affda2117f89db5dca5fa2d70601c9a75437b6711c8784",
+      "quiescent_pulses": 114,
+      "recording": "AOTU019/2023_06_23_fly01",
+      "rejected": {},
+      "segments": 360,
+      "trial_cells": 114,
+      "trials": 10
+    },
+    {
+      "accepted": 648,
+      "archive_md5": "6ebc8edd2bb348fa14b9dbd8f2cbea01",
+      "condition": "NoP1",
+      "dt_s": 0.0015000000000000568,
+      "member": "AOTU019 Motion Pulse No P1/2023_10_25_fly03_int.mat",
+      "member_sha256": "83ef2ba0bd3bd8195e067fe598c5c583fc7b67d985d1a2c5e7db55c34fc49a5a",
+      "quiescent_pulses": 435,
+      "recording": "AOTU019/2023_10_25_fly03",
+      "rejected": {},
+      "segments": 648,
+      "trial_cells": 435,
+      "trials": 18
+    },
+    {
+      "accepted": 1078,
+      "archive_md5": "6ebc8edd2bb348fa14b9dbd8f2cbea01",
+      "condition": "NoP1",
+      "dt_s": 0.0015000000000000568,
+      "member": "AOTU019 Motion Pulse No P1/2023_10_26_fly01_int.mat",
+      "member_sha256": "0979046daf223eed9d9403250fa2e607c6ad622fe4d909203eb021960e3aa801",
+      "quiescent_pulses": 678,
+      "recording": "AOTU019/2023_10_26_fly01",
+      "rejected": {
+        "duration": 1,
+        "neighboring_stimulus": 1,
+        "span": 1
+      },
+      "segments": 1081,
+      "trial_cells": 678,
+      "trials": 30
+    },
+    {
+      "accepted": 720,
+      "archive_md5": "6ebc8edd2bb348fa14b9dbd8f2cbea01",
+      "condition": "NoP1",
+      "dt_s": 0.0015000000000000568,
+      "member": "AOTU019 Motion Pulse No P1/2023_10_27_fly04_int.mat",
+      "member_sha256": "aacf963a7a49a718032079744a748a3c91fcf2145ea7245b0381503854686e44",
+      "quiescent_pulses": 275,
+      "recording": "AOTU019/2023_10_27_fly04",
+      "rejected": {},
+      "segments": 720,
+      "trial_cells": 275,
+      "trials": 20
+    },
+    {
+      "accepted": 718,
+      "archive_md5": "6ebc8edd2bb348fa14b9dbd8f2cbea01",
+      "condition": "NoP1",
+      "dt_s": 0.0015000000000000568,
+      "member": "AOTU019 Motion Pulse No P1/2023_10_31_fly01_int.mat",
+      "member_sha256": "23ca2a2f2a0a7202b694899df5efd8c3f11cdb2f77b8e2ff009a0ac29770534b",
+      "quiescent_pulses": 428,
+      "recording": "AOTU019/2023_10_31_fly01",
+      "rejected": {
+        "duration": 2,
+        "span": 1
+      },
+      "segments": 721,
+      "trial_cells": 428,
+      "trials": 20
+    },
+    {
+      "accepted": 520,
+      "archive_md5": "ebeace816547366b8325182f80a08a5b",
+      "condition": "NoP1",
+      "dt_s": 0.0015000000000000568,
+      "member": "AOTU025 Motion Pulse No P1/2024_05_31_fly02_int.mat",
+      "member_sha256": "a15e4c5d3483b940b6388c32b5784a5b416b9d1079dcd82b37c571f745ec9c81",
+      "quiescent_pulses": 460,
+      "recording": "AOTU025/2024_05_31_fly02",
+      "rejected": {},
+      "segments": 520,
+      "trial_cells": 460,
+      "trials": 10
+    },
+    {
+      "accepted": 520,
+      "archive_md5": "ebeace816547366b8325182f80a08a5b",
+      "condition": "NoP1",
+      "dt_s": 0.0015000000000000568,
+      "member": "AOTU025 Motion Pulse No P1/2024_06_26_fly01_int.mat",
+      "member_sha256": "238171647ad5edd448958cb5dd77c25ef871a425bbcd9ae5272efbec164fcee4",
+      "quiescent_pulses": 500,
+      "recording": "AOTU025/2024_06_26_fly01",
+      "rejected": {},
+      "segments": 520,
+      "trial_cells": 500,
+      "trials": 10
+    },
+    {
+      "accepted": 208,
+      "archive_md5": "ebeace816547366b8325182f80a08a5b",
+      "condition": "NoP1",
+      "dt_s": 0.0015000000000000568,
+      "member": "AOTU025 Motion Pulse No P1/2024_06_27_fly01_int.mat",
+      "member_sha256": "bb3e2f3841d3caf6413563e64e95a6022f74315790e1eeb869c20469d0fc9935",
+      "quiescent_pulses": 137,
+      "recording": "AOTU025/2024_06_27_fly01",
+      "rejected": {},
+      "segments": 208,
+      "trial_cells": 137,
+      "trials": 4
+    },
+    {
+      "accepted": 520,
+      "archive_md5": "ebeace816547366b8325182f80a08a5b",
+      "condition": "NoP1",
+      "dt_s": 0.0015000000000000568,
+      "member": "AOTU025 Motion Pulse No P1/2024_06_28_fly01_int.mat",
+      "member_sha256": "63bfd05c8a616b0fc558a0781d23570fc66b673d6d87b3a76cf1280a4143c2a7",
+      "quiescent_pulses": 234,
+      "recording": "AOTU025/2024_06_28_fly01",
+      "rejected": {},
+      "segments": 520,
+      "trial_cells": 234,
+      "trials": 10
+    },
+    {
+      "accepted": 520,
+      "archive_md5": "ebeace816547366b8325182f80a08a5b",
+      "condition": "NoP1",
+      "dt_s": 0.0015000000000000568,
+      "member": "AOTU025 Motion Pulse No P1/2024_07_02_fly03_int.mat",
+      "member_sha256": "92b73a4a767a31e5067fd0cdbcf64c0b74866a9c668a6968c2edf089a9fb527f",
+      "quiescent_pulses": 374,
+      "recording": "AOTU025/2024_07_02_fly03",
+      "rejected": {},
+      "segments": 520,
+      "trial_cells": 374,
+      "trials": 10
+    },
+    {
+      "accepted": 519,
+      "archive_md5": "ebeace816547366b8325182f80a08a5b",
+      "condition": "NoP1",
+      "dt_s": 0.0015000000000000568,
+      "member": "AOTU025 Motion Pulse No P1/2024_07_03_fly01_int.mat",
+      "member_sha256": "f0a35ee5f0130255bceef5aee0cd291f1d12384e13c3edf7e9326b96e999c4e5",
+      "quiescent_pulses": 196,
+      "recording": "AOTU025/2024_07_03_fly01",
+      "rejected": {
+        "span": 1
+      },
+      "segments": 520,
+      "trial_cells": 196,
+      "trials": 10
+    },
+    {
+      "accepted": 518,
+      "archive_md5": "ebeace816547366b8325182f80a08a5b",
+      "condition": "NoP1",
+      "dt_s": 0.0015000000000000568,
+      "member": "AOTU025 Motion Pulse No P1/2025_02_24_fly02_int.mat",
+      "member_sha256": "d32cb4728f1d58ea7a41c813d06de33f0fa58533632c445c1c883767f1ccd74e",
+      "quiescent_pulses": 401,
+      "recording": "AOTU025/2025_02_24_fly02",
+      "rejected": {
+        "duration": 2,
+        "span": 1
+      },
+      "segments": 521,
+      "trial_cells": 401,
+      "trials": 10
+    },
+    {
+      "accepted": 519,
+      "archive_md5": "ebeace816547366b8325182f80a08a5b",
+      "condition": "NoP1",
+      "dt_s": 0.0015000000000000568,
+      "member": "AOTU025 Motion Pulse No P1/2025_03_06_fly02_int.mat",
+      "member_sha256": "5a1c17772f0aae05d3203dcd3c313029b2c44a92578faecb2606b50eea45edfb",
+      "quiescent_pulses": 300,
+      "recording": "AOTU025/2025_03_06_fly02",
+      "rejected": {
+        "duration": 1,
+        "span": 1
+      },
+      "segments": 521,
+      "trial_cells": 300,
+      "trials": 10
+    },
+    {
+      "accepted": 519,
+      "archive_md5": "ebeace816547366b8325182f80a08a5b",
+      "condition": "NoP1",
+      "dt_s": 0.0015000000000000568,
+      "member": "AOTU025 Motion Pulse No P1/2025_03_13_fly02_int.mat",
+      "member_sha256": "4e040976b2b81fe47715001b1e0a958fb05898dd677ce21d6d9cbd64120c32bb",
+      "quiescent_pulses": 389,
+      "recording": "AOTU025/2025_03_13_fly02",
+      "rejected": {
+        "span": 1
+      },
+      "segments": 520,
+      "trial_cells": 389,
+      "trials": 10
+    },
+    {
+      "accepted": 518,
+      "archive_md5": "ebeace816547366b8325182f80a08a5b",
+      "condition": "NoP1",
+      "dt_s": 0.0015000000000000568,
+      "member": "AOTU025 Motion Pulse No P1/2025_03_25_fly01_int.mat",
+      "member_sha256": "9555dde0683f94faa3a1cc22b34e53ede96084b13cac203b446b4f6dd235277d",
+      "quiescent_pulses": 239,
+      "recording": "AOTU025/2025_03_25_fly01",
+      "rejected": {
+        "duration": 2,
+        "span": 1
+      },
+      "segments": 521,
+      "trial_cells": 239,
+      "trials": 10
+    },
+    {
+      "accepted": 518,
+      "archive_md5": "ebeace816547366b8325182f80a08a5b",
+      "condition": "NoP1",
+      "dt_s": 0.0015000000000000568,
+      "member": "AOTU025 Motion Pulse No P1/2025_03_25_fly02_int.mat",
+      "member_sha256": "e0cea706ecb55655cb1916ec57e2a72edea38533ac6f9231394d9097d3ed5853",
+      "quiescent_pulses": 459,
+      "recording": "AOTU025/2025_03_25_fly02",
+      "rejected": {
+        "span": 2
+      },
+      "segments": 520,
+      "trial_cells": 459,
+      "trials": 10
+    },
+    {
+      "accepted": 519,
+      "archive_md5": "ebeace816547366b8325182f80a08a5b",
+      "condition": "NoP1",
+      "dt_s": 0.0015000000000000568,
+      "member": "AOTU025 Motion Pulse No P1/2025_03_25_fly03_int.mat",
+      "member_sha256": "2c6ba42a361b4cd40420d161edb8c37f6fec80c11ce0a51a383198d9a0278379",
+      "quiescent_pulses": 167,
+      "recording": "AOTU025/2025_03_25_fly03",
+      "rejected": {
+        "duration": 1,
+        "span": 1
+      },
+      "segments": 521,
+      "trial_cells": 167,
+      "trials": 10
+    },
+    {
+      "accepted": 1796,
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "condition": "P1",
+      "dt_s": 0.0015000000000000568,
+      "member": "AOTU019 Motion Pulse/2023_05_08_fly01_int.mat",
+      "member_sha256": "69b046a4103d74defb771b5621baccad2b672b0dc851dfd185fe4cad53c8fbe5",
+      "quiescent_pulses": 1472,
+      "recording": "AOTU019/2023_05_08_fly01",
+      "rejected": {
+        "duration": 6,
+        "span": 1
+      },
+      "segments": 1803,
+      "trial_cells": 1472,
+      "trials": 50
+    },
+    {
+      "accepted": 1077,
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "condition": "P1",
+      "dt_s": 0.0015000000000000568,
+      "member": "AOTU019 Motion Pulse/2023_05_09_fly03_int.mat",
+      "member_sha256": "b3e0196a2782ad6dbc5c82b8ea6b0dc563720baa6536656dc3906f1fa9be7861",
+      "quiescent_pulses": 666,
+      "recording": "AOTU019/2023_05_09_fly03",
+      "rejected": {
+        "duration": 1,
+        "neighboring_stimulus": 1,
+        "span": 2
+      },
+      "segments": 1081,
+      "trial_cells": 666,
+      "trials": 30
+    },
+    {
+      "accepted": 1580,
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "condition": "P1",
+      "dt_s": 0.0015000000000000568,
+      "member": "AOTU019 Motion Pulse/2023_05_11_fly01_int.mat",
+      "member_sha256": "78c86349bd9eb8540522744d8cad038b79eb1319880ab9f3749d65acd85eaf5e",
+      "quiescent_pulses": 1363,
+      "recording": "AOTU019/2023_05_11_fly01",
+      "rejected": {
+        "duration": 1,
+        "span": 4
+      },
+      "segments": 1585,
+      "trial_cells": 1363,
+      "trials": 44
+    },
+    {
+      "accepted": 1079,
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "condition": "P1",
+      "dt_s": 0.0015000000000000568,
+      "member": "AOTU019 Motion Pulse/2023_05_30_fly01_int.mat",
+      "member_sha256": "b6cb8029969cfdebc1d6151744a31ed414b93a5488b2eb799aa4be5f5126241c",
+      "quiescent_pulses": 725,
+      "recording": "AOTU019/2023_05_30_fly01",
+      "rejected": {
+        "span": 1
+      },
+      "segments": 1080,
+      "trial_cells": 725,
+      "trials": 30
+    },
+    {
+      "accepted": 1797,
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "condition": "P1",
+      "dt_s": 0.0015000000000000568,
+      "member": "AOTU019 Motion Pulse/2023_06_13_fly01_int.mat",
+      "member_sha256": "fca3f328b6669f0c417a8a9ffc704c1c0e221f5a4dd75653a2fc77e7d393e4db",
+      "quiescent_pulses": 779,
+      "recording": "AOTU019/2023_06_13_fly01",
+      "rejected": {
+        "duration": 1,
+        "span": 3
+      },
+      "segments": 1801,
+      "trial_cells": 779,
+      "trials": 50
+    },
+    {
+      "accepted": 718,
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "condition": "P1",
+      "dt_s": 0.0015000000000000568,
+      "member": "AOTU019 Motion Pulse/2023_06_13_fly02_int.mat",
+      "member_sha256": "7ccfec1fc0763e94fa87c881548807810c20576716e280f536a7726f5ab7f573",
+      "quiescent_pulses": 550,
+      "recording": "AOTU019/2023_06_13_fly02",
+      "rejected": {
+        "duration": 2,
+        "span": 1
+      },
+      "segments": 721,
+      "trial_cells": 550,
+      "trials": 20
+    },
+    {
+      "accepted": 1367,
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "condition": "P1",
+      "dt_s": 0.0015000000000000568,
+      "member": "AOTU019 Motion Pulse/2023_06_14_fly02_int.mat",
+      "member_sha256": "64cc5d93efb38755f6eefb2c8d3d290e2394c854897e469b6d7ee55895803763",
+      "quiescent_pulses": 874,
+      "recording": "AOTU019/2023_06_14_fly02",
+      "rejected": {
+        "span": 1
+      },
+      "segments": 1368,
+      "trial_cells": 874,
+      "trials": 38
+    },
+    {
+      "accepted": 1797,
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "condition": "P1",
+      "dt_s": 0.0015000000000000568,
+      "member": "AOTU019 Motion Pulse/2023_06_15_fly01_int.mat",
+      "member_sha256": "9d276e57b790a958d452222c8a1760146dfcaf2d2e1f4240816fddd2047863a8",
+      "quiescent_pulses": 726,
+      "recording": "AOTU019/2023_06_15_fly01",
+      "rejected": {
+        "duration": 2,
+        "span": 2
+      },
+      "segments": 1801,
+      "trial_cells": 726,
+      "trials": 50
+    },
+    {
+      "condition": "P1",
+      "excluded": "known duplicate",
+      "recording": "AOTU019/2023_06_15_fly03"
+    },
+    {
+      "accepted": 1438,
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "condition": "P1",
+      "dt_s": 0.0015000000000000568,
+      "member": "AOTU019 Motion Pulse/2023_06_19_fly01_int.mat",
+      "member_sha256": "704ccb66637e7d01e0f1e1efecbe01baf77eaf3b0d53ecf3f5992640c9e13cd0",
+      "quiescent_pulses": 665,
+      "recording": "AOTU019/2023_06_19_fly01",
+      "rejected": {
+        "span": 2
+      },
+      "segments": 1440,
+      "trial_cells": 665,
+      "trials": 40
+    },
+    {
+      "accepted": 1440,
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "condition": "P1",
+      "dt_s": 0.0015000000000000568,
+      "member": "AOTU019 Motion Pulse/2023_06_19_fly02_int.mat",
+      "member_sha256": "8feae93c073a3fb31ff729b15fa551c92e1d53603df24b933def5c5b673b99cc",
+      "quiescent_pulses": 928,
+      "recording": "AOTU019/2023_06_19_fly02",
+      "rejected": {},
+      "segments": 1440,
+      "trial_cells": 928,
+      "trials": 40
+    },
+    {
+      "accepted": 1440,
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "condition": "P1",
+      "dt_s": 0.0015000000000000568,
+      "member": "AOTU019 Motion Pulse/2023_06_19_fly03_int.mat",
+      "member_sha256": "06764d54b14c2fa2ac3580b6e5aada1fdd8266f8fd63d8acbf7aea31b1234a79",
+      "quiescent_pulses": 680,
+      "recording": "AOTU019/2023_06_19_fly03",
+      "rejected": {},
+      "segments": 1440,
+      "trial_cells": 680,
+      "trials": 40
+    },
+    {
+      "accepted": 1438,
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "condition": "P1",
+      "dt_s": 0.0015000000000000568,
+      "member": "AOTU019 Motion Pulse/2023_06_20_fly02_int.mat",
+      "member_sha256": "968d2979b391081d85f0ce84823051175c8096c92344c2e748fa9e9aeb54d862",
+      "quiescent_pulses": 1066,
+      "recording": "AOTU019/2023_06_20_fly02",
+      "rejected": {
+        "duration": 1,
+        "span": 2
+      },
+      "segments": 1441,
+      "trial_cells": 1066,
+      "trials": 40
+    },
+    {
+      "accepted": 1439,
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "condition": "P1",
+      "dt_s": 0.0015000000000000568,
+      "member": "AOTU019 Motion Pulse/2023_06_21_fly01_int.mat",
+      "member_sha256": "075fc0ec65354e20862212fe1371d3b73bf344ea09388620cdc37bd3e71004c5",
+      "quiescent_pulses": 271,
+      "recording": "AOTU019/2023_06_21_fly01",
+      "rejected": {
+        "span": 1
+      },
+      "segments": 1440,
+      "trial_cells": 271,
+      "trials": 40
+    },
+    {
+      "accepted": 287,
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "condition": "P1",
+      "dt_s": 0.0015000000000000568,
+      "member": "AOTU019 Motion Pulse/2023_06_21_fly02_int.mat",
+      "member_sha256": "1751e00535b671079c3be074489eafa4eb7bcedd57cfbda89a9b43c17378acb5",
+      "quiescent_pulses": 100,
+      "recording": "AOTU019/2023_06_21_fly02",
+      "rejected": {
+        "duration": 1,
+        "span": 1
+      },
+      "segments": 289,
+      "trial_cells": 100,
+      "trials": 8
+    },
+    {
+      "accepted": 1115,
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "condition": "P1",
+      "dt_s": 0.0015000000000000568,
+      "member": "AOTU019 Motion Pulse/2023_06_22_fly01_int.mat",
+      "member_sha256": "6c5230176550f88e46ac7c171fe311a7e2fabf0ac1f6d2b94e92d3a2a73d217f",
+      "quiescent_pulses": 208,
+      "recording": "AOTU019/2023_06_22_fly01",
+      "rejected": {
+        "span": 1
+      },
+      "segments": 1116,
+      "trial_cells": 208,
+      "trials": 31
+    },
+    {
+      "accepted": 1293,
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "condition": "P1",
+      "dt_s": 0.0015000000000000568,
+      "member": "AOTU019 Motion Pulse/2023_06_23_fly01_int.mat",
+      "member_sha256": "720f847ccda61206e84ee83c61d3b272064d54de5f54e6381690b7c33a584cfb",
+      "quiescent_pulses": 541,
+      "recording": "AOTU019/2023_06_23_fly01",
+      "rejected": {
+        "duration": 1,
+        "span": 3
+      },
+      "segments": 1297,
+      "trial_cells": 541,
+      "trials": 36
+    },
+    {
+      "accepted": 1185,
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "condition": "P1",
+      "dt_s": 0.0015000000000000568,
+      "member": "AOTU019 Motion Pulse/2023_06_23_fly02_int.mat",
+      "member_sha256": "9f0a39c271051e98f3766122c8723cb07067227708cb8b0c3aae13a1d42b621c",
+      "quiescent_pulses": 1047,
+      "recording": "AOTU019/2023_06_23_fly02",
+      "rejected": {
+        "span": 3
+      },
+      "segments": 1188,
+      "trial_cells": 1047,
+      "trials": 33
+    },
+    {
+      "accepted": 1437,
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "condition": "P1",
+      "dt_s": 0.0015000000000000568,
+      "member": "AOTU019 Motion Pulse/2023_10_25_fly03_int.mat",
+      "member_sha256": "9f04b89ad4410afe376628073c08592f40f8833873b98505117bfa78219c7bfd",
+      "quiescent_pulses": 702,
+      "recording": "AOTU019/2023_10_25_fly03",
+      "rejected": {
+        "span": 3
+      },
+      "segments": 1440,
+      "trial_cells": 702,
+      "trials": 40
+    },
+    {
+      "accepted": 1438,
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "condition": "P1",
+      "dt_s": 0.0015000000000000568,
+      "member": "AOTU019 Motion Pulse/2023_10_26_fly01_int.mat",
+      "member_sha256": "3fd08b7d77b8f378bc89e6e7424b9418a97872cc433ebe0b54f6f542111ec1a3",
+      "quiescent_pulses": 468,
+      "recording": "AOTU019/2023_10_26_fly01",
+      "rejected": {
+        "span": 2
+      },
+      "segments": 1440,
+      "trial_cells": 468,
+      "trials": 40
+    },
+    {
+      "accepted": 324,
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "condition": "P1",
+      "dt_s": 0.0015000000000000568,
+      "member": "AOTU019 Motion Pulse/2023_10_27_fly03_int.mat",
+      "member_sha256": "b2db8b37187afcb461d587483c61a4d1799f2c7a503ab6c1ad90fef4a4de1715",
+      "quiescent_pulses": 66,
+      "recording": "AOTU019/2023_10_27_fly03",
+      "rejected": {},
+      "segments": 324,
+      "trial_cells": 66,
+      "trials": 9
+    },
+    {
+      "accepted": 1439,
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "condition": "P1",
+      "dt_s": 0.0015000000000000568,
+      "member": "AOTU019 Motion Pulse/2023_10_27_fly04_int.mat",
+      "member_sha256": "b77d5b0d1eec88a8e9704b6a423143919a63b842e5b78f859546d0c13603fb7b",
+      "quiescent_pulses": 282,
+      "recording": "AOTU019/2023_10_27_fly04",
+      "rejected": {
+        "span": 1
+      },
+      "segments": 1440,
+      "trial_cells": 282,
+      "trials": 40
+    },
+    {
+      "accepted": 1437,
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "condition": "P1",
+      "dt_s": 0.0015000000000000568,
+      "member": "AOTU019 Motion Pulse/2023_10_31_fly01_int.mat",
+      "member_sha256": "16f5af5d91dd05cb3f87b84cfca5385369626598b82f49667c2c5c32bdaaf631",
+      "quiescent_pulses": 771,
+      "recording": "AOTU019/2023_10_31_fly01",
+      "rejected": {
+        "span": 3
+      },
+      "segments": 1440,
+      "trial_cells": 771,
+      "trials": 40
+    },
+    {
+      "accepted": 719,
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "condition": "P1",
+      "dt_s": 0.0015000000000000568,
+      "member": "AOTU019 Motion Pulse/2023_10_31_fly03_int.mat",
+      "member_sha256": "b6070e05c359652cd7712a8691b49e83164893edc3075bf2cfec532cbffcb3e3",
+      "quiescent_pulses": 335,
+      "recording": "AOTU019/2023_10_31_fly03",
+      "rejected": {
+        "span": 1
+      },
+      "segments": 720,
+      "trial_cells": 335,
+      "trials": 20
+    },
+    {
+      "accepted": 287,
+      "archive_md5": "848680fbccbb80353d05f828cc6feef1",
+      "condition": "P1",
+      "dt_s": 0.0015000000000000568,
+      "member": "AOTU019 Motion Pulse/2023_11_01_fly01_int.mat",
+      "member_sha256": "2064d67e32cecd32a31a23c003eaa1618e23344f0a9e51729f8c5b395adb916e",
+      "quiescent_pulses": 80,
+      "recording": "AOTU019/2023_11_01_fly01",
+      "rejected": {
+        "span": 1
+      },
+      "segments": 288,
+      "trial_cells": 80,
+      "trials": 8
+    },
+    {
+      "accepted": 2077,
+      "archive_md5": "eae5a827f7e75b373c95b1ce9ee76c9b",
+      "condition": "P1",
+      "dt_s": 0.0015000000000000568,
+      "member": "AOTU025 Motion Pulse/2024_05_31_fly02_int.mat",
+      "member_sha256": "3d6a9ef6deab8aae3cdacf9ae3da3349d17e721b1c5122660d731ee2ee0e19c6",
+      "quiescent_pulses": 1016,
+      "recording": "AOTU025/2024_05_31_fly02",
+      "rejected": {
+        "duration": 1,
+        "span": 3
+      },
+      "segments": 2081,
+      "trial_cells": 1016,
+      "trials": 40
+    },
+    {
+      "accepted": 1036,
+      "archive_md5": "eae5a827f7e75b373c95b1ce9ee76c9b",
+      "condition": "P1",
+      "dt_s": 0.0015000000000000568,
+      "member": "AOTU025 Motion Pulse/2024_05_31_fly03_int.mat",
+      "member_sha256": "8946314ff12ea8d1aef97ffa289a7972ba8826d912919b2cb491ec57158fb058",
+      "quiescent_pulses": 939,
+      "recording": "AOTU025/2024_05_31_fly03",
+      "rejected": {
+        "duration": 5,
+        "span": 2
+      },
+      "segments": 1043,
+      "trial_cells": 939,
+      "trials": 20
+    },
+    {
+      "accepted": 519,
+      "archive_md5": "eae5a827f7e75b373c95b1ce9ee76c9b",
+      "condition": "P1",
+      "dt_s": 0.0015000000000000568,
+      "member": "AOTU025 Motion Pulse/2024_06_10_fly02_int.mat",
+      "member_sha256": "543f675058218fe8e55ec477c26ac1ed2b66c44a021b41c393109400db3557e2",
+      "quiescent_pulses": 315,
+      "recording": "AOTU025/2024_06_10_fly02",
+      "rejected": {
+        "duration": 1,
+        "span": 1
+      },
+      "segments": 521,
+      "trial_cells": 315,
+      "trials": 10
+    },
+    {
+      "accepted": 1610,
+      "archive_md5": "eae5a827f7e75b373c95b1ce9ee76c9b",
+      "condition": "P1",
+      "dt_s": 0.0015000000000000568,
+      "member": "AOTU025 Motion Pulse/2024_06_11_fly01_int.mat",
+      "member_sha256": "ae951dc8ad56ff80d27b6a9f24e5dad16e92ad180622683d9f172bf2bbd185c7",
+      "quiescent_pulses": 1015,
+      "recording": "AOTU025/2024_06_11_fly01",
+      "rejected": {
+        "duration": 1,
+        "span": 2
+      },
+      "segments": 1613,
+      "trial_cells": 1015,
+      "trials": 31
+    },
+    {
+      "accepted": 830,
+      "archive_md5": "eae5a827f7e75b373c95b1ce9ee76c9b",
+      "condition": "P1",
+      "dt_s": 0.0015000000000000568,
+      "member": "AOTU025 Motion Pulse/2024_06_11_fly02_int.mat",
+      "member_sha256": "2135ea3de954f5f3efbcd7c3b9185589a711328331ff3e8fb03ee06dbff24506",
+      "quiescent_pulses": 512,
+      "recording": "AOTU025/2024_06_11_fly02",
+      "rejected": {
+        "span": 2
+      },
+      "segments": 832,
+      "trial_cells": 512,
+      "trials": 16
+    },
+    {
+      "accepted": 570,
+      "archive_md5": "eae5a827f7e75b373c95b1ce9ee76c9b",
+      "condition": "P1",
+      "dt_s": 0.0015000000000000568,
+      "member": "AOTU025 Motion Pulse/2024_06_12_fly02_int.mat",
+      "member_sha256": "440630a45771bbbc35c7a937f63cca9c753f37aca01e8ea786fb15a2d4592b17",
+      "quiescent_pulses": 266,
+      "recording": "AOTU025/2024_06_12_fly02",
+      "rejected": {
+        "span": 2
+      },
+      "segments": 572,
+      "trial_cells": 266,
+      "trials": 11
+    },
+    {
+      "accepted": 1920,
+      "archive_md5": "eae5a827f7e75b373c95b1ce9ee76c9b",
+      "condition": "P1",
+      "dt_s": 0.0015000000000000568,
+      "member": "AOTU025 Motion Pulse/2024_06_13_fly01_int.mat",
+      "member_sha256": "2b64fcdcb2047b4158085117d4ae919eaa0f312ce92358a29fa6e54b4d2cbba8",
+      "quiescent_pulses": 636,
+      "recording": "AOTU025/2024_06_13_fly01",
+      "rejected": {
+        "duration": 3,
+        "neighboring_stimulus": 1,
+        "span": 2
+      },
+      "segments": 1926,
+      "trial_cells": 636,
+      "trials": 37
+    },
+    {
+      "accepted": 1038,
+      "archive_md5": "eae5a827f7e75b373c95b1ce9ee76c9b",
+      "condition": "P1",
+      "dt_s": 0.0015000000000000568,
+      "member": "AOTU025 Motion Pulse/2024_06_21_fly01_int.mat",
+      "member_sha256": "d7fbb205e9acc39f8a77a2ce15f103d59c4665802ee200d76061c34167549ef2",
+      "quiescent_pulses": 672,
+      "recording": "AOTU025/2024_06_21_fly01",
+      "rejected": {
+        "duration": 1,
+        "span": 2
+      },
+      "segments": 1041,
+      "trial_cells": 672,
+      "trials": 20
+    },
+    {
+      "accepted": 622,
+      "archive_md5": "eae5a827f7e75b373c95b1ce9ee76c9b",
+      "condition": "P1",
+      "dt_s": 0.0015000000000000568,
+      "member": "AOTU025 Motion Pulse/2024_06_21_fly02_int.mat",
+      "member_sha256": "07bb068748f690b3df407bb7625e7e8a03cebb46867ed534186f0e768da3a18e",
+      "quiescent_pulses": 153,
+      "recording": "AOTU025/2024_06_21_fly02",
+      "rejected": {
+        "duration": 3,
+        "neighboring_stimulus": 1
+      },
+      "segments": 626,
+      "trial_cells": 153,
+      "trials": 12
+    },
+    {
+      "accepted": 1558,
+      "archive_md5": "eae5a827f7e75b373c95b1ce9ee76c9b",
+      "condition": "P1",
+      "dt_s": 0.0015000000000000568,
+      "member": "AOTU025 Motion Pulse/2024_06_26_fly01_int.mat",
+      "member_sha256": "50226a4184345c5b7dfd054e1f8a34d90587b67085447cd1640861604fbda177",
+      "quiescent_pulses": 1209,
+      "recording": "AOTU025/2024_06_26_fly01",
+      "rejected": {
+        "span": 2
+      },
+      "segments": 1560,
+      "trial_cells": 1209,
+      "trials": 30
+    },
+    {
+      "accepted": 1414,
+      "archive_md5": "eae5a827f7e75b373c95b1ce9ee76c9b",
+      "condition": "P1",
+      "dt_s": 0.0015000000000000568,
+      "member": "AOTU025 Motion Pulse/2024_06_27_fly01_int.mat",
+      "member_sha256": "a4867fd9be9ee1efb9cd52123db35baf0fe9c7ddcb2f9aaf02bb578483144103",
+      "quiescent_pulses": 938,
+      "recording": "AOTU025/2024_06_27_fly01",
+      "rejected": {
+        "duration": 2,
+        "span": 5
+      },
+      "segments": 1421,
+      "trial_cells": 938,
+      "trials": 28
+    },
+    {
+      "accepted": 1555,
+      "archive_md5": "eae5a827f7e75b373c95b1ce9ee76c9b",
+      "condition": "P1",
+      "dt_s": 0.0015000000000000568,
+      "member": "AOTU025 Motion Pulse/2024_06_28_fly01_int.mat",
+      "member_sha256": "d2440d2879a4ccf002d82da9dee12ceb80ad623fd6931c031979300fb9cb9615",
+      "quiescent_pulses": 735,
+      "recording": "AOTU025/2024_06_28_fly01",
+      "rejected": {
+        "span": 5
+      },
+      "segments": 1560,
+      "trial_cells": 735,
+      "trials": 30
+    },
+    {
+      "accepted": 935,
+      "archive_md5": "eae5a827f7e75b373c95b1ce9ee76c9b",
+      "condition": "P1",
+      "dt_s": 0.0015000000000000568,
+      "member": "AOTU025 Motion Pulse/2024_07_01_fly01_int.mat",
+      "member_sha256": "c1e15bf08abdf3e9a213067acb4e7e6f9cd7ba64af7162148faa5da2c24aa586",
+      "quiescent_pulses": 266,
+      "recording": "AOTU025/2024_07_01_fly01",
+      "rejected": {
+        "span": 1
+      },
+      "segments": 936,
+      "trial_cells": 266,
+      "trials": 18
+    },
+    {
+      "accepted": 1658,
+      "archive_md5": "eae5a827f7e75b373c95b1ce9ee76c9b",
+      "condition": "P1",
+      "dt_s": 0.0015000000000000568,
+      "member": "AOTU025 Motion Pulse/2024_07_02_fly03_int.mat",
+      "member_sha256": "b6c9be15e0c7e74fe291d23a80b65b0c79eeb50d968e656fe1aa7e197c653ee5",
+      "quiescent_pulses": 1014,
+      "recording": "AOTU025/2024_07_02_fly03",
+      "rejected": {
+        "duration": 6,
+        "span": 4
+      },
+      "segments": 1668,
+      "trial_cells": 1014,
+      "trials": 32
+    },
+    {
+      "accepted": 2073,
+      "archive_md5": "eae5a827f7e75b373c95b1ce9ee76c9b",
+      "condition": "P1",
+      "dt_s": 0.0015000000000000568,
+      "member": "AOTU025 Motion Pulse/2024_07_03_fly01_int.mat",
+      "member_sha256": "1383a9841c0a6ac1094834c94d002a892a90f4fe340ec49e4d7a08e7bd9c7540",
+      "quiescent_pulses": 635,
+      "recording": "AOTU025/2024_07_03_fly01",
+      "rejected": {
+        "duration": 3,
+        "span": 6
+      },
+      "segments": 2082,
+      "trial_cells": 635,
+      "trials": 40
+    },
+    {
+      "accepted": 1039,
+      "archive_md5": "eae5a827f7e75b373c95b1ce9ee76c9b",
+      "condition": "P1",
+      "dt_s": 0.0015000000000000568,
+      "member": "AOTU025 Motion Pulse/2025_02_24_fly02_int.mat",
+      "member_sha256": "b28db22fa8de0bd615dfe43d085824bf8304f4564f666e9f4eba0632fcd16aa4",
+      "quiescent_pulses": 406,
+      "recording": "AOTU025/2025_02_24_fly02",
+      "rejected": {
+        "span": 1
+      },
+      "segments": 1040,
+      "trial_cells": 406,
+      "trials": 20
+    },
+    {
+      "accepted": 1037,
+      "archive_md5": "eae5a827f7e75b373c95b1ce9ee76c9b",
+      "condition": "P1",
+      "dt_s": 0.0015000000000000568,
+      "member": "AOTU025 Motion Pulse/2025_03_06_fly02_int.mat",
+      "member_sha256": "620b97197398713ed02a9dab5a0ddf83551a732960dddebca6dd6421bfe6160d",
+      "quiescent_pulses": 425,
+      "recording": "AOTU025/2025_03_06_fly02",
+      "rejected": {
+        "span": 3
+      },
+      "segments": 1040,
+      "trial_cells": 425,
+      "trials": 20
+    },
+    {
+      "accepted": 1038,
+      "archive_md5": "eae5a827f7e75b373c95b1ce9ee76c9b",
+      "condition": "P1",
+      "dt_s": 0.0015000000000000568,
+      "member": "AOTU025 Motion Pulse/2025_03_13_fly02_int.mat",
+      "member_sha256": "b7c93498e463a3f5b7f526d4b5737b3270029e3ce47a3accedd9b91cc6a14f42",
+      "quiescent_pulses": 655,
+      "recording": "AOTU025/2025_03_13_fly02",
+      "rejected": {
+        "duration": 1,
+        "span": 2
+      },
+      "segments": 1041,
+      "trial_cells": 655,
+      "trials": 20
+    },
+    {
+      "accepted": 520,
+      "archive_md5": "eae5a827f7e75b373c95b1ce9ee76c9b",
+      "condition": "P1",
+      "dt_s": 0.0015000000000000568,
+      "member": "AOTU025 Motion Pulse/2025_03_25_fly01_int.mat",
+      "member_sha256": "ede67fef6e60d22babc3fb78ede766748998b4197bf174889e117b136b83e979",
+      "quiescent_pulses": 226,
+      "recording": "AOTU025/2025_03_25_fly01",
+      "rejected": {},
+      "segments": 520,
+      "trial_cells": 226,
+      "trials": 10
+    },
+    {
+      "accepted": 516,
+      "archive_md5": "eae5a827f7e75b373c95b1ce9ee76c9b",
+      "condition": "P1",
+      "dt_s": 0.0015000000000000568,
+      "member": "AOTU025 Motion Pulse/2025_03_25_fly02_int.mat",
+      "member_sha256": "d76ca07fbbe24de535b2dfe1a1c297a4b3e1e53d16acdaef766cb60a19911e42",
+      "quiescent_pulses": 372,
+      "recording": "AOTU025/2025_03_25_fly02",
+      "rejected": {
+        "duration": 1,
+        "neighboring_stimulus": 1,
+        "span": 3
+      },
+      "segments": 521,
+      "trial_cells": 372,
+      "trials": 10
+    },
+    {
+      "accepted": 519,
+      "archive_md5": "eae5a827f7e75b373c95b1ce9ee76c9b",
+      "condition": "P1",
+      "dt_s": 0.0015000000000000568,
+      "member": "AOTU025 Motion Pulse/2025_03_25_fly03_int.mat",
+      "member_sha256": "224584c9e46c8e945d83ed29787dc39178c768dd43ee6527896a6235747e155d",
+      "quiescent_pulses": 145,
+      "recording": "AOTU025/2025_03_25_fly03",
+      "rejected": {
+        "duration": 1,
+        "span": 1
+      },
+      "segments": 521,
+      "trial_cells": 145,
+      "trials": 10
+    },
+    {
+      "accepted": 364,
+      "archive_md5": "eae5a827f7e75b373c95b1ce9ee76c9b",
+      "condition": "P1",
+      "dt_s": 0.0015000000000000568,
+      "member": "AOTU025 Motion Pulse/2025_03_26_fly03_int.mat",
+      "member_sha256": "b6a5ce3ae9361e2a2bb3596da0f1d26841f1c1e86d99d60ab086ef7f8a2cc3e8",
+      "quiescent_pulses": 119,
+      "recording": "AOTU025/2025_03_26_fly03",
+      "rejected": {},
+      "segments": 364,
+      "trial_cells": 119,
+      "trials": 7
+    }
+  ],
+  "caveat": "Same-recording prediction is not held-animal accuracy or a noise ceiling; motor association is not causal.",
+  "checks": {
+    "center_bin_max_offset_deg": 1.4699999999999989,
+    "folds": 1560,
+    "held_recording_leakage": 0,
+    "held_trial_leakage": 0,
+    "ridge_normal_equation_max_error": 1.7763568394002505e-15
+  },
+  "excluded_identity": "AOTU019/2023_06_15_fly03",
+  "features": [
+    "forward_on_mm_s",
+    "abs_angular_on_deg_s",
+    "forward_pre_mm_s",
+    "abs_angular_pre_deg_s"
+  ],
+  "implementation_sha256": "47990abb8a648766a78ddd21fdb56f7786a081d4cc78db270a349955f63dc43b",
+  "primary_state": "quiescent",
+  "protocol_sha256": "1e0c4675084c3311ffb7a242135f4c26cbd5809d0542e8428e7ee4bc72a949fa",
+  "ridge": 0.1,
+  "summary": [
+    {
+      "across_recording_cell_sd": 2.4864244119720365,
+      "condition": "NoP1",
+      "motor_augmented_rmse": 6.723363521390504,
+      "motor_recordings_improved": 8,
+      "motor_reduction_percent": 3.1698548547402505,
+      "other_recordings_rmse": 6.62551989531911,
+      "personalization_recordings_improved": 2,
+      "personalization_reduction_percent": -4.798736881473187,
+      "quiescent_pulses": 3594,
+      "quiet_motion_quantiles": {
+        "fraction_forward_above_0p5": [
+          0.0,
+          0.0,
+          0.3315421596143261,
+          0.48452422862923644
+        ],
+        "mean_abs_angular_deg_s": [
+          0.8865109500248918,
+          3.006327248233516,
+          30.083694118837446,
+          98.00943055044152
+        ],
+        "mean_forward_mm_s": [
+          -0.06263539257604522,
+          0.007294014519343283,
+          0.366265556566171,
+          1.212126425829014
+        ]
+      },
+      "quiet_pulses_with_forward_above_0p5": 1187,
+      "raw_trial_cells": 3594,
+      "recordings": 11,
+      "same_recording_rmse": 6.943461162125131,
+      "scored_trial_cells": 3493,
+      "stimulus_blind_rmse": 6.545184416350162,
+      "stimulus_recordings_improved": 1,
+      "stimulus_reduction_percent": -6.085034743712581,
+      "type": "AOTU019",
+      "within_cell_trial_sd": 5.9521045260715
+    },
+    {
+      "across_recording_cell_sd": 3.589911491753591,
+      "condition": "NoP1",
+      "motor_augmented_rmse": 9.996757642003944,
+      "motor_recordings_improved": 5,
+      "motor_reduction_percent": -1.5426884610269642,
+      "other_recordings_rmse": 9.26401164280437,
+      "personalization_recordings_improved": 0,
+      "personalization_reduction_percent": -6.270179337759241,
+      "quiescent_pulses": 3856,
+      "quiet_motion_quantiles": {
+        "fraction_forward_above_0p5": [
+          0.0,
+          0.0,
+          0.3240763255656872,
+          0.4764795144157815
+        ],
+        "mean_abs_angular_deg_s": [
+          0.7745390730294232,
+          3.1392721543475908,
+          27.79191052964743,
+          88.4319309196393
+        ],
+        "mean_forward_mm_s": [
+          -0.06765123498322745,
+          0.0059143470842998504,
+          0.2651731168977469,
+          1.128655460263147
+        ]
+      },
+      "quiet_pulses_with_forward_above_0p5": 1343,
+      "raw_trial_cells": 3856,
+      "recordings": 12,
+      "same_recording_rmse": 9.8448817866791,
+      "scored_trial_cells": 3531,
+      "stimulus_blind_rmse": 9.448238738742916,
+      "stimulus_recordings_improved": 4,
+      "stimulus_reduction_percent": -4.198063352376269,
+      "type": "AOTU025",
+      "within_cell_trial_sd": 8.291777363299628
+    },
+    {
+      "across_recording_cell_sd": 5.58650045383821,
+      "condition": "P1",
+      "motor_augmented_rmse": 9.175490722118647,
+      "motor_recordings_improved": 21,
+      "motor_reduction_percent": 4.468997106720374,
+      "other_recordings_rmse": 10.793559264669469,
+      "personalization_recordings_improved": 22,
+      "personalization_reduction_percent": 11.014287342693162,
+      "quiescent_pulses": 15365,
+      "quiet_motion_quantiles": {
+        "fraction_forward_above_0p5": [
+          0.0,
+          0.0,
+          0.3541033434650456,
+          0.48444444444444446
+        ],
+        "mean_abs_angular_deg_s": [
+          0.8522117427656928,
+          3.2305042905443058,
+          39.799075569263195,
+          105.94209670023352
+        ],
+        "mean_forward_mm_s": [
+          -0.06720107552076676,
+          0.007311938214047203,
+          0.3833946496016167,
+          1.4322987459736776
+        ]
+      },
+      "quiet_pulses_with_forward_above_0p5": 5838,
+      "raw_trial_cells": 15365,
+      "recordings": 24,
+      "same_recording_rmse": 9.604725632754894,
+      "scored_trial_cells": 15198,
+      "stimulus_blind_rmse": 11.210404269394303,
+      "stimulus_recordings_improved": 21,
+      "stimulus_reduction_percent": 14.323110907098124,
+      "type": "AOTU019",
+      "within_cell_trial_sd": 8.58644252380057
+    },
+    {
+      "across_recording_cell_sd": 7.34780083261026,
+      "condition": "P1",
+      "motor_augmented_rmse": 12.579402910134815,
+      "motor_recordings_improved": 18,
+      "motor_reduction_percent": 0.8481642499632347,
+      "other_recordings_rmse": 14.166726068951915,
+      "personalization_recordings_improved": 20,
+      "personalization_reduction_percent": 10.445013702420846,
+      "quiescent_pulses": 12669,
+      "quiet_motion_quantiles": {
+        "fraction_forward_above_0p5": [
+          0.0,
+          0.0,
+          0.37168141592920356,
+          0.48632218844984804
+        ],
+        "mean_abs_angular_deg_s": [
+          0.9604509924870908,
+          3.7521049804061044,
+          39.05316302713361,
+          120.28677326575026
+        ],
+        "mean_forward_mm_s": [
+          -0.08550173670149555,
+          0.006320722696209186,
+          0.3948033607792061,
+          1.3176363843076648
+        ]
+      },
+      "quiet_pulses_with_forward_above_0p5": 5012,
+      "raw_trial_cells": 12669,
+      "recordings": 22,
+      "same_recording_rmse": 12.687009589865461,
+      "scored_trial_cells": 12332,
+      "stimulus_blind_rmse": 15.229187968472996,
+      "stimulus_recordings_improved": 18,
+      "stimulus_reduction_percent": 16.692803213607156,
+      "type": "AOTU025",
+      "within_cell_trial_sd": 11.182698535419142
+    }
+  ],
+  "target": "evoked pulse mean spikes/s",
+  "units_source": "CollieWilson 65d72773121ffe148b56b8ba4f594a7a51c51789 processSettings.m:119",
+  "weighting": "equal cells within trial, equal trials within recording, equal recordings"
+}

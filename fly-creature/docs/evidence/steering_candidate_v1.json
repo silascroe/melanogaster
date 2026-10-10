@@ -1,0 +1,5948 @@
+{
+  "dataset": "FlyEM Male CNS v1.0",
+  "source_url": "https://male-cns.janelia.org/download/",
+  "selection": "Traced LC10a, AOTU019, AOTU025, DNa02; only named two-hop bridges",
+  "counts": {
+    "AOTU019": 2,
+    "AOTU025": 2,
+    "DNa02": 2,
+    "LC10a": 275
+  },
+  "neurons": [
+    {
+      "body_id": 10005,
+      "type": "AOTU019",
+      "instance": "AOTU019_R",
+      "side": "R",
+      "predicted_nt": "gaba",
+      "consensus_nt": "gaba",
+      "nt_confidence": 0.8350762055239446
+    },
+    {
+      "body_id": 10070,
+      "type": "AOTU019",
+      "instance": "AOTU019_L",
+      "side": "L",
+      "predicted_nt": "gaba",
+      "consensus_nt": "gaba",
+      "nt_confidence": 0.8259292441917407
+    },
+    {
+      "body_id": 10360,
+      "type": "DNa02",
+      "instance": "DNa02_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9420250514525982
+    },
+    {
+      "body_id": 10573,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9514238312284476
+    },
+    {
+      "body_id": 12130,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9569870979839995
+    },
+    {
+      "body_id": 12424,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9612126382933541
+    },
+    {
+      "body_id": 12458,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9512486428984966
+    },
+    {
+      "body_id": 13697,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9373221821798241
+    },
+    {
+      "body_id": 13974,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9497710554107328
+    },
+    {
+      "body_id": 14980,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9575727889348684
+    },
+    {
+      "body_id": 15340,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9410342579277062
+    },
+    {
+      "body_id": 15471,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9343010177966425
+    },
+    {
+      "body_id": 15508,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9577490882848991
+    },
+    {
+      "body_id": 16775,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9560139256021044
+    },
+    {
+      "body_id": 18078,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9715470174464991
+    },
+    {
+      "body_id": 18518,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9634360455871361
+    },
+    {
+      "body_id": 18917,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9581491833667648
+    },
+    {
+      "body_id": 19120,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9484915634977092
+    },
+    {
+      "body_id": 19350,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9459476228262638
+    },
+    {
+      "body_id": 19537,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.955446800741944
+    },
+    {
+      "body_id": 19540,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.8918092633816426
+    },
+    {
+      "body_id": 19659,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9448246433303228
+    },
+    {
+      "body_id": 19667,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.956875217399747
+    },
+    {
+      "body_id": 19703,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9367511123942467
+    },
+    {
+      "body_id": 20112,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9540691677354145
+    },
+    {
+      "body_id": 20378,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9646592069578325
+    },
+    {
+      "body_id": 20933,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9159234912031851
+    },
+    {
+      "body_id": 21065,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9376116114176677
+    },
+    {
+      "body_id": 21173,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9323849464875932
+    },
+    {
+      "body_id": 21199,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9503714098524685
+    },
+    {
+      "body_id": 21238,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9592181733980062
+    },
+    {
+      "body_id": 21426,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9501989323399409
+    },
+    {
+      "body_id": 21632,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9646543049866297
+    },
+    {
+      "body_id": 21744,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9685054070976755
+    },
+    {
+      "body_id": 21835,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9523991679875358
+    },
+    {
+      "body_id": 21983,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9553289297292028
+    },
+    {
+      "body_id": 21984,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.954115970339517
+    },
+    {
+      "body_id": 22070,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9530596429879133
+    },
+    {
+      "body_id": 22148,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9486730278978485
+    },
+    {
+      "body_id": 22184,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9485363861993886
+    },
+    {
+      "body_id": 22248,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9543670926502359
+    },
+    {
+      "body_id": 22259,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9618959380048767
+    },
+    {
+      "body_id": 22339,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9551700359551354
+    },
+    {
+      "body_id": 22392,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9632514233405578
+    },
+    {
+      "body_id": 22397,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9670420476562076
+    },
+    {
+      "body_id": 22505,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9533036384122907
+    },
+    {
+      "body_id": 22510,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.944381381606791
+    },
+    {
+      "body_id": 22750,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9200524615521383
+    },
+    {
+      "body_id": 22783,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9594197922815708
+    },
+    {
+      "body_id": 22831,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9384884880768374
+    },
+    {
+      "body_id": 22959,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9352558535109404
+    },
+    {
+      "body_id": 22989,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9588376017948387
+    },
+    {
+      "body_id": 22997,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9565009393025938
+    },
+    {
+      "body_id": 23001,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9689202459946102
+    },
+    {
+      "body_id": 23002,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9489347885146137
+    },
+    {
+      "body_id": 23128,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9583680476479081
+    },
+    {
+      "body_id": 23148,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9502192705222656
+    },
+    {
+      "body_id": 23154,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.958415262173312
+    },
+    {
+      "body_id": 23210,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9602689954605275
+    },
+    {
+      "body_id": 23328,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9647632350077132
+    },
+    {
+      "body_id": 23377,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9353144220361347
+    },
+    {
+      "body_id": 23421,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9498395187087999
+    },
+    {
+      "body_id": 23463,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9369962257167145
+    },
+    {
+      "body_id": 23499,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9572495744894409
+    },
+    {
+      "body_id": 23599,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9587520223249277
+    },
+    {
+      "body_id": 23677,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9564262744948864
+    },
+    {
+      "body_id": 23686,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.952106310421616
+    },
+    {
+      "body_id": 23719,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9450445280507291
+    },
+    {
+      "body_id": 23741,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9450964179177976
+    },
+    {
+      "body_id": 23830,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9593131938388894
+    },
+    {
+      "body_id": 23852,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9580786470631834
+    },
+    {
+      "body_id": 23867,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9567156975309092
+    },
+    {
+      "body_id": 23868,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9551961911012415
+    },
+    {
+      "body_id": 23890,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9506809341971507
+    },
+    {
+      "body_id": 23930,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.960800474900525
+    },
+    {
+      "body_id": 23989,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9562064179622229
+    },
+    {
+      "body_id": 24035,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.931574160681807
+    },
+    {
+      "body_id": 24071,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9577280637917214
+    },
+    {
+      "body_id": 24164,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9495689124503185
+    },
+    {
+      "body_id": 24208,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.947708075049271
+    },
+    {
+      "body_id": 24211,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9472762836193316
+    },
+    {
+      "body_id": 24283,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.947242336301576
+    },
+    {
+      "body_id": 24482,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9286939194800045
+    },
+    {
+      "body_id": 24492,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9613914080550163
+    },
+    {
+      "body_id": 24505,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9625863074823936
+    },
+    {
+      "body_id": 24545,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9267817846457117
+    },
+    {
+      "body_id": 24592,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9543789016209617
+    },
+    {
+      "body_id": 24719,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9592492423836794
+    },
+    {
+      "body_id": 24742,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9557060253111408
+    },
+    {
+      "body_id": 24769,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.947506211486918
+    },
+    {
+      "body_id": 24784,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.95957627751237
+    },
+    {
+      "body_id": 24854,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.956476113274874
+    },
+    {
+      "body_id": 24909,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9497676048931958
+    },
+    {
+      "body_id": 25003,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9462600568689634
+    },
+    {
+      "body_id": 25067,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9547226158847775
+    },
+    {
+      "body_id": 25088,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9520236455783473
+    },
+    {
+      "body_id": 25167,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9397782975305095
+    },
+    {
+      "body_id": 25198,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9461917565752342
+    },
+    {
+      "body_id": 25202,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9457945605087256
+    },
+    {
+      "body_id": 25296,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9483121499333571
+    },
+    {
+      "body_id": 25304,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9582187918080657
+    },
+    {
+      "body_id": 25369,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9627878451526293
+    },
+    {
+      "body_id": 25394,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9471078753280763
+    },
+    {
+      "body_id": 25400,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9318434329778278
+    },
+    {
+      "body_id": 25412,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9693963645107316
+    },
+    {
+      "body_id": 25446,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9155606575987311
+    },
+    {
+      "body_id": 25450,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9614680023597452
+    },
+    {
+      "body_id": 25472,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9454946936870293
+    },
+    {
+      "body_id": 25641,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9476880345255857
+    },
+    {
+      "body_id": 25711,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9573762827823685
+    },
+    {
+      "body_id": 25817,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9648196310931603
+    },
+    {
+      "body_id": 25952,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9431281580189002
+    },
+    {
+      "body_id": 26142,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9498460475103904
+    },
+    {
+      "body_id": 26373,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9505344534293009
+    },
+    {
+      "body_id": 26380,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9718665221553346
+    },
+    {
+      "body_id": 26450,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9344468506933538
+    },
+    {
+      "body_id": 26560,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9418077128798014
+    },
+    {
+      "body_id": 26740,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9447242939587935
+    },
+    {
+      "body_id": 26788,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9576434096327299
+    },
+    {
+      "body_id": 26811,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9384648124685743
+    },
+    {
+      "body_id": 26963,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.950402944262749
+    },
+    {
+      "body_id": 26976,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9572171701466851
+    },
+    {
+      "body_id": 27067,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9542791644086941
+    },
+    {
+      "body_id": 27300,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9675914385546063
+    },
+    {
+      "body_id": 27334,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.948962216403753
+    },
+    {
+      "body_id": 27468,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9205116926042071
+    },
+    {
+      "body_id": 27579,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9595677574262942
+    },
+    {
+      "body_id": 27689,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9513928669484766
+    },
+    {
+      "body_id": 27704,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9466560662254315
+    },
+    {
+      "body_id": 27709,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9547160945617681
+    },
+    {
+      "body_id": 27915,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.919478389192915
+    },
+    {
+      "body_id": 27967,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9095606274856622
+    },
+    {
+      "body_id": 28082,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9664527570773
+    },
+    {
+      "body_id": 28143,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9522816005419242
+    },
+    {
+      "body_id": 28204,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9666437143019638
+    },
+    {
+      "body_id": 28259,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9472159695956273
+    },
+    {
+      "body_id": 28390,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9345646342952574
+    },
+    {
+      "body_id": 28533,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9604015331964656
+    },
+    {
+      "body_id": 28543,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9209595406209871
+    },
+    {
+      "body_id": 28599,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9564869936978182
+    },
+    {
+      "body_id": 28654,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9638709697285521
+    },
+    {
+      "body_id": 28823,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9638321280366818
+    },
+    {
+      "body_id": 28904,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9560607013438599
+    },
+    {
+      "body_id": 29092,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9418629767876833
+    },
+    {
+      "body_id": 29186,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9454539564297498
+    },
+    {
+      "body_id": 29359,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9602326602435559
+    },
+    {
+      "body_id": 29686,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9506082291037418
+    },
+    {
+      "body_id": 29744,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9357619085544809
+    },
+    {
+      "body_id": 29803,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9605999660027496
+    },
+    {
+      "body_id": 29979,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9445086278612629
+    },
+    {
+      "body_id": 30025,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9662859044346951
+    },
+    {
+      "body_id": 30499,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9667047521819435
+    },
+    {
+      "body_id": 30707,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9495713960290215
+    },
+    {
+      "body_id": 30993,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9655001874491479
+    },
+    {
+      "body_id": 31033,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9541719145444348
+    },
+    {
+      "body_id": 31250,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9295728920756908
+    },
+    {
+      "body_id": 31623,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9434916517106632
+    },
+    {
+      "body_id": 31634,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9365008620211502
+    },
+    {
+      "body_id": 31801,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.950466243484256
+    },
+    {
+      "body_id": 31878,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9341345284389935
+    },
+    {
+      "body_id": 31941,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9294754647193595
+    },
+    {
+      "body_id": 31976,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9523281243925484
+    },
+    {
+      "body_id": 32090,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9572726165264892
+    },
+    {
+      "body_id": 32111,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9486907636578626
+    },
+    {
+      "body_id": 32153,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9542138270920278
+    },
+    {
+      "body_id": 32238,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9390047359184333
+    },
+    {
+      "body_id": 32286,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9535435422792528
+    },
+    {
+      "body_id": 32336,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9441646195132328
+    },
+    {
+      "body_id": 32493,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9513704232471567
+    },
+    {
+      "body_id": 32614,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.955177200661046
+    },
+    {
+      "body_id": 32657,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9561209632774365
+    },
+    {
+      "body_id": 32767,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9301610007801874
+    },
+    {
+      "body_id": 32946,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.952262764951665
+    },
+    {
+      "body_id": 33048,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9448754465365478
+    },
+    {
+      "body_id": 33177,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9496087131614996
+    },
+    {
+      "body_id": 33219,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9385118505609416
+    },
+    {
+      "body_id": 34351,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9386431284100667
+    },
+    {
+      "body_id": 34643,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9520507672024386
+    },
+    {
+      "body_id": 34756,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9409166972729957
+    },
+    {
+      "body_id": 34774,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9431705366571579
+    },
+    {
+      "body_id": 34838,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9595920409410992
+    },
+    {
+      "body_id": 35250,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9248090571635996
+    },
+    {
+      "body_id": 36152,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9096973425930353
+    },
+    {
+      "body_id": 36286,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9332445697192305
+    },
+    {
+      "body_id": 36421,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9381662021904049
+    },
+    {
+      "body_id": 36779,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9606551917543301
+    },
+    {
+      "body_id": 36783,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9702431973756346
+    },
+    {
+      "body_id": 37042,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9414869372267362
+    },
+    {
+      "body_id": 37316,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9469918515581824
+    },
+    {
+      "body_id": 37871,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.8907863074357091
+    },
+    {
+      "body_id": 37896,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9392409971282065
+    },
+    {
+      "body_id": 37958,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9591890361641701
+    },
+    {
+      "body_id": 38020,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9496080677857102
+    },
+    {
+      "body_id": 38301,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9644527456717339
+    },
+    {
+      "body_id": 38374,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9575880266570468
+    },
+    {
+      "body_id": 38810,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9327149157603797
+    },
+    {
+      "body_id": 39108,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9608325507819704
+    },
+    {
+      "body_id": 40220,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9490263686103382
+    },
+    {
+      "body_id": 40815,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.940435883369805
+    },
+    {
+      "body_id": 41089,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9340665055223224
+    },
+    {
+      "body_id": 41240,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9335476362994827
+    },
+    {
+      "body_id": 42379,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9350688286047927
+    },
+    {
+      "body_id": 42452,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9018053950373298
+    },
+    {
+      "body_id": 43865,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9331495071521675
+    },
+    {
+      "body_id": 43910,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.8909677023033268
+    },
+    {
+      "body_id": 44299,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.908387228883336
+    },
+    {
+      "body_id": 44656,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9091048596587631
+    },
+    {
+      "body_id": 44666,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9340827489072222
+    },
+    {
+      "body_id": 44856,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9144353268431079
+    },
+    {
+      "body_id": 45300,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9176508458129312
+    },
+    {
+      "body_id": 45579,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9372233754125424
+    },
+    {
+      "body_id": 46034,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.896306107331357
+    },
+    {
+      "body_id": 47206,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9414905496103777
+    },
+    {
+      "body_id": 47400,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.936446606498453
+    },
+    {
+      "body_id": 48198,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9349805711427026
+    },
+    {
+      "body_id": 48716,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9385063936521495
+    },
+    {
+      "body_id": 48790,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9611805919560144
+    },
+    {
+      "body_id": 49244,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9597992155795553
+    },
+    {
+      "body_id": 49360,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9312098567984936
+    },
+    {
+      "body_id": 49424,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9412657121988992
+    },
+    {
+      "body_id": 49773,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9621987610946101
+    },
+    {
+      "body_id": 49807,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.932769680913586
+    },
+    {
+      "body_id": 50564,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.8733869832352847
+    },
+    {
+      "body_id": 51397,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9400353450664395
+    },
+    {
+      "body_id": 51462,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9449282741851858
+    },
+    {
+      "body_id": 51720,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9136532904295597
+    },
+    {
+      "body_id": 52329,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9200210402738658
+    },
+    {
+      "body_id": 52430,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9188119066603195
+    },
+    {
+      "body_id": 52783,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.8906189051666515
+    },
+    {
+      "body_id": 53572,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9331377843262003
+    },
+    {
+      "body_id": 53585,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9071186705478587
+    },
+    {
+      "body_id": 54421,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9498718837081378
+    },
+    {
+      "body_id": 54562,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.924015468413515
+    },
+    {
+      "body_id": 54638,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.8725114662773358
+    },
+    {
+      "body_id": 56376,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9573851751683684
+    },
+    {
+      "body_id": 57264,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.8569209151962147
+    },
+    {
+      "body_id": 57894,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9466689637955432
+    },
+    {
+      "body_id": 58449,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9471573637443065
+    },
+    {
+      "body_id": 60028,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9387517593373899
+    },
+    {
+      "body_id": 60207,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9568741706552794
+    },
+    {
+      "body_id": 61545,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9376600748485101
+    },
+    {
+      "body_id": 62280,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9394745219519148
+    },
+    {
+      "body_id": 64964,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9276236628882447
+    },
+    {
+      "body_id": 66361,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9474317815636842
+    },
+    {
+      "body_id": 68463,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.931421268485768
+    },
+    {
+      "body_id": 68728,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.8946344038031206
+    },
+    {
+      "body_id": 69463,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9032216451627032
+    },
+    {
+      "body_id": 69870,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9250912691515008
+    },
+    {
+      "body_id": 70408,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.8533480516701932
+    },
+    {
+      "body_id": 73715,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9441923249368854
+    },
+    {
+      "body_id": 74072,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.879123934011569
+    },
+    {
+      "body_id": 76174,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.8988080414246217
+    },
+    {
+      "body_id": 76185,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9667027233973169
+    },
+    {
+      "body_id": 82439,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.8787123531124867
+    },
+    {
+      "body_id": 84104,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.8343992392902587
+    },
+    {
+      "body_id": 84470,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.8305440018641082
+    },
+    {
+      "body_id": 85707,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9028373107759852
+    },
+    {
+      "body_id": 86507,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.7920413754991845
+    },
+    {
+      "body_id": 87750,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9520217277428801
+    },
+    {
+      "body_id": 89301,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9299263390471618
+    },
+    {
+      "body_id": 100368,
+      "type": "LC10a",
+      "instance": "LC10a_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.8532874365835739
+    },
+    {
+      "body_id": 140676,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9405907822788303
+    },
+    {
+      "body_id": 144957,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9253136037070774
+    },
+    {
+      "body_id": 183483,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9133869456849105
+    },
+    {
+      "body_id": 512978,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9452984662090861
+    },
+    {
+      "body_id": 514646,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.968634202738665
+    },
+    {
+      "body_id": 516361,
+      "type": "AOTU025",
+      "instance": "AOTU025_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9098778042028158
+    },
+    {
+      "body_id": 518681,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9453760880469863
+    },
+    {
+      "body_id": 519168,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9611317621015019
+    },
+    {
+      "body_id": 519926,
+      "type": "AOTU025",
+      "instance": "AOTU025_R",
+      "side": "R",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9490719080296318
+    },
+    {
+      "body_id": 523769,
+      "type": "DNa02",
+      "instance": "DNa02_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9505229392371917
+    },
+    {
+      "body_id": 524616,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9552076967296115
+    },
+    {
+      "body_id": 525482,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9534154602087158
+    },
+    {
+      "body_id": 527684,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9474538084597697
+    },
+    {
+      "body_id": 528991,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9656090184556299
+    },
+    {
+      "body_id": 529578,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9655374949391147
+    },
+    {
+      "body_id": 532298,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9290132364155353
+    },
+    {
+      "body_id": 532653,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9315599560645507
+    },
+    {
+      "body_id": 536318,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9490699863764291
+    },
+    {
+      "body_id": 557990,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9415865700314108
+    },
+    {
+      "body_id": 575597,
+      "type": "LC10a",
+      "instance": "LC10a_L",
+      "side": "L",
+      "predicted_nt": "acetylcholine",
+      "consensus_nt": "acetylcholine",
+      "nt_confidence": 0.9582867071160229
+    }
+  ],
+  "edge_count": 366,
+  "edge_aggregate": [
+    {
+      "pre_type": "AOTU019",
+      "post_type": "DNa02",
+      "pre_side": "L",
+      "post_side": "R",
+      "edges": 1,
+      "synapses": 289
+    },
+    {
+      "pre_type": "AOTU019",
+      "post_type": "DNa02",
+      "pre_side": "R",
+      "post_side": "L",
+      "edges": 1,
+      "synapses": 297
+    },
+    {
+      "pre_type": "AOTU025",
+      "post_type": "DNa02",
+      "pre_side": "L",
+      "post_side": "L",
+      "edges": 1,
+      "synapses": 205
+    },
+    {
+      "pre_type": "AOTU025",
+      "post_type": "DNa02",
+      "pre_side": "R",
+      "post_side": "R",
+      "edges": 1,
+      "synapses": 196
+    },
+    {
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L",
+      "edges": 99,
+      "synapses": 6615
+    },
+    {
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R",
+      "edges": 107,
+      "synapses": 7595
+    },
+    {
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "L",
+      "post_side": "L",
+      "edges": 82,
+      "synapses": 3303
+    },
+    {
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "R",
+      "post_side": "R",
+      "edges": 74,
+      "synapses": 3728
+    }
+  ],
+  "edges": [
+    {
+      "pre": 10070,
+      "post": 10360,
+      "synapse_count": 289,
+      "pre_type": "AOTU019",
+      "post_type": "DNa02",
+      "pre_side": "L",
+      "post_side": "R"
+    },
+    {
+      "pre": 10005,
+      "post": 523769,
+      "synapse_count": 297,
+      "pre_type": "AOTU019",
+      "post_type": "DNa02",
+      "pre_side": "R",
+      "post_side": "L"
+    },
+    {
+      "pre": 516361,
+      "post": 523769,
+      "synapse_count": 205,
+      "pre_type": "AOTU025",
+      "post_type": "DNa02",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 519926,
+      "post": 10360,
+      "synapse_count": 196,
+      "pre_type": "AOTU025",
+      "post_type": "DNa02",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 10573,
+      "post": 10070,
+      "synapse_count": 145,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 12130,
+      "post": 10070,
+      "synapse_count": 113,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 12424,
+      "post": 10070,
+      "synapse_count": 54,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 12458,
+      "post": 10070,
+      "synapse_count": 110,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 13697,
+      "post": 10070,
+      "synapse_count": 103,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 13974,
+      "post": 10070,
+      "synapse_count": 79,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 14980,
+      "post": 10070,
+      "synapse_count": 14,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 15340,
+      "post": 10070,
+      "synapse_count": 30,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 15508,
+      "post": 10070,
+      "synapse_count": 90,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 16775,
+      "post": 10070,
+      "synapse_count": 89,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 18078,
+      "post": 10070,
+      "synapse_count": 116,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 18518,
+      "post": 10070,
+      "synapse_count": 99,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 18917,
+      "post": 10070,
+      "synapse_count": 107,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 19120,
+      "post": 10070,
+      "synapse_count": 68,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 19350,
+      "post": 10070,
+      "synapse_count": 9,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 19537,
+      "post": 10070,
+      "synapse_count": 33,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 19540,
+      "post": 10070,
+      "synapse_count": 25,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 19659,
+      "post": 10070,
+      "synapse_count": 15,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 19667,
+      "post": 10070,
+      "synapse_count": 86,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 20112,
+      "post": 10070,
+      "synapse_count": 7,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 20378,
+      "post": 10070,
+      "synapse_count": 120,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 21173,
+      "post": 10070,
+      "synapse_count": 36,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 21744,
+      "post": 10070,
+      "synapse_count": 94,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 21835,
+      "post": 10070,
+      "synapse_count": 67,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 22184,
+      "post": 10070,
+      "synapse_count": 124,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 22259,
+      "post": 10070,
+      "synapse_count": 122,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 22339,
+      "post": 10070,
+      "synapse_count": 166,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 22392,
+      "post": 10070,
+      "synapse_count": 143,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 22959,
+      "post": 10070,
+      "synapse_count": 119,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 23001,
+      "post": 10070,
+      "synapse_count": 82,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 23148,
+      "post": 10070,
+      "synapse_count": 115,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 23328,
+      "post": 10070,
+      "synapse_count": 88,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 23599,
+      "post": 10070,
+      "synapse_count": 155,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 23741,
+      "post": 10070,
+      "synapse_count": 155,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 23852,
+      "post": 10070,
+      "synapse_count": 147,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 23930,
+      "post": 10070,
+      "synapse_count": 108,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 23989,
+      "post": 10070,
+      "synapse_count": 152,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 24719,
+      "post": 10070,
+      "synapse_count": 125,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 24742,
+      "post": 10070,
+      "synapse_count": 111,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 25003,
+      "post": 10070,
+      "synapse_count": 52,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 25304,
+      "post": 10070,
+      "synapse_count": 79,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 25412,
+      "post": 10070,
+      "synapse_count": 37,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 25450,
+      "post": 10070,
+      "synapse_count": 96,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 25817,
+      "post": 10070,
+      "synapse_count": 78,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 26142,
+      "post": 10070,
+      "synapse_count": 60,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 26380,
+      "post": 10070,
+      "synapse_count": 95,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 26740,
+      "post": 10070,
+      "synapse_count": 126,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 26963,
+      "post": 10070,
+      "synapse_count": 122,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 27689,
+      "post": 10070,
+      "synapse_count": 128,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 27915,
+      "post": 10070,
+      "synapse_count": 78,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 27967,
+      "post": 10070,
+      "synapse_count": 96,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 28082,
+      "post": 10070,
+      "synapse_count": 96,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 28143,
+      "post": 10070,
+      "synapse_count": 32,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 28533,
+      "post": 10070,
+      "synapse_count": 78,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 28543,
+      "post": 10070,
+      "synapse_count": 98,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 28904,
+      "post": 10070,
+      "synapse_count": 66,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 29686,
+      "post": 10070,
+      "synapse_count": 11,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 29803,
+      "post": 10070,
+      "synapse_count": 107,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 30025,
+      "post": 10070,
+      "synapse_count": 22,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 30707,
+      "post": 10070,
+      "synapse_count": 105,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 31033,
+      "post": 10070,
+      "synapse_count": 9,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 31801,
+      "post": 10070,
+      "synapse_count": 88,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 32090,
+      "post": 10070,
+      "synapse_count": 52,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 32111,
+      "post": 10070,
+      "synapse_count": 1,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 32153,
+      "post": 10070,
+      "synapse_count": 57,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 32238,
+      "post": 10070,
+      "synapse_count": 20,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 32286,
+      "post": 10070,
+      "synapse_count": 52,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 32493,
+      "post": 10070,
+      "synapse_count": 36,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 32657,
+      "post": 10070,
+      "synapse_count": 62,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 32767,
+      "post": 10070,
+      "synapse_count": 3,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 33219,
+      "post": 10070,
+      "synapse_count": 1,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 34351,
+      "post": 10070,
+      "synapse_count": 47,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 34643,
+      "post": 10070,
+      "synapse_count": 5,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 36152,
+      "post": 10070,
+      "synapse_count": 1,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 36783,
+      "post": 10070,
+      "synapse_count": 18,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 37042,
+      "post": 10070,
+      "synapse_count": 5,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 37896,
+      "post": 10070,
+      "synapse_count": 35,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 38020,
+      "post": 10070,
+      "synapse_count": 2,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 39108,
+      "post": 10070,
+      "synapse_count": 1,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 40220,
+      "post": 10070,
+      "synapse_count": 36,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 40815,
+      "post": 10070,
+      "synapse_count": 2,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 42379,
+      "post": 10070,
+      "synapse_count": 38,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 43865,
+      "post": 10070,
+      "synapse_count": 4,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 45579,
+      "post": 10070,
+      "synapse_count": 3,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 48790,
+      "post": 10070,
+      "synapse_count": 4,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 49807,
+      "post": 10070,
+      "synapse_count": 2,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 61545,
+      "post": 10070,
+      "synapse_count": 5,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 76185,
+      "post": 10070,
+      "synapse_count": 1,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 140676,
+      "post": 10070,
+      "synapse_count": 83,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 512978,
+      "post": 10070,
+      "synapse_count": 3,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 514646,
+      "post": 10070,
+      "synapse_count": 128,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 518681,
+      "post": 10070,
+      "synapse_count": 130,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 524616,
+      "post": 10070,
+      "synapse_count": 26,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 525482,
+      "post": 10070,
+      "synapse_count": 86,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 527684,
+      "post": 10070,
+      "synapse_count": 92,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 528991,
+      "post": 10070,
+      "synapse_count": 9,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 529578,
+      "post": 10070,
+      "synapse_count": 103,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 557990,
+      "post": 10070,
+      "synapse_count": 74,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 575597,
+      "post": 10070,
+      "synapse_count": 8,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 21065,
+      "post": 10005,
+      "synapse_count": 128,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 21199,
+      "post": 10005,
+      "synapse_count": 174,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 21238,
+      "post": 10005,
+      "synapse_count": 106,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 21426,
+      "post": 10005,
+      "synapse_count": 77,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 21632,
+      "post": 10005,
+      "synapse_count": 136,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 21983,
+      "post": 10005,
+      "synapse_count": 137,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 21984,
+      "post": 10005,
+      "synapse_count": 100,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 22070,
+      "post": 10005,
+      "synapse_count": 124,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 22148,
+      "post": 10005,
+      "synapse_count": 142,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 22248,
+      "post": 10005,
+      "synapse_count": 110,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 22397,
+      "post": 10005,
+      "synapse_count": 115,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 22505,
+      "post": 10005,
+      "synapse_count": 123,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 22510,
+      "post": 10005,
+      "synapse_count": 90,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 22750,
+      "post": 10005,
+      "synapse_count": 130,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 22783,
+      "post": 10005,
+      "synapse_count": 133,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 22831,
+      "post": 10005,
+      "synapse_count": 125,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 22989,
+      "post": 10005,
+      "synapse_count": 148,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 22997,
+      "post": 10005,
+      "synapse_count": 100,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 23002,
+      "post": 10005,
+      "synapse_count": 121,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 23128,
+      "post": 10005,
+      "synapse_count": 80,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 23154,
+      "post": 10005,
+      "synapse_count": 95,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 23210,
+      "post": 10005,
+      "synapse_count": 136,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 23377,
+      "post": 10005,
+      "synapse_count": 113,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 23421,
+      "post": 10005,
+      "synapse_count": 42,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 23463,
+      "post": 10005,
+      "synapse_count": 119,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 23499,
+      "post": 10005,
+      "synapse_count": 102,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 23677,
+      "post": 10005,
+      "synapse_count": 137,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 23686,
+      "post": 10005,
+      "synapse_count": 89,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 23719,
+      "post": 10005,
+      "synapse_count": 119,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 23830,
+      "post": 10005,
+      "synapse_count": 77,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 23867,
+      "post": 10005,
+      "synapse_count": 102,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 23868,
+      "post": 10005,
+      "synapse_count": 107,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 23890,
+      "post": 10005,
+      "synapse_count": 90,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 24035,
+      "post": 10005,
+      "synapse_count": 126,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 24071,
+      "post": 10005,
+      "synapse_count": 68,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 24164,
+      "post": 10005,
+      "synapse_count": 153,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 24208,
+      "post": 10005,
+      "synapse_count": 24,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 24211,
+      "post": 10005,
+      "synapse_count": 67,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 24283,
+      "post": 10005,
+      "synapse_count": 113,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 24482,
+      "post": 10005,
+      "synapse_count": 142,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 24492,
+      "post": 10005,
+      "synapse_count": 98,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 24505,
+      "post": 10005,
+      "synapse_count": 122,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 24545,
+      "post": 10005,
+      "synapse_count": 76,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 24592,
+      "post": 10005,
+      "synapse_count": 99,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 24769,
+      "post": 10005,
+      "synapse_count": 12,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 24784,
+      "post": 10005,
+      "synapse_count": 151,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 24854,
+      "post": 10005,
+      "synapse_count": 61,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 24909,
+      "post": 10005,
+      "synapse_count": 89,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 25067,
+      "post": 10005,
+      "synapse_count": 2,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 25088,
+      "post": 10005,
+      "synapse_count": 76,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 25167,
+      "post": 10005,
+      "synapse_count": 141,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 25198,
+      "post": 10005,
+      "synapse_count": 119,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 25202,
+      "post": 10005,
+      "synapse_count": 105,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 25296,
+      "post": 10005,
+      "synapse_count": 17,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 25369,
+      "post": 10005,
+      "synapse_count": 106,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 25394,
+      "post": 10005,
+      "synapse_count": 95,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 25400,
+      "post": 10005,
+      "synapse_count": 107,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 25446,
+      "post": 10005,
+      "synapse_count": 56,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 25472,
+      "post": 10005,
+      "synapse_count": 54,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 25641,
+      "post": 10005,
+      "synapse_count": 54,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 25711,
+      "post": 10005,
+      "synapse_count": 79,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 25952,
+      "post": 10005,
+      "synapse_count": 2,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 26373,
+      "post": 10005,
+      "synapse_count": 6,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 26450,
+      "post": 10005,
+      "synapse_count": 109,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 26560,
+      "post": 10005,
+      "synapse_count": 8,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 26788,
+      "post": 10005,
+      "synapse_count": 4,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 26811,
+      "post": 10005,
+      "synapse_count": 36,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 26976,
+      "post": 10005,
+      "synapse_count": 14,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 27067,
+      "post": 10005,
+      "synapse_count": 5,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 27300,
+      "post": 10005,
+      "synapse_count": 65,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 27334,
+      "post": 10005,
+      "synapse_count": 88,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 27579,
+      "post": 10005,
+      "synapse_count": 74,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 27704,
+      "post": 10005,
+      "synapse_count": 40,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 27709,
+      "post": 10005,
+      "synapse_count": 25,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 28204,
+      "post": 10005,
+      "synapse_count": 79,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 28259,
+      "post": 10005,
+      "synapse_count": 80,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 28390,
+      "post": 10005,
+      "synapse_count": 65,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 28599,
+      "post": 10005,
+      "synapse_count": 89,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 28654,
+      "post": 10005,
+      "synapse_count": 2,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 28823,
+      "post": 10005,
+      "synapse_count": 11,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 29092,
+      "post": 10005,
+      "synapse_count": 68,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 29186,
+      "post": 10005,
+      "synapse_count": 48,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 29359,
+      "post": 10005,
+      "synapse_count": 94,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 29744,
+      "post": 10005,
+      "synapse_count": 24,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 29979,
+      "post": 10005,
+      "synapse_count": 4,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 30499,
+      "post": 10005,
+      "synapse_count": 85,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 30993,
+      "post": 10005,
+      "synapse_count": 23,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 31623,
+      "post": 10005,
+      "synapse_count": 24,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 31634,
+      "post": 10005,
+      "synapse_count": 4,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 31976,
+      "post": 10005,
+      "synapse_count": 55,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 32336,
+      "post": 10005,
+      "synapse_count": 15,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 32614,
+      "post": 10005,
+      "synapse_count": 27,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 32946,
+      "post": 10005,
+      "synapse_count": 61,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 33048,
+      "post": 10005,
+      "synapse_count": 21,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 34756,
+      "post": 10005,
+      "synapse_count": 1,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 34774,
+      "post": 10005,
+      "synapse_count": 44,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 34838,
+      "post": 10005,
+      "synapse_count": 15,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 37871,
+      "post": 10005,
+      "synapse_count": 2,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 38374,
+      "post": 10005,
+      "synapse_count": 2,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 38810,
+      "post": 10005,
+      "synapse_count": 13,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 41089,
+      "post": 10005,
+      "synapse_count": 1,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 42452,
+      "post": 10005,
+      "synapse_count": 3,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 43910,
+      "post": 10005,
+      "synapse_count": 1,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 44666,
+      "post": 10005,
+      "synapse_count": 8,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 52329,
+      "post": 10005,
+      "synapse_count": 1,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 53572,
+      "post": 10005,
+      "synapse_count": 9,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 54562,
+      "post": 10005,
+      "synapse_count": 1,
+      "pre_type": "LC10a",
+      "post_type": "AOTU019",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 12130,
+      "post": 516361,
+      "synapse_count": 5,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 12424,
+      "post": 516361,
+      "synapse_count": 76,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 12458,
+      "post": 516361,
+      "synapse_count": 32,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 13974,
+      "post": 516361,
+      "synapse_count": 21,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 15340,
+      "post": 516361,
+      "synapse_count": 1,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 15471,
+      "post": 516361,
+      "synapse_count": 25,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 15508,
+      "post": 516361,
+      "synapse_count": 63,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 16775,
+      "post": 516361,
+      "synapse_count": 85,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 19350,
+      "post": 516361,
+      "synapse_count": 47,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 19537,
+      "post": 516361,
+      "synapse_count": 111,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 19540,
+      "post": 516361,
+      "synapse_count": 120,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 19659,
+      "post": 516361,
+      "synapse_count": 6,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 19667,
+      "post": 516361,
+      "synapse_count": 69,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 19703,
+      "post": 516361,
+      "synapse_count": 51,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 20112,
+      "post": 516361,
+      "synapse_count": 91,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 20378,
+      "post": 516361,
+      "synapse_count": 5,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 21173,
+      "post": 516361,
+      "synapse_count": 31,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 21835,
+      "post": 516361,
+      "synapse_count": 49,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 22184,
+      "post": 516361,
+      "synapse_count": 50,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 22259,
+      "post": 516361,
+      "synapse_count": 6,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 22959,
+      "post": 516361,
+      "synapse_count": 5,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 23001,
+      "post": 516361,
+      "synapse_count": 66,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 23328,
+      "post": 516361,
+      "synapse_count": 23,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 24742,
+      "post": 516361,
+      "synapse_count": 20,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 25003,
+      "post": 516361,
+      "synapse_count": 29,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 25304,
+      "post": 516361,
+      "synapse_count": 113,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 25412,
+      "post": 516361,
+      "synapse_count": 41,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 25817,
+      "post": 516361,
+      "synapse_count": 8,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 26142,
+      "post": 516361,
+      "synapse_count": 64,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 26380,
+      "post": 516361,
+      "synapse_count": 42,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 26740,
+      "post": 516361,
+      "synapse_count": 23,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 27468,
+      "post": 516361,
+      "synapse_count": 9,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 28082,
+      "post": 516361,
+      "synapse_count": 52,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 28143,
+      "post": 516361,
+      "synapse_count": 133,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 28533,
+      "post": 516361,
+      "synapse_count": 93,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 28904,
+      "post": 516361,
+      "synapse_count": 82,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 29686,
+      "post": 516361,
+      "synapse_count": 96,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 30025,
+      "post": 516361,
+      "synapse_count": 73,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 30707,
+      "post": 516361,
+      "synapse_count": 3,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 31033,
+      "post": 516361,
+      "synapse_count": 5,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 32111,
+      "post": 516361,
+      "synapse_count": 80,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 32153,
+      "post": 516361,
+      "synapse_count": 44,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 32238,
+      "post": 516361,
+      "synapse_count": 98,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 32286,
+      "post": 516361,
+      "synapse_count": 94,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 32493,
+      "post": 516361,
+      "synapse_count": 78,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 32657,
+      "post": 516361,
+      "synapse_count": 3,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 33219,
+      "post": 516361,
+      "synapse_count": 81,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 34643,
+      "post": 516361,
+      "synapse_count": 31,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 36286,
+      "post": 516361,
+      "synapse_count": 74,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 37042,
+      "post": 516361,
+      "synapse_count": 77,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 37316,
+      "post": 516361,
+      "synapse_count": 78,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 37896,
+      "post": 516361,
+      "synapse_count": 12,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 38020,
+      "post": 516361,
+      "synapse_count": 4,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 38301,
+      "post": 516361,
+      "synapse_count": 45,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 39108,
+      "post": 516361,
+      "synapse_count": 14,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 40220,
+      "post": 516361,
+      "synapse_count": 3,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 42379,
+      "post": 516361,
+      "synapse_count": 5,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 43865,
+      "post": 516361,
+      "synapse_count": 34,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 48790,
+      "post": 516361,
+      "synapse_count": 15,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 49424,
+      "post": 516361,
+      "synapse_count": 1,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 49807,
+      "post": 516361,
+      "synapse_count": 6,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 51720,
+      "post": 516361,
+      "synapse_count": 15,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 52430,
+      "post": 516361,
+      "synapse_count": 7,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 56376,
+      "post": 516361,
+      "synapse_count": 16,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 58449,
+      "post": 516361,
+      "synapse_count": 22,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 60207,
+      "post": 516361,
+      "synapse_count": 20,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 64964,
+      "post": 516361,
+      "synapse_count": 8,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 68463,
+      "post": 516361,
+      "synapse_count": 5,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 69870,
+      "post": 516361,
+      "synapse_count": 3,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 73715,
+      "post": 516361,
+      "synapse_count": 3,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 74072,
+      "post": 516361,
+      "synapse_count": 12,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 87750,
+      "post": 516361,
+      "synapse_count": 2,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 89301,
+      "post": 516361,
+      "synapse_count": 1,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 518681,
+      "post": 516361,
+      "synapse_count": 11,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 519168,
+      "post": 516361,
+      "synapse_count": 59,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 525482,
+      "post": 516361,
+      "synapse_count": 64,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 527684,
+      "post": 516361,
+      "synapse_count": 15,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 528991,
+      "post": 516361,
+      "synapse_count": 90,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 529578,
+      "post": 516361,
+      "synapse_count": 2,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 532653,
+      "post": 516361,
+      "synapse_count": 37,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 536318,
+      "post": 516361,
+      "synapse_count": 49,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 557990,
+      "post": 516361,
+      "synapse_count": 61,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "L",
+      "post_side": "L"
+    },
+    {
+      "pre": 21065,
+      "post": 519926,
+      "synapse_count": 19,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 21238,
+      "post": 519926,
+      "synapse_count": 40,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 21426,
+      "post": 519926,
+      "synapse_count": 134,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 21632,
+      "post": 519926,
+      "synapse_count": 42,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 21984,
+      "post": 519926,
+      "synapse_count": 122,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 22248,
+      "post": 519926,
+      "synapse_count": 80,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 22397,
+      "post": 519926,
+      "synapse_count": 62,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 22510,
+      "post": 519926,
+      "synapse_count": 98,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 22750,
+      "post": 519926,
+      "synapse_count": 9,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 22989,
+      "post": 519926,
+      "synapse_count": 7,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 22997,
+      "post": 519926,
+      "synapse_count": 92,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 23128,
+      "post": 519926,
+      "synapse_count": 104,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 23154,
+      "post": 519926,
+      "synapse_count": 104,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 23377,
+      "post": 519926,
+      "synapse_count": 4,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 23421,
+      "post": 519926,
+      "synapse_count": 101,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 23463,
+      "post": 519926,
+      "synapse_count": 20,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 23499,
+      "post": 519926,
+      "synapse_count": 82,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 23686,
+      "post": 519926,
+      "synapse_count": 104,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 23830,
+      "post": 519926,
+      "synapse_count": 94,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 23890,
+      "post": 519926,
+      "synapse_count": 31,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 24035,
+      "post": 519926,
+      "synapse_count": 7,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 24071,
+      "post": 519926,
+      "synapse_count": 1,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 24208,
+      "post": 519926,
+      "synapse_count": 103,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 24211,
+      "post": 519926,
+      "synapse_count": 70,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 24492,
+      "post": 519926,
+      "synapse_count": 19,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 24545,
+      "post": 519926,
+      "synapse_count": 61,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 24769,
+      "post": 519926,
+      "synapse_count": 118,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 24854,
+      "post": 519926,
+      "synapse_count": 127,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 24909,
+      "post": 519926,
+      "synapse_count": 29,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 25067,
+      "post": 519926,
+      "synapse_count": 112,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 25198,
+      "post": 519926,
+      "synapse_count": 5,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 25202,
+      "post": 519926,
+      "synapse_count": 55,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 25296,
+      "post": 519926,
+      "synapse_count": 56,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 25369,
+      "post": 519926,
+      "synapse_count": 2,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 25400,
+      "post": 519926,
+      "synapse_count": 10,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 25446,
+      "post": 519926,
+      "synapse_count": 40,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 25472,
+      "post": 519926,
+      "synapse_count": 78,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 25641,
+      "post": 519926,
+      "synapse_count": 81,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 25952,
+      "post": 519926,
+      "synapse_count": 115,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 26373,
+      "post": 519926,
+      "synapse_count": 73,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 26560,
+      "post": 519926,
+      "synapse_count": 116,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 26788,
+      "post": 519926,
+      "synapse_count": 18,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 26811,
+      "post": 519926,
+      "synapse_count": 108,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 26976,
+      "post": 519926,
+      "synapse_count": 21,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 27067,
+      "post": 519926,
+      "synapse_count": 95,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 27300,
+      "post": 519926,
+      "synapse_count": 8,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 27579,
+      "post": 519926,
+      "synapse_count": 11,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 27704,
+      "post": 519926,
+      "synapse_count": 50,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 27709,
+      "post": 519926,
+      "synapse_count": 51,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 28204,
+      "post": 519926,
+      "synapse_count": 45,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 28390,
+      "post": 519926,
+      "synapse_count": 29,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 28654,
+      "post": 519926,
+      "synapse_count": 88,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 28823,
+      "post": 519926,
+      "synapse_count": 5,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 29979,
+      "post": 519926,
+      "synapse_count": 62,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 31250,
+      "post": 519926,
+      "synapse_count": 73,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 31634,
+      "post": 519926,
+      "synapse_count": 72,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 31878,
+      "post": 519926,
+      "synapse_count": 20,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 31941,
+      "post": 519926,
+      "synapse_count": 66,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 31976,
+      "post": 519926,
+      "synapse_count": 4,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 32336,
+      "post": 519926,
+      "synapse_count": 43,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 33048,
+      "post": 519926,
+      "synapse_count": 10,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 33177,
+      "post": 519926,
+      "synapse_count": 41,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 35250,
+      "post": 519926,
+      "synapse_count": 57,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 36421,
+      "post": 519926,
+      "synapse_count": 27,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 36779,
+      "post": 519926,
+      "synapse_count": 41,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 37871,
+      "post": 519926,
+      "synapse_count": 2,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 38374,
+      "post": 519926,
+      "synapse_count": 16,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 41089,
+      "post": 519926,
+      "synapse_count": 7,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 41240,
+      "post": 519926,
+      "synapse_count": 6,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 44856,
+      "post": 519926,
+      "synapse_count": 1,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 46034,
+      "post": 519926,
+      "synapse_count": 3,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 47400,
+      "post": 519926,
+      "synapse_count": 5,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 51397,
+      "post": 519926,
+      "synapse_count": 11,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "R",
+      "post_side": "R"
+    },
+    {
+      "pre": 53572,
+      "post": 519926,
+      "synapse_count": 5,
+      "pre_type": "LC10a",
+      "post_type": "AOTU025",
+      "pre_side": "R",
+      "post_side": "R"
+    }
+  ],
+  "structural_path_probe": {
+    "definition": "Each stimulated-side LC10a supplies one abstract unit. For each two-edge path, multiply its two synapse counts and the AOTU transmitter sign (ACh +1, GABA -1), then sum by DNa02 side. No currents, spikes, timing, receptors, sensory tuning, or motor commands are modeled.",
+    "controls": {
+      "bridge_removed": "Set all selected AOTU-to-DNa02 edges to zero.",
+      "bridge_side_swapped": "Retain every selected edge weight and sign, but send each AOTU-to-DNa02 edge to the opposite DNa02 side."
+    },
+    "conditions": {
+      "LC10a_L": {
+        "intact": {
+          "DNa02_L": 677115,
+          "DNa02_R": -1911735,
+          "left_minus_right": 2588850
+        },
+        "bridge_removed": {
+          "DNa02_L": 0,
+          "DNa02_R": 0,
+          "left_minus_right": 0
+        },
+        "bridge_side_swapped": {
+          "DNa02_L": -1911735,
+          "DNa02_R": 677115,
+          "left_minus_right": -2588850
+        }
+      },
+      "LC10a_R": {
+        "intact": {
+          "DNa02_L": -2255715,
+          "DNa02_R": 730688,
+          "left_minus_right": -2986403
+        },
+        "bridge_removed": {
+          "DNa02_L": 0,
+          "DNa02_R": 0,
+          "left_minus_right": 0
+        },
+        "bridge_side_swapped": {
+          "DNa02_L": 730688,
+          "DNa02_R": -2255715,
+          "left_minus_right": 2986403
+        }
+      }
+    }
+  }
+}

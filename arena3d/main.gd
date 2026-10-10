@@ -57,7 +57,7 @@ var replay_status := "CONNECTING TO PYTHON ARENA"
 
 var camera_yaw := 2.35
 var camera_pitch := 0.72
-var camera_distance := 12.0
+var camera_distance := 11.2
 var orbiting := false
 
 var palette := {
@@ -68,7 +68,9 @@ var palette := {
 	"amber": Color("#f0b84b"),
 	"red": Color("#ff6f72"),
 	"ground": Color("#0b1b24"),
-	"grid": Color("#18323a"),
+	"grid": Color("#10252c"),
+	"grid_major": Color("#1b3b42"),
+	"boundary": Color("#35635e"),
 }
 
 
@@ -144,29 +146,92 @@ func _build_world() -> void:
 	floor.material_override = _material(palette["ground"])
 	add_child(floor)
 
-	var grid_mesh := ImmediateMesh.new()
-	grid_mesh.surface_begin(Mesh.PRIMITIVE_LINES, _material(palette["grid"]))
-	for x in range(int(WORLD_BOUNDS.position.x), int(WORLD_BOUNDS.end.x) + 1):
-		grid_mesh.surface_add_vertex(Vector3(x, -0.04, WORLD_BOUNDS.position.y))
-		grid_mesh.surface_add_vertex(Vector3(x, -0.04, WORLD_BOUNDS.end.y))
-	for z in range(int(WORLD_BOUNDS.position.y), int(WORLD_BOUNDS.end.y) + 1):
-		grid_mesh.surface_add_vertex(Vector3(WORLD_BOUNDS.position.x, -0.04, z))
-		grid_mesh.surface_add_vertex(Vector3(WORLD_BOUNDS.end.x, -0.04, z))
-	grid_mesh.surface_end()
-	var grid := MeshInstance3D.new()
-	grid.mesh = grid_mesh
-	grid.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
-	add_child(grid)
-
-	for point in [Vector2(-3.1, -0.9), Vector2(2.0, 6.9), Vector2(8.4, 0.4), Vector2(8.9, 6.5)]:
-		var pillar := MeshInstance3D.new()
-		var pillar_mesh := BoxMesh.new()
-		pillar_mesh.size = Vector3(0.45, 1.4, 0.45)
-		pillar.mesh = pillar_mesh
-		pillar.position = Vector3(point.x, 0.7, point.y)
-		pillar.material_override = _material(Color("#1c4149"))
-		add_child(pillar)
+	_build_world_grid()
+	_build_boundary_visuals()
 	_build_boundary_colliders()
+
+
+func _build_world_grid() -> void:
+	var minor_grid_mesh := ImmediateMesh.new()
+	minor_grid_mesh.surface_begin(Mesh.PRIMITIVE_LINES, _material(palette["grid"]))
+	var major_grid_mesh := ImmediateMesh.new()
+	major_grid_mesh.surface_begin(Mesh.PRIMITIVE_LINES, _material(palette["grid_major"]))
+	for x in range(int(WORLD_BOUNDS.position.x), int(WORLD_BOUNDS.end.x) + 1):
+		var target_mesh := major_grid_mesh if x % 4 == 0 else minor_grid_mesh
+		var grid_height := -0.035 if x % 4 == 0 else -0.04
+		target_mesh.surface_add_vertex(Vector3(x, grid_height, WORLD_BOUNDS.position.y))
+		target_mesh.surface_add_vertex(Vector3(x, grid_height, WORLD_BOUNDS.end.y))
+	for z in range(int(WORLD_BOUNDS.position.y), int(WORLD_BOUNDS.end.y) + 1):
+		var target_mesh := major_grid_mesh if z % 4 == 0 else minor_grid_mesh
+		var grid_height := -0.035 if z % 4 == 0 else -0.04
+		target_mesh.surface_add_vertex(Vector3(WORLD_BOUNDS.position.x, grid_height, z))
+		target_mesh.surface_add_vertex(Vector3(WORLD_BOUNDS.end.x, grid_height, z))
+	minor_grid_mesh.surface_end()
+	major_grid_mesh.surface_end()
+
+	for grid_mesh in [minor_grid_mesh, major_grid_mesh]:
+		var grid := MeshInstance3D.new()
+		grid.mesh = grid_mesh
+		grid.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+		add_child(grid)
+
+
+func _build_boundary_visuals() -> void:
+	# These floor rails and markers are decoration only. The authoritative toy
+	# collision boundary remains the StaticBody3D geometry built below.
+	var inset := 0.24
+	var min_x := WORLD_BOUNDS.position.x + inset
+	var max_x := WORLD_BOUNDS.end.x - inset
+	var min_z := WORLD_BOUNDS.position.y + inset
+	var max_z := WORLD_BOUNDS.end.y - inset
+	var rail_material := _material(palette["boundary"])
+	var rail_specs := [
+		{"size": Vector3(max_x - min_x, 0.035, 0.045), "position": Vector3((min_x + max_x) * 0.5, -0.038, min_z)},
+		{"size": Vector3(max_x - min_x, 0.035, 0.045), "position": Vector3((min_x + max_x) * 0.5, -0.038, max_z)},
+		{"size": Vector3(0.045, 0.035, max_z - min_z), "position": Vector3(min_x, -0.038, (min_z + max_z) * 0.5)},
+		{"size": Vector3(0.045, 0.035, max_z - min_z), "position": Vector3(max_x, -0.038, (min_z + max_z) * 0.5)},
+	]
+	for rail_spec in rail_specs:
+		var rail := MeshInstance3D.new()
+		var rail_mesh := BoxMesh.new()
+		rail_mesh.size = rail_spec["size"]
+		rail.mesh = rail_mesh
+		rail.position = rail_spec["position"]
+		rail.material_override = rail_material
+		rail.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+		add_child(rail)
+
+	var pylon_material := _material(Color("#20383e"))
+	var pylon_accent := _material(Color("#2f876f"))
+	pylon_accent.emission_enabled = true
+	pylon_accent.emission = Color("#205b4d")
+	pylon_accent.emission_energy_multiplier = 0.75
+	for point in [Vector2(min_x, min_z), Vector2(max_x, min_z), Vector2(max_x, max_z), Vector2(min_x, max_z)]:
+		var pylon := Node3D.new()
+		pylon.position = Vector3(point.x, 0.0, point.y)
+		var shaft := MeshInstance3D.new()
+		var shaft_mesh := CylinderMesh.new()
+		shaft_mesh.top_radius = 0.10
+		shaft_mesh.bottom_radius = 0.16
+		shaft_mesh.height = 0.48
+		shaft_mesh.radial_segments = 12
+		shaft.mesh = shaft_mesh
+		shaft.position.y = 0.24
+		shaft.material_override = pylon_material
+		shaft.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+		pylon.add_child(shaft)
+		var cap := MeshInstance3D.new()
+		var cap_mesh := CylinderMesh.new()
+		cap_mesh.top_radius = 0.085
+		cap_mesh.bottom_radius = 0.085
+		cap_mesh.height = 0.035
+		cap_mesh.radial_segments = 12
+		cap.mesh = cap_mesh
+		cap.position.y = 0.50
+		cap.material_override = pylon_accent
+		cap.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+		pylon.add_child(cap)
+		add_child(pylon)
 
 
 func _build_boundary_colliders() -> void:
@@ -368,12 +433,29 @@ func _build_stimuli() -> void:
 	beacon_root.name = "Beacon"
 	beacon_root.position = _world_position(beacon_position, 0.5)
 	add_child(beacon_root)
-	var beacon_mesh := _sphere(palette["amber"], 0.34, Vector3.ZERO, Vector3.ONE, true)
+	var beacon_pedestal := MeshInstance3D.new()
+	var pedestal_mesh := CylinderMesh.new()
+	pedestal_mesh.top_radius = 0.12
+	pedestal_mesh.bottom_radius = 0.16
+	pedestal_mesh.height = 0.24
+	pedestal_mesh.radial_segments = 12
+	beacon_pedestal.mesh = pedestal_mesh
+	beacon_pedestal.position.y = -0.22
+	beacon_pedestal.material_override = _material(Color("#273a3e"))
+	beacon_pedestal.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	beacon_root.add_child(beacon_pedestal)
+	var beacon_halo := _torus(Color("#96723a"), 0.38, 0.42, Vector3(0.0, -0.53, 0.0), Vector3.ONE)
+	beacon_halo.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	beacon_root.add_child(beacon_halo)
+	var beacon_material := _material(palette["amber"], true)
+	beacon_material.emission_energy_multiplier = 0.7
+	var beacon_mesh := _sphere(palette["amber"], 0.34, Vector3.ZERO, Vector3.ONE)
+	beacon_mesh.material_override = beacon_material
 	beacon_root.add_child(beacon_mesh)
 	var beacon_light := OmniLight3D.new()
 	beacon_light.light_color = palette["amber"]
-	beacon_light.light_energy = 5.0
-	beacon_light.omni_range = 6.0
+	beacon_light.light_energy = 1.4
+	beacon_light.omni_range = 4.5
 	beacon_root.add_child(beacon_light)
 
 	threat_root = Node3D.new()

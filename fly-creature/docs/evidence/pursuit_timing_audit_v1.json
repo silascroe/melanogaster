@@ -1,0 +1,212 @@
+{
+  "audit_date": "2026-10-02",
+  "author_revision": "65d72773121ffe148b56b8ba4f594a7a51c51789",
+  "final_paper": {
+    "url": "https://wilson.hms.harvard.edu/sites/g/files/omnuum8421/files/2026-03/Collie%202026.pdf",
+    "local_copy_saved": false,
+    "retrieval_note": "Read full final article via web PDF extraction; direct download denied by host.",
+    "anchors": {
+      "visual_response_latency": "PDF page 5, Figure 3D; 40 +/-9 and 36 +/-10 ms",
+      "latency_definition": "PDF page 22, e6; firing-rate derivative peak",
+      "feedback_delay": "PDF page 24, e8; Equation 6 and preceding paragraph, 200 ms",
+      "analysis_filtering": "PDF pages 21-22, e5-e6; post hoc smoothing is not a causal neural time constant"
+    }
+  },
+  "source_records": [
+    {
+      "path": "Modeling_Code\\support\\modelSettings.m",
+      "sha256": "59d77c4f0acdc78d8d0ecb64babb0ff55074c4df2f7614d5e5d359b33bceb021",
+      "matches": [
+        {
+          "line": 28,
+          "matched_patterns": [
+            "runSettings\\.(fs|visuomotor_delay|AOTU019_delay|Others_delay)\\s*="
+          ]
+        },
+        {
+          "line": 32,
+          "matched_patterns": [
+            "runSettings\\.(fs|visuomotor_delay|AOTU019_delay|Others_delay)\\s*="
+          ]
+        },
+        {
+          "line": 33,
+          "matched_patterns": [
+            "runSettings\\.(fs|visuomotor_delay|AOTU019_delay|Others_delay)\\s*="
+          ]
+        },
+        {
+          "line": 34,
+          "matched_patterns": [
+            "runSettings\\.(fs|visuomotor_delay|AOTU019_delay|Others_delay)\\s*="
+          ]
+        }
+      ]
+    },
+    {
+      "path": "Modeling_Code\\aotu_steering_model.m",
+      "sha256": "7962abbb96e892ca8c82b7f81a9b17fedd8d295d21b854b8afbbc6b63a0b70f9",
+      "matches": [
+        {
+          "line": 45,
+          "matched_patterns": [
+            "delay_AOTU019 ="
+          ]
+        },
+        {
+          "line": 46,
+          "matched_patterns": [
+            "delay_Others ="
+          ]
+        },
+        {
+          "line": 109,
+          "matched_patterns": [
+            "t_AOTU019 ="
+          ]
+        },
+        {
+          "line": 110,
+          "matched_patterns": [
+            "t_Others ="
+          ]
+        },
+        {
+          "line": 202,
+          "matched_patterns": [
+            "visobj_history\\(:, t\\) = visobj_history\\(:, t\\)"
+          ]
+        },
+        {
+          "line": 205,
+          "matched_patterns": [
+            "visobj_history\\(:, t\\) = visobj_history\\(:, t\\)"
+          ]
+        },
+        {
+          "line": 214,
+          "matched_patterns": [
+            "visobj_history\\(:, t\\) = visobj_history\\(:, t\\)"
+          ]
+        },
+        {
+          "line": 224,
+          "matched_patterns": [
+            "dt = 2 / fs"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "Modeling_Code\\support\\analyzeErrorVsTurn.m",
+      "sha256": "69b9da81dced93865d4840221361ab26123219634891e6560152e7100ca0a4ec",
+      "matches": [
+        {
+          "line": 29,
+          "matched_patterns": [
+            "visuomotor_delay"
+          ]
+        },
+        {
+          "line": 33,
+          "matched_patterns": [
+            "circshift"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "Data_Analysis_Code\\data processing\\calculate_visualresponselatency.m",
+      "sha256": "50a9864db81c602ef1f3c7424feb372595783cb4298d62c8011bbc6f84b05a74",
+      "matches": [
+        {
+          "line": 62,
+          "matched_patterns": [
+            "max\\(dFiringRate\\)"
+          ]
+        },
+        {
+          "line": 65,
+          "matched_patterns": [
+            "selected_time\\(peak_idx\\)"
+          ]
+        },
+        {
+          "line": 69,
+          "matched_patterns": [
+            "latency_threshold ="
+          ]
+        }
+      ]
+    }
+  ],
+  "pinned_manifest_hashes_verified": 17,
+  "runtime_sha256": {
+    "src\\fly_creature\\pursuit_controller.py": "fe7f4d6ecf86b3a816549bfd4fedf3a7ce124a7b2f92e28daf891404d7dc6584",
+    "src\\fly_creature\\pursuit_step4.py": "e03e9b001e2c33c43d83a215092386760257f3cd038c7c8b26999f4b2875d1fc",
+    "src\\fly_creature\\playground.py": "f821a64a2b0afef7cd6853acd301e8242309860e0178adac3c56a89a6a18d7a4",
+    "godot\\main.gd": "8d7c7480d20f521aece395effc2310bf760c4d68630e0a8d27254e2d1bafb83b",
+    "tools\\audit_pursuit_timing.py": "8c16b0b07348edb1d35bc137826465b878c034dcc20127473c40bac4d0244083"
+  },
+  "delay_placement_equivalence": {
+    "visible_active_samples": 600,
+    "max_abs_turn_difference_rad_s": {
+      "sensory_0_motor_200": 0.0,
+      "sensory_40_motor_160": 0.0,
+      "sensory_100_motor_100": 0.0,
+      "sensory_200_motor_0": 0.0
+    },
+    "scope": "Static adapter; same feature timestamps, total delay, warm-up and cap. No hide/reset transitions."
+  },
+  "runtime_timestamps": {
+    "first_sensor_sample_ms": 10,
+    "first_nonzero_delivered_command_ms": 210,
+    "first_changed_heading_sample_ms": 220,
+    "sensor_to_command_queue_ms": 200,
+    "sensor_to_changed_heading_sample_ms": 210,
+    "interpretation": "Next body interval is sampled at its endpoint. Not evidence to shorten the queue by one tick."
+  },
+  "independent_target_motion": {
+    "speed_0.35": {
+      "mean_abs_deg_s": 3.985448038766804,
+      "peak_abs_deg_s": 8.977517669595958
+    },
+    "speed_1.7": {
+      "mean_abs_deg_s": 22.79094163361105,
+      "peak_abs_deg_s": 48.0491023717131
+    },
+    "speed_3": {
+      "mean_abs_deg_s": 40.10471022084784,
+      "peak_abs_deg_s": 84.77059690540655
+    },
+    "reversal_2": {
+      "mean_abs_deg_s": 33.39848846798724,
+      "peak_abs_deg_s": 34.3770551871481
+    },
+    "chirp_5": {
+      "mean_abs_deg_s": 33.39339107210011,
+      "peak_abs_deg_s": 88.4757206685794
+    },
+    "chirp_7": {
+      "mean_abs_deg_s": 24.413830455001523,
+      "peak_abs_deg_s": 63.197562154601435
+    },
+    "asymmetric_5": {
+      "mean_abs_deg_s": 29.679464747206392,
+      "peak_abs_deg_s": 65.39054591684304
+    },
+    "asymmetric_7": {
+      "mean_abs_deg_s": 21.81300081485021,
+      "peak_abs_deg_s": 46.930772429251185
+    },
+    "modulated_5": {
+      "mean_abs_deg_s": 32.06550132386927,
+      "peak_abs_deg_s": 63.58863647667621
+    },
+    "modulated_7": {
+      "mean_abs_deg_s": 23.380208340444426,
+      "peak_abs_deg_s": 45.420872671525345
+    }
+  },
+  "production_changed": false
+}

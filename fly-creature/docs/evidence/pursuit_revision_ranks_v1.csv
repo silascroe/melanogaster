@@ -1,0 +1,5 @@
+condition,type,shuffle_aggregates_beaten,anatomy_vs_simple_percent,predictive_gate,wiring_gate
+NoP1,AOTU019,0,-0.0016973518779828112,False,False
+NoP1,AOTU025,32,0.03744162457117728,False,False
+P1,AOTU019,0,0.37423027510536944,False,False
+P1,AOTU025,32,0.48277699989823786,False,False

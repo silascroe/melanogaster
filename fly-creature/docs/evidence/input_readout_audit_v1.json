@@ -1,0 +1,358 @@
+{
+  "question": "Separately, how do the motion input and DNa02 readout affect this model?",
+  "status": "offline diagnostic; playable default unchanged",
+  "protocol": {
+    "paired_replay": "Position and motion inputs see the same direct-controller poses and target positions; LIF and selected MaleCNS wiring fixed.",
+    "closed_loop": "Five previously used paths; position versus motion input crossed with voltage versus spike-only DNa02 readout; all other parameters fixed.",
+    "spike_only": "Any nonzero signed right-left DNa02 spike-count difference commands the existing turn cap. This is a diagnostic counterfactual, not a calibrated motor law.",
+    "caveat": "Paths are reused, direction preference and receptor effects are not modeled, and the direct-controller pose replay does not establish biological responses."
+  },
+  "mean_closed_loop_error_deg": {
+    "position_voltage": 11.428,
+    "motion_voltage": 17.102,
+    "position_spike_only": 26.849,
+    "motion_spike_only": 26.849
+  },
+  "paths": {
+    "reverse_twice": {
+      "paired_direct_path": {
+        "position": {
+          "in_view_frames": 160,
+          "mean_base_strength": 0.2658,
+          "mean_delivered_strength": 0.2658,
+          "mean_retinal_speed_deg_s": 13.016,
+          "mean_world_bearing_speed_deg_s": 25.664,
+          "mean_self_turn_speed_deg_s": 18.12,
+          "LC10a_spikes": 47775,
+          "AOTU019_spikes": 298,
+          "AOTU025_spikes": 10,
+          "DNa02_spikes": 0,
+          "mean_toward_target_DNa02_voltage_bias_mv": 0.0639,
+          "correct_voltage_sign_frames": 114,
+          "wrong_voltage_sign_frames": 0,
+          "zero_voltage_sign_frames": 28,
+          "eligible_sign_frames": 142,
+          "nonzero_voltage_frames": 113,
+          "saturated_voltage_turn_frames": 0
+        },
+        "motion": {
+          "in_view_frames": 160,
+          "mean_base_strength": 0.2658,
+          "mean_delivered_strength": 0.122,
+          "mean_retinal_speed_deg_s": 13.016,
+          "mean_world_bearing_speed_deg_s": 25.664,
+          "mean_self_turn_speed_deg_s": 18.12,
+          "LC10a_spikes": 13387,
+          "AOTU019_spikes": 62,
+          "AOTU025_spikes": 0,
+          "DNa02_spikes": 0,
+          "mean_toward_target_DNa02_voltage_bias_mv": 0.0471,
+          "correct_voltage_sign_frames": 42,
+          "wrong_voltage_sign_frames": 0,
+          "zero_voltage_sign_frames": 100,
+          "eligible_sign_frames": 142,
+          "nonzero_voltage_frames": 39,
+          "saturated_voltage_turn_frames": 0
+        }
+      },
+      "closed_loop": {
+        "position_voltage": {
+          "mean_abs_bearing_deg": 12.504,
+          "in_view_fraction": 1.0,
+          "turning_frames": 118,
+          "DNa02_spikes": 0
+        },
+        "position_spike_only": {
+          "mean_abs_bearing_deg": 18.639,
+          "in_view_fraction": 1.0,
+          "turning_frames": 0,
+          "DNa02_spikes": 0
+        },
+        "motion_voltage": {
+          "mean_abs_bearing_deg": 15.669,
+          "in_view_fraction": 1.0,
+          "turning_frames": 117,
+          "DNa02_spikes": 0
+        },
+        "motion_spike_only": {
+          "mean_abs_bearing_deg": 18.639,
+          "in_view_fraction": 1.0,
+          "turning_frames": 0,
+          "DNa02_spikes": 0
+        }
+      }
+    },
+    "offset_sweep": {
+      "paired_direct_path": {
+        "position": {
+          "in_view_frames": 160,
+          "mean_base_strength": 0.0788,
+          "mean_delivered_strength": 0.0788,
+          "mean_retinal_speed_deg_s": 3.409,
+          "mean_world_bearing_speed_deg_s": 7.731,
+          "mean_self_turn_speed_deg_s": 5.35,
+          "LC10a_spikes": 7465,
+          "AOTU019_spikes": 2,
+          "AOTU025_spikes": 0,
+          "DNa02_spikes": 0,
+          "mean_toward_target_DNa02_voltage_bias_mv": -0.0044,
+          "correct_voltage_sign_frames": 3,
+          "wrong_voltage_sign_frames": 0,
+          "zero_voltage_sign_frames": 121,
+          "eligible_sign_frames": 124,
+          "nonzero_voltage_frames": 3,
+          "saturated_voltage_turn_frames": 0
+        },
+        "motion": {
+          "in_view_frames": 160,
+          "mean_base_strength": 0.0788,
+          "mean_delivered_strength": 0.0223,
+          "mean_retinal_speed_deg_s": 3.409,
+          "mean_world_bearing_speed_deg_s": 7.731,
+          "mean_self_turn_speed_deg_s": 5.35,
+          "LC10a_spikes": 16,
+          "AOTU019_spikes": 0,
+          "AOTU025_spikes": 0,
+          "DNa02_spikes": 0,
+          "mean_toward_target_DNa02_voltage_bias_mv": 0.0,
+          "correct_voltage_sign_frames": 0,
+          "wrong_voltage_sign_frames": 0,
+          "zero_voltage_sign_frames": 124,
+          "eligible_sign_frames": 124,
+          "nonzero_voltage_frames": 0,
+          "saturated_voltage_turn_frames": 0
+        }
+      },
+      "closed_loop": {
+        "position_voltage": {
+          "mean_abs_bearing_deg": 7.82,
+          "in_view_fraction": 1.0,
+          "turning_frames": 81,
+          "DNa02_spikes": 0
+        },
+        "position_spike_only": {
+          "mean_abs_bearing_deg": 30.308,
+          "in_view_fraction": 1.0,
+          "turning_frames": 0,
+          "DNa02_spikes": 0
+        },
+        "motion_voltage": {
+          "mean_abs_bearing_deg": 12.925,
+          "in_view_fraction": 1.0,
+          "turning_frames": 71,
+          "DNa02_spikes": 0
+        },
+        "motion_spike_only": {
+          "mean_abs_bearing_deg": 30.308,
+          "in_view_fraction": 1.0,
+          "turning_frames": 0,
+          "DNa02_spikes": 0
+        }
+      }
+    },
+    "near_target": {
+      "paired_direct_path": {
+        "position": {
+          "in_view_frames": 160,
+          "mean_base_strength": 0.3201,
+          "mean_delivered_strength": 0.3201,
+          "mean_retinal_speed_deg_s": 13.545,
+          "mean_world_bearing_speed_deg_s": 23.946,
+          "mean_self_turn_speed_deg_s": 22.037,
+          "LC10a_spikes": 56498,
+          "AOTU019_spikes": 327,
+          "AOTU025_spikes": 60,
+          "DNa02_spikes": 0,
+          "mean_toward_target_DNa02_voltage_bias_mv": -0.4014,
+          "correct_voltage_sign_frames": 104,
+          "wrong_voltage_sign_frames": 0,
+          "zero_voltage_sign_frames": 39,
+          "eligible_sign_frames": 143,
+          "nonzero_voltage_frames": 103,
+          "saturated_voltage_turn_frames": 0
+        },
+        "motion": {
+          "in_view_frames": 160,
+          "mean_base_strength": 0.3201,
+          "mean_delivered_strength": 0.2112,
+          "mean_retinal_speed_deg_s": 13.545,
+          "mean_world_bearing_speed_deg_s": 23.946,
+          "mean_self_turn_speed_deg_s": 22.037,
+          "LC10a_spikes": 33196,
+          "AOTU019_spikes": 191,
+          "AOTU025_spikes": 39,
+          "DNa02_spikes": 0,
+          "mean_toward_target_DNa02_voltage_bias_mv": -0.4419,
+          "correct_voltage_sign_frames": 58,
+          "wrong_voltage_sign_frames": 0,
+          "zero_voltage_sign_frames": 85,
+          "eligible_sign_frames": 143,
+          "nonzero_voltage_frames": 57,
+          "saturated_voltage_turn_frames": 0
+        }
+      },
+      "closed_loop": {
+        "position_voltage": {
+          "mean_abs_bearing_deg": 16.309,
+          "in_view_fraction": 1.0,
+          "turning_frames": 115,
+          "DNa02_spikes": 0
+        },
+        "position_spike_only": {
+          "mean_abs_bearing_deg": 38.931,
+          "in_view_fraction": 0.819,
+          "turning_frames": 0,
+          "DNa02_spikes": 0
+        },
+        "motion_voltage": {
+          "mean_abs_bearing_deg": 23.956,
+          "in_view_fraction": 1.0,
+          "turning_frames": 117,
+          "DNa02_spikes": 0
+        },
+        "motion_spike_only": {
+          "mean_abs_bearing_deg": 38.931,
+          "in_view_fraction": 0.819,
+          "turning_frames": 0,
+          "DNa02_spikes": 0
+        }
+      }
+    },
+    "far_target": {
+      "paired_direct_path": {
+        "position": {
+          "in_view_frames": 160,
+          "mean_base_strength": 0.1639,
+          "mean_delivered_strength": 0.1639,
+          "mean_retinal_speed_deg_s": 7.073,
+          "mean_world_bearing_speed_deg_s": 13.486,
+          "mean_self_turn_speed_deg_s": 11.185,
+          "LC10a_spikes": 25634,
+          "AOTU019_spikes": 108,
+          "AOTU025_spikes": 0,
+          "DNa02_spikes": 0,
+          "mean_toward_target_DNa02_voltage_bias_mv": -0.1509,
+          "correct_voltage_sign_frames": 63,
+          "wrong_voltage_sign_frames": 0,
+          "zero_voltage_sign_frames": 72,
+          "eligible_sign_frames": 135,
+          "nonzero_voltage_frames": 62,
+          "saturated_voltage_turn_frames": 0
+        },
+        "motion": {
+          "in_view_frames": 160,
+          "mean_base_strength": 0.1639,
+          "mean_delivered_strength": 0.0633,
+          "mean_retinal_speed_deg_s": 7.073,
+          "mean_world_bearing_speed_deg_s": 13.486,
+          "mean_self_turn_speed_deg_s": 11.185,
+          "LC10a_spikes": 3547,
+          "AOTU019_spikes": 14,
+          "AOTU025_spikes": 0,
+          "DNa02_spikes": 0,
+          "mean_toward_target_DNa02_voltage_bias_mv": -0.03,
+          "correct_voltage_sign_frames": 9,
+          "wrong_voltage_sign_frames": 0,
+          "zero_voltage_sign_frames": 126,
+          "eligible_sign_frames": 135,
+          "nonzero_voltage_frames": 9,
+          "saturated_voltage_turn_frames": 0
+        }
+      },
+      "closed_loop": {
+        "position_voltage": {
+          "mean_abs_bearing_deg": 9.892,
+          "in_view_fraction": 1.0,
+          "turning_frames": 96,
+          "DNa02_spikes": 0
+        },
+        "position_spike_only": {
+          "mean_abs_bearing_deg": 17.487,
+          "in_view_fraction": 1.0,
+          "turning_frames": 0,
+          "DNa02_spikes": 0
+        },
+        "motion_voltage": {
+          "mean_abs_bearing_deg": 14.937,
+          "in_view_fraction": 1.0,
+          "turning_frames": 89,
+          "DNa02_spikes": 0
+        },
+        "motion_spike_only": {
+          "mean_abs_bearing_deg": 17.487,
+          "in_view_fraction": 1.0,
+          "turning_frames": 0,
+          "DNa02_spikes": 0
+        }
+      }
+    },
+    "stop_go": {
+      "paired_direct_path": {
+        "position": {
+          "in_view_frames": 160,
+          "mean_base_strength": 0.1528,
+          "mean_delivered_strength": 0.1528,
+          "mean_retinal_speed_deg_s": 5.351,
+          "mean_world_bearing_speed_deg_s": 9.073,
+          "mean_self_turn_speed_deg_s": 10.568,
+          "LC10a_spikes": 23859,
+          "AOTU019_spikes": 120,
+          "AOTU025_spikes": 0,
+          "DNa02_spikes": 0,
+          "mean_toward_target_DNa02_voltage_bias_mv": 0.1381,
+          "correct_voltage_sign_frames": 75,
+          "wrong_voltage_sign_frames": 0,
+          "zero_voltage_sign_frames": 77,
+          "eligible_sign_frames": 152,
+          "nonzero_voltage_frames": 73,
+          "saturated_voltage_turn_frames": 0
+        },
+        "motion": {
+          "in_view_frames": 160,
+          "mean_base_strength": 0.1528,
+          "mean_delivered_strength": 0.0589,
+          "mean_retinal_speed_deg_s": 5.351,
+          "mean_world_bearing_speed_deg_s": 9.073,
+          "mean_self_turn_speed_deg_s": 10.568,
+          "LC10a_spikes": 3702,
+          "AOTU019_spikes": 19,
+          "AOTU025_spikes": 0,
+          "DNa02_spikes": 0,
+          "mean_toward_target_DNa02_voltage_bias_mv": -0.0361,
+          "correct_voltage_sign_frames": 11,
+          "wrong_voltage_sign_frames": 0,
+          "zero_voltage_sign_frames": 141,
+          "eligible_sign_frames": 152,
+          "nonzero_voltage_frames": 10,
+          "saturated_voltage_turn_frames": 0
+        }
+      },
+      "closed_loop": {
+        "position_voltage": {
+          "mean_abs_bearing_deg": 10.616,
+          "in_view_fraction": 1.0,
+          "turning_frames": 117,
+          "DNa02_spikes": 0
+        },
+        "position_spike_only": {
+          "mean_abs_bearing_deg": 28.878,
+          "in_view_fraction": 1.0,
+          "turning_frames": 0,
+          "DNa02_spikes": 0
+        },
+        "motion_voltage": {
+          "mean_abs_bearing_deg": 18.024,
+          "in_view_fraction": 1.0,
+          "turning_frames": 73,
+          "DNa02_spikes": 0
+        },
+        "motion_spike_only": {
+          "mean_abs_bearing_deg": 28.878,
+          "in_view_fraction": 1.0,
+          "turning_frames": 0,
+          "DNa02_spikes": 0
+        }
+      }
+    }
+  }
+}

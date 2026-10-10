@@ -1,0 +1,17 @@
+{
+  "repeated_artifacts_byte_identical": true,
+  "explicit_mirror_pairs": 34,
+  "geometry_and_map_checks": "passed",
+  "protected_sources_unchanged": true,
+  "family_counts": {
+    "null": 4,
+    "width": 8,
+    "height": 8,
+    "direction_state": 16,
+    "surround": 6,
+    "contrast": 8,
+    "stationary": 2,
+    "aotu_bar": 16
+  },
+  "response_evaluation": "not_run"
+}

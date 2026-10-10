@@ -1,0 +1,35 @@
+{
+  "status": "input specification; no reference output traces captured",
+  "source_commit": "65d72773121ffe148b56b8ba4f594a7a51c51789",
+  "static_sweep": {
+    "function": "aotu_steering_model_position",
+    "source_table": "Pursuit_RFs.csv through processRFdata",
+    "azimuth_deg": {"start": -180, "stop": 180, "step": 1},
+    "AOTU019_synapse": "inhibitory",
+    "alpha": 1,
+    "output": "DNa02R minus DNa02L modeled activity versus object azimuth"
+  },
+  "closed_loop": {
+    "calling_script": "runAOTUmodel -> modelPerformance_step(predicted_RF with sum=0, dirselective)",
+    "function": "aotu_steering_model",
+    "conditions": {"0": "neither pathway direction selective", "1": "AOTU019 direction selective", "2": "AOTU025 direction selective"},
+    "fixed_representative_start_deg": 120,
+    "sweep_starts_deg": {"start": 0, "stop": 140, "step": 10},
+    "initial_side": "alternate positive and negative across runs",
+    "duration_s": 16,
+    "initial_held_samples": 100,
+    "sample_rate_hz": 100,
+    "noise_level": 0.01,
+    "rng_seed": 13,
+    "number_of_runs": 20000,
+    "AOTU019_synapse": "inhibitory",
+    "AOTU019_strength": 1,
+    "AOTU_other_sum": 0,
+    "steering_gain": 0.65,
+    "AOTU019_direction_penalty": 0.66,
+    "AOTU025_direction_penalty": 1,
+    "settling_tolerance_deg": 2,
+    "outputs": ["target position degrees", "six AOTU channel activities", "DNa02 activity difference", "reported turn rate degrees per second"],
+    "deterministic_subcase_for_exact_parity": {"number_of_runs": 2, "noise_level": 0, "fixed_representative_start_deg": 120, "duration_s": 16, "initial_held_samples": 100}
+  }
+}

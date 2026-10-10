@@ -1,0 +1,350 @@
+{
+  "ablations": {
+    "direction_neutral": {
+      "eye_motion": "0.75*abs(h)"
+    },
+    "instantaneous": {
+      "envelope": "identity; explicit gain unchanged"
+    },
+    "no_static": {
+      "motion_coefficient": 0.75,
+      "static_coefficient": 0
+    },
+    "no_surround": {
+      "surround_weight": 0
+    },
+    "vertical_mean": {
+      "vertical_pool": "mean"
+    }
+  },
+  "created": "2026-10-04",
+  "design_arithmetic": {
+    "checker_sha256": "c74bbdd1c1100dcf34e6322ba46bf735753763503ef8fefe2c8f9895c25606cb",
+    "figure_sha256": "06e07db790a089a6dd155913b417887e8d2e94894e2743b34edea70c71c6ce03",
+    "kernel": {
+      "horizon_s": 3,
+      "mass_checks": [
+        {
+          "bins": 2000,
+          "dt_s": 0.0015,
+          "held_input_quadrature_error": 5.551115123125783e-17,
+          "mass": 1.0
+        },
+        {
+          "bins": 1500,
+          "dt_s": 0.002,
+          "held_input_quadrature_error": 1.6653345369377348e-16,
+          "mass": 1.0
+        }
+      ],
+      "mean_lag_s": 0.5877823647296267,
+      "omitted_total_area_fraction": 1.8713442062948145e-06,
+      "peak_lag_s": 0.4113761942615534,
+      "raw_area_s": 0.6658794831497885,
+      "raw_at_zero": 0.05178544420633849,
+      "raw_tail_area_s": 1.2460920447500707e-06,
+      "stable_equation_max_error": 3.3306690738754696e-16
+    },
+    "source_revision": "d15afdfd21b93774cef963f5c92d511a9ea0d15e",
+    "source_sha256": {
+      "LICENSE": "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499",
+      "sampleLC10Model_tethered.m": "304ab9f31c2739441a810e61bf40e14115bc3eb977c20d4ecded3414aea7c496",
+      "temporalRF_LC10.m": "a24f609650c4a4780140963dff4f5247be1d453b0a9af00e639d7bdf4097f373"
+    },
+    "spatial_illustration": {
+      "biological_parameter_fit": false,
+      "center_sigma_deg": 7.5,
+      "difference_peak_width_deg": 23.58330916428461,
+      "scope": "infinite-panel centered 1D static rectangle only",
+      "surround_sigma_deg": 22.5
+    },
+    "status": "design arithmetic only; no neural candidate, recordings, or fitting"
+  },
+  "design_checker": "tools/check_lc10a_response_design.py",
+  "design_checker_sha256": "c74bbdd1c1100dcf34e6322ba46bf735753763503ef8fefe2c8f9895c25606cb",
+  "envelope": {
+    "alpha_s": -0.1859,
+    "beta_per_s": 15.5884,
+    "formula": "sigmoid(sigma*(kappa-u))*sigmoid(beta*(u+alpha)) for u>=0",
+    "horizon_s": 3,
+    "kappa_s": 0.84962,
+    "kind": "pinned published-model fit, not measured MaleCNS spikes",
+    "measurement_filter": "separate symmetric 50 ms Gaussian on AOTU predictions only",
+    "native_bin_rule": "past held interval; r[n]=gain[n]*sum_m(w[m]*f[n-1-m])",
+    "normalization": "unit continuous area; never normalize startup prefix",
+    "sigma_per_s": 5.5273
+  },
+  "gates": {
+    "RMSE_advantage_over_new_matched_spatial_min_fraction": 0.01,
+    "RMSE_reduction_vs_legacy_intact_min_fraction": 0.05,
+    "allows_Godot_promotion": false,
+    "applies_to_both_primary_P1_types": true,
+    "association_sensitive_if": "anatomy-vs-new-spatial advantage changes sign or wiring wins fall below 30/32",
+    "confirmation_status": "reused-data recording holdouts exploratory",
+    "failure_policy": "retain results and frozen parameters; no gain/kernel sweep; revisit mechanism/target",
+    "new_shuffles_strictly_beaten_min": 30,
+    "numerical_and_coverage_required": true,
+    "recordings_improved_min_fraction": 0.6,
+    "ties_are_wins": false
+  },
+  "identity": {
+    "L": {
+      "fallback": 94,
+      "mapped": 41
+    },
+    "R": {
+      "fallback": 17,
+      "mapped": 123
+    },
+    "fallback": 111,
+    "mapped": 164,
+    "neurons": 275,
+    "ordering": "ascending int64 body ID",
+    "per_neuron_elevation_map": false
+  },
+  "implementation_checkpoints": [
+    "offline response and probes, independent checks, raster convergence, 10 s cost measurement",
+    "separate recorded comparison, coverage/calibration/controls reconstruction, deterministic repeat"
+  ],
+  "probe_stage": {
+    "absent_surround_partners": [
+      "surround_0_R",
+      "surround_0_L",
+      "surround_75_R",
+      "surround_75_L",
+      "surround_-75_R",
+      "surround_-75_L"
+    ],
+    "dt_s": 0.002,
+    "existing_matrix_rows": 68,
+    "extended_duration_s": 6,
+    "gain_check": "explicit 1 vs 2; same labels; label-swapped partners with gain 1",
+    "gain_check_probes": [
+      "dot25_dir1_unstimulated_R",
+      "dot25_dir1_unstimulated_L"
+    ],
+    "isolated_disc": {
+      "contrast": -1,
+      "diameter_deg": 10,
+      "duration_s": 10,
+      "mirror": true,
+      "right_start_azimuth_deg": 30,
+      "right_velocity_deg_s": 75,
+      "surround": "uniform",
+      "visible_interval_s": [
+        6,
+        6.8
+      ]
+    },
+    "original_duration_s": 3,
+    "paused_disc": {
+      "contrast": -1,
+      "diameter_deg": 10,
+      "duration_s": 6,
+      "mirror": true,
+      "right_segments": [
+        {
+          "end_s": 1.4,
+          "start_azimuth_deg": 30,
+          "start_s": 1,
+          "velocity_deg_s": 75
+        },
+        {
+          "end_s": 1.9,
+          "start_azimuth_deg": 60,
+          "start_s": 1.4,
+          "velocity_deg_s": 0
+        },
+        {
+          "end_s": 2.3,
+          "start_azimuth_deg": 60,
+          "start_s": 1.9,
+          "velocity_deg_s": 75
+        }
+      ],
+      "surround": "uniform"
+    },
+    "qualitative_flags": "descriptive compatibility only; no best-of-variants selection",
+    "whole_panel_flashes": {
+      "center_azimuth_deg": 0,
+      "center_elevation_deg": 0,
+      "contrasts": [
+        -1,
+        1
+      ],
+      "duration_s": 6,
+      "height_deg": 60,
+      "velocity_deg_s": 0,
+      "visible_interval_s": [
+        1,
+        1.4
+      ],
+      "width_deg": 330
+    }
+  },
+  "protected_sha256": {
+    "docs/evidence/lc10a_sensor_probes_v1.csv": "864e9724694a2a6e33d14f558061e541f0abf0f29db94f61af75fe99f9222f9f",
+    "docs/evidence/pursuit_population_v1.json": "be4c892575b9a7c914ec4f1cc3d110f4943e24ffd95c0a10b9fede8064565640",
+    "docs/evidence/pursuit_repeatability_v1.json": "891779a0f512fe7106d5a4b73ba566ba78ef7a9624860e89fdc97503973e9469",
+    "docs/lc10a_sensor_contract.md": "4cca245e4cbc78a60156ea0ac84b64ece50a0eceed90220b5083f4f7f0646cfc",
+    "docs/lc10a_sensor_source_refresh.md": "34f71c58b843e4a388f8b43dc9f99f452aee5b1c39d6a0cc928bbcd2483abb9b",
+    "docs/pursuit_population_protocol.md": "791a248d0665cd56f50d6d6908865797a3e714a44aa4855634a85e9b462d895b",
+    "src/fly_creature/data/lc10a_registered_eyemap_hypothesis_v3.json": "690fabf4df864d5d8ca007a1dccef8263498c735aa6ee2d38a78866ed1e4ba90",
+    "src/fly_creature/data/visual_steering_v1.json": "e695c15db69acfca5bd029b88c699674edac5e1344a56cf230b0fadf536c64b2",
+    "src/fly_creature/pursuit_activity.py": "3a9b6de9342f098dd468102c770d55f8f2a0dbaf6ab6d51a3904be784e60827e",
+    "src/fly_creature/pursuit_controller.py": "fe7f4d6ecf86b3a816549bfd4fedf3a7ce124a7b2f92e28daf891404d7dc6584",
+    "src/fly_creature/pursuit_delay_diagnostic.py": "fa7282fc335399a5dec07560eb2aae3df81461de86742df60d94670d8afb79a1",
+    "src/fly_creature/pursuit_motion_diagnostic.py": "b22cd291b9c9d1483ad1ef7460828a37eb8102cc33cf137daeb3307ed01b532c",
+    "src/fly_creature/pursuit_physiology.py": "c2020f4d4b0d35ec8a868c5dbb98d4801c55310f4b994923db83f809ced8bc85",
+    "src/fly_creature/pursuit_population.py": "504c1903b78c5528783883eaf345fd2d2f3cfcebeca5be7fe3fba36b80f1b1be",
+    "src/fly_creature/pursuit_repeatability.py": "47990abb8a648766a78ddd21fdb56f7786a081d4cc78db270a349955f63dc43b",
+    "src/fly_creature/pursuit_step4.py": "e03e9b001e2c33c43d83a215092386760257f3cd038c7c8b26999f4b2875d1fc",
+    "src/fly_creature/pursuit_temporal.py": "78dc175e5c4738df9dbd6f3fb44d05ff1662b8569065b073ad9cd15897403b57",
+    "src/fly_creature/retina.py": "1f8b190260cf1dcc9c84d6165552801399be7ce685f3ea2fd201ddd2a03871a6",
+    "tools/run_lc10a_probes.py": "356f2553faa7aeefaed523fa6830b5850ab97c71c98ffc3d807aebea1465288f"
+  },
+  "protocol": "docs/lc10a_response_design.md",
+  "protocol_sha256": "f476c7a2f76372fd57549c4a1ba81efc73df9db7f55d13b495e8d3ce5fd1ed18",
+  "raster_checks": {
+    "direction_preference_sign_reversal_allowed": false,
+    "horizontal_phase_offsets_deg": [
+      0,
+      0.46875,
+      0.9375,
+      1.40625
+    ],
+    "integrated_virtual_response_relative_error_max": 0.05,
+    "mirrors": true,
+    "oversamples_per_axis": [
+      8,
+      16,
+      32
+    ],
+    "probe_ids": [
+      "width_15_R",
+      "dot10_dir1_unstimulated_R",
+      "bar_25_1_15_R",
+      "bar_75_1_65_R"
+    ],
+    "rectangle_reference": "independent exact pixel-area intersection",
+    "relative_denominator_floor": 1e-09
+  },
+  "recommended_next_model": "Luna Max for fixed rule/probes; Sol medium for consequential recorded-comparison review",
+  "recorded_stage": {
+    "AOTU_transfer": "existing fixed-peak nearest ELU; no new direction multiplier",
+    "archives": "same four verified motion-pulse archives",
+    "association_sensitivities": [
+      {
+        "width_deg": 5.625
+      },
+      {
+        "width_deg": 22.5
+      },
+      {
+        "height_deg": 30
+      },
+      {
+        "contrast": -0.5
+      }
+    ],
+    "association_status": "paper geometry; per-recording pattern/photometry unavailable",
+    "calibration": "one nonnegative no-intercept gain per predictor/type/condition/outer recording; prior inner-eligible indices",
+    "clipping_policy": "any raw drive above old peak + 1e-9 fails representation; no renormalization or dropped observations",
+    "eligible_primary": "new intact only; ablations and association sensitivities diagnostic; all have matched spatial/32 shuffles",
+    "excluded_identity": "AOTU019/2023_06_15_fly03",
+    "matched_control_totals": "same-side synthetic spatial/flat weights normalized to intact AOTU column contact total",
+    "matched_spatial_peaks_deg": {
+      "AOTU019": 35,
+      "AOTU025": 65
+    },
+    "matched_spatial_sigma_deg": 20,
+    "position_policy": "actual unsnapped canonical recorded positions; native full trials; NaN means background under previous convention",
+    "primary_association": {
+      "contrast": -1,
+      "elevation_deg": 0,
+      "height_deg": 60,
+      "shape": "rectangle",
+      "surround": "uniform",
+      "width_deg": 11.25
+    },
+    "primary_metric": "mean held-recording evoked pulse-mean RMSE; P1 types separate",
+    "quiet_pulses": 35484,
+    "recordings": 69,
+    "scored_trial_cells": 34554,
+    "shuffle_count": 32,
+    "shuffle_rule": "existing within-side full output-bundle permutations",
+    "shuffle_seed": 20261006,
+    "target_reference_interval_s": [
+      -0.25,
+      -0.1
+    ],
+    "weights": "equal cells within trial; equal trials within recording; equal recordings"
+  },
+  "rule": {
+    "aperture": "clip(0.5 + eye_sign*azimuth/15,0,1)",
+    "aperture_overlap_deg": 15,
+    "center_sigma_deg": 7.5,
+    "input": "float64 linear-luminance frames and increasing timestamps; explicit current state gain",
+    "kernel_support": "entire observed panel; each Gaussian times per-pixel aperture, normalized separately",
+    "label_to_gain": false,
+    "motion_coefficient": 0.75,
+    "motion_rule": "same-polarity delayed/current adjacent-pixel correlation difference; average valid pairs at pixel centers",
+    "motion_spacing_deg": 1.875,
+    "motion_state_update": "hold previous image to current timestamp before correlating against current image",
+    "motion_tau_s": 0.02,
+    "parameters_status": "fixed synthetic construction; no per-cell or response-informed fitting",
+    "prohibited_inputs": [
+      "target mask",
+      "target identity",
+      "bearing",
+      "velocity label",
+      "size label",
+      "contrast label",
+      "surround label",
+      "P1 filename",
+      "motor covariates"
+    ],
+    "reference_luminance": 1,
+    "regressive_weight": 0.5,
+    "reset": "independent trial boundary only; never at pulse or visibility gaps",
+    "spatial_rule": "max_y(0.25*rectified_DoG(abs(contrast)) + 0.75*rectified_DoG(eye_motion))",
+    "state_gain_primary": 1,
+    "state_gain_synthetic_check": 2,
+    "static_coefficient": 0.25,
+    "supported_luminance_range": [
+      0,
+      2
+    ],
+    "surround_sigma_deg": 22.5,
+    "surround_weight": 1,
+    "vertical_centers": "all 32 existing row-center elevations; shared max pooling, not measured fields"
+  },
+  "schema_version": 1,
+  "source_files": {
+    "LICENSE": {
+      "sha256": "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499",
+      "url": "https://raw.githubusercontent.com/rutalaboratory/LC10NetworkModel/d15afdfd21b93774cef963f5c92d511a9ea0d15e/LICENSE"
+    },
+    "Tethered/sampleLC10Model_tethered.m": {
+      "sha256": "304ab9f31c2739441a810e61bf40e14115bc3eb977c20d4ecded3414aea7c496",
+      "url": "https://raw.githubusercontent.com/rutalaboratory/LC10NetworkModel/d15afdfd21b93774cef963f5c92d511a9ea0d15e/Tethered/sampleLC10Model_tethered.m"
+    },
+    "Tethered/temporalRF_LC10.m": {
+      "sha256": "a24f609650c4a4780140963dff4f5247be1d453b0a9af00e639d7bdf4097f373",
+      "url": "https://raw.githubusercontent.com/rutalaboratory/LC10NetworkModel/d15afdfd21b93774cef963f5c92d511a9ea0d15e/Tethered/temporalRF_LC10.m"
+    }
+  },
+  "source_license": "CC0-1.0",
+  "source_repository": "https://github.com/rutalaboratory/LC10NetworkModel",
+  "source_revision": "d15afdfd21b93774cef963f5c92d511a9ea0d15e",
+  "status": "frozen design; image response and physiology comparison not implemented",
+  "tolerances": {
+    "direct_pooling_atol": 1e-10,
+    "direct_pooling_rtol": 1e-09,
+    "envelope_mass_error": 1e-12,
+    "known_held_pulse_quadrature_error": 1e-11,
+    "mirror_and_chunk_atol": 1e-10,
+    "null_and_uniform_motion_atol": 1e-12,
+    "raw_AOTU_peak_excess": 1e-09
+  }
+}

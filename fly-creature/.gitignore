@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+*.pyc
+.godot/
+.pytest_cache/
+art/export_maps/
+godot/assets/male_drosophila_*.png
+godot/assets/*.import
+outputs/

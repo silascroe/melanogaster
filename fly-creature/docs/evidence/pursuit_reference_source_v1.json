@@ -1,0 +1,26 @@
+{
+  "source": "https://github.com/wilson-lab/CollieWilson",
+  "commit": "65d72773121ffe148b56b8ba4f594a7a51c51789",
+  "paper_doi": "10.1016/j.neuron.2026.01.001",
+  "license_notice": "Repository README says CC BY-NC-ND 4.0; no root LICENSE file at pinned revision",
+  "local_source": "fly-creature/outputs/research/CollieWilson (ignored)",
+  "sha256": {
+    "README.md": "b55e273e6c000178e504f0283fd6fab9e28f5da1a92ad4b2df4e18ee72105bcc",
+    "Modeling_Code/runAOTUmodel.m": "5e89c96de8aa45ecb99cb0a3650eecb68be3c3ae7ef5ef03a54ea962f5982633",
+    "Modeling_Code/modelPerformance_step.m": "aa67490c924a50eb65f3eaba42bd36aeed755b3d9c1ca295980cc43704d77e40",
+    "Modeling_Code/aotu_steering_model.m": "7962abbb96e892ca8c82b7f81a9b17fedd8d295d21b854b8afbbc6b63a0b70f9",
+    "Modeling_Code/support/modelSettings.m": "59d77c4f0acdc78d8d0ecb64babb0ff55074c4df2f7614d5e5d359b33bceb021",
+    "Modeling_Code/support/processRFdata.m": "c252eeecc126cd33636e08bebd987a203f9db7736414975e71f0ff1c60c10a4b",
+    "Modeling_Code/support/ELU.m": "942630d1231752f2f6433278489107524d509b712b124f615a295e61475702fa",
+    "Modeling_Code/support/aotu_steering_model_position.m": "28ed76f93b0dee1e23b3f0ca8f1692bfe9bb0840daebc3844da95ef6b9dd38c4",
+    "Modeling_Code/support/adjELU.m": "d63dcacdbc5dbaec3b5099089140562ab7d2ea1c1cec13f6d586820e694a0b63",
+    "Modeling_Code/support/calculateAverageSettlingTime.m": "b971880f23136cf29245078645131bdba0e468e7ef5ce7677278c1ecad055b3d",
+    "Modeling_Code/Pursuit_RFs.csv": "7d37a650477df797c569aef6ad565f43b26625d6ce7255d42d7340a21e7aead1",
+    "Connectomics_Code/heatmap_analysis.m": "3ebdc46da39689ef696681e12489bd4b2e59303810651068ff928ab75f889f85",
+    "Connectomics_Code/heatmap_average.m": "7bb70797fc5fc7ff4b345aef1a1e68c495e029c20445c9c3a52772bd79ea0e4f",
+    "Connectomics_Code/AOTU_MaleCNS/lc10_to_dn_male.R": "464e0c0f2e5953fe2b25516bdd69a1d4d97ea7c049533f77e186f73f70d549aa",
+    "Connectomics_Code/AOTU_MaleCNS/lc10_heatmap_male.R": "6dfba34673aad3b4f9e71a1fbbc14e0bcca0adfd4d28cb3deac41f85a3b08aeb",
+    "Connectomics_Code/AOTU_MaleCNS/rf/weighted_rf_by_cell.csv": "ad38bd392a66fe7885290cf38ca74ed3820eb962da344598d806834e858833b0",
+    "Connectomics_Code/AOTU_MaleCNS/data/dn_type_avg_DNa02.csv": "66b899f837b031145439602da759804433ce826d0188c67be729810018a21ace"
+  }
+}

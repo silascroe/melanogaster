@@ -229,6 +229,64 @@ collision observed, wall-touch causes in 12 frames, and maximum body-center x
 of about `0.635` m. This demonstrates one fixed replay's collision and causal
 trace; it does not demonstrate biological obstacle avoidance or navigation.
 
+## Bounded threat-crossing diagnostic
+
+The third deterministic arena scenario compares the same static beacon and
+moving collision-triggered threat against a no-threat control at stages `54`,
+`250`, and `1,024`. The threat crosses the early beacon route vertically from
+`(0.6, -0.3)` at `0.1` world units per millisecond, with a `0.65` m sensing
+radius. The body, retina, connectome runtime, native signs, and descending
+population decoder remain unchanged.
+
+The diagnostic separates three observations instead of treating any movement
+as avoidance: the world must report the threat as the active touch source, the
+touch population must spike, and a touch-sourced escape action must follow.
+The real 60-frame replay met that causal criterion at all three stages, while
+the paired no-threat controls produced no escape actions. The follow-up keeps
+those three stage comparisons and adds two nearby threat geometries at stage
+`1,024`, reusing the same no-threat control and reporting first-sensed to
+touch-output and first-sensed to escape latencies. This is a narrow geometry
+generalization check: it does not demonstrate biological predator avoidance,
+learning, or broad generalization.
+
+The two variants are intentionally small perturbations of the baseline path:
+`right-lane` shifts the threat start by `(0.7, -0.2)` and `late-crossing`
+shifts it by `(0.4, -0.7)` while preserving radius, velocity, timing, beacon,
+body, and neural settings. Reusing the stage-matched no-threat control keeps
+the geometry comparison from quietly changing the rest of the experiment.
+
+## Decoder attribution is a vote-level counterfactual
+
+The stage-1,024 decoder audit reuses the baseline crossing and no-threat
+scenarios. It records the live action alongside every descending population
+vote, then scores a strongest-positive-vote shadow decoder on those exact
+vectors. It does not feed shadow actions back into the body: doing so would
+change subsequent sensory inputs and break the matched-input comparison.
+Touch-priority is an arena decoder rule, while touch/vision output-action labels
+and vote aggregation are harness assumptions, not measured connectome facts.
+Only a frame with both populations voting and a live touch escape over a
+stronger visual vote demonstrates a realized priority override. A vote-level
+policy difference without that live action is merely latent sensitivity;
+zero competitive frames leave action arbitration untested.
+
+## Competing-cue decoder replays isolate one decision
+
+A bounded sweep of threat activation at 0, 1, 2, 3, and 4 ms found that a
+2 ms start puts a stronger visual vote and a touch escape vote on the same
+escape-eligible frame at stage 1,024. The follow-up fixes that scene rather
+than tuning the connectome or LIF parameters. A no-threat control and two
+crossing runs share the graph and initial body/world/neural state; only the
+batch action-decoder policy differs. The original touch-priority decoder
+remains the default, including for live Godot sessions. The strongest-vote
+alternative is an explicit batch-only diagnostic option.
+
+This is a controlled comparison only through the first different action:
+retina, input currents, descending votes, and pre-action body state must
+match there. After the action, each replay closes its own sensorimotor loop,
+so later differences are consequences of the decoder choice, not identical-
+input decisions. The designed scene tests a mechanism, not robustness or
+biological predator avoidance.
+
 The visible body is a procedural stylized fly shell kept separate from the
 collision shape. A spherical `ShapeCast3D` remains the authoritative toy body,
 while the shell adds a segmented abdomen, wings, eyes, antennae, and legs for
@@ -242,3 +300,31 @@ lights, threat, and obstacles, while sandbox receives empty collections. An
 explicit empty collection always disables that object type. Direct Python
 construction and JSON parsing therefore produce the same world for the same
 mode and inputs.
+
+## Arena readability is a presentation layer
+
+The Godot floor uses quieter one-meter lines, stronger four-meter guides, a
+subdued perimeter, and small corner instruments so the arena reads as a
+bounded lab surface instead of an endless grid. The beacon has a dimmer core
+with a grounded halo. These are render-only cues: the arena dimensions,
+`_build_boundary_colliders()`, fly collision shape, and Python/Godot world
+contract remain unchanged.
+
+## The Blender hero fly is a separate procedural art study
+
+`artwork/blender/realistic_fly_hero/male_drosophila_hero.blend` is an editable,
+standalone macro interpretation of an adult male *Drosophila melanogaster*.
+Its continuous abdomen shell, corneal facets, fine hairs, articulated legs,
+sex combs, wing membranes, and veins are visual geometry and material work;
+they are not derived from the connectome, a specimen scan, or measured body
+coordinates. The model is not the Godot fly asset and must not silently replace
+`arena3d/assets/decision_chamber_fly.glb` or affect body/collision behavior.
+
+The male A5–A6 dark tergites and foreleg comb are grounded in adult anatomy
+references; the scene represents 11 comb teeth as a practical reference
+instance, not an invariant count for every strain. The wing network represents
+the five main longitudinal veins and crossveins. See the anatomy atlas
+(https://pmc.ncbi.nlm.nih.gov/articles/PMC11457947/), pigmentation study
+(https://pmc.ncbi.nlm.nih.gov/articles/PMC5608185/), and wing review
+(https://pmc.ncbi.nlm.nih.gov/articles/PMC8982031/). The intended standard is
+an inspectable, higher-detail procedural model—not a claim of photorealism.

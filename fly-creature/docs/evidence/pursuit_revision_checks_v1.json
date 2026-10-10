@@ -1,0 +1,19 @@
+{
+  "byte_identical_repeat": {
+    "report.json": true,
+    "observations.csv": true,
+    "features.npz": true,
+    "feature_names.json": true,
+    "folds.csv": true,
+    "summary.csv": true,
+    "ranks.csv": true,
+    "revision.png": true
+  },
+  "independently_reconstructed_recording_fits": 2415,
+  "independent_loss_max_error": 7.105427357601002e-15,
+  "independent_static_gain_max_error": 2.842170943040401e-14,
+  "independent_nnls_mse_max_error": 1.1368683772161603e-13,
+  "exact_previous_coverage_and_static_errors": true,
+  "summaries_wiring_ranks_and_acceptance_gates_reconstructed": true,
+  "source_and_frozen_components_unchanged": true
+}

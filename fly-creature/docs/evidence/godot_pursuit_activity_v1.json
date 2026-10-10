@@ -1,0 +1,44 @@
+{
+  "scope": "Godot integration replay of already evaluated harmonic path, not new generalization evidence",
+  "godot": "4.7.stable",
+  "model": "activity_v1",
+  "trials": {
+    "intact": {
+      "ticks": 800,
+      "simulation_seconds": 7.99999999999987,
+      "mean_abs_bearing_deg": 2.349888,
+      "offline_mean_abs_bearing_deg": 2.35,
+      "max_motor_queue_error_rad_s": 7.216449660063518e-16,
+      "final_heading_rad": 0.0733206296391464,
+      "nonzero_turn_ticks": 780,
+      "min_facing_travel_dot": 0.999999940395355,
+      "video": {
+        "width": 1920,
+        "height": 1080,
+        "r_frame_rate": "60/1",
+        "duration": "8.100000",
+        "nb_frames": "486"
+      },
+      "errors": 0
+    },
+    "disconnected": {
+      "ticks": 800,
+      "simulation_seconds": 7.99999999999987,
+      "mean_abs_bearing_deg": 12.295597,
+      "offline_mean_abs_bearing_deg": 12.296,
+      "max_motor_queue_error_rad_s": 0.0,
+      "final_heading_rad": 0.0,
+      "nonzero_turn_ticks": 0,
+      "min_facing_travel_dot": 1.0,
+      "video": {
+        "width": 1920,
+        "height": 1080,
+        "r_frame_rate": "60/1",
+        "duration": "8.100000",
+        "nb_frames": "486"
+      },
+      "errors": 0
+    }
+  },
+  "passed": true
+}

@@ -1,0 +1,896 @@
+{
+  "question": "Does an independently oriented LC10a map plus an untuned motion feature improve this selected circuit?",
+  "status": "offline; playable default unchanged",
+  "map_sha256": "acd8dab50a468f5c2d715363d00cea2d12130ce0daacce7d7561de4893bb8fe8",
+  "protocol": {
+    "map": "MaleCNS upstream medulla-column contacts plus skeleton geometry; never LC10a output weights",
+    "motion": "Retinal bearing-speed magnitude. Multiply existing input by 0.2 + 0.8*min(speed/25deg/s,1). No direction-specific per-cell assignment or gain fitting.",
+    "fixed_fly": "100ms inactive baseline, 400ms static or 10-degree inward/outward sweep, 20ms world steps and 1ms neural steps, equal base current before motion factor.",
+    "pursuit": "Five paths from the earlier offline experiment, 8s each, 20ms world steps; same circuit, LIF, decoder, turn cap, walking speed, and view gate.",
+    "controls": "Old uniform, old skeleton-position map, upstream map without motion, direct-bearing software turner, and 12 within-side upstream-motion wiring shuffles.",
+    "predeclared_promotion_gate": "Upstream motion must have lower mean bearing error than both uniform and direct and beat both on at least 3/5 paths; also beat shuffle median on at least 3/5 paths. Otherwise do not promote.",
+    "caveat": "The five pursuit paths were previously used to evaluate v1; this is a repeated benchmark, not a fresh held-out validation. Retinal motion includes self-motion during turning."
+  },
+  "map_diagnostics": {
+    "L": {
+      "cells": 135,
+      "upstream_covered": 112,
+      "direct_position_cells": 41,
+      "upstream_h_vs_skeleton_y_pearson": 0.9582,
+      "linear_h_from_y": [
+        0.00645997,
+        -102.02017
+      ]
+    },
+    "R": {
+      "cells": 140,
+      "upstream_covered": 136,
+      "direct_position_cells": 123,
+      "upstream_h_vs_skeleton_y_pearson": 0.9612,
+      "linear_h_from_y": [
+        0.00632715,
+        -105.57666
+      ]
+    }
+  },
+  "fixed_fly": {
+    "L:12:static": {
+      "position": {
+        "LC10a_spikes": 7949,
+        "AOTU019_spikes": 50,
+        "AOTU025_spikes": 9,
+        "DNa02_toward_bias_mv": 1.9239,
+        "DNa02_spikes": 0,
+        "mean_input_strength": 1.0,
+        "mean_retinal_speed_deg_s": 0.0
+      },
+      "motion": {
+        "LC10a_spikes": 1514,
+        "AOTU019_spikes": 2,
+        "AOTU025_spikes": 0,
+        "DNa02_toward_bias_mv": 0.0721,
+        "DNa02_spikes": 0,
+        "mean_input_strength": 0.2,
+        "mean_retinal_speed_deg_s": 0.0
+      },
+      "motion_shuffled_median": {
+        "AOTU019_spikes": 0.0,
+        "AOTU025_spikes": 0.0,
+        "DNa02_toward_bias_mv": 0.0
+      }
+    },
+    "L:12:outward": {
+      "position": {
+        "LC10a_spikes": 7957,
+        "AOTU019_spikes": 45,
+        "AOTU025_spikes": 8,
+        "DNa02_toward_bias_mv": 1.7402,
+        "DNa02_spikes": 0,
+        "mean_input_strength": 1.0,
+        "mean_retinal_speed_deg_s": 0.0
+      },
+      "motion": {
+        "LC10a_spikes": 7626,
+        "AOTU019_spikes": 47,
+        "AOTU025_spikes": 8,
+        "DNa02_toward_bias_mv": 1.7846,
+        "DNa02_spikes": 0,
+        "mean_input_strength": 0.96,
+        "mean_retinal_speed_deg_s": 23.75
+      },
+      "motion_shuffled_median": {
+        "AOTU019_spikes": 38.5,
+        "AOTU025_spikes": 18.0,
+        "DNa02_toward_bias_mv": 1.7613
+      }
+    },
+    "L:12:inward": {
+      "position": {
+        "LC10a_spikes": 7956,
+        "AOTU019_spikes": 45,
+        "AOTU025_spikes": 8,
+        "DNa02_toward_bias_mv": 1.7173,
+        "DNa02_spikes": 0,
+        "mean_input_strength": 1.0,
+        "mean_retinal_speed_deg_s": 0.0
+      },
+      "motion": {
+        "LC10a_spikes": 7626,
+        "AOTU019_spikes": 46,
+        "AOTU025_spikes": 7,
+        "DNa02_toward_bias_mv": 1.7574,
+        "DNa02_spikes": 0,
+        "mean_input_strength": 0.96,
+        "mean_retinal_speed_deg_s": 23.75
+      },
+      "motion_shuffled_median": {
+        "AOTU019_spikes": 38.0,
+        "AOTU025_spikes": 18.0,
+        "DNa02_toward_bias_mv": 1.7367
+      }
+    },
+    "L:25:static": {
+      "position": {
+        "LC10a_spikes": 8673,
+        "AOTU019_spikes": 66,
+        "AOTU025_spikes": 20,
+        "DNa02_toward_bias_mv": 2.7511,
+        "DNa02_spikes": 0,
+        "mean_input_strength": 1.0,
+        "mean_retinal_speed_deg_s": 0.0
+      },
+      "motion": {
+        "LC10a_spikes": 1389,
+        "AOTU019_spikes": 5,
+        "AOTU025_spikes": 0,
+        "DNa02_toward_bias_mv": 0.145,
+        "DNa02_spikes": 0,
+        "mean_input_strength": 0.2,
+        "mean_retinal_speed_deg_s": 0.0
+      },
+      "motion_shuffled_median": {
+        "AOTU019_spikes": 0.0,
+        "AOTU025_spikes": 0.0,
+        "DNa02_toward_bias_mv": 0.0
+      }
+    },
+    "L:25:outward": {
+      "position": {
+        "LC10a_spikes": 8632,
+        "AOTU019_spikes": 44,
+        "AOTU025_spikes": 18,
+        "DNa02_toward_bias_mv": 1.9421,
+        "DNa02_spikes": 0,
+        "mean_input_strength": 1.0,
+        "mean_retinal_speed_deg_s": 0.0
+      },
+      "motion": {
+        "LC10a_spikes": 8282,
+        "AOTU019_spikes": 46,
+        "AOTU025_spikes": 18,
+        "DNa02_toward_bias_mv": 2.0126,
+        "DNa02_spikes": 0,
+        "mean_input_strength": 0.96,
+        "mean_retinal_speed_deg_s": 23.75
+      },
+      "motion_shuffled_median": {
+        "AOTU019_spikes": 40.0,
+        "AOTU025_spikes": 20.0,
+        "DNa02_toward_bias_mv": 1.8382
+      }
+    },
+    "L:25:inward": {
+      "position": {
+        "LC10a_spikes": 8631,
+        "AOTU019_spikes": 50,
+        "AOTU025_spikes": 19,
+        "DNa02_toward_bias_mv": 2.1888,
+        "DNa02_spikes": 0,
+        "mean_input_strength": 1.0,
+        "mean_retinal_speed_deg_s": 0.0
+      },
+      "motion": {
+        "LC10a_spikes": 8250,
+        "AOTU019_spikes": 47,
+        "AOTU025_spikes": 18,
+        "DNa02_toward_bias_mv": 2.0409,
+        "DNa02_spikes": 0,
+        "mean_input_strength": 0.96,
+        "mean_retinal_speed_deg_s": 23.75
+      },
+      "motion_shuffled_median": {
+        "AOTU019_spikes": 39.5,
+        "AOTU025_spikes": 20.0,
+        "DNa02_toward_bias_mv": 1.8338
+      }
+    },
+    "L:40:static": {
+      "position": {
+        "LC10a_spikes": 8673,
+        "AOTU019_spikes": 41,
+        "AOTU025_spikes": 26,
+        "DNa02_toward_bias_mv": 2.0323,
+        "DNa02_spikes": 0,
+        "mean_input_strength": 1.0,
+        "mean_retinal_speed_deg_s": 0.0
+      },
+      "motion": {
+        "LC10a_spikes": 1389,
+        "AOTU019_spikes": 0,
+        "AOTU025_spikes": 0,
+        "DNa02_toward_bias_mv": 0.0,
+        "DNa02_spikes": 0,
+        "mean_input_strength": 0.2,
+        "mean_retinal_speed_deg_s": 0.0
+      },
+      "motion_shuffled_median": {
+        "AOTU019_spikes": 0.0,
+        "AOTU025_spikes": 0.0,
+        "DNa02_toward_bias_mv": 0.0
+      }
+    },
+    "L:40:outward": {
+      "position": {
+        "LC10a_spikes": 8631,
+        "AOTU019_spikes": 40,
+        "AOTU025_spikes": 26,
+        "DNa02_toward_bias_mv": 1.9986,
+        "DNa02_spikes": 0,
+        "mean_input_strength": 1.0,
+        "mean_retinal_speed_deg_s": 0.0
+      },
+      "motion": {
+        "LC10a_spikes": 8250,
+        "AOTU019_spikes": 39,
+        "AOTU025_spikes": 25,
+        "DNa02_toward_bias_mv": 1.9294,
+        "DNa02_spikes": 0,
+        "mean_input_strength": 0.96,
+        "mean_retinal_speed_deg_s": 23.75
+      },
+      "motion_shuffled_median": {
+        "AOTU019_spikes": 39.5,
+        "AOTU025_spikes": 20.0,
+        "DNa02_toward_bias_mv": 1.8407
+      }
+    },
+    "L:40:inward": {
+      "position": {
+        "LC10a_spikes": 8632,
+        "AOTU019_spikes": 42,
+        "AOTU025_spikes": 26,
+        "DNa02_toward_bias_mv": 2.076,
+        "DNa02_spikes": 0,
+        "mean_input_strength": 1.0,
+        "mean_retinal_speed_deg_s": 0.0
+      },
+      "motion": {
+        "LC10a_spikes": 8282,
+        "AOTU019_spikes": 44,
+        "AOTU025_spikes": 25,
+        "DNa02_toward_bias_mv": 2.0978,
+        "DNa02_spikes": 0,
+        "mean_input_strength": 0.96,
+        "mean_retinal_speed_deg_s": 23.75
+      },
+      "motion_shuffled_median": {
+        "AOTU019_spikes": 40.0,
+        "AOTU025_spikes": 21.0,
+        "DNa02_toward_bias_mv": 1.8444
+      }
+    },
+    "L:55:static": {
+      "position": {
+        "LC10a_spikes": 8060,
+        "AOTU019_spikes": 35,
+        "AOTU025_spikes": 29,
+        "DNa02_toward_bias_mv": 1.8902,
+        "DNa02_spikes": 0,
+        "mean_input_strength": 1.0,
+        "mean_retinal_speed_deg_s": 0.0
+      },
+      "motion": {
+        "LC10a_spikes": 1507,
+        "AOTU019_spikes": 0,
+        "AOTU025_spikes": 0,
+        "DNa02_toward_bias_mv": 0.0,
+        "DNa02_spikes": 0,
+        "mean_input_strength": 0.2,
+        "mean_retinal_speed_deg_s": 0.0
+      },
+      "motion_shuffled_median": {
+        "AOTU019_spikes": 0.0,
+        "AOTU025_spikes": 0.0,
+        "DNa02_toward_bias_mv": 0.0
+      }
+    },
+    "L:55:outward": {
+      "position": {
+        "LC10a_spikes": 7917,
+        "AOTU019_spikes": 35,
+        "AOTU025_spikes": 28,
+        "DNa02_toward_bias_mv": 1.9007,
+        "DNa02_spikes": 0,
+        "mean_input_strength": 1.0,
+        "mean_retinal_speed_deg_s": 0.0
+      },
+      "motion": {
+        "LC10a_spikes": 7601,
+        "AOTU019_spikes": 32,
+        "AOTU025_spikes": 26,
+        "DNa02_toward_bias_mv": 1.7306,
+        "DNa02_spikes": 0,
+        "mean_input_strength": 0.96,
+        "mean_retinal_speed_deg_s": 23.75
+      },
+      "motion_shuffled_median": {
+        "AOTU019_spikes": 38.0,
+        "AOTU025_spikes": 19.0,
+        "DNa02_toward_bias_mv": 1.7632
+      }
+    },
+    "L:55:inward": {
+      "position": {
+        "LC10a_spikes": 7918,
+        "AOTU019_spikes": 34,
+        "AOTU025_spikes": 29,
+        "DNa02_toward_bias_mv": 1.8702,
+        "DNa02_spikes": 0,
+        "mean_input_strength": 1.0,
+        "mean_retinal_speed_deg_s": 0.0
+      },
+      "motion": {
+        "LC10a_spikes": 7592,
+        "AOTU019_spikes": 34,
+        "AOTU025_spikes": 26,
+        "DNa02_toward_bias_mv": 1.7951,
+        "DNa02_spikes": 0,
+        "mean_input_strength": 0.96,
+        "mean_retinal_speed_deg_s": 23.75
+      },
+      "motion_shuffled_median": {
+        "AOTU019_spikes": 39.0,
+        "AOTU025_spikes": 19.0,
+        "DNa02_toward_bias_mv": 1.7635
+      }
+    },
+    "R:12:static": {
+      "position": {
+        "LC10a_spikes": 8227,
+        "AOTU019_spikes": 57,
+        "AOTU025_spikes": 11,
+        "DNa02_toward_bias_mv": 2.2534,
+        "DNa02_spikes": 0,
+        "mean_input_strength": 1.0,
+        "mean_retinal_speed_deg_s": 0.0
+      },
+      "motion": {
+        "LC10a_spikes": 1574,
+        "AOTU019_spikes": 4,
+        "AOTU025_spikes": 0,
+        "DNa02_toward_bias_mv": 0.1439,
+        "DNa02_spikes": 0,
+        "mean_input_strength": 0.2,
+        "mean_retinal_speed_deg_s": 0.0
+      },
+      "motion_shuffled_median": {
+        "AOTU019_spikes": 0.0,
+        "AOTU025_spikes": 0.0,
+        "DNa02_toward_bias_mv": 0.0
+      }
+    },
+    "R:12:outward": {
+      "position": {
+        "LC10a_spikes": 8251,
+        "AOTU019_spikes": 53,
+        "AOTU025_spikes": 10,
+        "DNa02_toward_bias_mv": 2.0795,
+        "DNa02_spikes": 0,
+        "mean_input_strength": 1.0,
+        "mean_retinal_speed_deg_s": 0.0
+      },
+      "motion": {
+        "LC10a_spikes": 7907,
+        "AOTU019_spikes": 51,
+        "AOTU025_spikes": 9,
+        "DNa02_toward_bias_mv": 1.9807,
+        "DNa02_spikes": 0,
+        "mean_input_strength": 0.96,
+        "mean_retinal_speed_deg_s": 23.75
+      },
+      "motion_shuffled_median": {
+        "AOTU019_spikes": 43.5,
+        "AOTU025_spikes": 20.5,
+        "DNa02_toward_bias_mv": 2.0215
+      }
+    },
+    "R:12:inward": {
+      "position": {
+        "LC10a_spikes": 8250,
+        "AOTU019_spikes": 55,
+        "AOTU025_spikes": 10,
+        "DNa02_toward_bias_mv": 2.1962,
+        "DNa02_spikes": 0,
+        "mean_input_strength": 1.0,
+        "mean_retinal_speed_deg_s": 0.0
+      },
+      "motion": {
+        "LC10a_spikes": 7908,
+        "AOTU019_spikes": 50,
+        "AOTU025_spikes": 9,
+        "DNa02_toward_bias_mv": 1.9756,
+        "DNa02_spikes": 0,
+        "mean_input_strength": 0.96,
+        "mean_retinal_speed_deg_s": 23.75
+      },
+      "motion_shuffled_median": {
+        "AOTU019_spikes": 44.0,
+        "AOTU025_spikes": 20.5,
+        "DNa02_toward_bias_mv": 2.0257
+      }
+    },
+    "R:25:static": {
+      "position": {
+        "LC10a_spikes": 8986,
+        "AOTU019_spikes": 66,
+        "AOTU025_spikes": 22,
+        "DNa02_toward_bias_mv": 2.8483,
+        "DNa02_spikes": 0,
+        "mean_input_strength": 1.0,
+        "mean_retinal_speed_deg_s": 0.0
+      },
+      "motion": {
+        "LC10a_spikes": 1439,
+        "AOTU019_spikes": 8,
+        "AOTU025_spikes": 0,
+        "DNa02_toward_bias_mv": 0.257,
+        "DNa02_spikes": 0,
+        "mean_input_strength": 0.2,
+        "mean_retinal_speed_deg_s": 0.0
+      },
+      "motion_shuffled_median": {
+        "AOTU019_spikes": 0.0,
+        "AOTU025_spikes": 0.0,
+        "DNa02_toward_bias_mv": 0.0
+      }
+    },
+    "R:25:outward": {
+      "position": {
+        "LC10a_spikes": 8955,
+        "AOTU019_spikes": 64,
+        "AOTU025_spikes": 21,
+        "DNa02_toward_bias_mv": 2.7571,
+        "DNa02_spikes": 0,
+        "mean_input_strength": 1.0,
+        "mean_retinal_speed_deg_s": 0.0
+      },
+      "motion": {
+        "LC10a_spikes": 8589,
+        "AOTU019_spikes": 55,
+        "AOTU025_spikes": 20,
+        "DNa02_toward_bias_mv": 2.393,
+        "DNa02_spikes": 0,
+        "mean_input_strength": 0.96,
+        "mean_retinal_speed_deg_s": 23.75
+      },
+      "motion_shuffled_median": {
+        "AOTU019_spikes": 47.0,
+        "AOTU025_spikes": 24.0,
+        "DNa02_toward_bias_mv": 2.2126
+      }
+    },
+    "R:25:inward": {
+      "position": {
+        "LC10a_spikes": 8955,
+        "AOTU019_spikes": 63,
+        "AOTU025_spikes": 21,
+        "DNa02_toward_bias_mv": 2.7084,
+        "DNa02_spikes": 0,
+        "mean_input_strength": 1.0,
+        "mean_retinal_speed_deg_s": 0.0
+      },
+      "motion": {
+        "LC10a_spikes": 8559,
+        "AOTU019_spikes": 59,
+        "AOTU025_spikes": 20,
+        "DNa02_toward_bias_mv": 2.5398,
+        "DNa02_spikes": 0,
+        "mean_input_strength": 0.96,
+        "mean_retinal_speed_deg_s": 23.75
+      },
+      "motion_shuffled_median": {
+        "AOTU019_spikes": 47.0,
+        "AOTU025_spikes": 24.0,
+        "DNa02_toward_bias_mv": 2.2186
+      }
+    },
+    "R:40:static": {
+      "position": {
+        "LC10a_spikes": 8986,
+        "AOTU019_spikes": 57,
+        "AOTU025_spikes": 33,
+        "DNa02_toward_bias_mv": 2.7681,
+        "DNa02_spikes": 0,
+        "mean_input_strength": 1.0,
+        "mean_retinal_speed_deg_s": 0.0
+      },
+      "motion": {
+        "LC10a_spikes": 1439,
+        "AOTU019_spikes": 0,
+        "AOTU025_spikes": 0,
+        "DNa02_toward_bias_mv": 0.0,
+        "DNa02_spikes": 0,
+        "mean_input_strength": 0.2,
+        "mean_retinal_speed_deg_s": 0.0
+      },
+      "motion_shuffled_median": {
+        "AOTU019_spikes": 0.0,
+        "AOTU025_spikes": 0.0,
+        "DNa02_toward_bias_mv": 0.0
+      }
+    },
+    "R:40:outward": {
+      "position": {
+        "LC10a_spikes": 8955,
+        "AOTU019_spikes": 54,
+        "AOTU025_spikes": 27,
+        "DNa02_toward_bias_mv": 2.5429,
+        "DNa02_spikes": 0,
+        "mean_input_strength": 1.0,
+        "mean_retinal_speed_deg_s": 0.0
+      },
+      "motion": {
+        "LC10a_spikes": 8559,
+        "AOTU019_spikes": 50,
+        "AOTU025_spikes": 28,
+        "DNa02_toward_bias_mv": 2.4158,
+        "DNa02_spikes": 0,
+        "mean_input_strength": 0.96,
+        "mean_retinal_speed_deg_s": 23.75
+      },
+      "motion_shuffled_median": {
+        "AOTU019_spikes": 46.5,
+        "AOTU025_spikes": 24.0,
+        "DNa02_toward_bias_mv": 2.2026
+      }
+    },
+    "R:40:inward": {
+      "position": {
+        "LC10a_spikes": 8955,
+        "AOTU019_spikes": 50,
+        "AOTU025_spikes": 34,
+        "DNa02_toward_bias_mv": 2.5711,
+        "DNa02_spikes": 0,
+        "mean_input_strength": 1.0,
+        "mean_retinal_speed_deg_s": 0.0
+      },
+      "motion": {
+        "LC10a_spikes": 8589,
+        "AOTU019_spikes": 49,
+        "AOTU025_spikes": 26,
+        "DNa02_toward_bias_mv": 2.3314,
+        "DNa02_spikes": 0,
+        "mean_input_strength": 0.96,
+        "mean_retinal_speed_deg_s": 23.75
+      },
+      "motion_shuffled_median": {
+        "AOTU019_spikes": 47.0,
+        "AOTU025_spikes": 25.0,
+        "DNa02_toward_bias_mv": 2.2134
+      }
+    },
+    "R:55:static": {
+      "position": {
+        "LC10a_spikes": 8390,
+        "AOTU019_spikes": 40,
+        "AOTU025_spikes": 40,
+        "DNa02_toward_bias_mv": 2.3185,
+        "DNa02_spikes": 0,
+        "mean_input_strength": 1.0,
+        "mean_retinal_speed_deg_s": 0.0
+      },
+      "motion": {
+        "LC10a_spikes": 1564,
+        "AOTU019_spikes": 0,
+        "AOTU025_spikes": 0,
+        "DNa02_toward_bias_mv": 0.0,
+        "DNa02_spikes": 0,
+        "mean_input_strength": 0.2,
+        "mean_retinal_speed_deg_s": 0.0
+      },
+      "motion_shuffled_median": {
+        "AOTU019_spikes": 0.0,
+        "AOTU025_spikes": 0.0,
+        "DNa02_toward_bias_mv": 0.0
+      }
+    },
+    "R:55:outward": {
+      "position": {
+        "LC10a_spikes": 8208,
+        "AOTU019_spikes": 40,
+        "AOTU025_spikes": 39,
+        "DNa02_toward_bias_mv": 2.3156,
+        "DNa02_spikes": 0,
+        "mean_input_strength": 1.0,
+        "mean_retinal_speed_deg_s": 0.0
+      },
+      "motion": {
+        "LC10a_spikes": 7884,
+        "AOTU019_spikes": 39,
+        "AOTU025_spikes": 30,
+        "DNa02_toward_bias_mv": 2.059,
+        "DNa02_spikes": 0,
+        "mean_input_strength": 0.96,
+        "mean_retinal_speed_deg_s": 23.75
+      },
+      "motion_shuffled_median": {
+        "AOTU019_spikes": 45.0,
+        "AOTU025_spikes": 22.0,
+        "DNa02_toward_bias_mv": 2.0495
+      }
+    },
+    "R:55:inward": {
+      "position": {
+        "LC10a_spikes": 8209,
+        "AOTU019_spikes": 40,
+        "AOTU025_spikes": 39,
+        "DNa02_toward_bias_mv": 2.2946,
+        "DNa02_spikes": 0,
+        "mean_input_strength": 1.0,
+        "mean_retinal_speed_deg_s": 0.0
+      },
+      "motion": {
+        "LC10a_spikes": 7879,
+        "AOTU019_spikes": 39,
+        "AOTU025_spikes": 31,
+        "DNa02_toward_bias_mv": 2.1068,
+        "DNa02_spikes": 0,
+        "mean_input_strength": 0.96,
+        "mean_retinal_speed_deg_s": 23.75
+      },
+      "motion_shuffled_median": {
+        "AOTU019_spikes": 45.0,
+        "AOTU025_spikes": 22.0,
+        "DNa02_toward_bias_mv": 2.0695
+      }
+    }
+  },
+  "pursuit": {
+    "reverse_twice": {
+      "uniform": {
+        "mean_abs_bearing_deg": 11.183,
+        "p90_abs_bearing_deg": 17.798,
+        "in_view_fraction": 1.0,
+        "DNa02_spikes": 0
+      },
+      "old_anatomy_position": {
+        "mean_abs_bearing_deg": 12.611,
+        "p90_abs_bearing_deg": 19.753,
+        "in_view_fraction": 1.0,
+        "DNa02_spikes": 0
+      },
+      "upstream_position": {
+        "mean_abs_bearing_deg": 12.504,
+        "p90_abs_bearing_deg": 19.517,
+        "in_view_fraction": 1.0,
+        "DNa02_spikes": 0
+      },
+      "upstream_motion": {
+        "mean_abs_bearing_deg": 15.669,
+        "p90_abs_bearing_deg": 26.948,
+        "in_view_fraction": 1.0,
+        "mean_retinal_speed_deg_s": 20.576,
+        "DNa02_spikes": 0
+      },
+      "direct_bearing": {
+        "mean_abs_bearing_deg": 11.346,
+        "p90_abs_bearing_deg": 18.568,
+        "in_view_fraction": 1.0,
+        "DNa02_spikes": null
+      },
+      "upstream_motion_shuffled_median": 16.26,
+      "upstream_motion_shuffled": {
+        "101": 16.294,
+        "102": 16.252,
+        "103": 16.173,
+        "104": 16.276,
+        "105": 16.143,
+        "106": 16.325,
+        "107": 16.327,
+        "108": 16.26,
+        "109": 16.26,
+        "110": 16.36,
+        "111": 16.215,
+        "112": 16.233
+      }
+    },
+    "offset_sweep": {
+      "uniform": {
+        "mean_abs_bearing_deg": 6.99,
+        "p90_abs_bearing_deg": 9.557,
+        "in_view_fraction": 1.0,
+        "DNa02_spikes": 0
+      },
+      "old_anatomy_position": {
+        "mean_abs_bearing_deg": 7.967,
+        "p90_abs_bearing_deg": 11.127,
+        "in_view_fraction": 1.0,
+        "DNa02_spikes": 0
+      },
+      "upstream_position": {
+        "mean_abs_bearing_deg": 7.82,
+        "p90_abs_bearing_deg": 10.807,
+        "in_view_fraction": 1.0,
+        "DNa02_spikes": 0
+      },
+      "upstream_motion": {
+        "mean_abs_bearing_deg": 12.925,
+        "p90_abs_bearing_deg": 22.99,
+        "in_view_fraction": 1.0,
+        "mean_retinal_speed_deg_s": 7.439,
+        "DNa02_spikes": 0
+      },
+      "direct_bearing": {
+        "mean_abs_bearing_deg": 5.173,
+        "p90_abs_bearing_deg": 7.591,
+        "in_view_fraction": 1.0,
+        "DNa02_spikes": null
+      },
+      "upstream_motion_shuffled_median": 19.414,
+      "upstream_motion_shuffled": {
+        "101": 19.495,
+        "102": 19.225,
+        "103": 19.113,
+        "104": 19.255,
+        "105": 18.621,
+        "106": 19.82,
+        "107": 19.533,
+        "108": 19.333,
+        "109": 19.609,
+        "110": 19.695,
+        "111": 18.588,
+        "112": 19.768
+      }
+    },
+    "near_target": {
+      "uniform": {
+        "mean_abs_bearing_deg": 13.0,
+        "p90_abs_bearing_deg": 27.696,
+        "in_view_fraction": 1.0,
+        "DNa02_spikes": 0
+      },
+      "old_anatomy_position": {
+        "mean_abs_bearing_deg": 16.276,
+        "p90_abs_bearing_deg": 38.456,
+        "in_view_fraction": 1.0,
+        "DNa02_spikes": 0
+      },
+      "upstream_position": {
+        "mean_abs_bearing_deg": 16.309,
+        "p90_abs_bearing_deg": 38.394,
+        "in_view_fraction": 1.0,
+        "DNa02_spikes": 0
+      },
+      "upstream_motion": {
+        "mean_abs_bearing_deg": 23.956,
+        "p90_abs_bearing_deg": 57.604,
+        "in_view_fraction": 1.0,
+        "mean_retinal_speed_deg_s": 17.566,
+        "DNa02_spikes": 0
+      },
+      "direct_bearing": {
+        "mean_abs_bearing_deg": 13.087,
+        "p90_abs_bearing_deg": 28.945,
+        "in_view_fraction": 1.0,
+        "DNa02_spikes": null
+      },
+      "upstream_motion_shuffled_median": 28.468,
+      "upstream_motion_shuffled": {
+        "101": 28.501,
+        "102": 28.294,
+        "103": 28.117,
+        "104": 28.434,
+        "105": 27.624,
+        "106": 28.957,
+        "107": 28.581,
+        "108": 28.541,
+        "109": 28.694,
+        "110": 29.043,
+        "111": 26.401,
+        "112": 26.679
+      }
+    },
+    "far_target": {
+      "uniform": {
+        "mean_abs_bearing_deg": 8.868,
+        "p90_abs_bearing_deg": 14.255,
+        "in_view_fraction": 1.0,
+        "DNa02_spikes": 0
+      },
+      "old_anatomy_position": {
+        "mean_abs_bearing_deg": 10.008,
+        "p90_abs_bearing_deg": 17.139,
+        "in_view_fraction": 1.0,
+        "DNa02_spikes": 0
+      },
+      "upstream_position": {
+        "mean_abs_bearing_deg": 9.892,
+        "p90_abs_bearing_deg": 17.075,
+        "in_view_fraction": 1.0,
+        "DNa02_spikes": 0
+      },
+      "upstream_motion": {
+        "mean_abs_bearing_deg": 14.937,
+        "p90_abs_bearing_deg": 23.223,
+        "in_view_fraction": 1.0,
+        "mean_retinal_speed_deg_s": 11.889,
+        "DNa02_spikes": 0
+      },
+      "direct_bearing": {
+        "mean_abs_bearing_deg": 8.024,
+        "p90_abs_bearing_deg": 14.438,
+        "in_view_fraction": 1.0,
+        "DNa02_spikes": null
+      },
+      "upstream_motion_shuffled_median": 15.434,
+      "upstream_motion_shuffled": {
+        "101": 15.404,
+        "102": 15.357,
+        "103": 15.318,
+        "104": 15.41,
+        "105": 15.079,
+        "106": 15.619,
+        "107": 15.478,
+        "108": 15.472,
+        "109": 15.485,
+        "110": 15.48,
+        "111": 15.236,
+        "112": 15.459
+      }
+    },
+    "stop_go": {
+      "uniform": {
+        "mean_abs_bearing_deg": 9.475,
+        "p90_abs_bearing_deg": 12.439,
+        "in_view_fraction": 1.0,
+        "DNa02_spikes": 0
+      },
+      "old_anatomy_position": {
+        "mean_abs_bearing_deg": 10.747,
+        "p90_abs_bearing_deg": 14.123,
+        "in_view_fraction": 1.0,
+        "DNa02_spikes": 0
+      },
+      "upstream_position": {
+        "mean_abs_bearing_deg": 10.616,
+        "p90_abs_bearing_deg": 13.781,
+        "in_view_fraction": 1.0,
+        "DNa02_spikes": 0
+      },
+      "upstream_motion": {
+        "mean_abs_bearing_deg": 18.024,
+        "p90_abs_bearing_deg": 26.27,
+        "in_view_fraction": 1.0,
+        "mean_retinal_speed_deg_s": 9.74,
+        "DNa02_spikes": 0
+      },
+      "direct_bearing": {
+        "mean_abs_bearing_deg": 7.811,
+        "p90_abs_bearing_deg": 12.04,
+        "in_view_fraction": 1.0,
+        "DNa02_spikes": null
+      },
+      "upstream_motion_shuffled_median": 18.901,
+      "upstream_motion_shuffled": {
+        "101": 18.849,
+        "102": 21.409,
+        "103": 18.228,
+        "104": 20.684,
+        "105": 18.643,
+        "106": 18.804,
+        "107": 18.952,
+        "108": 19.064,
+        "109": 18.961,
+        "110": 19.053,
+        "111": 18.579,
+        "112": 18.631
+      }
+    }
+  },
+  "mean_pursuit_error_deg": {
+    "uniform": 9.903,
+    "old_anatomy_position": 11.522,
+    "upstream_position": 11.428,
+    "upstream_motion": 17.102,
+    "direct_bearing": 9.088,
+    "upstream_motion_shuffled_median": 19.695
+  },
+  "decision": {
+    "promote_to_playable": false,
+    "path_wins_out_of_five": {
+      "versus_uniform": 0,
+      "versus_direct": 0,
+      "versus_shuffle_median": 5
+    }
+  }
+}

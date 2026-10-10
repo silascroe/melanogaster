@@ -1,0 +1,4053 @@
+{
+  "excluded_duplicate_identities": [
+    "AOTU019/2023_06_15_fly03"
+  ],
+  "summary": {
+    "NoP1/metadata": {
+      "AOTU019/quiescent": {
+        "available": true,
+        "flies": 12,
+        "pulses": 4560,
+        "scores": {
+          "baseline": {
+            "pulse_rmse_spikes_s": {
+              "mean": 7.039071269788664,
+              "sem": 0.8175231549685151
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 6.508272660874868,
+              "sem": 0.5906111382450272
+            },
+            "time_rmse_spikes_s": {
+              "mean": 8.48892632183895,
+              "sem": 0.6809173498198603
+            }
+          },
+          "footprint": {
+            "pulse_rmse_spikes_s": {
+              "mean": 7.03886412717326,
+              "sem": 0.8175165364998246
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 6.508370467100611,
+              "sem": 0.5905006612729836
+            },
+            "time_rmse_spikes_s": {
+              "mean": 8.488711991718818,
+              "sem": 0.6808812626279712
+            }
+          },
+          "simple_spatial": {
+            "pulse_rmse_spikes_s": {
+              "mean": 7.043682803771476,
+              "sem": 0.8174171588387044
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 6.528798400578425,
+              "sem": 0.5927562385330645
+            },
+            "time_rmse_spikes_s": {
+              "mean": 8.495979831199476,
+              "sem": 0.6768939631692485
+            }
+          },
+          "intercept_only": {
+            "pulse_rmse_spikes_s": {
+              "mean": 7.039451460914922,
+              "sem": 0.8192066775525605
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 6.563919748879308,
+              "sem": 0.5935866639400196
+            },
+            "time_rmse_spikes_s": {
+              "mean": 8.513878067108784,
+              "sem": 0.6721830382384125
+            }
+          }
+        },
+        "pulse_error_beats_shuffles": {
+          "baseline": 32,
+          "footprint": 32
+        }
+      },
+      "AOTU019/running": {
+        "available": true,
+        "flies": 10,
+        "pulses": 652,
+        "scores": {
+          "baseline": {
+            "pulse_rmse_spikes_s": {
+              "mean": 11.757223486988842,
+              "sem": 1.8043198783312018
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 10.023672137280453,
+              "sem": 1.0904062947140385
+            },
+            "time_rmse_spikes_s": {
+              "mean": 12.768782364345808,
+              "sem": 1.2616770086298992
+            }
+          },
+          "footprint": {
+            "pulse_rmse_spikes_s": {
+              "mean": 11.753313533025828,
+              "sem": 1.8048890064393484
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 10.017990862138971,
+              "sem": 1.0871684786451006
+            },
+            "time_rmse_spikes_s": {
+              "mean": 12.768147459623616,
+              "sem": 1.2607116371087295
+            }
+          },
+          "simple_spatial": {
+            "pulse_rmse_spikes_s": {
+              "mean": 11.580862697326076,
+              "sem": 1.8015439928315435
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 9.76702242005488,
+              "sem": 1.1362151259328943
+            },
+            "time_rmse_spikes_s": {
+              "mean": 12.785931442885069,
+              "sem": 1.2228421099914186
+            }
+          },
+          "intercept_only": {
+            "pulse_rmse_spikes_s": {
+              "mean": 11.225589283290994,
+              "sem": 1.8529041485691975
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 9.297653079335513,
+              "sem": 1.1635222126755886
+            },
+            "time_rmse_spikes_s": {
+              "mean": 12.843560399010192,
+              "sem": 1.2278278619368463
+            }
+          }
+        },
+        "pulse_error_beats_shuffles": {
+          "baseline": 22,
+          "footprint": 18
+        }
+      },
+      "AOTU019/mixed": {
+        "available": true,
+        "flies": 11,
+        "pulses": 1908,
+        "scores": {
+          "baseline": {
+            "pulse_rmse_spikes_s": {
+              "mean": 8.50831086877328,
+              "sem": 1.171945392961366
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 8.916005168693642,
+              "sem": 0.9859265968152124
+            },
+            "time_rmse_spikes_s": {
+              "mean": 10.46008812378396,
+              "sem": 1.0349549853683413
+            }
+          },
+          "footprint": {
+            "pulse_rmse_spikes_s": {
+              "mean": 8.50880129166701,
+              "sem": 1.172090510834446
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 8.915932510116692,
+              "sem": 0.9855481583049029
+            },
+            "time_rmse_spikes_s": {
+              "mean": 10.460414060680618,
+              "sem": 1.0349387650464321
+            }
+          },
+          "simple_spatial": {
+            "pulse_rmse_spikes_s": {
+              "mean": 8.522193505370742,
+              "sem": 1.1708437903692261
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 8.915157664913893,
+              "sem": 0.9772128438462492
+            },
+            "time_rmse_spikes_s": {
+              "mean": 10.464983898195237,
+              "sem": 1.0332025975767738
+            }
+          },
+          "intercept_only": {
+            "pulse_rmse_spikes_s": {
+              "mean": 8.518792263572196,
+              "sem": 1.1760830675853446
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 8.902085403010647,
+              "sem": 0.9849989822500865
+            },
+            "time_rmse_spikes_s": {
+              "mean": 10.495434120345424,
+              "sem": 1.0195051032103903
+            }
+          }
+        },
+        "pulse_error_beats_shuffles": {
+          "baseline": 18,
+          "footprint": 22
+        }
+      },
+      "AOTU025/quiescent": {
+        "available": true,
+        "flies": 12,
+        "pulses": 3856,
+        "scores": {
+          "baseline": {
+            "pulse_rmse_spikes_s": {
+              "mean": 9.204869453471085,
+              "sem": 0.6212122440425492
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 9.186912822226166,
+              "sem": 0.7639254942857941
+            },
+            "time_rmse_spikes_s": {
+              "mean": 11.162628062313651,
+              "sem": 0.703743289814803
+            }
+          },
+          "footprint": {
+            "pulse_rmse_spikes_s": {
+              "mean": 9.204651639544993,
+              "sem": 0.6215128161573129
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 9.187112153606483,
+              "sem": 0.7637365097183221
+            },
+            "time_rmse_spikes_s": {
+              "mean": 11.162373144528829,
+              "sem": 0.7043711917338136
+            }
+          },
+          "simple_spatial": {
+            "pulse_rmse_spikes_s": {
+              "mean": 9.22017544449446,
+              "sem": 0.6304430733368227
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 9.186098205321356,
+              "sem": 0.7651543412187737
+            },
+            "time_rmse_spikes_s": {
+              "mean": 11.179501862941413,
+              "sem": 0.6987217457615149
+            }
+          },
+          "intercept_only": {
+            "pulse_rmse_spikes_s": {
+              "mean": 9.375557210657213,
+              "sem": 0.6423341363081275
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 9.379679888080487,
+              "sem": 0.7659947687824507
+            },
+            "time_rmse_spikes_s": {
+              "mean": 11.30552880091731,
+              "sem": 0.6503147212645368
+            }
+          }
+        },
+        "pulse_error_beats_shuffles": {
+          "baseline": 32,
+          "footprint": 32
+        }
+      },
+      "AOTU025/running": {
+        "available": true,
+        "flies": 10,
+        "pulses": 733,
+        "scores": {
+          "baseline": {
+            "pulse_rmse_spikes_s": {
+              "mean": 10.97938643368787,
+              "sem": 1.4847695404187498
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 14.156167903288942,
+              "sem": 1.3278873821987638
+            },
+            "time_rmse_spikes_s": {
+              "mean": 14.111461631342852,
+              "sem": 1.0033216943254284
+            }
+          },
+          "footprint": {
+            "pulse_rmse_spikes_s": {
+              "mean": 10.976799171114346,
+              "sem": 1.4867565095164985
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 14.154419910485794,
+              "sem": 1.3262584020372574
+            },
+            "time_rmse_spikes_s": {
+              "mean": 14.110898018740253,
+              "sem": 1.004777082210365
+            }
+          },
+          "simple_spatial": {
+            "pulse_rmse_spikes_s": {
+              "mean": 10.938457981122573,
+              "sem": 1.4773041382668917
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 14.204654192805055,
+              "sem": 1.3394730198094573
+            },
+            "time_rmse_spikes_s": {
+              "mean": 14.087691561451669,
+              "sem": 0.9914065213825135
+            }
+          },
+          "intercept_only": {
+            "pulse_rmse_spikes_s": {
+              "mean": 11.005956081675443,
+              "sem": 1.2978878879834537
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 14.34078366584302,
+              "sem": 1.4392347545110094
+            },
+            "time_rmse_spikes_s": {
+              "mean": 14.157836560445736,
+              "sem": 0.8930254867217113
+            }
+          }
+        },
+        "pulse_error_beats_shuffles": {
+          "baseline": 32,
+          "footprint": 32
+        }
+      },
+      "AOTU025/mixed": {
+        "available": true,
+        "flies": 12,
+        "pulses": 1329,
+        "scores": {
+          "baseline": {
+            "pulse_rmse_spikes_s": {
+              "mean": 11.544179005904601,
+              "sem": 1.1361973245074912
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 12.859293954068368,
+              "sem": 0.7940933112678844
+            },
+            "time_rmse_spikes_s": {
+              "mean": 14.074254628725138,
+              "sem": 1.0002035464863197
+            }
+          },
+          "footprint": {
+            "pulse_rmse_spikes_s": {
+              "mean": 11.546697623489747,
+              "sem": 1.135882104463285
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 12.860876661826447,
+              "sem": 0.7939974796298483
+            },
+            "time_rmse_spikes_s": {
+              "mean": 14.07509449667855,
+              "sem": 1.0001780004205718
+            }
+          },
+          "simple_spatial": {
+            "pulse_rmse_spikes_s": {
+              "mean": 11.569965494332306,
+              "sem": 1.1193642939760953
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 12.862434191635147,
+              "sem": 0.7949534685344722
+            },
+            "time_rmse_spikes_s": {
+              "mean": 14.092532142387547,
+              "sem": 0.9832522182477345
+            }
+          },
+          "intercept_only": {
+            "pulse_rmse_spikes_s": {
+              "mean": 11.734963893483945,
+              "sem": 1.091991095453766
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 13.103749984174724,
+              "sem": 0.7916650595692485
+            },
+            "time_rmse_spikes_s": {
+              "mean": 14.226095358075172,
+              "sem": 0.9209273517651452
+            }
+          }
+        },
+        "pulse_error_beats_shuffles": {
+          "baseline": 32,
+          "footprint": 32
+        }
+      }
+    },
+    "NoP1/opposite": {
+      "AOTU019/quiescent": {
+        "available": true,
+        "flies": 12,
+        "pulses": 4560,
+        "scores": {
+          "baseline": {
+            "pulse_rmse_spikes_s": {
+              "mean": 7.039591039101867,
+              "sem": 0.8189428834122614
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 6.519236795738906,
+              "sem": 0.587643469666353
+            },
+            "time_rmse_spikes_s": {
+              "mean": 8.489532250183702,
+              "sem": 0.6792807302355256
+            }
+          },
+          "footprint": {
+            "pulse_rmse_spikes_s": {
+              "mean": 7.0393243139899075,
+              "sem": 0.8188310577158114
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 6.518385926163198,
+              "sem": 0.5877161441551951
+            },
+            "time_rmse_spikes_s": {
+              "mean": 8.489171278194796,
+              "sem": 0.6793754393184074
+            }
+          },
+          "simple_spatial": {
+            "pulse_rmse_spikes_s": {
+              "mean": 7.043682803771476,
+              "sem": 0.8174171588387044
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 6.528798400578425,
+              "sem": 0.5927562385330645
+            },
+            "time_rmse_spikes_s": {
+              "mean": 8.495979831199476,
+              "sem": 0.6768939631692485
+            }
+          },
+          "intercept_only": {
+            "pulse_rmse_spikes_s": {
+              "mean": 7.039451460914922,
+              "sem": 0.8192066775525605
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 6.563919748879308,
+              "sem": 0.5935866639400196
+            },
+            "time_rmse_spikes_s": {
+              "mean": 8.513878067108784,
+              "sem": 0.6721830382384125
+            }
+          }
+        },
+        "pulse_error_beats_shuffles": {
+          "baseline": 32,
+          "footprint": 32
+        }
+      },
+      "AOTU019/running": {
+        "available": true,
+        "flies": 10,
+        "pulses": 652,
+        "scores": {
+          "baseline": {
+            "pulse_rmse_spikes_s": {
+              "mean": 11.672081635309782,
+              "sem": 1.814799713912126
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 9.847488271764671,
+              "sem": 1.0637534562020872
+            },
+            "time_rmse_spikes_s": {
+              "mean": 12.776047828972342,
+              "sem": 1.2416082889529423
+            }
+          },
+          "footprint": {
+            "pulse_rmse_spikes_s": {
+              "mean": 11.678356273667646,
+              "sem": 1.814098984854884
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 9.861619489488183,
+              "sem": 1.0630176190769256
+            },
+            "time_rmse_spikes_s": {
+              "mean": 12.77442936018015,
+              "sem": 1.2427149968632512
+            }
+          },
+          "simple_spatial": {
+            "pulse_rmse_spikes_s": {
+              "mean": 11.580862697326076,
+              "sem": 1.8015439928315435
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 9.76702242005488,
+              "sem": 1.1362151259328943
+            },
+            "time_rmse_spikes_s": {
+              "mean": 12.785931442885069,
+              "sem": 1.2228421099914186
+            }
+          },
+          "intercept_only": {
+            "pulse_rmse_spikes_s": {
+              "mean": 11.225589283290994,
+              "sem": 1.8529041485691975
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 9.297653079335513,
+              "sem": 1.1635222126755886
+            },
+            "time_rmse_spikes_s": {
+              "mean": 12.843560399010192,
+              "sem": 1.2278278619368463
+            }
+          }
+        },
+        "pulse_error_beats_shuffles": {
+          "baseline": 2,
+          "footprint": 5
+        }
+      },
+      "AOTU019/mixed": {
+        "available": true,
+        "flies": 11,
+        "pulses": 1908,
+        "scores": {
+          "baseline": {
+            "pulse_rmse_spikes_s": {
+              "mean": 8.534212228926549,
+              "sem": 1.1796023037693795
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 8.91130328481048,
+              "sem": 0.9823099120407441
+            },
+            "time_rmse_spikes_s": {
+              "mean": 10.488676225539571,
+              "sem": 1.0304698913632524
+            }
+          },
+          "footprint": {
+            "pulse_rmse_spikes_s": {
+              "mean": 8.533109977100324,
+              "sem": 1.1794437479356314
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 8.911253288308503,
+              "sem": 0.9823808260769108
+            },
+            "time_rmse_spikes_s": {
+              "mean": 10.487554737386269,
+              "sem": 1.0306879275709606
+            }
+          },
+          "simple_spatial": {
+            "pulse_rmse_spikes_s": {
+              "mean": 8.522193505370742,
+              "sem": 1.1708437903692261
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 8.915157664913893,
+              "sem": 0.9772128438462492
+            },
+            "time_rmse_spikes_s": {
+              "mean": 10.464983898195237,
+              "sem": 1.0332025975767738
+            }
+          },
+          "intercept_only": {
+            "pulse_rmse_spikes_s": {
+              "mean": 8.518792263572196,
+              "sem": 1.1760830675853446
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 8.902085403010647,
+              "sem": 0.9849989822500865
+            },
+            "time_rmse_spikes_s": {
+              "mean": 10.495434120345424,
+              "sem": 1.0195051032103903
+            }
+          }
+        },
+        "pulse_error_beats_shuffles": {
+          "baseline": 2,
+          "footprint": 1
+        }
+      },
+      "AOTU025/quiescent": {
+        "available": true,
+        "flies": 12,
+        "pulses": 3856,
+        "scores": {
+          "baseline": {
+            "pulse_rmse_spikes_s": {
+              "mean": 9.235626678887057,
+              "sem": 0.6388878411270154
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 9.189844203626022,
+              "sem": 0.7614372768720747
+            },
+            "time_rmse_spikes_s": {
+              "mean": 11.186309794859525,
+              "sem": 0.7054425202150865
+            }
+          },
+          "footprint": {
+            "pulse_rmse_spikes_s": {
+              "mean": 9.234655262808618,
+              "sem": 0.6386375841702246
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 9.188910684832814,
+              "sem": 0.7613451357523546
+            },
+            "time_rmse_spikes_s": {
+              "mean": 11.18523067398864,
+              "sem": 0.7061150347841029
+            }
+          },
+          "simple_spatial": {
+            "pulse_rmse_spikes_s": {
+              "mean": 9.22017544449446,
+              "sem": 0.6304430733368227
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 9.186098205321356,
+              "sem": 0.7651543412187737
+            },
+            "time_rmse_spikes_s": {
+              "mean": 11.179501862941413,
+              "sem": 0.6987217457615149
+            }
+          },
+          "intercept_only": {
+            "pulse_rmse_spikes_s": {
+              "mean": 9.375557210657213,
+              "sem": 0.6423341363081275
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 9.379679888080487,
+              "sem": 0.7659947687824507
+            },
+            "time_rmse_spikes_s": {
+              "mean": 11.30552880091731,
+              "sem": 0.6503147212645368
+            }
+          }
+        },
+        "pulse_error_beats_shuffles": {
+          "baseline": 32,
+          "footprint": 32
+        }
+      },
+      "AOTU025/running": {
+        "available": true,
+        "flies": 10,
+        "pulses": 733,
+        "scores": {
+          "baseline": {
+            "pulse_rmse_spikes_s": {
+              "mean": 10.903246183414701,
+              "sem": 1.4973974220326107
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 14.195105958205593,
+              "sem": 1.3237139393034374
+            },
+            "time_rmse_spikes_s": {
+              "mean": 14.07688056196579,
+              "sem": 1.0053906578740244
+            }
+          },
+          "footprint": {
+            "pulse_rmse_spikes_s": {
+              "mean": 10.907754197364016,
+              "sem": 1.497957049040385
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 14.19244406070743,
+              "sem": 1.3247484241477798
+            },
+            "time_rmse_spikes_s": {
+              "mean": 14.078917823016905,
+              "sem": 1.0064837238358078
+            }
+          },
+          "simple_spatial": {
+            "pulse_rmse_spikes_s": {
+              "mean": 10.938457981122573,
+              "sem": 1.4773041382668917
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 14.204654192805055,
+              "sem": 1.3394730198094573
+            },
+            "time_rmse_spikes_s": {
+              "mean": 14.087691561451669,
+              "sem": 0.9914065213825135
+            }
+          },
+          "intercept_only": {
+            "pulse_rmse_spikes_s": {
+              "mean": 11.005956081675443,
+              "sem": 1.2978878879834537
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 14.34078366584302,
+              "sem": 1.4392347545110094
+            },
+            "time_rmse_spikes_s": {
+              "mean": 14.157836560445736,
+              "sem": 0.8930254867217113
+            }
+          }
+        },
+        "pulse_error_beats_shuffles": {
+          "baseline": 32,
+          "footprint": 32
+        }
+      },
+      "AOTU025/mixed": {
+        "available": true,
+        "flies": 12,
+        "pulses": 1329,
+        "scores": {
+          "baseline": {
+            "pulse_rmse_spikes_s": {
+              "mean": 11.619355807039545,
+              "sem": 1.1126833194291872
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 12.889657264012053,
+              "sem": 0.7946353166404835
+            },
+            "time_rmse_spikes_s": {
+              "mean": 14.11305970264724,
+              "sem": 0.9779479826692298
+            }
+          },
+          "footprint": {
+            "pulse_rmse_spikes_s": {
+              "mean": 11.618299192655789,
+              "sem": 1.1134932998993174
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 12.889453909939318,
+              "sem": 0.7945187481121392
+            },
+            "time_rmse_spikes_s": {
+              "mean": 14.112117287597618,
+              "sem": 0.9790214986311511
+            }
+          },
+          "simple_spatial": {
+            "pulse_rmse_spikes_s": {
+              "mean": 11.569965494332306,
+              "sem": 1.1193642939760953
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 12.862434191635147,
+              "sem": 0.7949534685344722
+            },
+            "time_rmse_spikes_s": {
+              "mean": 14.092532142387547,
+              "sem": 0.9832522182477345
+            }
+          },
+          "intercept_only": {
+            "pulse_rmse_spikes_s": {
+              "mean": 11.734963893483945,
+              "sem": 1.091991095453766
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 13.103749984174724,
+              "sem": 0.7916650595692485
+            },
+            "time_rmse_spikes_s": {
+              "mean": 14.226095358075172,
+              "sem": 0.9209273517651452
+            }
+          }
+        },
+        "pulse_error_beats_shuffles": {
+          "baseline": 32,
+          "footprint": 32
+        }
+      }
+    },
+    "NoP1/all_L": {
+      "AOTU019/quiescent": {
+        "available": true,
+        "flies": 12,
+        "pulses": 4560,
+        "scores": {
+          "baseline": {
+            "pulse_rmse_spikes_s": {
+              "mean": 7.036903556005135,
+              "sem": 0.8179001537504511
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 6.511527541002878,
+              "sem": 0.5888315467225724
+            },
+            "time_rmse_spikes_s": {
+              "mean": 8.48769430234905,
+              "sem": 0.6801304959565241
+            }
+          },
+          "footprint": {
+            "pulse_rmse_spikes_s": {
+              "mean": 7.0369276162225445,
+              "sem": 0.8178962572202271
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 6.511519722322858,
+              "sem": 0.5888378235855589
+            },
+            "time_rmse_spikes_s": {
+              "mean": 8.487676131549707,
+              "sem": 0.6801354433204946
+            }
+          },
+          "simple_spatial": {
+            "pulse_rmse_spikes_s": {
+              "mean": 7.043682803771476,
+              "sem": 0.8174171588387044
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 6.528798400578425,
+              "sem": 0.5927562385330645
+            },
+            "time_rmse_spikes_s": {
+              "mean": 8.495979831199476,
+              "sem": 0.6768939631692485
+            }
+          },
+          "intercept_only": {
+            "pulse_rmse_spikes_s": {
+              "mean": 7.039451460914922,
+              "sem": 0.8192066775525605
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 6.563919748879308,
+              "sem": 0.5935866639400196
+            },
+            "time_rmse_spikes_s": {
+              "mean": 8.513878067108784,
+              "sem": 0.6721830382384125
+            }
+          }
+        },
+        "pulse_error_beats_shuffles": {
+          "baseline": 32,
+          "footprint": 32
+        }
+      },
+      "AOTU019/running": {
+        "available": true,
+        "flies": 10,
+        "pulses": 652,
+        "scores": {
+          "baseline": {
+            "pulse_rmse_spikes_s": {
+              "mean": 11.721419259466035,
+              "sem": 1.810695682134577
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 9.936930842178587,
+              "sem": 1.0610944103804945
+            },
+            "time_rmse_spikes_s": {
+              "mean": 12.770955583849801,
+              "sem": 1.2521498250278238
+            }
+          },
+          "footprint": {
+            "pulse_rmse_spikes_s": {
+              "mean": 11.721235465949329,
+              "sem": 1.8106687975246791
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 9.937954151583808,
+              "sem": 1.0614167742511318
+            },
+            "time_rmse_spikes_s": {
+              "mean": 12.770629114969712,
+              "sem": 1.2521820589007762
+            }
+          },
+          "simple_spatial": {
+            "pulse_rmse_spikes_s": {
+              "mean": 11.580862697326076,
+              "sem": 1.8015439928315435
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 9.76702242005488,
+              "sem": 1.1362151259328943
+            },
+            "time_rmse_spikes_s": {
+              "mean": 12.785931442885069,
+              "sem": 1.2228421099914186
+            }
+          },
+          "intercept_only": {
+            "pulse_rmse_spikes_s": {
+              "mean": 11.225589283290994,
+              "sem": 1.8529041485691975
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 9.297653079335513,
+              "sem": 1.1635222126755886
+            },
+            "time_rmse_spikes_s": {
+              "mean": 12.843560399010192,
+              "sem": 1.2278278619368463
+            }
+          }
+        },
+        "pulse_error_beats_shuffles": {
+          "baseline": 0,
+          "footprint": 0
+        }
+      },
+      "AOTU019/mixed": {
+        "available": true,
+        "flies": 11,
+        "pulses": 1908,
+        "scores": {
+          "baseline": {
+            "pulse_rmse_spikes_s": {
+              "mean": 8.520166748902481,
+              "sem": 1.1762693223793272
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 8.911680793931922,
+              "sem": 0.9843487988848713
+            },
+            "time_rmse_spikes_s": {
+              "mean": 10.474786388819673,
+              "sem": 1.0325541782572027
+            }
+          },
+          "footprint": {
+            "pulse_rmse_spikes_s": {
+              "mean": 8.520105652980407,
+              "sem": 1.1762494093928313
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 8.911733228357285,
+              "sem": 0.9843030161953971
+            },
+            "time_rmse_spikes_s": {
+              "mean": 10.474634148744295,
+              "sem": 1.0325965889067872
+            }
+          },
+          "simple_spatial": {
+            "pulse_rmse_spikes_s": {
+              "mean": 8.522193505370742,
+              "sem": 1.1708437903692261
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 8.915157664913893,
+              "sem": 0.9772128438462492
+            },
+            "time_rmse_spikes_s": {
+              "mean": 10.464983898195237,
+              "sem": 1.0332025975767738
+            }
+          },
+          "intercept_only": {
+            "pulse_rmse_spikes_s": {
+              "mean": 8.518792263572196,
+              "sem": 1.1760830675853446
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 8.902085403010647,
+              "sem": 0.9849989822500865
+            },
+            "time_rmse_spikes_s": {
+              "mean": 10.495434120345424,
+              "sem": 1.0195051032103903
+            }
+          }
+        },
+        "pulse_error_beats_shuffles": {
+          "baseline": 0,
+          "footprint": 0
+        }
+      },
+      "AOTU025/quiescent": {
+        "available": true,
+        "flies": 12,
+        "pulses": 3856,
+        "scores": {
+          "baseline": {
+            "pulse_rmse_spikes_s": {
+              "mean": 9.216458262018508,
+              "sem": 0.6302280702032579
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 9.185345520705942,
+              "sem": 0.7626375249482734
+            },
+            "time_rmse_spikes_s": {
+              "mean": 11.171607662511201,
+              "sem": 0.7063928970705937
+            }
+          },
+          "footprint": {
+            "pulse_rmse_spikes_s": {
+              "mean": 9.215903659257167,
+              "sem": 0.6301648531751863
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 9.184963357976969,
+              "sem": 0.7625794483766827
+            },
+            "time_rmse_spikes_s": {
+              "mean": 11.171123637602056,
+              "sem": 0.706676732223121
+            }
+          },
+          "simple_spatial": {
+            "pulse_rmse_spikes_s": {
+              "mean": 9.22017544449446,
+              "sem": 0.6304430733368227
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 9.186098205321356,
+              "sem": 0.7651543412187737
+            },
+            "time_rmse_spikes_s": {
+              "mean": 11.179501862941413,
+              "sem": 0.6987217457615149
+            }
+          },
+          "intercept_only": {
+            "pulse_rmse_spikes_s": {
+              "mean": 9.375557210657213,
+              "sem": 0.6423341363081275
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 9.379679888080487,
+              "sem": 0.7659947687824507
+            },
+            "time_rmse_spikes_s": {
+              "mean": 11.30552880091731,
+              "sem": 0.6503147212645368
+            }
+          }
+        },
+        "pulse_error_beats_shuffles": {
+          "baseline": 32,
+          "footprint": 32
+        }
+      },
+      "AOTU025/running": {
+        "available": true,
+        "flies": 10,
+        "pulses": 733,
+        "scores": {
+          "baseline": {
+            "pulse_rmse_spikes_s": {
+              "mean": 10.941926177045165,
+              "sem": 1.4944390639179965
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 14.171372057231455,
+              "sem": 1.3254752978473747
+            },
+            "time_rmse_spikes_s": {
+              "mean": 14.094563065190519,
+              "sem": 1.0077166958131274
+            }
+          },
+          "footprint": {
+            "pulse_rmse_spikes_s": {
+              "mean": 10.94293836437716,
+              "sem": 1.4946287269417113
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 14.171016961457847,
+              "sem": 1.3257833269375132
+            },
+            "time_rmse_spikes_s": {
+              "mean": 14.095138390653052,
+              "sem": 1.0080276470675522
+            }
+          },
+          "simple_spatial": {
+            "pulse_rmse_spikes_s": {
+              "mean": 10.938457981122573,
+              "sem": 1.4773041382668917
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 14.204654192805055,
+              "sem": 1.3394730198094573
+            },
+            "time_rmse_spikes_s": {
+              "mean": 14.087691561451669,
+              "sem": 0.9914065213825135
+            }
+          },
+          "intercept_only": {
+            "pulse_rmse_spikes_s": {
+              "mean": 11.005956081675443,
+              "sem": 1.2978878879834537
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 14.34078366584302,
+              "sem": 1.4392347545110094
+            },
+            "time_rmse_spikes_s": {
+              "mean": 14.157836560445736,
+              "sem": 0.8930254867217113
+            }
+          }
+        },
+        "pulse_error_beats_shuffles": {
+          "baseline": 32,
+          "footprint": 32
+        }
+      },
+      "AOTU025/mixed": {
+        "available": true,
+        "flies": 12,
+        "pulses": 1329,
+        "scores": {
+          "baseline": {
+            "pulse_rmse_spikes_s": {
+              "mean": 11.581770549377636,
+              "sem": 1.1244465304016589
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 12.873839122301481,
+              "sem": 0.7940903528767774
+            },
+            "time_rmse_spikes_s": {
+              "mean": 14.092037862123135,
+              "sem": 0.9904487347584656
+            }
+          },
+          "footprint": {
+            "pulse_rmse_spikes_s": {
+              "mean": 11.581200391531317,
+              "sem": 1.1246126551085518
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 12.873911794894793,
+              "sem": 0.7940248547239933
+            },
+            "time_rmse_spikes_s": {
+              "mean": 14.091469128549372,
+              "sem": 0.9907665866799286
+            }
+          },
+          "simple_spatial": {
+            "pulse_rmse_spikes_s": {
+              "mean": 11.569965494332306,
+              "sem": 1.1193642939760953
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 12.862434191635147,
+              "sem": 0.7949534685344722
+            },
+            "time_rmse_spikes_s": {
+              "mean": 14.092532142387547,
+              "sem": 0.9832522182477345
+            }
+          },
+          "intercept_only": {
+            "pulse_rmse_spikes_s": {
+              "mean": 11.734963893483945,
+              "sem": 1.091991095453766
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 13.103749984174724,
+              "sem": 0.7916650595692485
+            },
+            "time_rmse_spikes_s": {
+              "mean": 14.226095358075172,
+              "sem": 0.9209273517651452
+            }
+          }
+        },
+        "pulse_error_beats_shuffles": {
+          "baseline": 32,
+          "footprint": 32
+        }
+      }
+    },
+    "NoP1/all_R": {
+      "AOTU019/quiescent": {
+        "available": true,
+        "flies": 12,
+        "pulses": 4560,
+        "scores": {
+          "baseline": {
+            "pulse_rmse_spikes_s": {
+              "mean": 7.037903358281549,
+              "sem": 0.8177779575874973
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 6.513265472019405,
+              "sem": 0.5891954324949719
+            },
+            "time_rmse_spikes_s": {
+              "mean": 8.488291301995972,
+              "sem": 0.6798839262398114
+            }
+          },
+          "footprint": {
+            "pulse_rmse_spikes_s": {
+              "mean": 7.037923042920852,
+              "sem": 0.8177634534463976
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 6.512944069476959,
+              "sem": 0.5891869784575889
+            },
+            "time_rmse_spikes_s": {
+              "mean": 8.4880940350069,
+              "sem": 0.6799478918504291
+            }
+          },
+          "simple_spatial": {
+            "pulse_rmse_spikes_s": {
+              "mean": 7.043682803771476,
+              "sem": 0.8174171588387044
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 6.528798400578425,
+              "sem": 0.5927562385330645
+            },
+            "time_rmse_spikes_s": {
+              "mean": 8.495979831199476,
+              "sem": 0.6768939631692485
+            }
+          },
+          "intercept_only": {
+            "pulse_rmse_spikes_s": {
+              "mean": 7.039451460914922,
+              "sem": 0.8192066775525605
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 6.563919748879308,
+              "sem": 0.5935866639400196
+            },
+            "time_rmse_spikes_s": {
+              "mean": 8.513878067108784,
+              "sem": 0.6721830382384125
+            }
+          }
+        },
+        "pulse_error_beats_shuffles": {
+          "baseline": 32,
+          "footprint": 32
+        }
+      },
+      "AOTU019/running": {
+        "available": true,
+        "flies": 10,
+        "pulses": 652,
+        "scores": {
+          "baseline": {
+            "pulse_rmse_spikes_s": {
+              "mean": 11.725426186888978,
+              "sem": 1.8060199156742882
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 9.96596613644989,
+              "sem": 1.0736104976633487
+            },
+            "time_rmse_spikes_s": {
+              "mean": 12.77480706057111,
+              "sem": 1.2486908950903313
+            }
+          },
+          "footprint": {
+            "pulse_rmse_spikes_s": {
+              "mean": 11.724249760317711,
+              "sem": 1.8064012315479425
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 9.966770154659306,
+              "sem": 1.073073882009883
+            },
+            "time_rmse_spikes_s": {
+              "mean": 12.772643378189228,
+              "sem": 1.2492942465631804
+            }
+          },
+          "simple_spatial": {
+            "pulse_rmse_spikes_s": {
+              "mean": 11.580862697326076,
+              "sem": 1.8015439928315435
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 9.76702242005488,
+              "sem": 1.1362151259328943
+            },
+            "time_rmse_spikes_s": {
+              "mean": 12.785931442885069,
+              "sem": 1.2228421099914186
+            }
+          },
+          "intercept_only": {
+            "pulse_rmse_spikes_s": {
+              "mean": 11.225589283290994,
+              "sem": 1.8529041485691975
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 9.297653079335513,
+              "sem": 1.1635222126755886
+            },
+            "time_rmse_spikes_s": {
+              "mean": 12.843560399010192,
+              "sem": 1.2278278619368463
+            }
+          }
+        },
+        "pulse_error_beats_shuffles": {
+          "baseline": 0,
+          "footprint": 0
+        }
+      },
+      "AOTU019/mixed": {
+        "available": true,
+        "flies": 11,
+        "pulses": 1908,
+        "scores": {
+          "baseline": {
+            "pulse_rmse_spikes_s": {
+              "mean": 8.519663816172292,
+              "sem": 1.1753362120020048
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 8.913156469911629,
+              "sem": 0.9831162920162889
+            },
+            "time_rmse_spikes_s": {
+              "mean": 10.471719341365331,
+              "sem": 1.0331499832062199
+            }
+          },
+          "footprint": {
+            "pulse_rmse_spikes_s": {
+              "mean": 8.519443982904578,
+              "sem": 1.175378892402224
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 8.91318459646488,
+              "sem": 0.983001865507102
+            },
+            "time_rmse_spikes_s": {
+              "mean": 10.471387217643196,
+              "sem": 1.0332786495862745
+            }
+          },
+          "simple_spatial": {
+            "pulse_rmse_spikes_s": {
+              "mean": 8.522193505370742,
+              "sem": 1.1708437903692261
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 8.915157664913893,
+              "sem": 0.9772128438462492
+            },
+            "time_rmse_spikes_s": {
+              "mean": 10.464983898195237,
+              "sem": 1.0332025975767738
+            }
+          },
+          "intercept_only": {
+            "pulse_rmse_spikes_s": {
+              "mean": 8.518792263572196,
+              "sem": 1.1760830675853446
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 8.902085403010647,
+              "sem": 0.9849989822500865
+            },
+            "time_rmse_spikes_s": {
+              "mean": 10.495434120345424,
+              "sem": 1.0195051032103903
+            }
+          }
+        },
+        "pulse_error_beats_shuffles": {
+          "baseline": 1,
+          "footprint": 0
+        }
+      },
+      "AOTU025/quiescent": {
+        "available": true,
+        "flies": 12,
+        "pulses": 3856,
+        "scores": {
+          "baseline": {
+            "pulse_rmse_spikes_s": {
+              "mean": 9.219038522119659,
+              "sem": 0.630509302245396
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 9.186447289025807,
+              "sem": 0.7631003461526653
+            },
+            "time_rmse_spikes_s": {
+              "mean": 11.17417157738918,
+              "sem": 0.7043777136078723
+            }
+          },
+          "footprint": {
+            "pulse_rmse_spikes_s": {
+              "mean": 9.218912778194008,
+              "sem": 0.6305382374897486
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 9.186545208799627,
+              "sem": 0.7628474741139062
+            },
+            "time_rmse_spikes_s": {
+              "mean": 11.173660225382596,
+              "sem": 0.7051777743803839
+            }
+          },
+          "simple_spatial": {
+            "pulse_rmse_spikes_s": {
+              "mean": 9.22017544449446,
+              "sem": 0.6304430733368227
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 9.186098205321356,
+              "sem": 0.7651543412187737
+            },
+            "time_rmse_spikes_s": {
+              "mean": 11.179501862941413,
+              "sem": 0.6987217457615149
+            }
+          },
+          "intercept_only": {
+            "pulse_rmse_spikes_s": {
+              "mean": 9.375557210657213,
+              "sem": 0.6423341363081275
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 9.379679888080487,
+              "sem": 0.7659947687824507
+            },
+            "time_rmse_spikes_s": {
+              "mean": 11.30552880091731,
+              "sem": 0.6503147212645368
+            }
+          }
+        },
+        "pulse_error_beats_shuffles": {
+          "baseline": 32,
+          "footprint": 32
+        }
+      },
+      "AOTU025/running": {
+        "available": true,
+        "flies": 10,
+        "pulses": 733,
+        "scores": {
+          "baseline": {
+            "pulse_rmse_spikes_s": {
+              "mean": 10.934356846153914,
+              "sem": 1.4929922148948946
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 14.17594190392254,
+              "sem": 1.3243317561597174
+            },
+            "time_rmse_spikes_s": {
+              "mean": 14.090066953351371,
+              "sem": 1.0048401973568863
+            }
+          },
+          "footprint": {
+            "pulse_rmse_spikes_s": {
+              "mean": 10.935929717286882,
+              "sem": 1.4946693268937916
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 14.172925547537858,
+              "sem": 1.3237107077365864
+            },
+            "time_rmse_spikes_s": {
+              "mean": 14.091388860323653,
+              "sem": 1.0065215717402443
+            }
+          },
+          "simple_spatial": {
+            "pulse_rmse_spikes_s": {
+              "mean": 10.938457981122573,
+              "sem": 1.4773041382668917
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 14.204654192805055,
+              "sem": 1.3394730198094573
+            },
+            "time_rmse_spikes_s": {
+              "mean": 14.087691561451669,
+              "sem": 0.9914065213825135
+            }
+          },
+          "intercept_only": {
+            "pulse_rmse_spikes_s": {
+              "mean": 11.005956081675443,
+              "sem": 1.2978878879834537
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 14.34078366584302,
+              "sem": 1.4392347545110094
+            },
+            "time_rmse_spikes_s": {
+              "mean": 14.157836560445736,
+              "sem": 0.8930254867217113
+            }
+          }
+        },
+        "pulse_error_beats_shuffles": {
+          "baseline": 32,
+          "footprint": 32
+        }
+      },
+      "AOTU025/mixed": {
+        "available": true,
+        "flies": 12,
+        "pulses": 1329,
+        "scores": {
+          "baseline": {
+            "pulse_rmse_spikes_s": {
+              "mean": 11.583517997658197,
+              "sem": 1.1234129869806353
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 12.872432408314873,
+              "sem": 0.7946583763633087
+            },
+            "time_rmse_spikes_s": {
+              "mean": 14.094529447807622,
+              "sem": 0.9884018125350332
+            }
+          },
+          "footprint": {
+            "pulse_rmse_spikes_s": {
+              "mean": 11.585202422095785,
+              "sem": 1.1238067245559207
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 12.873960456522022,
+              "sem": 0.7945122790885932
+            },
+            "time_rmse_spikes_s": {
+              "mean": 14.095020464344266,
+              "sem": 0.9890115699824302
+            }
+          },
+          "simple_spatial": {
+            "pulse_rmse_spikes_s": {
+              "mean": 11.569965494332306,
+              "sem": 1.1193642939760953
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 12.862434191635147,
+              "sem": 0.7949534685344722
+            },
+            "time_rmse_spikes_s": {
+              "mean": 14.092532142387547,
+              "sem": 0.9832522182477345
+            }
+          },
+          "intercept_only": {
+            "pulse_rmse_spikes_s": {
+              "mean": 11.734963893483945,
+              "sem": 1.091991095453766
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 13.103749984174724,
+              "sem": 0.7916650595692485
+            },
+            "time_rmse_spikes_s": {
+              "mean": 14.226095358075172,
+              "sem": 0.9209273517651452
+            }
+          }
+        },
+        "pulse_error_beats_shuffles": {
+          "baseline": 32,
+          "footprint": 32
+        }
+      }
+    },
+    "NoP1/metadata_exclude_duplicate": {
+      "AOTU019/quiescent": {
+        "available": true,
+        "flies": 11,
+        "pulses": 3594,
+        "scores": {
+          "baseline": {
+            "pulse_rmse_spikes_s": {
+              "mean": 6.312913021554428,
+              "sem": 0.6198487381134489
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 6.486025235087709,
+              "sem": 0.647586657223864
+            },
+            "time_rmse_spikes_s": {
+              "mean": 7.8922915381071865,
+              "sem": 0.6098607222805299
+            }
+          },
+          "footprint": {
+            "pulse_rmse_spikes_s": {
+              "mean": 6.312836004799135,
+              "sem": 0.620056976499712
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 6.486565781256229,
+              "sem": 0.6476053804850976
+            },
+            "time_rmse_spikes_s": {
+              "mean": 7.892428190842542,
+              "sem": 0.6098454250641079
+            }
+          },
+          "simple_spatial": {
+            "pulse_rmse_spikes_s": {
+              "mean": 6.315344345803624,
+              "sem": 0.6223400474143512
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 6.51448641585327,
+              "sem": 0.6509383740906468
+            },
+            "time_rmse_spikes_s": {
+              "mean": 7.904744644009901,
+              "sem": 0.605517809205998
+            }
+          },
+          "intercept_only": {
+            "pulse_rmse_spikes_s": {
+              "mean": 6.310901884380257,
+              "sem": 0.6217798032701645
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 6.530651998052337,
+              "sem": 0.6492195785978944
+            },
+            "time_rmse_spikes_s": {
+              "mean": 7.9126218031698015,
+              "sem": 0.6029169284853244
+            }
+          }
+        },
+        "pulse_error_beats_shuffles": {
+          "baseline": 32,
+          "footprint": 32
+        }
+      },
+      "AOTU019/running": {
+        "available": true,
+        "flies": 9,
+        "pulses": 534,
+        "scores": {
+          "baseline": {
+            "pulse_rmse_spikes_s": {
+              "mean": 11.473037670536254,
+              "sem": 2.0581628816104254
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 10.553494213063841,
+              "sem": 1.1641540393296623
+            },
+            "time_rmse_spikes_s": {
+              "mean": 12.415960612833162,
+              "sem": 1.4749198606515803
+            }
+          },
+          "footprint": {
+            "pulse_rmse_spikes_s": {
+              "mean": 11.473591417050702,
+              "sem": 2.0630553631659985
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 10.549209646708224,
+              "sem": 1.160010701842353
+            },
+            "time_rmse_spikes_s": {
+              "mean": 12.417290421518514,
+              "sem": 1.475924247883668
+            }
+          },
+          "simple_spatial": {
+            "pulse_rmse_spikes_s": {
+              "mean": 11.260960589654355,
+              "sem": 2.1003504618872317
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 10.24703697842284,
+              "sem": 1.2148428328751548
+            },
+            "time_rmse_spikes_s": {
+              "mean": 12.429127702145864,
+              "sem": 1.4579202166052436
+            }
+          },
+          "intercept_only": {
+            "pulse_rmse_spikes_s": {
+              "mean": 10.793137552627533,
+              "sem": 2.1905743401019806
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 9.495112970254176,
+              "sem": 1.2819874857364477
+            },
+            "time_rmse_spikes_s": {
+              "mean": 12.509898309207454,
+              "sem": 1.4880097060041206
+            }
+          }
+        },
+        "pulse_error_beats_shuffles": {
+          "baseline": 28,
+          "footprint": 24
+        }
+      },
+      "AOTU019/mixed": {
+        "available": true,
+        "flies": 10,
+        "pulses": 1555,
+        "scores": {
+          "baseline": {
+            "pulse_rmse_spikes_s": {
+              "mean": 8.03376212350755,
+              "sem": 1.316047161804135
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 8.86726314699428,
+              "sem": 1.0890636644213385
+            },
+            "time_rmse_spikes_s": {
+              "mean": 10.064758700311131,
+              "sem": 1.1746931414621353
+            }
+          },
+          "footprint": {
+            "pulse_rmse_spikes_s": {
+              "mean": 8.034385539610145,
+              "sem": 1.3162592864275657
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 8.866907894619251,
+              "sem": 1.0887288190141275
+            },
+            "time_rmse_spikes_s": {
+              "mean": 10.065568119531775,
+              "sem": 1.174548723771307
+            }
+          },
+          "simple_spatial": {
+            "pulse_rmse_spikes_s": {
+              "mean": 8.046208016491907,
+              "sem": 1.3170579578036148
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 8.862834708624186,
+              "sem": 1.0828472204566983
+            },
+            "time_rmse_spikes_s": {
+              "mean": 10.075980264007443,
+              "sem": 1.1707471874448248
+            }
+          },
+          "intercept_only": {
+            "pulse_rmse_spikes_s": {
+              "mean": 8.042950172667867,
+              "sem": 1.3182468930908495
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 8.857887739434249,
+              "sem": 1.0878605495420324
+            },
+            "time_rmse_spikes_s": {
+              "mean": 10.092629201842643,
+              "sem": 1.1624152714909697
+            }
+          }
+        },
+        "pulse_error_beats_shuffles": {
+          "baseline": 18,
+          "footprint": 22
+        }
+      },
+      "AOTU025/quiescent": {
+        "available": true,
+        "flies": 12,
+        "pulses": 3856,
+        "scores": {
+          "baseline": {
+            "pulse_rmse_spikes_s": {
+              "mean": 9.204869453471085,
+              "sem": 0.6212122440425492
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 9.186912822226166,
+              "sem": 0.7639254942857941
+            },
+            "time_rmse_spikes_s": {
+              "mean": 11.162628062313651,
+              "sem": 0.703743289814803
+            }
+          },
+          "footprint": {
+            "pulse_rmse_spikes_s": {
+              "mean": 9.204651639544993,
+              "sem": 0.6215128161573129
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 9.187112153606483,
+              "sem": 0.7637365097183221
+            },
+            "time_rmse_spikes_s": {
+              "mean": 11.162373144528829,
+              "sem": 0.7043711917338136
+            }
+          },
+          "simple_spatial": {
+            "pulse_rmse_spikes_s": {
+              "mean": 9.22017544449446,
+              "sem": 0.6304430733368227
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 9.186098205321356,
+              "sem": 0.7651543412187737
+            },
+            "time_rmse_spikes_s": {
+              "mean": 11.179501862941413,
+              "sem": 0.6987217457615149
+            }
+          },
+          "intercept_only": {
+            "pulse_rmse_spikes_s": {
+              "mean": 9.375557210657213,
+              "sem": 0.6423341363081275
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 9.379679888080487,
+              "sem": 0.7659947687824507
+            },
+            "time_rmse_spikes_s": {
+              "mean": 11.30552880091731,
+              "sem": 0.6503147212645368
+            }
+          }
+        },
+        "pulse_error_beats_shuffles": {
+          "baseline": 32,
+          "footprint": 32
+        }
+      },
+      "AOTU025/running": {
+        "available": true,
+        "flies": 10,
+        "pulses": 733,
+        "scores": {
+          "baseline": {
+            "pulse_rmse_spikes_s": {
+              "mean": 10.97938643368787,
+              "sem": 1.4847695404187498
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 14.156167903288942,
+              "sem": 1.3278873821987638
+            },
+            "time_rmse_spikes_s": {
+              "mean": 14.111461631342852,
+              "sem": 1.0033216943254284
+            }
+          },
+          "footprint": {
+            "pulse_rmse_spikes_s": {
+              "mean": 10.976799171114346,
+              "sem": 1.4867565095164985
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 14.154419910485794,
+              "sem": 1.3262584020372574
+            },
+            "time_rmse_spikes_s": {
+              "mean": 14.110898018740253,
+              "sem": 1.004777082210365
+            }
+          },
+          "simple_spatial": {
+            "pulse_rmse_spikes_s": {
+              "mean": 10.938457981122573,
+              "sem": 1.4773041382668917
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 14.204654192805055,
+              "sem": 1.3394730198094573
+            },
+            "time_rmse_spikes_s": {
+              "mean": 14.087691561451669,
+              "sem": 0.9914065213825135
+            }
+          },
+          "intercept_only": {
+            "pulse_rmse_spikes_s": {
+              "mean": 11.005956081675443,
+              "sem": 1.2978878879834537
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 14.34078366584302,
+              "sem": 1.4392347545110094
+            },
+            "time_rmse_spikes_s": {
+              "mean": 14.157836560445736,
+              "sem": 0.8930254867217113
+            }
+          }
+        },
+        "pulse_error_beats_shuffles": {
+          "baseline": 32,
+          "footprint": 32
+        }
+      },
+      "AOTU025/mixed": {
+        "available": true,
+        "flies": 12,
+        "pulses": 1329,
+        "scores": {
+          "baseline": {
+            "pulse_rmse_spikes_s": {
+              "mean": 11.544179005904601,
+              "sem": 1.1361973245074912
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 12.859293954068368,
+              "sem": 0.7940933112678844
+            },
+            "time_rmse_spikes_s": {
+              "mean": 14.074254628725138,
+              "sem": 1.0002035464863197
+            }
+          },
+          "footprint": {
+            "pulse_rmse_spikes_s": {
+              "mean": 11.546697623489747,
+              "sem": 1.135882104463285
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 12.860876661826447,
+              "sem": 0.7939974796298483
+            },
+            "time_rmse_spikes_s": {
+              "mean": 14.07509449667855,
+              "sem": 1.0001780004205718
+            }
+          },
+          "simple_spatial": {
+            "pulse_rmse_spikes_s": {
+              "mean": 11.569965494332306,
+              "sem": 1.1193642939760953
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 12.862434191635147,
+              "sem": 0.7949534685344722
+            },
+            "time_rmse_spikes_s": {
+              "mean": 14.092532142387547,
+              "sem": 0.9832522182477345
+            }
+          },
+          "intercept_only": {
+            "pulse_rmse_spikes_s": {
+              "mean": 11.734963893483945,
+              "sem": 1.091991095453766
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 13.103749984174724,
+              "sem": 0.7916650595692485
+            },
+            "time_rmse_spikes_s": {
+              "mean": 14.226095358075172,
+              "sem": 0.9209273517651452
+            }
+          }
+        },
+        "pulse_error_beats_shuffles": {
+          "baseline": 32,
+          "footprint": 32
+        }
+      }
+    },
+    "P1/metadata": {
+      "AOTU019/quiescent": {
+        "available": true,
+        "flies": 25,
+        "pulses": 16331,
+        "scores": {
+          "baseline": {
+            "pulse_rmse_spikes_s": {
+              "mean": 13.123321650663161,
+              "sem": 0.9764310118808854
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 11.487279556395016,
+              "sem": 0.6955044673468042
+            },
+            "time_rmse_spikes_s": {
+              "mean": 14.556203005158387,
+              "sem": 0.9134719103292801
+            }
+          },
+          "footprint": {
+            "pulse_rmse_spikes_s": {
+              "mean": 13.124203357187346,
+              "sem": 0.9759294188395684
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 11.485813365134838,
+              "sem": 0.6948601520649366
+            },
+            "time_rmse_spikes_s": {
+              "mean": 14.555310594675715,
+              "sem": 0.9133233969541241
+            }
+          },
+          "simple_spatial": {
+            "pulse_rmse_spikes_s": {
+              "mean": 13.256988855000042,
+              "sem": 0.9644584508902445
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 11.560898325499554,
+              "sem": 0.7255780617214364
+            },
+            "time_rmse_spikes_s": {
+              "mean": 14.613789992761374,
+              "sem": 0.9087198000015775
+            }
+          },
+          "intercept_only": {
+            "pulse_rmse_spikes_s": {
+              "mean": 14.202226875832839,
+              "sem": 1.019080938457867
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 13.144811299639926,
+              "sem": 1.0001001293649607
+            },
+            "time_rmse_spikes_s": {
+              "mean": 15.504810219207284,
+              "sem": 0.8761708608253759
+            }
+          }
+        },
+        "pulse_error_beats_shuffles": {
+          "baseline": 21,
+          "footprint": 28
+        }
+      },
+      "AOTU019/running": {
+        "available": true,
+        "flies": 25,
+        "pulses": 6738,
+        "scores": {
+          "baseline": {
+            "pulse_rmse_spikes_s": {
+              "mean": 18.09472503174838,
+              "sem": 1.2431172234939039
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 14.834234916067608,
+              "sem": 1.009804831563535
+            },
+            "time_rmse_spikes_s": {
+              "mean": 19.767346718797995,
+              "sem": 1.1118768102535603
+            }
+          },
+          "footprint": {
+            "pulse_rmse_spikes_s": {
+              "mean": 18.100516654683194,
+              "sem": 1.2426851256524665
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 14.836571820000206,
+              "sem": 1.0090777438504595
+            },
+            "time_rmse_spikes_s": {
+              "mean": 19.76989438024201,
+              "sem": 1.1117405236358477
+            }
+          },
+          "simple_spatial": {
+            "pulse_rmse_spikes_s": {
+              "mean": 18.0198054031259,
+              "sem": 1.2460797374992247
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 14.92871866453323,
+              "sem": 0.9986755064559333
+            },
+            "time_rmse_spikes_s": {
+              "mean": 19.68717185752334,
+              "sem": 1.1152262394502535
+            }
+          },
+          "intercept_only": {
+            "pulse_rmse_spikes_s": {
+              "mean": 19.525274492996907,
+              "sem": 1.395489803664595
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 17.29216601797404,
+              "sem": 1.3516759865223347
+            },
+            "time_rmse_spikes_s": {
+              "mean": 21.102732655264617,
+              "sem": 1.1062348112612224
+            }
+          }
+        },
+        "pulse_error_beats_shuffles": {
+          "baseline": 25,
+          "footprint": 26
+        }
+      },
+      "AOTU019/mixed": {
+        "available": true,
+        "flies": 25,
+        "pulses": 7735,
+        "scores": {
+          "baseline": {
+            "pulse_rmse_spikes_s": {
+              "mean": 16.18302552188371,
+              "sem": 1.1326105964951119
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 14.472835939567563,
+              "sem": 0.9424769582938147
+            },
+            "time_rmse_spikes_s": {
+              "mean": 17.53411492088362,
+              "sem": 1.066298356961549
+            }
+          },
+          "footprint": {
+            "pulse_rmse_spikes_s": {
+              "mean": 16.181549172413238,
+              "sem": 1.1319252145585887
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 14.471177178958158,
+              "sem": 0.9409448232873556
+            },
+            "time_rmse_spikes_s": {
+              "mean": 17.53231657222169,
+              "sem": 1.0662034528145734
+            }
+          },
+          "simple_spatial": {
+            "pulse_rmse_spikes_s": {
+              "mean": 16.25874799288706,
+              "sem": 1.111546829684074
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 14.489571786100361,
+              "sem": 0.9096980854092257
+            },
+            "time_rmse_spikes_s": {
+              "mean": 17.564828332174745,
+              "sem": 1.0553699394493201
+            }
+          },
+          "intercept_only": {
+            "pulse_rmse_spikes_s": {
+              "mean": 17.0226131561185,
+              "sem": 1.148858270153989
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 15.625368287805625,
+              "sem": 1.048661618871885
+            },
+            "time_rmse_spikes_s": {
+              "mean": 18.27985577682604,
+              "sem": 1.0012037501266848
+            }
+          }
+        },
+        "pulse_error_beats_shuffles": {
+          "baseline": 0,
+          "footprint": 1
+        }
+      },
+      "AOTU025/quiescent": {
+        "available": true,
+        "flies": 22,
+        "pulses": 12669,
+        "scores": {
+          "baseline": {
+            "pulse_rmse_spikes_s": {
+              "mean": 15.636872456758756,
+              "sem": 1.1509888429670865
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 14.398556233488927,
+              "sem": 0.8648269828500778
+            },
+            "time_rmse_spikes_s": {
+              "mean": 17.186138655154682,
+              "sem": 1.1380907072501036
+            }
+          },
+          "footprint": {
+            "pulse_rmse_spikes_s": {
+              "mean": 15.630022021710692,
+              "sem": 1.149172570127601
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 14.392433273639623,
+              "sem": 0.8606772991666805
+            },
+            "time_rmse_spikes_s": {
+              "mean": 17.181256221407654,
+              "sem": 1.1384874521782749
+            }
+          },
+          "simple_spatial": {
+            "pulse_rmse_spikes_s": {
+              "mean": 15.681105122288573,
+              "sem": 1.1551315845678074
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 14.39801106195204,
+              "sem": 0.9016538417971375
+            },
+            "time_rmse_spikes_s": {
+              "mean": 17.224281218926258,
+              "sem": 1.1336021894233144
+            }
+          },
+          "intercept_only": {
+            "pulse_rmse_spikes_s": {
+              "mean": 16.576544040202688,
+              "sem": 1.3368777160504737
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 15.643605183446294,
+              "sem": 1.2836824005981784
+            },
+            "time_rmse_spikes_s": {
+              "mean": 17.971670086428485,
+              "sem": 1.1535150485383538
+            }
+          }
+        },
+        "pulse_error_beats_shuffles": {
+          "baseline": 32,
+          "footprint": 32
+        }
+      },
+      "AOTU025/running": {
+        "available": true,
+        "flies": 21,
+        "pulses": 4203,
+        "scores": {
+          "baseline": {
+            "pulse_rmse_spikes_s": {
+              "mean": 18.72526564400117,
+              "sem": 1.3835014429929842
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 18.49361257830437,
+              "sem": 1.1036363817589891
+            },
+            "time_rmse_spikes_s": {
+              "mean": 20.738566655224396,
+              "sem": 1.2951069464183822
+            }
+          },
+          "footprint": {
+            "pulse_rmse_spikes_s": {
+              "mean": 18.719882750200913,
+              "sem": 1.3818516888212442
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 18.483240986841132,
+              "sem": 1.0997304578735922
+            },
+            "time_rmse_spikes_s": {
+              "mean": 20.73300916613718,
+              "sem": 1.2952590223442377
+            }
+          },
+          "simple_spatial": {
+            "pulse_rmse_spikes_s": {
+              "mean": 18.70149250584116,
+              "sem": 1.385203498828122
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 18.521523189007794,
+              "sem": 1.1320970607972844
+            },
+            "time_rmse_spikes_s": {
+              "mean": 20.770113295680254,
+              "sem": 1.2899661306803305
+            }
+          },
+          "intercept_only": {
+            "pulse_rmse_spikes_s": {
+              "mean": 19.29887356786646,
+              "sem": 1.6020277537772323
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 19.92947235449123,
+              "sem": 1.4664441355978564
+            },
+            "time_rmse_spikes_s": {
+              "mean": 21.449263846733476,
+              "sem": 1.3301039154431367
+            }
+          }
+        },
+        "pulse_error_beats_shuffles": {
+          "baseline": 32,
+          "footprint": 32
+        }
+      },
+      "AOTU025/mixed": {
+        "available": true,
+        "flies": 22,
+        "pulses": 7576,
+        "scores": {
+          "baseline": {
+            "pulse_rmse_spikes_s": {
+              "mean": 18.53019427495714,
+              "sem": 1.3022988337936976
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 18.03487639057175,
+              "sem": 0.9422390391159471
+            },
+            "time_rmse_spikes_s": {
+              "mean": 20.738987165377605,
+              "sem": 1.2568035317347188
+            }
+          },
+          "footprint": {
+            "pulse_rmse_spikes_s": {
+              "mean": 18.524625506488295,
+              "sem": 1.300401057738888
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 18.034800513445784,
+              "sem": 0.9396244890659503
+            },
+            "time_rmse_spikes_s": {
+              "mean": 20.734634479750785,
+              "sem": 1.2569444184263228
+            }
+          },
+          "simple_spatial": {
+            "pulse_rmse_spikes_s": {
+              "mean": 18.51592653452893,
+              "sem": 1.301555165407342
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 17.97470403948103,
+              "sem": 0.9546529116190633
+            },
+            "time_rmse_spikes_s": {
+              "mean": 20.748715949836374,
+              "sem": 1.2461814671533347
+            }
+          },
+          "intercept_only": {
+            "pulse_rmse_spikes_s": {
+              "mean": 19.588503589556417,
+              "sem": 1.5821820183960127
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 19.082040900643996,
+              "sem": 1.3755845326809677
+            },
+            "time_rmse_spikes_s": {
+              "mean": 21.63366754735144,
+              "sem": 1.325270847383121
+            }
+          }
+        },
+        "pulse_error_beats_shuffles": {
+          "baseline": 32,
+          "footprint": 32
+        }
+      }
+    },
+    "P1/opposite": {
+      "AOTU019/quiescent": {
+        "available": true,
+        "flies": 25,
+        "pulses": 16331,
+        "scores": {
+          "baseline": {
+            "pulse_rmse_spikes_s": {
+              "mean": 13.245008234237476,
+              "sem": 0.9664564209576803
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 11.565159679044475,
+              "sem": 0.7074682180894702
+            },
+            "time_rmse_spikes_s": {
+              "mean": 14.629737106477343,
+              "sem": 0.8998101343258144
+            }
+          },
+          "footprint": {
+            "pulse_rmse_spikes_s": {
+              "mean": 13.234964778126475,
+              "sem": 0.9663311232777414
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 11.55422595039323,
+              "sem": 0.7050841353178582
+            },
+            "time_rmse_spikes_s": {
+              "mean": 14.622131260684073,
+              "sem": 0.9004971576087106
+            }
+          },
+          "simple_spatial": {
+            "pulse_rmse_spikes_s": {
+              "mean": 13.256988855000042,
+              "sem": 0.9644584508902445
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 11.560898325499554,
+              "sem": 0.7255780617214364
+            },
+            "time_rmse_spikes_s": {
+              "mean": 14.613789992761374,
+              "sem": 0.9087198000015775
+            }
+          },
+          "intercept_only": {
+            "pulse_rmse_spikes_s": {
+              "mean": 14.202226875832839,
+              "sem": 1.019080938457867
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 13.144811299639926,
+              "sem": 1.0001001293649607
+            },
+            "time_rmse_spikes_s": {
+              "mean": 15.504810219207284,
+              "sem": 0.8761708608253759
+            }
+          }
+        },
+        "pulse_error_beats_shuffles": {
+          "baseline": 30,
+          "footprint": 28
+        }
+      },
+      "AOTU019/running": {
+        "available": true,
+        "flies": 25,
+        "pulses": 6738,
+        "scores": {
+          "baseline": {
+            "pulse_rmse_spikes_s": {
+              "mean": 18.253880225409315,
+              "sem": 1.2369350054317594
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 14.999628263983604,
+              "sem": 1.013309307464743
+            },
+            "time_rmse_spikes_s": {
+              "mean": 19.864386359391553,
+              "sem": 1.0982724323532451
+            }
+          },
+          "footprint": {
+            "pulse_rmse_spikes_s": {
+              "mean": 18.23965442790661,
+              "sem": 1.236083827626911
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 14.983358196474848,
+              "sem": 1.0115067474437203
+            },
+            "time_rmse_spikes_s": {
+              "mean": 19.853599838865733,
+              "sem": 1.098894567696965
+            }
+          },
+          "simple_spatial": {
+            "pulse_rmse_spikes_s": {
+              "mean": 18.0198054031259,
+              "sem": 1.2460797374992247
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 14.92871866453323,
+              "sem": 0.9986755064559333
+            },
+            "time_rmse_spikes_s": {
+              "mean": 19.68717185752334,
+              "sem": 1.1152262394502535
+            }
+          },
+          "intercept_only": {
+            "pulse_rmse_spikes_s": {
+              "mean": 19.525274492996907,
+              "sem": 1.395489803664595
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 17.29216601797404,
+              "sem": 1.3516759865223347
+            },
+            "time_rmse_spikes_s": {
+              "mean": 21.102732655264617,
+              "sem": 1.1062348112612224
+            }
+          }
+        },
+        "pulse_error_beats_shuffles": {
+          "baseline": 31,
+          "footprint": 31
+        }
+      },
+      "AOTU019/mixed": {
+        "available": true,
+        "flies": 25,
+        "pulses": 7735,
+        "scores": {
+          "baseline": {
+            "pulse_rmse_spikes_s": {
+              "mean": 16.279259472562877,
+              "sem": 1.1188159940307227
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 14.526813229665775,
+              "sem": 0.9160177192877361
+            },
+            "time_rmse_spikes_s": {
+              "mean": 17.59250131587255,
+              "sem": 1.0511154934173441
+            }
+          },
+          "footprint": {
+            "pulse_rmse_spikes_s": {
+              "mean": 16.26988190109648,
+              "sem": 1.1183147977404801
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 14.519062123018184,
+              "sem": 0.9158094256546259
+            },
+            "time_rmse_spikes_s": {
+              "mean": 17.585703922094567,
+              "sem": 1.0516687558630768
+            }
+          },
+          "simple_spatial": {
+            "pulse_rmse_spikes_s": {
+              "mean": 16.25874799288706,
+              "sem": 1.111546829684074
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 14.489571786100361,
+              "sem": 0.9096980854092257
+            },
+            "time_rmse_spikes_s": {
+              "mean": 17.564828332174745,
+              "sem": 1.0553699394493201
+            }
+          },
+          "intercept_only": {
+            "pulse_rmse_spikes_s": {
+              "mean": 17.0226131561185,
+              "sem": 1.148858270153989
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 15.625368287805625,
+              "sem": 1.048661618871885
+            },
+            "time_rmse_spikes_s": {
+              "mean": 18.27985577682604,
+              "sem": 1.0012037501266848
+            }
+          }
+        },
+        "pulse_error_beats_shuffles": {
+          "baseline": 10,
+          "footprint": 4
+        }
+      },
+      "AOTU025/quiescent": {
+        "available": true,
+        "flies": 22,
+        "pulses": 12669,
+        "scores": {
+          "baseline": {
+            "pulse_rmse_spikes_s": {
+              "mean": 15.641907652737633,
+              "sem": 1.1452042050790168
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 14.336230722068013,
+              "sem": 0.8734985701781516
+            },
+            "time_rmse_spikes_s": {
+              "mean": 17.18117350375884,
+              "sem": 1.141872531576645
+            }
+          },
+          "footprint": {
+            "pulse_rmse_spikes_s": {
+              "mean": 15.635424377002902,
+              "sem": 1.14428783796946
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 14.333729358799696,
+              "sem": 0.8694547074479193
+            },
+            "time_rmse_spikes_s": {
+              "mean": 17.17670582263763,
+              "sem": 1.1424457585148975
+            }
+          },
+          "simple_spatial": {
+            "pulse_rmse_spikes_s": {
+              "mean": 15.681105122288573,
+              "sem": 1.1551315845678074
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 14.39801106195204,
+              "sem": 0.9016538417971375
+            },
+            "time_rmse_spikes_s": {
+              "mean": 17.224281218926258,
+              "sem": 1.1336021894233144
+            }
+          },
+          "intercept_only": {
+            "pulse_rmse_spikes_s": {
+              "mean": 16.576544040202688,
+              "sem": 1.3368777160504737
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 15.643605183446294,
+              "sem": 1.2836824005981784
+            },
+            "time_rmse_spikes_s": {
+              "mean": 17.971670086428485,
+              "sem": 1.1535150485383538
+            }
+          }
+        },
+        "pulse_error_beats_shuffles": {
+          "baseline": 32,
+          "footprint": 32
+        }
+      },
+      "AOTU025/running": {
+        "available": true,
+        "flies": 21,
+        "pulses": 4203,
+        "scores": {
+          "baseline": {
+            "pulse_rmse_spikes_s": {
+              "mean": 18.61505944314704,
+              "sem": 1.3636159499900935
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 18.44469037726799,
+              "sem": 1.087147151384263
+            },
+            "time_rmse_spikes_s": {
+              "mean": 20.69404127611165,
+              "sem": 1.2894077872924383
+            }
+          },
+          "footprint": {
+            "pulse_rmse_spikes_s": {
+              "mean": 18.614997115340284,
+              "sem": 1.3630803386756472
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 18.443076662480905,
+              "sem": 1.084654414048817
+            },
+            "time_rmse_spikes_s": {
+              "mean": 20.691154773443728,
+              "sem": 1.2900343515897799
+            }
+          },
+          "simple_spatial": {
+            "pulse_rmse_spikes_s": {
+              "mean": 18.70149250584116,
+              "sem": 1.385203498828122
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 18.521523189007794,
+              "sem": 1.1320970607972844
+            },
+            "time_rmse_spikes_s": {
+              "mean": 20.770113295680254,
+              "sem": 1.2899661306803305
+            }
+          },
+          "intercept_only": {
+            "pulse_rmse_spikes_s": {
+              "mean": 19.29887356786646,
+              "sem": 1.6020277537772323
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 19.92947235449123,
+              "sem": 1.4664441355978564
+            },
+            "time_rmse_spikes_s": {
+              "mean": 21.449263846733476,
+              "sem": 1.3301039154431367
+            }
+          }
+        },
+        "pulse_error_beats_shuffles": {
+          "baseline": 32,
+          "footprint": 32
+        }
+      },
+      "AOTU025/mixed": {
+        "available": true,
+        "flies": 22,
+        "pulses": 7576,
+        "scores": {
+          "baseline": {
+            "pulse_rmse_spikes_s": {
+              "mean": 18.481087699268524,
+              "sem": 1.2927246636290888
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 17.995175430423913,
+              "sem": 0.9438838532785568
+            },
+            "time_rmse_spikes_s": {
+              "mean": 20.712773126205246,
+              "sem": 1.2534881854174214
+            }
+          },
+          "footprint": {
+            "pulse_rmse_spikes_s": {
+              "mean": 18.47777363957914,
+              "sem": 1.2914783591696812
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 17.997944571773253,
+              "sem": 0.9414385836000279
+            },
+            "time_rmse_spikes_s": {
+              "mean": 20.709560292791572,
+              "sem": 1.2539923944596494
+            }
+          },
+          "simple_spatial": {
+            "pulse_rmse_spikes_s": {
+              "mean": 18.51592653452893,
+              "sem": 1.301555165407342
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 17.97470403948103,
+              "sem": 0.9546529116190633
+            },
+            "time_rmse_spikes_s": {
+              "mean": 20.748715949836374,
+              "sem": 1.2461814671533347
+            }
+          },
+          "intercept_only": {
+            "pulse_rmse_spikes_s": {
+              "mean": 19.588503589556417,
+              "sem": 1.5821820183960127
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 19.082040900643996,
+              "sem": 1.3755845326809677
+            },
+            "time_rmse_spikes_s": {
+              "mean": 21.63366754735144,
+              "sem": 1.325270847383121
+            }
+          }
+        },
+        "pulse_error_beats_shuffles": {
+          "baseline": 32,
+          "footprint": 32
+        }
+      }
+    },
+    "P1/all_L": {
+      "AOTU019/quiescent": {
+        "available": true,
+        "flies": 25,
+        "pulses": 16331,
+        "scores": {
+          "baseline": {
+            "pulse_rmse_spikes_s": {
+              "mean": 13.186712475995996,
+              "sem": 0.9719707140054273
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 11.531555847312015,
+              "sem": 0.7009305544545584
+            },
+            "time_rmse_spikes_s": {
+              "mean": 14.597689169666433,
+              "sem": 0.9068032658277551
+            }
+          },
+          "footprint": {
+            "pulse_rmse_spikes_s": {
+              "mean": 13.185165545676181,
+              "sem": 0.9718200985118569
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 11.529444561796126,
+              "sem": 0.7004516392825662
+            },
+            "time_rmse_spikes_s": {
+              "mean": 14.596163020565248,
+              "sem": 0.9068443095201824
+            }
+          },
+          "simple_spatial": {
+            "pulse_rmse_spikes_s": {
+              "mean": 13.256988855000042,
+              "sem": 0.9644584508902445
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 11.560898325499554,
+              "sem": 0.7255780617214364
+            },
+            "time_rmse_spikes_s": {
+              "mean": 14.613789992761374,
+              "sem": 0.9087198000015775
+            }
+          },
+          "intercept_only": {
+            "pulse_rmse_spikes_s": {
+              "mean": 14.202226875832839,
+              "sem": 1.019080938457867
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 13.144811299639926,
+              "sem": 1.0001001293649607
+            },
+            "time_rmse_spikes_s": {
+              "mean": 15.504810219207284,
+              "sem": 0.8761708608253759
+            }
+          }
+        },
+        "pulse_error_beats_shuffles": {
+          "baseline": 28,
+          "footprint": 28
+        }
+      },
+      "AOTU019/running": {
+        "available": true,
+        "flies": 25,
+        "pulses": 6738,
+        "scores": {
+          "baseline": {
+            "pulse_rmse_spikes_s": {
+              "mean": 18.216602564151476,
+              "sem": 1.240605662498707
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 14.95000407101782,
+              "sem": 1.0164500382151704
+            },
+            "time_rmse_spikes_s": {
+              "mean": 19.845397585510426,
+              "sem": 1.1049109306956815
+            }
+          },
+          "footprint": {
+            "pulse_rmse_spikes_s": {
+              "mean": 18.213266266003274,
+              "sem": 1.2403500114500525
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 14.946140402774523,
+              "sem": 1.0158574340001127
+            },
+            "time_rmse_spikes_s": {
+              "mean": 19.842750810637234,
+              "sem": 1.1049593009612255
+            }
+          },
+          "simple_spatial": {
+            "pulse_rmse_spikes_s": {
+              "mean": 18.0198054031259,
+              "sem": 1.2460797374992247
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 14.92871866453323,
+              "sem": 0.9986755064559333
+            },
+            "time_rmse_spikes_s": {
+              "mean": 19.68717185752334,
+              "sem": 1.1152262394502535
+            }
+          },
+          "intercept_only": {
+            "pulse_rmse_spikes_s": {
+              "mean": 19.525274492996907,
+              "sem": 1.395489803664595
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 17.29216601797404,
+              "sem": 1.3516759865223347
+            },
+            "time_rmse_spikes_s": {
+              "mean": 21.102732655264617,
+              "sem": 1.1062348112612224
+            }
+          }
+        },
+        "pulse_error_beats_shuffles": {
+          "baseline": 28,
+          "footprint": 29
+        }
+      },
+      "AOTU019/mixed": {
+        "available": true,
+        "flies": 25,
+        "pulses": 7735,
+        "scores": {
+          "baseline": {
+            "pulse_rmse_spikes_s": {
+              "mean": 16.240592455987333,
+              "sem": 1.1266366018991225
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 14.512279926916285,
+              "sem": 0.9310718954823143
+            },
+            "time_rmse_spikes_s": {
+              "mean": 17.57166387225255,
+              "sem": 1.0587378161605239
+            }
+          },
+          "footprint": {
+            "pulse_rmse_spikes_s": {
+              "mean": 16.2385424817975,
+              "sem": 1.1264100409824576
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 14.510240343132953,
+              "sem": 0.930734755222668
+            },
+            "time_rmse_spikes_s": {
+              "mean": 17.569986876111656,
+              "sem": 1.0587902995831335
+            }
+          },
+          "simple_spatial": {
+            "pulse_rmse_spikes_s": {
+              "mean": 16.25874799288706,
+              "sem": 1.111546829684074
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 14.489571786100361,
+              "sem": 0.9096980854092257
+            },
+            "time_rmse_spikes_s": {
+              "mean": 17.564828332174745,
+              "sem": 1.0553699394493201
+            }
+          },
+          "intercept_only": {
+            "pulse_rmse_spikes_s": {
+              "mean": 17.0226131561185,
+              "sem": 1.148858270153989
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 15.625368287805625,
+              "sem": 1.048661618871885
+            },
+            "time_rmse_spikes_s": {
+              "mean": 18.27985577682604,
+              "sem": 1.0012037501266848
+            }
+          }
+        },
+        "pulse_error_beats_shuffles": {
+          "baseline": 2,
+          "footprint": 3
+        }
+      },
+      "AOTU025/quiescent": {
+        "available": true,
+        "flies": 22,
+        "pulses": 12669,
+        "scores": {
+          "baseline": {
+            "pulse_rmse_spikes_s": {
+              "mean": 15.612833666511722,
+              "sem": 1.1413554188194064
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 14.347881697646864,
+              "sem": 0.8547106192102683
+            },
+            "time_rmse_spikes_s": {
+              "mean": 17.1658900077988,
+              "sem": 1.1400367468293646
+            }
+          },
+          "footprint": {
+            "pulse_rmse_spikes_s": {
+              "mean": 15.608639654568009,
+              "sem": 1.1407733829282873
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 14.34515388537826,
+              "sem": 0.8528414074628021
+            },
+            "time_rmse_spikes_s": {
+              "mean": 17.163174459757535,
+              "sem": 1.1402426801699694
+            }
+          },
+          "simple_spatial": {
+            "pulse_rmse_spikes_s": {
+              "mean": 15.681105122288573,
+              "sem": 1.1551315845678074
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 14.39801106195204,
+              "sem": 0.9016538417971375
+            },
+            "time_rmse_spikes_s": {
+              "mean": 17.224281218926258,
+              "sem": 1.1336021894233144
+            }
+          },
+          "intercept_only": {
+            "pulse_rmse_spikes_s": {
+              "mean": 16.576544040202688,
+              "sem": 1.3368777160504737
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 15.643605183446294,
+              "sem": 1.2836824005981784
+            },
+            "time_rmse_spikes_s": {
+              "mean": 17.971670086428485,
+              "sem": 1.1535150485383538
+            }
+          }
+        },
+        "pulse_error_beats_shuffles": {
+          "baseline": 32,
+          "footprint": 32
+        }
+      },
+      "AOTU025/running": {
+        "available": true,
+        "flies": 21,
+        "pulses": 4203,
+        "scores": {
+          "baseline": {
+            "pulse_rmse_spikes_s": {
+              "mean": 18.650677880632447,
+              "sem": 1.3680230702103728
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 18.443482482791772,
+              "sem": 1.0843824348819335
+            },
+            "time_rmse_spikes_s": {
+              "mean": 20.698655401970743,
+              "sem": 1.2923636636885085
+            }
+          },
+          "footprint": {
+            "pulse_rmse_spikes_s": {
+              "mean": 18.649282615544625,
+              "sem": 1.3678824665643579
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 18.441320122927763,
+              "sem": 1.0832728704301566
+            },
+            "time_rmse_spikes_s": {
+              "mean": 20.696776207931766,
+              "sem": 1.2926466651244164
+            }
+          },
+          "simple_spatial": {
+            "pulse_rmse_spikes_s": {
+              "mean": 18.70149250584116,
+              "sem": 1.385203498828122
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 18.521523189007794,
+              "sem": 1.1320970607972844
+            },
+            "time_rmse_spikes_s": {
+              "mean": 20.770113295680254,
+              "sem": 1.2899661306803305
+            }
+          },
+          "intercept_only": {
+            "pulse_rmse_spikes_s": {
+              "mean": 19.29887356786646,
+              "sem": 1.6020277537772323
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 19.92947235449123,
+              "sem": 1.4664441355978564
+            },
+            "time_rmse_spikes_s": {
+              "mean": 21.449263846733476,
+              "sem": 1.3301039154431367
+            }
+          }
+        },
+        "pulse_error_beats_shuffles": {
+          "baseline": 32,
+          "footprint": 32
+        }
+      },
+      "AOTU025/mixed": {
+        "available": true,
+        "flies": 22,
+        "pulses": 7576,
+        "scores": {
+          "baseline": {
+            "pulse_rmse_spikes_s": {
+              "mean": 18.483940245344073,
+              "sem": 1.2889628587876967
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 18.00892229901874,
+              "sem": 0.9317702551635291
+            },
+            "time_rmse_spikes_s": {
+              "mean": 20.71013627275397,
+              "sem": 1.2541477050625336
+            }
+          },
+          "footprint": {
+            "pulse_rmse_spikes_s": {
+              "mean": 18.48137424192821,
+              "sem": 1.288359862850033
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 18.008474530517365,
+              "sem": 0.9306539187644516
+            },
+            "time_rmse_spikes_s": {
+              "mean": 20.708264350801127,
+              "sem": 1.2542832467308362
+            }
+          },
+          "simple_spatial": {
+            "pulse_rmse_spikes_s": {
+              "mean": 18.51592653452893,
+              "sem": 1.301555165407342
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 17.97470403948103,
+              "sem": 0.9546529116190633
+            },
+            "time_rmse_spikes_s": {
+              "mean": 20.748715949836374,
+              "sem": 1.2461814671533347
+            }
+          },
+          "intercept_only": {
+            "pulse_rmse_spikes_s": {
+              "mean": 19.588503589556417,
+              "sem": 1.5821820183960127
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 19.082040900643996,
+              "sem": 1.3755845326809677
+            },
+            "time_rmse_spikes_s": {
+              "mean": 21.63366754735144,
+              "sem": 1.325270847383121
+            }
+          }
+        },
+        "pulse_error_beats_shuffles": {
+          "baseline": 32,
+          "footprint": 32
+        }
+      }
+    },
+    "P1/all_R": {
+      "AOTU019/quiescent": {
+        "available": true,
+        "flies": 25,
+        "pulses": 16331,
+        "scores": {
+          "baseline": {
+            "pulse_rmse_spikes_s": {
+              "mean": 13.156258685432226,
+              "sem": 0.9676424063345708
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 11.495232381687368,
+              "sem": 0.6916516751864077
+            },
+            "time_rmse_spikes_s": {
+              "mean": 14.571466073035994,
+              "sem": 0.9059919015153778
+            }
+          },
+          "footprint": {
+            "pulse_rmse_spikes_s": {
+              "mean": 13.153095471047545,
+              "sem": 0.9676471716055397
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 11.489919882875185,
+              "sem": 0.6908631334570033
+            },
+            "time_rmse_spikes_s": {
+              "mean": 14.567733675234152,
+              "sem": 0.9065133486029706
+            }
+          },
+          "simple_spatial": {
+            "pulse_rmse_spikes_s": {
+              "mean": 13.256988855000042,
+              "sem": 0.9644584508902445
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 11.560898325499554,
+              "sem": 0.7255780617214364
+            },
+            "time_rmse_spikes_s": {
+              "mean": 14.613789992761374,
+              "sem": 0.9087198000015775
+            }
+          },
+          "intercept_only": {
+            "pulse_rmse_spikes_s": {
+              "mean": 14.202226875832839,
+              "sem": 1.019080938457867
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 13.144811299639926,
+              "sem": 1.0001001293649607
+            },
+            "time_rmse_spikes_s": {
+              "mean": 15.504810219207284,
+              "sem": 0.8761708608253759
+            }
+          }
+        },
+        "pulse_error_beats_shuffles": {
+          "baseline": 30,
+          "footprint": 30
+        }
+      },
+      "AOTU019/running": {
+        "available": true,
+        "flies": 25,
+        "pulses": 6738,
+        "scores": {
+          "baseline": {
+            "pulse_rmse_spikes_s": {
+              "mean": 18.11215009414198,
+              "sem": 1.2337430007526007
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 14.85966603356337,
+              "sem": 0.9985872919526649
+            },
+            "time_rmse_spikes_s": {
+              "mean": 19.772527650818887,
+              "sem": 1.1039264503240809
+            }
+          },
+          "footprint": {
+            "pulse_rmse_spikes_s": {
+              "mean": 18.110860522098655,
+              "sem": 1.2337033436304368
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 14.854829229173642,
+              "sem": 0.9982625590637724
+            },
+            "time_rmse_spikes_s": {
+              "mean": 19.769925093382106,
+              "sem": 1.1045709294728225
+            }
+          },
+          "simple_spatial": {
+            "pulse_rmse_spikes_s": {
+              "mean": 18.0198054031259,
+              "sem": 1.2460797374992247
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 14.92871866453323,
+              "sem": 0.9986755064559333
+            },
+            "time_rmse_spikes_s": {
+              "mean": 19.68717185752334,
+              "sem": 1.1152262394502535
+            }
+          },
+          "intercept_only": {
+            "pulse_rmse_spikes_s": {
+              "mean": 19.525274492996907,
+              "sem": 1.395489803664595
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 17.29216601797404,
+              "sem": 1.3516759865223347
+            },
+            "time_rmse_spikes_s": {
+              "mean": 21.102732655264617,
+              "sem": 1.1062348112612224
+            }
+          }
+        },
+        "pulse_error_beats_shuffles": {
+          "baseline": 32,
+          "footprint": 32
+        }
+      },
+      "AOTU019/mixed": {
+        "available": true,
+        "flies": 25,
+        "pulses": 7735,
+        "scores": {
+          "baseline": {
+            "pulse_rmse_spikes_s": {
+              "mean": 16.20179805432914,
+              "sem": 1.1219143719142812
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 14.469182130975062,
+              "sem": 0.9234828254053549
+            },
+            "time_rmse_spikes_s": {
+              "mean": 17.541154266476713,
+              "sem": 1.059089718491727
+            }
+          },
+          "footprint": {
+            "pulse_rmse_spikes_s": {
+              "mean": 16.196651076289267,
+              "sem": 1.1213391524651344
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 14.46550831644702,
+              "sem": 0.9227698633351562
+            },
+            "time_rmse_spikes_s": {
+              "mean": 17.53698664109312,
+              "sem": 1.0593539776711156
+            }
+          },
+          "simple_spatial": {
+            "pulse_rmse_spikes_s": {
+              "mean": 16.25874799288706,
+              "sem": 1.111546829684074
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 14.489571786100361,
+              "sem": 0.9096980854092257
+            },
+            "time_rmse_spikes_s": {
+              "mean": 17.564828332174745,
+              "sem": 1.0553699394493201
+            }
+          },
+          "intercept_only": {
+            "pulse_rmse_spikes_s": {
+              "mean": 17.0226131561185,
+              "sem": 1.148858270153989
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 15.625368287805625,
+              "sem": 1.048661618871885
+            },
+            "time_rmse_spikes_s": {
+              "mean": 18.27985577682604,
+              "sem": 1.0012037501266848
+            }
+          }
+        },
+        "pulse_error_beats_shuffles": {
+          "baseline": 3,
+          "footprint": 1
+        }
+      },
+      "AOTU025/quiescent": {
+        "available": true,
+        "flies": 22,
+        "pulses": 12669,
+        "scores": {
+          "baseline": {
+            "pulse_rmse_spikes_s": {
+              "mean": 15.635614565137569,
+              "sem": 1.1449104311204519
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 14.361994487555295,
+              "sem": 0.8668610332729636
+            },
+            "time_rmse_spikes_s": {
+              "mean": 17.181590594787693,
+              "sem": 1.1383399877468958
+            }
+          },
+          "footprint": {
+            "pulse_rmse_spikes_s": {
+              "mean": 15.630312519594115,
+              "sem": 1.1437990237657185
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 14.359300197037426,
+              "sem": 0.8626067500519399
+            },
+            "time_rmse_spikes_s": {
+              "mean": 17.177561211435513,
+              "sem": 1.1391864247975034
+            }
+          },
+          "simple_spatial": {
+            "pulse_rmse_spikes_s": {
+              "mean": 15.681105122288573,
+              "sem": 1.1551315845678074
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 14.39801106195204,
+              "sem": 0.9016538417971375
+            },
+            "time_rmse_spikes_s": {
+              "mean": 17.224281218926258,
+              "sem": 1.1336021894233144
+            }
+          },
+          "intercept_only": {
+            "pulse_rmse_spikes_s": {
+              "mean": 16.576544040202688,
+              "sem": 1.3368777160504737
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 15.643605183446294,
+              "sem": 1.2836824005981784
+            },
+            "time_rmse_spikes_s": {
+              "mean": 17.971670086428485,
+              "sem": 1.1535150485383538
+            }
+          }
+        },
+        "pulse_error_beats_shuffles": {
+          "baseline": 32,
+          "footprint": 32
+        }
+      },
+      "AOTU025/running": {
+        "available": true,
+        "flies": 21,
+        "pulses": 4203,
+        "scores": {
+          "baseline": {
+            "pulse_rmse_spikes_s": {
+              "mean": 18.66511032233611,
+              "sem": 1.3697042765353145
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 18.45849157499079,
+              "sem": 1.0938482348347571
+            },
+            "time_rmse_spikes_s": {
+              "mean": 20.7137818488412,
+              "sem": 1.2900647636831035
+            }
+          },
+          "footprint": {
+            "pulse_rmse_spikes_s": {
+              "mean": 18.664167012859643,
+              "sem": 1.3686310129795383
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 18.453293022899487,
+              "sem": 1.0902457446907128
+            },
+            "time_rmse_spikes_s": {
+              "mean": 20.709848809740677,
+              "sem": 1.2907238401381103
+            }
+          },
+          "simple_spatial": {
+            "pulse_rmse_spikes_s": {
+              "mean": 18.70149250584116,
+              "sem": 1.385203498828122
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 18.521523189007794,
+              "sem": 1.1320970607972844
+            },
+            "time_rmse_spikes_s": {
+              "mean": 20.770113295680254,
+              "sem": 1.2899661306803305
+            }
+          },
+          "intercept_only": {
+            "pulse_rmse_spikes_s": {
+              "mean": 19.29887356786646,
+              "sem": 1.6020277537772323
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 19.92947235449123,
+              "sem": 1.4664441355978564
+            },
+            "time_rmse_spikes_s": {
+              "mean": 21.449263846733476,
+              "sem": 1.3301039154431367
+            }
+          }
+        },
+        "pulse_error_beats_shuffles": {
+          "baseline": 32,
+          "footprint": 32
+        }
+      },
+      "AOTU025/mixed": {
+        "available": true,
+        "flies": 22,
+        "pulses": 7576,
+        "scores": {
+          "baseline": {
+            "pulse_rmse_spikes_s": {
+              "mean": 18.494975430798277,
+              "sem": 1.2921276412023448
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 18.00502220338453,
+              "sem": 0.9382050437780247
+            },
+            "time_rmse_spikes_s": {
+              "mean": 20.719988863313404,
+              "sem": 1.2525098654999973
+            }
+          },
+          "footprint": {
+            "pulse_rmse_spikes_s": {
+              "mean": 18.4926628200662,
+              "sem": 1.291090576332485
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 18.00994714175351,
+              "sem": 0.9361853623518519
+            },
+            "time_rmse_spikes_s": {
+              "mean": 20.717117239180894,
+              "sem": 1.253345994485256
+            }
+          },
+          "simple_spatial": {
+            "pulse_rmse_spikes_s": {
+              "mean": 18.51592653452893,
+              "sem": 1.301555165407342
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 17.97470403948103,
+              "sem": 0.9546529116190633
+            },
+            "time_rmse_spikes_s": {
+              "mean": 20.748715949836374,
+              "sem": 1.2461814671533347
+            }
+          },
+          "intercept_only": {
+            "pulse_rmse_spikes_s": {
+              "mean": 19.588503589556417,
+              "sem": 1.5821820183960127
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 19.082040900643996,
+              "sem": 1.3755845326809677
+            },
+            "time_rmse_spikes_s": {
+              "mean": 21.63366754735144,
+              "sem": 1.325270847383121
+            }
+          }
+        },
+        "pulse_error_beats_shuffles": {
+          "baseline": 32,
+          "footprint": 32
+        }
+      }
+    },
+    "P1/metadata_exclude_duplicate": {
+      "AOTU019/quiescent": {
+        "available": true,
+        "flies": 24,
+        "pulses": 15365,
+        "scores": {
+          "baseline": {
+            "pulse_rmse_spikes_s": {
+              "mean": 13.258620523301005,
+              "sem": 1.0076266038356863
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 11.620543031850064,
+              "sem": 0.7004857513691604
+            },
+            "time_rmse_spikes_s": {
+              "mean": 14.730723507206703,
+              "sem": 0.9357350458000897
+            }
+          },
+          "footprint": {
+            "pulse_rmse_spikes_s": {
+              "mean": 13.260904937015548,
+              "sem": 1.0069827191569152
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 11.62088089714294,
+              "sem": 0.6996992805958379
+            },
+            "time_rmse_spikes_s": {
+              "mean": 14.730714294018133,
+              "sem": 0.9354200741969165
+            }
+          },
+          "simple_spatial": {
+            "pulse_rmse_spikes_s": {
+              "mean": 13.411615961076473,
+              "sem": 0.9926103988265709
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 11.725897031770495,
+              "sem": 0.7291850837254022
+            },
+            "time_rmse_spikes_s": {
+              "mean": 14.798362210741049,
+              "sem": 0.9290087895878987
+            }
+          },
+          "intercept_only": {
+            "pulse_rmse_spikes_s": {
+              "mean": 14.43334511048146,
+              "sem": 1.0357983442379297
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 13.40376739512592,
+              "sem": 1.0071170700517535
+            },
+            "time_rmse_spikes_s": {
+              "mean": 15.74356708473516,
+              "sem": 0.8811701051596728
+            }
+          }
+        },
+        "pulse_error_beats_shuffles": {
+          "baseline": 22,
+          "footprint": 28
+        }
+      },
+      "AOTU019/running": {
+        "available": true,
+        "flies": 24,
+        "pulses": 6620,
+        "scores": {
+          "baseline": {
+            "pulse_rmse_spikes_s": {
+              "mean": 18.271045589416715,
+              "sem": 1.2692632630439507
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 14.987925868657257,
+              "sem": 1.0329784962117095
+            },
+            "time_rmse_spikes_s": {
+              "mean": 20.00065642586253,
+              "sem": 1.1261999119131656
+            }
+          },
+          "footprint": {
+            "pulse_rmse_spikes_s": {
+              "mean": 18.27894402949755,
+              "sem": 1.2687714632567226
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 14.99309926993078,
+              "sem": 1.0318593273714354
+            },
+            "time_rmse_spikes_s": {
+              "mean": 20.00477494148039,
+              "sem": 1.1258055306753487
+            }
+          },
+          "simple_spatial": {
+            "pulse_rmse_spikes_s": {
+              "mean": 18.22446271127838,
+              "sem": 1.2718970747054918
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 15.134969194568379,
+              "sem": 1.016857939517645
+            },
+            "time_rmse_spikes_s": {
+              "mean": 19.936395486094494,
+              "sem": 1.1261910075780683
+            }
+          },
+          "intercept_only": {
+            "pulse_rmse_spikes_s": {
+              "mean": 19.841128071739004,
+              "sem": 1.4079875842147285
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 17.699318182845143,
+              "sem": 1.3437678561733328
+            },
+            "time_rmse_spikes_s": {
+              "mean": 21.425149620532267,
+              "sem": 1.109042204802437
+            }
+          }
+        },
+        "pulse_error_beats_shuffles": {
+          "baseline": 23,
+          "footprint": 25
+        }
+      },
+      "AOTU019/mixed": {
+        "available": true,
+        "flies": 24,
+        "pulses": 7382,
+        "scores": {
+          "baseline": {
+            "pulse_rmse_spikes_s": {
+              "mean": 16.36666091341554,
+              "sem": 1.1606741397031506
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 14.595024169608203,
+              "sem": 0.9717055720074811
+            },
+            "time_rmse_spikes_s": {
+              "mean": 17.743319828269637,
+              "sem": 1.0863385264649523
+            }
+          },
+          "footprint": {
+            "pulse_rmse_spikes_s": {
+              "mean": 16.366459488872817,
+              "sem": 1.1598211567983603
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 14.594602251349494,
+              "sem": 0.969965227893787
+            },
+            "time_rmse_spikes_s": {
+              "mean": 17.742325687406296,
+              "sem": 1.0860711653225983
+            }
+          },
+          "simple_spatial": {
+            "pulse_rmse_spikes_s": {
+              "mean": 16.470211052263867,
+              "sem": 1.1339238621278047
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 14.628519290943908,
+              "sem": 0.9348135155069298
+            },
+            "time_rmse_spikes_s": {
+              "mean": 17.790051832266283,
+              "sem": 1.0710317814273422
+            }
+          },
+          "intercept_only": {
+            "pulse_rmse_spikes_s": {
+              "mean": 17.283030185195546,
+              "sem": 1.162247302139958
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 15.887089381515253,
+              "sem": 1.0587078157513936
+            },
+            "time_rmse_spikes_s": {
+              "mean": 18.542324508462624,
+              "sem": 1.0082342640397541
+            }
+          }
+        },
+        "pulse_error_beats_shuffles": {
+          "baseline": 0,
+          "footprint": 1
+        }
+      },
+      "AOTU025/quiescent": {
+        "available": true,
+        "flies": 22,
+        "pulses": 12669,
+        "scores": {
+          "baseline": {
+            "pulse_rmse_spikes_s": {
+              "mean": 15.636872456758756,
+              "sem": 1.1509888429670865
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 14.398556233488927,
+              "sem": 0.8648269828500778
+            },
+            "time_rmse_spikes_s": {
+              "mean": 17.186138655154682,
+              "sem": 1.1380907072501036
+            }
+          },
+          "footprint": {
+            "pulse_rmse_spikes_s": {
+              "mean": 15.630022021710692,
+              "sem": 1.149172570127601
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 14.392433273639623,
+              "sem": 0.8606772991666805
+            },
+            "time_rmse_spikes_s": {
+              "mean": 17.181256221407654,
+              "sem": 1.1384874521782749
+            }
+          },
+          "simple_spatial": {
+            "pulse_rmse_spikes_s": {
+              "mean": 15.681105122288573,
+              "sem": 1.1551315845678074
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 14.39801106195204,
+              "sem": 0.9016538417971375
+            },
+            "time_rmse_spikes_s": {
+              "mean": 17.224281218926258,
+              "sem": 1.1336021894233144
+            }
+          },
+          "intercept_only": {
+            "pulse_rmse_spikes_s": {
+              "mean": 16.576544040202688,
+              "sem": 1.3368777160504737
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 15.643605183446294,
+              "sem": 1.2836824005981784
+            },
+            "time_rmse_spikes_s": {
+              "mean": 17.971670086428485,
+              "sem": 1.1535150485383538
+            }
+          }
+        },
+        "pulse_error_beats_shuffles": {
+          "baseline": 32,
+          "footprint": 32
+        }
+      },
+      "AOTU025/running": {
+        "available": true,
+        "flies": 21,
+        "pulses": 4203,
+        "scores": {
+          "baseline": {
+            "pulse_rmse_spikes_s": {
+              "mean": 18.72526564400117,
+              "sem": 1.3835014429929842
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 18.49361257830437,
+              "sem": 1.1036363817589891
+            },
+            "time_rmse_spikes_s": {
+              "mean": 20.738566655224396,
+              "sem": 1.2951069464183822
+            }
+          },
+          "footprint": {
+            "pulse_rmse_spikes_s": {
+              "mean": 18.719882750200913,
+              "sem": 1.3818516888212442
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 18.483240986841132,
+              "sem": 1.0997304578735922
+            },
+            "time_rmse_spikes_s": {
+              "mean": 20.73300916613718,
+              "sem": 1.2952590223442377
+            }
+          },
+          "simple_spatial": {
+            "pulse_rmse_spikes_s": {
+              "mean": 18.70149250584116,
+              "sem": 1.385203498828122
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 18.521523189007794,
+              "sem": 1.1320970607972844
+            },
+            "time_rmse_spikes_s": {
+              "mean": 20.770113295680254,
+              "sem": 1.2899661306803305
+            }
+          },
+          "intercept_only": {
+            "pulse_rmse_spikes_s": {
+              "mean": 19.29887356786646,
+              "sem": 1.6020277537772323
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 19.92947235449123,
+              "sem": 1.4664441355978564
+            },
+            "time_rmse_spikes_s": {
+              "mean": 21.449263846733476,
+              "sem": 1.3301039154431367
+            }
+          }
+        },
+        "pulse_error_beats_shuffles": {
+          "baseline": 32,
+          "footprint": 32
+        }
+      },
+      "AOTU025/mixed": {
+        "available": true,
+        "flies": 22,
+        "pulses": 7576,
+        "scores": {
+          "baseline": {
+            "pulse_rmse_spikes_s": {
+              "mean": 18.53019427495714,
+              "sem": 1.3022988337936976
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 18.03487639057175,
+              "sem": 0.9422390391159471
+            },
+            "time_rmse_spikes_s": {
+              "mean": 20.738987165377605,
+              "sem": 1.2568035317347188
+            }
+          },
+          "footprint": {
+            "pulse_rmse_spikes_s": {
+              "mean": 18.524625506488295,
+              "sem": 1.300401057738888
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 18.034800513445784,
+              "sem": 0.9396244890659503
+            },
+            "time_rmse_spikes_s": {
+              "mean": 20.734634479750785,
+              "sem": 1.2569444184263228
+            }
+          },
+          "simple_spatial": {
+            "pulse_rmse_spikes_s": {
+              "mean": 18.51592653452893,
+              "sem": 1.301555165407342
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 17.97470403948103,
+              "sem": 0.9546529116190633
+            },
+            "time_rmse_spikes_s": {
+              "mean": 20.748715949836374,
+              "sem": 1.2461814671533347
+            }
+          },
+          "intercept_only": {
+            "pulse_rmse_spikes_s": {
+              "mean": 19.588503589556417,
+              "sem": 1.5821820183960127
+            },
+            "evoked_rmse_spikes_s": {
+              "mean": 19.082040900643996,
+              "sem": 1.3755845326809677
+            },
+            "time_rmse_spikes_s": {
+              "mean": 21.63366754735144,
+              "sem": 1.325270847383121
+            }
+          }
+        },
+        "pulse_error_beats_shuffles": {
+          "baseline": 32,
+          "footprint": 32
+        }
+      }
+    }
+  },
+  "metadata_summaries_exactly_reproduced": true,
+  "scope": "Hemisphere scenarios are pre-fit declared; duplicate exclusion is post hoc. Neither tunes model parameters.",
+  "limitations": [
+    "Four side scenarios do not exhaust all per-recording assignments",
+    "Excluding one duplicate does not certify every remaining trial's stimulation condition"
+  ]
+}

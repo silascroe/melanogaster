@@ -1,0 +1,244 @@
+{
+  "source_commit": "65d72773121ffe148b56b8ba4f594a7a51c51789",
+  "identity_scope": "16 source partner IDs only; source LC10a body IDs not retained in released heatmap/response tables",
+  "source_partners_checked": 16,
+  "same_id_type_and_traced_in_v1": 16,
+  "source_partner_identity": [
+    {
+      "source_type": "AOTU019",
+      "source_partner_id": 10070,
+      "v1_type": "AOTU019",
+      "v1_instance": "AOTU019_L",
+      "v1_side": "L",
+      "v1_status": "Traced",
+      "same_type_traced": true
+    },
+    {
+      "source_type": "AOTU025",
+      "source_partner_id": 516361,
+      "v1_type": "AOTU025",
+      "v1_instance": "AOTU025_L",
+      "v1_side": "L",
+      "v1_status": "Traced",
+      "same_type_traced": true
+    },
+    {
+      "source_type": "AOTU012",
+      "source_partner_id": 531863,
+      "v1_type": "AOTU012",
+      "v1_instance": "AOTU012_L",
+      "v1_side": "L",
+      "v1_status": "Traced",
+      "same_type_traced": true
+    },
+    {
+      "source_type": "AOTU016_a",
+      "source_partner_id": 19686,
+      "v1_type": "AOTU016_a",
+      "v1_instance": "AOTU016_a_L",
+      "v1_side": "L",
+      "v1_status": "Traced",
+      "same_type_traced": true
+    },
+    {
+      "source_type": "AOTU005",
+      "source_partner_id": 10636,
+      "v1_type": "AOTU005",
+      "v1_instance": "AOTU005_L",
+      "v1_side": "L",
+      "v1_status": "Traced",
+      "same_type_traced": true
+    },
+    {
+      "source_type": "AOTU026",
+      "source_partner_id": 517465,
+      "v1_type": "AOTU026",
+      "v1_instance": "AOTU026_L",
+      "v1_side": "L",
+      "v1_status": "Traced",
+      "same_type_traced": true
+    },
+    {
+      "source_type": "AOTU016_c",
+      "source_partner_id": 518450,
+      "v1_type": "AOTU016_c",
+      "v1_instance": "AOTU016_c_L",
+      "v1_side": "L",
+      "v1_status": "Traced",
+      "same_type_traced": true
+    },
+    {
+      "source_type": "AOTU027",
+      "source_partner_id": 12391,
+      "v1_type": "AOTU027",
+      "v1_instance": "AOTU027_L",
+      "v1_side": "L",
+      "v1_status": "Traced",
+      "same_type_traced": true
+    },
+    {
+      "source_type": "LAL027",
+      "source_partner_id": 518127,
+      "v1_type": "LAL027",
+      "v1_instance": "LAL027_L",
+      "v1_side": "L",
+      "v1_status": "Traced",
+      "same_type_traced": true
+    },
+    {
+      "source_type": "AOTU002_c",
+      "source_partner_id": 83676,
+      "v1_type": "AOTU002_c",
+      "v1_instance": "AOTU002_c_L",
+      "v1_side": "L",
+      "v1_status": "Traced",
+      "same_type_traced": true
+    },
+    {
+      "source_type": "AOTU002_a",
+      "source_partner_id": 18112,
+      "v1_type": "AOTU002_a",
+      "v1_instance": "AOTU002_a_L",
+      "v1_side": "L",
+      "v1_status": "Traced",
+      "same_type_traced": true
+    },
+    {
+      "source_type": "AOTU015",
+      "source_partner_id": 18388,
+      "v1_type": "AOTU015",
+      "v1_instance": "AOTU015_L",
+      "v1_side": "L",
+      "v1_status": "Traced",
+      "same_type_traced": true
+    },
+    {
+      "source_type": "LAL028",
+      "source_partner_id": 99043,
+      "v1_type": "LAL028",
+      "v1_instance": "LAL028_L",
+      "v1_side": "L",
+      "v1_status": "Traced",
+      "same_type_traced": true
+    },
+    {
+      "source_type": "AOTU001",
+      "source_partner_id": 103686,
+      "v1_type": "AOTU001",
+      "v1_instance": "AOTU001_L",
+      "v1_side": "L",
+      "v1_status": "Traced",
+      "same_type_traced": true
+    },
+    {
+      "source_type": "LAL029_e",
+      "source_partner_id": 515799,
+      "v1_type": "LAL029_e",
+      "v1_instance": "LAL029_e_L",
+      "v1_side": "L",
+      "v1_status": "Traced",
+      "same_type_traced": true
+    },
+    {
+      "source_type": "LAL026_a",
+      "source_partner_id": 10962,
+      "v1_type": "LAL026_a",
+      "v1_instance": "LAL026_a_L",
+      "v1_side": "L",
+      "v1_status": "Traced",
+      "same_type_traced": true
+    }
+  ],
+  "source_weighting_lineage": {
+    "lc10a_to_target": "v0.9 LC10a-to-target counts color the source heatmap before image processing and normalization; not a per-LC10a response table",
+    "target_to_dna02": "weighted_rf_by_cell multiplies the image-derived response by source mean DNa02 weight divided by the largest mean DNa02 weight",
+    "aotu019_dna02_multiplier": 1.0,
+    "aotu025_dna02_multiplier": 0.6843003412969283,
+    "multiply_again_by_v1_edges": "prohibited: would reuse a strength component already present in source fields"
+  },
+  "weighted_rf_columns": 14,
+  "modeled_rf_columns": 14,
+  "linear_interpolation_max_error_by_modeled_column_on_shared_range": {
+    "AOTU002_a": 2.7912097281281717e-05,
+    "AOTU002_c": 6.826354396187451e-06,
+    "AOTU005": 0.00010318185606542074,
+    "AOTU015": 9.970580210356961e-05,
+    "AOTU016_a": 6.754573293732413e-05,
+    "AOTU016_c": 5.290438016072874e-06,
+    "AOTU019": 0.0004471052975910106,
+    "AOTU025": 0.00010353541684876046,
+    "AOTU026": 4.263564901044181e-05,
+    "AOTU027": 0.00011929470403718168,
+    "LAL026_a": 0.00016583443036372048,
+    "LAL027": 9.95271054787597e-05,
+    "LAL028": 0.00020113002866653518,
+    "LAL029_e": 0.00018670228531861288
+  },
+  "linear_interpolation_max_error_all_columns": 0.0004471052975910106,
+  "modeled_major_branches": [
+    {
+      "type": "AOTU019",
+      "source_v09_mean_lc10a_contacts": 7076.0,
+      "v1_lc10a_contacts_left_right": [
+        6615,
+        7595
+      ],
+      "source_v09_mean_dna02_contacts": 293.0,
+      "v1_signed_dna02_contacts_left_right": [
+        -289,
+        -297
+      ],
+      "source_weighted_field_peak_deg": 26,
+      "v1_hypothesis_contact_drive_peak_deg": 28,
+      "right_field_shape_pearson_0_to_165_deg": 0.9042042825812129,
+      "right_field_shape_mean_absolute_difference_0_to_165_deg": 0.18343667491555515,
+      "source_weighted_field_max": 0.999985699805799,
+      "v1_hypothesis_contact_drive_max": 6574.486274130928
+    },
+    {
+      "type": "AOTU025",
+      "source_v09_mean_lc10a_contacts": 3494.0,
+      "v1_lc10a_contacts_left_right": [
+        3303,
+        3728
+      ],
+      "source_v09_mean_dna02_contacts": 200.5,
+      "v1_signed_dna02_contacts_left_right": [
+        205,
+        196
+      ],
+      "source_weighted_field_peak_deg": 72,
+      "v1_hypothesis_contact_drive_peak_deg": 45,
+      "right_field_shape_pearson_0_to_165_deg": 0.2632448439252348,
+      "right_field_shape_mean_absolute_difference_0_to_165_deg": 0.38585059799458415,
+      "source_weighted_field_max": 0.68417983570978,
+      "v1_hypothesis_contact_drive_max": 3482.1852087246525
+    }
+  ],
+  "v1_input": {
+    "lc10a_cells": 275,
+    "position_sources": {
+      "skeleton geometry calibrated by upstream columns": 111,
+      "upstream column contacts": 164
+    },
+    "width_deg": 18.0,
+    "width_status": "assumed Gaussian response width, not measured",
+    "preferred_angle_status": "anatomy-derived ordering with assumed 5-60 degree scale"
+  },
+  "v1_fixed_fly": {
+    "right_25_deg_aotu_contact_drive": {
+      "AOTU019_R": 6516.1951548743245,
+      "AOTU019_L": 0.0,
+      "AOTU025_L": 0.0,
+      "AOTU025_R": 2042.9795409724813
+    },
+    "right_25_deg_dna02_signed_contact_product_left_right": [
+      -1935309.9609976744,
+      400423.99003060634
+    ],
+    "right_25_deg_right_minus_left": 2335733.951028281,
+    "right_25_deg_bridge_removed_right_minus_left": 0.0,
+    "right_25_deg_bridge_side_swapped_right_minus_left": -2335733.951028281
+  },
+  "interpretation": "The v1 projection uses each selected v1 edge once, but remains an uncalibrated anatomical-input hypothesis; no reference behavioral parity or neural firing claim."
+}

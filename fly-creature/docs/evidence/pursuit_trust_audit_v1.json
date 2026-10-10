@@ -1,0 +1,3296 @@
+{
+  "purpose": "Pursuit behavior trust audit, not biological validation",
+  "circuit": {
+    "neurons": 281,
+    "edges": 366,
+    "sha256": "12da5553adbfe4d8164e861786879dc71e7468a787420a66e7b3def5a5658c4c"
+  },
+  "protocol": {
+    "duration_ms": 8000,
+    "walk_speed_m_s": 0.55,
+    "baseline": {
+      "path": "crossing",
+      "input_mv": 90.0,
+      "step_ms": 50
+    },
+    "path_sweep": [
+      "crossing",
+      "mirrored",
+      "faster",
+      "slower",
+      "narrow",
+      "stationary",
+      "absent"
+    ],
+    "input_sweep_mv": [
+      30.0,
+      45.0,
+      60.0,
+      75.0,
+      90.0,
+      120.0
+    ],
+    "timing_sweep_ms": [
+      25,
+      50,
+      100
+    ],
+    "factor_rule": "Only path, input current, or step duration changes within its sweep.",
+    "controls": {
+      "disconnected": "Remove AOTU-to-DNa02 bridges; retain LC10a-to-AOTU edges.",
+      "bridge_side_swapped": "Keep synapse counts and signs, swap DNa02 destinations.",
+      "direct_bearing": "No neural graph; same view gate/dead zone and 1.2 rad/s cap, turn rate is signed 1.2 times encoded bearing strength. The direct rule is fixed across all sweeps."
+    },
+    "metric": "Mean absolute target bearing over all active frames, including out-of-view frames; lower is better only for centering, not overall biological behavior."
+  },
+  "experiments": {
+    "path:crossing": {
+      "intact": {
+        "mean_abs_bearing_deg": 10.347,
+        "median_abs_bearing_deg": 10.632,
+        "p90_abs_bearing_deg": 17.18,
+        "final_abs_bearing_deg": 14.255,
+        "in_view_fraction": 1.0,
+        "mean_abs_turn_rate_rad_s": 0.2554,
+        "DNa02_spikes": {
+          "L": 0,
+          "R": 0
+        },
+        "final_fly_x": 0.551,
+        "final_heading_deg": -31.297,
+        "checkpoints": [
+          {
+            "time_s": 1.0,
+            "bearing_deg": -2.044,
+            "fly_x": -0.101,
+            "heading_deg": -13.448,
+            "turn_rate_rad_s": -0.0
+          },
+          {
+            "time_s": 2.0,
+            "bearing_deg": 12.133,
+            "fly_x": -0.221,
+            "heading_deg": -8.456,
+            "turn_rate_rad_s": 0.3008
+          },
+          {
+            "time_s": 4.0,
+            "bearing_deg": 9.099,
+            "fly_x": -0.01,
+            "heading_deg": 26.088,
+            "turn_rate_rad_s": 0.1542
+          },
+          {
+            "time_s": 6.0,
+            "bearing_deg": -7.181,
+            "fly_x": 0.516,
+            "heading_deg": 28.827,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 8.0,
+            "bearing_deg": -14.255,
+            "fly_x": 0.551,
+            "heading_deg": -31.297,
+            "turn_rate_rad_s": -0.4238
+          }
+        ]
+      },
+      "disconnected": {
+        "mean_abs_bearing_deg": 23.071,
+        "median_abs_bearing_deg": 23.36,
+        "p90_abs_bearing_deg": 38.322,
+        "final_abs_bearing_deg": 41.458,
+        "in_view_fraction": 1.0,
+        "mean_abs_turn_rate_rad_s": 0.0,
+        "DNa02_spikes": {
+          "L": 0,
+          "R": 0
+        },
+        "final_fly_x": 0.0,
+        "final_heading_deg": 0.0,
+        "checkpoints": [
+          {
+            "time_s": 1.0,
+            "bearing_deg": -16.422,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 2.0,
+            "bearing_deg": 1.358,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 4.0,
+            "bearing_deg": 35.487,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 6.0,
+            "bearing_deg": 30.214,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 8.0,
+            "bearing_deg": -41.458,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          }
+        ]
+      },
+      "bridge_side_swapped": {
+        "mean_abs_bearing_deg": 78.57,
+        "median_abs_bearing_deg": 68.108,
+        "p90_abs_bearing_deg": 118.9,
+        "final_abs_bearing_deg": 130.579,
+        "in_view_fraction": 0.156,
+        "mean_abs_turn_rate_rad_s": 0.1788,
+        "DNa02_spikes": {
+          "L": 0,
+          "R": 0
+        },
+        "final_fly_x": 3.911,
+        "final_heading_deg": 81.957,
+        "checkpoints": [
+          {
+            "time_s": 1.0,
+            "bearing_deg": -67.529,
+            "fly_x": 0.245,
+            "heading_deg": 49.204,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 2.0,
+            "bearing_deg": -64.632,
+            "fly_x": 0.688,
+            "heading_deg": 59.03,
+            "turn_rate_rad_s": 0.7282
+          },
+          {
+            "time_s": 4.0,
+            "bearing_deg": -68.058,
+            "fly_x": 1.733,
+            "heading_deg": 81.95,
+            "turn_rate_rad_s": 0.0023
+          },
+          {
+            "time_s": 6.0,
+            "bearing_deg": -92.338,
+            "fly_x": 2.822,
+            "heading_deg": 81.957,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 8.0,
+            "bearing_deg": -130.579,
+            "fly_x": 3.911,
+            "heading_deg": 81.957,
+            "turn_rate_rad_s": 0.0
+          }
+        ]
+      },
+      "direct_bearing": {
+        "mean_abs_bearing_deg": 10.147,
+        "median_abs_bearing_deg": 10.117,
+        "p90_abs_bearing_deg": 19.037,
+        "final_abs_bearing_deg": 16.452,
+        "in_view_fraction": 1.0,
+        "mean_abs_turn_rate_rad_s": 0.2749,
+        "DNa02_spikes": null,
+        "final_fly_x": 0.617,
+        "final_heading_deg": -29.565,
+        "checkpoints": [
+          {
+            "time_s": 1.0,
+            "bearing_deg": -0.506,
+            "fly_x": -0.106,
+            "heading_deg": -14.947,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 2.0,
+            "bearing_deg": 11.018,
+            "fly_x": -0.226,
+            "heading_deg": -7.286,
+            "turn_rate_rad_s": 0.3007
+          },
+          {
+            "time_s": 4.0,
+            "bearing_deg": 7.8,
+            "fly_x": -0.005,
+            "heading_deg": 27.317,
+            "turn_rate_rad_s": 0.18
+          },
+          {
+            "time_s": 6.0,
+            "bearing_deg": -9.137,
+            "fly_x": 0.57,
+            "heading_deg": 29.805,
+            "turn_rate_rad_s": -0.2301
+          },
+          {
+            "time_s": 8.0,
+            "bearing_deg": -16.452,
+            "fly_x": 0.617,
+            "heading_deg": -29.565,
+            "turn_rate_rad_s": -0.5044
+          }
+        ]
+      }
+    },
+    "path:mirrored": {
+      "intact": {
+        "mean_abs_bearing_deg": 10.387,
+        "median_abs_bearing_deg": 10.766,
+        "p90_abs_bearing_deg": 17.023,
+        "final_abs_bearing_deg": 13.866,
+        "in_view_fraction": 1.0,
+        "mean_abs_turn_rate_rad_s": 0.2569,
+        "DNa02_spikes": {
+          "L": 0,
+          "R": 0
+        },
+        "final_fly_x": -0.536,
+        "final_heading_deg": 31.524,
+        "checkpoints": [
+          {
+            "time_s": 1.0,
+            "bearing_deg": 1.666,
+            "fly_x": 0.105,
+            "heading_deg": 13.793,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 2.0,
+            "bearing_deg": -12.308,
+            "fly_x": 0.226,
+            "heading_deg": 8.57,
+            "turn_rate_rad_s": -0.3073
+          },
+          {
+            "time_s": 4.0,
+            "bearing_deg": -9.21,
+            "fly_x": 0.022,
+            "heading_deg": -26.076,
+            "turn_rate_rad_s": -0.1388
+          },
+          {
+            "time_s": 6.0,
+            "bearing_deg": 6.78,
+            "fly_x": -0.502,
+            "heading_deg": -28.63,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 8.0,
+            "bearing_deg": 13.866,
+            "fly_x": -0.536,
+            "heading_deg": 31.524,
+            "turn_rate_rad_s": 0.4853
+          }
+        ]
+      },
+      "disconnected": {
+        "mean_abs_bearing_deg": 23.071,
+        "median_abs_bearing_deg": 23.36,
+        "p90_abs_bearing_deg": 38.322,
+        "final_abs_bearing_deg": 41.458,
+        "in_view_fraction": 1.0,
+        "mean_abs_turn_rate_rad_s": 0.0,
+        "DNa02_spikes": {
+          "L": 0,
+          "R": 0
+        },
+        "final_fly_x": 0.0,
+        "final_heading_deg": 0.0,
+        "checkpoints": [
+          {
+            "time_s": 1.0,
+            "bearing_deg": 16.422,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 2.0,
+            "bearing_deg": -1.358,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 4.0,
+            "bearing_deg": -35.487,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 6.0,
+            "bearing_deg": -30.214,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 8.0,
+            "bearing_deg": 41.458,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          }
+        ]
+      },
+      "bridge_side_swapped": {
+        "mean_abs_bearing_deg": 78.515,
+        "median_abs_bearing_deg": 67.857,
+        "p90_abs_bearing_deg": 118.509,
+        "final_abs_bearing_deg": 130.2,
+        "in_view_fraction": 0.144,
+        "mean_abs_turn_rate_rad_s": 0.1778,
+        "DNa02_spikes": {
+          "L": 0,
+          "R": 0
+        },
+        "final_fly_x": -3.913,
+        "final_heading_deg": -81.513,
+        "checkpoints": [
+          {
+            "time_s": 1.0,
+            "bearing_deg": 65.65,
+            "fly_x": -0.249,
+            "heading_deg": -47.296,
+            "turn_rate_rad_s": -0.0
+          },
+          {
+            "time_s": 2.0,
+            "bearing_deg": 64.333,
+            "fly_x": -0.691,
+            "heading_deg": -58.702,
+            "turn_rate_rad_s": -0.8174
+          },
+          {
+            "time_s": 4.0,
+            "bearing_deg": 67.683,
+            "fly_x": -1.738,
+            "heading_deg": -81.513,
+            "turn_rate_rad_s": -0.0
+          },
+          {
+            "time_s": 6.0,
+            "bearing_deg": 91.931,
+            "fly_x": -2.825,
+            "heading_deg": -81.513,
+            "turn_rate_rad_s": -0.0
+          },
+          {
+            "time_s": 8.0,
+            "bearing_deg": 130.2,
+            "fly_x": -3.913,
+            "heading_deg": -81.513,
+            "turn_rate_rad_s": -0.0
+          }
+        ]
+      },
+      "direct_bearing": {
+        "mean_abs_bearing_deg": 10.147,
+        "median_abs_bearing_deg": 10.117,
+        "p90_abs_bearing_deg": 19.037,
+        "final_abs_bearing_deg": 16.452,
+        "in_view_fraction": 1.0,
+        "mean_abs_turn_rate_rad_s": 0.2749,
+        "DNa02_spikes": null,
+        "final_fly_x": -0.617,
+        "final_heading_deg": 29.565,
+        "checkpoints": [
+          {
+            "time_s": 1.0,
+            "bearing_deg": 0.506,
+            "fly_x": 0.106,
+            "heading_deg": 14.947,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 2.0,
+            "bearing_deg": -11.018,
+            "fly_x": 0.226,
+            "heading_deg": 7.286,
+            "turn_rate_rad_s": -0.3007
+          },
+          {
+            "time_s": 4.0,
+            "bearing_deg": -7.8,
+            "fly_x": 0.005,
+            "heading_deg": -27.317,
+            "turn_rate_rad_s": -0.18
+          },
+          {
+            "time_s": 6.0,
+            "bearing_deg": 9.137,
+            "fly_x": -0.57,
+            "heading_deg": -29.805,
+            "turn_rate_rad_s": 0.2301
+          },
+          {
+            "time_s": 8.0,
+            "bearing_deg": 16.452,
+            "fly_x": -0.617,
+            "heading_deg": 29.565,
+            "turn_rate_rad_s": 0.5044
+          }
+        ]
+      }
+    },
+    "path:faster": {
+      "intact": {
+        "mean_abs_bearing_deg": 10.499,
+        "median_abs_bearing_deg": 10.775,
+        "p90_abs_bearing_deg": 17.701,
+        "final_abs_bearing_deg": 19.051,
+        "in_view_fraction": 1.0,
+        "mean_abs_turn_rate_rad_s": 0.2672,
+        "DNa02_spikes": {
+          "L": 0,
+          "R": 0
+        },
+        "final_fly_x": -0.375,
+        "final_heading_deg": -30.906,
+        "checkpoints": [
+          {
+            "time_s": 1.0,
+            "bearing_deg": 4.023,
+            "fly_x": -0.094,
+            "heading_deg": -12.159,
+            "turn_rate_rad_s": -0.0
+          },
+          {
+            "time_s": 2.0,
+            "bearing_deg": 13.422,
+            "fly_x": -0.143,
+            "heading_deg": 6.385,
+            "turn_rate_rad_s": 0.469
+          },
+          {
+            "time_s": 4.0,
+            "bearing_deg": -1.318,
+            "fly_x": 0.249,
+            "heading_deg": 24.848,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 6.0,
+            "bearing_deg": -12.942,
+            "fly_x": 0.286,
+            "heading_deg": -29.605,
+            "turn_rate_rad_s": -0.3596
+          },
+          {
+            "time_s": 8.0,
+            "bearing_deg": 19.051,
+            "fly_x": -0.375,
+            "heading_deg": -30.906,
+            "turn_rate_rad_s": 0.7417
+          }
+        ]
+      },
+      "disconnected": {
+        "mean_abs_bearing_deg": 26.509,
+        "median_abs_bearing_deg": 27.237,
+        "p90_abs_bearing_deg": 46.706,
+        "final_abs_bearing_deg": 23.063,
+        "in_view_fraction": 1.0,
+        "mean_abs_turn_rate_rad_s": 0.0,
+        "DNa02_spikes": {
+          "L": 0,
+          "R": 0
+        },
+        "final_fly_x": 0.0,
+        "final_heading_deg": 0.0,
+        "checkpoints": [
+          {
+            "time_s": 1.0,
+            "bearing_deg": -9.031,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 2.0,
+            "bearing_deg": 18.5,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 4.0,
+            "bearing_deg": 26.687,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 6.0,
+            "bearing_deg": -41.075,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 8.0,
+            "bearing_deg": -23.063,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          }
+        ]
+      },
+      "bridge_side_swapped": {
+        "mean_abs_bearing_deg": 92.849,
+        "median_abs_bearing_deg": 83.711,
+        "p90_abs_bearing_deg": 134.601,
+        "final_abs_bearing_deg": 127.793,
+        "in_view_fraction": 0.163,
+        "mean_abs_turn_rate_rad_s": 0.1882,
+        "DNa02_spikes": {
+          "L": 0,
+          "R": 0
+        },
+        "final_fly_x": 4.036,
+        "final_heading_deg": 86.249,
+        "checkpoints": [
+          {
+            "time_s": 1.0,
+            "bearing_deg": -64.128,
+            "fly_x": 0.249,
+            "heading_deg": 52.937,
+            "turn_rate_rad_s": 0.7284
+          },
+          {
+            "time_s": 2.0,
+            "bearing_deg": -66.006,
+            "fly_x": 0.747,
+            "heading_deg": 76.332,
+            "turn_rate_rad_s": 0.0295
+          },
+          {
+            "time_s": 4.0,
+            "bearing_deg": -83.031,
+            "fly_x": 1.841,
+            "heading_deg": 86.249,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 6.0,
+            "bearing_deg": -131.711,
+            "fly_x": 2.938,
+            "heading_deg": 86.249,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 8.0,
+            "bearing_deg": -127.793,
+            "fly_x": 4.036,
+            "heading_deg": 86.249,
+            "turn_rate_rad_s": 0.0
+          }
+        ]
+      },
+      "direct_bearing": {
+        "mean_abs_bearing_deg": 10.721,
+        "median_abs_bearing_deg": 11.127,
+        "p90_abs_bearing_deg": 19.244,
+        "final_abs_bearing_deg": 19.839,
+        "in_view_fraction": 1.0,
+        "mean_abs_turn_rate_rad_s": 0.2965,
+        "DNa02_spikes": null,
+        "final_fly_x": -0.355,
+        "final_heading_deg": -32.009,
+        "checkpoints": [
+          {
+            "time_s": 1.0,
+            "bearing_deg": 4.826,
+            "fly_x": -0.097,
+            "heading_deg": -12.934,
+            "turn_rate_rad_s": 0.0685
+          },
+          {
+            "time_s": 2.0,
+            "bearing_deg": 14.534,
+            "fly_x": -0.146,
+            "heading_deg": 5.296,
+            "turn_rate_rad_s": 0.4325
+          },
+          {
+            "time_s": 4.0,
+            "bearing_deg": -4.792,
+            "fly_x": 0.267,
+            "heading_deg": 28.073,
+            "turn_rate_rad_s": -0.0672
+          },
+          {
+            "time_s": 6.0,
+            "bearing_deg": -14.766,
+            "fly_x": 0.329,
+            "heading_deg": -28.095,
+            "turn_rate_rad_s": -0.4412
+          },
+          {
+            "time_s": 8.0,
+            "bearing_deg": 19.839,
+            "fly_x": -0.355,
+            "heading_deg": -32.009,
+            "turn_rate_rad_s": 0.6315
+          }
+        ]
+      }
+    },
+    "path:slower": {
+      "intact": {
+        "mean_abs_bearing_deg": 8.773,
+        "median_abs_bearing_deg": 9.178,
+        "p90_abs_bearing_deg": 10.933,
+        "final_abs_bearing_deg": 8.266,
+        "in_view_fraction": 1.0,
+        "mean_abs_turn_rate_rad_s": 0.1509,
+        "DNa02_spikes": {
+          "L": 0,
+          "R": 0
+        },
+        "final_fly_x": 0.538,
+        "final_heading_deg": 39.479,
+        "checkpoints": [
+          {
+            "time_s": 1.0,
+            "bearing_deg": -6.216,
+            "fly_x": -0.109,
+            "heading_deg": -14.839,
+            "turn_rate_rad_s": -0.0
+          },
+          {
+            "time_s": 2.0,
+            "bearing_deg": 1.531,
+            "fly_x": -0.249,
+            "heading_deg": -14.839,
+            "turn_rate_rad_s": -0.0
+          },
+          {
+            "time_s": 4.0,
+            "bearing_deg": 10.933,
+            "fly_x": -0.424,
+            "heading_deg": 2.756,
+            "turn_rate_rad_s": 0.2588
+          },
+          {
+            "time_s": 6.0,
+            "bearing_deg": 9.375,
+            "fly_x": -0.105,
+            "heading_deg": 28.909,
+            "turn_rate_rad_s": 0.1602
+          },
+          {
+            "time_s": 8.0,
+            "bearing_deg": 8.266,
+            "fly_x": 0.538,
+            "heading_deg": 39.479,
+            "turn_rate_rad_s": 0.0
+          }
+        ]
+      },
+      "disconnected": {
+        "mean_abs_bearing_deg": 25.329,
+        "median_abs_bearing_deg": 22.456,
+        "p90_abs_bearing_deg": 50.669,
+        "final_abs_bearing_deg": 56.714,
+        "in_view_fraction": 1.0,
+        "mean_abs_turn_rate_rad_s": 0.0,
+        "DNa02_spikes": {
+          "L": 0,
+          "R": 0
+        },
+        "final_fly_x": 0.0,
+        "final_heading_deg": 0.0,
+        "checkpoints": [
+          {
+            "time_s": 1.0,
+            "bearing_deg": -22.001,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 2.0,
+            "bearing_deg": -15.86,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 4.0,
+            "bearing_deg": 8.41,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 6.0,
+            "bearing_deg": 38.073,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 8.0,
+            "bearing_deg": 56.714,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          }
+        ]
+      },
+      "bridge_side_swapped": {
+        "mean_abs_bearing_deg": 64.836,
+        "median_abs_bearing_deg": 66.535,
+        "p90_abs_bearing_deg": 68.338,
+        "final_abs_bearing_deg": 72.742,
+        "in_view_fraction": 0.131,
+        "mean_abs_turn_rate_rad_s": 0.1504,
+        "DNa02_spikes": {
+          "L": 0,
+          "R": 0
+        },
+        "final_fly_x": 3.466,
+        "final_heading_deg": 68.941,
+        "checkpoints": [
+          {
+            "time_s": 1.0,
+            "bearing_deg": -66.393,
+            "fly_x": 0.235,
+            "heading_deg": 42.739,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 2.0,
+            "bearing_deg": -66.919,
+            "fly_x": 0.616,
+            "heading_deg": 46.014,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 4.0,
+            "bearing_deg": -65.383,
+            "fly_x": 1.465,
+            "heading_deg": 55.84,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 6.0,
+            "bearing_deg": -66.888,
+            "fly_x": 2.44,
+            "heading_deg": 67.752,
+            "turn_rate_rad_s": 0.3831
+          },
+          {
+            "time_s": 8.0,
+            "bearing_deg": -72.742,
+            "fly_x": 3.466,
+            "heading_deg": 68.941,
+            "turn_rate_rad_s": 0.0
+          }
+        ]
+      },
+      "direct_bearing": {
+        "mean_abs_bearing_deg": 7.387,
+        "median_abs_bearing_deg": 7.598,
+        "p90_abs_bearing_deg": 9.728,
+        "final_abs_bearing_deg": 3.976,
+        "in_view_fraction": 1.0,
+        "mean_abs_turn_rate_rad_s": 0.1698,
+        "DNa02_spikes": null,
+        "final_fly_x": 0.584,
+        "final_heading_deg": 42.792,
+        "checkpoints": [
+          {
+            "time_s": 1.0,
+            "bearing_deg": -3.636,
+            "fly_x": -0.114,
+            "heading_deg": -17.369,
+            "turn_rate_rad_s": -0.0238
+          },
+          {
+            "time_s": 2.0,
+            "bearing_deg": 4.324,
+            "fly_x": -0.279,
+            "heading_deg": -17.317,
+            "turn_rate_rad_s": 0.0497
+          },
+          {
+            "time_s": 4.0,
+            "bearing_deg": 9.713,
+            "fly_x": -0.434,
+            "heading_deg": 4.083,
+            "turn_rate_rad_s": 0.2517
+          },
+          {
+            "time_s": 6.0,
+            "bearing_deg": 7.715,
+            "fly_x": -0.093,
+            "heading_deg": 30.321,
+            "turn_rate_rad_s": 0.1768
+          },
+          {
+            "time_s": 8.0,
+            "bearing_deg": 3.976,
+            "fly_x": 0.584,
+            "heading_deg": 42.792,
+            "turn_rate_rad_s": 0.0366
+          }
+        ]
+      }
+    },
+    "path:narrow": {
+      "intact": {
+        "mean_abs_bearing_deg": 6.832,
+        "median_abs_bearing_deg": 7.681,
+        "p90_abs_bearing_deg": 11.401,
+        "final_abs_bearing_deg": 12.067,
+        "in_view_fraction": 1.0,
+        "mean_abs_turn_rate_rad_s": 0.066,
+        "DNa02_spikes": {
+          "L": 0,
+          "R": 0
+        },
+        "final_fly_x": 0.198,
+        "final_heading_deg": -10.804,
+        "checkpoints": [
+          {
+            "time_s": 1.0,
+            "bearing_deg": -4.807,
+            "fly_x": -0.011,
+            "heading_deg": -1.391,
+            "turn_rate_rad_s": -0.0
+          },
+          {
+            "time_s": 2.0,
+            "bearing_deg": 2.163,
+            "fly_x": -0.025,
+            "heading_deg": -1.391,
+            "turn_rate_rad_s": -0.0
+          },
+          {
+            "time_s": 4.0,
+            "bearing_deg": 8.494,
+            "fly_x": 0.0,
+            "heading_deg": 6.467,
+            "turn_rate_rad_s": 0.1134
+          },
+          {
+            "time_s": 6.0,
+            "bearing_deg": 1.813,
+            "fly_x": 0.149,
+            "heading_deg": 7.901,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 8.0,
+            "bearing_deg": -12.067,
+            "fly_x": 0.198,
+            "heading_deg": -10.804,
+            "turn_rate_rad_s": -0.3015
+          }
+        ]
+      },
+      "disconnected": {
+        "mean_abs_bearing_deg": 9.454,
+        "median_abs_bearing_deg": 9.2,
+        "p90_abs_bearing_deg": 16.509,
+        "final_abs_bearing_deg": 18.329,
+        "in_view_fraction": 1.0,
+        "mean_abs_turn_rate_rad_s": 0.0,
+        "DNa02_spikes": {
+          "L": 0,
+          "R": 0
+        },
+        "final_fly_x": 0.0,
+        "final_heading_deg": 0.0,
+        "checkpoints": [
+          {
+            "time_s": 1.0,
+            "bearing_deg": -6.307,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 2.0,
+            "bearing_deg": 0.509,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 4.0,
+            "bearing_deg": 14.968,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 6.0,
+            "bearing_deg": 12.319,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 8.0,
+            "bearing_deg": -18.329,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          }
+        ]
+      },
+      "bridge_side_swapped": {
+        "mean_abs_bearing_deg": 69.636,
+        "median_abs_bearing_deg": 68.564,
+        "p90_abs_bearing_deg": 99.608,
+        "final_abs_bearing_deg": 108.128,
+        "in_view_fraction": 0.175,
+        "mean_abs_turn_rate_rad_s": 0.1375,
+        "DNa02_spikes": {
+          "L": 0,
+          "R": 0
+        },
+        "final_fly_x": 3.488,
+        "final_heading_deg": 63.011,
+        "checkpoints": [
+          {
+            "time_s": 1.0,
+            "bearing_deg": -37.746,
+            "fly_x": 0.097,
+            "heading_deg": 30.539,
+            "turn_rate_rad_s": 1.2
+          },
+          {
+            "time_s": 2.0,
+            "bearing_deg": -68.048,
+            "fly_x": 0.547,
+            "heading_deg": 63.011,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 4.0,
+            "bearing_deg": -67.195,
+            "fly_x": 1.527,
+            "heading_deg": 63.011,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 6.0,
+            "bearing_deg": -84.202,
+            "fly_x": 2.508,
+            "heading_deg": 63.011,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 8.0,
+            "bearing_deg": -108.128,
+            "fly_x": 3.488,
+            "heading_deg": 63.011,
+            "turn_rate_rad_s": 0.0
+          }
+        ]
+      },
+      "direct_bearing": {
+        "mean_abs_bearing_deg": 5.433,
+        "median_abs_bearing_deg": 5.516,
+        "p90_abs_bearing_deg": 10.312,
+        "final_abs_bearing_deg": 10.878,
+        "in_view_fraction": 1.0,
+        "mean_abs_turn_rate_rad_s": 0.1037,
+        "DNa02_spikes": null,
+        "final_fly_x": 0.252,
+        "final_heading_deg": -12.992,
+        "checkpoints": [
+          {
+            "time_s": 1.0,
+            "bearing_deg": -1.643,
+            "fly_x": -0.032,
+            "heading_deg": -4.36,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 2.0,
+            "bearing_deg": 4.982,
+            "fly_x": -0.073,
+            "heading_deg": -3.7,
+            "turn_rate_rad_s": 0.0743
+          },
+          {
+            "time_s": 4.0,
+            "bearing_deg": 5.392,
+            "fly_x": -0.013,
+            "heading_deg": 9.719,
+            "turn_rate_rad_s": 0.0897
+          },
+          {
+            "time_s": 6.0,
+            "bearing_deg": -3.957,
+            "fly_x": 0.216,
+            "heading_deg": 12.448,
+            "turn_rate_rad_s": -0.0359
+          },
+          {
+            "time_s": 8.0,
+            "bearing_deg": -10.878,
+            "fly_x": 0.252,
+            "heading_deg": -12.992,
+            "turn_rate_rad_s": -0.2954
+          }
+        ]
+      }
+    },
+    "path:stationary": {
+      "intact": {
+        "mean_abs_bearing_deg": 8.627,
+        "median_abs_bearing_deg": 8.232,
+        "p90_abs_bearing_deg": 8.396,
+        "final_abs_bearing_deg": 8.283,
+        "in_view_fraction": 1.0,
+        "mean_abs_turn_rate_rad_s": 0.0464,
+        "DNa02_spikes": {
+          "L": 0,
+          "R": 0
+        },
+        "final_fly_x": -1.216,
+        "final_heading_deg": -21.103,
+        "checkpoints": [
+          {
+            "time_s": 1.0,
+            "bearing_deg": -8.307,
+            "fly_x": -0.097,
+            "heading_deg": -13.65,
+            "turn_rate_rad_s": -0.0
+          },
+          {
+            "time_s": 2.0,
+            "bearing_deg": -8.342,
+            "fly_x": -0.231,
+            "heading_deg": -14.345,
+            "turn_rate_rad_s": -0.0732
+          },
+          {
+            "time_s": 4.0,
+            "bearing_deg": -8.29,
+            "fly_x": -0.522,
+            "heading_deg": -16.084,
+            "turn_rate_rad_s": -0.0
+          },
+          {
+            "time_s": 6.0,
+            "bearing_deg": -8.334,
+            "fly_x": -0.847,
+            "heading_deg": -18.17,
+            "turn_rate_rad_s": -0.0
+          },
+          {
+            "time_s": 8.0,
+            "bearing_deg": -8.283,
+            "fly_x": -1.216,
+            "heading_deg": -21.103,
+            "turn_rate_rad_s": -0.0637
+          }
+        ]
+      },
+      "disconnected": {
+        "mean_abs_bearing_deg": 31.981,
+        "median_abs_bearing_deg": 30.254,
+        "p90_abs_bearing_deg": 44.545,
+        "final_abs_bearing_deg": 49.97,
+        "in_view_fraction": 1.0,
+        "mean_abs_turn_rate_rad_s": 0.0,
+        "DNa02_spikes": {
+          "L": 0,
+          "R": 0
+        },
+        "final_fly_x": 0.0,
+        "final_heading_deg": 0.0,
+        "checkpoints": [
+          {
+            "time_s": 1.0,
+            "bearing_deg": -22.791,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 2.0,
+            "bearing_deg": -24.842,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 4.0,
+            "bearing_deg": -30.174,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 6.0,
+            "bearing_deg": -37.999,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 8.0,
+            "bearing_deg": -49.97,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          }
+        ]
+      },
+      "bridge_side_swapped": {
+        "mean_abs_bearing_deg": 81.164,
+        "median_abs_bearing_deg": 83.184,
+        "p90_abs_bearing_deg": 99.302,
+        "final_abs_bearing_deg": 103.234,
+        "in_view_fraction": 0.087,
+        "mean_abs_turn_rate_rad_s": 0.0967,
+        "DNa02_spikes": {
+          "L": 0,
+          "R": 0
+        },
+        "final_fly_x": 2.922,
+        "final_heading_deg": 44.335,
+        "checkpoints": [
+          {
+            "time_s": 1.0,
+            "bearing_deg": -68.721,
+            "fly_x": 0.231,
+            "heading_deg": 44.335,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 2.0,
+            "bearing_deg": -73.289,
+            "fly_x": 0.615,
+            "heading_deg": 44.335,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 4.0,
+            "bearing_deg": -83.058,
+            "fly_x": 1.384,
+            "heading_deg": 44.335,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 6.0,
+            "bearing_deg": -93.246,
+            "fly_x": 2.153,
+            "heading_deg": 44.335,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 8.0,
+            "bearing_deg": -103.234,
+            "fly_x": 2.922,
+            "heading_deg": 44.335,
+            "turn_rate_rad_s": 0.0
+          }
+        ]
+      },
+      "direct_bearing": {
+        "mean_abs_bearing_deg": 4.259,
+        "median_abs_bearing_deg": 3.224,
+        "p90_abs_bearing_deg": 6.236,
+        "final_abs_bearing_deg": 3.297,
+        "in_view_fraction": 1.0,
+        "mean_abs_turn_rate_rad_s": 0.0472,
+        "DNa02_spikes": null,
+        "final_fly_x": -1.413,
+        "final_heading_deg": -21.603,
+        "checkpoints": [
+          {
+            "time_s": 1.0,
+            "bearing_deg": -5.365,
+            "fly_x": -0.102,
+            "heading_deg": -16.542,
+            "turn_rate_rad_s": -0.0887
+          },
+          {
+            "time_s": 2.0,
+            "bearing_deg": -3.384,
+            "fly_x": -0.273,
+            "heading_deg": -18.879,
+            "turn_rate_rad_s": -0.0144
+          },
+          {
+            "time_s": 4.0,
+            "bearing_deg": -3.164,
+            "fly_x": -0.639,
+            "heading_deg": -19.759,
+            "turn_rate_rad_s": -0.0061
+          },
+          {
+            "time_s": 6.0,
+            "bearing_deg": -3.209,
+            "fly_x": -1.018,
+            "heading_deg": -20.544,
+            "turn_rate_rad_s": -0.0078
+          },
+          {
+            "time_s": 8.0,
+            "bearing_deg": -3.297,
+            "fly_x": -1.413,
+            "heading_deg": -21.603,
+            "turn_rate_rad_s": -0.0111
+          }
+        ]
+      }
+    },
+    "path:absent": {
+      "intact": {
+        "mean_abs_bearing_deg": null,
+        "median_abs_bearing_deg": null,
+        "p90_abs_bearing_deg": null,
+        "final_abs_bearing_deg": null,
+        "in_view_fraction": null,
+        "mean_abs_turn_rate_rad_s": 0.0,
+        "DNa02_spikes": {
+          "L": 0,
+          "R": 0
+        },
+        "final_fly_x": 0.0,
+        "final_heading_deg": 0.0,
+        "checkpoints": [
+          {
+            "time_s": 1.0,
+            "bearing_deg": 0.0,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 2.0,
+            "bearing_deg": 0.0,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 4.0,
+            "bearing_deg": 0.0,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 6.0,
+            "bearing_deg": 0.0,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 8.0,
+            "bearing_deg": 0.0,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          }
+        ]
+      },
+      "disconnected": {
+        "mean_abs_bearing_deg": null,
+        "median_abs_bearing_deg": null,
+        "p90_abs_bearing_deg": null,
+        "final_abs_bearing_deg": null,
+        "in_view_fraction": null,
+        "mean_abs_turn_rate_rad_s": 0.0,
+        "DNa02_spikes": {
+          "L": 0,
+          "R": 0
+        },
+        "final_fly_x": 0.0,
+        "final_heading_deg": 0.0,
+        "checkpoints": [
+          {
+            "time_s": 1.0,
+            "bearing_deg": 0.0,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 2.0,
+            "bearing_deg": 0.0,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 4.0,
+            "bearing_deg": 0.0,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 6.0,
+            "bearing_deg": 0.0,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 8.0,
+            "bearing_deg": 0.0,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          }
+        ]
+      },
+      "bridge_side_swapped": {
+        "mean_abs_bearing_deg": null,
+        "median_abs_bearing_deg": null,
+        "p90_abs_bearing_deg": null,
+        "final_abs_bearing_deg": null,
+        "in_view_fraction": null,
+        "mean_abs_turn_rate_rad_s": 0.0,
+        "DNa02_spikes": {
+          "L": 0,
+          "R": 0
+        },
+        "final_fly_x": 0.0,
+        "final_heading_deg": 0.0,
+        "checkpoints": [
+          {
+            "time_s": 1.0,
+            "bearing_deg": 0.0,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 2.0,
+            "bearing_deg": 0.0,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 4.0,
+            "bearing_deg": 0.0,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 6.0,
+            "bearing_deg": 0.0,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 8.0,
+            "bearing_deg": 0.0,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          }
+        ]
+      },
+      "direct_bearing": {
+        "mean_abs_bearing_deg": null,
+        "median_abs_bearing_deg": null,
+        "p90_abs_bearing_deg": null,
+        "final_abs_bearing_deg": null,
+        "in_view_fraction": null,
+        "mean_abs_turn_rate_rad_s": 0.0,
+        "DNa02_spikes": null,
+        "final_fly_x": 0.0,
+        "final_heading_deg": 0.0,
+        "checkpoints": [
+          {
+            "time_s": 1.0,
+            "bearing_deg": 0.0,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 2.0,
+            "bearing_deg": 0.0,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 4.0,
+            "bearing_deg": 0.0,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 6.0,
+            "bearing_deg": 0.0,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 8.0,
+            "bearing_deg": 0.0,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          }
+        ]
+      }
+    },
+    "input_mv:30": {
+      "intact": {
+        "mean_abs_bearing_deg": 18.638,
+        "median_abs_bearing_deg": 18.743,
+        "p90_abs_bearing_deg": 32.911,
+        "final_abs_bearing_deg": 44.357,
+        "in_view_fraction": 1.0,
+        "mean_abs_turn_rate_rad_s": 0.1076,
+        "DNa02_spikes": {
+          "L": 0,
+          "R": 0
+        },
+        "final_fly_x": 0.55,
+        "final_heading_deg": -3.232,
+        "checkpoints": [
+          {
+            "time_s": 1.0,
+            "bearing_deg": -12.715,
+            "fly_x": -0.026,
+            "heading_deg": -3.477,
+            "turn_rate_rad_s": -0.0
+          },
+          {
+            "time_s": 2.0,
+            "bearing_deg": 5.46,
+            "fly_x": -0.059,
+            "heading_deg": -3.477,
+            "turn_rate_rad_s": -0.0
+          },
+          {
+            "time_s": 4.0,
+            "bearing_deg": 23.942,
+            "fly_x": -0.031,
+            "heading_deg": 11.781,
+            "turn_rate_rad_s": 0.2216
+          },
+          {
+            "time_s": 6.0,
+            "bearing_deg": 6.508,
+            "fly_x": 0.305,
+            "heading_deg": 19.035,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 8.0,
+            "bearing_deg": -44.357,
+            "fly_x": 0.55,
+            "heading_deg": -3.232,
+            "turn_rate_rad_s": -0.3756
+          }
+        ]
+      },
+      "disconnected": {
+        "mean_abs_bearing_deg": 23.071,
+        "median_abs_bearing_deg": 23.36,
+        "p90_abs_bearing_deg": 38.322,
+        "final_abs_bearing_deg": 41.458,
+        "in_view_fraction": 1.0,
+        "mean_abs_turn_rate_rad_s": 0.0,
+        "DNa02_spikes": {
+          "L": 0,
+          "R": 0
+        },
+        "final_fly_x": 0.0,
+        "final_heading_deg": 0.0,
+        "checkpoints": [
+          {
+            "time_s": 1.0,
+            "bearing_deg": -16.422,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 2.0,
+            "bearing_deg": 1.358,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 4.0,
+            "bearing_deg": 35.487,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 6.0,
+            "bearing_deg": 30.214,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 8.0,
+            "bearing_deg": -41.458,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          }
+        ]
+      },
+      "bridge_side_swapped": {
+        "mean_abs_bearing_deg": 65.523,
+        "median_abs_bearing_deg": 55.68,
+        "p90_abs_bearing_deg": 121.903,
+        "final_abs_bearing_deg": 134.855,
+        "in_view_fraction": 0.55,
+        "mean_abs_turn_rate_rad_s": 0.1897,
+        "DNa02_spikes": {
+          "L": 0,
+          "R": 0
+        },
+        "final_fly_x": 3.356,
+        "final_heading_deg": 86.934,
+        "checkpoints": [
+          {
+            "time_s": 1.0,
+            "bearing_deg": -30.476,
+            "fly_x": 0.059,
+            "heading_deg": 13.549,
+            "turn_rate_rad_s": 0.2931
+          },
+          {
+            "time_s": 2.0,
+            "bearing_deg": -34.704,
+            "fly_x": 0.277,
+            "heading_deg": 33.14,
+            "turn_rate_rad_s": 0.3842
+          },
+          {
+            "time_s": 4.0,
+            "bearing_deg": -55.142,
+            "fly_x": 1.161,
+            "heading_deg": 76.607,
+            "turn_rate_rad_s": 0.3842
+          },
+          {
+            "time_s": 6.0,
+            "bearing_deg": -91.659,
+            "fly_x": 2.257,
+            "heading_deg": 86.934,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 8.0,
+            "bearing_deg": -134.855,
+            "fly_x": 3.356,
+            "heading_deg": 86.934,
+            "turn_rate_rad_s": 0.0
+          }
+        ]
+      },
+      "direct_bearing": {
+        "mean_abs_bearing_deg": 10.147,
+        "median_abs_bearing_deg": 10.117,
+        "p90_abs_bearing_deg": 19.037,
+        "final_abs_bearing_deg": 16.452,
+        "in_view_fraction": 1.0,
+        "mean_abs_turn_rate_rad_s": 0.2749,
+        "DNa02_spikes": null,
+        "final_fly_x": 0.617,
+        "final_heading_deg": -29.565,
+        "checkpoints": [
+          {
+            "time_s": 1.0,
+            "bearing_deg": -0.506,
+            "fly_x": -0.106,
+            "heading_deg": -14.947,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 2.0,
+            "bearing_deg": 11.018,
+            "fly_x": -0.226,
+            "heading_deg": -7.286,
+            "turn_rate_rad_s": 0.3007
+          },
+          {
+            "time_s": 4.0,
+            "bearing_deg": 7.8,
+            "fly_x": -0.005,
+            "heading_deg": 27.317,
+            "turn_rate_rad_s": 0.18
+          },
+          {
+            "time_s": 6.0,
+            "bearing_deg": -9.137,
+            "fly_x": 0.57,
+            "heading_deg": 29.805,
+            "turn_rate_rad_s": -0.2301
+          },
+          {
+            "time_s": 8.0,
+            "bearing_deg": -16.452,
+            "fly_x": 0.617,
+            "heading_deg": -29.565,
+            "turn_rate_rad_s": -0.5044
+          }
+        ]
+      }
+    },
+    "input_mv:45": {
+      "intact": {
+        "mean_abs_bearing_deg": 15.465,
+        "median_abs_bearing_deg": 15.47,
+        "p90_abs_bearing_deg": 28.583,
+        "final_abs_bearing_deg": 28.197,
+        "in_view_fraction": 1.0,
+        "mean_abs_turn_rate_rad_s": 0.1832,
+        "DNa02_spikes": {
+          "L": 0,
+          "R": 0
+        },
+        "final_fly_x": 0.574,
+        "final_heading_deg": -18.808,
+        "checkpoints": [
+          {
+            "time_s": 1.0,
+            "bearing_deg": -8.289,
+            "fly_x": -0.054,
+            "heading_deg": -7.65,
+            "turn_rate_rad_s": -0.0
+          },
+          {
+            "time_s": 2.0,
+            "bearing_deg": 10.347,
+            "fly_x": -0.127,
+            "heading_deg": -7.65,
+            "turn_rate_rad_s": -0.0
+          },
+          {
+            "time_s": 4.0,
+            "bearing_deg": 17.089,
+            "fly_x": -0.049,
+            "heading_deg": 18.677,
+            "turn_rate_rad_s": 0.2267
+          },
+          {
+            "time_s": 6.0,
+            "bearing_deg": -0.186,
+            "fly_x": 0.39,
+            "heading_deg": 24.154,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 8.0,
+            "bearing_deg": -28.197,
+            "fly_x": 0.574,
+            "heading_deg": -18.808,
+            "turn_rate_rad_s": -0.5506
+          }
+        ]
+      },
+      "disconnected": {
+        "mean_abs_bearing_deg": 23.071,
+        "median_abs_bearing_deg": 23.36,
+        "p90_abs_bearing_deg": 38.322,
+        "final_abs_bearing_deg": 41.458,
+        "in_view_fraction": 1.0,
+        "mean_abs_turn_rate_rad_s": 0.0,
+        "DNa02_spikes": {
+          "L": 0,
+          "R": 0
+        },
+        "final_fly_x": 0.0,
+        "final_heading_deg": 0.0,
+        "checkpoints": [
+          {
+            "time_s": 1.0,
+            "bearing_deg": -16.422,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 2.0,
+            "bearing_deg": 1.358,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 4.0,
+            "bearing_deg": 35.487,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 6.0,
+            "bearing_deg": 30.214,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 8.0,
+            "bearing_deg": -41.458,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          }
+        ]
+      },
+      "bridge_side_swapped": {
+        "mean_abs_bearing_deg": 75.486,
+        "median_abs_bearing_deg": 66.209,
+        "p90_abs_bearing_deg": 117.473,
+        "final_abs_bearing_deg": 129.479,
+        "in_view_fraction": 0.256,
+        "mean_abs_turn_rate_rad_s": 0.1765,
+        "DNa02_spikes": {
+          "L": 0,
+          "R": 0
+        },
+        "final_fly_x": 3.791,
+        "final_heading_deg": 80.922,
+        "checkpoints": [
+          {
+            "time_s": 1.0,
+            "bearing_deg": -51.91,
+            "fly_x": 0.141,
+            "heading_deg": 34.328,
+            "turn_rate_rad_s": 0.7499
+          },
+          {
+            "time_s": 2.0,
+            "bearing_deg": -65.051,
+            "fly_x": 0.569,
+            "heading_deg": 60.577,
+            "turn_rate_rad_s": 0.0001
+          },
+          {
+            "time_s": 4.0,
+            "bearing_deg": -65.739,
+            "fly_x": 1.619,
+            "heading_deg": 80.922,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 6.0,
+            "bearing_deg": -90.184,
+            "fly_x": 2.705,
+            "heading_deg": 80.922,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 8.0,
+            "bearing_deg": -129.479,
+            "fly_x": 3.791,
+            "heading_deg": 80.922,
+            "turn_rate_rad_s": 0.0
+          }
+        ]
+      },
+      "direct_bearing": {
+        "mean_abs_bearing_deg": 10.147,
+        "median_abs_bearing_deg": 10.117,
+        "p90_abs_bearing_deg": 19.037,
+        "final_abs_bearing_deg": 16.452,
+        "in_view_fraction": 1.0,
+        "mean_abs_turn_rate_rad_s": 0.2749,
+        "DNa02_spikes": null,
+        "final_fly_x": 0.617,
+        "final_heading_deg": -29.565,
+        "checkpoints": [
+          {
+            "time_s": 1.0,
+            "bearing_deg": -0.506,
+            "fly_x": -0.106,
+            "heading_deg": -14.947,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 2.0,
+            "bearing_deg": 11.018,
+            "fly_x": -0.226,
+            "heading_deg": -7.286,
+            "turn_rate_rad_s": 0.3007
+          },
+          {
+            "time_s": 4.0,
+            "bearing_deg": 7.8,
+            "fly_x": -0.005,
+            "heading_deg": 27.317,
+            "turn_rate_rad_s": 0.18
+          },
+          {
+            "time_s": 6.0,
+            "bearing_deg": -9.137,
+            "fly_x": 0.57,
+            "heading_deg": 29.805,
+            "turn_rate_rad_s": -0.2301
+          },
+          {
+            "time_s": 8.0,
+            "bearing_deg": -16.452,
+            "fly_x": 0.617,
+            "heading_deg": -29.565,
+            "turn_rate_rad_s": -0.5044
+          }
+        ]
+      }
+    },
+    "input_mv:60": {
+      "intact": {
+        "mean_abs_bearing_deg": 13.252,
+        "median_abs_bearing_deg": 13.223,
+        "p90_abs_bearing_deg": 23.394,
+        "final_abs_bearing_deg": 21.415,
+        "in_view_fraction": 1.0,
+        "mean_abs_turn_rate_rad_s": 0.2183,
+        "DNa02_spikes": {
+          "L": 0,
+          "R": 0
+        },
+        "final_fly_x": 0.568,
+        "final_heading_deg": -24.97,
+        "checkpoints": [
+          {
+            "time_s": 1.0,
+            "bearing_deg": -5.36,
+            "fly_x": -0.076,
+            "heading_deg": -10.375,
+            "turn_rate_rad_s": -0.0
+          },
+          {
+            "time_s": 2.0,
+            "bearing_deg": 12.938,
+            "fly_x": -0.174,
+            "heading_deg": -9.744,
+            "turn_rate_rad_s": 0.1742
+          },
+          {
+            "time_s": 4.0,
+            "bearing_deg": 13.011,
+            "fly_x": -0.042,
+            "heading_deg": 22.593,
+            "turn_rate_rad_s": 0.1793
+          },
+          {
+            "time_s": 6.0,
+            "bearing_deg": -3.448,
+            "fly_x": 0.442,
+            "heading_deg": 26.433,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 8.0,
+            "bearing_deg": -21.415,
+            "fly_x": 0.568,
+            "heading_deg": -24.97,
+            "turn_rate_rad_s": -0.508
+          }
+        ]
+      },
+      "disconnected": {
+        "mean_abs_bearing_deg": 23.071,
+        "median_abs_bearing_deg": 23.36,
+        "p90_abs_bearing_deg": 38.322,
+        "final_abs_bearing_deg": 41.458,
+        "in_view_fraction": 1.0,
+        "mean_abs_turn_rate_rad_s": 0.0,
+        "DNa02_spikes": {
+          "L": 0,
+          "R": 0
+        },
+        "final_fly_x": 0.0,
+        "final_heading_deg": 0.0,
+        "checkpoints": [
+          {
+            "time_s": 1.0,
+            "bearing_deg": -16.422,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 2.0,
+            "bearing_deg": 1.358,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 4.0,
+            "bearing_deg": 35.487,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 6.0,
+            "bearing_deg": 30.214,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 8.0,
+            "bearing_deg": -41.458,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          }
+        ]
+      },
+      "bridge_side_swapped": {
+        "mean_abs_bearing_deg": 77.087,
+        "median_abs_bearing_deg": 66.926,
+        "p90_abs_bearing_deg": 118.079,
+        "final_abs_bearing_deg": 129.913,
+        "in_view_fraction": 0.2,
+        "mean_abs_turn_rate_rad_s": 0.1773,
+        "DNa02_spikes": {
+          "L": 0,
+          "R": 0
+        },
+        "final_fly_x": 3.857,
+        "final_heading_deg": 81.261,
+        "checkpoints": [
+          {
+            "time_s": 1.0,
+            "bearing_deg": -64.228,
+            "fly_x": 0.194,
+            "heading_deg": 46.257,
+            "turn_rate_rad_s": 0.9302
+          },
+          {
+            "time_s": 2.0,
+            "bearing_deg": -65.661,
+            "fly_x": 0.637,
+            "heading_deg": 60.539,
+            "turn_rate_rad_s": 0.0269
+          },
+          {
+            "time_s": 4.0,
+            "bearing_deg": -66.801,
+            "fly_x": 1.683,
+            "heading_deg": 81.261,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 6.0,
+            "bearing_deg": -91.164,
+            "fly_x": 2.77,
+            "heading_deg": 81.261,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 8.0,
+            "bearing_deg": -129.913,
+            "fly_x": 3.857,
+            "heading_deg": 81.261,
+            "turn_rate_rad_s": 0.0
+          }
+        ]
+      },
+      "direct_bearing": {
+        "mean_abs_bearing_deg": 10.147,
+        "median_abs_bearing_deg": 10.117,
+        "p90_abs_bearing_deg": 19.037,
+        "final_abs_bearing_deg": 16.452,
+        "in_view_fraction": 1.0,
+        "mean_abs_turn_rate_rad_s": 0.2749,
+        "DNa02_spikes": null,
+        "final_fly_x": 0.617,
+        "final_heading_deg": -29.565,
+        "checkpoints": [
+          {
+            "time_s": 1.0,
+            "bearing_deg": -0.506,
+            "fly_x": -0.106,
+            "heading_deg": -14.947,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 2.0,
+            "bearing_deg": 11.018,
+            "fly_x": -0.226,
+            "heading_deg": -7.286,
+            "turn_rate_rad_s": 0.3007
+          },
+          {
+            "time_s": 4.0,
+            "bearing_deg": 7.8,
+            "fly_x": -0.005,
+            "heading_deg": 27.317,
+            "turn_rate_rad_s": 0.18
+          },
+          {
+            "time_s": 6.0,
+            "bearing_deg": -9.137,
+            "fly_x": 0.57,
+            "heading_deg": 29.805,
+            "turn_rate_rad_s": -0.2301
+          },
+          {
+            "time_s": 8.0,
+            "bearing_deg": -16.452,
+            "fly_x": 0.617,
+            "heading_deg": -29.565,
+            "turn_rate_rad_s": -0.5044
+          }
+        ]
+      }
+    },
+    "input_mv:75": {
+      "intact": {
+        "mean_abs_bearing_deg": 11.593,
+        "median_abs_bearing_deg": 11.858,
+        "p90_abs_bearing_deg": 19.949,
+        "final_abs_bearing_deg": 17.189,
+        "in_view_fraction": 1.0,
+        "mean_abs_turn_rate_rad_s": 0.2405,
+        "DNa02_spikes": {
+          "L": 0,
+          "R": 0
+        },
+        "final_fly_x": 0.558,
+        "final_heading_deg": -28.71,
+        "checkpoints": [
+          {
+            "time_s": 1.0,
+            "bearing_deg": -3.33,
+            "fly_x": -0.091,
+            "heading_deg": -12.259,
+            "turn_rate_rad_s": -0.0
+          },
+          {
+            "time_s": 2.0,
+            "bearing_deg": 12.902,
+            "fly_x": -0.204,
+            "heading_deg": -9.395,
+            "turn_rate_rad_s": 0.2698
+          },
+          {
+            "time_s": 4.0,
+            "bearing_deg": 10.626,
+            "fly_x": -0.026,
+            "heading_deg": 24.76,
+            "turn_rate_rad_s": 0.1484
+          },
+          {
+            "time_s": 6.0,
+            "bearing_deg": -5.509,
+            "fly_x": 0.482,
+            "heading_deg": 27.757,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 8.0,
+            "bearing_deg": -17.189,
+            "fly_x": 0.558,
+            "heading_deg": -28.71,
+            "turn_rate_rad_s": -0.52
+          }
+        ]
+      },
+      "disconnected": {
+        "mean_abs_bearing_deg": 23.071,
+        "median_abs_bearing_deg": 23.36,
+        "p90_abs_bearing_deg": 38.322,
+        "final_abs_bearing_deg": 41.458,
+        "in_view_fraction": 1.0,
+        "mean_abs_turn_rate_rad_s": 0.0,
+        "DNa02_spikes": {
+          "L": 0,
+          "R": 0
+        },
+        "final_fly_x": 0.0,
+        "final_heading_deg": 0.0,
+        "checkpoints": [
+          {
+            "time_s": 1.0,
+            "bearing_deg": -16.422,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 2.0,
+            "bearing_deg": 1.358,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 4.0,
+            "bearing_deg": 35.487,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 6.0,
+            "bearing_deg": 30.214,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 8.0,
+            "bearing_deg": -41.458,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          }
+        ]
+      },
+      "bridge_side_swapped": {
+        "mean_abs_bearing_deg": 78.049,
+        "median_abs_bearing_deg": 67.726,
+        "p90_abs_bearing_deg": 118.79,
+        "final_abs_bearing_deg": 130.52,
+        "in_view_fraction": 0.175,
+        "mean_abs_turn_rate_rad_s": 0.1787,
+        "DNa02_spikes": {
+          "L": 0,
+          "R": 0
+        },
+        "final_fly_x": 3.891,
+        "final_heading_deg": 81.913,
+        "checkpoints": [
+          {
+            "time_s": 1.0,
+            "bearing_deg": -64.973,
+            "fly_x": 0.225,
+            "heading_deg": 46.782,
+            "turn_rate_rad_s": 0.6156
+          },
+          {
+            "time_s": 2.0,
+            "bearing_deg": -65.664,
+            "fly_x": 0.667,
+            "heading_deg": 60.255,
+            "turn_rate_rad_s": 0.3752
+          },
+          {
+            "time_s": 4.0,
+            "bearing_deg": -67.688,
+            "fly_x": 1.712,
+            "heading_deg": 81.823,
+            "turn_rate_rad_s": 0.0289
+          },
+          {
+            "time_s": 6.0,
+            "bearing_deg": -92.101,
+            "fly_x": 2.801,
+            "heading_deg": 81.913,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 8.0,
+            "bearing_deg": -130.52,
+            "fly_x": 3.891,
+            "heading_deg": 81.913,
+            "turn_rate_rad_s": 0.0
+          }
+        ]
+      },
+      "direct_bearing": {
+        "mean_abs_bearing_deg": 10.147,
+        "median_abs_bearing_deg": 10.117,
+        "p90_abs_bearing_deg": 19.037,
+        "final_abs_bearing_deg": 16.452,
+        "in_view_fraction": 1.0,
+        "mean_abs_turn_rate_rad_s": 0.2749,
+        "DNa02_spikes": null,
+        "final_fly_x": 0.617,
+        "final_heading_deg": -29.565,
+        "checkpoints": [
+          {
+            "time_s": 1.0,
+            "bearing_deg": -0.506,
+            "fly_x": -0.106,
+            "heading_deg": -14.947,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 2.0,
+            "bearing_deg": 11.018,
+            "fly_x": -0.226,
+            "heading_deg": -7.286,
+            "turn_rate_rad_s": 0.3007
+          },
+          {
+            "time_s": 4.0,
+            "bearing_deg": 7.8,
+            "fly_x": -0.005,
+            "heading_deg": 27.317,
+            "turn_rate_rad_s": 0.18
+          },
+          {
+            "time_s": 6.0,
+            "bearing_deg": -9.137,
+            "fly_x": 0.57,
+            "heading_deg": 29.805,
+            "turn_rate_rad_s": -0.2301
+          },
+          {
+            "time_s": 8.0,
+            "bearing_deg": -16.452,
+            "fly_x": 0.617,
+            "heading_deg": -29.565,
+            "turn_rate_rad_s": -0.5044
+          }
+        ]
+      }
+    },
+    "input_mv:90": {
+      "intact": {
+        "mean_abs_bearing_deg": 10.347,
+        "median_abs_bearing_deg": 10.632,
+        "p90_abs_bearing_deg": 17.18,
+        "final_abs_bearing_deg": 14.255,
+        "in_view_fraction": 1.0,
+        "mean_abs_turn_rate_rad_s": 0.2554,
+        "DNa02_spikes": {
+          "L": 0,
+          "R": 0
+        },
+        "final_fly_x": 0.551,
+        "final_heading_deg": -31.297,
+        "checkpoints": [
+          {
+            "time_s": 1.0,
+            "bearing_deg": -2.044,
+            "fly_x": -0.101,
+            "heading_deg": -13.448,
+            "turn_rate_rad_s": -0.0
+          },
+          {
+            "time_s": 2.0,
+            "bearing_deg": 12.133,
+            "fly_x": -0.221,
+            "heading_deg": -8.456,
+            "turn_rate_rad_s": 0.3008
+          },
+          {
+            "time_s": 4.0,
+            "bearing_deg": 9.099,
+            "fly_x": -0.01,
+            "heading_deg": 26.088,
+            "turn_rate_rad_s": 0.1542
+          },
+          {
+            "time_s": 6.0,
+            "bearing_deg": -7.181,
+            "fly_x": 0.516,
+            "heading_deg": 28.827,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 8.0,
+            "bearing_deg": -14.255,
+            "fly_x": 0.551,
+            "heading_deg": -31.297,
+            "turn_rate_rad_s": -0.4238
+          }
+        ]
+      },
+      "disconnected": {
+        "mean_abs_bearing_deg": 23.071,
+        "median_abs_bearing_deg": 23.36,
+        "p90_abs_bearing_deg": 38.322,
+        "final_abs_bearing_deg": 41.458,
+        "in_view_fraction": 1.0,
+        "mean_abs_turn_rate_rad_s": 0.0,
+        "DNa02_spikes": {
+          "L": 0,
+          "R": 0
+        },
+        "final_fly_x": 0.0,
+        "final_heading_deg": 0.0,
+        "checkpoints": [
+          {
+            "time_s": 1.0,
+            "bearing_deg": -16.422,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 2.0,
+            "bearing_deg": 1.358,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 4.0,
+            "bearing_deg": 35.487,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 6.0,
+            "bearing_deg": 30.214,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 8.0,
+            "bearing_deg": -41.458,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          }
+        ]
+      },
+      "bridge_side_swapped": {
+        "mean_abs_bearing_deg": 78.57,
+        "median_abs_bearing_deg": 68.108,
+        "p90_abs_bearing_deg": 118.9,
+        "final_abs_bearing_deg": 130.579,
+        "in_view_fraction": 0.156,
+        "mean_abs_turn_rate_rad_s": 0.1788,
+        "DNa02_spikes": {
+          "L": 0,
+          "R": 0
+        },
+        "final_fly_x": 3.911,
+        "final_heading_deg": 81.957,
+        "checkpoints": [
+          {
+            "time_s": 1.0,
+            "bearing_deg": -67.529,
+            "fly_x": 0.245,
+            "heading_deg": 49.204,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 2.0,
+            "bearing_deg": -64.632,
+            "fly_x": 0.688,
+            "heading_deg": 59.03,
+            "turn_rate_rad_s": 0.7282
+          },
+          {
+            "time_s": 4.0,
+            "bearing_deg": -68.058,
+            "fly_x": 1.733,
+            "heading_deg": 81.95,
+            "turn_rate_rad_s": 0.0023
+          },
+          {
+            "time_s": 6.0,
+            "bearing_deg": -92.338,
+            "fly_x": 2.822,
+            "heading_deg": 81.957,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 8.0,
+            "bearing_deg": -130.579,
+            "fly_x": 3.911,
+            "heading_deg": 81.957,
+            "turn_rate_rad_s": 0.0
+          }
+        ]
+      },
+      "direct_bearing": {
+        "mean_abs_bearing_deg": 10.147,
+        "median_abs_bearing_deg": 10.117,
+        "p90_abs_bearing_deg": 19.037,
+        "final_abs_bearing_deg": 16.452,
+        "in_view_fraction": 1.0,
+        "mean_abs_turn_rate_rad_s": 0.2749,
+        "DNa02_spikes": null,
+        "final_fly_x": 0.617,
+        "final_heading_deg": -29.565,
+        "checkpoints": [
+          {
+            "time_s": 1.0,
+            "bearing_deg": -0.506,
+            "fly_x": -0.106,
+            "heading_deg": -14.947,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 2.0,
+            "bearing_deg": 11.018,
+            "fly_x": -0.226,
+            "heading_deg": -7.286,
+            "turn_rate_rad_s": 0.3007
+          },
+          {
+            "time_s": 4.0,
+            "bearing_deg": 7.8,
+            "fly_x": -0.005,
+            "heading_deg": 27.317,
+            "turn_rate_rad_s": 0.18
+          },
+          {
+            "time_s": 6.0,
+            "bearing_deg": -9.137,
+            "fly_x": 0.57,
+            "heading_deg": 29.805,
+            "turn_rate_rad_s": -0.2301
+          },
+          {
+            "time_s": 8.0,
+            "bearing_deg": -16.452,
+            "fly_x": 0.617,
+            "heading_deg": -29.565,
+            "turn_rate_rad_s": -0.5044
+          }
+        ]
+      }
+    },
+    "input_mv:120": {
+      "intact": {
+        "mean_abs_bearing_deg": 8.721,
+        "median_abs_bearing_deg": 9.079,
+        "p90_abs_bearing_deg": 13.659,
+        "final_abs_bearing_deg": 10.998,
+        "in_view_fraction": 1.0,
+        "mean_abs_turn_rate_rad_s": 0.2712,
+        "DNa02_spikes": {
+          "L": 0,
+          "R": 0
+        },
+        "final_fly_x": 0.533,
+        "final_heading_deg": -34.074,
+        "checkpoints": [
+          {
+            "time_s": 1.0,
+            "bearing_deg": -0.374,
+            "fly_x": -0.116,
+            "heading_deg": -14.985,
+            "turn_rate_rad_s": -0.0
+          },
+          {
+            "time_s": 2.0,
+            "bearing_deg": 10.252,
+            "fly_x": -0.237,
+            "heading_deg": -6.403,
+            "turn_rate_rad_s": 0.4146
+          },
+          {
+            "time_s": 4.0,
+            "bearing_deg": 7.379,
+            "fly_x": 0.014,
+            "heading_deg": 27.524,
+            "turn_rate_rad_s": 0.1268
+          },
+          {
+            "time_s": 6.0,
+            "bearing_deg": -8.322,
+            "fly_x": 0.553,
+            "heading_deg": 29.304,
+            "turn_rate_rad_s": -0.1777
+          },
+          {
+            "time_s": 8.0,
+            "bearing_deg": -10.998,
+            "fly_x": 0.533,
+            "heading_deg": -34.074,
+            "turn_rate_rad_s": -0.4068
+          }
+        ]
+      },
+      "disconnected": {
+        "mean_abs_bearing_deg": 23.071,
+        "median_abs_bearing_deg": 23.36,
+        "p90_abs_bearing_deg": 38.322,
+        "final_abs_bearing_deg": 41.458,
+        "in_view_fraction": 1.0,
+        "mean_abs_turn_rate_rad_s": 0.0,
+        "DNa02_spikes": {
+          "L": 0,
+          "R": 0
+        },
+        "final_fly_x": 0.0,
+        "final_heading_deg": 0.0,
+        "checkpoints": [
+          {
+            "time_s": 1.0,
+            "bearing_deg": -16.422,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 2.0,
+            "bearing_deg": 1.358,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 4.0,
+            "bearing_deg": 35.487,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 6.0,
+            "bearing_deg": 30.214,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 8.0,
+            "bearing_deg": -41.458,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          }
+        ]
+      },
+      "bridge_side_swapped": {
+        "mean_abs_bearing_deg": 78.871,
+        "median_abs_bearing_deg": 68.257,
+        "p90_abs_bearing_deg": 118.841,
+        "final_abs_bearing_deg": 130.495,
+        "in_view_fraction": 0.138,
+        "mean_abs_turn_rate_rad_s": 0.1786,
+        "DNa02_spikes": {
+          "L": 0,
+          "R": 0
+        },
+        "final_fly_x": 3.923,
+        "final_heading_deg": 81.873,
+        "checkpoints": [
+          {
+            "time_s": 1.0,
+            "bearing_deg": -66.526,
+            "fly_x": 0.254,
+            "heading_deg": 48.134,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 2.0,
+            "bearing_deg": -66.473,
+            "fly_x": 0.698,
+            "heading_deg": 60.776,
+            "turn_rate_rad_s": 0.0032
+          },
+          {
+            "time_s": 4.0,
+            "bearing_deg": -68.13,
+            "fly_x": 1.745,
+            "heading_deg": 81.873,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 6.0,
+            "bearing_deg": -92.353,
+            "fly_x": 2.834,
+            "heading_deg": 81.873,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 8.0,
+            "bearing_deg": -130.495,
+            "fly_x": 3.923,
+            "heading_deg": 81.873,
+            "turn_rate_rad_s": 0.0
+          }
+        ]
+      },
+      "direct_bearing": {
+        "mean_abs_bearing_deg": 10.147,
+        "median_abs_bearing_deg": 10.117,
+        "p90_abs_bearing_deg": 19.037,
+        "final_abs_bearing_deg": 16.452,
+        "in_view_fraction": 1.0,
+        "mean_abs_turn_rate_rad_s": 0.2749,
+        "DNa02_spikes": null,
+        "final_fly_x": 0.617,
+        "final_heading_deg": -29.565,
+        "checkpoints": [
+          {
+            "time_s": 1.0,
+            "bearing_deg": -0.506,
+            "fly_x": -0.106,
+            "heading_deg": -14.947,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 2.0,
+            "bearing_deg": 11.018,
+            "fly_x": -0.226,
+            "heading_deg": -7.286,
+            "turn_rate_rad_s": 0.3007
+          },
+          {
+            "time_s": 4.0,
+            "bearing_deg": 7.8,
+            "fly_x": -0.005,
+            "heading_deg": 27.317,
+            "turn_rate_rad_s": 0.18
+          },
+          {
+            "time_s": 6.0,
+            "bearing_deg": -9.137,
+            "fly_x": 0.57,
+            "heading_deg": 29.805,
+            "turn_rate_rad_s": -0.2301
+          },
+          {
+            "time_s": 8.0,
+            "bearing_deg": -16.452,
+            "fly_x": 0.617,
+            "heading_deg": -29.565,
+            "turn_rate_rad_s": -0.5044
+          }
+        ]
+      }
+    },
+    "step_ms:25": {
+      "intact": {
+        "mean_abs_bearing_deg": 10.318,
+        "median_abs_bearing_deg": 10.57,
+        "p90_abs_bearing_deg": 17.179,
+        "final_abs_bearing_deg": 14.339,
+        "in_view_fraction": 1.0,
+        "mean_abs_turn_rate_rad_s": 0.2525,
+        "DNa02_spikes": {
+          "L": 0,
+          "R": 0
+        },
+        "final_fly_x": 0.554,
+        "final_heading_deg": -31.28,
+        "checkpoints": [
+          {
+            "time_s": 1.0,
+            "bearing_deg": -2.292,
+            "fly_x": -0.101,
+            "heading_deg": -13.202,
+            "turn_rate_rad_s": -0.0
+          },
+          {
+            "time_s": 2.0,
+            "bearing_deg": 11.999,
+            "fly_x": -0.219,
+            "heading_deg": -8.339,
+            "turn_rate_rad_s": 0.3261
+          },
+          {
+            "time_s": 4.0,
+            "bearing_deg": 9.132,
+            "fly_x": -0.012,
+            "heading_deg": 26.081,
+            "turn_rate_rad_s": 0.1337
+          },
+          {
+            "time_s": 6.0,
+            "bearing_deg": -7.009,
+            "fly_x": 0.512,
+            "heading_deg": 28.716,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 8.0,
+            "bearing_deg": -14.339,
+            "fly_x": 0.554,
+            "heading_deg": -31.28,
+            "turn_rate_rad_s": -0.4462
+          }
+        ]
+      },
+      "disconnected": {
+        "mean_abs_bearing_deg": 23.045,
+        "median_abs_bearing_deg": 23.363,
+        "p90_abs_bearing_deg": 38.39,
+        "final_abs_bearing_deg": 41.458,
+        "in_view_fraction": 1.0,
+        "mean_abs_turn_rate_rad_s": 0.0,
+        "DNa02_spikes": {
+          "L": 0,
+          "R": 0
+        },
+        "final_fly_x": 0.0,
+        "final_heading_deg": 0.0,
+        "checkpoints": [
+          {
+            "time_s": 1.0,
+            "bearing_deg": -16.422,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 2.0,
+            "bearing_deg": 1.358,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 4.0,
+            "bearing_deg": 35.487,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 6.0,
+            "bearing_deg": 30.214,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 8.0,
+            "bearing_deg": -41.458,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          }
+        ]
+      },
+      "bridge_side_swapped": {
+        "mean_abs_bearing_deg": 76.965,
+        "median_abs_bearing_deg": 66.065,
+        "p90_abs_bearing_deg": 116.467,
+        "final_abs_bearing_deg": 128.315,
+        "in_view_fraction": 0.15,
+        "mean_abs_turn_rate_rad_s": 0.1726,
+        "DNa02_spikes": {
+          "L": 0,
+          "R": 0
+        },
+        "final_fly_x": 3.89,
+        "final_heading_deg": 79.101,
+        "checkpoints": [
+          {
+            "time_s": 1.0,
+            "bearing_deg": -65.337,
+            "fly_x": 0.248,
+            "heading_deg": 46.985,
+            "turn_rate_rad_s": 0.5057
+          },
+          {
+            "time_s": 2.0,
+            "bearing_deg": -65.045,
+            "fly_x": 0.687,
+            "heading_deg": 59.45,
+            "turn_rate_rad_s": 0.0003
+          },
+          {
+            "time_s": 4.0,
+            "bearing_deg": -65.132,
+            "fly_x": 1.729,
+            "heading_deg": 79.101,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 6.0,
+            "bearing_deg": -89.481,
+            "fly_x": 2.809,
+            "heading_deg": 79.101,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 8.0,
+            "bearing_deg": -128.315,
+            "fly_x": 3.89,
+            "heading_deg": 79.101,
+            "turn_rate_rad_s": 0.0
+          }
+        ]
+      },
+      "direct_bearing": {
+        "mean_abs_bearing_deg": 10.098,
+        "median_abs_bearing_deg": 10.084,
+        "p90_abs_bearing_deg": 18.969,
+        "final_abs_bearing_deg": 16.527,
+        "in_view_fraction": 1.0,
+        "mean_abs_turn_rate_rad_s": 0.273,
+        "DNa02_spikes": null,
+        "final_fly_x": 0.619,
+        "final_heading_deg": -29.521,
+        "checkpoints": [
+          {
+            "time_s": 1.0,
+            "bearing_deg": -0.54,
+            "fly_x": -0.106,
+            "heading_deg": -14.904,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 2.0,
+            "bearing_deg": 10.925,
+            "fly_x": -0.227,
+            "heading_deg": -7.184,
+            "turn_rate_rad_s": 0.2972
+          },
+          {
+            "time_s": 4.0,
+            "bearing_deg": 7.855,
+            "fly_x": -0.01,
+            "heading_deg": 27.305,
+            "turn_rate_rad_s": 0.1821
+          },
+          {
+            "time_s": 6.0,
+            "bearing_deg": -8.993,
+            "fly_x": 0.565,
+            "heading_deg": 29.74,
+            "turn_rate_rad_s": -0.2248
+          },
+          {
+            "time_s": 8.0,
+            "bearing_deg": -16.527,
+            "fly_x": 0.619,
+            "heading_deg": -29.521,
+            "turn_rate_rad_s": -0.5073
+          }
+        ]
+      }
+    },
+    "step_ms:50": {
+      "intact": {
+        "mean_abs_bearing_deg": 10.347,
+        "median_abs_bearing_deg": 10.632,
+        "p90_abs_bearing_deg": 17.18,
+        "final_abs_bearing_deg": 14.255,
+        "in_view_fraction": 1.0,
+        "mean_abs_turn_rate_rad_s": 0.2554,
+        "DNa02_spikes": {
+          "L": 0,
+          "R": 0
+        },
+        "final_fly_x": 0.551,
+        "final_heading_deg": -31.297,
+        "checkpoints": [
+          {
+            "time_s": 1.0,
+            "bearing_deg": -2.044,
+            "fly_x": -0.101,
+            "heading_deg": -13.448,
+            "turn_rate_rad_s": -0.0
+          },
+          {
+            "time_s": 2.0,
+            "bearing_deg": 12.133,
+            "fly_x": -0.221,
+            "heading_deg": -8.456,
+            "turn_rate_rad_s": 0.3008
+          },
+          {
+            "time_s": 4.0,
+            "bearing_deg": 9.099,
+            "fly_x": -0.01,
+            "heading_deg": 26.088,
+            "turn_rate_rad_s": 0.1542
+          },
+          {
+            "time_s": 6.0,
+            "bearing_deg": -7.181,
+            "fly_x": 0.516,
+            "heading_deg": 28.827,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 8.0,
+            "bearing_deg": -14.255,
+            "fly_x": 0.551,
+            "heading_deg": -31.297,
+            "turn_rate_rad_s": -0.4238
+          }
+        ]
+      },
+      "disconnected": {
+        "mean_abs_bearing_deg": 23.071,
+        "median_abs_bearing_deg": 23.36,
+        "p90_abs_bearing_deg": 38.322,
+        "final_abs_bearing_deg": 41.458,
+        "in_view_fraction": 1.0,
+        "mean_abs_turn_rate_rad_s": 0.0,
+        "DNa02_spikes": {
+          "L": 0,
+          "R": 0
+        },
+        "final_fly_x": 0.0,
+        "final_heading_deg": 0.0,
+        "checkpoints": [
+          {
+            "time_s": 1.0,
+            "bearing_deg": -16.422,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 2.0,
+            "bearing_deg": 1.358,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 4.0,
+            "bearing_deg": 35.487,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 6.0,
+            "bearing_deg": 30.214,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 8.0,
+            "bearing_deg": -41.458,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          }
+        ]
+      },
+      "bridge_side_swapped": {
+        "mean_abs_bearing_deg": 78.57,
+        "median_abs_bearing_deg": 68.108,
+        "p90_abs_bearing_deg": 118.9,
+        "final_abs_bearing_deg": 130.579,
+        "in_view_fraction": 0.156,
+        "mean_abs_turn_rate_rad_s": 0.1788,
+        "DNa02_spikes": {
+          "L": 0,
+          "R": 0
+        },
+        "final_fly_x": 3.911,
+        "final_heading_deg": 81.957,
+        "checkpoints": [
+          {
+            "time_s": 1.0,
+            "bearing_deg": -67.529,
+            "fly_x": 0.245,
+            "heading_deg": 49.204,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 2.0,
+            "bearing_deg": -64.632,
+            "fly_x": 0.688,
+            "heading_deg": 59.03,
+            "turn_rate_rad_s": 0.7282
+          },
+          {
+            "time_s": 4.0,
+            "bearing_deg": -68.058,
+            "fly_x": 1.733,
+            "heading_deg": 81.95,
+            "turn_rate_rad_s": 0.0023
+          },
+          {
+            "time_s": 6.0,
+            "bearing_deg": -92.338,
+            "fly_x": 2.822,
+            "heading_deg": 81.957,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 8.0,
+            "bearing_deg": -130.579,
+            "fly_x": 3.911,
+            "heading_deg": 81.957,
+            "turn_rate_rad_s": 0.0
+          }
+        ]
+      },
+      "direct_bearing": {
+        "mean_abs_bearing_deg": 10.147,
+        "median_abs_bearing_deg": 10.117,
+        "p90_abs_bearing_deg": 19.037,
+        "final_abs_bearing_deg": 16.452,
+        "in_view_fraction": 1.0,
+        "mean_abs_turn_rate_rad_s": 0.2749,
+        "DNa02_spikes": null,
+        "final_fly_x": 0.617,
+        "final_heading_deg": -29.565,
+        "checkpoints": [
+          {
+            "time_s": 1.0,
+            "bearing_deg": -0.506,
+            "fly_x": -0.106,
+            "heading_deg": -14.947,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 2.0,
+            "bearing_deg": 11.018,
+            "fly_x": -0.226,
+            "heading_deg": -7.286,
+            "turn_rate_rad_s": 0.3007
+          },
+          {
+            "time_s": 4.0,
+            "bearing_deg": 7.8,
+            "fly_x": -0.005,
+            "heading_deg": 27.317,
+            "turn_rate_rad_s": 0.18
+          },
+          {
+            "time_s": 6.0,
+            "bearing_deg": -9.137,
+            "fly_x": 0.57,
+            "heading_deg": 29.805,
+            "turn_rate_rad_s": -0.2301
+          },
+          {
+            "time_s": 8.0,
+            "bearing_deg": -16.452,
+            "fly_x": 0.617,
+            "heading_deg": -29.565,
+            "turn_rate_rad_s": -0.5044
+          }
+        ]
+      }
+    },
+    "step_ms:100": {
+      "intact": {
+        "mean_abs_bearing_deg": 10.428,
+        "median_abs_bearing_deg": 10.755,
+        "p90_abs_bearing_deg": 17.42,
+        "final_abs_bearing_deg": 13.947,
+        "in_view_fraction": 1.0,
+        "mean_abs_turn_rate_rad_s": 0.2592,
+        "DNa02_spikes": {
+          "L": 0,
+          "R": 0
+        },
+        "final_fly_x": 0.546,
+        "final_heading_deg": -31.518,
+        "checkpoints": [
+          {
+            "time_s": 1.0,
+            "bearing_deg": -1.698,
+            "fly_x": -0.101,
+            "heading_deg": -13.797,
+            "turn_rate_rad_s": -0.0
+          },
+          {
+            "time_s": 2.0,
+            "bearing_deg": 12.413,
+            "fly_x": -0.222,
+            "heading_deg": -8.722,
+            "turn_rate_rad_s": 0.3199
+          },
+          {
+            "time_s": 4.0,
+            "bearing_deg": 9.002,
+            "fly_x": -0.003,
+            "heading_deg": 26.11,
+            "turn_rate_rad_s": 0.134
+          },
+          {
+            "time_s": 6.0,
+            "bearing_deg": -7.173,
+            "fly_x": 0.522,
+            "heading_deg": 28.715,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 8.0,
+            "bearing_deg": -13.947,
+            "fly_x": 0.546,
+            "heading_deg": -31.518,
+            "turn_rate_rad_s": -0.3968
+          }
+        ]
+      },
+      "disconnected": {
+        "mean_abs_bearing_deg": 23.122,
+        "median_abs_bearing_deg": 23.498,
+        "p90_abs_bearing_deg": 38.322,
+        "final_abs_bearing_deg": 41.458,
+        "in_view_fraction": 1.0,
+        "mean_abs_turn_rate_rad_s": 0.0,
+        "DNa02_spikes": {
+          "L": 0,
+          "R": 0
+        },
+        "final_fly_x": 0.0,
+        "final_heading_deg": 0.0,
+        "checkpoints": [
+          {
+            "time_s": 1.0,
+            "bearing_deg": -16.422,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 2.0,
+            "bearing_deg": 1.358,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 4.0,
+            "bearing_deg": 35.487,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 6.0,
+            "bearing_deg": 30.214,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 8.0,
+            "bearing_deg": -41.458,
+            "fly_x": 0.0,
+            "heading_deg": 0.0,
+            "turn_rate_rad_s": 0.0
+          }
+        ]
+      },
+      "bridge_side_swapped": {
+        "mean_abs_bearing_deg": 79.07,
+        "median_abs_bearing_deg": 69.416,
+        "p90_abs_bearing_deg": 118.38,
+        "final_abs_bearing_deg": 130.043,
+        "in_view_fraction": 0.15,
+        "mean_abs_turn_rate_rad_s": 0.1779,
+        "DNa02_spikes": {
+          "L": 0,
+          "R": 0
+        },
+        "final_fly_x": 3.921,
+        "final_heading_deg": 81.544,
+        "checkpoints": [
+          {
+            "time_s": 1.0,
+            "bearing_deg": -71.225,
+            "fly_x": 0.239,
+            "heading_deg": 52.957,
+            "turn_rate_rad_s": 0.0017
+          },
+          {
+            "time_s": 2.0,
+            "bearing_deg": -65.737,
+            "fly_x": 0.692,
+            "heading_deg": 60.111,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 4.0,
+            "bearing_deg": -67.884,
+            "fly_x": 1.745,
+            "heading_deg": 81.544,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 6.0,
+            "bearing_deg": -91.965,
+            "fly_x": 2.833,
+            "heading_deg": 81.544,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 8.0,
+            "bearing_deg": -130.043,
+            "fly_x": 3.921,
+            "heading_deg": 81.544,
+            "turn_rate_rad_s": 0.0
+          }
+        ]
+      },
+      "direct_bearing": {
+        "mean_abs_bearing_deg": 10.244,
+        "median_abs_bearing_deg": 10.228,
+        "p90_abs_bearing_deg": 19.179,
+        "final_abs_bearing_deg": 16.293,
+        "in_view_fraction": 1.0,
+        "mean_abs_turn_rate_rad_s": 0.2786,
+        "DNa02_spikes": null,
+        "final_fly_x": 0.615,
+        "final_heading_deg": -29.66,
+        "checkpoints": [
+          {
+            "time_s": 1.0,
+            "bearing_deg": -0.434,
+            "fly_x": -0.104,
+            "heading_deg": -15.034,
+            "turn_rate_rad_s": 0.0
+          },
+          {
+            "time_s": 2.0,
+            "bearing_deg": 11.211,
+            "fly_x": -0.224,
+            "heading_deg": -7.498,
+            "turn_rate_rad_s": 0.3079
+          },
+          {
+            "time_s": 4.0,
+            "bearing_deg": 7.688,
+            "fly_x": 0.004,
+            "heading_deg": 27.344,
+            "turn_rate_rad_s": 0.1758
+          },
+          {
+            "time_s": 6.0,
+            "bearing_deg": -9.419,
+            "fly_x": 0.58,
+            "heading_deg": 29.932,
+            "turn_rate_rad_s": -0.2407
+          },
+          {
+            "time_s": 8.0,
+            "bearing_deg": -16.293,
+            "fly_x": 0.615,
+            "heading_deg": -29.66,
+            "turn_rate_rad_s": -0.4985
+          }
+        ]
+      }
+    }
+  }
+}

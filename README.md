@@ -2,9 +2,54 @@
 
 This repository is a small, local-first exploration of the official FlyEM Male CNS connectome release. It began with a readable data loader, a bounded subgraph extractor, and a simple leaky integrate-and-fire simulator; it now also includes an inspectable local browser lab and standalone Godot arena. There is still no opaque graph database or claim of a validated biological behavior model.
 
+## Workspace map
+
+- `src/flytest/`, `tests/`, `outputs/`, and `arena3d/` are the existing experimental lab. Keep its diagnostics and Godot demo intact as a record of what was tried.
+- `fly-creature/` is the separate, portable home for the next interactive fly project. It may adapt useful lab code, but its runnable version must carry its own code, assets, dependency manifest, and selected circuit data.
+- `data/` holds the original release and its byte-identical working copy. Neither project should move or alter those files.
+
+The new project starts by defining the world-to-neuron inputs and neuron-to-body outputs, then choosing a circuit appropriate to those inputs and outputs. Copying `fly-creature/` alone should eventually be enough to run it; it must not import or read files from the rest of this workspace at runtime. Its current boundary is described in [fly-creature/README.md](fly-creature/README.md).
+
 The current baseline uses MaleCNS v1.0 from HHMI Janelia's public Google Storage bucket. The downloaded release files live in `data/original-data/male-cns-v1.0/` and are never edited. Byte-identical copies live in `data/working/male-cns-v1.0/`; derived tables and simulation output go under `outputs/`.
 
 ## Setup
+
+Current creature research: the [motion diagnosis](fly-creature/docs/pursuit_motion_result.md)
+finds a direction-rule tradeoff and motor-delay limit; no input fix qualifies.
+Fresh fast/mixed-motion cases limit the earlier wiring-advantage claim.
+The [timing contract](fly-creature/docs/pursuit_timing_contract.md) now checks
+the final paper. The completed
+[matched retinal benchmark](fly-creature/docs/pursuit_retinal_result.md) finds
+shared fast-motion weakness and task-dependent adaptation/wiring differences.
+The [response diagnosis](fly-creature/docs/pursuit_response_result.md) now
+isolates weak wide-angle input profiles and additional nonlinear attenuation.
+The [column-footprint experiment](fly-creature/docs/pursuit_footprint_result.md)
+retains more upstream spatial detail but does not improve tracking; it remains offline.
+The [sensory evidence review](fly-creature/docs/lc10a_visual_input_research.md)
+now identifies actual AOTU recordings and a bounded measured-response comparison
+as an empirical target. The completed
+[physiology benchmark](fly-creature/docs/pursuit_physiology_result.md) now
+compares 13,038 NoP1 pulses; footprints add little, and the benefit over simple
+controls is limited. The [P1 extension](fly-creature/docs/pursuit_p1_result.md)
+adds 55,252 pulses; spatial benefit is clearer, but anatomy barely improves
+on a simple spatial curve. A duplicated recording and uncertain side-label
+association limit condition/hemisphere claims. The
+[temporal-response experiment](fly-creature/docs/pursuit_temporal_result.md)
+adds nested holdouts and speed transfer; bounded memory improves less than 1%
+and fails its frozen criteria. Production remains unchanged.
+See [the handoff](docs/HANDOFF.md) for continuation.
+The [LC10a image-response hypothesis](fly-creature/docs/lc10a_response_result.md)
+has been run against recorded AOTU responses in a frozen offline benchmark.
+Artifact checks pass, but the intact circuit misses the predeclared practical
+prediction gates against simpler controls; see the
+[benchmark result](fly-creature/docs/lc10a_recorded_benchmark_result.md).
+No behavior controller was promoted.
+The [bounded diagnosis](fly-creature/docs/lc10a_response_diagnosis.md) identifies
+the transferred temporal envelope as the main recoverable loss. That primary
+candidate is retired from promotion; removing the envelope still does not
+qualify a replacement or establish useful wiring advantage across both types.
+The [interactive playground](fly-creature/docs/playground.md) now exposes
+simultaneous comparisons, target presets/manual placement and live errors.
 
 The tested interpreter is Python 3.12. Create or activate the project environment, then install the package and development dependencies:
 
@@ -192,6 +237,21 @@ distance threshold at least once. The report separates connectome facts from
 the retina, body, movement, and threshold assumptions. It is a diagnostic of
 one fixed replay, not evidence of biological light seeking or sustained
 tracking.
+
+Compare the threat response across the legacy control and unified stages:
+
+~~~powershell
+.\.venv\Scripts\python.exe -m flytest.threat_crossing
+~~~
+
+This runs the same beacon-plus-moving-threat scenario and a no-threat control
+at stages 54, 250, and 1,024. It reports whether the threat was sensed, the
+touch population spiked, and a touch-sourced escape action followed, including
+first-response latency. The 1,024-node stage also checks two nearby threat
+geometries while reusing its no-threat control. Evidence is written under
+`outputs/diagnostics/threat-crossing`; a detected response is causal evidence
+for this narrow replay matrix, not biological predator avoidance or broad
+generalization.
 
 ## Report runs to Discord
 

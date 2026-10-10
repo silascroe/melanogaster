@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-05",
+  "benchmark": {
+    "runner": {
+      "path": "src/fly_creature/lc10a_response_benchmark.py",
+      "sha256": "5c6498f18ec20e39f119c600f39cc1fcef21fc8d0bd782cb6338eaaeec27fad7"
+    },
+    "protocol": {
+      "path": "docs/lc10a_response_benchmark_protocol.md",
+      "sha256": "90f31ab92ac75d5a99b6da3f4a266faebcde2c3f5904a66d02d5b6d976597abb"
+    },
+    "contract": {
+      "path": "docs/evidence/lc10a_benchmark_contract_v1.json",
+      "sha256": "e448782fe16800b8a681aa4cf264a806b4c18485ebf4c9531138273ec461c41f"
+    },
+    "units": 69,
+    "quiet_pulses": 35484,
+    "native_trials": 1561,
+    "native_frames": 76786718,
+    "scored_trial_cells": 34554,
+    "new_predictors": 345,
+    "predictors_including_references": 349
+  },
+  "artifact_validation": {
+    "checker": {
+      "path": "tools/check_lc10a_response_benchmark.py",
+      "sha256": "c41abd2dbc2b0f3f796cd6d66443f7cf471e03632000307408141409ee5fb57a"
+    },
+    "status": "pass",
+    "recording_score_rows": 24081,
+    "representation_rows": 190440,
+    "held_prediction_max_abs_difference": 0.0,
+    "max_gain_difference": 0.0,
+    "max_recording_rmse_difference": 0.0,
+    "sensor_movie_replays": 8,
+    "sensor_replay_max_abs_activity_difference": 1.4988010832439613e-15,
+    "public_2d_replay_parity": "pass",
+    "representation_peak_overflow": "none"
+  },
+  "predeclared_gates": {
+    "primary_per_type": {
+      "minimum_rmse_reduction_vs_legacy": 0.05,
+      "minimum_recording_win_fraction": 0.60,
+      "AOTU019": {
+        "recordings": 24,
+        "intact_mean_rmse": 7.5561896412,
+        "legacy_mean_rmse": 6.4513836538,
+        "rmse_reduction_fraction": -0.1712510132,
+        "recording_wins_vs_legacy": 8,
+        "recording_win_fraction": 0.3333333333,
+        "primary_gate_pass": false
+      },
+      "AOTU025": {
+        "recordings": 22,
+        "intact_mean_rmse": 10.1273664029,
+        "legacy_mean_rmse": 9.2157612505,
+        "rmse_reduction_fraction": -0.0989180522,
+        "recording_wins_vs_legacy": 7,
+        "recording_win_fraction": 0.3181818182,
+        "primary_gate_pass": false
+      }
+    },
+    "wiring_advantage": {
+      "minimum_rmse_reduction_vs_matched_spatial": 0.01,
+      "minimum_strict_shuffle_wins": 30,
+      "shuffle_count": 32,
+      "AOTU019": {
+        "matched_spatial_mean_rmse": 7.5393990813,
+        "rmse_reduction_fraction_vs_spatial": -0.0022270422,
+        "strict_shuffle_wins": 32,
+        "gate_pass": false
+      },
+      "AOTU025": {
+        "matched_spatial_mean_rmse": 10.1983613171,
+        "rmse_reduction_fraction_vs_spatial": 0.0069614041,
+        "strict_shuffle_wins": 32,
+        "gate_pass": false
+      }
+    }
+  },
+  "interpretation": {
+    "scientific_qualification": "failed",
+    "connectome_advantage_claimed": false,
+    "godot_controller_promoted": false,
+    "summary": "The artifact checks pass and intact wiring beats all shuffled controls on aggregate RMSE, but both AOTU types fail the predeclared practical gates against the legacy predictor and matched-spatial control. This exploratory reused-archive result does not establish a useful connectome advantage or validated behavior."
+  }
+}

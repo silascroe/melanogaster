@@ -182,7 +182,9 @@ Choose presets or drag a manual target; inspect the colored trails and live
 error cards. [Architecture](docs/ARCHITECTURE.md) explains the two scene/world
 ownership boundaries. The frozen neural controller settings are unchanged.
 
-From this directory in PowerShell:
+**Easiest:** double-click `Play-Fly-Creature.cmd` in this folder. It finds Python and Godot, starts the neural service in the background, opens the game, and stops the service when you close the game window. Problems appear in a pop-up. Options: `tools\play.ps1 -Scene playground` or `-Port <number>`; set `FLY_CREATURE_GODOT` if Godot is somewhere unusual.
+
+To run the pieces by hand, from this directory in PowerShell:
 
 ```powershell
 python -m venv .venv

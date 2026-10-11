@@ -13,3 +13,4 @@
 *.parquet binary
 *.zip binary
 *.gz binary
+*.cmd text eol=crlf

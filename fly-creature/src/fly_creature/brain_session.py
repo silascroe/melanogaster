@@ -1,5 +1,12 @@
 """Live whole-brain-subset session for the Godot creature.
 
+Architecture (engineering, see docs/whole_brain_protocol.md): the published model
+is validated for one stimulus starting from rest, and does not settle on its own
+in continuous use. So each sense gets its own copy of the brain subset that
+starts at rest and hears only that sense; each copy's action output is read only
+for its own sense; a copy resets to rest after 500 ms without input, and a
+resting copy without input is not simulated (it would stay exactly at rest).
+
 The packaged brain (data/brain_subset_v1.npz) was selected from whole-brain
 activity and checked against the whole brain (docs/whole_brain_result.md).
 Everything that turns the world into Poisson input rates, and spikes into body
@@ -35,6 +42,12 @@ SMOOTHING_S = 0.15
 FEED_THRESHOLD_HZ = 20.0
 MOUTH_REACH = 0.15
 JUMP_COOLDOWN_MS = 1200.0
+RESET_AFTER_MS = 500.0
+SENSES = {"taste": ("sugar",), "loom": ("loom",), "target": ("lc10a_R", "lc10a_L")}
+# Which copy each display group is read from.
+DISPLAY_SOURCE = {"LB3": "taste", "MN9": "taste", "LC4": "loom", "LPLC2": "loom", "DNp01": "loom",
+                  "LC10a_L": "target", "LC10a_R": "target", "AOTU_L": "target", "AOTU_R": "target",
+                  "DNa02_L": "target", "DNa02_R": "target"}
 READOUT_GROUPS = ("gf", "dna02_R", "dna02_L", "mn9")
 
 
@@ -99,8 +112,10 @@ class BrainSession:
             raise ValueError("condition must be intact or disconnected")
         self.condition = condition
         self.package = load_package()
-        self.runner = BrainRunner(self.package.connectome(condition),
-                                  input_neurons=self.package.inputs, seed=seed)
+        self.connectome = self.package.connectome(condition)
+        self.next_seed = seed
+        self.copies: dict[str, BrainRunner | None] = {sense: None for sense in SENSES}
+        self.quiet_ms = {sense: 0.0 for sense in SENSES}
         self.last_angle_deg: float | None = None
         self.cooldown_ms = 0.0
         self.asym_hz = 0.0
@@ -144,27 +159,29 @@ class BrainSession:
         rates = {"loom": MAX_INPUT_HZ * loom, "lc10a_R": MAX_INPUT_HZ * right,
                  "lc10a_L": MAX_INPUT_HZ * left, "sugar": MAX_INPUT_HZ if contact else 0.0}
         started = time.perf_counter()
-        counts = self.runner.advance(dt_ms, [(g[k], r) for k, r in rates.items()])
+        counts = {sense: self._advance_copy(sense, dt_ms, rates) for sense in SENSES}
         compute_ms = (time.perf_counter() - started) * 1000.0
         window_s = dt_ms / 1000.0
+        source = {"mn9": "taste", "gf": "loom", "dna02_R": "target", "dna02_L": "target"}
 
         def group_rate(key: str) -> float:
-            return float(counts[g[key]].mean()) / window_s
+            return float(counts[source[key]][g[key]].mean()) / window_s
 
         alpha = 1.0 - math.exp(-window_s / SMOOTHING_S)
         self.asym_hz += alpha * (group_rate("dna02_R") - group_rate("dna02_L") - self.asym_hz)
         self.mn9_hz += alpha * (group_rate("mn9") - self.mn9_hz)
         turn = max(-MAX_TURN_RATE_RAD_S, min(MAX_TURN_RATE_RAD_S, self.asym_hz * TURN_GAIN_RAD_S_PER_HZ))
-        gf_spikes = int(counts[g["gf"]].sum())
+        gf_spikes = int(counts["loom"][g["gf"]].sum())
         self.cooldown_ms = max(0.0, self.cooldown_ms - dt_ms)
         jump = gf_spikes > 0 and self.cooldown_ms == 0.0
         if jump:
             self.cooldown_ms = JUMP_COOLDOWN_MS
-        spikes = {k: int(counts[idx].sum()) for k, idx in self.package.display.items()}
+        spikes = {k: int(counts[DISPLAY_SOURCE[k]][idx].sum()) for k, idx in self.package.display.items()}
         return {
             "condition": self.condition, "model": "brain",
             "brain_neurons": self.package.n,
-            "active_neurons": int(np.count_nonzero(counts)),
+            "active_neurons": int(sum(np.count_nonzero(c) for c in counts.values())),
+            "brain_copies_running": [s for s, r in self.copies.items() if r is not None],
             "compute_ms": round(compute_ms, 1),
             "visual": {"in_view": in_view, "angle_deg": round(angle, 2),
                        "expansion_deg_s": round(expansion, 2)},
@@ -186,3 +203,22 @@ class BrainSession:
             "feeding": self.mn9_hz >= FEED_THRESHOLD_HZ,
             "mn9_rate_hz": round(self.mn9_hz, 1),
         }
+
+    def _advance_copy(self, sense: str, dt_ms: float, rates: dict[str, float]) -> np.ndarray:
+        """Advance one sense's brain copy; start it on input, reset it after quiet."""
+        g = self.package.groups
+        inputs = [(g[key], rates[key]) for key in SENSES[sense] if rates[key] > 0]
+        runner = self.copies[sense]
+        if inputs:
+            self.quiet_ms[sense] = 0.0
+            if runner is None:
+                runner = self.copies[sense] = BrainRunner(
+                    self.connectome, input_neurons=self.package.inputs, seed=self.next_seed)
+                self.next_seed += 1
+        elif runner is not None:
+            self.quiet_ms[sense] += dt_ms
+            if self.quiet_ms[sense] >= RESET_AFTER_MS:
+                self.copies[sense] = runner = None
+        if runner is None:
+            return np.zeros(self.package.n, dtype=np.int64)
+        return runner.advance(dt_ms, inputs)

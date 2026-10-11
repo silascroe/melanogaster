@@ -43,6 +43,11 @@ var flight_landing_from := 0.0
 var mouth_parts: Array[Dictionary] = []
 var feeding_target := 0.0
 var proboscis_extension := 0.0
+var proboscis_stalk: MeshInstance3D
+# Model space: the head faces -X, up is +Y; the mouth sits under the face and the
+# table is about 0.55 model units below it.
+const MOUTH_POINT := Vector3(-1.30, 0.95, 0.0)
+const STALK_REACH := Vector3(-0.12, -0.50, 0.0)
 
 
 func _ready() -> void:
@@ -81,12 +86,23 @@ func _ready() -> void:
 		})
 	if legs.size() != 6:
 		push_warning("Imported fly leg rig is incomplete.")
-	for part in model_root.find_children("*proboscis*", "Node3D", true, false) 			+ model_root.find_children("*labella*", "Node3D", true, false):
+	var nub := model_root.find_child("proboscis", true, false) as MeshInstance3D
+	for part in model_root.find_children("*labella*", "Node3D", true, false):
 		var node := part as Node3D
-		mouth_parts.append({"node": node, "position": node.position, "scale": node.scale,
-			"stretch": node.name.contains("proboscis")})
+		mouth_parts.append({"node": node, "position": node.position})
+	# A stalk grown from the mouth while feeding, in the model's own proboscis material.
+	proboscis_stalk = MeshInstance3D.new()
+	var stalk_mesh := CylinderMesh.new()
+	stalk_mesh.top_radius = 0.034
+	stalk_mesh.bottom_radius = 0.026
+	stalk_mesh.height = 1.0
+	proboscis_stalk.mesh = stalk_mesh
+	if nub != null and nub.mesh != null:
+		proboscis_stalk.material_override = nub.get_active_material(0)
+	proboscis_stalk.visible = false
+	model_root.add_child(proboscis_stalk)
 	if mouth_parts.is_empty():
-		push_warning("Proboscis/labella parts were not found.")
+		push_warning("Labella parts were not found.")
 	_reset_leg_anchors()
 
 
@@ -97,12 +113,18 @@ func set_feeding(feeding: bool) -> void:
 func _animate_mouth(delta: float) -> void:
 	proboscis_extension = move_toward(proboscis_extension, feeding_target, delta * 2.5)
 	var e := smoothstep(0.0, 1.0, proboscis_extension)
+	var tip := MOUTH_POINT + STALK_REACH * e
+	if proboscis_stalk != null:
+		proboscis_stalk.visible = e > 0.02
+		var span := tip - MOUTH_POINT
+		if span.length() > 0.001:
+			proboscis_stalk.position = (MOUTH_POINT + tip) * 0.5
+			proboscis_stalk.basis = Basis(Quaternion(Vector3.UP, span.normalized())).scaled(
+				Vector3(1.0, span.length(), 1.0))
 	for part in mouth_parts:
 		var node: Node3D = part["node"]
-		# Model space: the head faces -X and down is -Y.
-		node.position = part["position"] + Vector3(-0.22, -0.38, 0.0) * e
-		if part["stretch"]:
-			node.scale = part["scale"] * Vector3(1.0, 1.0 + 1.4 * e, 1.0)
+		var rest: Vector3 = part["position"]
+		node.position = rest.lerp(Vector3(tip.x, tip.y, rest.z), e)
 
 
 func advance(delta: float, walking: bool, speed: float) -> void:

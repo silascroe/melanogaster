@@ -494,6 +494,9 @@ func _on_step_ready(payload: Dictionary) -> void:
 	feeding_now = bool(payload.get("feeding", false))
 	if feeding_now and not was_feeding:
 		taste_wait_s = 0.0
+		if beacon_mode:
+			_end_beacon()  # reached the food before the target point; clear the target
+		roam_enabled = false
 		service_message = "MN9 firing: feeding"
 	elif was_feeding and not feeding_now:
 		roam_enabled = true

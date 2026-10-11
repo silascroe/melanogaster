@@ -108,3 +108,44 @@ spike counts (checked on the sugar subset and in `tests/test_brain_model.py`).
 
 Seconds of computing per simulated second on an i5-8400. The subset now runs at
 about real time; a game integration still needs headroom for rendering.
+
+# Game integration (2026-10-11)
+
+Jump and turn also pass whole-brain tests ([evidence](evidence/whole_brain_behaviors_v1.json)):
+DNp01 ~404 Hz with looming input versus at most 34.5 Hz in 20 shuffles; DNa02
+right-minus-left +104 to +168 Hz (target right) and −139 to −154 Hz (left), beating
+all 20 shuffles. A combined 25,151-neuron subset reproduces all three behaviors
+within 20% of the whole brain ([evidence](evidence/brain_subset_v1.json)) and is
+packaged as `src/fly_creature/data/brain_subset_v1.npz` (10.3 MB).
+
+## Problem found in live use, and two failed fixes
+
+Running continuously exposed what single 1 s trials from rest could not: after a
+300 ms loom burst, ~13,500 neurons keep firing indefinitely (~1.6 M spikes/s,
+some neurons pinned at the 435 Hz ceiling), MN9 then fires with no taste, and
+target input alone drives MN9 at ~20–25 Hz. The whole brain does the same, so
+this is a property of the published model, not of the subset. Two pre-declared
+fixes failed and were not tuned:
+
+- AdEx-derived adaptation (0.805 mV, 144 ms): still 13,472 active; MN9 from
+  target ~25 Hz ([evidence](evidence/whole_brain_adaptation_v1.json)).
+- Silencing the 4,064 Kenyon cells (about 4,000 of the persistent neurons): still
+  8,273 active; MN9 from target ~32 Hz ([evidence](evidence/whole_brain_kc_silenced_v1.json)).
+
+Sugar, jump and turn passed in both variants.
+
+## Architecture used: one brain copy per sense
+
+Each sense (taste, loom, target) drives its own copy of the subset that starts at
+rest; each copy's action output is read only for its own sense; a copy resets
+after 500 ms without input. This keeps every reaction inside the validated
+regime (one stimulus from rest) but is not one integrated brain. All pre-declared
+game checks pass (`tests/test_brain_session.py`): the loom copy jumps then
+settles, steering follows the target side without feeding, taste starts and then
+stops feeding, and cutting connections onto the action neurons removes all three
+actions. The Godot scene check confirms roaming, jump, target approach and
+feeding from a right-clicked sugar drop.
+
+Speed: a running copy costs ~72–76 ms per 50 ms frame for taste or target and
+~31 ms median for loom, so an active brain runs at roughly 0.7× real time; the
+game keeps moving and simply gets brain updates a little less often.

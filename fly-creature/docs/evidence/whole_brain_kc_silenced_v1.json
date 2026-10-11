@@ -1,0 +1,127 @@
+{
+  "params": {
+    "dt_ms": 0.1,
+    "v_0_mv": -52.0,
+    "v_rst_mv": -52.0,
+    "v_th_mv": -45.0,
+    "t_mbr_ms": 20.0,
+    "tau_ms": 5.0,
+    "t_rfc_ms": 2.2,
+    "t_dly_ms": 1.8,
+    "w_syn_mv": 0.275,
+    "f_poi": 250.0,
+    "adapt_mv": 0.0,
+    "adapt_tau_ms": 144.0
+  },
+  "kc_silenced": 4064,
+  "connections": 24128451,
+  "settling_active_neurons": 8273,
+  "sugar_mn9_hz": [
+    73.5,
+    77.0,
+    29.5
+  ],
+  "jump_dnp01_hz": [
+    408.5,
+    404.5,
+    404.5
+  ],
+  "turn_asym_right_hz": [
+    169.0,
+    167.0,
+    169.0
+  ],
+  "turn_asym_left_hz": [
+    -148.0,
+    -146.0,
+    -146.0
+  ],
+  "no_input_max_hz": 0.0,
+  "mn9_from_right_lc10a_hz": [
+    35.0,
+    30.5,
+    30.0
+  ],
+  "shuffles": {
+    "sugar_mn9_hz": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "jump_dnp01_hz": [
+      2.5,
+      6.5,
+      0.0,
+      0.0,
+      0.5,
+      3.5,
+      0.0,
+      0.0,
+      17.0,
+      0.0,
+      0.0,
+      7.0,
+      0.0,
+      0.5,
+      2.0,
+      4.0,
+      7.0,
+      5.5,
+      0.0,
+      3.5
+    ],
+    "turn_asym_hz": [
+      0.0,
+      0.0,
+      -2.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      -7.0,
+      2.0,
+      0.0,
+      -39.0,
+      0.0,
+      31.0,
+      0.0,
+      -7.0,
+      -13.0,
+      1.0,
+      1.0,
+      0.0,
+      0.0
+    ]
+  },
+  "shuffles_beaten": {
+    "sugar": 20,
+    "jump": 20,
+    "turn": 20
+  },
+  "checks": {
+    "settles": false,
+    "sugar": true,
+    "jump": true,
+    "turn": true,
+    "game_gate_mn9_from_target_below_20hz": false
+  },
+  "pass": false,
+  "runtime_s": 360
+}

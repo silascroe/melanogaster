@@ -50,7 +50,7 @@ func _ready() -> void:
 		{"key": "dna_r", "label": "DNa02  right", "color": ACCENT_TURN, "floor": 2.0},
 		{"section": "FEED CIRCUIT", "color": ACCENT_FEED},
 		{"key": "lb3", "label": "Sugar taste", "color": ACCENT_FEED, "floor": 6.0},
-		{"key": "mn9", "label": "MN9 (proboscis)", "color": ACCENT_FEED, "floor": 1.0},
+		{"key": "mn9", "label": "MN9 (feed)", "color": ACCENT_FEED, "floor": 1.0},
 	]
 	for row in rows:
 		if row.has("key"):

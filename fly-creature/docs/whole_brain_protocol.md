@@ -128,3 +128,48 @@ Pass criteria, whole brain with adaptation (all required):
 3. Game-use gate: MN9 mean rate with right-LC10a input below the game's 20 Hz
    feeding threshold.
 If any fails, we report it; we do not adjust b or tau_w.
+
+# Addendum: mushroom-body (Kenyon cell) silencing (written 2026-10-11, before any run)
+
+Adaptation failed (see whole_brain_result.md). Diagnosis: the self-sustained
+activity is a runaway loop with ~1.6 M spikes/s indefinitely, some neurons pinned
+at the maximum rate, and ~4,000 of ~14,000 persistently active neurons are
+Kenyon cells (4,064 KCs, all cholinergic, held in check in the fly by the two
+GABAergic APL neurons). This simple model cannot represent that inhibition.
+
+Change (ours): silence all 4,064 neurons whose type starts with "KC", by removing
+every connection to and from them (the paper's silencing method). Published
+settings otherwise; no adaptation (one change at a time). None of the three
+game behaviors is expected to need the mushroom body; if one does, that is a
+result to report.
+
+Pass criteria, whole brain with KCs silenced: identical to the adaptation
+addendum (settling ≤ 1% of neurons 500–1000 ms after a 300 ms loom burst;
+sugar, jump and turn original criteria with 20 shuffles of the silenced brain;
+MN9 from right-LC10a input below 20 Hz). If any fails, we report it.
+
+# Addendum: one brain copy per sense (written 2026-10-11, before implementation)
+
+KC silencing also failed (settling 8,273 active; MN9 from target ~32 Hz), while
+sugar, jump and turn still passed. Conclusion: the published model is validated
+for single stimuli from rest; continuous multi-sense operation is an open
+problem we will not chase further here.
+
+Game architecture (engineering, labeled as such): three copies of the combined
+subset, each starting at rest and receiving only one sense (taste, loom, target).
+Each copy's action output is read only for its own sense (taste copy -> MN9 ->
+feeding; loom copy -> DNp01 -> jump; target copy -> DNa02 -> turn). A copy is
+reset to rest after its input has been zero for 500 ms; a resting copy with no
+input is not simulated (it would stay exactly at rest). Published settings, no
+adaptation, no silencing.
+
+Pass criteria (BrainSession tests, written before running):
+G1 Loom: 300 ms loom then 2 s without: at least one jump; no DNp01 spikes in the
+   last 1 s; feeding never true.
+G2 Target: 3 s on the right then 3 s on the left: mean turn rate in each phase's
+   last second has the target's sign (right positive); feeding never true.
+G3 Taste: 2 s sugar contact then 2 s without: feeding true at the end of contact,
+   false at the end.
+G4 Cut wiring (connections onto action neurons removed): no jump, no feeding,
+   and |turn| < 0.05 rad/s throughout the same scenarios.
+Reported: compute milliseconds per 50 ms frame.

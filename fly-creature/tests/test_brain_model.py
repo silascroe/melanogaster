@@ -71,3 +71,36 @@ def test_numba_engine_matches_numpy_exactly():
     b = simulate(conn, duration_ms=300, poisson_targets=np.arange(40), seed=9, engine="numba")
     assert a.spike_counts.sum() > 1000
     assert np.array_equal(a.spike_counts, b.spike_counts)
+
+
+def test_runner_in_frames_matches_one_long_run():
+    from fly_creature.brain_model import BrainRunner
+    rng = np.random.default_rng(6)
+    n, m = 300, 8000
+    conn = Connectome.from_edges(n, rng.integers(0, n, m), rng.integers(0, n, m),
+                                 rng.integers(1, 40, m), BrainParams().w_syn_mv)
+    targets = np.arange(30)
+    whole = simulate(conn, duration_ms=200, poisson_targets=targets, seed=4)
+    runner = BrainRunner(conn, input_neurons=targets, seed=4)
+    for _ in range(4):  # four 50 ms game frames
+        runner.advance(50, [(targets, 150.0)])
+    assert whole.spike_counts.sum() > 500
+    assert np.array_equal(whole.spike_counts, runner.counts)
+
+
+def test_adaptation_engines_match_and_reduce_firing():
+    import pytest
+    from fly_creature import brain_model
+    from fly_creature.brain_model import ADAPTIVE
+    rng = np.random.default_rng(8)
+    n, m = 300, 9000
+    conn = Connectome.from_edges(n, rng.integers(0, n, m), rng.integers(0, n, m),
+                                 rng.integers(1, 40, m), BrainParams().w_syn_mv)
+    plain = simulate(conn, duration_ms=300, poisson_targets=np.arange(30), seed=2)
+    adapted = simulate(conn, duration_ms=300, poisson_targets=np.arange(30), seed=2,
+                       params=ADAPTIVE, engine="numpy")
+    assert adapted.spike_counts.sum() < plain.spike_counts.sum()
+    if brain_model._step_kernel is not None:
+        compiled = simulate(conn, duration_ms=300, poisson_targets=np.arange(30), seed=2,
+                            params=ADAPTIVE, engine="numba")
+        assert np.array_equal(adapted.spike_counts, compiled.spike_counts)

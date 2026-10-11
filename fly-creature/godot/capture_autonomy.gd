@@ -64,7 +64,29 @@ func _run() -> void:
 			break
 	_snap("4_after_beacon")
 	print("CHECK beacon_ended=", not scene.beacon_mode)
+	# Sugar: drop it a little ahead of the fly and let the fly walk to it.
+	var ahead := Vector3(sin(scene.heading_rad), 0.0, -cos(scene.heading_rad)) * 2.0
+	var drop: Vector3 = scene.fly_position + ahead
+	scene.place_sugar(drop)
+	scene.place_beacon(drop)
+	var fed := false
+	var end_feed := Time.get_ticks_msec() + 15000
+	while Time.get_ticks_msec() < end_feed and not fed:
+		await process_frame
+		fed = scene.feeding_now
+	print("CHECK feeding_started=", fed, " mn9_hz=", scene.last_trace.get("mn9_rate_hz", "--"),
+		" taste_contact=", scene.last_trace.get("taste", {}).get("contact", "--"))
+	await _wait(1.5)
+	_snap("6_feeding")
+	# Close side view of the mouthparts while feeding.
 	scene.close_camera = false
-	await _wait(2.0)
-	_snap("5_wide")
+	var head: Vector3 = scene.fly_position + Vector3(sin(scene.heading_rad), 0.0, -cos(scene.heading_rad)) * 0.35
+	scene.camera.position = head + Vector3(cos(scene.heading_rad), 0.25, sin(scene.heading_rad)) * 1.2
+	scene.camera.look_at(head + Vector3(0.0, 0.15, 0.0), Vector3.UP)
+	scene.set_process(false)
+	await _wait(0.3)
+	_snap("7_mouth_closeup")
+	scene.set_process(true)
+	print("CHECK brain_compute_ms=", scene.last_trace.get("compute_ms", "--"),
+		" active_neurons=", scene.last_trace.get("active_neurons", "--"))
 	quit()

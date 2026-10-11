@@ -1,0 +1,57 @@
+import math
+
+import numpy as np
+
+from fly_creature.brain_model import BrainParams, Connectome, simulate
+
+
+def _pair(signed_synapses: float) -> Connectome:
+    # Neuron 0 (driven) -> neuron 1, with a third unconnected neuron.
+    return Connectome.from_edges(3, np.array([0]), np.array([1]),
+                                 np.array([signed_synapses]), BrainParams().w_syn_mv)
+
+
+def test_silent_without_input():
+    result = simulate(_pair(500), duration_ms=200)
+    assert result.spike_counts.sum() == 0
+
+
+def test_poisson_target_fires_at_roughly_input_rate():
+    result = simulate(_pair(0), duration_ms=2000, poisson_targets=[0], seed=1)
+    assert 250 <= result.spike_counts[0] <= 350  # 150 Hz for 2 s, each event crosses threshold
+
+
+def test_spike_arrives_after_synaptic_delay():
+    result = simulate(_pair(1000), duration_ms=100, poisson_targets=[0], seed=3, record=[0, 1])
+    first_pre = result.spike_times_ms[0][0]
+    first_post = result.spike_times_ms[1][0]
+    assert 1.8 <= first_post - first_pre <= 2.5
+
+
+def test_single_input_threshold_matches_analytic_peak():
+    # Continuous solution for one conductance kick w from rest:
+    # v - v_0 = w * tau / (t_mbr - tau) * (exp(-t/t_mbr) - exp(-t/tau)), peak ~0.1575 w.
+    p = BrainParams()
+    t_peak = math.log(p.t_mbr_ms / p.tau_ms) * p.t_mbr_ms * p.tau_ms / (p.t_mbr_ms - p.tau_ms)
+    gain = p.tau_ms / (p.t_mbr_ms - p.tau_ms) * (math.exp(-t_peak / p.t_mbr_ms) - math.exp(-t_peak / p.tau_ms))
+    w_needed = (p.v_th_mv - p.v_0_mv) / gain
+    below = w_needed * 0.93 / p.w_syn_mv
+    above = w_needed * 1.07 / p.w_syn_mv
+    # Find a low-rate trial with exactly one presynaptic spike early enough for
+    # its full effect on neuron 1 (peak ~9 ms after arrival) to fit in the window.
+    def post_spikes(synapses: float) -> int:
+        conn = _pair(synapses)
+        for seed in range(500):
+            probe = simulate(conn, duration_ms=60, poisson_targets=[0], seed=seed,
+                             poisson_rate_hz=15.0, record=[0])
+            times = probe.spike_times_ms[0]
+            if len(times) == 1 and times[0] < 30:
+                return int(probe.spike_counts[1])
+        raise AssertionError("No isolated presynaptic spike found")
+    assert post_spikes(below) == 0
+    assert post_spikes(above) >= 1
+
+
+def test_inhibition_prevents_spiking():
+    result = simulate(_pair(-1000), duration_ms=200, poisson_targets=[0], seed=2)
+    assert result.spike_counts[1] == 0

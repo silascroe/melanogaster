@@ -1,0 +1,67 @@
+{
+  "protocol": {
+    "input": "traced labellar bristle, FlyWire type LB3 (sugar/water)",
+    "output": "MN9",
+    "rate_hz": 150.0,
+    "duration_ms": 1000.0,
+    "trials": 3,
+    "shuffles": 20,
+    "min_rate_hz": 10.0,
+    "min_shuffles_beaten": 19
+  },
+  "params": {
+    "dt_ms": 0.1,
+    "v_0_mv": -52.0,
+    "v_rst_mv": -52.0,
+    "v_th_mv": -45.0,
+    "t_mbr_ms": 20.0,
+    "tau_ms": 5.0,
+    "t_rfc_ms": 2.2,
+    "t_dly_ms": 1.8,
+    "w_syn_mv": 0.275,
+    "f_poi": 250.0
+  },
+  "neurons": 211577,
+  "connections": 25214058,
+  "inputs": 86,
+  "mn9_body_ids": [
+    10331,
+    16949
+  ],
+  "sugar_mn9_rate_hz_per_trial": [
+    78.0,
+    76.0,
+    66.0
+  ],
+  "no_input_mn9_rate_hz": 0.0,
+  "neurons_active_trial0": 16552,
+  "shuffle_mn9_rate_hz": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "shuffles_beaten": 20,
+  "checks": {
+    "mn9_responds": true,
+    "wiring_specific": true
+  },
+  "pass": true,
+  "runtime_s": 1438
+}

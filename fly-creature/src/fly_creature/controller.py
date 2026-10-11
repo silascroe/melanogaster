@@ -92,8 +92,11 @@ class CreatureSession:
         jump = gf_spikes > 0 and self.cooldown_ms == 0.0
         if jump:
             self.cooldown_ms = 1200.0
+        # Per-side LC10a/AOTU/DNa02 activity is reported for the live brain view
+        # only; it does not change what the steering circuit computes.
+        steering_kwargs = {"record_cells": True} if self.steering_model == "lif" else {}
         steering = (self.steering.step(fly, payload.get("target", {"active": False}),
-                                       int(round(dt_ms)))
+                                       int(round(dt_ms)), **steering_kwargs)
                     if self.steering is not None else None)
         return {
             "condition": self.condition,

@@ -82,7 +82,12 @@ and `docs/playground.md` inside that project before changing either bridge.
 
 ## Work experimentally
 
-- Prefer a small, named, reproducible circuit question over whole-brain work.
+- Ask a small, named, reproducible circuit question, but do not answer it by
+  hand-picking neurons along the obvious route: with the old 0.05 mV LIF, such
+  circuits could not carry signals through relays (2026-10-11). Use the
+  whole-brain model (`fly-creature/docs/whole_brain_result.md`) to test the
+  question, and derive any smaller runnable subset from whole-brain activity,
+  checking that it reproduces the whole-brain result.
 - Keep topology, timing, thresholds, and other parameters fixed when testing a
   single causal factor.
 - Do not begin behavioral, muscle, game, or FlyDoom integration without an

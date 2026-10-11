@@ -1,0 +1,93 @@
+# Whole-brain LIF: sugar → MN9 result (2026-10-11)
+
+Protocol: [whole_brain_protocol.md](whole_brain_protocol.md), written before any run.
+Evidence: [evidence/whole_brain_sugar_v1.json](evidence/whole_brain_sugar_v1.json).
+
+## Result: PASS (both pre-declared checks)
+
+The full MaleCNS v1.0 connectome (211,577 neurons, 25.2 million signed
+connections, 125 million synapses) was run with the published Shiu et al. (2024)
+LIF settings. Driving the 86 traced LB3 labellar taste neurons (FlyWire
+"sugar/water") at 150 Hz:
+
+| Condition | MN9 mean rate |
+|---|---|
+| Sugar/water input, 3 trials | 78, 76, 66 Hz (cells differ: e.g. 142 and 14 Hz in trial 0) |
+| No input | 0 Hz |
+| 20 shuffled brains, same input | 0 Hz in all 20 |
+
+Intact wiring beat 20/20 shuffles (19 required).
+
+## Checks that the shuffle result is not an artifact
+
+- A shuffled brain still runs: the 86 inputs fire and 827 other neurons respond
+  (913 active versus 16,552 in the intact brain). MN9 keeps exactly its number of
+  incoming connections (253 and 128). The signal just does not reach MN9.
+- Exploratory, not pre-declared: driving the other 76 labellar taste neurons
+  (LB1, LB2, LB4 types, which include bitter-sensing cells) activates 15,361
+  neurons but leaves MN9 at 0 Hz. MN9 responds to this taste group specifically,
+  not to any widespread activity.
+
+## Why the earlier small circuits failed
+
+Hand-picked circuits with the creature's original LIF (0.05 mV/synapse, 15 mV to
+threshold, 1 ms current pulses) could not carry signals through one or two
+relays, and at high gain shuffled wiring worked equally well. The published
+model has a 7 mV threshold gap, 0.275 mV/synapse conductances that decay over
+5 ms, and every neuron and connection, so convergent and recurrent routes add up.
+
+## Also tried (exploratory, single trial)
+
+LC16 → MDN (backing up): MDN fired at 3–5 Hz. A weak response; not tested
+against controls and not used.
+
+## What this does and does not show
+
+- Shows: in this model, the recorded MaleCNS wiring routes a sugar/water taste
+  signal to the proboscis motor neuron, and random rewiring with the same
+  neurons and connection counts does not.
+- Does not show: realistic firing rates, the right sugar-versus-water split
+  (LB3 mixes both), or that this model reproduces fly physiology generally.
+  The model parameters, transmitter signs, and the "unclear → no effect" rule are
+  assumptions; this is a NumPy reimplementation of the authors' Brian2 model,
+  checked by unit tests, not their code.
+- Cost: one simulated second takes about 70 s on this PC (i5-8400), so the
+  whole-brain model cannot yet run live inside the game.
+
+## Reproduce
+
+```powershell
+.\.venv\Scripts\python.exe fly-creature\tools\build_whole_brain.py
+.\.venv\Scripts\python.exe fly-creature\tools\run_sugar_brain_test.py
+```
+
+The cache and run log stay in ignored `fly-creature/outputs/whole_brain/`.
+
+# Active subset (2026-10-11): PASS, with caveats
+
+Protocol: addendum in [whole_brain_protocol.md](whole_brain_protocol.md).
+Evidence: [evidence/whole_brain_subset_v1.json](evidence/whole_brain_subset_v1.json).
+
+The 17,561 neurons that fired in any of three whole-brain sugar trials (plus MN9),
+with the 2.49 million connections among them, reproduce the result on fresh seeds:
+
+| Seed | Whole brain MN9 | Subset MN9 |
+|---|---|---|
+| 10 | 57.0 Hz | 67.0 Hz |
+| 11 | 67.0 Hz | 78.5 Hz |
+| 12 | 66.5 Hz | 79.0 Hz |
+
+Means 63.5 versus 74.8 Hz (+18%, inside the ±20% gate). No input: 0 Hz.
+Speed: 7.3 s per simulated second versus 71.8 s for the whole brain (~10× faster),
+still about 7× slower than real time.
+
+Caveats:
+
+- The subset runs consistently higher, close to the gate. A likely reason is that
+  neurons silent during selection (including inhibitory ones) can fire on new
+  seeds in the whole brain but are missing from the subset. Larger or more varied
+  selection would probably tighten this.
+- The "other taste" check passed vacuously: none of the 76 other labellar taste
+  neurons are in the subset, so nothing received input. It shows the subset
+  cannot respond to those cells at all, not that it discriminates them. A subset
+  for several behaviors must be selected from all of their stimuli together.

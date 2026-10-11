@@ -12,6 +12,7 @@ dependencies = ["numpy>=2.3"]
 [project.optional-dependencies]
 build-circuit = ["pyarrow>=19"]
 eye-map-research = ["pyarrow>=19", "rdata==1.1.0"]
+fast-brain = ["numba>=0.68"]
 research-plots = ["matplotlib>=3.8,<4"]
 physiology-research = ["h5py>=3.14,<4", "scipy>=1.16,<2", "matplotlib>=3.8,<4"]
 

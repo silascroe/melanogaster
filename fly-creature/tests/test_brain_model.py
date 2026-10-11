@@ -55,3 +55,19 @@ def test_single_input_threshold_matches_analytic_peak():
 def test_inhibition_prevents_spiking():
     result = simulate(_pair(-1000), duration_ms=200, poisson_targets=[0], seed=2)
     assert result.spike_counts[1] == 0
+
+
+def test_numba_engine_matches_numpy_exactly():
+    import pytest
+    from fly_creature import brain_model
+    if brain_model._step_kernel is None:
+        pytest.skip("numba not installed")
+    rng = np.random.default_rng(5)
+    n, m = 400, 12000
+    pre, post = rng.integers(0, n, m), rng.integers(0, n, m)
+    signed = rng.integers(1, 40, m) * np.where(rng.random(m) < 0.25, -1, 1)
+    conn = Connectome.from_edges(n, pre, post, signed, BrainParams().w_syn_mv)
+    a = simulate(conn, duration_ms=300, poisson_targets=np.arange(40), seed=9, engine="numpy")
+    b = simulate(conn, duration_ms=300, poisson_targets=np.arange(40), seed=9, engine="numba")
+    assert a.spike_counts.sum() > 1000
+    assert np.array_equal(a.spike_counts, b.spike_counts)

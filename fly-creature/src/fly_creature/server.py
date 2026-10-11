@@ -12,6 +12,7 @@ from .controller import CreatureSession
 from .steering_diagnostic import load_candidate
 from .steering_diagnostic import condition_circuit
 from .playground import PlaygroundSession
+from .brain_session import BrainSession
 
 
 def main() -> None:
@@ -21,7 +22,7 @@ def main() -> None:
     args = parser.parse_args()
     circuit = load_circuit()
     steering_circuit = load_candidate()
-    sessions: dict[str, CreatureSession] = {}
+    sessions: dict[str, CreatureSession | BrainSession] = {}
     playgrounds: dict[str, PlaygroundSession] = {}
 
     class Handler(BaseHTTPRequestHandler):
@@ -73,6 +74,16 @@ def main() -> None:
                 if self.path == "/session":
                     condition = str(payload.get("condition", "intact"))
                     steering_model = str(payload.get("steering_model", "lif"))
+                    if steering_model == "brain":
+                        # Whole-brain subset: one brain drives jump, turn and feeding.
+                        session = BrainSession(condition=condition)
+                        session_id = uuid4().hex
+                        sessions.clear()
+                        sessions[session_id] = session
+                        self._reply(200, {"session_id": session_id, "condition": condition,
+                                          "steering_model": steering_model,
+                                          "neurons": session.package.n})
+                        return
                     session = CreatureSession(circuit, condition=condition,
                                               steering_circuit=steering_circuit,
                                               steering_model=steering_model)

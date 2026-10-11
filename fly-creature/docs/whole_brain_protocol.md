@@ -66,3 +66,65 @@ Pass criteria (all required):
    instead (only those present in the subset can receive input).
 
 Reported, not gated: subset size, connections, and seconds per simulated second.
+
+# Addendum: jump and turn in the whole brain (written 2026-10-11, before any run)
+
+Same model, signs, 150 Hz Poisson input, 1 s trials, and shuffle method as the
+sugar test. Side labels are MaleCNS `somaSide`; the creature's existing steering
+convention is that a target on the right drives right-side LC10a and should raise
+right DNa02 relative to left, turning the fly right.
+
+Jump. Input: all traced LC4 and LPLC2 (both sides). Readout: the two DNp01.
+1. DNp01 mean rate ≥ 10 Hz over seeds 0–2, and 0 Hz without input.
+2. Intact DNp01 rate (seed 0) exceeds ≥ 19 of 20 shuffled brains.
+
+Turn. Inputs: right-side traced LC10a only; separately, left-side only.
+Readout: DNa02 asymmetry, R minus L rate.
+1. Right input: mean asymmetry ≥ +10 Hz over seeds 0–2. Left input: ≤ −10 Hz.
+   No input: 0 Hz for both DNa02.
+2. Intact asymmetry with right input (seed 0) exceeds the same measure in
+   ≥ 19 of 20 shuffled brains.
+
+Each behavior passes or fails on its own; a failing behavior is reported and
+not used in the game.
+
+# Addendum: combined game subset (written 2026-10-11, after jump and turn passed, before any subset run)
+
+Subset: every neuron that spikes in any whole-brain trial (seeds 0, 1, 2) of the
+four stimuli sugar (LB3), loom (LC4+LPLC2), right LC10a, left LC10a, plus all
+input and readout neurons (LB3, LC4, LPLC2, LC10a, MN9, DNp01, DNa02).
+Connections: all whole-brain connections among them.
+
+Pass criteria on fresh seeds 10–12, subset versus whole brain, same inputs:
+1. MN9 rate (sugar), DNp01 rate (loom), and DNa02 asymmetry (right LC10a; left
+   LC10a) each within ±20% of the whole-brain mean.
+2. No input: all readouts 0 Hz.
+Reported, not gated: size, connections, packaged file size, and compute seconds
+per simulated second with all four input groups active at 150 Hz together.
+
+# Addendum: spike-frequency adaptation (written 2026-10-11, before any adaptation run)
+
+Problem found in game use: with the published settings, activity never settles.
+After a 300 ms loom burst, ~13,700 of 211,577 neurons still fire 1–2 s later and
+MN9 fires without taste input; right-LC10a input also drives MN9 (~20 Hz).
+The published model has no adaptation, and its trials always started at rest.
+
+Change (ours, not the paper's): add a standard adaptation term, fixed in advance
+from the AdEx "tonic" parameters of Brette & Gerstner (2005), b = 0.0805 nA and
+tau_w = 144 ms, converted with this model's 10 MΩ membrane resistance:
+
+    dv/dt = (v_0 − v + g − w) / t_mbr      (v, g frozen while refractory)
+    dw/dt = −w / 144 ms                     (always)
+    on spike: w += 0.805 mV
+
+b = 0 reproduces the published model exactly. No other parameter changes, and
+b and tau_w are not tuned against any result below.
+
+Pass criteria, whole brain with adaptation (all required):
+1. Settling: after 300 ms of loom input then silence, at most 1% of neurons
+   (2,116) spike in the window 500–1000 ms after the input ends.
+2. Sugar, jump, and turn each pass their original criteria (rate thresholds,
+   no-input silence, and ≥ 19/20 shuffled brains), same seeds and shuffles.
+3. Game-use gate: MN9 mean rate with right-LC10a input below the game's 20 Hz
+   feeding threshold.
+If any fails, we report it; we do not adjust b or tau_w.

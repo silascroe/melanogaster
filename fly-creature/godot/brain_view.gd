@@ -4,7 +4,7 @@ extends Control
 # the Python service; bar scaling and decay below are display choices only.
 
 const PANEL_WIDTH := 330.0
-const ROW_HEIGHT := 26.0
+const ROW_HEIGHT := 22.0
 const BAR_X := 112.0
 const BAR_WIDTH := 148.0
 const HOLD_TAU_S := 0.35
@@ -12,6 +12,7 @@ const PEAK_TAU_S := 25.0
 
 const ACCENT_JUMP := Color(0.98, 0.55, 0.25)
 const ACCENT_TURN := Color(0.30, 0.86, 0.72)
+const ACCENT_FEED := Color(0.98, 0.82, 0.30)
 const TEXT_COLOR := Color(0.90, 0.94, 0.96)
 const MUTED_COLOR := Color(0.58, 0.67, 0.72)
 const BAR_BACK := Color(1.0, 1.0, 1.0, 0.09)
@@ -22,6 +23,8 @@ var values: Dictionary = {}
 var peaks: Dictionary = {}
 var turn_rate := 0.0
 var jump_flash := 0.0
+var feeding := false
+var subtitle := "recorded wiring, simplified LIF neurons"
 var turn_active := false
 var dna_base := 0.0
 var dna_seen := false
@@ -45,6 +48,9 @@ func _ready() -> void:
 		{"key": "aotu_r", "label": "AOTU  right", "color": ACCENT_TURN, "floor": 1.0},
 		{"key": "dna_l", "label": "DNa02  left", "color": ACCENT_TURN, "floor": 2.0},
 		{"key": "dna_r", "label": "DNa02  right", "color": ACCENT_TURN, "floor": 2.0},
+		{"section": "FEED CIRCUIT", "color": ACCENT_FEED},
+		{"key": "lb3", "label": "Sugar taste", "color": ACCENT_FEED, "floor": 6.0},
+		{"key": "mn9", "label": "MN9 (proboscis)", "color": ACCENT_FEED, "floor": 1.0},
 	]
 	for row in rows:
 		if row.has("key"):
@@ -60,6 +66,14 @@ func update_trace(trace: Dictionary) -> void:
 	if bool(trace.get("jump", false)):
 		jump_flash = 1.0
 	condition_text = str(trace.get("condition", "intact")).to_upper()
+	feeding = bool(trace.get("feeding", false))
+	_hold("lb3", float(spikes.get("LB3", 0)))
+	_hold("mn9", float(spikes.get("MN9", 0)))
+	if trace.has("brain_neurons"):
+		subtitle = "whole-brain subset: %d neurons, %d firing" % [
+			int(trace["brain_neurons"]), int(trace.get("active_neurons", 0))]
+	else:
+		subtitle = "recorded wiring, simplified LIF neurons"
 	var steering: Dictionary = trace.get("steering", {})
 	turn_active = not steering.is_empty()
 	if not turn_active:
@@ -77,6 +91,13 @@ func update_trace(trace: Dictionary) -> void:
 		aotu_right += float(sides.get("R", 0))
 	_hold("aotu_l", aotu_left)
 	_hold("aotu_r", aotu_right)
+	if steering.has("DNa02_spikes") and not steering.has("DNa02_mean_mv"):
+		# Whole-brain model: DNa02 output is spikes, not a voltage.
+		var dna_spikes: Dictionary = steering["DNa02_spikes"]
+		_hold("dna_l", float(dna_spikes.get("L", 0)))
+		_hold("dna_r", float(dna_spikes.get("R", 0)))
+		model_note = ""
+		return
 	var dna: Dictionary = steering.get("DNa02_mean_mv", {})
 	# Resting voltage is not zero, so show rise above the lowest value seen.
 	# Resting voltage is not zero: draw the rise above a slowly adapting shared
@@ -118,12 +139,12 @@ func _process(delta: float) -> void:
 
 func _draw() -> void:
 	var font := ThemeDB.fallback_font
-	var height := 60.0 + rows.size() * ROW_HEIGHT + 130.0
+	var height := 60.0 + rows.size() * ROW_HEIGHT + 200.0
 	draw_rect(Rect2(0.0, 0.0, PANEL_WIDTH, height), Color(0.05, 0.08, 0.10, 0.82))
 	draw_rect(Rect2(0.0, 0.0, PANEL_WIDTH, height), Color(1, 1, 1, 0.12), false, 1.0)
 	draw_string(font, Vector2(14.0, 26.0), "BRAIN  /  %s" % condition_text,
 		HORIZONTAL_ALIGNMENT_LEFT, -1.0, 17, TEXT_COLOR)
-	draw_string(font, Vector2(14.0, 44.0), "recorded wiring, simplified LIF neurons",
+	draw_string(font, Vector2(14.0, 44.0), subtitle,
 		HORIZONTAL_ALIGNMENT_LEFT, -1.0, 12, MUTED_COLOR)
 	var y := 58.0
 	for row in rows:
@@ -148,7 +169,13 @@ func _draw() -> void:
 			Color(ACCENT_JUMP.r, ACCENT_JUMP.g, ACCENT_JUMP.b, 0.25 + 0.6 * jump_flash))
 	draw_string(font, Vector2(24.0, y + 18.0), "JUMP" if jump_flash > 0.05 else "no jump",
 		HORIZONTAL_ALIGNMENT_LEFT, -1.0, 14, TEXT_COLOR if jump_flash > 0.05 else MUTED_COLOR)
-	y += 36.0
+	y += 32.0
+	if feeding:
+		draw_rect(Rect2(14.0, y, PANEL_WIDTH - 28.0, 26.0),
+			Color(ACCENT_FEED.r, ACCENT_FEED.g, ACCENT_FEED.b, 0.55))
+	draw_string(font, Vector2(24.0, y + 18.0), "FEEDING" if feeding else "not feeding",
+		HORIZONTAL_ALIGNMENT_LEFT, -1.0, 14, TEXT_COLOR if feeding else MUTED_COLOR)
+	y += 34.0
 	# Turn gauge: DNa02 right minus left through the engineered turn rule.
 	draw_string(font, Vector2(14.0, y + 12.0), "TURN  (engineered readout of DNa02 right - left)",
 		HORIZONTAL_ALIGNMENT_LEFT, -1.0, 12, MUTED_COLOR)

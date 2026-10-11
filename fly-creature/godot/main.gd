@@ -15,6 +15,9 @@ const PURSUIT_WALK_SPEED := 0.55
 const BEACON_WALK_SPEED := 0.9
 const BEACON_REACHED_M := 0.55
 const SEARCH_TURN_RATE := 1.6
+const SUGAR_RADIUS := 0.22
+const SUGAR_EAT_S := 4.0
+const TASTE_WAIT_S := 1.2
 
 @onready var bridge: NeuralBridge = $NeuralBridge
 @onready var fly_actor: FlyActor = $Fly
@@ -52,10 +55,18 @@ const KitchenWorldScript := preload("res://kitchen_world.gd")
 var brain_view: Control
 # Click-placed target: the fly approaches it on its own, steering by DNa02.
 var beacon_mode := false
+# Sugar drop (right-click). Tasting and the decision to feed come from the brain;
+# pausing at the drop and the drop shrinking while fed on are engineered.
+var sugar_root: Node3D
+var sugar_active := false
+var sugar_position := Vector3.ZERO
+var sugar_eaten_s := 0.0
+var taste_wait_s := 0.0
+var feeding_now := false
 var pursuit_time := 0.0
 var target_position := Vector3(-2.9, 0.45, -6.5)
 var steering_turn_rate := 0.0
-var steering_model := "lif"
+var steering_model := "brain"
 var pursuit_path := "crossing"
 var pursuit_seconds := 0.0
 var record_ticks := false
@@ -86,6 +97,8 @@ func _ready() -> void:
 		condition = "disconnected"
 	if pursuit_demo:
 		close_camera = false
+		if steering_model == "brain":
+			steering_model = "lif"  # recorded pursuit demos use the original circuit
 	# The fly lives on its own by default; WASD takes over while held.
 	roam_enabled = not (pursuit_demo or walking_demo)
 	if animation_demo:
@@ -99,6 +112,7 @@ func _ready() -> void:
 	_build_world()
 	_build_ball()
 	_build_target()
+	_build_sugar()
 	if animation_demo or walking_demo:
 		# A presentation clip: the route and flight are authored, not neural outputs.
 		return
@@ -127,6 +141,15 @@ func _process(delta: float) -> void:
 	ball_root.visible = ball_active
 	target_root.position = target_position
 	target_root.visible = pursuit_enabled
+	fly_actor.set_feeding(feeding_now)
+	if sugar_active and feeding_now:
+		sugar_eaten_s += delta
+		if sugar_eaten_s >= SUGAR_EAT_S:
+			sugar_active = false
+			service_message = "Sugar drop finished"
+	sugar_root.visible = sugar_active
+	sugar_root.position = sugar_position
+	sugar_root.scale = Vector3.ONE * maxf(0.25, 1.0 - sugar_eaten_s / SUGAR_EAT_S)
 	if not session_id.is_empty() and not (steering_model == "activity_v1" and pursuit_enabled):
 		if steering_model == "activity_v1":
 			# No experimental ticks during manual walking.
@@ -138,7 +161,8 @@ func _process(delta: float) -> void:
 			bridge.step(session_id,
 				{"x": fly_position.x, "z": fly_position.z, "heading_rad": heading_rad},
 				{"x": ball_position.x, "z": ball_position.z, "radius": BALL_RADIUS, "active": ball_active},
-				{"x": target_position.x, "z": target_position.z, "active": pursuit_enabled})
+				{"x": target_position.x, "z": target_position.z, "active": pursuit_enabled},
+				{"x": sugar_position.x, "z": sugar_position.z, "radius": SUGAR_RADIUS, "active": sugar_active})
 	if not animation_demo and not walking_demo:
 		_update_hud()
 	if pursuit_demo and Engine.get_process_frames() % 60 == 0:
@@ -155,7 +179,9 @@ func _process(delta: float) -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	var click := event as InputEventMouseButton
-	if click == null or not click.pressed or click.button_index != MOUSE_BUTTON_LEFT:
+	if click == null or not click.pressed:
+		return
+	if click.button_index != MOUSE_BUTTON_LEFT and click.button_index != MOUSE_BUTTON_RIGHT:
 		return
 	if animation_demo or walking_demo or pursuit_demo or session_id.is_empty():
 		return
@@ -166,7 +192,16 @@ func _unhandled_input(event: InputEvent) -> void:
 	var hit: Variant = Plane(Vector3.UP, 0.0).intersects_ray(ray_origin, ray_direction)
 	if hit == null:
 		return
+	if click.button_index == MOUSE_BUTTON_RIGHT:
+		place_sugar(hit)
 	place_beacon(hit)
+
+
+func place_sugar(floor_point: Vector3) -> void:
+	sugar_position = Vector3(clampf(floor_point.x, -ROOM_HALF_SIZE + 1.0, ROOM_HALF_SIZE - 1.0), 0.0,
+		clampf(floor_point.z, -ROOM_HALF_SIZE + 1.0, ROOM_HALF_SIZE - 1.0))
+	sugar_active = true
+	sugar_eaten_s = 0.0
 
 
 func place_beacon(floor_point: Vector3) -> void:
@@ -219,10 +254,11 @@ func _unhandled_key_input(event: InputEvent) -> void:
 			_start_session()
 			service_message = "Neural pursuit: moving target" if pursuit_enabled else "Manual walking"
 		KEY_B:
-			steering_model = "activity_v1" if steering_model == "lif" else "lif"
+			# brain (whole-brain subset) -> lif (original circuit) -> activity_v1 -> brain
+			steering_model = {"brain": "lif", "lif": "activity_v1", "activity_v1": "brain"}[steering_model]
 			pursuit_path = "harmonic" if steering_model == "activity_v1" else "crossing"
-			pursuit_enabled = true
-			roam_enabled = false
+			pursuit_enabled = steering_model != "brain"
+			roam_enabled = steering_model == "brain"
 			_start_session()
 		KEY_T:
 			if fly_actor.is_flying():
@@ -253,6 +289,17 @@ func _move_fly(delta: float) -> void:
 	if fly_actor.is_recovering():
 		walking_now = false
 		return
+	if feeding_now:
+		walking_now = false
+		return
+	if taste_wait_s > 0.0:
+		taste_wait_s -= delta
+		walking_now = false
+		if taste_wait_s <= 0.0:
+			roam_enabled = true
+			roam_goal = fly_position
+			service_message = "No feeding response; roaming again"
+		return
 	if pursuit_enabled:
 		var walk_speed := PURSUIT_WALK_SPEED
 		if beacon_mode:
@@ -260,6 +307,12 @@ func _move_fly(delta: float) -> void:
 			to_target.y = 0.0
 			if to_target.length() < BEACON_REACHED_M:
 				_end_beacon()
+				if sugar_active and fly_position.distance_to(sugar_position) < 1.0:
+					# Engineered pause at the drop so taste input can reach the brain;
+					# whether the fly then feeds is decided by MN9.
+					roam_enabled = false
+					taste_wait_s = TASTE_WAIT_S
+					service_message = "Tasting..."
 				walking_now = false
 				return
 			var bearing := wrapf(atan2(to_target.x, -to_target.z) - heading_rad, -PI, PI)
@@ -416,6 +469,10 @@ func _start_session() -> void:
 	fly_actor.rotation.y = 0.0
 	fly_actor.reset_actor()
 	ball_active = false
+	sugar_active = false
+	sugar_eaten_s = 0.0
+	taste_wait_s = 0.0
+	feeding_now = false
 	service_message = "Starting %s neural session..." % condition
 	bridge.start_session(condition, steering_model)
 
@@ -433,6 +490,15 @@ func _on_step_ready(payload: Dictionary) -> void:
 	steering_turn_rate = float(steering.get("turn_rate_rad_s", 0.0)) if pursuit_enabled else 0.0
 	if bool(payload.get("jump", false)):
 		_request_jump("DNp01 spike triggered jump")
+	var was_feeding := feeding_now
+	feeding_now = bool(payload.get("feeding", false))
+	if feeding_now and not was_feeding:
+		taste_wait_s = 0.0
+		service_message = "MN9 firing: feeding"
+	elif was_feeding and not feeding_now:
+		roam_enabled = true
+		roam_goal = fly_position
+		service_message = "Stopped feeding; roaming again"
 
 
 func _on_bridge_failed(message: String) -> void:
@@ -442,20 +508,16 @@ func _on_bridge_failed(message: String) -> void:
 
 func _update_hud() -> void:
 	status_label.text = "FLY CREATURE  /  %s  /  %s\n%s" % [condition.to_upper(), steering_model.to_upper(), service_message]
-	var visual: Dictionary = last_trace.get("visual", {})
-	var spikes: Dictionary = last_trace.get("spikes", {})
 	var steering: Dictionary = last_trace.get("steering", {})
-	var signal_key := "right_minus_left_activity" if steering_model == "activity_v1" else "right_minus_left_mv"
-	var readout_signal := "%.3f" % float(steering[signal_key]) if steering.has(signal_key) else "--"
-	var bearing_text := "%.2f" % float(steering["bearing_deg"]) if steering.has("bearing_deg") else "--"
-	var turn_text := "%.3f" % float(steering["turn_rate_rad_s"]) if steering.has("turn_rate_rad_s") else "--"
-	var units := "activity units" if steering_model == "activity_v1" else "mV"
-	detail_label.text = "Fly roams on its own  |  CLICK floor: place a target  |  SPACE: throw an object  |  WASD: take over  |  C: disconnect wiring  |  V: moving target\n" \
-		+ "P playground  |  B models  |  G roaming on/off  |  T fly  |  F camera  |  R reset\n" \
-		+ "Object angle: %s deg   expansion: %s deg/s\n" % [visual.get("angle_deg", "--"), visual.get("expansion_deg_s", "--")] \
-		+ "LC4 spikes: %s   LPLC2 spikes: %s   giant fiber spikes: %s\n" % [spikes.get("LC4", "--"), spikes.get("LPLC2", "--"), spikes.get("DNp01", "--")] \
-		+ "Target bearing: %s deg   DNa02 right-left: %s %s   neural turn: %s rad/s\n" % [bearing_text, readout_signal, units, turn_text] \
-		+ "Sensors, activity/voltage readouts, walking, and jump animation are engineered; selected connections are MaleCNS data."
+	var bearing_text := "%.1f" % float(steering["bearing_deg"]) if steering.has("bearing_deg") else "--"
+	var turn_text := "%.2f" % float(steering["turn_rate_rad_s"]) if steering.has("turn_rate_rad_s") else "--"
+	var line := "Target bearing %s deg   neural turn %s rad/s" % [bearing_text, turn_text]
+	if last_trace.has("brain_neurons"):
+		line += "   |   brain step %s ms per 50 ms" % last_trace.get("compute_ms", "--")
+	detail_label.text = "Fly roams on its own  |  LEFT-CLICK: target  |  RIGHT-CLICK: sugar drop  |  SPACE: throw object  |  C: cut wiring\n" \
+		+ "WASD take over  |  V moving target  |  B brain model  |  G roam  |  T fly  |  F camera  |  R reset  |  P playground\n" \
+		+ line + "\n" \
+		+ "Senses, action rules, walking and animation are engineered; wiring is MaleCNS data."
 
 
 func _build_world() -> void:
@@ -506,6 +568,24 @@ func _build_ball() -> void:
 	ball_root.visible = false
 
 
+func _build_sugar() -> void:
+	sugar_root = Node3D.new()
+	add_child(sugar_root)
+	var mesh := SphereMesh.new()
+	mesh.radius = SUGAR_RADIUS
+	mesh.height = SUGAR_RADIUS * 1.1
+	var drop := MeshInstance3D.new()
+	drop.mesh = mesh
+	drop.position.y = SUGAR_RADIUS * 0.3
+	var material := StandardMaterial3D.new()
+	material.albedo_color = Color(1.0, 0.86, 0.55, 0.78)
+	material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+	material.roughness = 0.08
+	drop.material_override = material
+	sugar_root.add_child(drop)
+	sugar_root.visible = false
+
+
 func _build_target() -> void:
 	target_root = Node3D.new()
 	add_child(target_root)
@@ -545,8 +625,8 @@ func _build_hud() -> void:
 	status_label.add_theme_font_size_override("font_size", 20)
 	panel.add_child(status_label)
 	var detail_panel := PanelContainer.new()
-	detail_panel.position = Vector2(22.0, get_viewport().get_visible_rect().size.y - 185.0)
-	detail_panel.custom_minimum_size = Vector2(1210.0, 155.0)
+	detail_panel.position = Vector2(22.0, get_viewport().get_visible_rect().size.y - 122.0)
+	detail_panel.custom_minimum_size = Vector2(880.0, 100.0)
 	layer.add_child(detail_panel)
 	detail_label = Label.new()
 	detail_label.add_theme_font_size_override("font_size", 16)

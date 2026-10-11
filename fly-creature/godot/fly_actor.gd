@@ -38,6 +38,11 @@ var flight_state := FlightState.GROUNDED
 var flight_elapsed := 0.0
 var flight_height := 0.0
 var flight_landing_from := 0.0
+# Proboscis extension while feeding: moves the model's existing proboscis and
+# labella parts. Presentation only; the decision to feed comes from the brain.
+var mouth_parts: Array[Dictionary] = []
+var feeding_target := 0.0
+var proboscis_extension := 0.0
 
 
 func _ready() -> void:
@@ -76,10 +81,32 @@ func _ready() -> void:
 		})
 	if legs.size() != 6:
 		push_warning("Imported fly leg rig is incomplete.")
+	for part in model_root.find_children("*proboscis*", "Node3D", true, false) 			+ model_root.find_children("*labella*", "Node3D", true, false):
+		var node := part as Node3D
+		mouth_parts.append({"node": node, "position": node.position, "scale": node.scale,
+			"stretch": node.name.contains("proboscis")})
+	if mouth_parts.is_empty():
+		push_warning("Proboscis/labella parts were not found.")
 	_reset_leg_anchors()
 
 
+func set_feeding(feeding: bool) -> void:
+	feeding_target = 1.0 if feeding else 0.0
+
+
+func _animate_mouth(delta: float) -> void:
+	proboscis_extension = move_toward(proboscis_extension, feeding_target, delta * 2.5)
+	var e := smoothstep(0.0, 1.0, proboscis_extension)
+	for part in mouth_parts:
+		var node: Node3D = part["node"]
+		# Model space: the head faces -X and down is -Y.
+		node.position = part["position"] + Vector3(-0.22, -0.38, 0.0) * e
+		if part["stretch"]:
+			node.scale = part["scale"] * Vector3(1.0, 1.0 + 1.4 * e, 1.0)
+
+
 func advance(delta: float, walking: bool, speed: float) -> void:
+	_animate_mouth(delta)
 	var just_landed := _advance_jump(delta)
 	just_landed = _advance_flight(delta) or just_landed
 	if just_landed:

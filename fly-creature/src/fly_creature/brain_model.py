@@ -18,6 +18,64 @@ from dataclasses import dataclass, field
 import numpy as np
 
 
+try:  # Optional compiled engine; the NumPy loop below is the fallback.
+    import numba
+except ImportError:  # pragma: no cover - depends on the environment
+    numba = None
+
+
+def _step_kernel_py(v, g, refractory_left, pending, slot, out_slot, v_0, v_decay, g_decay,
+                    hits, kick, v_th, v_rst, no_refractory, refractory_steps,
+                    indptr, post, weight, counts, fired, scratch):
+    """One 0.1 ms step. Mirrors the NumPy loop operation by operation, including
+    the order in which conductance increments are summed, so results match exactly."""
+    n = v.shape[0]
+    for i in range(n):
+        g[i] += pending[slot, i]
+        pending[slot, i] = 0.0
+        if refractory_left[i] == 0:
+            dv = (v_0 - v[i] + g[i]) * v_decay
+            dg = g[i] * (-g_decay)
+            v[i] += dv
+            g[i] += dg
+        else:
+            refractory_left[i] -= 1
+    for k in range(hits.shape[0]):
+        v[hits[k]] += kick
+    fired_count = 0
+    total = 0
+    for i in range(n):
+        if v[i] > v_th:
+            v[i] = v_rst
+            g[i] = 0.0
+            refractory_left[i] = 0 if no_refractory[i] else refractory_steps
+            counts[i] += 1
+            fired[fired_count] = i
+            fired_count += 1
+            total += indptr[i + 1] - indptr[i]
+    if total == 0:
+        return fired_count
+    if total < n // 8:
+        # np.add.at: sequential adds straight into the pending slot.
+        for k in range(fired_count):
+            i = fired[k]
+            for e in range(indptr[i], indptr[i + 1]):
+                pending[out_slot, post[e]] += np.float64(weight[e])
+    else:
+        # np.bincount: sum this step's increments first, then add to the slot.
+        for k in range(fired_count):
+            i = fired[k]
+            for e in range(indptr[i], indptr[i + 1]):
+                scratch[post[e]] += np.float64(weight[e])
+        for j in range(n):
+            pending[out_slot, j] += scratch[j]
+            scratch[j] = 0.0
+    return fired_count
+
+
+_step_kernel = numba.njit(cache=True)(_step_kernel_py) if numba is not None else None
+
+
 @dataclass(frozen=True)
 class BrainParams:
     dt_ms: float = 0.1
@@ -72,7 +130,10 @@ class TrialResult:
 
 def simulate(connectome: Connectome, *, duration_ms: float, poisson_targets=(),
              poisson_rate_hz: float = 150.0, seed: int = 0,
-             params: BrainParams = BrainParams(), record=()) -> TrialResult:
+             params: BrainParams = BrainParams(), record=(),
+             engine: str = "auto") -> TrialResult:
+    """Run one trial. engine: "numba" (compiled), "numpy", or "auto" (numba if
+    installed). Both engines give bit-identical results for the same seed."""
     p = params
     n = connectome.n_neurons
     steps = int(round(duration_ms / p.dt_ms))
@@ -95,17 +156,44 @@ def simulate(connectome: Connectome, *, duration_ms: float, poisson_targets=(),
     poisson_p = poisson_rate_hz * p.dt_ms / 1000.0
     kick = p.w_syn_mv * p.f_poi
     indptr, post, weight = connectome.indptr, connectome.post, connectome.weight_mv
+    if engine == "auto":
+        engine = "numba" if _step_kernel is not None else "numpy"
+    if engine == "numba":
+        if _step_kernel is None:
+            raise RuntimeError("engine='numba' requested but numba is not installed")
+        fired_buffer = np.empty(n, dtype=np.int64)
+        scratch = np.zeros(n, dtype=np.float64)
+        no_hits = np.empty(0, dtype=np.int64)
+        for step in range(steps):
+            hits = targets[rng.random(len(targets)) < poisson_p] if len(targets) else no_hits
+            fired_count = _step_kernel(
+                v, g, refractory_left, pending, step % (delay + 1), (step + delay) % (delay + 1),
+                p.v_0_mv, v_decay, g_decay, hits, kick, p.v_th_mv, p.v_rst_mv, no_refractory,
+                refractory_steps, indptr, post, weight, counts, fired_buffer, scratch)
+            if record and fired_count:
+                for i in record.intersection(fired_buffer[:fired_count].tolist()):
+                    times[i].append(step * p.dt_ms)
+        return TrialResult(counts, duration_ms, times)
+    dv = np.empty(n, dtype=np.float64)
+    dg = np.empty(n, dtype=np.float64)
+    active = np.empty(n, dtype=bool)
     for step in range(steps):
         slot = step % (delay + 1)
         g += pending[slot]
         pending[slot] = 0.0
-        active = refractory_left == 0
+        np.equal(refractory_left, 0, out=active)
         # Forward Euler, as Brian2 uses for these linear equations by default.
-        dv = (p.v_0_mv - v + g) * v_decay
-        dg = -g * g_decay
-        v[active] += dv[active]
-        g[active] += dg[active]
-        refractory_left[~active] -= 1
+        # Multiplying by the 0/1 mask is bit-identical to updating only active
+        # neurons, without the cost of boolean indexing.
+        np.subtract(p.v_0_mv, v, out=dv)
+        dv += g
+        dv *= v_decay
+        np.multiply(g, -g_decay, out=dg)
+        dv *= active
+        dg *= active
+        v += dv
+        g += dg
+        refractory_left -= ~active
         if len(targets):
             hit = targets[rng.random(len(targets)) < poisson_p]
             v[hit] += kick

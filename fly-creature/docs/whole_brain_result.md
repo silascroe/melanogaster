@@ -83,11 +83,28 @@ still about 7× slower than real time.
 
 Caveats:
 
-- The subset runs consistently higher, close to the gate. A likely reason is that
-  neurons silent during selection (including inhibitory ones) can fire on new
-  seeds in the whole brain but are missing from the subset. Larger or more varied
-  selection would probably tighten this.
+- MN9 runs consistently higher in the subset, close to the gate. Overall activity
+  is not inflated: on seed 10 the whole brain and subset produce 1,476,992 and
+  1,477,433 spikes. (An earlier note comparing different seeds wrongly called the
+  subset broadly overactive.) A likely reason is that neurons silent during
+  selection, including inhibitory ones near MN9, are missing from the subset;
+  larger or more varied selection would probably tighten this.
 - The "other taste" check passed vacuously: none of the 76 other labellar taste
   neurons are in the subset, so nothing received input. It shows the subset
   cannot respond to those cells at all, not that it discriminates them. A subset
   for several behaviors must be selected from all of their stimuli together.
+
+# Speed (2026-10-11)
+
+`simulate()` now has a compiled Numba engine (optional dependency `fast-brain`),
+used automatically when installed, with the NumPy loop as fallback. The Numba
+step mirrors the NumPy operations and summation order, and produces bit-identical
+spike counts (checked on the sugar subset and in `tests/test_brain_model.py`).
+
+| | Original NumPy | Faster NumPy | Numba |
+|---|---|---|---|
+| Sugar subset (17,561 neurons) | 10.5 s | 5.3–6.0 s | **1.03 s** |
+| Whole brain (211,577 neurons) | ~72 s | — | **6.1 s** |
+
+Seconds of computing per simulated second on an i5-8400. The subset now runs at
+about real time; a game integration still needs headroom for rendering.

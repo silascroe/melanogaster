@@ -1,4 +1,6 @@
-# FlyTest: Drosophila connectome baseline
+# melanogaster
+
+**A fruit fly's real wiring diagram, put to work.** A local-first lab built on the FlyEM Male CNS connectome: data loader, subgraph extractor, spiking simulator, browser lab and a Godot arena.
 
 This repository is a small, local-first exploration of the official FlyEM Male CNS connectome release. It began with a readable data loader, a bounded subgraph extractor, and a simple leaky integrate-and-fire simulator; it now also includes an inspectable local browser lab and standalone Godot arena. There is still no opaque graph database or claim of a validated biological behavior model.
 

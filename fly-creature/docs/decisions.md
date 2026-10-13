@@ -574,3 +574,13 @@ on the existing target copy and subset v1. Accepted limitation: the engineered
 target sensor makes the fly sing mostly while turning, and it sings to any
 target, since the game has no female to recognise. A female fly in the scene
 would be presentation only unless a female-specific input is tested.
+
+## 2026-10-13: an all-core brain engine that must match the old one exactly
+
+The game brain ran at about 0.55× real time on one core. The new parallel engine
+was accepted only because it reproduces the one-core engine's spikes and neuron
+state bit for bit, so every earlier test result still applies unchanged. Faster
+designs that sum spike inputs in a different order were ruled out: they would
+change the spikes and require re-running every test. The remaining cost is
+memory traffic in spike delivery; further work there was stopped once the game
+reached real time.

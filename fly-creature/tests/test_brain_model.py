@@ -104,3 +104,31 @@ def test_adaptation_engines_match_and_reduce_firing():
         compiled = simulate(conn, duration_ms=300, poisson_targets=np.arange(30), seed=2,
                             params=ADAPTIVE, engine="numba")
         assert np.array_equal(adapted.spike_counts, compiled.spike_counts)
+
+
+def test_parallel_engine_matches_serial_engines_exactly():
+    import pytest
+    from fly_creature import brain_model
+    from fly_creature.brain_model import BrainRunner
+    if brain_model._advance_blocks is None:
+        pytest.skip("numba not installed")
+    rng = np.random.default_rng(11)
+    n, m = 500, 20000
+    pre, post = rng.integers(0, n, m), rng.integers(0, n, m)
+    signed = rng.integers(1, 40, m) * np.where(rng.random(m) < 0.25, -1, 1)
+    conn = Connectome.from_edges(n, pre, post, signed, BrainParams().w_syn_mv)
+    a_cells, b_cells = np.arange(0, 30), np.arange(200, 240)
+    # Changing, mixed and absent inputs over frames that do not align with the
+    # 1.8 ms synaptic-delay blocks.
+    frames = [(50.0, [(a_cells, 150.0)]), (37.3, [(a_cells, 90.0), (b_cells, 150.0)]),
+              (0.1, [(b_cells, 150.0)]), (64.2, []), (50.0, [(b_cells, 40.0)])] * 3
+    runners = {e: BrainRunner(conn, input_neurons=np.concatenate([a_cells, b_cells]), seed=3,
+                              engine=e) for e in ("numpy", "numba", "parallel")}
+    for duration, inputs in frames:
+        counts = {e: r.advance(duration, inputs) for e, r in runners.items()}
+        assert np.array_equal(counts["numpy"], counts["parallel"])
+        assert np.array_equal(counts["numba"], counts["parallel"])
+    serial, parallel = runners["numba"], runners["parallel"]
+    assert serial.counts.sum() > 2000
+    for state in ("v", "g", "w", "refractory_left", "pending"):
+        assert np.array_equal(getattr(serial, state), getattr(parallel, state))

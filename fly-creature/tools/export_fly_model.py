@@ -1,13 +1,13 @@
 """Export the packed Blender art study as a self-contained Godot glTF asset.
 
-Usage from FlyTest root:
+Usage from FlyTest root (v2 is built from v1 by refine_fly_model.py):
   tools/blender/blender-5.2.2-windows-x64/blender.exe -b \
-    fly-creature/art/male_drosophila_textured.blend --python \
+    fly-creature/art/male_drosophila_v2.blend --python \
     fly-creature/tools/export_fly_model.py
 
 The .blend is the editable art source. This script makes simpler glTF-compatible
-materials, converts curve hairs/veins to meshes, and retains separate wing
-pivots for Godot animation. It does not alter the source .blend.
+materials, converts curve hairs/veins to meshes, and adds wing pivots and a
+three-joint leg rig for Godot animation. It does not alter the source .blend.
 """
 
 from pathlib import Path
@@ -44,9 +44,12 @@ def write_image(name, pixels, non_color=False):
     return image
 
 
-def tinted_image(source, name, tint):
+def tinted_image(source, name, tint, saturation=1.0):
     pixels = pixel_array(bpy.data.images[source]).copy()
     pixels[:, :, :3] *= np.asarray(tint, dtype=np.float32)
+    if saturation != 1.0:
+        luma = pixels[:, :, :3] @ np.asarray((0.2126, 0.7152, 0.0722), dtype=np.float32)
+        pixels[:, :, :3] = luma[:, :, None] + (pixels[:, :, :3] - luma[:, :, None]) * saturation
     return write_image(name, pixels)
 
 
@@ -108,6 +111,10 @@ def build_material(name, color_image, rough_image=None, normal_map=None,
     links.new(bsdf.outputs["BSDF"], out.inputs["Surface"])
 
 
+# v1's body textures read as saturated orange in the game's warm light;
+# Drosophila cuticle is a tan, yellow-brown. Body colors keep 75% saturation.
+BODY_SATURATION = 0.75
+
 specs = [
     ("thorax | amber cuticle", "thorax", (1, 1, 1), 0.63),
     ("thorax | ochre highlight", "thorax", (1.20, 1.24, 1.16), 0.65),
@@ -118,13 +125,13 @@ specs = [
 ]
 for material_name, part, tint, roughness in specs:
     slug = material_name.split("|")[1].strip().replace(" ", "_")
-    color = tinted_image(part + "_color", part + "_" + slug, tint)
+    color = tinted_image(part + "_color", part + "_" + slug, tint, BODY_SATURATION)
     build_material(material_name, color, bpy.data.images[part + "_roughness"],
                    normal_maps[part], roughness=roughness)
 
 eye_image = bpy.data.images["eye_pigment"]
 for name in ["eye | deep garnet base"] + ["eye facet | %02d" % i for i in range(8)]:
-    build_material(name, eye_image, roughness=0.26)
+    build_material(name, eye_image, roughness=0.48)
 
 # Godot's realtime translucent wings need more opacity than the studio Cycles
 # version. Keep the color map, but lift alpha without making them solid.
@@ -147,7 +154,7 @@ for _ in range(7):
                  + np.roll(leg_noise, -1, 1)) / 5.0
 leg_v = np.arange(leg_size, dtype=np.float32)[:, None] / leg_size
 leg_grain = (leg_noise - 0.5) * 0.42 + 0.055 * np.sin(leg_v * 36 * np.pi)
-leg_base = np.array((0.26, 0.145, 0.080), dtype=np.float32)
+leg_base = np.array((0.40, 0.27, 0.15), dtype=np.float32)
 leg_rgb = np.clip(leg_base[None, None, :] *
                   (1.0 + leg_grain[:, :, None]), 0, 1)
 leg_rgba = np.dstack((leg_rgb, np.ones((leg_size, leg_size), dtype=np.float32)))
@@ -189,59 +196,52 @@ for obj in list(bpy.data.objects):
         bpy.context.view_layer.objects.active = obj
         bpy.ops.object.convert(target="MESH")
 
-# Keep the sculpted leg meshes but split their transforms at the knees. A foot
-# marker lets Godot solve a two-segment pose for a planted or lifted foot.
-# This is presentation rigging, not insect muscle simulation.
-for side, side_name, first_ordinal in ((-1, "Neg", 0), (1, "Pos", 3)):
-    for leg_index, hip_x in enumerate((-0.34, 0.05, 0.42)):
-        ordinal = first_ordinal + leg_index
-        prefix = "leg %s.%s " % (side, leg_index)
-        knee_location = bpy.data.objects[prefix + "knee"].matrix_world.translation.copy()
-        claws = [bpy.data.objects["claw" if ordinal * 2 + i == 0
-                                  else "claw.%03d" % (ordinal * 2 + i)]
-                 for i in (0, 1)]
-        claw_tip_z = min((obj.matrix_world @ vertex.co).z
-                         for obj in claws for vertex in obj.data.vertices)
-        foot_location = Vector((
-            sum(obj.matrix_world.translation.x for obj in claws) / 2,
-            sum(obj.matrix_world.translation.y for obj in claws) / 2,
-            claw_tip_z,
-        ))
-        pivot = bpy.data.objects.new("Leg%s%dPivot" % (side_name, leg_index), None)
-        bpy.context.collection.objects.link(pivot)
-        pivot.location = (hip_x, side * 0.31, 0.99)
-        bpy.context.view_layer.update()
+# Split each leg into three rigid groups at the joint markers written by
+# refine_fly_model.py: femur (hip pivot), tibia (knee pivot), and tarsus with
+# claws (ankle pivot), with a foot marker at the claw tip. Godot solves the
+# hip and knee for a planted or lifted foot and holds the tarsus flat. The
+# coxa stays fixed to the body. This is presentation rigging, not insect
+# muscle simulation.
+SEGMENT_PARTS = {
+    "hip": ("femur", "femur setae"),
+    "knee": ("knee", "tibia", "tibia setae"),
+    "ankle": ("tarsus", "tarsal setae", "claws", "pulvilli", "sex comb"),
+}
 
-        knee_pivot = bpy.data.objects.new(
-            "Leg%s%dKneePivot" % (side_name, leg_index), None)
-        bpy.context.collection.objects.link(knee_pivot)
-        knee_world = Matrix.Translation(knee_location)
-        knee_pivot.matrix_world = knee_world
-        knee_pivot.parent = pivot
-        knee_pivot.matrix_world = knee_world
 
-        foot = bpy.data.objects.new("Leg%s%dFoot" % (side_name, leg_index), None)
-        bpy.context.collection.objects.link(foot)
-        foot_world = Matrix.Translation(foot_location)
-        foot.matrix_world = foot_world
-        foot.parent = knee_pivot
-        foot.matrix_world = foot_world
+def new_empty(name, world_location, parent=None):
+    node = bpy.data.objects.new(name, None)
+    bpy.context.collection.objects.link(node)
+    world = Matrix.Translation(world_location)
+    node.matrix_world = world
+    if parent is not None:
+        node.parent = parent
+        node.matrix_world = world
+    return node
 
-        leg_parts = [obj for obj in bpy.data.objects if obj.name.startswith(prefix)]
-        upper = [obj for obj in leg_parts
-                 if "tibia" not in obj.name and "tarsus" not in obj.name]
-        lower = [obj for obj in leg_parts
-                 if "tibia" in obj.name or "tarsus" in obj.name]
-        lower.extend(claws)
-        setae = "tibial setae" if ordinal == 0 else "tibial setae.%03d" % ordinal
-        lower.append(bpy.data.objects[setae])
-        if leg_index == 0:
-            comb = "male foreleg | sex comb" if side == -1 else "male foreleg | sex comb.001"
-            lower.append(bpy.data.objects[comb])
-        for obj in upper + lower:
-            old_world = obj.matrix_world.copy()
-            obj.parent = pivot if obj in upper else knee_pivot
-            obj.matrix_world = old_world
+
+for side, side_name in ((-1, "Neg"), (1, "Pos")):
+    for leg_index in range(3):
+        prefix = "leg %s.%s " % (float(side), leg_index)
+        joint = {key: bpy.data.objects[prefix + "| %s joint" % key].matrix_world.translation.copy()
+                 for key in ("hip", "knee", "ankle")}
+        claw_tip = bpy.data.objects[prefix + "| claw tip"].matrix_world.translation.copy()
+        stem = "Leg%s%d" % (side_name, leg_index)
+        pivots = {"hip": new_empty(stem + "Pivot", joint["hip"])}
+        pivots["knee"] = new_empty(stem + "KneePivot", joint["knee"], pivots["hip"])
+        pivots["ankle"] = new_empty(stem + "AnklePivot", joint["ankle"], pivots["knee"])
+        new_empty(stem + "Foot", claw_tip, pivots["ankle"])
+        for key, parts in SEGMENT_PARTS.items():
+            for part in parts:
+                obj = bpy.data.objects.get(prefix + part)
+                if obj is None:
+                    continue  # only forelegs carry a sex comb
+                old_world = obj.matrix_world.copy()
+                obj.parent = pivots[key]
+                obj.matrix_world = old_world
+        for key in ("hip", "knee", "ankle"):
+            bpy.data.objects.remove(bpy.data.objects[prefix + "| %s joint" % key], do_unlink=True)
+        bpy.data.objects.remove(bpy.data.objects[prefix + "| claw tip"], do_unlink=True)
 
 for side, pivot_name in ((-1, "WingNearPivot"), (1, "WingFarPivot")):
     pivot = bpy.data.objects.new(pivot_name, None)

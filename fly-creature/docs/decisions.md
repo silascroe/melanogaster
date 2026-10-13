@@ -246,6 +246,22 @@ cuticle as a floating arch. We removed that curve from the editable Blender
 source and regenerated the Godot GLB. The real thorax shape, wing geometry,
 and abdomen bands remain; this is an art correction, not a biological claim.
 
+
+### Fly model v2 (2026-10-13)
+
+The v1 legs were straight, untapered tubes with a stub tarsus, so the fly
+stood on tiptoe and read as a mosquito at close range. `tools/refine_fly_model.py`
+rebuilds v2 from the untouched v1 file: real leg segments with approximate
+Drosophila proportions (taken by eye, not measured), bristles, claws, pulvilli,
+the male sex comb, reshaped antennae, palps and clypeus, and matte eyes. The
+export adds an ankle pivot; Godot solves hip and knee to place the ankle and
+holds the tarsus at its rest pose relative to the body, so planted feet lie
+flat. Body textures are exported at 75% saturation because the cuticle read as
+saturated orange in the game's warm light. The extended proboscis is built in
+Godot (`fly_actor.gd`), rooted in the model's proboscis nub and aimed at the
+food drop. All of this is presentation, not anatomy data or circuit evidence.
+v1 is kept byte-identical in `art/versions/v1-original/`.
+
 ## Engineered roaming
 
 `G` switches from manual WASD movement to a simple world controller. Its inputs

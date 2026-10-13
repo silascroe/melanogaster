@@ -222,20 +222,30 @@ three-dimensional flight physics or a neural flight controller.
 
 The playable scene now uses the textured male fly in `godot/assets/male_drosophila.glb`
 instead of the first primitive placeholder. The editable Blender source is
-`art/male_drosophila_textured.blend`; its image maps are packed inside. Godot's
+`art/male_drosophila_v2.blend`; its image maps are packed inside. v2 is built
+from the preserved original (`art/versions/v1-original/`) by
+`tools/refine_fly_model.py`, which gives the fly segmented, tapering legs with
+Drosophila-like proportions (a tarsus about as long as the tibia, resting on
+the ground), leg bristles, claws and pulvilli, the male sex comb, fly-shaped
+antennae and palps, and matte compound eyes. Godot's
 asset is a self-contained glTF with simpler realtime materials, converted
-bristles/veins, and separate wing, hip, and knee pivots. Godot adds small idle wing
-motion, a procedural six-leg tripod gait with foot targets and two-segment leg IK,
+bristles/veins, and separate wing, hip, knee, and ankle pivots. Godot adds small idle wing
+motion, a procedural six-leg tripod gait with foot targets and leg IK that keeps the tarsi flat,
 body bob, and distinct takeoff and landing poses. These animations are
 visual engineering, not outputs from the connectome. The Godot camera has a
 close follow view so the new model is actually visible; `F` restores the wide
 room view.
 
-To rebuild the glTF from this folder with Blender on your path:
+To rebuild v2 and the glTF from this folder with Blender on your path:
 
 ```powershell
-blender -b art/male_drosophila_textured.blend --python tools/export_fly_model.py
+blender -b art/versions/v1-original/male_drosophila_v1.blend --python tools/refine_fly_model.py
+blender -b art/male_drosophila_v2.blend --python tools/export_fly_model.py
 ```
+
+Godot re-imports the changed `.glb` the next time the editor opens (or run
+`godot --headless --path godot --import`). The actor still accepts the v1 asset,
+whose legs have no ankle pivot.
 
 The generated `art/export_maps/` contains the color variants, normal maps, and
 subtle leg-cuticle map used by that export; the `.glb` embeds them. The export

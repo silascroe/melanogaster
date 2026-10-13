@@ -19,6 +19,11 @@ const SUGAR_RADIUS := 0.22
 const SUGAR_EAT_S := 4.0
 const TASTE_WAIT_S := 1.2
 const GROOM_CLEAN_S := 2.5
+const FEMALE_SCALE := 1.15
+const FEMALE_WALK_SPEED := 0.38
+const FEMALE_ROAM_HALF := 5.0
+const COURT_DISTANCE_M := 1.7
+const PERSONAL_SPACE_M := 1.3
 
 @onready var bridge: NeuralBridge = $NeuralBridge
 @onready var fly_actor: FlyActor = $Fly
@@ -80,6 +85,17 @@ var steering_model := "brain"
 var pursuit_path := "crossing"
 var pursuit_seconds := 0.0
 var record_ticks := false
+# Female fly (M). Her look and wandering are presentation only: she is the male
+# model with male-only parts hidden, moved by a scripted random walk. The male
+# sees her through the same target channel as the green target.
+const FlyActorScene := preload("res://fly_actor.tscn")
+var female_actor: FlyActor
+var female_mode := false
+var female_position := Vector3(1.8, 0.0, -3.2)
+var female_heading := 0.0
+var female_goal := Vector3.ZERO
+var female_pause_s := 0.0
+var female_walking := false
 
 
 func _ready() -> void:
@@ -123,6 +139,7 @@ func _ready() -> void:
 	_build_ball()
 	_build_target()
 	_build_sugar()
+	_build_female()
 	if animation_demo or walking_demo:
 		# A presentation clip: the route and flight are authored, not neural outputs.
 		return
@@ -141,6 +158,7 @@ func _process(delta: float) -> void:
 	else:
 		_move_fly(delta)
 		_move_ball(delta)
+		_move_female(delta)
 		_move_target(delta)
 	move_speed = fly_position.distance_to(previous_position) / maxf(advanced_delta, 0.0001)
 	fly_actor.position = fly_position
@@ -150,7 +168,12 @@ func _process(delta: float) -> void:
 	ball_root.position = ball_position
 	ball_root.visible = ball_active
 	target_root.position = target_position
-	target_root.visible = pursuit_enabled
+	target_root.visible = pursuit_enabled and not female_mode
+	female_actor.visible = female_mode
+	if female_mode:
+		female_actor.position = female_position
+		female_actor.rotation.y = -female_heading
+		female_actor.advance(delta, female_walking, FEMALE_WALK_SPEED if female_walking else 0.0)
 	var drop_scale := maxf(0.25, 1.0 - sugar_eaten_s / SUGAR_EAT_S)
 	if sugar_active:
 		fly_actor.set_feeding(feeding_now, sugar_position, SUGAR_RADIUS * drop_scale)
@@ -231,6 +254,7 @@ func place_beacon(floor_point: Vector3) -> void:
 	var point := floor_point
 	point.x = clampf(point.x, -ROOM_HALF_SIZE + 1.0, ROOM_HALF_SIZE - 1.0)
 	point.z = clampf(point.z, -ROOM_HALF_SIZE + 1.0, ROOM_HALF_SIZE - 1.0)
+	female_mode = false
 	beacon_mode = true
 	pursuit_enabled = true
 	roam_enabled = false
@@ -272,7 +296,17 @@ func _unhandled_key_input(event: InputEvent) -> void:
 			roam_enabled = not roam_enabled
 			roam_goal = Vector3(4.0, 0.0, -4.0) if roam_enabled else fly_position
 			service_message = "Roaming on (engineered controller)" if roam_enabled else "Manual walking"
+		KEY_M:
+			female_mode = not female_mode
+			pursuit_enabled = female_mode
+			roam_enabled = not female_mode
+			if female_mode and steering_model != "brain":
+				steering_model = "brain"  # the song readout exists only in the brain model
+			_start_session()
+			service_message = "Female fly: the male follows her through the target channel" \
+				if female_mode else "Female gone; roaming again"
 		KEY_V:
+			female_mode = false
 			pursuit_enabled = not pursuit_enabled
 			if not pursuit_enabled and steering_model == "activity_v1":
 				steering_model = "lif"
@@ -280,6 +314,7 @@ func _unhandled_key_input(event: InputEvent) -> void:
 			_start_session()
 			service_message = "Neural pursuit: moving target" if pursuit_enabled else "Manual walking"
 		KEY_B:
+			female_mode = false
 			# brain (whole-brain subset) -> lif (original circuit) -> activity_v1 -> brain
 			steering_model = {"brain": "lif", "lif": "activity_v1", "activity_v1": "brain"}[steering_model]
 			pursuit_path = "harmonic" if steering_model == "activity_v1" else "crossing"
@@ -349,6 +384,25 @@ func _move_fly(delta: float) -> void:
 				walking_now = false
 				return
 			walk_speed = BEACON_WALK_SPEED
+		elif female_mode:
+			var to_female := female_position - fly_position
+			to_female.y = 0.0
+			var bearing := wrapf(atan2(to_female.x, -to_female.z) - heading_rad, -PI, PI)
+			if absf(bearing) > deg_to_rad(65.0):
+				# Same engineered search turn as for a clicked target.
+				heading_rad = wrapf(heading_rad + signf(bearing) * SEARCH_TURN_RATE * delta, -PI, PI)
+				walking_now = false
+				return
+			if to_female.length() < COURT_DISTANCE_M:
+				# Engineered stop: close enough, he only turns (brain steering) and
+				# keeps a little personal space if she walks into him.
+				heading_rad = wrapf(heading_rad + steering_turn_rate * delta, -PI, PI)
+				if to_female.length() < PERSONAL_SPACE_M and to_female.length() > 0.001:
+					var away := -to_female.normalized() * (PERSONAL_SPACE_M - to_female.length())
+					fly_position.x = clampf(fly_position.x + away.x, -ROOM_HALF_SIZE, ROOM_HALF_SIZE)
+					fly_position.z = clampf(fly_position.z + away.z, -ROOM_HALF_SIZE, ROOM_HALF_SIZE)
+				walking_now = false
+				return
 		heading_rad = wrapf(heading_rad + steering_turn_rate * delta, -PI, PI)
 		var forward := Vector3(sin(heading_rad), 0.0, -cos(heading_rad))
 		fly_position.x = clampf(fly_position.x + forward.x * walk_speed * delta,
@@ -415,8 +469,32 @@ func _move_ball(delta: float) -> void:
 		ball_active = false
 
 
+## Scripted random walk with pauses; presentation only, no neural input.
+func _move_female(delta: float) -> void:
+	if not female_mode:
+		return
+	if female_pause_s > 0.0:
+		female_pause_s -= delta
+		female_walking = false
+	else:
+		var to_goal := female_goal - female_position
+		to_goal.y = 0.0
+		if to_goal.length() < 0.4:
+			female_pause_s = roam_rng.randf_range(1.0, 3.0)
+			female_goal = Vector3(roam_rng.randf_range(-FEMALE_ROAM_HALF, FEMALE_ROAM_HALF), 0.0,
+				roam_rng.randf_range(-FEMALE_ROAM_HALF, FEMALE_ROAM_HALF))
+			female_walking = false
+		else:
+			var desired := atan2(to_goal.x, -to_goal.z)
+			female_heading = lerp_angle(female_heading, desired, clampf(delta * 2.0, 0.0, 1.0))
+			var forward := Vector3(sin(female_heading), 0.0, -cos(female_heading))
+			female_position += forward * FEMALE_WALK_SPEED * delta
+			female_walking = true
+	target_position = Vector3(female_position.x, 0.45, female_position.z)
+
+
 func _move_target(delta: float) -> void:
-	if not pursuit_enabled or beacon_mode:
+	if not pursuit_enabled or beacon_mode or female_mode:
 		return
 	pursuit_time += delta
 	if steering_model == "activity_v1":
@@ -489,6 +567,16 @@ func _start_session() -> void:
 	steering_turn_rate = 0.0
 	pursuit_time = 0.0
 	target_position = Vector3(-2.9, 0.45, -6.5)
+	female_position = Vector3(1.8, 0.0, -3.2)
+	female_heading = 0.0
+	female_goal = Vector3(3.5, 0.0, -2.0)
+	female_pause_s = 0.0
+	female_walking = false
+	if female_mode:
+		target_position = Vector3(female_position.x, 0.45, female_position.z)
+		female_actor.position = female_position
+		female_actor.rotation.y = 0.0
+		female_actor.reset_actor()
 	fly_position = Vector3.ZERO
 	heading_rad = 0.0
 	fly_actor.position = Vector3.ZERO
@@ -541,7 +629,7 @@ func _on_step_ready(payload: Dictionary) -> void:
 	singing_now = bool(payload.get("singing", false))
 	song_side = str(payload.get("song_side", song_side))
 	if singing_now and not was_singing:
-		service_message = "pIP10 firing: courtship song to the target"
+		service_message = "pIP10 firing: courtship song to the %s" % ("female" if female_mode else "target")
 	elif was_singing and not singing_now and not feeding_now and not grooming_now:
 		service_message = "pIP10 quiet; song stopped"
 
@@ -561,7 +649,7 @@ func _update_hud() -> void:
 		line += "   |   brain step %s ms per 50 ms" % last_trace.get("compute_ms", "--")
 	detail_label.text = "Fly roams on its own  |  LEFT-CLICK: target  |  RIGHT-CLICK: sugar drop (SHIFT: bitter)  |  SPACE: throw object\n" \
 		+ "E: dust antennae  |  C: cut wiring  |  WASD take over  |  V moving target  |  B brain model\n" \
-		+ "G roam  |  T fly  |  F camera  |  R reset  |  P playground\n" \
+		+ "M female fly  |  G roam  |  T fly  |  F camera  |  R reset  |  P playground\n" \
 		+ line + "\n" \
 		+ "Senses, action rules, walking and animation are engineered; wiring is MaleCNS data."
 
@@ -637,6 +725,24 @@ func _build_target() -> void:
 	add_child(target_root)
 	_sphere(target_root, Vector3.ZERO, Vector3.ONE * 0.19, Color(0.20, 0.96, 0.72))
 	target_root.visible = false
+
+
+## A second fly as the female: the male model scaled up, with the sex combs and
+## dark terminalia hidden and the solid black abdomen tip repainted in the gold
+## tergite colour. A visual stand-in, not a female body model.
+func _build_female() -> void:
+	female_actor = FlyActorScene.instantiate() as FlyActor
+	female_actor.name = "FemaleFly"
+	female_actor.scale = Vector3.ONE * FEMALE_SCALE
+	female_actor.position = female_position
+	female_actor.visible = false
+	add_child(female_actor)
+	for node in female_actor.find_children("*", "MeshInstance3D", true, false):
+		var part := node as MeshInstance3D
+		if "sex comb" in part.name or "dark terminalia" in part.name:
+			part.visible = false
+		elif "male tergites" in part.name and part.mesh.get_surface_count() > 2:
+			part.set_surface_override_material(2, part.mesh.surface_get_material(1))
 
 
 func _sphere(parent: Node3D, position: Vector3, size: Vector3, color: Color) -> void:

@@ -14,7 +14,7 @@ NumPy and Godot runtimes are still required.
 | `pursuit_activity.py`, `pursuit_step4.py`, `pursuit_delay_diagnostic.py` | Projection, source-inspired activity adapter and declared timing/input choices; also research runners |
 | `playground.py` | Four-controller comparison world, stimuli, statistics and ordered batching |
 | `server.py` | Local JSON transport for creature and comparison sessions |
-| `godot/main.tscn`, `main.gd`, `neural_bridge.gd` | Original creature scene; Godot owns its body/world |
+| `godot/main.tscn`, `main.gd`, `neural_bridge.gd` | Original creature scene; Godot owns its body/world, including the presentation-only female fly (`M`) |
 | `godot/playground.tscn`, `playground.gd` | Interactive comparison rendering/UI; Python owns its body/world |
 | `godot/fly_actor.tscn`, `fly_actor.gd`, `assets/` | Reusable textured visual fly and authored animation |
 | Diagnostic modules, `docs/evidence/` | Reproducible research comparisons; full traces stay in ignored outputs |

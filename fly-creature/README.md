@@ -226,8 +226,10 @@ instead of the first primitive placeholder. The editable Blender source is
 from the preserved original (`art/versions/v1-original/`) by
 `tools/refine_fly_model.py`, which gives the fly segmented, tapering legs with
 Drosophila-like proportions (a tarsus about as long as the tibia, resting on
-the ground), leg bristles, claws and pulvilli, the male sex comb, fly-shaped
-antennae and palps, and matte compound eyes. Godot's
+the ground), leg bristles, claws and pulvilli, the male sex comb, a reshaped
+head (short front-to-back, eyes forming its sides, a broad frons, paired
+antennae hanging in a shallow facial recess, mouthparts on the underside), and
+matte compound eyes. Godot's
 asset is a self-contained glTF with simpler realtime materials, converted
 bristles/veins, and separate wing, hip, knee, and ankle pivots. Godot adds small idle wing
 motion, a procedural six-leg tripod gait with foot targets and leg IK that keeps the tarsi flat,
@@ -245,7 +247,8 @@ blender -b art/male_drosophila_v2.blend --python tools/export_fly_model.py
 
 Godot re-imports the changed `.glb` the next time the editor opens (or run
 `godot --headless --path godot --import`). The actor still accepts the v1 asset,
-whose legs have no ankle pivot.
+whose legs have no ankle pivot; it reads the proboscis base from whichever
+model's nub it finds.
 
 The generated `art/export_maps/` contains the color variants, normal maps, and
 subtle leg-cuticle map used by that export; the `.glb` embeds them. The export

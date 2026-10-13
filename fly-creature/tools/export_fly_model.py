@@ -53,9 +53,12 @@ def tinted_image(source, name, tint, saturation=1.0):
     return write_image(name, pixels)
 
 
-def normal_image(source, name):
+def normal_image(source, name, texel_aspect=1.0):
+    """texel_aspect is a texel's width over its height on the surface; the
+    head's UV sphere stretches each texel twice as wide as it is tall."""
     height = pixel_array(bpy.data.images[source])[:, :, 0]
     dy, dx = np.gradient(height)
+    dx = dx / texel_aspect
     strength = 20.0
     nx, ny, nz = -dx * strength, -dy * strength, np.ones_like(height)
     norm = np.sqrt(nx * nx + ny * ny + nz * nz)
@@ -67,7 +70,7 @@ def normal_image(source, name):
 
 
 normal_maps = {
-    part: normal_image(part + "_microheight", part + "_normal")
+    part: normal_image(part + "_microheight", part + "_normal", 2.0 if part == "head" else 1.0)
     for part in ("thorax", "head", "abdomen")
 }
 

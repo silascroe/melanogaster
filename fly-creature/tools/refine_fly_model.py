@@ -24,7 +24,8 @@ from pathlib import Path
 
 import bmesh
 import bpy
-from mathutils import Vector
+import numpy as np
+from mathutils import Matrix, Vector
 
 PROJECT = Path(__file__).resolve().parents[1]
 DEST = PROJECT / "art" / "male_drosophila_v2.blend"
@@ -412,37 +413,46 @@ def rebuild_face():
 
     Drosophila's antenna is a short pedicel from which the velvety third segment
     hangs down over the face; the feathery arista (kept from v1) rises from its
-    upper base. The maxillary palps are small forward-pointing clubs, and the
-    clypeus is a low shield above the mouthparts, not a knob.
+    upper base. The maxillary palps are small forward-pointing clubs. v1's
+    clypeus knob is dropped: on the reshaped head it read as a cartoon nose.
     """
     for name in ("antenna pedicel", "antenna flagellum", "maxillary palp", "face | clypeus"):
         for obj in [o for o in bpy.data.objects if o.name.startswith(name)]:
             bpy.data.objects.remove(obj, do_unlink=True)
     # Linear color values (Blender stores linear; these display as a dusky tan-grey).
-    new_material("antenna | velvet funiculus", (0.075, 0.045, 0.025), 0.9)
+    new_material("antenna | velvet funiculus", (0.15, 0.08, 0.035), 0.95)
     for side in (-1, 1):
         pedicel = MeshBuilder()
         pedicel.ellipsoid(Vector((-1.375, 0.16 * side, 1.465)), (0.045, 0.045, 0.042),
                           axis=Vector((-1.0, 0.25 * side, -0.4)))
-        pedicel.build("antenna pedicel" + ("" if side < 0 else ".001"), "legs | warm brown")
+        pedicel.build("antenna pedicel" + ("" if side < 0 else ".001"), "head | warm honey")
         third = MeshBuilder()
-        third.ellipsoid(Vector((-1.42, 0.165 * side, 1.37)), (0.046, 0.04, 0.082),
-                        axis=Vector((-0.32, 0.08 * side, 1.0)))
+        third.ellipsoid(Vector((-1.42, 0.165 * side, 1.37)), (0.042, 0.035, 0.078),
+                        axis=Vector((-0.32, 0.14 * side, 1.0)))
         third.build("antenna flagellum" + ("" if side < 0 else ".001"), "antenna | velvet funiculus")
+        # Palps flank the mouth on the underside of the head (v2 head shape).
         palp = MeshBuilder()
-        center = Vector((-1.335, 0.15 * side, 1.07))
-        axis = Vector((-1.0, 0.25 * side, 0.4)).normalized()
-        palp.ellipsoid(center, (0.028, 0.026, 0.066), axis=axis)
-        palp_setae = [center + axis * (0.066 * f) for f in (-0.6, -0.2, 0.2, 0.6, 0.95)]
+        center = Vector((-1.215, 0.125 * side, 1.0))
+        axis = Vector((-1.0, 0.2 * side, 0.15)).normalized()
+        palp.ellipsoid(center, (0.026, 0.024, 0.058), axis=axis)
+        palp_setae = [center + axis * (0.058 * f) for f in (-0.4, 0.2, 0.7, 0.95)]
         rng = _rng(91 + side)
         for point in palp_setae:
-            for k in range(3):
-                spread = Vector(((rng() - 0.5) * 0.6, side * (0.3 + rng() * 0.5), 0.4 + rng() * 0.5))
-                palp.cone(point, point + (axis * 0.6 + spread).normalized() * 0.05, SETAE_RADIUS)
+            for k in range(2):
+                spread = Vector(((rng() - 0.5) * 0.6, side * (0.3 + rng() * 0.5), -0.2 + rng() * 0.5))
+                palp.cone(point, point + (axis * 0.7 + spread).normalized() * 0.035, SETAE_RADIUS)
         palp.build("maxillary palp" + ("" if side < 0 else ".001"), "legs | warm brown")
-    clypeus = MeshBuilder()
-    clypeus.ellipsoid(Vector((-1.315, 0.0, 1.155)), (0.10, 0.07, 0.03), axis=Vector((-1.0, 0.0, 0.25)))
-    clypeus.build("face | clypeus", "head | warm honey")
+
+
+def slim_neck():
+    """v1's neck collar is nearly as tall as the head; a fly's neck is a narrow,
+    dark membrane, so shrink it around its own center and darken it."""
+    neck = bpy.data.objects["neck collar"]
+    center = world_center(neck)
+    neck.matrix_world = (Matrix.Translation(center) @ Matrix.Diagonal((1.0, 0.62, 0.62, 1.0))
+                         @ Matrix.Translation(-center) @ neck.matrix_world)
+    neck.data.materials.clear()
+    neck.data.materials.append(new_material("neck | dark membrane", (0.03, 0.017, 0.009), 0.75))
 
 
 def matte_eyes():
@@ -456,12 +466,213 @@ def matte_eyes():
                         node.inputs["Coat Weight"].default_value = 0.0
 
 
+# --------------------------------------------------------------------------
+# Head capsule
+#
+# v1's head is a sphere scaled to (0.48, 0.41, 0.43) with two eye spheres
+# pushed into its sides, which reads as a ball wearing headphones. A
+# Drosophila head is short front-to-back (about 60% of its height) with a
+# flattened back, its sides mostly compound eye set into the capsule, a broad
+# flat frons between the eyes, a shallow recess on the face where the
+# antennae hang, and narrow cheeks below the eyes. reshape_head() remaps the
+# v1 face mesh onto that shape point by point (keeping its UVs and textures),
+# re-seats the eyes with one affine transform each (keeping every facet), and
+# carries everything attached to the head along with the surface.
+
+OLD_HEAD_CENTER = Vector((-0.91, 0.0, 1.31))
+OLD_HEAD_RADII = Vector((0.48, 0.41, 0.43))
+HEAD_CENTER = Vector((-0.97, 0.0, 1.31))
+OLD_EYE = dict(center=Vector((-1.02, 0.332, 1.41)), radii=Vector((0.33, 0.215, 0.335)))
+MOUTH_SHIFT = Vector((0.14, 0.0, 0.0))
+ANTENNA_INSET = 0.04      # antennae sit close together either side of the facial carina
+NEW_EYE = dict(center=Vector((-1.005, 0.295, 1.37)), radii=Vector((0.265, 0.24, 0.375)))
+
+
+def smoothstep(edge0, edge1, x):
+    t = min(max((x - edge0) / (edge1 - edge0), 0.0), 1.0)
+    return t * t * (3.0 - 2.0 * t)
+
+
+def head_field(q):
+    """< 0 inside the new head capsule; q is relative to HEAD_CENTER."""
+    front = q.x < 0.0
+    ax, ex = (0.33, 2.4) if front else (0.34, 2.8)    # flat frons, flatter occiput
+    z = HEAD_CENTER.z + q.z
+    lateral = 0.50 * (1.0 - 0.30 * smoothstep(1.16, 0.90, z))  # narrow cheeks
+    vertical = 0.42 if q.z > 0.0 else 0.40
+    value = (abs(q.x) / ax) ** ex + (abs(q.y) / lateral) ** 2 + (abs(q.z) / vertical) ** 2 - 1.0
+    if front:
+        # Shallow facial recess under the antennae.
+        recess = (1.0 - smoothstep(0.10, 0.21, abs(q.y))) * smoothstep(0.92, 1.06, z)
+        recess *= 1.0 - smoothstep(1.36, 1.46, z)
+        value += 0.42 * recess * smoothstep(0.0, -0.25, q.x)
+    return value
+
+
+def new_head_radius(direction):
+    lo, hi = 0.0, 1.5
+    for _ in range(40):
+        mid = 0.5 * (lo + hi)
+        if head_field(direction * mid) < 0.0:
+            lo = mid
+        else:
+            hi = mid
+    return lo
+
+
+def warp_head_point(p):
+    """Map a point on or near the v1 head onto the same place on the new head."""
+    offset = p - OLD_HEAD_CENTER
+    distance = offset.length
+    if distance < 1e-6:
+        return HEAD_CENTER.copy()
+    direction = offset / distance
+    scaled = Vector((direction.x / OLD_HEAD_RADII.x, direction.y / OLD_HEAD_RADII.y,
+                     direction.z / OLD_HEAD_RADII.z))
+    old_radius = 1.0 / scaled.length
+    return HEAD_CENTER + direction * (distance * new_head_radius(direction) / old_radius)
+
+
+def eye_matrix(side):
+    flip = Vector((1.0, side, 1.0))
+    old_center = OLD_EYE["center"] * flip
+    new_center = NEW_EYE["center"] * flip
+    scale = Vector(n / o for n, o in zip(NEW_EYE["radii"], OLD_EYE["radii"]))
+    return (Matrix.Translation(new_center) @ Matrix.Diagonal((*scale, 1.0))
+            @ Matrix.Translation(-old_center))
+
+
+def world_center(obj):
+    if obj.type == "MESH" and obj.data.vertices:
+        points = [obj.matrix_world @ v.co for v in obj.data.vertices]
+    elif obj.type == "CURVE":
+        points = [obj.matrix_world @ pt.co.to_3d() for sp in obj.data.splines for pt in sp.points]
+    else:
+        points = [obj.matrix_world.translation]
+    return sum(points, Vector()) / len(points)
+
+
+def project_to_head(p):
+    direction = (p - HEAD_CENTER).normalized()
+    return HEAD_CENTER + direction * new_head_radius(direction)
+
+
+def relax_face(face, iterations=40, strength=0.5):
+    """Even out the vertex spacing on the new face, keeping its shape.
+
+    Pulling every point straight toward the center onto a flatter face crowds
+    vertices in the middle and spreads them at the edges and around the facial
+    recess, which smears the cuticle texture (it rides on the vertices). Here
+    each front vertex slides toward the average of its neighbours and is
+    snapped back onto the head surface, so the surface stays put while the
+    texture spreads evenly. The v1 mesh is a UV sphere with poles at top and
+    bottom, so the face lies in its regular quad band; the poles stay fixed.
+    """
+    neighbours = [[] for _ in face.data.vertices]
+    for edge in face.data.edges:
+        a, b = edge.vertices
+        neighbours[a].append(b)
+        neighbours[b].append(a)
+    points = [face.matrix_world @ v.co for v in face.data.vertices]
+    weights = []
+    for point in points:
+        q = point - HEAD_CENTER
+        weights.append(strength * smoothstep(0.12, -0.08, q.x) * (1.0 - smoothstep(0.28, 0.38, abs(q.z))))
+    for _ in range(iterations):
+        updated = list(points)
+        for i, point in enumerate(points):
+            if weights[i] <= 0.0 or not neighbours[i]:
+                continue
+            average = sum((points[j] for j in neighbours[i]), Vector()) / len(neighbours[i])
+            updated[i] = project_to_head(point + (average - point) * weights[i])
+        points = updated
+    inverse = face.matrix_world.inverted()
+    for vertex, point in zip(face.data.vertices, points):
+        vertex.co = inverse @ point
+
+
+def even_head_grain():
+    """Repeat the head's cuticle maps twice around the head.
+
+    The head is a UV sphere wrapped in one square image: 360 degrees across,
+    180 down, so every grain of the cuticle is twice as wide as it is tall. On
+    v1's round face that hid in the curvature; on the flat v2 face under
+    grazing light the bump map read as horizontal wrinkles. The maps are
+    generic noise that tiles left to right, so doubling them across restores
+    round grains without a seam. Maps that do not tile are left alone.
+    """
+    for name in ("head_microheight", "head_color", "head_roughness"):
+        image = bpy.data.images[name]
+        width, height = image.size
+        pixels = np.empty(width * height * 4, dtype=np.float32)
+        image.pixels.foreach_get(pixels)
+        pixels = pixels.reshape((height, width, 4))
+        neighbour = np.abs(np.diff(pixels[:, :, :3], axis=1)).mean()
+        wrap = np.abs(pixels[:, 0, :3] - pixels[:, -1, :3]).mean()
+        if wrap > 2.0 * neighbour:
+            print("GRAIN %s does not tile; left as is" % name)
+            continue
+        columns = np.arange(width) * 2
+        doubled = 0.5 * (pixels[:, columns % width] + pixels[:, (columns + 1) % width])
+        image.pixels.foreach_set(doubled.ravel())
+        image.pack()
+        print("GRAIN %s doubled" % name)
+
+
+def reshape_head():
+    face = bpy.data.objects["03 head | face"]
+    inverse = face.matrix_world.inverted()
+    for vertex in face.data.vertices:
+        vertex.co = inverse @ warp_head_point(face.matrix_world @ vertex.co)
+    relax_face(face)
+    even_head_grain()
+    for side in (-1, 1):
+        matrix = eye_matrix(side)
+        for stem in ("base", "individual ommatidia", "interommatidial microbristles"):
+            obj = bpy.data.objects["eye | %d %s" % (side, stem)]
+            obj.matrix_world = matrix @ obj.matrix_world
+    # Small parts move rigidly with the head surface under them.
+    moved = {}
+    for name in ("ocellus", "ocellus.001", "ocellus.002", "antenna pedicel", "antenna pedicel.001",
+                 "antenna flagellum", "antenna flagellum.001"):
+        obj = bpy.data.objects[name]
+        center = world_center(obj)
+        delta = warp_head_point(center) - center
+        if name.startswith("antenna"):
+            delta.y -= ANTENNA_INSET * (1.0 if center.y > 0.0 else -1.0)
+        obj.matrix_world = Matrix.Translation(delta) @ obj.matrix_world
+        moved[name] = delta
+    # The mouth opens on the underside of the head: shift the proboscis and
+    # labella back under the new, shorter face (palps and clypeus are built
+    # there by rebuild_face).
+    for name in ("proboscis", "mouth | paired labella", "mouth | paired labella.001"):
+        obj = bpy.data.objects[name]
+        obj.matrix_world = Matrix.Translation(MOUTH_SHIFT) @ obj.matrix_world
+        moved[name] = MOUTH_SHIFT
+    # Each arista rides on its antenna's third segment (side -1 has no suffix).
+    for arista_suffix, antenna in (("", "antenna flagellum"), (".001", "antenna flagellum.001")):
+        for stem in ("arista shaft", "arista branches"):
+            obj = bpy.data.objects[stem + arista_suffix]
+            obj.matrix_world = Matrix.Translation(moved[antenna]) @ obj.matrix_world
+    # Facial bristles follow the surface point by point.
+    hairs = bpy.data.objects["head | facial microsetae"]
+    inverse = hairs.matrix_world.inverted()
+    for spline in hairs.data.splines:
+        for point in spline.points:
+            world = hairs.matrix_world @ point.co.to_3d()
+            point.co = (*(inverse @ warp_head_point(world)), point.co.w)
+    return moved
+
+
 removed = remove_v1_legs()
 ensure_pad_material()
 rebuild_face()
 matte_eyes()
+head_moves = reshape_head()
+slim_neck()
 for leg_index in LEGS:
     for leg_side in (-1, 1):
         build_leg(leg_index, leg_side)
 bpy.ops.wm.save_as_mainfile(filepath=str(DEST), compress=True)
 print("REFINED removed=%d saved=%s" % (removed, DEST))
+print("HEAD proboscis moved by", tuple(round(v, 3) for v in head_moves["proboscis"]))

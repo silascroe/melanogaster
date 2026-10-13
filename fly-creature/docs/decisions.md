@@ -584,3 +584,15 @@ designs that sum spike inputs in a different order were ruled out: they would
 change the spikes and require re-running every test. The remaining cost is
 memory traffic in spike delivery; further work there was stopped once the game
 reached real time.
+
+## 2026-10-13: the female fly is a moving target with a costume
+
+The female is presentation only. She uses the male model with male-only parts
+hidden, wanders on a scripted random walk, and enters the brain only as the
+existing target position. No female-specific sense (pheromone, shape, size) was
+added, so the male would court any target the same way. The stop distance
+(1.7 m, about 1.5 body lengths) was chosen for looks after 1 m showed him
+climbing on her. It was not chosen to raise the singing rate. His song stays
+uneven, because the target encoder drives LC10a only when she is off-centre.
+Changing that encoder would mean re-running the steering and song tests, so it
+was left alone.

@@ -268,3 +268,23 @@ pose and vibration (far slower than real 150–250 Hz song) are engineered. Game
 checks: a seen target sings on its own side and stops when it is gone (g7); cut
 wiring, which now also removes connections onto pIP10, gives no song (g4); and
 the Godot capture records song during a target approach.
+
+**Female fly (`M`).** A second fly wanders the table and the male follows and
+sings to her. Nothing new is claimed about the brain: she reaches it through the
+same target channel as the green target (her position is the target). Her look
+(the male model scaled 1.15×, sex combs and dark terminalia hidden, abdomen tip
+repainted gold), her random walk, his search turn when she is out of view, and
+his stop at 1.7 m with 1.3 m of personal space are all engineered.
+`godot/capture_female.gd` runs three 30 s chases per condition. Two runs gave
+these singing fractions:
+
+| Condition | Run 1 | Run 2 |
+|---|---|---|
+| Intact | 0.00, 0.05, 0.72 | 0.83, 0.61, 0.01 |
+| Cut wiring | 0, 0, 0 | 0, 0, 0 |
+
+The male stayed about 1.6–1.8 m from her when intact and about 2.2–2.4 m when
+cut. Song needs the brain's wiring, but how much he sings depends on her path:
+he sings only while she is about 20° or more to one side, so a female walking
+straight ahead of him gets no song. Fixed seeds do not make runs repeatable
+because her path also depends on real-time frame timing.

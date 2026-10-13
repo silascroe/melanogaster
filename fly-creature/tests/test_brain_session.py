@@ -40,6 +40,7 @@ def test_g1_loom_jumps_then_settles():
     assert sum(f["spikes"]["DNp01"] for f in frames[-20:]) == 0
     assert not any(f["feeding"] for f in frames)
     assert not any(f["grooming"] for f in frames)
+    assert not any(f["singing"] for f in frames)
 
 
 def test_g2_turn_follows_target_side_without_feeding():
@@ -71,6 +72,7 @@ def test_g4_cut_wiring_gives_no_actions():
     assert not any(f["jump"] for f in frames)
     assert not any(f["feeding"] for f in frames)
     assert not any(f["grooming"] for f in frames)
+    assert not any(f["singing"] for f in frames)
     assert all(abs(f["steering"]["turn_rate_rad_s"]) < 0.05 for f in frames)
 
 
@@ -80,10 +82,20 @@ def test_g5_antenna_dust_drives_grooming_then_stops():
     after = _frames(session, 2.0)
     assert dusty[-1]["grooming"]
     assert not after[-1]["grooming"]
-    assert not any(f["feeding"] or f["jump"] for f in dusty + after)
+    assert not any(f["feeding"] or f["jump"] or f["singing"] for f in dusty + after)
 
 
 def test_g6_bitter_drop_is_not_fed_on():
     frames = _frames(BrainSession("intact"), 2.0, sugar=BITTER_AT_MOUTH)
     assert all(f["taste"]["bitter"] for f in frames)
     assert not any(f["feeding"] for f in frames)
+
+
+def test_g7_seen_target_drives_song_on_its_side_then_stops():
+    session = BrainSession("intact")
+    right = _frames(session, 2.0, target=TARGET_RIGHT)
+    after = _frames(session, 2.0)
+    assert right[-1]["singing"] and right[-1]["song_side"] == "R"
+    assert not after[-1]["singing"]
+    left = _frames(BrainSession("intact"), 2.0, target=TARGET_LEFT)
+    assert left[-1]["singing"] and left[-1]["song_side"] == "L"

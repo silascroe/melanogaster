@@ -564,3 +564,13 @@ use v3. This costs one extra package in memory and keeps every copy on validated
 ground. The bitter descending-neuron screen showed broad activation, so bitter
 has no movement reaction; it only prevents feeding. Grooming's dust, threshold,
 clearing time and leg sweep are engineered.
+
+## 2026-10-13: courtship song from the visual target, not foreleg taste
+
+The pre-declared foreleg ppk23 taste test failed (pIP10 2.5 Hz) and was not
+tuned. Its reported values showed LC10a driving pIP10, which then passed its own
+pre-declared test against shuffles and a loom control. The song therefore rides
+on the existing target copy and subset v1. Accepted limitation: the engineered
+target sensor makes the fly sing mostly while turning, and it sings to any
+target, since the game has no female to recognise. A female fly in the scene
+would be presentation only unless a female-specific input is tested.

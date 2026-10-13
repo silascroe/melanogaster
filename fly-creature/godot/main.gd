@@ -71,6 +71,8 @@ var sugar_material: StandardMaterial3D
 # the dust coming off while the fly grooms is engineered.
 var antenna_dust := 0.0
 var grooming_now := false
+var singing_now := false
+var song_side := "R"
 var pursuit_time := 0.0
 var target_position := Vector3(-2.9, 0.45, -6.5)
 var steering_turn_rate := 0.0
@@ -158,6 +160,7 @@ func _process(delta: float) -> void:
 		antenna_dust = maxf(0.0, antenna_dust - delta / GROOM_CLEAN_S)
 	fly_actor.set_dust(antenna_dust)
 	fly_actor.set_grooming(grooming_now)
+	fly_actor.set_singing(singing_now, song_side)
 	if sugar_active and feeding_now:
 		sugar_eaten_s += delta
 		if sugar_eaten_s >= SUGAR_EAT_S:
@@ -498,6 +501,7 @@ func _start_session() -> void:
 	feeding_now = false
 	antenna_dust = 0.0
 	grooming_now = false
+	singing_now = false
 	service_message = "Starting %s neural session..." % condition
 	bridge.start_session(condition, steering_model)
 
@@ -533,6 +537,13 @@ func _on_step_ready(payload: Dictionary) -> void:
 		service_message = "aDN firing: grooming the antennae"
 	elif was_grooming and not grooming_now:
 		service_message = "Antennae clean; aDN quiet"
+	var was_singing := singing_now
+	singing_now = bool(payload.get("singing", false))
+	song_side = str(payload.get("song_side", song_side))
+	if singing_now and not was_singing:
+		service_message = "pIP10 firing: courtship song to the target"
+	elif was_singing and not singing_now and not feeding_now and not grooming_now:
+		service_message = "pIP10 quiet; song stopped"
 
 
 func _on_bridge_failed(message: String) -> void:

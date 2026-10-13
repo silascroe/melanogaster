@@ -267,3 +267,88 @@ above, the selection is not adjusted. Decision (engineering): each brain copy
 uses a package that passed for its own sense. The target copy keeps subset v1
 (which passed both turn checks); the taste, loom and touch copies use v3. No
 copy receives an input its package was not checked for.
+
+# Addendum: courtship song from foreleg pheromone taste (written 2026-10-13, before any run)
+
+Same model, signs, 150 Hz Poisson input, 1 s trials and shuffle method as the
+earlier tests. Neuron sets come from MaleCNS v1.0 annotations (`receptorType`,
+`entryNerve`, `type`, `status == Traced`).
+
+Basis: male flies tap a female with their forelegs; foreleg taste neurons
+expressing the ppk23 channel detect contact pheromones (Thistle et al. 2012;
+Toda et al. 2012), and the descending neuron pIP10 drives courtship song
+(von Philipsborn et al. 2011). In the fly, ppk23 is expressed both in "F cells"
+(female pheromone, also ppk25+) that promote courtship and "M cells" (male
+pheromone) that suppress it, so this input is a mixture; that is a known risk.
+
+Facts checked before the run (annotations only, no simulation): the 65 foreleg
+`putative_ppk25` neurons have predicted transmitter unclear (52) or glutamate
+(13), so under the existing sign rule they cannot excite anything. The 71 foreleg
+`putative_ppk23` neurons (entry nerve ProLN) are all predicted acetylcholine.
+The ppk23 and ppk25 labels do not overlap in the annotations. pIP10 (2), vPR6 (8) and TN1 types are traced.
+
+- Input: the 71 traced `putative_ppk23` neurons entering through the prothoracic
+  leg nerve (ProLN), both forelegs.
+- Readout: mean rate of the two pIP10 neurons.
+
+Pass criteria (all required):
+1. pIP10 mean rate ≥ 10 Hz over seeds 0–2, and 0 Hz without input.
+2. Intact pIP10 rate (seed 0) exceeds the rate in ≥ 19 of 20 shuffled brains
+   (shuffle seeds 1000–1019).
+
+Reported, not gated (seed 0): pIP10 with ppk23 plus both LC10a groups (a seen
+target; real courtship combines sight and taste); song-circuit neurons in the
+nerve cord (vPR6, all TN1 types, dPR1) and DNp13, pMP2, MDN; pIP10 from other
+inputs instead: ppk23 neurons of the mid and hind legs, foreleg IR52b, and the
+foreleg ppk25 group with its sign set to excitatory (an explicit assumption
+change, labelled as such and never used to pass); descending neurons ≥ 10 Hz;
+active-neuron count.
+
+Use: a failure is reported and not tuned. A pass enters the game only after a
+new combined subset reproduces it (to be pre-declared separately).
+
+## Courtship result (written 2026-10-13, after the run)
+
+FAIL on criterion 1: foreleg ppk23 gave pIP10 1.0, 0 and 6.5 Hz (mean 2.5 Hz,
+needed ≥ 10). Not tuned. Reported values included one large, unexpected
+response: the 275 LC10a neurons alone drove pIP10 at 97.5 Hz (92 Hz with ppk23
+added). Because this was noticed after the run, it is only a lead until the next
+addendum tests it.
+
+# Addendum: visual target to song command (written 2026-10-13, after the lead above, before any run)
+
+Question: does one-sided LC10a input (the creature's existing target channel)
+drive pIP10, and is that specific to this channel rather than any strong visual
+input? Basis: LC10a neurons are needed for males to track a female during
+courtship (Ribeiro et al. 2018), and males sing while tracking.
+
+Fresh seeds; same model and 150 Hz Poisson input. Groups as in the jump/turn test:
+right LC10a (traced, somaSide R, 140), left LC10a (135), loom = LC4 + LPLC2.
+Readout: mean rate of the two pIP10 neurons.
+
+Pass criteria (all required):
+1. pIP10 mean ≥ 10 Hz over seeds 3–5 with right LC10a, and separately with
+   left LC10a; 0 Hz without input.
+2. Right-LC10a pIP10 (seed 3) exceeds the rate in ≥ 19 of 20 shuffled brains
+   (shuffle seeds 1020–1039).
+3. Specificity: pIP10 with loom input (seed 3) is below half the right-LC10a
+   rate (seed 3).
+
+Reported, not gated: each pIP10 cell per input side; vPR6, TN1, dPR1 rates;
+pIP10 in game subset v1 (the target copy's package) on seeds 10–12 for right and
+left LC10a, against the whole brain on the same seeds.
+
+Game rule if it passes (engineering): while the target copy runs, a smoothed
+pIP10 rate above 30 Hz is "singing": the fly extends one wing and vibrates it.
+Game check: the intact brain sings while approaching a target, and the cut-wiring
+brain does not (pIP10 joins the cut action neurons).
+
+## Visual target song result (written 2026-10-13, after the run, before game work)
+
+PASS, all three criteria ([evidence](evidence/whole_brain_target_song_v1.json)):
+pIP10 38.5, 44.5, 46.5 Hz (right LC10a) and 37, 47, 39 Hz (left); 0 Hz without
+input; 0 Hz with loom input; intact beat 20/20 shuffles (highest shuffle 25 Hz,
+a narrower margin than earlier tests). Reported: subset v1 reproduces pIP10
+(right 39.3 vs 40.5 Hz, left 36.7 vs 40.5 Hz whole-brain means on seeds 10–12),
+so the target copy needs no new package; nerve-cord song interneuron dPR1 fires
+at 71 Hz and TN1 at 14 Hz; vPR6 stays silent. The game rule above applies.

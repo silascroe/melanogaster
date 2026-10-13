@@ -67,6 +67,15 @@ var dust_specks: Array[MeshInstance3D] = []
 const GROOM_SWEEP_HZ := 3.2
 const GROOM_BLEND_RATE := 5.0
 const GROOM_PITCH := -0.07
+# Courtship song (engineered pose; the decision to sing comes from the brain).
+# One wing swings out sideways and vibrates. Real song is ~150-250 Hz wing
+# vibration; this is a visible stand-in, not the real frequency.
+var song_targets := {"near": 0.0, "far": 0.0}
+var song_amounts := {"near": 0.0, "far": 0.0}
+const SONG_SPREAD := 1.35
+const SONG_VIBRATE_RATE := 70.0
+const SONG_VIBRATE := 0.09
+const SONG_BLEND_RATE := 4.0
 
 
 func _ready() -> void:
@@ -219,6 +228,13 @@ func set_grooming(grooming: bool) -> void:
 	grooming_target = 1.0 if grooming else 0.0
 
 
+## Start or stop courtship song with the wing on `side` ("R" or "L").
+func set_singing(singing: bool, side: String) -> void:
+	# The far wing is the fly's right wing, the near wing its left.
+	song_targets["far"] = 1.0 if singing and side == "R" else 0.0
+	song_targets["near"] = 1.0 if singing and side == "L" else 0.0
+
+
 ## Show dust on the antennae, 0 (clean) to 1.
 func set_dust(amount: float) -> void:
 	for speck in dust_specks:
@@ -254,6 +270,8 @@ func _find_antennae() -> void:
 
 func advance(delta: float, walking: bool, speed: float) -> void:
 	grooming_amount = move_toward(grooming_amount, grooming_target, delta * GROOM_BLEND_RATE)
+	for wing in song_amounts:
+		song_amounts[wing] = move_toward(song_amounts[wing], song_targets[wing], delta * SONG_BLEND_RATE)
 	if grooming_amount > 0.0:
 		groom_clock += delta
 	else:
@@ -316,10 +334,11 @@ func reset_actor() -> void:
 	body_motion.position.y = 0.0
 	body_motion.rotation = Vector3.ZERO
 	fly_visual.position.y = 0.0
-	if wing_near != null:
-		wing_near.rotation.x = 0.0
-	if wing_far != null:
-		wing_far.rotation.x = 0.0
+	for wing in [wing_near, wing_far]:
+		if wing != null:
+			wing.rotation = Vector3.ZERO
+	song_targets = {"near": 0.0, "far": 0.0}
+	song_amounts = {"near": 0.0, "far": 0.0}
 	_reset_leg_anchors()
 
 
@@ -390,8 +409,10 @@ func _animate_visual(delta: float, walking: bool, speed: float) -> void:
 	var wing_span := 0.86 if is_flying() else (0.38 if airborne else 0.025)
 	if wing_near != null:
 		wing_near.rotation.x = sin(visual_clock * wing_rate) * wing_span
+		_sing_wing(wing_near, float(song_amounts["near"]), -1.0)
 	if wing_far != null:
 		wing_far.rotation.x = -sin(visual_clock * wing_rate) * wing_span
+		_sing_wing(wing_far, float(song_amounts["far"]), 1.0)
 	if walking and not airborne:
 		# Slow walking spends longer on planted feet. Swing stays nearly the same length.
 		var stance_s := clampf(GAIT_REFERENCE_STANCE_S * REFERENCE_WALK_SPEED \
@@ -582,3 +603,10 @@ func _solve_leg_ik(leg: Dictionary, target_world: Vector3) -> void:
 	var ankle := leg["ankle"] as Node3D
 	if ankle != null:
 		ankle.quaternion = (hip.quaternion * knee.quaternion).inverse()
+
+
+func _sing_wing(wing: Node3D, amount: float, outward: float) -> void:
+	# Swing the wing out from over the abdomen to the side, then vibrate it.
+	var eased := amount * amount * (3.0 - 2.0 * amount)
+	wing.rotation.y = outward * SONG_SPREAD * eased
+	wing.rotation.x += sin(visual_clock * SONG_VIBRATE_RATE) * SONG_VIBRATE * eased

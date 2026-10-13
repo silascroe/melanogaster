@@ -14,6 +14,7 @@ const ACCENT_JUMP := Color(0.98, 0.55, 0.25)
 const ACCENT_TURN := Color(0.30, 0.86, 0.72)
 const ACCENT_FEED := Color(0.98, 0.82, 0.30)
 const ACCENT_GROOM := Color(0.72, 0.64, 0.98)
+const ACCENT_SONG := Color(0.98, 0.50, 0.72)
 const TEXT_COLOR := Color(0.90, 0.94, 0.96)
 const MUTED_COLOR := Color(0.58, 0.67, 0.72)
 const BAR_BACK := Color(1.0, 1.0, 1.0, 0.09)
@@ -26,6 +27,7 @@ var turn_rate := 0.0
 var jump_flash := 0.0
 var feeding := false
 var grooming := false
+var singing := false
 var subtitle := "recorded wiring, simplified LIF neurons"
 var turn_active := false
 var dna_base := 0.0
@@ -50,6 +52,7 @@ func _ready() -> void:
 		{"key": "aotu_r", "label": "AOTU  right", "color": ACCENT_TURN, "floor": 1.0},
 		{"key": "dna_l", "label": "DNa02  left", "color": ACCENT_TURN, "floor": 2.0},
 		{"key": "dna_r", "label": "DNa02  right", "color": ACCENT_TURN, "floor": 2.0},
+		{"key": "pip10", "label": "pIP10 (song)", "color": ACCENT_SONG, "floor": 1.0},
 		{"section": "FEED CIRCUIT", "color": ACCENT_FEED},
 		{"key": "lb3", "label": "Sugar taste", "color": ACCENT_FEED, "floor": 6.0},
 		{"key": "lb1", "label": "Bitter taste", "color": ACCENT_FEED, "floor": 6.0},
@@ -79,6 +82,8 @@ func update_trace(trace: Dictionary) -> void:
 	_hold("jo_ce", float(spikes.get("JO-CE", 0)))
 	_hold("adn", float(spikes.get("aDN", 0)))
 	grooming = bool(trace.get("grooming", false))
+	singing = bool(trace.get("singing", false))
+	_hold("pip10", float(spikes.get("pIP10", 0)))
 	if trace.has("brain_neurons"):
 		subtitle = "whole-brain subset: %d neurons, %d firing" % [
 			int(trace["brain_neurons"]), int(trace.get("active_neurons", 0))]
@@ -172,25 +177,18 @@ func _draw() -> void:
 		if fraction > 0.003:
 			draw_rect(Rect2(BAR_X, y + 4.0, BAR_WIDTH * fraction, 12.0), row["color"])
 		y += ROW_HEIGHT
-	# Jump output flash.
+	# Action outputs, two per row.
 	y += 6.0
-	if jump_flash > 0.0:
-		draw_rect(Rect2(14.0, y, PANEL_WIDTH - 28.0, 26.0),
-			Color(ACCENT_JUMP.r, ACCENT_JUMP.g, ACCENT_JUMP.b, 0.25 + 0.6 * jump_flash))
-	draw_string(font, Vector2(24.0, y + 18.0), "JUMP" if jump_flash > 0.05 else "no jump",
-		HORIZONTAL_ALIGNMENT_LEFT, -1.0, 14, TEXT_COLOR if jump_flash > 0.05 else MUTED_COLOR)
+	var half := (PANEL_WIDTH - 34.0) * 0.5
+	var jump_color := Color(ACCENT_JUMP.r, ACCENT_JUMP.g, ACCENT_JUMP.b, 0.25 + 0.6 * jump_flash)
+	_draw_output(font, Vector2(14.0, y), half, "JUMP", "no jump", jump_flash > 0.05, jump_color)
+	_draw_output(font, Vector2(20.0 + half, y), half, "FEEDING", "not feeding", feeding,
+		Color(ACCENT_FEED.r, ACCENT_FEED.g, ACCENT_FEED.b, 0.55))
 	y += 32.0
-	if feeding:
-		draw_rect(Rect2(14.0, y, PANEL_WIDTH - 28.0, 26.0),
-			Color(ACCENT_FEED.r, ACCENT_FEED.g, ACCENT_FEED.b, 0.55))
-	draw_string(font, Vector2(24.0, y + 18.0), "FEEDING" if feeding else "not feeding",
-		HORIZONTAL_ALIGNMENT_LEFT, -1.0, 14, TEXT_COLOR if feeding else MUTED_COLOR)
-	y += 32.0
-	if grooming:
-		draw_rect(Rect2(14.0, y, PANEL_WIDTH - 28.0, 26.0),
-			Color(ACCENT_GROOM.r, ACCENT_GROOM.g, ACCENT_GROOM.b, 0.55))
-	draw_string(font, Vector2(24.0, y + 18.0), "GROOMING" if grooming else "not grooming",
-		HORIZONTAL_ALIGNMENT_LEFT, -1.0, 14, TEXT_COLOR if grooming else MUTED_COLOR)
+	_draw_output(font, Vector2(14.0, y), half, "GROOMING", "not grooming", grooming,
+		Color(ACCENT_GROOM.r, ACCENT_GROOM.g, ACCENT_GROOM.b, 0.55))
+	_draw_output(font, Vector2(20.0 + half, y), half, "SINGING", "not singing", singing,
+		Color(ACCENT_SONG.r, ACCENT_SONG.g, ACCENT_SONG.b, 0.55))
 	y += 34.0
 	# Turn gauge: DNa02 right minus left through the engineered turn rule.
 	draw_string(font, Vector2(14.0, y + 12.0), "TURN  (engineered readout of DNa02 right - left)",
@@ -206,3 +204,11 @@ func _draw() -> void:
 	draw_string(font, Vector2(PANEL_WIDTH - 40.0, y + 52.0), "right", HORIZONTAL_ALIGNMENT_LEFT, -1.0, 12, MUTED_COLOR)
 	if not model_note.is_empty():
 		draw_string(font, Vector2(14.0, y + 70.0), model_note, HORIZONTAL_ALIGNMENT_LEFT, -1.0, 11, MUTED_COLOR)
+
+
+func _draw_output(font: Font, at: Vector2, width: float, on_text: String, off_text: String,
+		on: bool, color: Color) -> void:
+	if on:
+		draw_rect(Rect2(at, Vector2(width, 26.0)), color)
+	draw_string(font, at + Vector2(10.0, 18.0), on_text if on else off_text,
+		HORIZONTAL_ALIGNMENT_LEFT, width - 12.0, 14, TEXT_COLOR if on else MUTED_COLOR)

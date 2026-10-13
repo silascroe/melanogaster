@@ -43,11 +43,18 @@ var flight_landing_from := 0.0
 var mouth_parts: Array[Dictionary] = []
 var feeding_target := 0.0
 var proboscis_extension := 0.0
-var proboscis_stalk: MeshInstance3D
-# Model space: the head faces -X, up is +Y; the mouth sits under the face and the
-# table is about 0.55 model units below it.
-const MOUTH_POINT := Vector3(-1.30, 0.95, 0.0)
-const STALK_REACH := Vector3(-0.12, -0.50, 0.0)
+var proboscis_segments: Array[MeshInstance3D] = []
+var proboscis_elbow: MeshInstance3D
+var food_world := Vector3.INF
+var food_radius := 0.0
+# Model space: the head faces -X, up is +Y; the table is about 1.0 model unit
+# below the mouth. The extended proboscis grows from inside the model's own
+# proboscis nub, bends forward at an elbow, and ends in the labella pad.
+const PROBOSCIS_BASE := Vector3(-1.33, 1.02, 0.0)
+const PROBOSCIS_DEFAULT_TIP := Vector3(-1.45, 0.40, 0.0)
+const PROBOSCIS_MAX_LENGTH := 0.85
+const PROBOSCIS_ELBOW_BULGE := 0.10
+const LABELLA_PRESSED_SCALE := Vector3(1.45, 0.65, 1.45)
 
 
 func _ready() -> void:
@@ -64,13 +71,18 @@ func _ready() -> void:
 		if pivot == null or knee == null or foot == null:
 			push_warning("Incomplete two-segment rig for " + pivot_name)
 			continue
+		# v2 models add an ankle: the tibia ends there and the tarsus runs to the
+		# claw-tip foot marker. v1 models end the tibia-and-tarsus at the foot.
+		var ankle := model_root.find_child(stem + "AnklePivot", true, false) as Node3D
 		var upper := knee.position
-		var lower := foot.position
+		var lower := ankle.position if ankle != null else foot.position
 		var rest_reach := (upper + lower).normalized()
 		var bend := upper - rest_reach * upper.dot(rest_reach)
 		legs.append({
 			"hip": pivot,
 			"knee": knee,
+			"ankle": ankle,
+			"tarsus_rest": foot.position if ankle != null else Vector3.ZERO,
 			"foot": foot,
 			"upper_rest": upper,
 			"lower_rest": lower,
@@ -87,44 +99,105 @@ func _ready() -> void:
 	if legs.size() != 6:
 		push_warning("Imported fly leg rig is incomplete.")
 	var nub := model_root.find_child("proboscis", true, false) as MeshInstance3D
+	# Real labella are a pale, fleshy pad; the model's are dark like the rostrum.
+	var pad_material := StandardMaterial3D.new()
+	pad_material.albedo_color = Color(0.66, 0.50, 0.34)
+	pad_material.roughness = 0.45
 	for part in model_root.find_children("*labella*", "Node3D", true, false):
 		var node := part as Node3D
-		mouth_parts.append({"node": node, "position": node.position})
-	# A stalk grown from the mouth while feeding, in the model's own proboscis material.
-	proboscis_stalk = MeshInstance3D.new()
-	var stalk_mesh := CylinderMesh.new()
-	stalk_mesh.top_radius = 0.034
-	stalk_mesh.bottom_radius = 0.026
-	stalk_mesh.height = 1.0
-	proboscis_stalk.mesh = stalk_mesh
-	if nub != null and nub.mesh != null:
-		proboscis_stalk.material_override = nub.get_active_material(0)
-	proboscis_stalk.visible = false
-	model_root.add_child(proboscis_stalk)
+		if node is MeshInstance3D:
+			(node as MeshInstance3D).material_override = pad_material
+		mouth_parts.append({"node": node, "position": node.position, "scale": node.scale})
+	# Two tapered segments (rostrum, then haustellum) grown while feeding, plus a
+	# cap over the elbow. The nub shares their warm brown so it all reads as one organ.
+	var proboscis_material := StandardMaterial3D.new()
+	proboscis_material.albedo_color = Color(0.40, 0.25, 0.14)
+	proboscis_material.roughness = 0.5
+	if nub != null:
+		nub.material_override = proboscis_material
+	for radii in [[0.042, 0.034], [0.034, 0.026]]:
+		var segment := MeshInstance3D.new()
+		var mesh := CylinderMesh.new()
+		mesh.top_radius = radii[0]
+		mesh.bottom_radius = radii[1]
+		mesh.height = 1.0
+		mesh.radial_segments = 12
+		segment.mesh = mesh
+		segment.material_override = proboscis_material
+		segment.visible = false
+		model_root.add_child(segment)
+		proboscis_segments.append(segment)
+	proboscis_elbow = MeshInstance3D.new()
+	var elbow_mesh := SphereMesh.new()
+	elbow_mesh.radius = 0.036
+	elbow_mesh.height = 0.072
+	proboscis_elbow.mesh = elbow_mesh
+	proboscis_elbow.material_override = proboscis_material
+	proboscis_elbow.visible = false
+	model_root.add_child(proboscis_elbow)
 	if mouth_parts.is_empty():
 		push_warning("Labella parts were not found.")
 	_reset_leg_anchors()
 
 
-func set_feeding(feeding: bool) -> void:
+## Extend or retract the proboscis. When a food drop is given (world-space
+## floor position and radius), the tip reaches for the nearest point on it.
+func set_feeding(feeding: bool, drop_world := Vector3.INF, drop_radius := 0.0) -> void:
 	feeding_target = 1.0 if feeding else 0.0
+	if drop_world.is_finite() and drop_radius > 0.0:
+		food_world = drop_world
+		food_radius = drop_radius
+
+
+func _proboscis_full_tip() -> Vector3:
+	if not food_world.is_finite():
+		return PROBOSCIS_DEFAULT_TIP
+	# The game's sugar drop is a squashed sphere raised 0.3 radius off the floor,
+	# 0.55 radius tall (see main.gd _build_sugar). Aim slightly inside its surface.
+	var center := food_world + Vector3(0.0, 0.3 * food_radius, 0.0)
+	var radii := Vector3(food_radius, 0.55 * food_radius, food_radius)
+	var mouth := model_root.to_global(PROBOSCIS_BASE)
+	var unit := (mouth - center) / radii
+	if unit.length() < 0.001:
+		return PROBOSCIS_DEFAULT_TIP
+	var surface := center + unit.normalized() * radii * 0.9
+	var reach := model_root.to_local(surface) - PROBOSCIS_BASE
+	if reach.y > -0.2:
+		return PROBOSCIS_DEFAULT_TIP  # drop not below the mouth; just extend
+	return PROBOSCIS_BASE + reach.limit_length(PROBOSCIS_MAX_LENGTH)
+
+
+func _place_segment(segment: MeshInstance3D, from: Vector3, to: Vector3) -> void:
+	var span := to - from
+	segment.position = (from + to) * 0.5
+	# Stretch along the cylinder's own axis, then turn that axis onto the span.
+	segment.basis = Basis(Quaternion(Vector3.DOWN, span.normalized())) \
+		* Basis.from_scale(Vector3(1.0, span.length(), 1.0))
 
 
 func _animate_mouth(delta: float) -> void:
 	proboscis_extension = move_toward(proboscis_extension, feeding_target, delta * 2.5)
+	if proboscis_extension == 0.0 and feeding_target == 0.0:
+		food_world = Vector3.INF  # fully retracted: forget the last drop
 	var e := smoothstep(0.0, 1.0, proboscis_extension)
-	var tip := MOUTH_POINT + STALK_REACH * e
-	if proboscis_stalk != null:
-		proboscis_stalk.visible = e > 0.02
-		var span := tip - MOUTH_POINT
-		if span.length() > 0.001:
-			proboscis_stalk.position = (MOUTH_POINT + tip) * 0.5
-			proboscis_stalk.basis = Basis(Quaternion(Vector3.UP, span.normalized())).scaled(
-				Vector3(1.0, span.length(), 1.0))
+	var tip := PROBOSCIS_BASE.lerp(_proboscis_full_tip(), e)
+	var showing := e > 0.02 and proboscis_segments.size() == 2
+	for segment in proboscis_segments:
+		segment.visible = showing
+	proboscis_elbow.visible = showing
+	if showing:
+		# The elbow bows forward (-X), like the joint between rostrum and haustellum.
+		var elbow := (PROBOSCIS_BASE + tip) * 0.5 + Vector3(-PROBOSCIS_ELBOW_BULGE * e, 0.0, 0.0)
+		_place_segment(proboscis_segments[0], PROBOSCIS_BASE, elbow)
+		_place_segment(proboscis_segments[1], elbow, tip)
+		proboscis_elbow.position = elbow
 	for part in mouth_parts:
 		var node: Node3D = part["node"]
 		var rest: Vector3 = part["position"]
-		node.position = rest.lerp(Vector3(tip.x, tip.y, rest.z), e)
+		var rest_scale: Vector3 = part["scale"]
+		# The paired lobes meet at the tip and spread into a flat pad on the food.
+		node.position = rest.lerp(tip + Vector3(0.0, 0.0, rest.z * 1.4), e)
+		node.scale = rest_scale.lerp(rest_scale * LABELLA_PRESSED_SCALE, e)
 
 
 func advance(delta: float, walking: bool, speed: float) -> void:
@@ -288,6 +361,8 @@ func _reset_leg_anchors() -> void:
 		var knee: Node3D = leg["knee"]
 		hip.quaternion = Quaternion.IDENTITY
 		knee.quaternion = Quaternion.IDENTITY
+		if leg["ankle"] != null:
+			(leg["ankle"] as Node3D).quaternion = Quaternion.IDENTITY
 		var rest_world := model_root.to_global(leg["rest_model_foot"] as Vector3)
 		leg["anchor"] = Vector3(rest_world.x, _ground_y(), rest_world.z)
 		leg["swinging"] = false
@@ -353,7 +428,9 @@ func _animate_legs(airborne: bool, walking: bool, delta: float, speed: float) ->
 			var hip: Node3D = leg["hip"]
 			var max_reach := ((leg["upper_rest"] as Vector3).length() \
 				+ (leg["lower_rest"] as Vector3).length()) * fly_visual.scale.x
-			var overextended := hip.global_position.distance_to(leg["anchor"] as Vector3) \
+			var ankle_anchor: Vector3 = (leg["anchor"] as Vector3) - (hip.get_parent() as Node3D) \
+				.global_transform.basis * (leg["tarsus_rest"] as Vector3)
+			var overextended := hip.global_position.distance_to(ankle_anchor) \
 				> max_reach * 0.88
 			if not bool(leg["swinging"]) and (scheduled_step or overextended):
 				var marker: Node3D = leg["foot"]
@@ -391,7 +468,9 @@ func _solve_leg_ik(leg: Dictionary, target_world: Vector3) -> void:
 	var lower_length := lower_rest.length()
 	var hip_position := hip.position
 	var hip_parent := hip.get_parent() as Node3D
-	var goal: Vector3 = hip_parent.to_local(target_world)
+	# With an ankle, the claw tip is the target but the tibia ends at the ankle;
+	# the tarsus keeps its rest pose relative to the body, so feet stay flat.
+	var goal: Vector3 = hip_parent.to_local(target_world) - (leg["tarsus_rest"] as Vector3)
 	var reach: Vector3 = goal - hip_position
 	if reach.length_squared() < 0.000001:
 		return
@@ -412,3 +491,6 @@ func _solve_leg_ik(leg: Dictionary, target_world: Vector3) -> void:
 	var lower_direction: Vector3 = (clamped_goal - knee_goal).normalized()
 	hip.quaternion = Quaternion(upper_rest.normalized(), upper_direction)
 	knee.quaternion = Quaternion(lower_rest.normalized(), hip.quaternion.inverse() * lower_direction)
+	var ankle := leg["ankle"] as Node3D
+	if ankle != null:
+		ankle.quaternion = (hip.quaternion * knee.quaternion).inverse()

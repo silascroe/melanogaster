@@ -141,7 +141,11 @@ func _process(delta: float) -> void:
 	ball_root.visible = ball_active
 	target_root.position = target_position
 	target_root.visible = pursuit_enabled
-	fly_actor.set_feeding(feeding_now)
+	var drop_scale := maxf(0.25, 1.0 - sugar_eaten_s / SUGAR_EAT_S)
+	if sugar_active:
+		fly_actor.set_feeding(feeding_now, sugar_position, SUGAR_RADIUS * drop_scale)
+	else:
+		fly_actor.set_feeding(feeding_now)
 	if sugar_active and feeding_now:
 		sugar_eaten_s += delta
 		if sugar_eaten_s >= SUGAR_EAT_S:
@@ -149,7 +153,7 @@ func _process(delta: float) -> void:
 			service_message = "Sugar drop finished"
 	sugar_root.visible = sugar_active
 	sugar_root.position = sugar_position
-	sugar_root.scale = Vector3.ONE * maxf(0.25, 1.0 - sugar_eaten_s / SUGAR_EAT_S)
+	sugar_root.scale = Vector3.ONE * drop_scale
 	if not session_id.is_empty() and not (steering_model == "activity_v1" and pursuit_enabled):
 		if steering_model == "activity_v1":
 			# No experimental ticks during manual walking.

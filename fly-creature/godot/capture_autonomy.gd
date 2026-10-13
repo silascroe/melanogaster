@@ -1,11 +1,15 @@
 extends SceneTree
 
 # Scripted check of the self-roaming fly, click-placed target, thrown object,
-# feeding, antennal grooming, a bitter drop and the live brain view. Needs a
+# feeding, courtship song, antennal grooming, a bitter drop and the live brain view. Needs a
 # graphics-enabled Godot and a running neural service.
 # Frames and telemetry go to the folder in FLY_CREATURE_CAPTURE_DIR.
 
 var scene: Node3D
+var song_seen := false
+var song_side_seen := ""
+var song_seen_ms := 0
+var song_snapped := false
 
 
 func _initialize() -> void:
@@ -22,6 +26,27 @@ func _wait(seconds: float) -> void:
 	var end := Time.get_ticks_msec() + int(seconds * 1000.0)
 	while Time.get_ticks_msec() < end:
 		await process_frame
+		if scene != null and scene.singing_now and not song_seen:
+			song_seen = true
+			song_side_seen = scene.song_side
+			song_seen_ms = Time.get_ticks_msec()
+		if song_seen and not song_snapped and scene.singing_now \
+				and Time.get_ticks_msec() - song_seen_ms > 400:
+			# Let the wing swing out, then take the game view and a top view.
+			song_snapped = true
+			_snap("5_singing")
+			var follow: bool = scene.close_camera
+			var saved: Transform3D = scene.camera.transform
+			scene.close_camera = false
+			scene.set_process(false)
+			scene.camera.position = scene.fly_position + Vector3(0.0, 2.6, 0.01)
+			scene.camera.look_at(scene.fly_position, Vector3.FORWARD)
+			await process_frame
+			await process_frame
+			_snap("5_singing_top")
+			scene.camera.transform = saved
+			scene.close_camera = follow
+			scene.set_process(true)
 
 
 func _telemetry(label: String) -> void:
@@ -65,6 +90,9 @@ func _run() -> void:
 			break
 	_snap("4_after_beacon")
 	print("CHECK beacon_ended=", not scene.beacon_mode)
+	await _wait(1.0)
+	print("CHECK song_seen=", song_seen, " side=", song_side_seen,
+		" singing_after_target=", scene.singing_now)
 	# Sugar: drop it a little ahead of the fly and let the fly walk to it.
 	var ahead := Vector3(sin(scene.heading_rad), 0.0, -cos(scene.heading_rad)) * 2.0
 	var drop: Vector3 = scene.fly_position + ahead

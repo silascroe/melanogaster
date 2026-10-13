@@ -25,7 +25,9 @@ actions, is an engineered choice made here, not connectome data:
 - jump: any giant-fiber (DNp01) spike outside a 1.2 s cooldown;
 - turn: smoothed DNa02 right-minus-left firing rate x TURN_GAIN, capped;
 - feed: smoothed MN9 firing rate above FEED_THRESHOLD_HZ;
-- groom: smoothed aDN1/aDN2 (DNg62, DNge078) rate above GROOM_THRESHOLD_HZ.
+- groom: smoothed aDN1/aDN2 (DNg62, DNge078) rate above GROOM_THRESHOLD_HZ;
+- sing: smoothed pIP10 rate (target copy) above SING_THRESHOLD_HZ; the wing on
+  the target's side is the one extended.
 """
 
 from __future__ import annotations
@@ -47,6 +49,7 @@ TURN_GAIN_RAD_S_PER_HZ = MAX_TURN_RATE_RAD_S / 130.0
 SMOOTHING_S = 0.15
 FEED_THRESHOLD_HZ = 20.0
 GROOM_THRESHOLD_HZ = 30.0
+SING_THRESHOLD_HZ = 30.0
 MOUTH_REACH = 0.15
 JUMP_COOLDOWN_MS = 1200.0
 RESET_AFTER_MS = 500.0
@@ -56,8 +59,8 @@ SENSES = {"taste": ("sugar", "bitter"), "loom": ("loom",), "target": ("lc10a_R",
 DISPLAY_SOURCE = {"LB3": "taste", "MN9": "taste", "LC4": "loom", "LPLC2": "loom", "DNp01": "loom",
                   "LC10a_L": "target", "LC10a_R": "target", "AOTU_L": "target", "AOTU_R": "target",
                   "DNa02_L": "target", "DNa02_R": "target", "LB1": "taste",
-                  "JO-CE": "touch", "aDN": "touch"}
-READOUT_GROUPS = ("gf", "dna02_R", "dna02_L", "mn9", "adn")
+                  "JO-CE": "touch", "aDN": "touch", "pIP10": "target"}
+READOUT_GROUPS = ("gf", "dna02_R", "dna02_L", "mn9", "adn", "pip10")
 # Subset that passed the whole-brain comparison for each sense (engineering choice).
 SENSE_PACKAGE = {"taste": "v3", "loom": "v3", "touch": "v3", "target": "v1"}
 
@@ -78,6 +81,9 @@ class BrainPackage:
             self.groups = {k[len("group_"):]: data[k].astype(np.int64)
                            for k in data.files if k.startswith("group_")}
         self.n = len(self.body_ids)
+        # The song command neurons were added as a readout after both subsets were
+        # built; both contain them (docs/whole_brain_protocol.md, target song).
+        self.groups.setdefault("pip10", np.flatnonzero(self.cell_type == "pIP10").astype(np.int64))
         # Older subsets lack the newer groups; only stimulate what is present.
         self.inputs = np.concatenate([self.groups[k] for k in
                                       ("sugar", "loom", "lc10a_R", "lc10a_L", "jo_ce", "bitter")
@@ -88,7 +94,8 @@ class BrainPackage:
         aotu = by_type("AOTU019", "AOTU025")
         display_groups = {"DNp01": "gf", "LC10a_L": "lc10a_L", "LC10a_R": "lc10a_R",
                           "DNa02_L": "dna02_L", "DNa02_R": "dna02_R", "LB3": "sugar",
-                          "MN9": "mn9", "LB1": "bitter", "JO-CE": "jo_ce", "aDN": "adn"}
+                          "MN9": "mn9", "LB1": "bitter", "JO-CE": "jo_ce", "aDN": "adn",
+                          "pIP10": "pip10"}
         self.display = {"LC4": by_type("LC4"), "LPLC2": by_type("LPLC2"),
                         "AOTU_L": side(aotu, "L"), "AOTU_R": side(aotu, "R")}
         self.display.update({k: self.groups[g] for k, g in display_groups.items() if g in self.groups})
@@ -134,6 +141,7 @@ class BrainSession:
         self.asym_hz = 0.0
         self.mn9_hz = 0.0
         self.adn_hz = 0.0
+        self.pip10_hz = 0.0
 
     def step(self, payload: dict) -> dict:
         fly, obj = payload["fly"], payload["object"]
@@ -181,7 +189,7 @@ class BrainSession:
         compute_ms = (time.perf_counter() - started) * 1000.0
         window_s = dt_ms / 1000.0
         source = {"mn9": "taste", "gf": "loom", "dna02_R": "target", "dna02_L": "target",
-                  "adn": "touch"}
+                  "adn": "touch", "pip10": "target"}
 
         def group_rate(key: str) -> float:
             sense = source[key]
@@ -191,6 +199,7 @@ class BrainSession:
         self.asym_hz += alpha * (group_rate("dna02_R") - group_rate("dna02_L") - self.asym_hz)
         self.mn9_hz += alpha * (group_rate("mn9") - self.mn9_hz)
         self.adn_hz += alpha * (group_rate("adn") - self.adn_hz)
+        self.pip10_hz += alpha * (group_rate("pip10") - self.pip10_hz)
         turn = max(-MAX_TURN_RATE_RAD_S, min(MAX_TURN_RATE_RAD_S, self.asym_hz * TURN_GAIN_RAD_S_PER_HZ))
         gf_spikes = int(counts["loom"][self.packages["loom"].groups["gf"]].sum())
         self.cooldown_ms = max(0.0, self.cooldown_ms - dt_ms)
@@ -228,6 +237,9 @@ class BrainSession:
             "touch": {"dust": dusty},
             "grooming": self.adn_hz >= GROOM_THRESHOLD_HZ,
             "adn_rate_hz": round(self.adn_hz, 1),
+            "singing": self.pip10_hz >= SING_THRESHOLD_HZ,
+            "song_side": "R" if feature["bearing_deg"] > 0 else "L",
+            "pip10_rate_hz": round(self.pip10_hz, 1),
         }
 
     def _advance_copy(self, sense: str, dt_ms: float, rates: dict[str, float]) -> np.ndarray:

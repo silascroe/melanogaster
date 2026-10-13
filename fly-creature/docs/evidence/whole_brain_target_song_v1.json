@@ -1,0 +1,95 @@
+{
+  "pip10_body_ids": [
+    11116,
+    523998
+  ],
+  "pip10_sides": [
+    "R",
+    "L"
+  ],
+  "pip10_right_lc10a_hz": [
+    38.5,
+    44.5,
+    46.5
+  ],
+  "pip10_left_lc10a_hz": [
+    37.0,
+    47.0,
+    39.0
+  ],
+  "no_input_hz": 0.0,
+  "loom_hz": 0.0,
+  "shuffle_pip10_hz": [
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    1.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    25.0,
+    0.0,
+    2.5,
+    2.0,
+    0.0,
+    3.5,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+  ],
+  "shuffles_beaten": 20,
+  "checks": {
+    "right_mean_ge_10hz": true,
+    "left_mean_ge_10hz": true,
+    "silent_without_input": true,
+    "beats_19_of_20_shuffles": true,
+    "loom_below_half_right": true
+  },
+  "pass": true,
+  "reported": {
+    "pip10_each_hz_right_seed3": [
+      48.0,
+      29.0
+    ],
+    "pip10_each_hz_left_seed3": [
+      49.0,
+      25.0
+    ],
+    "song_circuit_hz_right_seed3": {
+      "vPR6": 0.0,
+      "TN1": 14.142857142857142,
+      "dPR1": 71.0
+    },
+    "subset_v1_pip10": {
+      "right": {
+        "whole": [
+          41.0,
+          36.5,
+          44.0
+        ],
+        "subset": [
+          40.5,
+          40.5,
+          37.0
+        ]
+      },
+      "left": {
+        "whole": [
+          48.0,
+          37.0,
+          36.5
+        ],
+        "subset": [
+          40.5,
+          35.5,
+          34.0
+        ]
+      }
+    }
+  },
+  "runtime_s": 208
+}

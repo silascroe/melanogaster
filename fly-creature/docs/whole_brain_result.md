@@ -205,3 +205,41 @@ the dust is gone, and bitter contact with no feeding.
 
 Speed: a running v3 copy costs ~82–90 ms per 50 ms frame (v1: ~72–76 ms), so an
 active brain now runs at about 0.55–0.6× real time.
+
+# Courtship song (2026-10-13): taste route FAIL, visual route PASS
+
+Protocol: the two courtship addenda in [whole_brain_protocol.md](whole_brain_protocol.md).
+
+**Foreleg pheromone taste: FAIL** ([evidence](evidence/whole_brain_courtship_v1.json)).
+Driving the 71 foreleg `putative_ppk23` taste neurons gave the song command
+neurons pIP10 1.0, 0 and 6.5 Hz (needed a mean ≥ 10 Hz). Not tuned. The
+female-pheromone channel ppk25 could not be tested fairly: 52 of its 65 foreleg
+neurons have an unclear predicted transmitter and 13 glutamate, so the model's
+sign rule silences them; even with their sign forced to excitatory (a labelled
+what-if), pIP10 stayed at 0 Hz.
+
+**Visual target: PASS** ([evidence](evidence/whole_brain_target_song_v1.json)).
+The failed run's reported values showed LC10a driving pIP10 strongly, so a new
+test was written before running it. One-sided LC10a (the creature's existing
+target channel) drives pIP10 at 38–47 Hz from either side, 0 Hz without input,
+0 Hz from looming input, and beats all 20 shuffled brains (highest 25 Hz, a
+narrower margin than earlier tests). Downstream in the nerve cord, the song
+interneuron dPR1 fires at 71 Hz and TN1 at 14 Hz; vPR6 stays silent. LC10a is
+known to be needed for males to follow females during courtship, so a route from
+it to song is plausible, but this model shows only that the wiring carries the
+signal, not that a fly sings at every small moving object.
+
+Game subset v1 already reproduces it (pIP10 39 vs 40.5 Hz right, 37 vs 40.5 Hz
+left), so the target copy needed no new package.
+
+## In the game
+
+While the target copy runs, a smoothed pIP10 rate above 30 Hz is "singing": the
+wing on the target's side swings out and vibrates. Because the engineered target
+sensor drives LC10a in proportion to how far off-centre the target is, the fly
+sings while the target is about 20° or more to one side, mostly while turning
+toward it, and stops on the straight approach. The 30 Hz threshold, wing choice,
+pose and vibration (far slower than real 150–250 Hz song) are engineered. Game
+checks: a seen target sings on its own side and stops when it is gone (g7); cut
+wiring, which now also removes connections onto pIP10, gives no song (g4); and
+the Godot capture records song during a target approach.

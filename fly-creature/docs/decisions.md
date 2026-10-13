@@ -253,7 +253,7 @@ The v1 legs were straight, untapered tubes with a stub tarsus, so the fly
 stood on tiptoe and read as a mosquito at close range. `tools/refine_fly_model.py`
 rebuilds v2 from the untouched v1 file: real leg segments with approximate
 Drosophila proportions (taken by eye, not measured), bristles, claws, pulvilli,
-the male sex comb, reshaped antennae, palps and clypeus, and matte eyes. The
+the male sex comb, reshaped antennae and palps, and matte eyes. The
 export adds an ankle pivot; Godot solves hip and knee to place the ankle and
 holds the tarsus at its rest pose relative to the body, so planted feet lie
 flat. Body textures are exported at 75% saturation because the cuticle read as
@@ -261,6 +261,25 @@ saturated orange in the game's warm light. The extended proboscis is built in
 Godot (`fly_actor.gd`), rooted in the model's proboscis nub and aimed at the
 food drop. All of this is presentation, not anatomy data or circuit evidence.
 v1 is kept byte-identical in `art/versions/v1-original/`.
+
+The v1 head was a scaled sphere with two eye spheres pushed into its sides
+("a ball wearing headphones"). v2 remaps the head mesh point by point onto a
+shorter capsule with a flat frons, a flatter back, narrow cheeks and a shallow
+facial recess, keeping its UVs and textures; each eye is re-seated with one
+affine transform so every facet survives. The antennae sit close together at
+the face's midline, the palps and proboscis sit on the head's underside, and
+the neck is a narrow dark membrane. v1's clypeus knob is dropped because on the
+new head it read as a cartoon nose. Proportions are judged from renders and
+reference shape, not measured. Because the proboscis nub moved, `fly_actor.gd`
+now derives the extended proboscis's base from the nub's bounds at runtime
+rather than a hard-coded point.
+
+The head is a UV sphere wrapped in one square image, so each texel is twice as
+wide as it is tall on the surface. The flat v2 face under grazing light showed
+that as horizontal wrinkles in the bump. The head's cuticle maps tile left to
+right, so v2 repeats them twice around the head, and the exporter halves the
+head's horizontal slopes when it turns height into a normal map. Face vertices
+are also relaxed along the new surface so the texture spreads evenly.
 
 ## Engineered roaming
 

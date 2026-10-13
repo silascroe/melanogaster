@@ -49,9 +49,11 @@ var food_world := Vector3.INF
 var food_radius := 0.0
 # Model space: the head faces -X, up is +Y; the table is about 1.0 model unit
 # below the mouth. The extended proboscis grows from inside the model's own
-# proboscis nub, bends forward at an elbow, and ends in the labella pad.
-const PROBOSCIS_BASE := Vector3(-1.33, 1.02, 0.0)
-const PROBOSCIS_DEFAULT_TIP := Vector3(-1.45, 0.40, 0.0)
+# proboscis nub, bends forward at an elbow, and ends in the labella pad. The
+# base is read from the nub itself in _ready (v1 and v2 heads put it in
+# different places); this fallback is the v1 nub.
+var proboscis_base := Vector3(-1.33, 1.02, 0.0)
+const PROBOSCIS_REST_REACH := Vector3(-0.12, -0.62, 0.0)
 const PROBOSCIS_MAX_LENGTH := 0.85
 const PROBOSCIS_ELBOW_BULGE := 0.10
 const LABELLA_PRESSED_SCALE := Vector3(1.45, 0.65, 1.45)
@@ -115,6 +117,7 @@ func _ready() -> void:
 	proboscis_material.roughness = 0.5
 	if nub != null:
 		nub.material_override = proboscis_material
+		proboscis_base = model_root.to_local(nub.to_global(nub.get_aabb().get_center())) 			+ Vector3(0.0, 0.02, 0.0)
 	for radii in [[0.042, 0.034], [0.034, 0.026]]:
 		var segment := MeshInstance3D.new()
 		var mesh := CylinderMesh.new()
@@ -151,20 +154,20 @@ func set_feeding(feeding: bool, drop_world := Vector3.INF, drop_radius := 0.0) -
 
 func _proboscis_full_tip() -> Vector3:
 	if not food_world.is_finite():
-		return PROBOSCIS_DEFAULT_TIP
+		return proboscis_base + PROBOSCIS_REST_REACH
 	# The game's sugar drop is a squashed sphere raised 0.3 radius off the floor,
 	# 0.55 radius tall (see main.gd _build_sugar). Aim slightly inside its surface.
 	var center := food_world + Vector3(0.0, 0.3 * food_radius, 0.0)
 	var radii := Vector3(food_radius, 0.55 * food_radius, food_radius)
-	var mouth := model_root.to_global(PROBOSCIS_BASE)
+	var mouth := model_root.to_global(proboscis_base)
 	var unit := (mouth - center) / radii
 	if unit.length() < 0.001:
-		return PROBOSCIS_DEFAULT_TIP
+		return proboscis_base + PROBOSCIS_REST_REACH
 	var surface := center + unit.normalized() * radii * 0.9
-	var reach := model_root.to_local(surface) - PROBOSCIS_BASE
+	var reach := model_root.to_local(surface) - proboscis_base
 	if reach.y > -0.2:
-		return PROBOSCIS_DEFAULT_TIP  # drop not below the mouth; just extend
-	return PROBOSCIS_BASE + reach.limit_length(PROBOSCIS_MAX_LENGTH)
+		return proboscis_base + PROBOSCIS_REST_REACH  # drop not below the mouth; just extend
+	return proboscis_base + reach.limit_length(PROBOSCIS_MAX_LENGTH)
 
 
 func _place_segment(segment: MeshInstance3D, from: Vector3, to: Vector3) -> void:
@@ -180,15 +183,15 @@ func _animate_mouth(delta: float) -> void:
 	if proboscis_extension == 0.0 and feeding_target == 0.0:
 		food_world = Vector3.INF  # fully retracted: forget the last drop
 	var e := smoothstep(0.0, 1.0, proboscis_extension)
-	var tip := PROBOSCIS_BASE.lerp(_proboscis_full_tip(), e)
+	var tip := proboscis_base.lerp(_proboscis_full_tip(), e)
 	var showing := e > 0.02 and proboscis_segments.size() == 2
 	for segment in proboscis_segments:
 		segment.visible = showing
 	proboscis_elbow.visible = showing
 	if showing:
 		# The elbow bows forward (-X), like the joint between rostrum and haustellum.
-		var elbow := (PROBOSCIS_BASE + tip) * 0.5 + Vector3(-PROBOSCIS_ELBOW_BULGE * e, 0.0, 0.0)
-		_place_segment(proboscis_segments[0], PROBOSCIS_BASE, elbow)
+		var elbow := (proboscis_base + tip) * 0.5 + Vector3(-PROBOSCIS_ELBOW_BULGE * e, 0.0, 0.0)
+		_place_segment(proboscis_segments[0], proboscis_base, elbow)
 		_place_segment(proboscis_segments[1], elbow, tip)
 		proboscis_elbow.position = elbow
 	for part in mouth_parts:

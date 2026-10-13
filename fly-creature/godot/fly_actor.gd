@@ -57,6 +57,16 @@ const PROBOSCIS_REST_REACH := Vector3(-0.12, -0.62, 0.0)
 const PROBOSCIS_MAX_LENGTH := 0.85
 const PROBOSCIS_ELBOW_BULGE := 0.10
 const LABELLA_PRESSED_SCALE := Vector3(1.45, 0.65, 1.45)
+# Antennal grooming (engineered pose; the decision to groom comes from the brain).
+# Both forelegs rise in front of the face and sweep down over the antennae.
+var grooming_target := 0.0
+var grooming_amount := 0.0
+var groom_clock := 0.0
+var antenna_points: Array[Vector3] = []  # model space, one per antenna
+var dust_specks: Array[MeshInstance3D] = []
+const GROOM_SWEEP_HZ := 3.2
+const GROOM_BLEND_RATE := 5.0
+const GROOM_PITCH := -0.07
 
 
 func _ready() -> void:
@@ -140,6 +150,7 @@ func _ready() -> void:
 	model_root.add_child(proboscis_elbow)
 	if mouth_parts.is_empty():
 		push_warning("Labella parts were not found.")
+	_find_antennae()
 	_reset_leg_anchors()
 
 
@@ -203,7 +214,50 @@ func _animate_mouth(delta: float) -> void:
 		node.scale = rest_scale.lerp(rest_scale * LABELLA_PRESSED_SCALE, e)
 
 
+## Start or stop antennal grooming (forelegs sweep the face).
+func set_grooming(grooming: bool) -> void:
+	grooming_target = 1.0 if grooming else 0.0
+
+
+## Show dust on the antennae, 0 (clean) to 1.
+func set_dust(amount: float) -> void:
+	for speck in dust_specks:
+		speck.visible = amount > 0.02
+		speck.scale = Vector3.ONE * clampf(amount, 0.0, 1.0)
+
+
+func _find_antennae() -> void:
+	var dust_material := StandardMaterial3D.new()
+	dust_material.albedo_color = Color(0.80, 0.76, 0.66)
+	dust_material.roughness = 0.9
+	var rng := RandomNumberGenerator.new()
+	rng.seed = 7
+	for node in model_root.find_children("antenna flagellum*", "MeshInstance3D", true, false):
+		var antenna := node as MeshInstance3D
+		var center := model_root.to_local(antenna.to_global(antenna.get_aabb().get_center()))
+		antenna_points.append(center)
+		for k in range(14):
+			var speck := MeshInstance3D.new()
+			var mesh := SphereMesh.new()
+			mesh.radius = rng.randf_range(0.005, 0.010)
+			mesh.height = mesh.radius * 2.0
+			speck.mesh = mesh
+			speck.material_override = dust_material
+			speck.position = center + Vector3(rng.randf_range(-0.055, -0.03),
+				rng.randf_range(-0.07, 0.07), rng.randf_range(-0.03, 0.03))
+			speck.visible = false
+			model_root.add_child(speck)
+			dust_specks.append(speck)
+	if antenna_points.size() != 2:
+		push_warning("Expected two antennae for grooming; found %d." % antenna_points.size())
+
+
 func advance(delta: float, walking: bool, speed: float) -> void:
+	grooming_amount = move_toward(grooming_amount, grooming_target, delta * GROOM_BLEND_RATE)
+	if grooming_amount > 0.0:
+		groom_clock += delta
+	else:
+		groom_clock = 0.0
 	_animate_mouth(delta)
 	var just_landed := _advance_jump(delta)
 	just_landed = _advance_flight(delta) or just_landed
@@ -328,6 +382,8 @@ func _animate_visual(delta: float, walking: bool, speed: float) -> void:
 			(0.12 if flight_state == FlightState.LANDING else -0.025)
 	elif airborne:
 		target_pitch = -0.13 if jump_velocity > 0.0 else 0.09
+	else:
+		target_pitch = GROOM_PITCH * grooming_amount
 	body_motion.rotation.x = lerpf(body_motion.rotation.x, target_pitch,
 		clampf(delta * 10.0, 0.0, 1.0))
 	var wing_rate := 56.0 if is_flying() else (48.0 if airborne else 6.0)
@@ -459,7 +515,36 @@ func _animate_legs(airborne: bool, walking: bool, delta: float, speed: float) ->
 			leg["swinging"] = false
 			leg["anchor"] = (leg["anchor"] as Vector3).lerp(rest_ground, 0.16)
 			target = leg["anchor"]
-		_solve_leg_ik(leg, target)
+		var groom := grooming_amount if not airborne and not is_flying() else 0.0
+		if groom > 0.0 and index % 3 == 0 and antenna_points.size() == 2:
+			_groom_foreleg(leg, target, groom)
+		else:
+			_solve_leg_ik(leg, target)
+
+
+func _groom_foreleg(leg: Dictionary, standing_claw: Vector3, groom: float) -> void:
+	# The ankle travels from above the antenna to below it while the tarsus lies
+	# across the face, so the tarsus brushes down over the antenna each sweep.
+	var parent_basis: Basis = ((leg["hip"] as Node3D).get_parent() as Node3D).global_transform.basis
+	var tarsus_rest: Vector3 = leg["tarsus_rest"]
+	var side := signf((leg["rest_model_foot"] as Vector3).z)
+	var antenna: Vector3 = antenna_points[0] if signf(antenna_points[0].z) == side else antenna_points[1]
+	var phase := groom_clock * GROOM_SWEEP_HZ + (0.0 if side > 0.0 else 0.12)
+	var sweep := 0.5 - 0.5 * cos(TAU * phase)
+	var ankle_model := antenna + Vector3(lerpf(-0.07, -0.12, sweep), lerpf(0.17, -0.09, sweep),
+		side * lerpf(0.13, 0.06, sweep))
+	var tarsus_model := Vector3(-0.25, -0.50, -0.83 * side).normalized()
+	var standing_ankle: Vector3 = standing_claw - parent_basis * tarsus_rest
+	var ankle_goal: Vector3 = standing_ankle.lerp(model_root.to_global(ankle_model), groom)
+	var rest_direction: Vector3 = (parent_basis * tarsus_rest).normalized()
+	var groom_direction := (model_root.global_transform.basis * tarsus_model).normalized()
+	var direction: Vector3 = rest_direction.slerp(groom_direction, groom)
+	_solve_leg_ik(leg, ankle_goal + parent_basis * tarsus_rest)
+	var ankle := leg["ankle"] as Node3D
+	if ankle != null:
+		var local_direction := (parent_basis.inverse() * direction).normalized()
+		var hip_knee := (leg["hip"] as Node3D).quaternion * (leg["knee"] as Node3D).quaternion
+		ankle.quaternion = hip_knee.inverse() * Quaternion(tarsus_rest.normalized(), local_direction)
 
 
 func _solve_leg_ik(leg: Dictionary, target_world: Vector3) -> void:

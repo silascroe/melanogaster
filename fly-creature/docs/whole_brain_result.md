@@ -149,3 +149,59 @@ feeding from a right-clicked sugar drop.
 Speed: a running copy costs ~72–76 ms per 50 ms frame for taste or target and
 ~31 ms median for loom, so an active brain runs at roughly 0.7× real time; the
 game keeps moving and simply gets brain updates a little less often.
+
+# Antennal grooming and bitter taste (2026-10-13): both PASS
+
+Protocol: addendum in [whole_brain_protocol.md](whole_brain_protocol.md), written
+before the run. Evidence: [evidence/whole_brain_grooming_bitter_v1.json](evidence/whole_brain_grooming_bitter_v1.json).
+
+**Grooming.** Driving the 335 traced Johnston's organ neurons of zones C and E
+(JO-C, JO-E; antennal touch/deflection) at 150 Hz, the four aDN descending
+neurons (DNg62 = aDN1, DNge078 = aDN2, per Hampel et al. 2015) fire at 203, 199
+and 204 Hz on seeds 0–2, and 0 Hz without input. 20 shuffled brains gave at most
+3.25 Hz. Reported only: aDN1 226 Hz and aDN2 181 Hz; driving the hearing zones
+JO-A/B (138 neurons) or the MaleCNS "grooming" JO-F group (78) instead gives 0 Hz,
+which matches Hampel's finding that grooming comes from zones C/E.
+
+**Bitter.** Sugar (LB3) alone drives MN9 at 78, 76 and 66 Hz; sugar plus the 57
+LB1 bitter neurons gives 0.5, 0 and 1 Hz; bitter alone gives 0 Hz. Suppression is
+0.99. In 20 control brains where only the bitter neurons' outgoing connections
+were sent to random targets, suppression was at most 0.33 (median 0.11),
+so the suppression depends on where the bitter neurons actually connect.
+
+Reported, not gated: bitter alone drives 153 descending-neuron types above 10 Hz
+(DNb05 ~350 Hz, DNg33 ~300 Hz, ...). That is broad activation, not a clean
+avoidance signal, so no movement reaction to bitter was built. In the game,
+bitter only means "does not feed".
+
+What this does not show: that the model's rates are realistic, which grooming
+movement the aDNs would produce (the leg sweep is animation), or that LB1 is the
+only bitter channel (pharyngeal and leg taste neurons were not used).
+
+## Game subset v3
+
+A 27,956-neuron subset selected from all seven stimuli
+([evidence](evidence/brain_subset_v3.json)) passed six of seven gates: sugar,
+loom, left turn, antenna grooming, and both bitter checks. It **failed** right
+turn: DNa02 asymmetry 97 Hz versus 123 Hz in the whole brain (−21%, gate ±20%).
+It was not tuned. Each brain copy in the game now uses a package that passed for
+its own sense: the target copy keeps subset v1, and the taste, loom and touch
+copies use v3 (`SENSE_PACKAGE` in `brain_session.py`).
+
+## In the game
+
+`E` dusts the antennae: a fourth brain copy (touch) gets JO-CE input while dust
+remains, and the fly stops and sweeps its forelegs over its antennae while the
+smoothed aDN rate is above 30 Hz; grooming clears the dust over 2.5 s, and then
+aDN goes quiet. Shift + right-click drops a bitter-laced drop: at contact the
+taste copy gets LB3 and LB1 together, MN9 stays near 0 Hz, and the fly does not
+feed. The dust, its clearing time, the 30 Hz threshold and the foreleg animation
+are engineered; the aDN response to JO-CE input and the bitter suppression of
+MN9 come from the wiring. Game checks (`tests/test_brain_session.py`, g4–g6):
+dust grooms then stops; cut wiring gives no grooming; a bitter drop is not fed
+on while a plain drop is. The Godot capture (`godot/capture_autonomy.gd`)
+confirms the same in the scene: grooming at ~45 Hz smoothed aDN, stopping once
+the dust is gone, and bitter contact with no feeding.
+
+Speed: a running v3 copy costs ~82–90 ms per 50 ms frame (v1: ~72–76 ms), so an
+active brain now runs at about 0.55–0.6× real time.

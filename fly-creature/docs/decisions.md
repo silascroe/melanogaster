@@ -552,3 +552,15 @@ Ordered idempotent steps and queued reset handling protect this timing seam.
 Keep ordinary steering separate from the frozen activity simulator and label
 its 0/200 ms variants. Reuse prior stimulus cases for interactive inspection,
 without presenting this as new held-out or biological evidence.
+
+## 2026-10-13: grooming and bitter join the whole-brain game; per-sense subsets
+
+Antennal grooming (JO-C/E → aDN1/aDN2) and bitter suppression of feeding (LB1
+blocking LB3 → MN9) both passed pre-declared whole-brain tests against controls
+([result](whole_brain_result.md)). The combined subset v3 missed the right-turn
+gate by 1 point (−21%), so it was not tuned. Instead, each brain copy loads a
+subset that passed for its own sense: target keeps v1, and taste, loom and touch
+use v3. This costs one extra package in memory and keeps every copy on validated
+ground. The bitter descending-neuron screen showed broad activation, so bitter
+has no movement reaction; it only prevents feeding. Grooming's dust, threshold,
+clearing time and leg sweep are engineered.

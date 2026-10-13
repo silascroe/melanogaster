@@ -173,3 +173,97 @@ G3 Taste: 2 s sugar contact then 2 s without: feeding true at the end of contact
 G4 Cut wiring (connections onto action neurons removed): no jump, no feeding,
    and |turn| < 0.05 rad/s throughout the same scenarios.
 Reported: compute milliseconds per 50 ms frame.
+
+# Addendum: antennal grooming and bitter taste (written 2026-10-13, before any run)
+
+Same model, signs, 150 Hz Poisson input, 1 s trials, seeds and shuffle method as
+the sugar, jump and turn tests. Neuron groups come from MaleCNS v1.0 `type` and
+`status == Traced`.
+
+## Antennal grooming
+
+Basis: Hampel et al. (2015, eLife 4:e08758): Johnston's organ neurons projecting
+to zones C and E (JO-CE) excite brain interneurons aBN1/aBN2 and descending
+neurons aDN1–3, and activating any of these layers makes the fly groom its
+antennae. The MaleCNS synonyms identify DNg62 as aDN1 and DNge078 as aDN2
+(Hampel 2015); aDN3 is not named in this release.
+
+- Input: every traced neuron whose type starts with `JO-C` or `JO-E` (68 + 267 =
+  335; both antennae, as somaSide is blank for these afferents).
+- Readout: mean rate of the four aDN neurons (DNg62 × 2, DNge078 × 2).
+
+Pass criteria (all required):
+1. aDN mean rate ≥ 10 Hz over seeds 0–2, and 0 Hz without input.
+2. Intact aDN rate (seed 0) exceeds the rate in ≥ 19 of 20 shuffled brains
+   (shuffle seeds 1000–1019).
+
+Reported, not gated (seed 0): aDN1 and aDN2 separately; aDN rate when JO-A and
+JO-B (hearing; Hampel found grooming only from C/E) or JO-F (MaleCNS subclass
+"grooming") are driven instead; active-neuron counts.
+
+## Bitter taste stops feeding
+
+Basis: FlyWire classifies labellar taste type LB1 as bitter (LB2 low salt, LB3
+sugar/water; Virtual Fly Brain records of FlyWire annotations). Bitter taste
+suppresses proboscis extension in flies.
+
+- Bitter input: every traced neuron whose type starts with `LB1` (57; the 6
+  with `unclear` transmitter are inert under the existing rule).
+- Sugar input: the LB3 group of the sugar test. Readout: MN9 mean rate.
+- Suppression S = 1 − MN9(sugar + bitter) / MN9(sugar alone), same seed.
+
+Pass criteria (all required):
+1. Mean MN9 with sugar + bitter ≤ 50% of mean MN9 with sugar alone (seeds 0–2),
+   and bitter alone gives MN9 0 Hz (seeds 0–2).
+2. Wiring specificity. A whole-brain shuffle already abolishes sugar → MN9, so
+   it cannot test suppression. Control brains instead rewire only the bitter
+   neurons' outgoing connections: each gets a postsynaptic partner drawn at
+   random from the postsynaptic partners of all connections in the brain,
+   keeping its synapse count and sign; the rest of the brain is untouched
+   (20 controls, seeds 2000–2019). Intact S (seed 0) exceeds control S
+   (seed 0) in ≥ 19 of 20.
+
+Reported, not gated: descending neurons (type starting `DN`) that fire ≥ 10 Hz
+with bitter alone (seed 0). This is a screen, not a result: any movement
+reaction it suggests needs its own pre-declared test before it is used.
+
+## Use
+
+Each behavior passes or fails on its own; a failure is reported and not tuned.
+A passing behavior enters the game only after a new combined subset, selected
+from all stimuli together, reproduces it (to be pre-declared separately).
+
+# Addendum: game subset v3 with grooming and bitter (written 2026-10-13, after both passed, before any subset run)
+
+Subset: every neuron that spikes in any whole-brain trial (seeds 0, 1, 2) of the
+seven stimuli sugar (LB3), loom (LC4+LPLC2), right LC10a, left LC10a, antenna
+(JO-C + JO-E), bitter (LB1) alone, and sugar + bitter together, plus all input
+and readout neurons (adding JO-CE, LB1, DNg62, DNge078). Connections: all
+whole-brain connections among them. Packaged as `brain_subset_v3.npz` (v1 stays
+the record of the earlier subset; v2 was the failed adaptation variant).
+
+Pass criteria on fresh seeds 10–12, subset versus whole brain, same inputs:
+1. MN9 (sugar), DNp01 (loom), DNa02 asymmetry (right LC10a; left LC10a) and aDN
+   rate (antenna) each within ±20% of the whole-brain mean.
+2. Bitter in the subset: mean MN9 with sugar + bitter ≤ 50% of the subset's
+   mean MN9 with sugar alone, and MN9 is 0 Hz with bitter alone.
+3. No input: all readouts 0 Hz.
+Reported, not gated: size, connections, package size, compute speed.
+
+Game rules (engineering, labeled as such): an antenna-dust event drives JO-CE
+at 150 Hz in a fourth brain copy ("touch") while dust remains; grooming is the
+smoothed aDN rate above 30 Hz; grooming removes dust over 2.5 s. A bitter drop
+drives LB1 together with LB3 in the taste copy on contact; feeding stays the
+existing MN9 rule. Game check, before claiming the reaction in-game: with dust,
+the intact brain grooms and the cut-wiring brain does not; at a bitter drop the
+intact brain does not feed while at a plain drop it does.
+
+## Subset v3 result and decision (written 2026-10-13, after the v3 run, before game checks)
+
+Subset v3 (27,956 neurons) passed every check except one: right-LC10a DNa02
+asymmetry was 97 Hz against the whole brain's 123 Hz (−21%, gate ±20%). Left
+turns, sugar, loom, antenna grooming and both bitter checks passed. Per the rule
+above, the selection is not adjusted. Decision (engineering): each brain copy
+uses a package that passed for its own sense. The target copy keeps subset v1
+(which passed both turn checks); the taste, loom and touch copies use v3. No
+copy receives an input its package was not checked for.

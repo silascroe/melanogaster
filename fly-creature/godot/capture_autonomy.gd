@@ -1,7 +1,8 @@
 extends SceneTree
 
-# Scripted check of the self-roaming fly, click-placed target, thrown object and
-# live brain view. Needs a graphics-enabled Godot and a running neural service.
+# Scripted check of the self-roaming fly, click-placed target, thrown object,
+# feeding, antennal grooming, a bitter drop and the live brain view. Needs a
+# graphics-enabled Godot and a running neural service.
 # Frames and telemetry go to the folder in FLY_CREATURE_CAPTURE_DIR.
 
 var scene: Node3D
@@ -89,4 +90,51 @@ func _run() -> void:
 	scene.set_process(true)
 	print("CHECK brain_compute_ms=", scene.last_trace.get("compute_ms", "--"),
 		" active_neurons=", scene.last_trace.get("active_neurons", "--"))
+	scene.close_camera = true
+	var end_meal := Time.get_ticks_msec() + 8000
+	while Time.get_ticks_msec() < end_meal and scene.feeding_now:
+		await process_frame
+	await _wait(1.0)
+	# Grooming: dust the antennae (the E key) and wait for the brain to groom.
+	scene.antenna_dust = 1.0
+	var groomed := false
+	var end_groom := Time.get_ticks_msec() + 6000
+	while Time.get_ticks_msec() < end_groom and not groomed:
+		await process_frame
+		groomed = scene.grooming_now
+	print("CHECK grooming_started=", groomed, " adn_hz=", scene.last_trace.get("adn_rate_hz", "--"))
+	await _wait(0.5)
+	_snap("8_grooming")
+	scene.close_camera = false
+	head = scene.fly_position + Vector3(sin(scene.heading_rad), 0.0, -cos(scene.heading_rad)) * 0.35
+	scene.camera.position = head + Vector3(sin(scene.heading_rad) * 1.1 + cos(scene.heading_rad) * 0.55,
+		0.3, -cos(scene.heading_rad) * 1.1 + sin(scene.heading_rad) * 0.55)
+	scene.camera.look_at(head + Vector3(0.0, 0.12, 0.0), Vector3.UP)
+	scene.set_process(false)
+	await _wait(0.3)
+	_snap("9_grooming_closeup")
+	scene.set_process(true)
+	scene.close_camera = true
+	var end_clean := Time.get_ticks_msec() + 8000
+	while Time.get_ticks_msec() < end_clean and (scene.grooming_now or scene.antenna_dust > 0.0):
+		await process_frame
+	print("CHECK grooming_stopped=", not scene.grooming_now, " dust=", snappedf(scene.antenna_dust, 0.01))
+	# Bitter drop: the same approach, but the drop is laced with something bitter.
+	await _wait(1.0)
+	ahead = Vector3(sin(scene.heading_rad), 0.0, -cos(scene.heading_rad)) * 2.0
+	drop = scene.fly_position + ahead
+	scene.place_sugar(drop, true)
+	scene.place_beacon(drop)
+	var bitter_contact := false
+	var bitter_fed := false
+	var end_bitter := Time.get_ticks_msec() + 12000
+	while Time.get_ticks_msec() < end_bitter:
+		await process_frame
+		bitter_contact = bitter_contact or bool(scene.last_trace.get("taste", {}).get("bitter", false))
+		bitter_fed = bitter_fed or scene.feeding_now
+		if bitter_contact and scene.taste_wait_s <= 0.0 and not scene.beacon_mode:
+			break
+	_snap("10_bitter_drop")
+	print("CHECK bitter_contact=", bitter_contact, " bitter_fed=", bitter_fed,
+		" mn9_hz=", scene.last_trace.get("mn9_rate_hz", "--"))
 	quit()

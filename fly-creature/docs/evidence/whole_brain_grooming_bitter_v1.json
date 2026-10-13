@@ -1,0 +1,1098 @@
+{
+  "grooming": {
+    "inputs": 335,
+    "adn_body_ids": [
+      13624,
+      15148,
+      14537,
+      36541
+    ],
+    "adn_rate_hz": [
+      203.0,
+      198.5,
+      203.75
+    ],
+    "no_input_hz": 0.0,
+    "shuffle_adn_hz": [
+      0.0,
+      2.5,
+      0.0,
+      0.0,
+      0.0,
+      0.25,
+      0.0,
+      0.0,
+      3.25,
+      0.0,
+      0.0,
+      3.0,
+      0.0,
+      0.5,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "shuffles_beaten": 20,
+    "pass": true,
+    "reported": {
+      "adn1_dng62_hz": 225.5,
+      "adn2_dnge078_hz": 180.5,
+      "jo_ab_inputs": 138,
+      "adn_hz_from_jo_ab": 0.0,
+      "jo_f_inputs": 78,
+      "adn_hz_from_jo_f": 0.0,
+      "active_neurons_seed0": 17690
+    }
+  },
+  "bitter": {
+    "inputs": 57,
+    "sugar_inputs": 86,
+    "mn9_sugar_hz": [
+      78.0,
+      76.0,
+      66.0
+    ],
+    "mn9_sugar_bitter_hz": [
+      0.5,
+      0.0,
+      1.0
+    ],
+    "mn9_bitter_hz": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "suppression_seed0": 0.9935897435897436,
+    "control_mn9_hz_sugar_and_mixed": [
+      [
+        78.0,
+        79.5
+      ],
+      [
+        78.0,
+        68.5
+      ],
+      [
+        78.0,
+        67.0
+      ],
+      [
+        78.0,
+        74.0
+      ],
+      [
+        78.0,
+        78.0
+      ],
+      [
+        78.0,
+        65.0
+      ],
+      [
+        78.0,
+        67.0
+      ],
+      [
+        78.0,
+        62.5
+      ],
+      [
+        78.0,
+        91.0
+      ],
+      [
+        78.0,
+        71.0
+      ],
+      [
+        78.0,
+        64.5
+      ],
+      [
+        78.0,
+        76.0
+      ],
+      [
+        78.0,
+        68.0
+      ],
+      [
+        78.0,
+        67.5
+      ],
+      [
+        78.0,
+        72.5
+      ],
+      [
+        78.0,
+        52.0
+      ],
+      [
+        78.0,
+        88.0
+      ],
+      [
+        78.0,
+        83.0
+      ],
+      [
+        78.0,
+        75.5
+      ],
+      [
+        78.0,
+        65.5
+      ]
+    ],
+    "control_suppression": [
+      -0.019230769230769162,
+      0.1217948717948718,
+      0.14102564102564108,
+      0.05128205128205132,
+      0.0,
+      0.16666666666666663,
+      0.14102564102564108,
+      0.19871794871794868,
+      -0.16666666666666674,
+      0.08974358974358976,
+      0.17307692307692313,
+      0.02564102564102566,
+      0.1282051282051282,
+      0.13461538461538458,
+      0.07051282051282048,
+      0.33333333333333337,
+      -0.1282051282051282,
+      -0.0641025641025641,
+      0.03205128205128205,
+      0.16025641025641024
+    ],
+    "controls_beaten": 20,
+    "pass": true,
+    "reported_dn_screen_bitter_alone": [
+      {
+        "type": "DNb05",
+        "side": "R",
+        "body_id": 10065,
+        "rate_hz": 364.0
+      },
+      {
+        "type": "DNb05",
+        "side": "L",
+        "body_id": 10118,
+        "rate_hz": 345.0
+      },
+      {
+        "type": "DNg33",
+        "side": "R",
+        "body_id": 13442,
+        "rate_hz": 304.0
+      },
+      {
+        "type": "DNg33",
+        "side": "L",
+        "body_id": 13317,
+        "rate_hz": 303.0
+      },
+      {
+        "type": "DNge138",
+        "side": "M",
+        "body_id": 12151,
+        "rate_hz": 220.0
+      },
+      {
+        "type": "DNge138",
+        "side": "M",
+        "body_id": 10447,
+        "rate_hz": 218.0
+      },
+      {
+        "type": "DNg56",
+        "side": "R",
+        "body_id": 10033,
+        "rate_hz": 214.0
+      },
+      {
+        "type": "DNp12",
+        "side": "R",
+        "body_id": 800845,
+        "rate_hz": 205.0
+      },
+      {
+        "type": "DNp32",
+        "side": "R",
+        "body_id": 524968,
+        "rate_hz": 202.0
+      },
+      {
+        "type": "DNg56",
+        "side": "L",
+        "body_id": 12621,
+        "rate_hz": 192.0
+      },
+      {
+        "type": "DNp31",
+        "side": "L",
+        "body_id": 10249,
+        "rate_hz": 191.0
+      },
+      {
+        "type": "DNp31",
+        "side": "R",
+        "body_id": 10264,
+        "rate_hz": 188.0
+      },
+      {
+        "type": "DNp12",
+        "side": "L",
+        "body_id": 11072,
+        "rate_hz": 188.0
+      },
+      {
+        "type": "DNp32",
+        "side": "L",
+        "body_id": 556286,
+        "rate_hz": 184.0
+      },
+      {
+        "type": "DNg34",
+        "side": "L",
+        "body_id": 10295,
+        "rate_hz": 169.0
+      },
+      {
+        "type": "DNc02",
+        "side": "R",
+        "body_id": 10342,
+        "rate_hz": 166.0
+      },
+      {
+        "type": "DNge149",
+        "side": "M",
+        "body_id": 11466,
+        "rate_hz": 166.0
+      },
+      {
+        "type": "DNpe007",
+        "side": "R",
+        "body_id": 518309,
+        "rate_hz": 159.0
+      },
+      {
+        "type": "DNge150",
+        "side": "M",
+        "body_id": 12405,
+        "rate_hz": 158.0
+      },
+      {
+        "type": "DNpe007",
+        "side": "L",
+        "body_id": 11201,
+        "rate_hz": 152.0
+      },
+      {
+        "type": "DNc01",
+        "side": "L",
+        "body_id": 11369,
+        "rate_hz": 146.0
+      },
+      {
+        "type": "DNg70",
+        "side": "L",
+        "body_id": 11131,
+        "rate_hz": 144.0
+      },
+      {
+        "type": "DNp102",
+        "side": "L",
+        "body_id": 11846,
+        "rate_hz": 141.0
+      },
+      {
+        "type": "DNp102",
+        "side": "R",
+        "body_id": 11373,
+        "rate_hz": 133.0
+      },
+      {
+        "type": "DNpe032",
+        "side": "L",
+        "body_id": 11614,
+        "rate_hz": 129.0
+      },
+      {
+        "type": "DNg66",
+        "side": "M",
+        "body_id": 13432,
+        "rate_hz": 123.0
+      },
+      {
+        "type": "DNge031",
+        "side": "R",
+        "body_id": 10313,
+        "rate_hz": 121.0
+      },
+      {
+        "type": "DNge151",
+        "side": "M",
+        "body_id": 14387,
+        "rate_hz": 120.0
+      },
+      {
+        "type": "DNge152",
+        "side": "M",
+        "body_id": 11540,
+        "rate_hz": 117.0
+      },
+      {
+        "type": "DNp19",
+        "side": "R",
+        "body_id": 564864,
+        "rate_hz": 116.0
+      },
+      {
+        "type": "DNg99",
+        "side": "R",
+        "body_id": 10236,
+        "rate_hz": 114.0
+      },
+      {
+        "type": "DNg70",
+        "side": "R",
+        "body_id": 10967,
+        "rate_hz": 113.0
+      },
+      {
+        "type": "DNp19",
+        "side": "L",
+        "body_id": 10341,
+        "rate_hz": 111.0
+      },
+      {
+        "type": "DNge141",
+        "side": "L",
+        "body_id": 11420,
+        "rate_hz": 109.0
+      },
+      {
+        "type": "DNg104",
+        "side": "R",
+        "body_id": 11302,
+        "rate_hz": 107.0
+      },
+      {
+        "type": "DNg34",
+        "side": "R",
+        "body_id": 13585,
+        "rate_hz": 107.0
+      },
+      {
+        "type": "DNae006",
+        "side": "L",
+        "body_id": 14271,
+        "rate_hz": 107.0
+      },
+      {
+        "type": "DNge141",
+        "side": "R",
+        "body_id": 11103,
+        "rate_hz": 103.0
+      },
+      {
+        "type": "DNpe027",
+        "side": "L",
+        "body_id": 515029,
+        "rate_hz": 99.0
+      },
+      {
+        "type": "DNpe053",
+        "side": "R",
+        "body_id": 20418,
+        "rate_hz": 94.0
+      },
+      {
+        "type": "DNg11",
+        "side": "L",
+        "body_id": 14686,
+        "rate_hz": 92.0
+      },
+      {
+        "type": "DNc02",
+        "side": "L",
+        "body_id": 10705,
+        "rate_hz": 91.0
+      },
+      {
+        "type": "DNp68",
+        "side": "L",
+        "body_id": 11674,
+        "rate_hz": 87.0
+      },
+      {
+        "type": "DNg99",
+        "side": "L",
+        "body_id": 11075,
+        "rate_hz": 85.0
+      },
+      {
+        "type": "DNbe002",
+        "side": "L",
+        "body_id": 519715,
+        "rate_hz": 80.0
+      },
+      {
+        "type": "DNpe027",
+        "side": "R",
+        "body_id": 12223,
+        "rate_hz": 79.0
+      },
+      {
+        "type": "DNp44",
+        "side": "R",
+        "body_id": 513079,
+        "rate_hz": 79.0
+      },
+      {
+        "type": "DNpe032",
+        "side": "R",
+        "body_id": 801976,
+        "rate_hz": 78.0
+      },
+      {
+        "type": "DNc01",
+        "side": "R",
+        "body_id": 512245,
+        "rate_hz": 77.0
+      },
+      {
+        "type": "DNge043",
+        "side": "L",
+        "body_id": 11458,
+        "rate_hz": 75.0
+      },
+      {
+        "type": "DNg98",
+        "side": "R",
+        "body_id": 10959,
+        "rate_hz": 74.0
+      },
+      {
+        "type": "DNge054",
+        "side": "R",
+        "body_id": 10296,
+        "rate_hz": 73.0
+      },
+      {
+        "type": "DNg98",
+        "side": "L",
+        "body_id": 10394,
+        "rate_hz": 73.0
+      },
+      {
+        "type": "DNge047",
+        "side": "R",
+        "body_id": 10822,
+        "rate_hz": 73.0
+      },
+      {
+        "type": "DNg110",
+        "side": "R",
+        "body_id": 20923,
+        "rate_hz": 73.0
+      },
+      {
+        "type": "DNae006",
+        "side": "R",
+        "body_id": 14332,
+        "rate_hz": 71.0
+      },
+      {
+        "type": "DNbe002",
+        "side": "L",
+        "body_id": 12443,
+        "rate_hz": 70.0
+      },
+      {
+        "type": "DNpe013",
+        "side": "L",
+        "body_id": 10834,
+        "rate_hz": 69.0
+      },
+      {
+        "type": "DNp15",
+        "side": "R",
+        "body_id": 11215,
+        "rate_hz": 69.0
+      },
+      {
+        "type": "DNg19",
+        "side": "L",
+        "body_id": 12635,
+        "rate_hz": 68.0
+      },
+      {
+        "type": "DNp41",
+        "side": "L",
+        "body_id": 12762,
+        "rate_hz": 68.0
+      },
+      {
+        "type": "DNg20",
+        "side": "R",
+        "body_id": 13348,
+        "rate_hz": 68.0
+      },
+      {
+        "type": "DNg55",
+        "side": "M",
+        "body_id": 15105,
+        "rate_hz": 68.0
+      },
+      {
+        "type": "DNg57",
+        "side": "R",
+        "body_id": 20643,
+        "rate_hz": 68.0
+      },
+      {
+        "type": "DNp52",
+        "side": "L",
+        "body_id": 11121,
+        "rate_hz": 67.0
+      },
+      {
+        "type": "DNbe002",
+        "side": "R",
+        "body_id": 96106,
+        "rate_hz": 67.0
+      },
+      {
+        "type": "DNge127",
+        "side": "R",
+        "body_id": 14247,
+        "rate_hz": 65.0
+      },
+      {
+        "type": "DNge016",
+        "side": "L",
+        "body_id": 512720,
+        "rate_hz": 63.0
+      },
+      {
+        "type": "DNge054",
+        "side": "L",
+        "body_id": 10377,
+        "rate_hz": 62.0
+      },
+      {
+        "type": "DNp41",
+        "side": "L",
+        "body_id": 15502,
+        "rate_hz": 62.0
+      },
+      {
+        "type": "DNg11",
+        "side": "R",
+        "body_id": 909612,
+        "rate_hz": 60.0
+      },
+      {
+        "type": "DNge067",
+        "side": "R",
+        "body_id": 12484,
+        "rate_hz": 59.0
+      },
+      {
+        "type": "DNp08",
+        "side": "L",
+        "body_id": 518177,
+        "rate_hz": 59.0
+      },
+      {
+        "type": "DNp41",
+        "side": "R",
+        "body_id": 15939,
+        "rate_hz": 58.0
+      },
+      {
+        "type": "DNbe002",
+        "side": "R",
+        "body_id": 12239,
+        "rate_hz": 57.0
+      },
+      {
+        "type": "DNg11",
+        "side": "L",
+        "body_id": 16399,
+        "rate_hz": 57.0
+      },
+      {
+        "type": "DNp21",
+        "side": "R",
+        "body_id": 15024,
+        "rate_hz": 55.0
+      },
+      {
+        "type": "DNbe007",
+        "side": "R",
+        "body_id": 11365,
+        "rate_hz": 54.0
+      },
+      {
+        "type": "DNp25",
+        "side": "R",
+        "body_id": 13257,
+        "rate_hz": 54.0
+      },
+      {
+        "type": "DNg20",
+        "side": "L",
+        "body_id": 15673,
+        "rate_hz": 54.0
+      },
+      {
+        "type": "DNp41",
+        "side": "R",
+        "body_id": 15028,
+        "rate_hz": 53.0
+      },
+      {
+        "type": "DNge033",
+        "side": "R",
+        "body_id": 12787,
+        "rate_hz": 51.0
+      },
+      {
+        "type": "DNge175",
+        "side": "L",
+        "body_id": 20234,
+        "rate_hz": 50.0
+      },
+      {
+        "type": "DNp18",
+        "side": "L",
+        "body_id": 10048,
+        "rate_hz": 48.0
+      },
+      {
+        "type": "DNg19",
+        "side": "R",
+        "body_id": 11198,
+        "rate_hz": 46.0
+      },
+      {
+        "type": "DNg89",
+        "side": "R",
+        "body_id": 14306,
+        "rate_hz": 41.0
+      },
+      {
+        "type": "DNg11",
+        "side": "R",
+        "body_id": 15568,
+        "rate_hz": 41.0
+      },
+      {
+        "type": "DNp44",
+        "side": "L",
+        "body_id": 12620,
+        "rate_hz": 38.0
+      },
+      {
+        "type": "DNg02_a",
+        "side": "L",
+        "body_id": 21122,
+        "rate_hz": 38.0
+      },
+      {
+        "type": "DNp73",
+        "side": "R",
+        "body_id": 10354,
+        "rate_hz": 37.0
+      },
+      {
+        "type": "DNbe007",
+        "side": "L",
+        "body_id": 10800,
+        "rate_hz": 37.0
+      },
+      {
+        "type": "DNp65",
+        "side": "R",
+        "body_id": 14029,
+        "rate_hz": 37.0
+      },
+      {
+        "type": "DNge175",
+        "side": "R",
+        "body_id": 15483,
+        "rate_hz": 37.0
+      },
+      {
+        "type": "DNge136",
+        "side": "L",
+        "body_id": 12085,
+        "rate_hz": 36.0
+      },
+      {
+        "type": "DNge123",
+        "side": "R",
+        "body_id": 12705,
+        "rate_hz": 36.0
+      },
+      {
+        "type": "DNge016",
+        "side": "R",
+        "body_id": 15065,
+        "rate_hz": 36.0
+      },
+      {
+        "type": "DNge084",
+        "side": "R",
+        "body_id": 11600,
+        "rate_hz": 35.0
+      },
+      {
+        "type": "DNge107",
+        "side": "R",
+        "body_id": 10846,
+        "rate_hz": 34.0
+      },
+      {
+        "type": "DNb02",
+        "side": "R",
+        "body_id": 13922,
+        "rate_hz": 34.0
+      },
+      {
+        "type": "DNp52",
+        "side": "R",
+        "body_id": 15833,
+        "rate_hz": 33.0
+      },
+      {
+        "type": "DNg110",
+        "side": "R",
+        "body_id": 22692,
+        "rate_hz": 33.0
+      },
+      {
+        "type": "DNpe017",
+        "side": "L",
+        "body_id": 10527,
+        "rate_hz": 31.0
+      },
+      {
+        "type": "DNp54",
+        "side": "L",
+        "body_id": 11261,
+        "rate_hz": 31.0
+      },
+      {
+        "type": "DNp65",
+        "side": "L",
+        "body_id": 17367,
+        "rate_hz": 31.0
+      },
+      {
+        "type": "DNp27",
+        "side": "L",
+        "body_id": 536048,
+        "rate_hz": 31.0
+      },
+      {
+        "type": "DNb02",
+        "side": "R",
+        "body_id": 10805,
+        "rate_hz": 30.0
+      },
+      {
+        "type": "DNpe004",
+        "side": "L",
+        "body_id": 15072,
+        "rate_hz": 30.0
+      },
+      {
+        "type": "DNpe053",
+        "side": "L",
+        "body_id": 10286,
+        "rate_hz": 29.0
+      },
+      {
+        "type": "DNp73",
+        "side": "L",
+        "body_id": 10446,
+        "rate_hz": 29.0
+      },
+      {
+        "type": "DNa16",
+        "side": "R",
+        "body_id": 10543,
+        "rate_hz": 29.0
+      },
+      {
+        "type": "DNge136",
+        "side": "R",
+        "body_id": 12750,
+        "rate_hz": 29.0
+      },
+      {
+        "type": "DNp58",
+        "side": "L",
+        "body_id": 26636,
+        "rate_hz": 29.0
+      },
+      {
+        "type": "DNb09",
+        "side": "L",
+        "body_id": 11028,
+        "rate_hz": 28.0
+      },
+      {
+        "type": "DNge043",
+        "side": "R",
+        "body_id": 11500,
+        "rate_hz": 28.0
+      },
+      {
+        "type": "DNp62",
+        "side": "R",
+        "body_id": 10504,
+        "rate_hz": 27.0
+      },
+      {
+        "type": "DNpe025",
+        "side": "R",
+        "body_id": 10601,
+        "rate_hz": 27.0
+      },
+      {
+        "type": "DNge103",
+        "side": "L",
+        "body_id": 10979,
+        "rate_hz": 27.0
+      },
+      {
+        "type": "DNg18_a",
+        "side": "L",
+        "body_id": 79892,
+        "rate_hz": 27.0
+      },
+      {
+        "type": "DNd04",
+        "side": "R",
+        "body_id": 11931,
+        "rate_hz": 26.0
+      },
+      {
+        "type": "DNg18_b",
+        "side": "L",
+        "body_id": 31790,
+        "rate_hz": 23.0
+      },
+      {
+        "type": "DNp54",
+        "side": "R",
+        "body_id": 11505,
+        "rate_hz": 22.0
+      },
+      {
+        "type": "DNg52",
+        "side": "R",
+        "body_id": 13268,
+        "rate_hz": 22.0
+      },
+      {
+        "type": "DNpe025",
+        "side": "L",
+        "body_id": 10449,
+        "rate_hz": 21.0
+      },
+      {
+        "type": "DNge067",
+        "side": "L",
+        "body_id": 11097,
+        "rate_hz": 21.0
+      },
+      {
+        "type": "DNge006",
+        "side": "R",
+        "body_id": 10668,
+        "rate_hz": 20.0
+      },
+      {
+        "type": "DNge136",
+        "side": "R",
+        "body_id": 12407,
+        "rate_hz": 20.0
+      },
+      {
+        "type": "DNae007",
+        "side": "L",
+        "body_id": 521190,
+        "rate_hz": 20.0
+      },
+      {
+        "type": "DNb09",
+        "side": "R",
+        "body_id": 10411,
+        "rate_hz": 19.0
+      },
+      {
+        "type": "DNp21",
+        "side": "L",
+        "body_id": 13403,
+        "rate_hz": 19.0
+      },
+      {
+        "type": "DNg02_a",
+        "side": "L",
+        "body_id": 22404,
+        "rate_hz": 18.0
+      },
+      {
+        "type": "DNg92_a",
+        "side": "R",
+        "body_id": 197252,
+        "rate_hz": 18.0
+      },
+      {
+        "type": "DNae001",
+        "side": "L",
+        "body_id": 512071,
+        "rate_hz": 18.0
+      },
+      {
+        "type": "DNp104",
+        "side": "R",
+        "body_id": 521317,
+        "rate_hz": 18.0
+      },
+      {
+        "type": "DNp27",
+        "side": "R",
+        "body_id": 10063,
+        "rate_hz": 17.0
+      },
+      {
+        "type": "DNge172",
+        "side": "R",
+        "body_id": 13888,
+        "rate_hz": 17.0
+      },
+      {
+        "type": "DNge015",
+        "side": "L",
+        "body_id": 27490,
+        "rate_hz": 17.0
+      },
+      {
+        "type": "DNg110",
+        "side": "L",
+        "body_id": 23341,
+        "rate_hz": 16.0
+      },
+      {
+        "type": "DNg52",
+        "side": "R",
+        "body_id": 525595,
+        "rate_hz": 16.0
+      },
+      {
+        "type": "DNpe002",
+        "side": "R",
+        "body_id": 800868,
+        "rate_hz": 16.0
+      },
+      {
+        "type": "DNg90",
+        "side": "L",
+        "body_id": 10160,
+        "rate_hz": 15.0
+      },
+      {
+        "type": "DNg02_a",
+        "side": "L",
+        "body_id": 25852,
+        "rate_hz": 15.0
+      },
+      {
+        "type": "DNde007",
+        "side": "R",
+        "body_id": 11739,
+        "rate_hz": 14.0
+      },
+      {
+        "type": "DNg92_a",
+        "side": "L",
+        "body_id": 188933,
+        "rate_hz": 14.0
+      },
+      {
+        "type": "DNp26",
+        "side": "R",
+        "body_id": 515575,
+        "rate_hz": 14.0
+      },
+      {
+        "type": "DNge031",
+        "side": "L",
+        "body_id": 10135,
+        "rate_hz": 13.0
+      },
+      {
+        "type": "DNg41",
+        "side": "R",
+        "body_id": 13229,
+        "rate_hz": 13.0
+      },
+      {
+        "type": "DNg79",
+        "side": "R",
+        "body_id": 13649,
+        "rate_hz": 13.0
+      },
+      {
+        "type": "DNge041",
+        "side": "R",
+        "body_id": 10304,
+        "rate_hz": 12.0
+      },
+      {
+        "type": "DNp08",
+        "side": "R",
+        "body_id": 10464,
+        "rate_hz": 12.0
+      },
+      {
+        "type": "DNge107",
+        "side": "L",
+        "body_id": 10952,
+        "rate_hz": 12.0
+      },
+      {
+        "type": "DNg13",
+        "side": "R",
+        "body_id": 512006,
+        "rate_hz": 11.0
+      },
+      {
+        "type": "DNbe001",
+        "side": "R",
+        "body_id": 524470,
+        "rate_hz": 11.0
+      },
+      {
+        "type": "DNp29",
+        "side": "R",
+        "body_id": 10195,
+        "rate_hz": 10.0
+      }
+    ],
+    "active_neurons_bitter_seed0": 15100
+  },
+  "runtime_s": 542
+}

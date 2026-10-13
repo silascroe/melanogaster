@@ -18,6 +18,7 @@ const SEARCH_TURN_RATE := 1.6
 const SUGAR_RADIUS := 0.22
 const SUGAR_EAT_S := 4.0
 const TASTE_WAIT_S := 1.2
+const GROOM_CLEAN_S := 2.5
 
 @onready var bridge: NeuralBridge = $NeuralBridge
 @onready var fly_actor: FlyActor = $Fly
@@ -63,6 +64,13 @@ var sugar_position := Vector3.ZERO
 var sugar_eaten_s := 0.0
 var taste_wait_s := 0.0
 var feeding_now := false
+# Bitter drop (shift + right-click): the same drop laced with something bitter.
+var sugar_bitter := false
+var sugar_material: StandardMaterial3D
+# Antenna dust (E). Touch input and the decision to groom come from the brain;
+# the dust coming off while the fly grooms is engineered.
+var antenna_dust := 0.0
+var grooming_now := false
 var pursuit_time := 0.0
 var target_position := Vector3(-2.9, 0.45, -6.5)
 var steering_turn_rate := 0.0
@@ -146,6 +154,10 @@ func _process(delta: float) -> void:
 		fly_actor.set_feeding(feeding_now, sugar_position, SUGAR_RADIUS * drop_scale)
 	else:
 		fly_actor.set_feeding(feeding_now)
+	if grooming_now:
+		antenna_dust = maxf(0.0, antenna_dust - delta / GROOM_CLEAN_S)
+	fly_actor.set_dust(antenna_dust)
+	fly_actor.set_grooming(grooming_now)
 	if sugar_active and feeding_now:
 		sugar_eaten_s += delta
 		if sugar_eaten_s >= SUGAR_EAT_S:
@@ -166,7 +178,9 @@ func _process(delta: float) -> void:
 				{"x": fly_position.x, "z": fly_position.z, "heading_rad": heading_rad},
 				{"x": ball_position.x, "z": ball_position.z, "radius": BALL_RADIUS, "active": ball_active},
 				{"x": target_position.x, "z": target_position.z, "active": pursuit_enabled},
-				{"x": sugar_position.x, "z": sugar_position.z, "radius": SUGAR_RADIUS, "active": sugar_active})
+				{"x": sugar_position.x, "z": sugar_position.z, "radius": SUGAR_RADIUS, "active": sugar_active,
+					"bitter": sugar_bitter},
+				{"active": antenna_dust > 0.0})
 	if not animation_demo and not walking_demo:
 		_update_hud()
 	if pursuit_demo and Engine.get_process_frames() % 60 == 0:
@@ -197,15 +211,17 @@ func _unhandled_input(event: InputEvent) -> void:
 	if hit == null:
 		return
 	if click.button_index == MOUSE_BUTTON_RIGHT:
-		place_sugar(hit)
+		place_sugar(hit, click.shift_pressed)
 	place_beacon(hit)
 
 
-func place_sugar(floor_point: Vector3) -> void:
+func place_sugar(floor_point: Vector3, bitter := false) -> void:
 	sugar_position = Vector3(clampf(floor_point.x, -ROOM_HALF_SIZE + 1.0, ROOM_HALF_SIZE - 1.0), 0.0,
 		clampf(floor_point.z, -ROOM_HALF_SIZE + 1.0, ROOM_HALF_SIZE - 1.0))
 	sugar_active = true
 	sugar_eaten_s = 0.0
+	sugar_bitter = bitter
+	sugar_material.albedo_color = Color(0.72, 0.86, 0.50, 0.78) if bitter else Color(1.0, 0.86, 0.55, 0.78)
 
 
 func place_beacon(floor_point: Vector3) -> void:
@@ -237,6 +253,9 @@ func _unhandled_key_input(event: InputEvent) -> void:
 			get_tree().change_scene_to_file("res://playground.tscn")
 		KEY_SPACE:
 			_launch_ball()
+		KEY_E:
+			antenna_dust = 1.0
+			service_message = "Dust on the antennae: Johnston's organ input"
 		KEY_R:
 			_start_session()
 		KEY_C:
@@ -293,7 +312,7 @@ func _move_fly(delta: float) -> void:
 	if fly_actor.is_recovering():
 		walking_now = false
 		return
-	if feeding_now:
+	if feeding_now or grooming_now:
 		walking_now = false
 		return
 	if taste_wait_s > 0.0:
@@ -302,7 +321,7 @@ func _move_fly(delta: float) -> void:
 		if taste_wait_s <= 0.0:
 			roam_enabled = true
 			roam_goal = fly_position
-			service_message = "No feeding response; roaming again"
+			service_message = "No feeding response%s; roaming again" % (" to the bitter drop" if sugar_bitter else "")
 		return
 	if pursuit_enabled:
 		var walk_speed := PURSUIT_WALK_SPEED
@@ -477,6 +496,8 @@ func _start_session() -> void:
 	sugar_eaten_s = 0.0
 	taste_wait_s = 0.0
 	feeding_now = false
+	antenna_dust = 0.0
+	grooming_now = false
 	service_message = "Starting %s neural session..." % condition
 	bridge.start_session(condition, steering_model)
 
@@ -506,6 +527,12 @@ func _on_step_ready(payload: Dictionary) -> void:
 		roam_enabled = true
 		roam_goal = fly_position
 		service_message = "Stopped feeding; roaming again"
+	var was_grooming := grooming_now
+	grooming_now = bool(payload.get("grooming", false))
+	if grooming_now and not was_grooming:
+		service_message = "aDN firing: grooming the antennae"
+	elif was_grooming and not grooming_now:
+		service_message = "Antennae clean; aDN quiet"
 
 
 func _on_bridge_failed(message: String) -> void:
@@ -521,8 +548,9 @@ func _update_hud() -> void:
 	var line := "Target bearing %s deg   neural turn %s rad/s" % [bearing_text, turn_text]
 	if last_trace.has("brain_neurons"):
 		line += "   |   brain step %s ms per 50 ms" % last_trace.get("compute_ms", "--")
-	detail_label.text = "Fly roams on its own  |  LEFT-CLICK: target  |  RIGHT-CLICK: sugar drop  |  SPACE: throw object  |  C: cut wiring\n" \
-		+ "WASD take over  |  V moving target  |  B brain model  |  G roam  |  T fly  |  F camera  |  R reset  |  P playground\n" \
+	detail_label.text = "Fly roams on its own  |  LEFT-CLICK: target  |  RIGHT-CLICK: sugar drop (SHIFT: bitter)  |  SPACE: throw object\n" \
+		+ "E: dust antennae  |  C: cut wiring  |  WASD take over  |  V moving target  |  B brain model\n" \
+		+ "G roam  |  T fly  |  F camera  |  R reset  |  P playground\n" \
 		+ line + "\n" \
 		+ "Senses, action rules, walking and animation are engineered; wiring is MaleCNS data."
 
@@ -584,11 +612,11 @@ func _build_sugar() -> void:
 	var drop := MeshInstance3D.new()
 	drop.mesh = mesh
 	drop.position.y = SUGAR_RADIUS * 0.3
-	var material := StandardMaterial3D.new()
-	material.albedo_color = Color(1.0, 0.86, 0.55, 0.78)
-	material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-	material.roughness = 0.08
-	drop.material_override = material
+	sugar_material = StandardMaterial3D.new()
+	sugar_material.albedo_color = Color(1.0, 0.86, 0.55, 0.78)
+	sugar_material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+	sugar_material.roughness = 0.08
+	drop.material_override = sugar_material
 	sugar_root.add_child(drop)
 	sugar_root.visible = false
 
@@ -632,8 +660,8 @@ func _build_hud() -> void:
 	status_label.add_theme_font_size_override("font_size", 20)
 	panel.add_child(status_label)
 	var detail_panel := PanelContainer.new()
-	detail_panel.position = Vector2(22.0, get_viewport().get_visible_rect().size.y - 122.0)
-	detail_panel.custom_minimum_size = Vector2(880.0, 100.0)
+	detail_panel.position = Vector2(22.0, get_viewport().get_visible_rect().size.y - 144.0)
+	detail_panel.custom_minimum_size = Vector2(880.0, 122.0)
 	layer.add_child(detail_panel)
 	detail_label = Label.new()
 	detail_label.add_theme_font_size_override("font_size", 16)

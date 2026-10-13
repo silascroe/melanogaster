@@ -76,6 +76,8 @@ const SONG_SPREAD := 1.35
 const SONG_VIBRATE_RATE := 70.0
 const SONG_VIBRATE := 0.09
 const SONG_BLEND_RATE := 4.0
+# +1 walking forwards, -1 backing up: which way swinging feet are placed.
+var step_direction := 1.0
 
 
 func _ready() -> void:
@@ -236,6 +238,11 @@ func set_singing(singing: bool, side: String) -> void:
 
 
 ## Show dust on the antennae, 0 (clean) to 1.
+## Backing up: feet now land behind their rest spots instead of ahead.
+func set_backing(backing: bool) -> void:
+	step_direction = -1.0 if backing else 1.0
+
+
 func set_dust(amount: float) -> void:
 	for speck in dust_specks:
 		speck.visible = amount > 0.02
@@ -516,7 +523,7 @@ func _animate_legs(airborne: bool, walking: bool, delta: float, speed: float) ->
 				var marker: Node3D = leg["foot"]
 				leg["swing_from"] = marker.global_position
 				var lead := 0.075 if index % 3 == 0 else (0.06 if index % 3 == 1 else 0.05)
-				leg["swing_to"] = rest_ground + forward * lead
+				leg["swing_to"] = rest_ground + forward * lead * step_direction
 				leg["swing_elapsed"] = 0.0
 				leg["swinging"] = true
 			if bool(leg["swinging"]):

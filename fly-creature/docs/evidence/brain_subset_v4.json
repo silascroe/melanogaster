@@ -1,0 +1,22 @@
+{
+  "neurons": 4871,
+  "connections": 367424,
+  "package_mb": 0.9,
+  "mdn_whole_hz": [
+    13.75,
+    13.0,
+    15.0
+  ],
+  "mdn_subset_hz": [
+    15.0,
+    15.25,
+    12.5
+  ],
+  "no_input_mdn_hz": 0.0,
+  "busy_seconds_per_simulated_second": 0.07,
+  "checks": {
+    "mdn_within_20pct": true,
+    "silent_without_input": true
+  },
+  "pass": true
+}

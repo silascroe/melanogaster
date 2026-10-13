@@ -12,16 +12,20 @@ SUGAR_AT_MOUTH = {"x": 0.0, "z": -0.4, "radius": 0.22, "active": True}
 BITTER_AT_MOUTH = {**SUGAR_AT_MOUTH, "bitter": True}
 DUST = {"active": True}
 NO_DUST = {"active": False}
+PRESSED = {"active": True}
+NOT_PRESSED = {"active": False}
 TARGET_RIGHT = {"x": 3.0, "z": -3.0, "active": True}   # 45 degrees right
 TARGET_LEFT = {"x": -3.0, "z": -3.0, "active": True}
 
 
-def _frames(session, seconds, *, obj=NO_OBJECT, target=NO_TARGET, sugar=NO_SUGAR, touch=NO_DUST):
+def _frames(session, seconds, *, obj=NO_OBJECT, target=NO_TARGET, sugar=NO_SUGAR, touch=NO_DUST,
+            obstacle=NOT_PRESSED):
     out = []
     for _ in range(int(round(seconds / 0.05))):
         o = obj(len(out)) if callable(obj) else obj
         out.append(session.step({"dt_ms": 50.0, "fly": FLY, "object": o,
-                                 "target": target, "sugar": sugar, "touch": touch}))
+                                 "target": target, "sugar": sugar, "touch": touch,
+                                 "obstacle": obstacle}))
     return out
 
 
@@ -68,11 +72,13 @@ def test_g4_cut_wiring_gives_no_actions():
     frames = (_loom(BrainSession("disconnected"))
               + _frames(BrainSession("disconnected"), 3.0, target=TARGET_RIGHT)
               + _frames(BrainSession("disconnected"), 2.0, sugar=SUGAR_AT_MOUTH)
-              + _frames(BrainSession("disconnected"), 2.0, touch=DUST))
+              + _frames(BrainSession("disconnected"), 2.0, touch=DUST)
+              + _frames(BrainSession("disconnected"), 2.0, obstacle=PRESSED))
     assert not any(f["jump"] for f in frames)
     assert not any(f["feeding"] for f in frames)
     assert not any(f["grooming"] for f in frames)
     assert not any(f["singing"] for f in frames)
+    assert not any(f["backing"] for f in frames)
     assert all(abs(f["steering"]["turn_rate_rad_s"]) < 0.05 for f in frames)
 
 
@@ -99,3 +105,15 @@ def test_g7_seen_target_drives_song_on_its_side_then_stops():
     assert not after[-1]["singing"]
     left = _frames(BrainSession("intact"), 2.0, target=TARGET_LEFT)
     assert left[-1]["singing"] and left[-1]["song_side"] == "L"
+
+
+def test_g8_forelegs_pressed_drive_backing_up_then_stops():
+    session = BrainSession("intact")
+    pressed = _frames(session, 0.5, obstacle=PRESSED)
+    after = _frames(session, 1.5)
+    assert pressed[0]["brain_packages"]["obstacle"] == "v4"
+    # In the game the fly loses contact once it backs off, so the onset is what
+    # matters; sustained pressing past ~1 s can drift into an MDN-silent state.
+    assert any(f["backing"] for f in pressed)
+    assert not after[-1]["backing"]
+    assert not any(f["feeding"] or f["grooming"] or f["singing"] for f in pressed + after)

@@ -10,7 +10,8 @@ resting copy without input is not simulated (it would stay exactly at rest).
 Each copy loads a packaged subset that passed the whole-brain comparison for its
 own sense (docs/whole_brain_result.md): the target copy uses subset v1, which
 passed both turn checks; taste, loom and touch use subset v3, which adds the
-bitter and antennal-grooming neurons but missed the right-turn check.
+bitter and antennal-grooming neurons but missed the right-turn check; the
+obstacle copy uses subset v4, selected from foreleg-touch activity.
 Everything that turns the world into Poisson input rates, and spikes into body
 actions, is an engineered choice made here, not connectome data:
 
@@ -22,12 +23,15 @@ actions, is an engineered choice made here, not connectome data:
   plus LB1 (bitter) at 150 Hz when the drop is laced with something bitter;
 - touch: dust on the antennae -> JO-C and JO-E (Johnston's organ zones C/E) at
   150 Hz while any dust remains;
+- obstacle: Godot reports the forelegs pressed against a solid obstacle ->
+  foreleg mechanosensory bristles (both legs) at 150 Hz;
 - jump: any giant-fiber (DNp01) spike outside a 1.2 s cooldown;
 - turn: smoothed DNa02 right-minus-left firing rate x TURN_GAIN, capped;
 - feed: smoothed MN9 firing rate above FEED_THRESHOLD_HZ;
 - groom: smoothed aDN1/aDN2 (DNg62, DNge078) rate above GROOM_THRESHOLD_HZ;
 - sing: smoothed pIP10 rate (target copy) above SING_THRESHOLD_HZ; the wing on
-  the target's side is the one extended.
+  the target's side is the one extended;
+- back up: smoothed MDN rate (obstacle copy) at or above BACKUP_THRESHOLD_HZ.
 """
 
 from __future__ import annotations
@@ -50,19 +54,21 @@ SMOOTHING_S = 0.15
 FEED_THRESHOLD_HZ = 20.0
 GROOM_THRESHOLD_HZ = 30.0
 SING_THRESHOLD_HZ = 30.0
+BACKUP_THRESHOLD_HZ = 8.0
 MOUTH_REACH = 0.15
 JUMP_COOLDOWN_MS = 1200.0
 RESET_AFTER_MS = 500.0
 SENSES = {"taste": ("sugar", "bitter"), "loom": ("loom",), "target": ("lc10a_R", "lc10a_L"),
-          "touch": ("jo_ce",)}
+          "touch": ("jo_ce",), "obstacle": ("foreleg",)}
 # Which copy each display group is read from.
 DISPLAY_SOURCE = {"LB3": "taste", "MN9": "taste", "LC4": "loom", "LPLC2": "loom", "DNp01": "loom",
                   "LC10a_L": "target", "LC10a_R": "target", "AOTU_L": "target", "AOTU_R": "target",
                   "DNa02_L": "target", "DNa02_R": "target", "LB1": "taste",
-                  "JO-CE": "touch", "aDN": "touch", "pIP10": "target"}
-READOUT_GROUPS = ("gf", "dna02_R", "dna02_L", "mn9", "adn", "pip10")
+                  "JO-CE": "touch", "aDN": "touch", "pIP10": "target",
+                  "Foreleg": "obstacle", "MDN": "obstacle"}
+READOUT_GROUPS = ("gf", "dna02_R", "dna02_L", "mn9", "adn", "pip10", "mdn")
 # Subset that passed the whole-brain comparison for each sense (engineering choice).
-SENSE_PACKAGE = {"taste": "v3", "loom": "v3", "touch": "v3", "target": "v1"}
+SENSE_PACKAGE = {"taste": "v3", "loom": "v3", "touch": "v3", "target": "v1", "obstacle": "v4"}
 
 
 class BrainPackage:
@@ -86,7 +92,8 @@ class BrainPackage:
         self.groups.setdefault("pip10", np.flatnonzero(self.cell_type == "pIP10").astype(np.int64))
         # Older subsets lack the newer groups; only stimulate what is present.
         self.inputs = np.concatenate([self.groups[k] for k in
-                                      ("sugar", "loom", "lc10a_R", "lc10a_L", "jo_ce", "bitter")
+                                      ("sugar", "loom", "lc10a_R", "lc10a_L", "jo_ce", "bitter",
+                                       "foreleg")
                                       if k in self.groups])
         # Display groups for the brain panel, by recorded cell type.
         by_type = lambda *types: np.flatnonzero(np.isin(self.cell_type, types))
@@ -95,7 +102,7 @@ class BrainPackage:
         display_groups = {"DNp01": "gf", "LC10a_L": "lc10a_L", "LC10a_R": "lc10a_R",
                           "DNa02_L": "dna02_L", "DNa02_R": "dna02_R", "LB3": "sugar",
                           "MN9": "mn9", "LB1": "bitter", "JO-CE": "jo_ce", "aDN": "adn",
-                          "pIP10": "pip10"}
+                          "pIP10": "pip10", "Foreleg": "foreleg", "MDN": "mdn"}
         self.display = {"LC4": by_type("LC4"), "LPLC2": by_type("LPLC2"),
                         "AOTU_L": side(aotu, "L"), "AOTU_R": side(aotu, "R")}
         self.display.update({k: self.groups[g] for k, g in display_groups.items() if g in self.groups})
@@ -142,12 +149,14 @@ class BrainSession:
         self.mn9_hz = 0.0
         self.adn_hz = 0.0
         self.pip10_hz = 0.0
+        self.mdn_hz = 0.0
 
     def step(self, payload: dict) -> dict:
         fly, obj = payload["fly"], payload["object"]
         target = payload.get("target", {"active": False})
         sugar = payload.get("sugar", {"active": False})
         touch = payload.get("touch", {"active": False})
+        obstacle = payload.get("obstacle", {"active": False})
         dt_ms = float(payload.get("dt_ms", 50.0))
         if not math.isfinite(dt_ms) or not 10.0 <= dt_ms <= 100.0:
             raise ValueError("dt_ms must be between 10 and 100")
@@ -180,16 +189,18 @@ class BrainSession:
 
         bitter = contact and bool(sugar.get("bitter", False))
         dusty = bool(touch.get("active", False))
+        pressing = bool(obstacle.get("active", False))
 
         rates = {"loom": MAX_INPUT_HZ * loom, "lc10a_R": MAX_INPUT_HZ * right,
                  "lc10a_L": MAX_INPUT_HZ * left, "sugar": MAX_INPUT_HZ if contact else 0.0,
-                 "bitter": MAX_INPUT_HZ if bitter else 0.0, "jo_ce": MAX_INPUT_HZ if dusty else 0.0}
+                 "bitter": MAX_INPUT_HZ if bitter else 0.0, "jo_ce": MAX_INPUT_HZ if dusty else 0.0,
+                 "foreleg": MAX_INPUT_HZ if pressing else 0.0}
         started = time.perf_counter()
         counts = {sense: self._advance_copy(sense, dt_ms, rates) for sense in SENSES}
         compute_ms = (time.perf_counter() - started) * 1000.0
         window_s = dt_ms / 1000.0
         source = {"mn9": "taste", "gf": "loom", "dna02_R": "target", "dna02_L": "target",
-                  "adn": "touch", "pip10": "target"}
+                  "adn": "touch", "pip10": "target", "mdn": "obstacle"}
 
         def group_rate(key: str) -> float:
             sense = source[key]
@@ -200,6 +211,7 @@ class BrainSession:
         self.mn9_hz += alpha * (group_rate("mn9") - self.mn9_hz)
         self.adn_hz += alpha * (group_rate("adn") - self.adn_hz)
         self.pip10_hz += alpha * (group_rate("pip10") - self.pip10_hz)
+        self.mdn_hz += alpha * (group_rate("mdn") - self.mdn_hz)
         turn = max(-MAX_TURN_RATE_RAD_S, min(MAX_TURN_RATE_RAD_S, self.asym_hz * TURN_GAIN_RAD_S_PER_HZ))
         gf_spikes = int(counts["loom"][self.packages["loom"].groups["gf"]].sum())
         self.cooldown_ms = max(0.0, self.cooldown_ms - dt_ms)
@@ -240,6 +252,9 @@ class BrainSession:
             "singing": self.pip10_hz >= SING_THRESHOLD_HZ,
             "song_side": "R" if feature["bearing_deg"] > 0 else "L",
             "pip10_rate_hz": round(self.pip10_hz, 1),
+            "obstacle": {"forelegs_pressed": pressing},
+            "backing": self.mdn_hz >= BACKUP_THRESHOLD_HZ,
+            "mdn_rate_hz": round(self.mdn_hz, 1),
         }
 
     def _advance_copy(self, sense: str, dt_ms: float, rates: dict[str, float]) -> np.ndarray:

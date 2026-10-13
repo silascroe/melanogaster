@@ -109,6 +109,31 @@ spike counts (checked on the sugar subset and in `tests/test_brain_model.py`).
 Seconds of computing per simulated second on an i5-8400. The subset now runs at
 about real time; a game integration still needs headroom for rendering.
 
+**Parallel engine (2026-10-13).** `engine="parallel"` (now the default when
+Numba is installed) uses every core and gives bit-identical results to the
+one-core engine. It relies on the 1.8 ms synaptic delay: within any 18-step
+block no neuron can affect another, so each core advances its own neurons
+through the block; spikes are then delivered with each core owning a set of
+target neurons and adding in the original order, so every sum is the same
+floating-point sum. Checked on all four game senses, odd frame lengths, mixed
+and changing inputs, cut wiring, the adaptation variant, and the whole brain
+(spike counts and all neuron state identical), and in `tests/test_brain_model.py`.
+
+| Per 50 ms frame, i5-8400 (6 cores) | One core | Parallel |
+|---|---|---|
+| Touch copy, subset v3 (heaviest) | 81 ms | 30 ms |
+| Taste copy, v3 | 68–72 ms | 23–24 ms |
+| Target copy, v1 | 71 ms | 24 ms |
+| Loom copy, v3 | 38 ms | 9.5 ms |
+| Whole brain, per simulated second | 5.7 s | 2.1 s |
+
+In the running game, with Godot rendering on the same cores, a busy copy costs
+~42–48 ms per 50 ms frame, so the brain now keeps up with real time (it was
+~0.55×). Two copies active at once (for example taste still settling while
+grooming) can still fall behind briefly. Spike delivery limits further gains:
+the connection lists of the firing neurons (~18 MB) do not fit in cache, and
+splitting each list by target core doubles its one-core cost.
+
 # Game integration (2026-10-11)
 
 Jump and turn also pass whole-brain tests ([evidence](evidence/whole_brain_behaviors_v1.json)):
@@ -146,9 +171,9 @@ stops feeding, and cutting connections onto the action neurons removes all three
 actions. The Godot scene check confirms roaming, jump, target approach and
 feeding from a right-clicked sugar drop.
 
-Speed: a running copy costs ~72–76 ms per 50 ms frame for taste or target and
-~31 ms median for loom, so an active brain runs at roughly 0.7× real time; the
-game keeps moving and simply gets brain updates a little less often.
+Speed at the time: ~72–76 ms per 50 ms frame for taste or target and ~31 ms
+for loom (about 0.7× real time). The parallel engine has since replaced this; see
+Speed above.
 
 # Antennal grooming and bitter taste (2026-10-13): both PASS
 
@@ -203,8 +228,8 @@ on while a plain drop is. The Godot capture (`godot/capture_autonomy.gd`)
 confirms the same in the scene: grooming at ~45 Hz smoothed aDN, stopping once
 the dust is gone, and bitter contact with no feeding.
 
-Speed: a running v3 copy costs ~82–90 ms per 50 ms frame (v1: ~72–76 ms), so an
-active brain now runs at about 0.55–0.6× real time.
+Speed at the time: a running v3 copy cost ~82–90 ms per 50 ms frame (about
+0.55× real time); the parallel engine has since brought it to real time.
 
 # Courtship song (2026-10-13): taste route FAIL, visual route PASS
 

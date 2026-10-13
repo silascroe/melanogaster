@@ -78,6 +78,106 @@ def _step_kernel_py(v, g, w, refractory_left, pending, slot, out_slot, v_0, v_de
 _step_kernel = numba.njit(cache=True)(_step_kernel_py) if numba is not None else None
 
 
+# Parallel engine. Loops index array views from zero and use unsigned indices,
+# so the compiler can drop negative-index checks and vectorize the neuron update.
+
+def _update_view(v, g, w, refractory_left, pending_row, v_0, v_decay, g_decay, w_decay):
+    for i in range(v.shape[0]):
+        g[i] += pending_row[i]
+        pending_row[i] = 0.0
+        if refractory_left[i] == 0:
+            dv = (v_0 - v[i] + g[i] - w[i]) * v_decay
+            dg = g[i] * (-g_decay)
+            v[i] += dv
+            g[i] += dg
+        else:
+            refractory_left[i] -= 1
+        w[i] += w[i] * (-w_decay)
+
+
+def _threshold_view(first, v, g, w, refractory_left, v_th, v_rst, no_refractory, refractory_steps,
+                    w_jump, counts, fired):
+    m = 0
+    for i in range(v.shape[0]):
+        if v[i] > v_th:
+            v[i] = v_rst
+            g[i] = 0.0
+            refractory_left[i] = 0 if no_refractory[i] else refractory_steps
+            w[i] += w_jump
+            counts[i] += 1
+            fired[m] = first + i
+            m += 1
+    return m
+
+
+def _neuron_chunk(c, lo, hi, length, first, done, ring, v, g, w, refractory_left, pending, v_0,
+                  v_decay, g_decay, w_decay, w_jump, kicks, kick_cells, kick, v_th, v_rst,
+                  no_refractory, refractory_steps, counts, fired_buf, fired_n):
+    vv, gg, ww, rr = v[lo:hi], g[lo:hi], w[lo:hi], refractory_left[lo:hi]
+    nr, cc = no_refractory[lo:hi], counts[lo:hi]
+    for k in range(length):
+        _update_view(vv, gg, ww, rr, pending[(first + k) % ring, lo:hi], v_0, v_decay, g_decay, w_decay)
+        # Poisson kicks after every neuron's update and before the threshold, as in
+        # the serial step; repeated cells get repeated sequential adds.
+        for r in range(kick_cells.shape[0]):
+            i = kick_cells[r]
+            if lo <= i and i < hi:
+                for _ in range(kicks[done + k, r]):
+                    v[i] += kick
+        fired_n[c, k] = _threshold_view(lo, vv, gg, ww, rr, v_th, v_rst, nr, refractory_steps,
+                                        w_jump, cc, fired_buf[c, k])
+
+
+def _deliver_part(part, length, first, delay, pending, part_indptr, part_post, part_weight,
+                  fired_buf, fired_n):
+    starts = part_indptr[part]
+    for k in range(length):
+        row = pending[(first + k + delay) % (delay + 1)]
+        for c in range(fired_n.shape[0]):
+            for j in range(fired_n[c, k]):
+                i = fired_buf[c, k, j]
+                for e in range(starts[i], starts[i + 1]):
+                    row[part_post[e]] += np.float64(part_weight[e])
+
+
+def _advance_blocks_py(steps, step_index, delay, v, g, w, refractory_left, pending, v_0, v_decay,
+                       g_decay, w_decay, w_jump, kicks, kick_cells, kick, v_th, v_rst,
+                       no_refractory, refractory_steps, chunk_bounds, part_indptr, part_post,
+                       part_weight, counts, fired_buf, fired_n):
+    """Many 0.1 ms steps on several cores, bit-identical to _step_kernel.
+
+    A spike reaches its targets `delay` steps later, so within a block of up to
+    `delay` steps no neuron affects another: each core advances its own range of
+    neurons through the block. Spike delivery is then split by postsynaptic
+    neuron, and every core adds increments in the serial order (fired neurons
+    ascending, connections in order), so each sum is the same floating-point sum."""
+    chunks = chunk_bounds.shape[0] - 1
+    parts = part_indptr.shape[0]
+    done = 0
+    while done < steps:
+        length = min(delay, steps - done)
+        first = step_index + done
+        for c in numba.prange(chunks):
+            _neuron_chunk(c, chunk_bounds[c], chunk_bounds[c + 1], length, first, done, delay + 1,
+                          v, g, w, refractory_left, pending, v_0, v_decay, g_decay, w_decay, w_jump,
+                          kicks, kick_cells, kick, v_th, v_rst, no_refractory, refractory_steps,
+                          counts, fired_buf, fired_n)
+        for part in numba.prange(parts):
+            _deliver_part(part, length, first, delay, pending, part_indptr, part_post, part_weight,
+                          fired_buf, fired_n)
+        done += length
+
+
+if numba is not None:
+    _update_view = numba.njit(cache=True)(_update_view)
+    _threshold_view = numba.njit(cache=True)(_threshold_view)
+    _neuron_chunk = numba.njit(cache=True)(_neuron_chunk)
+    _deliver_part = numba.njit(cache=True)(_deliver_part)
+    _advance_blocks = numba.njit(parallel=True, cache=True)(_advance_blocks_py)
+else:  # pragma: no cover - depends on the environment
+    _advance_blocks = None
+
+
 @dataclass(frozen=True)
 class BrainParams:
     dt_ms: float = 0.1
@@ -113,6 +213,29 @@ class Connectome:
     indptr: np.ndarray          # int64, length n_neurons + 1
     post: np.ndarray            # int32, postsynaptic index per connection
     weight_mv: np.ndarray       # float32, signed synapses * w_syn
+    _parts: dict = field(default_factory=dict, repr=False, compare=False)
+
+    def partitioned(self, parts: int, block: int = 64) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
+        """Connections split into `parts` sets of postsynaptic neurons, dealt out in
+        blocks of `block` neurons so busy regions spread over every part; each part
+        keeps connections grouped by presynaptic neuron in the original order.
+        Returns (indptr[parts, n + 1] into the arrays, post, weight)."""
+        if parts not in self._parts:
+            n = self.n_neurons
+            part_of = (self.post // block) % parts
+            pre = np.repeat(np.arange(n), np.diff(self.indptr))
+            indptr = np.zeros((parts, n + 1), dtype=np.uint64)
+            posts, weights, offset = [], [], 0
+            for part in range(parts):
+                keep = part_of == part
+                indptr[part, 1:] = offset + np.cumsum(np.bincount(pre[keep], minlength=n))
+                indptr[part, 0] = offset
+                posts.append(self.post[keep])
+                weights.append(self.weight_mv[keep])
+                offset += int(keep.sum())
+            self._parts[parts] = (indptr, np.concatenate(posts).astype(np.uint32),
+                                  np.concatenate(weights))
+        return self._parts[parts]
 
     @classmethod
     def from_edges(cls, n_neurons: int, pre: np.ndarray, post: np.ndarray,
@@ -168,9 +291,11 @@ class BrainRunner:
         self.w_decay = p.dt_ms / p.adapt_tau_ms
         self.kick = p.w_syn_mv * p.f_poi
         if engine == "auto":
-            engine = "numba" if _step_kernel is not None else "numpy"
-        if engine == "numba" and _step_kernel is None:
-            raise RuntimeError("engine='numba' requested but numba is not installed")
+            engine = "parallel" if _advance_blocks is not None else "numpy"
+        if engine not in ("numpy", "numba", "parallel"):
+            raise ValueError(f"unknown engine {engine!r}")
+        if engine != "numpy" and _step_kernel is None:
+            raise RuntimeError(f"engine={engine!r} requested but numba is not installed")
         self.engine = engine
         self.record = set(int(i) for i in record)
         self.spike_times_ms: dict[int, list[float]] = {i: [] for i in self.record}
@@ -180,6 +305,13 @@ class BrainRunner:
         self._dg = np.empty(n, dtype=np.float64)
         self._active = np.empty(n, dtype=bool)
         self._no_hits = np.empty(0, dtype=np.int64)
+        if engine == "parallel":
+            threads = numba.get_num_threads()
+            self._chunk_bounds = np.linspace(0, n, threads + 1).round().astype(np.int64)
+            self._parts = connectome.partitioned(threads)
+            widest = int(np.diff(self._chunk_bounds).max())
+            self._fired_buf = np.empty((threads, max(self.delay, 1), widest), dtype=np.uint32)
+            self._fired_n = np.zeros((threads, max(self.delay, 1)), dtype=np.int64)
 
     def advance(self, duration_ms: float, inputs=()) -> np.ndarray:
         """Run for duration_ms with Poisson inputs [(neuron_indices, rate_hz), ...].
@@ -189,6 +321,9 @@ class BrainRunner:
         groups = [(np.asarray(idx, dtype=np.int64), rate * p.dt_ms / 1000.0)
                   for idx, rate in inputs if rate > 0 and len(idx)]
         before = self.counts.copy()
+        if self.engine == "parallel" and not self.record and self.delay >= 1:
+            self._advance_parallel(steps, groups)
+            return self.counts - before
         for _ in range(steps):
             if not groups:
                 hits = self._no_hits
@@ -197,7 +332,7 @@ class BrainRunner:
                 hits = idx[self.rng.random(len(idx)) < prob]
             else:
                 hits = np.concatenate([idx[self.rng.random(len(idx)) < prob] for idx, prob in groups])
-            if self.engine == "numba":
+            if self.engine != "numpy":  # recording spike times uses the one-core step
                 fired_count = self._step_numba(hits)
             else:
                 fired_count = self._step_numpy(hits)
@@ -206,6 +341,36 @@ class BrainRunner:
                     self.spike_times_ms[i].append(self.step_index * p.dt_ms)
             self.step_index += 1
         return self.counts - before
+
+    def _advance_parallel(self, steps: int, groups) -> None:
+        p = self.params
+        indptr, post, weight = self._parts
+        if groups:
+            cells = np.concatenate([idx for idx, _ in groups])
+            probs = np.concatenate([np.full(len(idx), prob) for idx, prob in groups])
+            unique, column_row = np.unique(cells, return_inverse=True)
+        else:
+            unique = self._no_hits
+        # At most 1000 steps (100 ms) of random draws in memory at a time.
+        while steps > 0:
+            batch = min(steps, 1000)
+            if groups:
+                # The same draws as the per-step loop: one row per step, groups in
+                # order, so drawing all rows at once gives the identical stream.
+                hit = self.rng.random((batch, len(cells))) < probs
+                kicks = np.zeros((batch, len(unique)), dtype=np.int64)
+                for column, row in enumerate(column_row):
+                    kicks[:, row] += hit[:, column]
+            else:
+                kicks = np.zeros((batch, 0), dtype=np.int64)
+            _advance_blocks(
+                batch, self.step_index, self.delay, self.v, self.g, self.w, self.refractory_left,
+                self.pending, p.v_0_mv, self.v_decay, self.g_decay, self.w_decay, p.adapt_mv,
+                kicks, unique, self.kick, p.v_th_mv, p.v_rst_mv, self.no_refractory,
+                self.refractory_steps, self._chunk_bounds, indptr, post, weight, self.counts,
+                self._fired_buf, self._fired_n)
+            self.step_index += batch
+            steps -= batch
 
     def _step_numba(self, hits: np.ndarray) -> int:
         p, d = self.params, self.delay
@@ -271,8 +436,9 @@ def simulate(connectome: Connectome, *, duration_ms: float, poisson_targets=(),
              poisson_rate_hz: float = 150.0, seed: int = 0,
              params: BrainParams = BrainParams(), record=(),
              engine: str = "auto") -> TrialResult:
-    """Run one trial from rest. engine: "numba" (compiled), "numpy", or "auto"
-    (numba if installed). Both engines give bit-identical results for the same seed."""
+    """Run one trial from rest. engine: "parallel" (compiled, all cores), "numba"
+    (compiled, one core), "numpy", or "auto" (parallel if numba is installed). All
+    engines give bit-identical results for the same seed."""
     targets = np.asarray(poisson_targets, dtype=np.int64)
     runner = BrainRunner(connectome, input_neurons=targets, seed=seed, params=params,
                          engine=engine, record=record)

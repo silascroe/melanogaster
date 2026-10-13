@@ -75,14 +75,15 @@ def main() -> None:
                     condition = str(payload.get("condition", "intact"))
                     steering_model = str(payload.get("steering_model", "lif"))
                     if steering_model == "brain":
-                        # Whole-brain subset: one brain drives jump, turn and feeding.
+                        # Whole-brain subsets: one copy per sense drives jump, turn,
+                        # feeding and grooming.
                         session = BrainSession(condition=condition)
                         session_id = uuid4().hex
                         sessions.clear()
                         sessions[session_id] = session
                         self._reply(200, {"session_id": session_id, "condition": condition,
                                           "steering_model": steering_model,
-                                          "neurons": session.package.n})
+                                          "neurons": session.packages["taste"].n})
                         return
                     session = CreatureSession(circuit, condition=condition,
                                               steering_circuit=steering_circuit,

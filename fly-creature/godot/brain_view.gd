@@ -1,6 +1,6 @@
 extends Control
 
-# Live readout of the two selected circuits. Spike counts and voltages come from
+# Live readout of the selected circuits. Spike counts and voltages come from
 # the Python service; bar scaling and decay below are display choices only.
 
 const PANEL_WIDTH := 330.0
@@ -13,6 +13,7 @@ const PEAK_TAU_S := 25.0
 const ACCENT_JUMP := Color(0.98, 0.55, 0.25)
 const ACCENT_TURN := Color(0.30, 0.86, 0.72)
 const ACCENT_FEED := Color(0.98, 0.82, 0.30)
+const ACCENT_GROOM := Color(0.72, 0.64, 0.98)
 const TEXT_COLOR := Color(0.90, 0.94, 0.96)
 const MUTED_COLOR := Color(0.58, 0.67, 0.72)
 const BAR_BACK := Color(1.0, 1.0, 1.0, 0.09)
@@ -24,6 +25,7 @@ var peaks: Dictionary = {}
 var turn_rate := 0.0
 var jump_flash := 0.0
 var feeding := false
+var grooming := false
 var subtitle := "recorded wiring, simplified LIF neurons"
 var turn_active := false
 var dna_base := 0.0
@@ -50,7 +52,11 @@ func _ready() -> void:
 		{"key": "dna_r", "label": "DNa02  right", "color": ACCENT_TURN, "floor": 2.0},
 		{"section": "FEED CIRCUIT", "color": ACCENT_FEED},
 		{"key": "lb3", "label": "Sugar taste", "color": ACCENT_FEED, "floor": 6.0},
+		{"key": "lb1", "label": "Bitter taste", "color": ACCENT_FEED, "floor": 6.0},
 		{"key": "mn9", "label": "MN9 (feed)", "color": ACCENT_FEED, "floor": 1.0},
+		{"section": "GROOM CIRCUIT", "color": ACCENT_GROOM},
+		{"key": "jo_ce", "label": "Antenna JO", "color": ACCENT_GROOM, "floor": 10.0},
+		{"key": "adn", "label": "aDN (groom)", "color": ACCENT_GROOM, "floor": 1.0},
 	]
 	for row in rows:
 		if row.has("key"):
@@ -69,6 +75,10 @@ func update_trace(trace: Dictionary) -> void:
 	feeding = bool(trace.get("feeding", false))
 	_hold("lb3", float(spikes.get("LB3", 0)))
 	_hold("mn9", float(spikes.get("MN9", 0)))
+	_hold("lb1", float(spikes.get("LB1", 0)))
+	_hold("jo_ce", float(spikes.get("JO-CE", 0)))
+	_hold("adn", float(spikes.get("aDN", 0)))
+	grooming = bool(trace.get("grooming", false))
 	if trace.has("brain_neurons"):
 		subtitle = "whole-brain subset: %d neurons, %d firing" % [
 			int(trace["brain_neurons"]), int(trace.get("active_neurons", 0))]
@@ -175,6 +185,12 @@ func _draw() -> void:
 			Color(ACCENT_FEED.r, ACCENT_FEED.g, ACCENT_FEED.b, 0.55))
 	draw_string(font, Vector2(24.0, y + 18.0), "FEEDING" if feeding else "not feeding",
 		HORIZONTAL_ALIGNMENT_LEFT, -1.0, 14, TEXT_COLOR if feeding else MUTED_COLOR)
+	y += 32.0
+	if grooming:
+		draw_rect(Rect2(14.0, y, PANEL_WIDTH - 28.0, 26.0),
+			Color(ACCENT_GROOM.r, ACCENT_GROOM.g, ACCENT_GROOM.b, 0.55))
+	draw_string(font, Vector2(24.0, y + 18.0), "GROOMING" if grooming else "not grooming",
+		HORIZONTAL_ALIGNMENT_LEFT, -1.0, 14, TEXT_COLOR if grooming else MUTED_COLOR)
 	y += 34.0
 	# Turn gauge: DNa02 right minus left through the engineered turn rule.
 	draw_string(font, Vector2(14.0, y + 12.0), "TURN  (engineered readout of DNa02 right - left)",

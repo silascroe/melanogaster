@@ -1,0 +1,121 @@
+{
+  "neurons": 27956,
+  "connections": 4602206,
+  "package_mb": 11.7,
+  "comparison": {
+    "sugar": {
+      "readout": "mn9",
+      "whole": [
+        57.0,
+        67.0,
+        66.5
+      ],
+      "subset": [
+        64.0,
+        67.5,
+        70.5
+      ],
+      "within_20pct": true
+    },
+    "loom": {
+      "readout": "gf",
+      "whole": [
+        404.0,
+        404.0,
+        402.0
+      ],
+      "subset": [
+        404.5,
+        403.5,
+        402.0
+      ],
+      "within_20pct": true
+    },
+    "right": {
+      "readout": "dna02_asym",
+      "whole": [
+        107.0,
+        96.0,
+        166.0
+      ],
+      "subset": [
+        90.0,
+        97.0,
+        105.0
+      ],
+      "within_20pct": false
+    },
+    "left": {
+      "readout": "dna02_asym",
+      "whole": [
+        -145.0,
+        -101.0,
+        -88.0
+      ],
+      "subset": [
+        -142.0,
+        -97.0,
+        -93.0
+      ],
+      "within_20pct": true
+    },
+    "antenna": {
+      "readout": "adn",
+      "whole": [
+        204.25,
+        202.75,
+        201.25
+      ],
+      "subset": [
+        205.25,
+        197.5,
+        202.75
+      ],
+      "within_20pct": true
+    },
+    "bitter": {
+      "readout": "mn9",
+      "whole": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "subset": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "sugar_bitter": {
+      "readout": "mn9",
+      "whole": [
+        0.5,
+        0.0,
+        1.5
+      ],
+      "subset": [
+        0.5,
+        1.0,
+        1.5
+      ]
+    }
+  },
+  "no_input": {
+    "mn9": 0.0,
+    "gf": 0.0,
+    "dna02_asym": 0.0,
+    "adn": 0.0
+  },
+  "busy_seconds_per_simulated_second": 1.81,
+  "checks": {
+    "sugar_within_20pct": true,
+    "loom_within_20pct": true,
+    "right_within_20pct": false,
+    "left_within_20pct": true,
+    "antenna_within_20pct": true,
+    "bitter_suppresses_feeding": true,
+    "bitter_alone_no_feeding": true,
+    "silent_without_input": true
+  },
+  "pass": false
+}

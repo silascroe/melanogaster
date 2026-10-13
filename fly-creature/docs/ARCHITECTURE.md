@@ -8,6 +8,8 @@ NumPy and Godot runtimes are still required.
 | --- | --- |
 | `circuit.py`, `data/*.json` | Selected cells/recorded edges and modelling metadata |
 | `lif.py`, `controller.py`, `steering.py` | Existing looming/jump and LIF steering sessions |
+| `brain_model.py`, `brain_session.py`, `data/brain_subset_v1.npz`, `data/brain_subset_v3.npz` | Default whole-brain-subset mode: published LIF reimplementation, one brain copy per sense (taste, loom, target, touch), each on the subset that passed for that sense; engineered input and action rules ([result](whole_brain_result.md)) |
+| `tools/build_whole_brain.py`, `tools/build_brain_subset.py`, `tools/run_*_brain_test.py`, `tools/run_grooming_bitter_tests.py` | Whole-brain tests against shuffled controls and subset selection; caches stay in ignored `outputs/whole_brain/` |
 | `pursuit_controller.py` | Frozen opt-in activity steering, 10 ms ticks and 200 ms queue |
 | `pursuit_activity.py`, `pursuit_step4.py`, `pursuit_delay_diagnostic.py` | Projection, source-inspired activity adapter and declared timing/input choices; also research runners |
 | `playground.py` | Four-controller comparison world, stimuli, statistics and ordered batching |

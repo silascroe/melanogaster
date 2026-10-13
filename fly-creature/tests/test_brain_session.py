@@ -9,16 +9,19 @@ NO_OBJECT = {"x": 0.0, "z": -20.0, "radius": 0.45, "active": False}
 NO_TARGET = {"active": False}
 NO_SUGAR = {"active": False}
 SUGAR_AT_MOUTH = {"x": 0.0, "z": -0.4, "radius": 0.22, "active": True}
+BITTER_AT_MOUTH = {**SUGAR_AT_MOUTH, "bitter": True}
+DUST = {"active": True}
+NO_DUST = {"active": False}
 TARGET_RIGHT = {"x": 3.0, "z": -3.0, "active": True}   # 45 degrees right
 TARGET_LEFT = {"x": -3.0, "z": -3.0, "active": True}
 
 
-def _frames(session, seconds, *, obj=NO_OBJECT, target=NO_TARGET, sugar=NO_SUGAR):
+def _frames(session, seconds, *, obj=NO_OBJECT, target=NO_TARGET, sugar=NO_SUGAR, touch=NO_DUST):
     out = []
     for _ in range(int(round(seconds / 0.05))):
         o = obj(len(out)) if callable(obj) else obj
         out.append(session.step({"dt_ms": 50.0, "fly": FLY, "object": o,
-                                 "target": target, "sugar": sugar}))
+                                 "target": target, "sugar": sugar, "touch": touch}))
     return out
 
 
@@ -36,6 +39,7 @@ def test_g1_loom_jumps_then_settles():
     assert any(f["jump"] for f in frames)
     assert sum(f["spikes"]["DNp01"] for f in frames[-20:]) == 0
     assert not any(f["feeding"] for f in frames)
+    assert not any(f["grooming"] for f in frames)
 
 
 def test_g2_turn_follows_target_side_without_feeding():
@@ -43,9 +47,12 @@ def test_g2_turn_follows_target_side_without_feeding():
     right = _frames(session, 3.0, target=TARGET_RIGHT)
     left = _frames(session, 3.0, target=TARGET_LEFT)
     mean_turn = lambda fs: sum(f["steering"]["turn_rate_rad_s"] for f in fs[-20:]) / 20
+    # Turning runs on subset v1, the one that passed both turn checks.
+    assert right[0]["brain_packages"]["target"] == "v1"
     assert mean_turn(right) > 0
     assert mean_turn(left) < 0
     assert not any(f["feeding"] for f in right + left)
+    assert not any(f["grooming"] for f in right + left)
 
 
 def test_g3_taste_drives_feeding_then_stops():
@@ -59,7 +66,24 @@ def test_g3_taste_drives_feeding_then_stops():
 def test_g4_cut_wiring_gives_no_actions():
     frames = (_loom(BrainSession("disconnected"))
               + _frames(BrainSession("disconnected"), 3.0, target=TARGET_RIGHT)
-              + _frames(BrainSession("disconnected"), 2.0, sugar=SUGAR_AT_MOUTH))
+              + _frames(BrainSession("disconnected"), 2.0, sugar=SUGAR_AT_MOUTH)
+              + _frames(BrainSession("disconnected"), 2.0, touch=DUST))
     assert not any(f["jump"] for f in frames)
     assert not any(f["feeding"] for f in frames)
+    assert not any(f["grooming"] for f in frames)
     assert all(abs(f["steering"]["turn_rate_rad_s"]) < 0.05 for f in frames)
+
+
+def test_g5_antenna_dust_drives_grooming_then_stops():
+    session = BrainSession("intact")
+    dusty = _frames(session, 2.0, touch=DUST)
+    after = _frames(session, 2.0)
+    assert dusty[-1]["grooming"]
+    assert not after[-1]["grooming"]
+    assert not any(f["feeding"] or f["jump"] for f in dusty + after)
+
+
+def test_g6_bitter_drop_is_not_fed_on():
+    frames = _frames(BrainSession("intact"), 2.0, sugar=BITTER_AT_MOUTH)
+    assert all(f["taste"]["bitter"] for f in frames)
+    assert not any(f["feeding"] for f in frames)

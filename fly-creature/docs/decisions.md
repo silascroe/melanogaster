@@ -596,3 +596,19 @@ climbing on her. It was not chosen to raise the singing rate. His song stays
 uneven, because the target encoder drives LC10a only when she is off-centre.
 Changing that encoder would mean re-running the steering and song tests, so it
 was left alone.
+
+## 2026-10-13: backing up from foreleg touch, with an engineered hold
+
+MDN was given an input by screening every single sensory and lobula columnar
+group, then confirming the nominee (foreleg touch) with fresh seeds, shuffles
+and a hind-leg control. Foreleg touch was picked over a stronger head-crown
+group because the game can plausibly produce it. That pick was made after
+seeing the screen, which is why the confirmation used new seeds. It runs in its
+own small obstacle copy (subset v4) rather than in a rebuilt v3, so no earlier
+gate had to be re-run.
+
+The back-up uses an engineered 0.8 s minimum. As first declared it lasted ~0.3 s
+and was barely visible. The hold sets how far the fly reverses; the brain
+decides only whether it does. Cut wiring never backs up. An engineered give-up
+turn after 1.5 s of pressing keeps a fly with a silent MDN from staying stuck
+on the cube.

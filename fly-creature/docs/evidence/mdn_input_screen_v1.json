@@ -1,0 +1,1122 @@
+{
+ "mdn_body_ids": [
+  10763,
+  11288,
+  11332,
+  12348
+ ],
+ "mdn_sides": [
+  "R",
+  "L",
+  "R",
+  "L"
+ ],
+ "no_input_mdn_hz": 0.0,
+ "groups": [
+  {
+   "group": "sensory: (none) via ON",
+   "cells": 37,
+   "mdn_mean_hz": 43.5,
+   "mdn_each_hz": [
+    47.0,
+    51.0,
+    46.0,
+    30.0
+   ],
+   "active_neurons": 9672
+  },
+  {
+   "group": "sensory: mechanosensory bristle via ProLN",
+   "cells": 288,
+   "mdn_mean_hz": 19.5,
+   "mdn_each_hz": [
+    18.0,
+    23.0,
+    16.0,
+    21.0
+   ],
+   "active_neurons": 4563
+  },
+  {
+   "group": "visual: LLPC3",
+   "cells": 219,
+   "mdn_mean_hz": 19.25,
+   "mdn_each_hz": [
+    12.0,
+    32.0,
+    26.0,
+    7.0
+   ],
+   "active_neurons": 9180
+  },
+  {
+   "group": "sensory: notum via PDMN",
+   "cells": 230,
+   "mdn_mean_hz": 6.5,
+   "mdn_each_hz": [
+    5.0,
+    9.0,
+    8.0,
+    4.0
+   ],
+   "active_neurons": 10045
+  },
+  {
+   "group": "sensory: auditory via AN",
+   "cells": 114,
+   "mdn_mean_hz": 5.75,
+   "mdn_each_hz": [
+    3.0,
+    8.0,
+    8.0,
+    4.0
+   ],
+   "active_neurons": 9139
+  },
+  {
+   "group": "sensory: abdomen via AbN3",
+   "cells": 234,
+   "mdn_mean_hz": 4.5,
+   "mdn_each_hz": [
+    3.0,
+    7.0,
+    5.0,
+    3.0
+   ],
+   "active_neurons": 9588
+  },
+  {
+   "group": "sensory: taste bristle via MetaLN",
+   "cells": 62,
+   "mdn_mean_hz": 4.5,
+   "mdn_each_hz": [
+    4.0,
+    5.0,
+    5.0,
+    4.0
+   ],
+   "active_neurons": 16135
+  },
+  {
+   "group": "visual: LC16",
+   "cells": 182,
+   "mdn_mean_hz": 4.0,
+   "mdn_each_hz": [
+    3.0,
+    5.0,
+    4.0,
+    4.0
+   ],
+   "active_neurons": 17175
+  },
+  {
+   "group": "visual: LC34",
+   "cells": 10,
+   "mdn_mean_hz": 4.0,
+   "mdn_each_hz": [
+    3.0,
+    5.0,
+    5.0,
+    3.0
+   ],
+   "active_neurons": 8671
+  },
+  {
+   "group": "sensory: (none) via MxLbN",
+   "cells": 1172,
+   "mdn_mean_hz": 3.75,
+   "mdn_each_hz": [
+    4.0,
+    4.0,
+    4.0,
+    3.0
+   ],
+   "active_neurons": 18226
+  },
+  {
+   "group": "sensory: hair plate via MesoLN",
+   "cells": 33,
+   "mdn_mean_hz": 3.5,
+   "mdn_each_hz": [
+    4.0,
+    5.0,
+    4.0,
+    1.0
+   ],
+   "active_neurons": 4920
+  },
+  {
+   "group": "sensory: mechanosensory bristle via DProN",
+   "cells": 23,
+   "mdn_mean_hz": 3.25,
+   "mdn_each_hz": [
+    3.0,
+    4.0,
+    3.0,
+    3.0
+   ],
+   "active_neurons": 8840
+  },
+  {
+   "group": "visual: LC14a-1",
+   "cells": 30,
+   "mdn_mean_hz": 3.25,
+   "mdn_each_hz": [
+    2.0,
+    5.0,
+    5.0,
+    1.0
+   ],
+   "active_neurons": 8690
+  },
+  {
+   "group": "visual: LC18",
+   "cells": 208,
+   "mdn_mean_hz": 3.0,
+   "mdn_each_hz": [
+    1.0,
+    6.0,
+    4.0,
+    1.0
+   ],
+   "active_neurons": 6439
+  },
+  {
+   "group": "visual: LLPC1",
+   "cells": 285,
+   "mdn_mean_hz": 3.0,
+   "mdn_each_hz": [
+    2.0,
+    5.0,
+    4.0,
+    1.0
+   ],
+   "active_neurons": 17998
+  },
+  {
+   "group": "sensory: labellar bristle via MxLbN",
+   "cells": 162,
+   "mdn_mean_hz": 2.5,
+   "mdn_each_hz": [
+    2.0,
+    4.0,
+    2.0,
+    2.0
+   ],
+   "active_neurons": 16975
+  },
+  {
+   "group": "visual: LC10_unclear",
+   "cells": 11,
+   "mdn_mean_hz": 2.5,
+   "mdn_each_hz": [
+    2.0,
+    3.0,
+    2.0,
+    3.0
+   ],
+   "active_neurons": 8996
+  },
+  {
+   "group": "visual: LC23",
+   "cells": 11,
+   "mdn_mean_hz": 2.5,
+   "mdn_each_hz": [
+    2.0,
+    3.0,
+    3.0,
+    2.0
+   ],
+   "active_neurons": 7748
+  },
+  {
+   "group": "sensory: leg via ProLN",
+   "cells": 345,
+   "mdn_mean_hz": 2.25,
+   "mdn_each_hz": [
+    2.0,
+    3.0,
+    2.0,
+    2.0
+   ],
+   "active_neurons": 16816
+  },
+  {
+   "group": "visual: LC22",
+   "cells": 73,
+   "mdn_mean_hz": 2.25,
+   "mdn_each_hz": [
+    3.0,
+    2.0,
+    2.0,
+    2.0
+   ],
+   "active_neurons": 8001
+  },
+  {
+   "group": "visual: LC29",
+   "cells": 40,
+   "mdn_mean_hz": 2.25,
+   "mdn_each_hz": [
+    2.0,
+    3.0,
+    2.0,
+    2.0
+   ],
+   "active_neurons": 16615
+  },
+  {
+   "group": "sensory: abdomen via AbN2",
+   "cells": 87,
+   "mdn_mean_hz": 2.0,
+   "mdn_each_hz": [
+    2.0,
+    2.0,
+    2.0,
+    2.0
+   ],
+   "active_neurons": 16991
+  },
+  {
+   "group": "sensory: chordotonal organ via ProCN",
+   "cells": 33,
+   "mdn_mean_hz": 2.0,
+   "mdn_each_hz": [
+    2.0,
+    2.0,
+    2.0,
+    2.0
+   ],
+   "active_neurons": 16792
+  },
+  {
+   "group": "sensory: wing via ADMN",
+   "cells": 46,
+   "mdn_mean_hz": 2.0,
+   "mdn_each_hz": [
+    2.0,
+    2.0,
+    2.0,
+    2.0
+   ],
+   "active_neurons": 16522
+  },
+  {
+   "group": "visual: LC10b",
+   "cells": 95,
+   "mdn_mean_hz": 2.0,
+   "mdn_each_hz": [
+    2.0,
+    2.0,
+    2.0,
+    2.0
+   ],
+   "active_neurons": 16267
+  },
+  {
+   "group": "visual: LC13",
+   "cells": 177,
+   "mdn_mean_hz": 2.0,
+   "mdn_each_hz": [
+    2.0,
+    2.0,
+    2.0,
+    2.0
+   ],
+   "active_neurons": 17532
+  },
+  {
+   "group": "visual: LC14a-2",
+   "cells": 15,
+   "mdn_mean_hz": 2.0,
+   "mdn_each_hz": [
+    2.0,
+    2.0,
+    2.0,
+    2.0
+   ],
+   "active_neurons": 8987
+  },
+  {
+   "group": "visual: LC19",
+   "cells": 14,
+   "mdn_mean_hz": 2.0,
+   "mdn_each_hz": [
+    1.0,
+    3.0,
+    2.0,
+    2.0
+   ],
+   "active_neurons": 8835
+  },
+  {
+   "group": "visual: LC21",
+   "cells": 153,
+   "mdn_mean_hz": 2.0,
+   "mdn_each_hz": [
+    2.0,
+    3.0,
+    2.0,
+    1.0
+   ],
+   "active_neurons": 9030
+  },
+  {
+   "group": "sensory: leg via MetaLN",
+   "cells": 229,
+   "mdn_mean_hz": 1.75,
+   "mdn_each_hz": [
+    2.0,
+    2.0,
+    2.0,
+    1.0
+   ],
+   "active_neurons": 17115
+  },
+  {
+   "group": "sensory: mechanosensory bristle via PDMN",
+   "cells": 52,
+   "mdn_mean_hz": 1.75,
+   "mdn_each_hz": [
+    2.0,
+    2.0,
+    2.0,
+    1.0
+   ],
+   "active_neurons": 17382
+  },
+  {
+   "group": "sensory: wind_gravity via AN",
+   "cells": 475,
+   "mdn_mean_hz": 1.75,
+   "mdn_each_hz": [
+    0.0,
+    2.0,
+    4.0,
+    1.0
+   ],
+   "active_neurons": 17590
+  },
+  {
+   "group": "visual: LC11",
+   "cells": 143,
+   "mdn_mean_hz": 1.75,
+   "mdn_each_hz": [
+    2.0,
+    2.0,
+    2.0,
+    1.0
+   ],
+   "active_neurons": 17247
+  },
+  {
+   "group": "visual: LC6",
+   "cells": 124,
+   "mdn_mean_hz": 1.5,
+   "mdn_each_hz": [
+    1.0,
+    2.0,
+    2.0,
+    1.0
+   ],
+   "active_neurons": 7352
+  },
+  {
+   "group": "visual: LPLC4",
+   "cells": 97,
+   "mdn_mean_hz": 1.5,
+   "mdn_each_hz": [
+    1.0,
+    3.0,
+    1.0,
+    1.0
+   ],
+   "active_neurons": 9631
+  },
+  {
+   "group": "sensory: abdomen via AbNT",
+   "cells": 208,
+   "mdn_mean_hz": 1.25,
+   "mdn_each_hz": [
+    1.0,
+    2.0,
+    1.0,
+    1.0
+   ],
+   "active_neurons": 9346
+  },
+  {
+   "group": "visual: LC15",
+   "cells": 126,
+   "mdn_mean_hz": 1.25,
+   "mdn_each_hz": [
+    1.0,
+    2.0,
+    1.0,
+    1.0
+   ],
+   "active_neurons": 17260
+  },
+  {
+   "group": "visual: LC24",
+   "cells": 94,
+   "mdn_mean_hz": 1.25,
+   "mdn_each_hz": [
+    0.0,
+    2.0,
+    2.0,
+    1.0
+   ],
+   "active_neurons": 8595
+  },
+  {
+   "group": "visual: LC28",
+   "cells": 62,
+   "mdn_mean_hz": 1.25,
+   "mdn_each_hz": [
+    1.0,
+    2.0,
+    1.0,
+    1.0
+   ],
+   "active_neurons": 16495
+  },
+  {
+   "group": "visual: LC40",
+   "cells": 34,
+   "mdn_mean_hz": 1.25,
+   "mdn_each_hz": [
+    1.0,
+    1.0,
+    2.0,
+    1.0
+   ],
+   "active_neurons": 16119
+  },
+  {
+   "group": "sensory: (none) via (none)",
+   "cells": 22,
+   "mdn_mean_hz": 1.0,
+   "mdn_each_hz": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "active_neurons": 8003
+  },
+  {
+   "group": "sensory: campaniform sensilla via ADMN",
+   "cells": 218,
+   "mdn_mean_hz": 1.0,
+   "mdn_each_hz": [
+    1.0,
+    2.0,
+    1.0,
+    0.0
+   ],
+   "active_neurons": 7438
+  },
+  {
+   "group": "sensory: campaniform sensilla via DMetaN",
+   "cells": 195,
+   "mdn_mean_hz": 1.0,
+   "mdn_each_hz": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "active_neurons": 17049
+  },
+  {
+   "group": "sensory: hair plate via PrN",
+   "cells": 35,
+   "mdn_mean_hz": 1.0,
+   "mdn_each_hz": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "active_neurons": 15842
+  },
+  {
+   "group": "sensory: leg via MesoLN",
+   "cells": 275,
+   "mdn_mean_hz": 1.0,
+   "mdn_each_hz": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "active_neurons": 17711
+  },
+  {
+   "group": "visual: LC10e",
+   "cells": 110,
+   "mdn_mean_hz": 1.0,
+   "mdn_each_hz": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "active_neurons": 17451
+  },
+  {
+   "group": "visual: LLPC2",
+   "cells": 250,
+   "mdn_mean_hz": 1.0,
+   "mdn_each_hz": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "active_neurons": 16389
+  },
+  {
+   "group": "sensory: hair plate via MetaLN",
+   "cells": 26,
+   "mdn_mean_hz": 0.75,
+   "mdn_each_hz": [
+    1.0,
+    1.0,
+    1.0,
+    0.0
+   ],
+   "active_neurons": 15255
+  },
+  {
+   "group": "sensory: leg bristle via MesoLN",
+   "cells": 226,
+   "mdn_mean_hz": 0.75,
+   "mdn_each_hz": [
+    0.0,
+    2.0,
+    0.0,
+    1.0
+   ],
+   "active_neurons": 17078
+  },
+  {
+   "group": "visual: LPLC1",
+   "cells": 134,
+   "mdn_mean_hz": 0.75,
+   "mdn_each_hz": [
+    0.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "active_neurons": 9110
+  },
+  {
+   "group": "sensory: abdomen via AbN4",
+   "cells": 612,
+   "mdn_mean_hz": 0.5,
+   "mdn_each_hz": [
+    1.0,
+    1.0,
+    0.0,
+    0.0
+   ],
+   "active_neurons": 19232
+  },
+  {
+   "group": "sensory: chordotonal organ via MetaLN",
+   "cells": 193,
+   "mdn_mean_hz": 0.5,
+   "mdn_each_hz": [
+    0.0,
+    1.0,
+    1.0,
+    0.0
+   ],
+   "active_neurons": 16501
+  },
+  {
+   "group": "visual: LC12",
+   "cells": 498,
+   "mdn_mean_hz": 0.5,
+   "mdn_each_hz": [
+    0.0,
+    1.0,
+    1.0,
+    0.0
+   ],
+   "active_neurons": 18532
+  },
+  {
+   "group": "visual: LC31b",
+   "cells": 10,
+   "mdn_mean_hz": 0.5,
+   "mdn_each_hz": [
+    0.0,
+    1.0,
+    1.0,
+    0.0
+   ],
+   "active_neurons": 16842
+  },
+  {
+   "group": "sensory: chordotonal organ via MesoLN",
+   "cells": 163,
+   "mdn_mean_hz": 0.25,
+   "mdn_each_hz": [
+    0.0,
+    1.0,
+    0.0,
+    0.0
+   ],
+   "active_neurons": 16848
+  },
+  {
+   "group": "sensory: haltere via DMetaN",
+   "cells": 205,
+   "mdn_mean_hz": 0.25,
+   "mdn_each_hz": [
+    0.0,
+    0.0,
+    1.0,
+    0.0
+   ],
+   "active_neurons": 17081
+  },
+  {
+   "group": "sensory: leg bristle via ProLN",
+   "cells": 300,
+   "mdn_mean_hz": 0.25,
+   "mdn_each_hz": [
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ],
+   "active_neurons": 16005
+  },
+  {
+   "group": "visual: LC31a",
+   "cells": 32,
+   "mdn_mean_hz": 0.25,
+   "mdn_each_hz": [
+    0.0,
+    1.0,
+    0.0,
+    0.0
+   ],
+   "active_neurons": 16594
+  },
+  {
+   "group": "visual: LC36",
+   "cells": 32,
+   "mdn_mean_hz": 0.25,
+   "mdn_each_hz": [
+    0.0,
+    1.0,
+    0.0,
+    0.0
+   ],
+   "active_neurons": 8364
+  },
+  {
+   "group": "visual: LC46b",
+   "cells": 10,
+   "mdn_mean_hz": 0.25,
+   "mdn_each_hz": [
+    0.0,
+    1.0,
+    0.0,
+    0.0
+   ],
+   "active_neurons": 8068
+  },
+  {
+   "group": "visual: LC9",
+   "cells": 219,
+   "mdn_mean_hz": 0.25,
+   "mdn_each_hz": [
+    0.0,
+    0.0,
+    1.0,
+    0.0
+   ],
+   "active_neurons": 15740
+  },
+  {
+   "group": "sensory: (none) via AN",
+   "cells": 2663,
+   "mdn_mean_hz": 0.0,
+   "mdn_each_hz": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "active_neurons": 20624
+  },
+  {
+   "group": "sensory: (none) via PhN",
+   "cells": 34,
+   "mdn_mean_hz": 0.0,
+   "mdn_each_hz": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "active_neurons": 232
+  },
+  {
+   "group": "sensory: chordotonal organ via ProLN",
+   "cells": 36,
+   "mdn_mean_hz": 0.0,
+   "mdn_each_hz": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "active_neurons": 367
+  },
+  {
+   "group": "sensory: grooming via AN",
+   "cells": 65,
+   "mdn_mean_hz": 0.0,
+   "mdn_each_hz": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "active_neurons": 16698
+  },
+  {
+   "group": "sensory: leg bristle via MetaLN",
+   "cells": 242,
+   "mdn_mean_hz": 0.0,
+   "mdn_each_hz": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "active_neurons": 17501
+  },
+  {
+   "group": "sensory: mechanosensory bristle via ADMN",
+   "cells": 351,
+   "mdn_mean_hz": 0.0,
+   "mdn_each_hz": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "active_neurons": 9248
+  },
+  {
+   "group": "sensory: mechanosensory bristle via DMetaN",
+   "cells": 39,
+   "mdn_mean_hz": 0.0,
+   "mdn_each_hz": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "active_neurons": 8139
+  },
+  {
+   "group": "sensory: mechanosensory bristle via MesoLN",
+   "cells": 693,
+   "mdn_mean_hz": 0.0,
+   "mdn_each_hz": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "active_neurons": 9105
+  },
+  {
+   "group": "sensory: mechanosensory bristle via MetaLN",
+   "cells": 758,
+   "mdn_mean_hz": 0.0,
+   "mdn_each_hz": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "active_neurons": 9893
+  },
+  {
+   "group": "sensory: pharyngeal sensillum via aPhN",
+   "cells": 75,
+   "mdn_mean_hz": 0.0,
+   "mdn_each_hz": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "active_neurons": 17312
+  },
+  {
+   "group": "sensory: taste peg via MxLbN",
+   "cells": 59,
+   "mdn_mean_hz": 0.0,
+   "mdn_each_hz": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "active_neurons": 16386
+  },
+  {
+   "group": "sensory: wing bristle via ADMN",
+   "cells": 385,
+   "mdn_mean_hz": 0.0,
+   "mdn_each_hz": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "active_neurons": 17116
+  },
+  {
+   "group": "visual: LC10a",
+   "cells": 275,
+   "mdn_mean_hz": 0.0,
+   "mdn_each_hz": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "active_neurons": 16972
+  },
+  {
+   "group": "visual: LC10c-1",
+   "cells": 130,
+   "mdn_mean_hz": 0.0,
+   "mdn_each_hz": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "active_neurons": 16187
+  },
+  {
+   "group": "visual: LC10c-2",
+   "cells": 125,
+   "mdn_mean_hz": 0.0,
+   "mdn_each_hz": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "active_neurons": 15837
+  },
+  {
+   "group": "visual: LC10d",
+   "cells": 214,
+   "mdn_mean_hz": 0.0,
+   "mdn_each_hz": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "active_neurons": 16826
+  },
+  {
+   "group": "visual: LC14b",
+   "cells": 43,
+   "mdn_mean_hz": 0.0,
+   "mdn_each_hz": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "active_neurons": 17754
+  },
+  {
+   "group": "visual: LC17",
+   "cells": 353,
+   "mdn_mean_hz": 0.0,
+   "mdn_each_hz": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "active_neurons": 7315
+  },
+  {
+   "group": "visual: LC20a",
+   "cells": 62,
+   "mdn_mean_hz": 0.0,
+   "mdn_each_hz": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "active_neurons": 8665
+  },
+  {
+   "group": "visual: LC20b",
+   "cells": 79,
+   "mdn_mean_hz": 0.0,
+   "mdn_each_hz": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "active_neurons": 79
+  },
+  {
+   "group": "visual: LC25",
+   "cells": 56,
+   "mdn_mean_hz": 0.0,
+   "mdn_each_hz": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "active_neurons": 56
+  },
+  {
+   "group": "visual: LC26",
+   "cells": 75,
+   "mdn_mean_hz": 0.0,
+   "mdn_each_hz": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "active_neurons": 15814
+  },
+  {
+   "group": "visual: LC27",
+   "cells": 46,
+   "mdn_mean_hz": 0.0,
+   "mdn_each_hz": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "active_neurons": 216
+  },
+  {
+   "group": "visual: LC30",
+   "cells": 57,
+   "mdn_mean_hz": 0.0,
+   "mdn_each_hz": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "active_neurons": 57
+  },
+  {
+   "group": "visual: LC33",
+   "cells": 32,
+   "mdn_mean_hz": 0.0,
+   "mdn_each_hz": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "active_neurons": 32
+  },
+  {
+   "group": "visual: LC35a",
+   "cells": 10,
+   "mdn_mean_hz": 0.0,
+   "mdn_each_hz": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "active_neurons": 127
+  },
+  {
+   "group": "visual: LC37",
+   "cells": 15,
+   "mdn_mean_hz": 0.0,
+   "mdn_each_hz": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "active_neurons": 15
+  },
+  {
+   "group": "visual: LC4",
+   "cells": 126,
+   "mdn_mean_hz": 0.0,
+   "mdn_each_hz": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "active_neurons": 16086
+  },
+  {
+   "group": "visual: LC41",
+   "cells": 13,
+   "mdn_mean_hz": 0.0,
+   "mdn_each_hz": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "active_neurons": 99
+  },
+  {
+   "group": "visual: LC43",
+   "cells": 14,
+   "mdn_mean_hz": 0.0,
+   "mdn_each_hz": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "active_neurons": 16545
+  },
+  {
+   "group": "visual: LPLC2",
+   "cells": 185,
+   "mdn_mean_hz": 0.0,
+   "mdn_each_hz": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "active_neurons": 17117
+  }
+ ],
+ "runtime_s": 207
+}

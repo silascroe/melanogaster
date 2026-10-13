@@ -352,3 +352,110 @@ a narrower margin than earlier tests). Reported: subset v1 reproduces pIP10
 (right 39.3 vs 40.5 Hz, left 36.7 vs 40.5 Hz whole-brain means on seeds 10–12),
 so the target copy needs no new package; nerve-cord song interneuron dPR1 fires
 at 71 Hz and TN1 at 14 Hz; vPR6 stays silent. The game rule above applies.
+
+# Addendum: what drives MDN, the backing-up neurons? (written 2026-10-13, before any run)
+
+Question: which single input group drives the four MDN ("moonwalker") descending
+neurons, whose activation makes flies walk backwards (Bidaye et al. 2014)? The
+earlier hand-picked LC16 → MDN try gave 3–5 Hz with no controls.
+
+Exploratory screen, no pass/fail. Seed 0, 1 s of 150 Hz Poisson input per group,
+same model as above. Groups, each tested alone:
+- every traced sensory group (superclass `vnc_sensory`, `cb_sensory`,
+  `sensory_ascending`, `sensory_descending`) split by subclass and entry nerve,
+  with ≥ 20 cells;
+- every visual projection type named LC*, LPLC* or LLPC* with ≥ 10 traced cells,
+  both eyes together.
+Readout: mean rate of the four MDN. Also reported: group size, active-neuron count.
+
+Use of the screen: it nominates at most one candidate. That candidate must be a
+group the game can plausibly sense. Examples are a head-on obstacle touching the
+legs or antennae, or a frontal visual event. It then gets its own pre-declared
+confirmation test with fresh seeds, 20 shuffled brains and a specificity
+control, written down before it runs. If no group drives MDN at ≥ 10 Hz, item 3
+stops and is reported. In that case no combinations are hunted and nothing is
+tuned.
+
+## MDN screen result (written 2026-10-13, after the screen, before any confirmation run)
+
+[Evidence](evidence/mdn_input_screen_v1.json). MDN is silent without input. Only
+three groups exceeded 7 Hz. Mechanosensory neurons entering through the ocellar
+nerve (37 cells) gave 43.5 Hz. Despite the nerve's name these are touch
+bristles on the top and back of the head, plus four DNx02 cells, not ocellar
+photoreceptors. Foreleg mechanosensory bristles (288, entry nerve ProLN) gave
+19.5 Hz and visual LLPC3 (219) gave 19.2 Hz. LC16 gave 4 Hz, and mid- and
+hind-leg bristles gave 0 Hz.
+
+Nomination (a judgment made after seeing the screen): foreleg bristles. The
+stronger head-crown group is not something a walking fly meets head-on, and
+stimulating those bristles is known to evoke head grooming. LLPC3 has no clear
+game stimulus. The forelegs are what touch an obstacle in front. Because the
+pick came after the data, the confirmation below uses fresh seeds.
+
+# Addendum: foreleg touch to MDN (written 2026-10-13, before any run)
+
+Question: does touch on the forelegs drive MDN through the recorded wiring, and
+specifically from the front legs?
+
+Input: the 288 traced mechanosensory bristle neurons entering through ProLN
+(both forelegs). Readout: mean rate of the four MDN. Same model, 150 Hz Poisson
+input, 1 s.
+
+Pass criteria (all required):
+1. MDN mean ≥ 10 Hz over seeds 6–8; 0 Hz without input.
+2. Foreleg MDN (seed 6) exceeds the rate in ≥ 19 of 20 shuffled brains (shuffle
+   seeds 1040–1059).
+3. Specificity: MDN with hind-leg mechanosensory bristles (758, MetaLN; seed 6)
+   is below half the foreleg rate (seed 6).
+
+Reported, not gated: each MDN cell; left foreleg only and right foreleg only
+(seed 6); the head-crown group on seed 6; descending neurons ≥ 10 Hz with
+foreleg input; active-neuron count.
+
+Use: a failure is reported and not tuned. A pass enters the game only after a
+game subset reproduces it. Game rule if it passes (engineering): while the
+fly's forelegs press on an obstacle in front, the touch copy feeds this group,
+and a smoothed MDN rate above a threshold makes the fly walk backwards.
+
+## Foreleg touch result (written 2026-10-13, after the run, before game work)
+
+PASS, all three criteria ([evidence](evidence/whole_brain_mdn_backup_v1.json)):
+MDN 16, 17 and 16.25 Hz (seeds 6–8); 0 Hz without input; 0 Hz with hind-leg
+bristles; intact beat 20/20 shuffles. Reported: one foreleg alone is much weaker
+(left 5.75 Hz, right 0.25 Hz), so in this model both forelegs together drive
+MDN. The head-crown group gave 43 Hz. Foreleg input also drives many other
+descending neurons (35 at ≥ 10 Hz, MDN not among the strongest, DNa02 on both
+sides at 29–35 Hz). So MDN is one output of a broad foreleg-touch response. It is
+not a dedicated line.
+
+# Addendum: obstacle brain copy, subset v4 (written 2026-10-13, before any run)
+
+Package: neurons active in the whole brain under foreleg-bristle input (seeds
+0–2), plus the foreleg and MDN groups, saved as subset v4 for a new "obstacle"
+copy. The existing copies and packages are unchanged.
+
+Pass criteria: subset MDN mean over seeds 10–12 within 20% of the whole-brain
+mean on the same seeds; 0 Hz MDN without input.
+
+Game rule if it passes (engineering): Godot reports foreleg contact when the
+fly's front is pressed against a solid obstacle; the obstacle copy then feeds
+the foreleg group at 150 Hz. A smoothed MDN rate (0.15 s) at or above 8 Hz, about
+half the whole-brain response, is "backing up", and the fly walks backwards.
+Turning away afterwards is engineered. Game check: the intact brain backs away
+from an obstacle, and the cut-wiring brain does not (MDN joins the cut action
+neurons).
+
+## Subset v4 and game result (written 2026-10-13, after the runs)
+
+Subset v4 PASS ([evidence](evidence/brain_subset_v4.json)): 4,871 neurons; MDN
+15, 15.25, 12.5 Hz versus whole brain 13.75, 13, 15 Hz (seeds 10–12); 0 Hz
+without input.
+
+Game check: intact backed up in 3 of 3 capture trials and cut wiring in 0 of 3.
+Two deviations from the rule above were made after seeing the game, and both are
+engineered. The first is a 0.8 s minimum back-up once MDN triggers: as
+declared, the back-up lasted ~0.3 s (0.15–0.21 m), because MDN stops as soon as
+contact ends. The second is a 1.5 s give-up turn when pressing gets no MDN
+response. The session test g8 checks the onset within 0.5 s of contact instead
+of the state after 1.5 s of pressing. Sustained pressing can drift into an
+MDN-silent state, and the first version of the test did not allow for that.

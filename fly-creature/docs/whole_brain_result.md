@@ -39,7 +39,8 @@ model has a 7 mV threshold gap, 0.275 mV/synapse conductances that decay over
 ## Also tried (exploratory, single trial)
 
 LC16 → MDN (backing up): MDN fired at 3–5 Hz. A weak response; not tested
-against controls and not used.
+against controls and not used. A later screen found a stronger input (foreleg
+touch; see Backing up below).
 
 ## What this does and does not show
 
@@ -288,3 +289,43 @@ cut. Song needs the brain's wiring, but how much he sings depends on her path:
 he sings only while she is about 20° or more to one side, so a female walking
 straight ahead of him gets no song. Fixed seeds do not make runs repeatable
 because her path also depends on real-time frame timing.
+
+## Backing up: foreleg touch to MDN (2026-10-13)
+
+**Screen** ([evidence](evidence/mdn_input_screen_v1.json)). Every sensory group
+and lobula columnar visual type was stimulated alone. Only three drove the four
+MDN neurons above 7 Hz: touch bristles on the head crown (43 Hz), foreleg touch
+bristles (19.5 Hz) and visual LLPC3 (19 Hz). LC16 gave 4 Hz. Foreleg touch was
+nominated after the screen, because it is what meets an obstacle in front.
+
+**Test: PASS** ([evidence](evidence/whole_brain_mdn_backup_v1.json)). Fresh seeds:
+MDN 16–17 Hz with both forelegs, 0 Hz without input, 0 Hz with hind-leg touch,
+and 20/20 shuffled brains beaten. One foreleg alone gives little (6 Hz left,
+under 1 Hz right). Foreleg touch also drives about 35 other descending neurons
+at ≥ 10 Hz, so in this model MDN is one part of a broad touch response, not a
+private line.
+
+**Game copy** ([evidence](evidence/brain_subset_v4.json)). Subset v4 holds the
+4,871 neurons active under foreleg touch. MDN 14.3 Hz versus 13.9 Hz in the
+whole brain, silent without input, about 3.5 ms per 50 ms frame. It runs as a
+new "obstacle" copy; the other copies are unchanged.
+
+**In the game (`O`).** A sugar cube is placed in the fly's path. When the fly's
+front reaches it, Godot reports foreleg contact (engineered sensor) and the
+obstacle copy feeds foreleg touch at 150 Hz. A smoothed MDN rate of 8 Hz or more
+starts a back-up, and once started the fly reverses for at least 0.8 s
+(engineered hold). Afterwards it turns away (engineered). If it presses for
+1.5 s without a back-up, it also turns away (engineered give-up).
+`godot/capture_backup.gd` gave these results:
+
+| Condition | Backed up | Onset after contact | Distance |
+|---|---|---|---|
+| Intact | 3 of 3 | 0.14–0.58 s | 0.4 m each |
+| Cut wiring | 0 of 3 (gave up each time) | — | 0 |
+
+MDN's own burst ends within ~0.2 s of the fly losing contact, so the 0.4 m
+distance comes from the engineered hold. The brain decides whether the fly
+backs up, not how far. Held against the cube for more than about 1 s, the copy
+can drift into a state where MDN goes silent (7 of 12 seeds within 3 s). This is
+the published model's known limit outside ~1 s from rest. The game rarely
+presses that long, and the give-up rule covers it when it does.

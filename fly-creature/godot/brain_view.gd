@@ -4,7 +4,7 @@ extends Control
 # the Python service; bar scaling and decay below are display choices only.
 
 const PANEL_WIDTH := 330.0
-const ROW_HEIGHT := 22.0
+const ROW_HEIGHT := 19.0
 const BAR_X := 112.0
 const BAR_WIDTH := 148.0
 const HOLD_TAU_S := 0.35
@@ -15,6 +15,7 @@ const ACCENT_TURN := Color(0.30, 0.86, 0.72)
 const ACCENT_FEED := Color(0.98, 0.82, 0.30)
 const ACCENT_GROOM := Color(0.72, 0.64, 0.98)
 const ACCENT_SONG := Color(0.98, 0.50, 0.72)
+const ACCENT_BACK := Color(0.45, 0.74, 0.98)
 const TEXT_COLOR := Color(0.90, 0.94, 0.96)
 const MUTED_COLOR := Color(0.58, 0.67, 0.72)
 const BAR_BACK := Color(1.0, 1.0, 1.0, 0.09)
@@ -28,6 +29,7 @@ var jump_flash := 0.0
 var feeding := false
 var grooming := false
 var singing := false
+var backing := false
 var subtitle := "recorded wiring, simplified LIF neurons"
 var turn_active := false
 var dna_base := 0.0
@@ -60,6 +62,9 @@ func _ready() -> void:
 		{"section": "GROOM CIRCUIT", "color": ACCENT_GROOM},
 		{"key": "jo_ce", "label": "Antenna JO", "color": ACCENT_GROOM, "floor": 10.0},
 		{"key": "adn", "label": "aDN (groom)", "color": ACCENT_GROOM, "floor": 1.0},
+		{"section": "BACK-UP CIRCUIT", "color": ACCENT_BACK},
+		{"key": "foreleg", "label": "Foreleg touch", "color": ACCENT_BACK, "floor": 10.0},
+		{"key": "mdn", "label": "MDN (back up)", "color": ACCENT_BACK, "floor": 1.0},
 	]
 	for row in rows:
 		if row.has("key"):
@@ -84,6 +89,9 @@ func update_trace(trace: Dictionary) -> void:
 	grooming = bool(trace.get("grooming", false))
 	singing = bool(trace.get("singing", false))
 	_hold("pip10", float(spikes.get("pIP10", 0)))
+	_hold("foreleg", float(spikes.get("Foreleg", 0)))
+	_hold("mdn", float(spikes.get("MDN", 0)))
+	backing = bool(trace.get("backing", false))
 	if trace.has("brain_neurons"):
 		subtitle = "whole-brain subset: %d neurons, %d firing" % [
 			int(trace["brain_neurons"]), int(trace.get("active_neurons", 0))]
@@ -154,7 +162,7 @@ func _process(delta: float) -> void:
 
 func _draw() -> void:
 	var font := ThemeDB.fallback_font
-	var height := 60.0 + rows.size() * ROW_HEIGHT + 200.0
+	var height := 60.0 + rows.size() * ROW_HEIGHT + 220.0
 	draw_rect(Rect2(0.0, 0.0, PANEL_WIDTH, height), Color(0.05, 0.08, 0.10, 0.82))
 	draw_rect(Rect2(0.0, 0.0, PANEL_WIDTH, height), Color(1, 1, 1, 0.12), false, 1.0)
 	draw_string(font, Vector2(14.0, 26.0), "BRAIN  /  %s" % condition_text,
@@ -164,10 +172,10 @@ func _draw() -> void:
 	var y := 58.0
 	for row in rows:
 		if row.has("section"):
-			y += 8.0
+			y += 6.0
 			draw_string(font, Vector2(14.0, y + 14.0), row["section"],
 				HORIZONTAL_ALIGNMENT_LEFT, -1.0, 13, row["color"])
-			y += 22.0
+			y += 20.0
 			continue
 		var key: String = row["key"]
 		var fraction := clampf(values[key] / peaks[key], 0.0, 1.0)
@@ -189,6 +197,9 @@ func _draw() -> void:
 		Color(ACCENT_GROOM.r, ACCENT_GROOM.g, ACCENT_GROOM.b, 0.55))
 	_draw_output(font, Vector2(20.0 + half, y), half, "SINGING", "not singing", singing,
 		Color(ACCENT_SONG.r, ACCENT_SONG.g, ACCENT_SONG.b, 0.55))
+	y += 32.0
+	_draw_output(font, Vector2(14.0, y), half, "BACKING UP", "not backing", backing,
+		Color(ACCENT_BACK.r, ACCENT_BACK.g, ACCENT_BACK.b, 0.55))
 	y += 34.0
 	# Turn gauge: DNa02 right minus left through the engineered turn rule.
 	draw_string(font, Vector2(14.0, y + 12.0), "TURN  (engineered readout of DNa02 right - left)",

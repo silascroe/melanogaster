@@ -24,6 +24,12 @@ const FEMALE_WALK_SPEED := 0.38
 const FEMALE_ROAM_HALF := 5.0
 const COURT_DISTANCE_M := 1.7
 const PERSONAL_SPACE_M := 1.3
+const OBSTACLE_HALF := 0.45
+const FORELEG_REACH := 0.42
+const CONTACT_MARGIN := 0.06
+const BACKUP_SPEED := 0.5
+const GIVE_UP_S := 1.5
+const BACKUP_HOLD_S := 0.8
 
 @onready var bridge: NeuralBridge = $NeuralBridge
 @onready var fly_actor: FlyActor = $Fly
@@ -96,6 +102,21 @@ var female_heading := 0.0
 var female_goal := Vector3.ZERO
 var female_pause_s := 0.0
 var female_walking := false
+# Obstacle (O): a sugar cube the fly cannot walk through. Contact sensing, the
+# blocking, the backwards walk and the turn away afterwards are engineered;
+# whether the fly backs up is decided by MDN in the obstacle brain copy.
+var obstacle_root: Node3D
+var obstacle_active := false
+var obstacle_position := Vector3.ZERO
+var forelegs_pressed := false
+var backing_now := false
+# Engineered: once MDN starts a back-up, the body keeps reversing for at least
+# BACKUP_HOLD_S, as one giant-fiber spike plays out a whole jump.
+var backup_hold_s := 0.0
+var reversing := false
+var pressing_s := 0.0
+var turning_away := false
+var turn_away_heading := 0.0
 
 
 func _ready() -> void:
@@ -140,6 +161,7 @@ func _ready() -> void:
 	_build_target()
 	_build_sugar()
 	_build_female()
+	_build_obstacle()
 	if animation_demo or walking_demo:
 		# A presentation clip: the route and flight are authored, not neural outputs.
 		return
@@ -160,6 +182,7 @@ func _process(delta: float) -> void:
 		_move_ball(delta)
 		_move_female(delta)
 		_move_target(delta)
+		_keep_out_of_obstacle(previous_position)
 	move_speed = fly_position.distance_to(previous_position) / maxf(advanced_delta, 0.0001)
 	fly_actor.position = fly_position
 	fly_actor.rotation.y = -heading_rad
@@ -184,6 +207,16 @@ func _process(delta: float) -> void:
 	fly_actor.set_dust(antenna_dust)
 	fly_actor.set_grooming(grooming_now)
 	fly_actor.set_singing(singing_now, song_side)
+	fly_actor.set_backing(reversing)
+	obstacle_root.visible = obstacle_active
+	forelegs_pressed = _forelegs_touch_obstacle()
+	if forelegs_pressed and not reversing and not turning_away:
+		pressing_s += delta
+		if pressing_s >= GIVE_UP_S:
+			_turn_away()
+			service_message = "Forelegs pressed, MDN quiet; turning away (engineered)"
+	else:
+		pressing_s = 0.0
 	if sugar_active and feeding_now:
 		sugar_eaten_s += delta
 		if sugar_eaten_s >= SUGAR_EAT_S:
@@ -206,7 +239,8 @@ func _process(delta: float) -> void:
 				{"x": target_position.x, "z": target_position.z, "active": pursuit_enabled},
 				{"x": sugar_position.x, "z": sugar_position.z, "radius": SUGAR_RADIUS, "active": sugar_active,
 					"bitter": sugar_bitter},
-				{"active": antenna_dust > 0.0})
+				{"active": antenna_dust > 0.0},
+				{"active": forelegs_pressed})
 	if not animation_demo and not walking_demo:
 		_update_hud()
 	if pursuit_demo and Engine.get_process_frames() % 60 == 0:
@@ -280,6 +314,8 @@ func _unhandled_key_input(event: InputEvent) -> void:
 			get_tree().change_scene_to_file("res://playground.tscn")
 		KEY_SPACE:
 			_launch_ball()
+		KEY_O:
+			place_obstacle()
 		KEY_E:
 			antenna_dust = 1.0
 			service_message = "Dust on the antennae: Johnston's organ input"
@@ -349,6 +385,28 @@ func _move_fly(delta: float) -> void:
 			return
 	if fly_actor.is_recovering():
 		walking_now = false
+		return
+	if backing_now or backup_hold_s > 0.0:
+		backup_hold_s = maxf(0.0, backup_hold_s - delta)
+		reversing = true
+		var back := Vector3(sin(heading_rad), 0.0, -cos(heading_rad)) * -BACKUP_SPEED * delta
+		fly_position.x = clampf(fly_position.x + back.x, -ROOM_HALF_SIZE, ROOM_HALF_SIZE)
+		fly_position.z = clampf(fly_position.z + back.z, -ROOM_HALF_SIZE, ROOM_HALF_SIZE)
+		walking_now = true
+		return
+	if reversing:
+		reversing = false
+		_turn_away()
+		service_message = "Backed away; turning (engineered)"
+	if turning_away:
+		# Engineered: turn in place, away from the obstacle, before walking on.
+		heading_rad = rotate_toward(heading_rad, turn_away_heading, SEARCH_TURN_RATE * 1.5 * delta)
+		walking_now = true
+		if absf(angle_difference(heading_rad, turn_away_heading)) < 0.05:
+			turning_away = false
+			roam_goal = fly_position + Vector3(sin(heading_rad), 0.0, -cos(heading_rad)) * 4.0
+			roam_goal.x = clampf(roam_goal.x, -6.0, 6.0)
+			roam_goal.z = clampf(roam_goal.z, -6.0, 6.0)
 		return
 	if feeding_now or grooming_now:
 		walking_now = false
@@ -469,6 +527,56 @@ func _move_ball(delta: float) -> void:
 		ball_active = false
 
 
+## Place the obstacle ahead of the fly. If it is roaming, its goal is set
+## beyond the cube so it walks into it (engineered).
+func place_obstacle() -> void:
+	var forward := Vector3(sin(heading_rad), 0.0, -cos(heading_rad))
+	var spot := fly_position + forward * 2.2
+	obstacle_position = Vector3(clampf(spot.x, -ROOM_HALF_SIZE + 1.0, ROOM_HALF_SIZE - 1.0), 0.0,
+		clampf(spot.z, -ROOM_HALF_SIZE + 1.0, ROOM_HALF_SIZE - 1.0))
+	obstacle_root.position = obstacle_position
+	obstacle_active = true
+	if roam_enabled:
+		roam_goal = obstacle_position + forward * 2.0
+	service_message = "Obstacle placed ahead"
+
+
+func _inside_obstacle(point: Vector3, margin: float) -> bool:
+	return absf(point.x - obstacle_position.x) < OBSTACLE_HALF + margin \
+		and absf(point.z - obstacle_position.z) < OBSTACLE_HALF + margin
+
+
+## Engineered contact sensor: the foreleg tips, just ahead of the head, are at
+## the cube's surface.
+func _forelegs_touch_obstacle() -> bool:
+	if not obstacle_active or fly_actor.is_flying():
+		return false
+	var front := fly_position + Vector3(sin(heading_rad), 0.0, -cos(heading_rad)) * FORELEG_REACH
+	return _inside_obstacle(front, CONTACT_MARGIN)
+
+
+## The fly cannot walk into the cube: undo a step that would put its front or body inside.
+func _keep_out_of_obstacle(previous_position: Vector3) -> void:
+	if not obstacle_active or fly_actor.is_flying():
+		return
+	var front := fly_position + Vector3(sin(heading_rad), 0.0, -cos(heading_rad)) * FORELEG_REACH
+	if _inside_obstacle(front, 0.0) or _inside_obstacle(fly_position, 0.25):
+		fly_position = previous_position
+
+
+## Engineered: after backing up (or giving up), face away from the cube.
+func _turn_away() -> void:
+	pressing_s = 0.0
+	var away := fly_position - obstacle_position
+	away.y = 0.0
+	turn_away_heading = wrapf(atan2(away.x, -away.z) + roam_rng.randf_range(-0.7, 0.7), -PI, PI)
+	turning_away = true
+	if beacon_mode:
+		_end_beacon()
+	if not pursuit_enabled:
+		roam_enabled = true
+
+
 ## Scripted random walk with pauses; presentation only, no neural input.
 func _move_female(delta: float) -> void:
 	if not female_mode:
@@ -567,6 +675,12 @@ func _start_session() -> void:
 	steering_turn_rate = 0.0
 	pursuit_time = 0.0
 	target_position = Vector3(-2.9, 0.45, -6.5)
+	obstacle_active = false
+	backing_now = false
+	backup_hold_s = 0.0
+	reversing = false
+	turning_away = false
+	pressing_s = 0.0
 	female_position = Vector3(1.8, 0.0, -3.2)
 	female_heading = 0.0
 	female_goal = Vector3(3.5, 0.0, -2.0)
@@ -625,6 +739,12 @@ func _on_step_ready(payload: Dictionary) -> void:
 		service_message = "aDN firing: grooming the antennae"
 	elif was_grooming and not grooming_now:
 		service_message = "Antennae clean; aDN quiet"
+	var was_backing := backing_now
+	backing_now = bool(payload.get("backing", false))
+	if backing_now and not was_backing:
+		turning_away = false
+		backup_hold_s = BACKUP_HOLD_S
+		service_message = "MDN firing: backing up"
 	var was_singing := singing_now
 	singing_now = bool(payload.get("singing", false))
 	song_side = str(payload.get("song_side", song_side))
@@ -648,7 +768,7 @@ func _update_hud() -> void:
 	if last_trace.has("brain_neurons"):
 		line += "   |   brain step %s ms per 50 ms" % last_trace.get("compute_ms", "--")
 	detail_label.text = "Fly roams on its own  |  LEFT-CLICK: target  |  RIGHT-CLICK: sugar drop (SHIFT: bitter)  |  SPACE: throw object\n" \
-		+ "E: dust antennae  |  C: cut wiring  |  WASD take over  |  V moving target  |  B brain model\n" \
+		+ "E: dust antennae  |  O: obstacle  |  C: cut wiring  |  WASD take over  |  V moving target  |  B brain model\n" \
 		+ "M female fly  |  G roam  |  T fly  |  F camera  |  R reset  |  P playground\n" \
 		+ line + "\n" \
 		+ "Senses, action rules, walking and animation are engineered; wiring is MaleCNS data."
@@ -743,6 +863,22 @@ func _build_female() -> void:
 			part.visible = false
 		elif "male tergites" in part.name and part.mesh.get_surface_count() > 2:
 			part.set_surface_override_material(2, part.mesh.surface_get_material(1))
+
+
+func _build_obstacle() -> void:
+	obstacle_root = Node3D.new()
+	add_child(obstacle_root)
+	var mesh := BoxMesh.new()
+	mesh.size = Vector3.ONE * OBSTACLE_HALF * 2.0
+	var cube := MeshInstance3D.new()
+	cube.mesh = mesh
+	cube.position.y = OBSTACLE_HALF
+	var material := StandardMaterial3D.new()
+	material.albedo_color = Color(0.97, 0.95, 0.89)
+	material.roughness = 0.85
+	cube.material_override = material
+	obstacle_root.add_child(cube)
+	obstacle_root.visible = false
 
 
 func _sphere(parent: Node3D, position: Vector3, size: Vector3, color: Color) -> void:

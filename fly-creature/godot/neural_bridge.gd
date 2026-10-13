@@ -33,7 +33,8 @@ func start_session(condition: String, steering_model: String = "lif") -> void:
 
 
 func step(session_id: String, fly: Dictionary, object_state: Dictionary, target_state: Dictionary,
-		sugar_state: Dictionary = {}, touch_state: Dictionary = {}) -> void:
+		sugar_state: Dictionary = {}, touch_state: Dictionary = {},
+		obstacle_state: Dictionary = {}) -> void:
 	_send("/session/%s/step" % session_id, {
 		"dt_ms": 50.0,
 		"fly": fly,
@@ -41,6 +42,7 @@ func step(session_id: String, fly: Dictionary, object_state: Dictionary, target_
 		"target": target_state,
 		"sugar": sugar_state if not sugar_state.is_empty() else {"active": false},
 		"touch": touch_state if not touch_state.is_empty() else {"active": false},
+		"obstacle": obstacle_state if not obstacle_state.is_empty() else {"active": false},
 	}, "step")
 
 

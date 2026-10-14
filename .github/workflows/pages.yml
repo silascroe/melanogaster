@@ -1,0 +1,49 @@
+# Publishes fly-creature/site/ (the live obstacle-brain showcase) to GitHub Pages.
+# Runs the browser engine's checks first: the page only deploys if its brain
+# still matches the Python engine spike for spike and the intact/cut demo passes.
+# Requires Settings > Pages > Source: "GitHub Actions".
+name: Pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "fly-creature/site/**"
+      - "fly-creature/tests/web/**"
+      - ".github/workflows/pages.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node fly-creature/tests/web/check_web_brain.mjs
+      - run: node fly-creature/tests/web/check_web_demo.mjs
+
+  deploy:
+    needs: check
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: fly-creature/site
+      - id: deployment
+        uses: actions/deploy-pages@v4

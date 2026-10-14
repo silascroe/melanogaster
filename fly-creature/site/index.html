@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FlyTest · live fly wiring</title>
+  <meta name="description" content="4,871 neurons of recorded fruit-fly wiring, running live in your browser: touch the forelegs and watch the backing-up neurons decide.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <style>
+    :root {
+      --paper: #f2eee5;
+      --paper-bright: #faf7f0;
+      --paper-deep: #e8e1d5;
+      --line: #c9c1b4;
+      --line-strong: #a69c8e;
+      --muted: #6d756f;
+      --text: #26332f;
+      --teal: #28766b;
+      --blue: #3f7eae;
+      --amber: #bf8d2e;
+      --magenta: #bf607c;
+      --red: #c86d4d;
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: "Avenir Next", "Segoe UI", system-ui, sans-serif;
+      --mono: ui-monospace, "Cascadia Mono", Consolas, monospace;
+    }
+    * { box-sizing: border-box; }
+    html { background: var(--paper); }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 15px;
+      line-height: 1.55;
+    }
+    a { color: var(--teal); }
+    .wrap { max-width: 1180px; margin: 0 auto; padding: 28px 24px 64px; }
+
+    header.masthead {
+      display: grid;
+      grid-template-columns: 210px 1fr;
+      gap: 32px;
+      padding-bottom: 26px;
+      border-bottom: 1px solid var(--line-strong);
+    }
+    .wordmark { font-family: var(--serif); font-size: 30px; letter-spacing: -.01em; margin: 0 0 10px; }
+    .label, .wordmark + .label {
+      font-size: 10.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--muted);
+    }
+    .masthead .side { border-right: 1px solid var(--line); padding-right: 24px; }
+    h1 {
+      font-family: var(--serif); font-weight: 400; font-size: clamp(34px, 5.2vw, 58px);
+      line-height: 1.04; letter-spacing: -.02em; margin: 0 0 14px;
+    }
+    .lede { max-width: 62ch; margin: 0; color: #3f4a46; font-size: 16px; }
+    .status-pill {
+      display: inline-flex; align-items: center; gap: 8px; margin-top: 18px; padding: 6px 12px;
+      border: 1px solid var(--teal); border-radius: 3px; background: #e3ece6;
+      font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--teal);
+    }
+    .status-pill::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+    .status-pill.loading { border-color: var(--line-strong); background: var(--paper-deep); color: var(--muted); }
+
+    section.panel {
+      margin-top: 28px; background: var(--paper-bright); border: 1px solid var(--line);
+      box-shadow: 0 1px 0 rgba(0,0,0,.03);
+    }
+    .panel-head {
+      display: flex; justify-content: space-between; align-items: baseline; gap: 12px;
+      padding: 13px 18px; border-bottom: 1px solid var(--line);
+    }
+    .panel-head h2 {
+      margin: 0; font-size: 12px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase;
+    }
+    .panel-head h2 .num { color: var(--red); margin-right: 10px; font-weight: 500; }
+    .panel-head .note { font-size: 11px; color: var(--muted); letter-spacing: .04em; }
+
+    .demo { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); }
+    .demo > div { padding: 16px 18px; }
+    .demo > div + div { border-left: 1px solid var(--line); }
+    .figure-label {
+      font-size: 10.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--muted);
+      display: flex; justify-content: space-between; gap: 12px; margin-bottom: 8px;
+    }
+    canvas { display: block; width: 100%; }
+    #brain { aspect-ratio: 0.82; background: var(--paper-bright); }
+    #arena {
+      aspect-ratio: 1.25; border: 1px solid var(--line);
+      background-color: #f7f3ea;
+      background-image: linear-gradient(var(--paper-deep) 1px, transparent 1px),
+        linear-gradient(90deg, var(--paper-deep) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+    .legend { display: flex; flex-wrap: wrap; gap: 6px 16px; margin-top: 10px; font-size: 12px; color: var(--muted); }
+    .legend span::before {
+      content: ""; display: inline-block; width: 9px; height: 9px; border-radius: 50%;
+      margin-right: 6px; vertical-align: -1px; background: var(--c);
+    }
+
+    .controls { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 4px; }
+    button {
+      font: inherit; font-size: 13px; padding: 8px 14px; border-radius: 3px; cursor: pointer;
+      border: 1px solid var(--line-strong); background: var(--paper-bright); color: var(--text);
+    }
+    button:hover { border-color: var(--teal); }
+    button.on { background: var(--teal); border-color: var(--teal); color: #fff; }
+    button.warn.on { background: var(--red); border-color: var(--red); }
+    button:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+
+    .readout { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--line); margin-top: 14px; }
+    .readout > div { padding: 10px 12px; border-bottom: 1px solid var(--line); }
+    .readout > div.l { border-right: 1px solid var(--line); }
+    .readout > div.wide { grid-column: 1 / -1; }
+    .readout > div.end { border-bottom: 0; }
+    .readout .k { font-size: 10px; letter-spacing: .15em; text-transform: uppercase; color: var(--muted); }
+    .readout .v { font-size: 19px; font-variant-numeric: tabular-nums; }
+    .readout .v.action-backing { color: var(--magenta); }
+    .readout .v.action-pressing { color: var(--blue); }
+    .meter { position: relative; height: 12px; background: var(--paper-deep); margin-top: 6px; }
+    .meter i { position: absolute; inset: 0 auto 0 0; width: 0; background: var(--magenta); }
+    .meter b { position: absolute; top: -3px; bottom: -3px; width: 2px; background: var(--text); }
+    #trace { height: 70px; margin-top: 6px; }
+
+    .callout {
+      margin: 0; padding: 14px 18px; background: var(--paper-deep); border-top: 1px solid var(--line);
+      font-family: var(--serif); font-size: 15px; line-height: 1.55;
+    }
+    .callout strong {
+      font-family: var(--sans); font-size: 10.5px; font-weight: 600; letter-spacing: .15em;
+      text-transform: uppercase; color: var(--teal); margin-right: 6px;
+    }
+
+    .ledger { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .ledger > div { padding: 16px 18px 18px; }
+    .ledger > div + div { border-left: 1px solid var(--line); }
+    .ledger h3 { margin: 0 0 8px; font-family: var(--serif); font-weight: 400; font-size: 20px; }
+    .ledger ul { margin: 0; padding-left: 18px; }
+    .ledger li { margin: 4px 0; }
+    .ledger .tag { font-size: 10.5px; letter-spacing: .15em; text-transform: uppercase; }
+    .tag.real { color: var(--teal); }
+    .tag.ours { color: var(--red); }
+    .tag.checked { color: var(--blue); }
+
+    .gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; }
+    .gallery figure { margin: 0; padding: 14px 16px 16px; }
+    .gallery figure + figure { border-left: 1px solid var(--line); }
+    .gallery img { width: 100%; display: block; border: 1px solid var(--line); }
+    .gallery figcaption { margin-top: 8px; font-size: 13px; color: #3f4a46; }
+
+    footer { margin-top: 30px; font-size: 13px; color: var(--muted); max-width: 90ch; }
+    footer p { margin: 6px 0; }
+    noscript p { padding: 16px 18px; }
+
+    @media (max-width: 860px) {
+      .wrap { padding: 20px 16px 48px; }
+      header.masthead { grid-template-columns: 1fr; gap: 14px; }
+      .masthead .side { border-right: 0; padding-right: 0; }
+      .demo, .ledger, .gallery { grid-template-columns: 1fr; }
+      .demo > div + div, .ledger > div + div, .gallery figure + figure { border-left: 0; border-top: 1px solid var(--line); }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="masthead">
+      <div class="side">
+        <p class="wordmark">FlyTest</p>
+        <div class="label">Male CNS v1.0</div>
+        <div class="label">Live in this page</div>
+      </div>
+      <div>
+        <h1>Touch its feet.</h1>
+        <p class="lede">4,871 neurons of recorded fruit-fly wiring are running live in this page, one
+          tenth of a millisecond at a time. When the cartoon fly walks into the sugar cube, its foreleg
+          touch neurons fire into that wiring. Whether it backs away is decided by four
+          “moonwalker” neurons (MDN) at the far end.</p>
+        <div class="status-pill loading" id="status">Loading wiring…</div>
+      </div>
+    </header>
+
+    <section class="panel" aria-labelledby="live-title">
+      <div class="panel-head">
+        <h2 id="live-title"><span class="num">01</span>Live brain copy</h2>
+        <span class="note" id="speed">—</span>
+      </div>
+      <div class="demo">
+        <div>
+          <div class="figure-label"><span>Neurons at their real positions</span><span>flattened, head up</span></div>
+          <canvas id="brain" aria-label="All 4,871 neurons drawn at their cell-body positions; firing neurons light up"></canvas>
+          <div class="legend">
+            <span style="--c: var(--blue)">foreleg touch (input)</span>
+            <span style="--c: var(--magenta)">MDN (back up)</span>
+            <span style="--c: var(--amber)">other descending</span>
+            <span style="--c: var(--teal)">everything else</span>
+          </div>
+        </div>
+        <div>
+          <div class="figure-label"><span>Body and world</span><span>engineered</span></div>
+          <canvas id="arena" aria-label="Top view of a cartoon fly walking into a sugar cube"></canvas>
+          <div class="controls">
+            <button id="touch" aria-pressed="false">Hold to touch the forelegs</button>
+            <button id="cut" class="warn" aria-pressed="false">Cut wiring onto MDN</button>
+            <button id="pause" aria-pressed="false">Pause</button>
+          </div>
+          <div class="readout">
+            <div class="l"><div class="k">Foreleg input</div><div class="v" id="input">off</div></div>
+            <div><div class="k">Body</div><div class="v" id="action">walking</div></div>
+            <div class="wide">
+              <div class="k">MDN, smoothed · backs up at 8 Hz</div>
+              <div class="v" id="mdn">0.0 Hz</div>
+              <div class="meter" aria-hidden="true"><i id="mdn-bar"></i><b id="mdn-threshold"></b></div>
+              <canvas id="trace" aria-label="MDN rate over the last six seconds"></canvas>
+            </div>
+            <div class="l end"><div class="k">Neurons firing / 50 ms</div><div class="v" id="firing">0</div></div>
+            <div class="end"><div class="k">Wiring</div><div class="v" id="wiring">intact</div></div>
+          </div>
+        </div>
+      </div>
+      <p class="callout"><strong>Try this</strong>Cut the wiring onto MDN. The touch neurons still fire and
+        most of the network still lights up, but the four MDN cells go dark, and the fly only
+        gives up and turns away when a timer runs out. That difference is the wiring’s doing.</p>
+      <noscript><p>This demo needs JavaScript: the brain runs in your browser.</p></noscript>
+    </section>
+
+    <section class="panel" aria-labelledby="ledger-title">
+      <div class="panel-head">
+        <h2 id="ledger-title"><span class="num">02</span>What is real here</h2>
+        <span class="note">and what is ours</span>
+      </div>
+      <div class="ledger">
+        <div>
+          <div class="tag real">From the connectome</div>
+          <h3>The wiring</h3>
+          <ul>
+            <li>Which neuron connects to which, and how many synapses: FlyEM’s Male CNS v1.0 reconstruction of one male fly.</li>
+            <li>Excitatory or inhibitory, from each neuron’s predicted transmitter.</li>
+            <li>Cell-body positions in the picture (except 333 leg sensory neurons, whose bodies sit in the legs; those are drawn near the foreleg nerve).</li>
+          </ul>
+        </div>
+        <div>
+          <div class="tag ours">Our assumptions</div>
+          <h3>The simplifications</h3>
+          <ul>
+            <li>Every neuron is the same simple leaky integrate-and-fire unit (Shiu et al. 2024 settings).</li>
+            <li>“Touching” means 150 Hz random input to 288 foreleg bristle neurons.</li>
+            <li>The 8 Hz threshold, the 0.8 s minimum back-up, the turn away and the whole cartoon body.</li>
+            <li>This 4,871-neuron copy was cut out of the 211,577-neuron brain because those neurons were active under foreleg touch.</li>
+          </ul>
+        </div>
+        <div>
+          <div class="tag checked">Checked</div>
+          <h3>The tests</h3>
+          <ul>
+            <li>Whole brain: foreleg touch drives MDN at 16–17 Hz; zero without input; zero from hind-leg touch; beats 20 of 20 randomly rewired brains.</li>
+            <li>Under the same touch, this copy drives MDN at 14.3 Hz; the whole brain, 13.9 Hz (three runs each).</li>
+            <li>This page’s engine gives the same spikes, bit for bit, as the Python engine on a recorded input.</li>
+            <li>Known limit: held down for over a second, the copy can drift into a state where MDN falls silent.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" aria-labelledby="game-title">
+      <div class="panel-head">
+        <h2 id="game-title"><span class="num">03</span>The full creature</h2>
+        <span class="note">Godot game, five brain copies</span>
+      </div>
+      <div class="gallery">
+        <figure>
+          <img src="media/backing_up.jpg" alt="The 3D fly backing away from a sugar cube while the brain panel shows MDN firing" loading="lazy">
+          <figcaption>Backing up from a sugar cube: the same copy as above, inside the game.</figcaption>
+        </figure>
+        <figure>
+          <img src="media/cut_wiring.jpg" alt="The fly pressed against the cube with wiring cut: foreleg touch lit, MDN dark" loading="lazy">
+          <figcaption>Wiring cut: touch arrives, MDN stays dark, the fly just gives up.</figcaption>
+        </figure>
+        <figure>
+          <img src="media/courtship.jpg" alt="The male fly following a larger female while the brain panel shows the song neurons firing" loading="lazy">
+          <figcaption>Following a female: LC10a vision drives the pIP10 song neurons. She is the male model in costume.</figcaption>
+        </figure>
+      </div>
+      <p class="callout"><strong>In the game</strong>The fly also jumps from looming objects, steers toward
+        targets, feeds on sugar, refuses bitter drops and grooms dusty antennae. Each reaction runs on
+        its own brain copy and was tested against shuffled wiring first.
+        <a href="https://github.com/silascroe/melanogaster/tree/main/fly-creature">Source and records on GitHub</a>.</p>
+    </section>
+
+    <footer>
+      <p>Wiring: <a href="https://male-cns.janelia.org/download/">FlyEM Male CNS v1.0</a>, a collaboration
+        between FlyEM at HHMI Janelia, the University of Cambridge Department of Zoology, the MRC Laboratory of
+        Molecular Biology and Google Research, licensed CC-BY. Neuron model: settings from Shiu et al. (2024),
+        <a href="https://github.com/philshiu/Drosophila_brain_model">Drosophila_brain_model</a>, reimplemented
+        here; not the authors’ code.</p>
+      <p>This is a toy built on real data, not a validated model of fly behaviour. Firing rates, the body and
+        every action rule are simplifications; the records of what was tested live in the repository.</p>
+    </footer>
+  </div>
+  <script type="module" src="app.js"></script>
+</body>
+</html>

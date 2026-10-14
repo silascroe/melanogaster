@@ -612,3 +612,17 @@ and was barely visible. The hold sets how far the fly reverses; the brain
 decides only whether it does. Cut wiring never backs up. An engineered give-up
 turn after 1.5 s of pressing keeps a fly with a silent MDN from staying stuck
 on the cube.
+
+## 2026-10-13: a public page that runs one brain copy, not a video of the game
+
+The showcase runs the obstacle copy (subset v4) in the visitor's browser rather
+than showing recordings, because a live, cuttable brain is the honest version
+of the claim. v4 was chosen because it is the smallest copy (4,871 neurons,
+1.5 MB) and its reaction has a clean intact-versus-cut contrast. The JavaScript
+engine is a port, not a new model: on a Python-recorded input it gives the same
+spikes and voltages bit for bit, so only the random input stream differs from
+the game. The body is a 2D cartoon with the game's rules (8 Hz threshold,
+0.8 s hold, 1.5 s give-up). Its own leave radius (2.0 m) was shrunk after the
+first headless run showed the fly could stall against the arena wall. That fix
+changed walking only. When a device cannot keep up, the page runs in slow
+motion and says so instead of skipping brain time.

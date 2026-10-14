@@ -83,3 +83,6 @@ lab/arena3d/.import/
 
 # Blender's rolling autosaves are redundant recovery copies.
 *.blend1
+
+# Local preview server config for the Claude desktop app
+.claude/launch.json

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+  <title id="title">FlyTest favicon</title>
+  <desc id="desc">A stylized teal fly with circuit-like legs and translucent wings.</desc>
+
+  <rect width="64" height="64" rx="15" fill="#f2eee5"/>
+  <path d="M8 48h10M46 48h10M13 16h9M42 16h9" fill="none" stroke="#c9c1b4" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="8" cy="48" r="2.5" fill="#bf8d2e"/>
+  <circle cx="56" cy="48" r="2.5" fill="#bf607c"/>
+
+  <path d="M29 28C24 24 17 21 12 25c-4 3-3 10 2 13 5 3 11 1 17-4Z" fill="#c9e2dc" stroke="#28766b" stroke-width="2.5" stroke-linejoin="round"/>
+  <path d="M35 28c5-4 12-7 17-3 4 3 3 10-2 13-5 3-11 1-17-4Z" fill="#d9e7ef" stroke="#3f7eae" stroke-width="2.5" stroke-linejoin="round"/>
+  <path d="M29 38c-5 2-9 5-10 9 5 2 11-1 15-6Z" fill="#dce9e3" stroke="#28766b" stroke-width="2.5" stroke-linejoin="round"/>
+  <path d="M35 38c5 2 9 5 10 9-5 2-11-1-15-6Z" fill="#e4ebef" stroke="#3f7eae" stroke-width="2.5" stroke-linejoin="round"/>
+
+  <path d="M32 15c-5 0-8 5-8 12 0 8 3 17 8 22 5-5 8-14 8-22 0-7-3-12-8-12Z" fill="#28766b" stroke="#26332f" stroke-width="2.5"/>
+  <circle cx="32" cy="20" r="4.5" fill="#26332f"/>
+  <circle cx="34" cy="19" r="1.8" fill="#bf607c"/>
+  <path d="M32 25v19M25 31l-7-5M39 31l7-5M25 38l-7 5M39 38l7 5" fill="none" stroke="#26332f" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="18" cy="26" r="2" fill="#28766b"/>
+  <circle cx="46" cy="26" r="2" fill="#3f7eae"/>
+  <circle cx="18" cy="43" r="2" fill="#28766b"/>
+  <circle cx="46" cy="43" r="2" fill="#3f7eae"/>
+</svg>

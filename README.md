@@ -2,6 +2,8 @@
 
 **A fruit fly's real wiring diagram, put to work.** A local-first lab built on the FlyEM Male CNS connectome: data loader, subgraph extractor, spiking simulator, browser lab and a Godot arena.
 
+**[Live demo](https://silascroe.github.io/melanogaster/):** 4,871 neurons of recorded fly wiring running in your browser. Touch the cartoon fly's feet and watch its backing-up neurons decide (source in [`fly-creature/site/`](fly-creature/site/)).
+
 This repository is a small, local-first exploration of the official FlyEM Male CNS connectome release. It began with a readable data loader, a bounded subgraph extractor, and a simple leaky integrate-and-fire simulator; it now also includes an inspectable local browser lab and standalone Godot arena. There is still no opaque graph database or claim of a validated biological behavior model.
 
 ## Workspace map

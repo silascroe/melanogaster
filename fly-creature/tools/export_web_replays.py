@@ -84,7 +84,8 @@ def record(package, condition: str, inputs: tuple[str, ...], stim_ms: float, rea
     return np.stack(bits), rates, fired, spikes
 
 
-def actions(name: str, rates: dict[str, list[float]]) -> tuple[list[str], dict[str, list[float]]]:
+def actions(name: str, rates: dict[str, list[float]],
+            stim_ms: float) -> tuple[list[str], dict[str, list[float]]]:
     """The game's action rule for this reaction, frame by frame (engineered)."""
     alpha = 1.0 - math.exp(-(FRAME_MS / 1000.0) / SMOOTHING_S)
     smooth: dict[str, list[float]] = {}
@@ -100,7 +101,9 @@ def actions(name: str, rates: dict[str, list[float]]) -> tuple[list[str], dict[s
         if name == "jump":
             act.append("jump" if rates["gf"][f] > 0 else "")
         elif name in ("feed", "bitter"):
-            act.append("feed" if smooth["mn9"][f] >= FEED_THRESHOLD_HZ else "")
+            # As in the game, feeding needs the mouth on the drop.
+            contact = REST_MS <= f * FRAME_MS < REST_MS + stim_ms
+            act.append("feed" if contact and smooth["mn9"][f] >= FEED_THRESHOLD_HZ else "")
         elif name == "groom":
             act.append("groom" if smooth["adn"][f] >= GROOM_THRESHOLD_HZ else "")
         elif name == "backup":
@@ -181,7 +184,7 @@ def main() -> None:
         blobs = []
         for condition in ("intact", "disconnected"):
             bits, rates, fired, spikes = record(package, condition, inputs, stim_ms, readouts, index)
-            act, smooth = actions(name, rates)
+            act, smooth = actions(name, rates, stim_ms)
             out["conditions"][condition] = {"rates_hz": rates, "smoothed_hz": smooth,
                                             "action": act, "neurons_fired": fired,
                                             "spikes": spikes}

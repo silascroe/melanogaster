@@ -875,7 +875,7 @@ func _build_female() -> void:
 		if "sex comb" in part.name or "dark terminalia" in part.name:
 			part.visible = false
 		elif "male tergites" in part.name and part.mesh.get_surface_count() > 2:
-			part.set_surface_override_material(2, part.mesh.surface_get_material(1))
+			part.set_surface_override_material(2, part.get_active_material(1))
 
 
 func _build_obstacle() -> void:

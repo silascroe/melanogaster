@@ -22,7 +22,8 @@ for (const [name, spec] of Object.entries(map.arrays)) {
 }
 check(map.arrays.xyz.length === 3 * map.n, "map has three coordinates per neuron");
 
-const EXPECTED = { jump: "jump", feed: "feed", bitter: "feed", turn: "turn right", groom: "groom", backup: "back up" };
+// null: no action in either condition (bitter is refused; its MN9 rebound comes after contact).
+const EXPECTED = { jump: "jump", feed: "feed", bitter: null, turn: "turn right", groom: "groom", backup: "back up" };
 const popcount = (b) => { let c = 0; while (b) { c += b & 1; b >>= 1; } return c; };
 
 for (const [name, expected] of Object.entries(EXPECTED)) {
@@ -46,12 +47,18 @@ for (const [name, expected] of Object.entries(EXPECTED)) {
     }
     check(mismatched === 0, `${name}/${condition}: ${mismatched} frames where lit neurons differ from the recorded count`);
     check(outside === 0, `${name}/${condition}: ${outside} lit neurons outside the ${meta.package} copy`);
-    const acted = cond.action.some((a) => a.includes(expected));
-    check(condition === "intact" ? acted : !cond.action.some(Boolean),
-      `${name}/${condition}: ${condition === "intact" ? `shows "${expected}"` : "shows no action"}`);
+    const wanted = condition === "intact" ? expected : null;
+    check(wanted ? cond.action.some((a) => a.includes(wanted)) : !cond.action.some(Boolean),
+      `${name}/${condition}: ${wanted ? `shows "${wanted}"` : "shows no action"}`);
     for (const key of meta.readouts) check(cond.rates_hz[key].length === frames, `${name}/${condition}: ${key} rate per frame`);
   });
   const onset = Math.round(meta.rest_ms / meta.frame_ms);
+  if (name === "bitter") {
+    // The page describes MN9's rebound after contact; the replay must still show it.
+    const off = onset + Math.round(meta.stimulus_ms / meta.frame_ms);
+    const rebound = Math.max(...meta.conditions.intact.smoothed_hz.mn9.slice(off));
+    check(rebound >= meta.thresholds.feed_hz, `bitter: MN9 rebound after contact (${rebound} Hz) is visible`);
+  }
   check(meta.conditions.intact.neurons_fired.slice(0, onset).every((n) => n === 0), `${name}: silent before the input`);
   for (const cells of [...Object.values(meta.cells.inputs), ...Object.values(meta.cells.readouts)]) {
     check(cells.length > 0 && cells.every((i) => (member[i >> 3] >> (i & 7)) & 1), `${name}: named cells are in the copy`);

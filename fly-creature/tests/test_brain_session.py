@@ -95,9 +95,14 @@ def test_g5_antenna_dust_drives_grooming_then_stops():
 
 
 def test_g6_bitter_drop_is_not_fed_on():
-    frames = _frames(BrainSession("intact"), 2.0, sugar=BITTER_AT_MOUTH)
+    session = BrainSession("intact")
+    frames = _frames(session, 2.0, sugar=BITTER_AT_MOUTH)
+    after = _frames(session, 1.0)
     assert all(f["taste"]["bitter"] for f in frames)
     assert not any(f["feeding"] for f in frames)
+    # After bitter, MN9 rebounds past the feeding threshold for ~0.5 s once
+    # contact ends (whole_brain_result.md); feeding needs contact, so no meal.
+    assert not any(f["feeding"] for f in after)
 
 
 def test_g7_seen_target_drives_song_on_its_side_then_stops():

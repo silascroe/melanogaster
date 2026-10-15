@@ -664,3 +664,32 @@ taste copy resets (6 of 6 seeds), which the game's 20 Hz rule would count as
 feeding. Map positions, cell types and body IDs shown on hover come from the
 same brain map and release annotations; positions of 1,407 neurons are
 approximate and the page says so.
+
+## 2026-10-14: feeding needs the mouth on the drop
+
+The bitter rebound above made the game "feed" for up to half a second after
+the fly had refused a bitter drop and moved off it. Feeding now needs both
+smoothed MN9 at or above 20 Hz and the mouth within reach of the drop. This is
+an engineered body rule (there is nothing to eat without a drop), chosen over
+two alternatives: resetting the taste copy as soon as contact ends would break
+the shared 0.5 s reset every copy uses, and raising the threshold above ~40 Hz
+would sit too close to the 66–78 Hz sugar response. It covers the flaw rather
+than explaining it, and every page that mentions the rebound says so. The same
+rule applies in the website replays, where the bitter replay now shows no
+feeding and still shows the rebound on its MN9 chart.
+
+## 2026-10-14: a looks pass without touching the model file
+
+Presentation only; nothing here reads or changes the brain. The fly looked
+darker and duller than a living *D. melanogaster*, the gingham placemat was
+blown out and drew the eye, and edges were jagged. Changes: 4x MSAA; a muted
+placemat; more ambient light so shadows read as shade, not black; cascaded sun
+shadows (sharper near the camera, still present on the far props); and, in
+`fly_actor.gd`, a load-time retune of the imported materials by name (lighter
+tan cuticle with a satin finish, brighter brick-red eyes, a visible wing
+membrane) plus a paler, thicker proboscis so the feeding stalk no longer reads
+as a third front leg. The exported model and its textures are unchanged, so
+the look can be reverted in code, and the female (the same model) gets it too;
+her repainted abdomen tip now copies the retuned material. `godot/capture_looks.gd`
+renders fixed shots for before/after comparison. Shape-level changes (faceted
+eyes, proportions) would need Blender and were left out.

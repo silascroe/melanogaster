@@ -39,7 +39,7 @@ const SCENARIOS = [
   {
     name: "feed", label: "Feed", sub: "sugar on the mouth", sense: "taste",
     readout: "MN9", threshold: 20, series: [{ key: "mn9", label: "MN9, smoothed" }, { key: "mn9", label: "per 25 ms", raw: true }],
-    rule: "Ours: the fly feeds while smoothed MN9 is at least 20 Hz.",
+    rule: "Ours: the fly feeds while its mouth is on the drop and smoothed MN9 is at least 20 Hz.",
     story: (s) => `
       <p><b>Driven:</b> ${s.inputCells} LB3 sugar/water taste neurons on the mouthparts, at 150 Hz for 1 s.</p>
       <p><b>Read:</b> MN9, the two motor neurons that push the proboscis out.
@@ -50,13 +50,14 @@ const SCENARIOS = [
   {
     name: "bitter", label: "Refuse", sub: "sugar laced with bitter", sense: "taste",
     readout: "MN9", threshold: 20, series: [{ key: "mn9", label: "MN9, smoothed" }, { key: "mn9", label: "per 25 ms", raw: true }],
-    rule: "Ours: the fly feeds while smoothed MN9 is at least 20 Hz.",
+    rule: "Ours: the fly feeds while its mouth is on the drop and smoothed MN9 is at least 20 Hz.",
     story: (s) => `
       <p><b>Driven:</b> the same sugar neurons plus ${s.extraCells} LB1 bitter neurons, together, for 1 s.</p>
       <p><b>Read:</b> MN9 again. ${s.cut ? "Cut, it never fires." :
         `During contact it barely fires (${hz(s.mean)}): bitter vetoes sugar. Then a flaw shows: in the half
-        second after the drop is gone, leftover activity drives MN9 to about ${hz(s.after)}, enough to count as
-        feeding under our rule. We saw this in 6 of 6 runs and have not traced why.`}</p>
+        second after the drop is gone, leftover activity drives MN9 to about ${hz(s.after)}, over the 20 Hz line.
+        We saw this in 6 of 6 runs and have not traced why. The game only counts feeding while the mouth is on
+        the drop, so the fly does not eat thin air; that is our rule covering the flaw, not the wiring fixing it.`}</p>
       <p class="fine">Whole brain: sugar plus bitter 0–1 Hz. When the bitter cells’ outputs were rewired at
         random, at most a third of the suppression was left.</p>`,
   },

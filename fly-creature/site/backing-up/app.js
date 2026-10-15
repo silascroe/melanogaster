@@ -3,8 +3,8 @@
 // cartoon arena and the MDN trace. When the device cannot keep up, the whole
 // world runs in slow motion and the header says so; it never skips brain time.
 
-import { Creature, SETTINGS } from "./creature.js";
-import { seededRandom } from "./brain.js";
+import { Creature, SETTINGS } from "../creature.js";
+import { seededRandom } from "../brain.js";
 
 const COMPUTE_BUDGET_MS = 12;    // per animation frame
 const METER_MAX_HZ = 30;
@@ -19,8 +19,8 @@ async function load() {
     return r[as]();
   });
   const [meta, buffer] = await Promise.all([
-    get("data/obstacle_brain_v4.json", "json"),
-    get("data/obstacle_brain_v4.bin", "arrayBuffer"),
+    get(new URL("../data/obstacle_brain_v4.json", import.meta.url), "json"),
+    get(new URL("../data/obstacle_brain_v4.bin", import.meta.url), "arrayBuffer"),
   ]);
   return { meta, buffer };
 }

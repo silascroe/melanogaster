@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How it works · FlyTest</title>
+  <meta name="description" content="Where FlyTest's wiring comes from, what its simulation assumes, how each reaction was tested against rewired brains, and what the model gets wrong.">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <div class="wrap">
+    <nav class="site" aria-label="Site">
+      <a class="home" href="../">FlyTest</a>
+      <a href="../">Replays</a>
+      <a href="../backing-up/">Live: touch its feet</a>
+      <a href="./" aria-current="page">How it works</a>
+      <a href="https://github.com/silascroe/melanogaster">GitHub</a>
+    </nav>
+
+    <header class="masthead">
+      <div class="side">
+        <div class="label">The fine print</div>
+        <div class="label">in plain words</div>
+      </div>
+      <div>
+        <h1>What’s real, and what’s ours.</h1>
+        <p class="lede">A fruit fly’s nervous system has been mapped neuron by neuron. This project runs that
+          map as a deliberately simple simulation and hangs a cartoon body off it. Some of what you see comes
+          straight from the data, some is the simulation’s assumptions, and some is plain game engineering.
+          This page keeps the three apart.</p>
+      </div>
+    </header>
+
+    <section class="panel" aria-labelledby="flow-title">
+      <div class="panel-head">
+        <h2 id="flow-title"><span class="num">01</span>From a touch to a twitch</h2>
+        <span class="note">every reaction runs through the same seven steps</span>
+      </div>
+      <ol class="flow">
+        <li class="ours"><span class="tag ours">Ours</span><b>The world</b>A sugar drop, a looming ball, dust, a wall.</li>
+        <li class="ours"><span class="tag ours">Ours</span><b>A sensor</b>Code decides the fly “feels” it and how strongly.</li>
+        <li class="real"><span class="tag real">Real cells</span><b>Input neurons</b>That feeling becomes random firing in recorded sensory neurons.</li>
+        <li class="real"><span class="tag real">Real wiring</span><b>The connectome</b>Who connects to whom, and how strongly, from the reconstruction.</li>
+        <li class="assumed"><span class="tag checked">Assumed</span><b>The neuron model</b>Every neuron is the same simple unit; that is the big simplification.</li>
+        <li class="real"><span class="tag real">Real cells</span><b>Readout neurons</b>We listen to a few known command cells, like the escape neuron.</li>
+        <li class="ours"><span class="tag ours">Ours</span><b>A rule and a body</b>“Above 20 Hz means feed”, plus all the animation.</li>
+      </ol>
+      <p class="callout"><strong>So</strong>The connectome only gets credit for step four, and only when
+        cutting or scrambling that wiring makes the reaction go away. Everything on either side of it is a
+        choice we made, and we say so.</p>
+    </section>
+
+    <section class="panel" aria-labelledby="data-title">
+      <div class="panel-head">
+        <h2 id="data-title"><span class="num">02</span>The wiring and the simulation</h2>
+        <span class="note">Male CNS v1.0 · Shiu et al. 2024 settings</span>
+      </div>
+      <div class="numbers">
+        <div><div class="v">211,577</div><div class="k">neurons in one male fly’s brain and nerve cord</div></div>
+        <div><div class="v">25.2 M</div><div class="k">connections between them, from 125 million synapses</div></div>
+        <div><div class="v">0.1 ms</div><div class="k">simulation step; every neuron updates every step</div></div>
+        <div><div class="v">7</div><div class="k">reactions tested against rewired brains (one more failed)</div></div>
+      </div>
+      <div class="split">
+        <div class="prose">
+          <h3>The data</h3>
+          <p>FlyEM and its partners imaged a male fly’s whole central nervous system with an electron
+            microscope, layer by layer, each layer thinner than a virus, and traced every neuron and synapse. The result,
+            Male CNS v1.0, says which neuron touches which and how many times. It also predicts each
+            neuron’s chemical messenger, which hints whether it excites or quiets its partners. That
+            prediction is a machine-learning estimate, not a measurement.</p>
+          <h3>The simulation</h3>
+          <p>Each neuron is treated as a leaky bucket of voltage. Every spike arriving from an exciting
+            partner adds a small, fixed amount per synapse; every spike from an inhibiting partner takes
+            some away. The bucket slowly leaks back to rest. When it reaches a threshold, the neuron fires
+            and resets. That is the whole model, the same for every cell: a “leaky integrate-and-fire”
+            neuron with settings from Shiu et al. (2024), reimplemented here rather than taken from their
+            code.</p>
+          <p>Real neurons differ wildly in shape, speed and chemistry. None of that is in here. Neither are
+            hormones, gap junctions or learning. Firing rates you see are the model’s, not a fly’s.</p>
+        </div>
+        <div class="prose">
+          <h3>A sense, simulated</h3>
+          <p>“Touching” or “seeing” means making a group of recorded sensory neurons fire at random, 150
+            times a second each. Which group gets that input, and when, is decided by the game’s code.</p>
+          <h3>Brain copies</h3>
+          <p>The whole brain takes about two seconds of computing per simulated second on a six-core PC,
+            too slow for a game. So each reaction runs on a smaller copy: every neuron that fired when the
+            whole brain got that stimulus, with all the wiring among them. A copy only counts if, on fresh
+            random inputs, its readout neurons fire within 20% of the whole brain’s rate and stay silent
+            with no input.</p>
+          <p>The game runs one copy per sense (25,151, 27,956 and 4,871 neurons), each starting at rest and
+            reset after half a second without input. It is five separate brains wearing one body, not one
+            integrated fly brain.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" aria-labelledby="tests-title">
+      <div class="panel-head">
+        <h2 id="tests-title"><span class="num">03</span>The reactions, and how each was tested</h2>
+        <span class="note">rules written down before each run; failures kept</span>
+      </div>
+      <div class="prose" style="max-width: none; padding-bottom: 6px;">
+        <p>Each test was written before it ran: drive the input neurons, read the command neurons, and
+          compare against <b>20 shuffled brains</b>, the same neurons with the same number of connections
+          each, wired at random. If scrambled wiring also produced the reaction, the recorded wiring could
+          not take credit. Every reaction below beat all 20 (bitter used a different control, described
+          in its row). “Whole brain” means all 211,577 neurons.</p>
+      </div>
+      <div class="table-scroll">
+        <table class="reactions">
+          <thead>
+            <tr><th>Reaction</th><th>What is driven</th><th>What is read</th><th>Whole-brain result</th><th>Our rule</th></tr>
+          </thead>
+          <tbody>
+            <tr style="--sense: var(--sense-loom)"><td>Jump</td><td>311 LC4 and LPLC2 visual neurons (looming)</td><td>Giant fibre, DNp01 (2 cells)</td><td>~404 Hz; best shuffled brain 34.5 Hz</td><td>Jump on the first spike</td></tr>
+            <tr style="--sense: var(--sense-target)"><td>Turn</td><td>LC10a on one side (a small moving target)</td><td>DNa02, right minus left</td><td>+104 to +168 Hz for a right target, −139 to −154 Hz for a left one</td><td>Turn rate follows the difference</td></tr>
+            <tr style="--sense: var(--sense-target)"><td>Sing</td><td>The same LC10a input</td><td>pIP10, the song command</td><td>38–47 Hz from either side; best shuffled brain 25 Hz</td><td>Sing above 30 Hz</td></tr>
+            <tr style="--sense: var(--sense-taste)"><td>Feed</td><td>86 LB3 sugar/water taste neurons</td><td>MN9, proboscis motor neurons</td><td>66–78 Hz; 0 Hz in every shuffled brain</td><td>Feed above 20 Hz</td></tr>
+            <tr style="--sense: var(--sense-taste)"><td>Refuse bitter</td><td>Sugar plus 57 LB1 bitter neurons</td><td>MN9</td><td>0–1 Hz. Sending only the bitter cells’ outputs to random targets left at most a third of the suppression</td><td>Same feeding rule</td></tr>
+            <tr style="--sense: var(--sense-touch)"><td>Groom</td><td>335 Johnston’s organ neurons, zones C and E (antenna pushed)</td><td>aDN1 and aDN2 (4 cells)</td><td>199–204 Hz; best shuffled brain 3.25 Hz. Hearing zones A/B give 0 Hz</td><td>Groom above 30 Hz</td></tr>
+            <tr style="--sense: var(--sense-obstacle)"><td>Back up</td><td>288 foreleg touch bristles</td><td>MDN, “moonwalker” neurons (4 cells)</td><td>16–17 Hz; 0 Hz from hind-leg touch</td><td>Back up at 8 Hz, for at least 0.8 s</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="callout"><strong>Failed, and kept</strong>Courtship song from foreleg pheromone taste
+        (ppk23 neurons to pIP10) gave 0–6.5 Hz against a required 10 Hz, so the game does not use it.
+        One brain copy narrowly missed its right-turn check (−21% against a ±20% limit); the turn copy
+        uses an older one that passed. Small hand-picked circuits, the project’s first approach, could not
+        carry a signal through one or two relay neurons.</p>
+    </section>
+
+    <section class="panel" aria-labelledby="runaway">
+      <div class="panel-head">
+        <h2 id="runaway"><span class="num">04</span>The runaway problem</h2>
+        <span class="note">the model’s biggest known flaw</span>
+      </div>
+      <div class="split">
+        <div class="prose">
+          <p>Give the simulated brain one strong input and, within a fraction of a second, 11,000 to 13,000
+            neurons are firing. Stop the input and most of them keep going indefinitely, some at the
+            model’s ceiling of 435 times a second. The full 211,577-neuron brain does the same, so this
+            belongs to the published model’s settings, not to our smaller copies. You can watch it happen
+            in every replay except backing up.</p>
+          <p>It matters because leftover activity leaks into the wrong outputs: after a looming burst, the
+            feeding neurons fire with no taste at all. Two fixes were written down in advance and tried:
+            adding fatigue to every neuron, and silencing the 4,064 Kenyon cells (a learning centre where
+            many of the restless neurons sit). Both failed, and neither was tuned until it passed.</p>
+        </div>
+        <div class="prose">
+          <h3>How the game copes</h3>
+          <p>Each sense gets its own copy that starts at rest, and a copy is wiped after half a second
+            without input. Each reaction is read only from its own copy. That keeps every reaction close to
+            the situation it was tested in: one stimulus, from rest, for about a second.</p>
+          <h3>Where it still shows</h3>
+          <p>Sugar laced with bitter keeps MN9 near silent while the fly is touching it. But in the half
+            second after contact ends, before the copy is wiped, leftover activity drives MN9 to 34–39 Hz
+            (6 of 6 runs), which our 20 Hz rule would count as feeding. Separately, foreleg touch held for
+            more than about a second can drift into a state where MDN falls silent (7 of 12 runs within
+            3 s). Both are on the record; neither is explained yet.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" aria-labelledby="not-title">
+      <div class="panel-head">
+        <h2 id="not-title"><span class="num">05</span>What this is not</h2>
+        <span class="note">so nobody quotes it wrongly</span>
+      </div>
+      <div class="ledger">
+        <div>
+          <div class="tag real">Fair to say</div>
+          <h3>The wiring carries it</h3>
+          <ul>
+            <li>In this simple model, the recorded wiring routes each tested input to its command neurons, and random rewiring does not.</li>
+            <li>Cutting the connections onto those command neurons removes the reaction; you can try it on the replays.</li>
+          </ul>
+        </div>
+        <div>
+          <div class="tag ours">Not shown</div>
+          <h3>A working fly brain</h3>
+          <ul>
+            <li>That real neurons fire at these rates, or that the model reproduces fly physiology generally.</li>
+            <li>How far, how fast or how gracefully a fly moves: all of that is animation.</li>
+            <li>That these are the only routes; other senses and cell types were not used.</li>
+          </ul>
+        </div>
+        <div>
+          <div class="tag checked">Check it</div>
+          <h3>The records</h3>
+          <ul>
+            <li><a href="https://github.com/silascroe/melanogaster/blob/main/fly-creature/docs/whole_brain_protocol.md">Test rules, written before each run</a></li>
+            <li><a href="https://github.com/silascroe/melanogaster/blob/main/fly-creature/docs/whole_brain_result.md">Results, passes and failures</a></li>
+            <li><a href="https://github.com/silascroe/melanogaster/tree/main/fly-creature/docs/evidence">Raw evidence files</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>Wiring: <a href="https://male-cns.janelia.org/download/">FlyEM Male CNS v1.0</a>, a collaboration
+        between FlyEM at HHMI Janelia, the University of Cambridge Department of Zoology, the MRC Laboratory of
+        Molecular Biology and Google Research, licensed CC-BY. Neuron model: settings from Shiu et al. (2024),
+        <a href="https://github.com/philshiu/Drosophila_brain_model">Drosophila_brain_model</a>, reimplemented
+        here; not the authors’ code. Grooming neurons per Hampel et al. (2015).</p>
+      <p>This is a toy built on real data, not a validated model of fly behaviour.</p>
+    </footer>
+  </div>
+</body>
+</html>

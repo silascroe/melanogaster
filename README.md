@@ -4,9 +4,10 @@
 reactions run on the recorded wiring of a real fly's brain and nerve cord: the
 FlyEM Male CNS connectome, 211,577 neurons.
 
-**[Live demo](https://silascroe.github.io/melanogaster/):** 4,871 neurons of that
-wiring running in your browser. Touch the cartoon fly's feet and watch its
-backing-up neurons decide, then cut the wiring and watch them go dark.
+**[Website](https://silascroe.github.io/melanogaster/):** replay six reactions on
+a 3D map of 28,584 real neurons and cut the wiring to watch each one vanish, or
+[touch a cartoon fly's feet](https://silascroe.github.io/melanogaster/backing-up/)
+while 4,871 neurons of that wiring run live in your browser.
 
 ![The fly backing away from a sugar cube while the brain panel shows its backing-up neurons firing](fly-creature/site/media/backing_up.jpg)
 
@@ -62,7 +63,7 @@ to rebuild them.
 - [`fly-creature/`](fly-creature/) is the creature: Python brain service, Godot
   game, packaged brain subsets, tests and records. It runs without anything else
   in this repository.
-- [`fly-creature/site/`](fly-creature/site/) is the live demo page, published by
+- [`fly-creature/site/`](fly-creature/site/) is the website (replays, a live demo and an explainer), published by
   [`.github/workflows/pages.yml`](.github/workflows/pages.yml) after its checks pass.
 - [`lab/`](lab/) is the original FlyTest lab and its Godot arena, kept as a
   record. Its small hand-picked circuits could not carry signals through relay

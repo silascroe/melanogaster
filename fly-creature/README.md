@@ -8,8 +8,8 @@ antennae, sings to a female, and backs away when its forelegs hit an obstacle.
 Each reaction passed a whole-brain test against shuffled wiring before it went
 into the game. Walking, animation, sensing and action thresholds are
 engineered, and each sense runs its own brief brain copy, so this is not one
-integrated neural fly. A browser version of one reaction is live at
-https://silascroe.github.io/melanogaster/.
+integrated neural fly. The website at https://silascroe.github.io/melanogaster/
+replays six reactions on a 3D neuron map and runs one of them live.
 
 Everything needed to run it is inside this folder: copy `fly-creature/`
 elsewhere and follow the setup below. No connectome download is needed to play.
@@ -100,18 +100,28 @@ what failed and what is engineered, reaction by reaction:
 [decisions](docs/decisions.md) and the code layout is in
 [architecture](docs/ARCHITECTURE.md).
 
-## Showcase page
+## Website
 
-`site/` is a static web page that runs the obstacle copy (subset v4, 4,871
-neurons) live in the browser while a cartoon fly walks into a sugar cube;
-cutting the wiring onto MDN is one button. `site/brain.js` is a JavaScript port
-of `brain_model.py` that gives the same spikes as the Python engine on a
-recorded input (`tests/web/check_web_brain.mjs`), and `tests/web/check_web_demo.mjs`
-runs the page's loop with intact and cut wiring. Preview it with
-`python -m http.server --directory site` and open `http://localhost:8000`.
-`.github/workflows/pages.yml` at the repository root publishes it to GitHub
-Pages from `main`. Rebuild its data with `tools/export_web_brain.py` (needs the
-release and the `build-circuit` extra).
+`site/` is a static three-page website, published to GitHub Pages from `main`
+by `.github/workflows/pages.yml` at the repository root:
+
+- `index.html` (home): recorded replays of six reactions on a 3D WebGL map of
+  all 28,584 packaged neurons, with an intact/cut switch. The game's larger
+  copies are too heavy to simulate in a browser, so each replay is one Python
+  run of the game's own copy and input rule, labelled as a recording. Built by
+  `tools/export_web_replays.py`; checked by `tests/web/check_web_replays.mjs`.
+- `backing-up/`: the obstacle copy (subset v4, 4,871 neurons) running live in
+  the browser while a cartoon fly walks into a sugar cube. `site/brain.js` is a
+  JavaScript port of `brain_model.py` that gives the same spikes as the Python
+  engine on a recorded input (`tests/web/check_web_brain.mjs`), and
+  `tests/web/check_web_demo.mjs` runs the page's loop with intact and cut wiring.
+  Built by `tools/export_web_brain.py`.
+- `how-it-works/`: a plain-language explainer of what is data, what is
+  assumed and what is engineered, with every reaction's test result.
+
+Preview with `python -m http.server --directory site` and open
+`http://localhost:8000`. Both export tools need the release and the
+`build-circuit` extra.
 
 ## The visual fly
 

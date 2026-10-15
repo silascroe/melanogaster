@@ -8,7 +8,9 @@ connectome files.
 
 The repository tracks:
 
-- Python source, tests, project configuration, and documentation.
+- Python source, tests, project configuration, and documentation for both
+  `lab/` and `fly-creature/`, plus the creature's Godot project, art and
+  compact packaged brain subsets.
 - `data/metadata/source_manifest.json`, which records the official release,
   URLs, sizes, and hashes.
 - Compact inspection reports and experiment summaries under `outputs/`.
@@ -34,13 +36,13 @@ git switch -c experiment/name-of-experiment
 .\.venv\Scripts\python.exe -m pytest lab/tests
 .\.venv\Scripts\python.exe -m flytest.verify
 git diff
-git add lab docs README.md data/metadata outputs
+git add <the paths you changed>
 git diff --cached --check
 git commit -m "Describe the experiment"
 ```
 
-Use a branch for an experiment, keep the default `main` branch as the known
-working baseline, and commit code changes together with the small report that
+Use a branch for an experiment (`experiment/<name>`), merge it into `main`
+with `git merge --no-ff` once it works, keep `main` as the known working baseline, and commit code changes together with the small report that
 records what they produced. Never use `git add -f` for the raw Feather files.
 
 ## Restoring a checkout
@@ -59,7 +61,8 @@ local backup folder is not required for normal operation.
 
 ## Remote repository
 
-The configured `origin` is `https://github.com/silascroe/fly-test.git`. It backs
-up tracked source, documentation and compact evidence. The raw connectome,
+The configured `origin` is `https://github.com/silascroe/melanogaster.git`, a
+public repository. It holds tracked source, documentation and compact evidence,
+and GitHub Pages publishes `fly-creature/site/` from `main`. The raw connectome,
 recordings, portable runtimes, local environments and bulky outputs remain
 excluded. Review the staged paths before committing and pushing a checkpoint.

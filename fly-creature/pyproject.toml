@@ -24,4 +24,4 @@ fly-creature-diagnostic = "fly_creature.diagnostic:main"
 where = ["src"]
 
 [tool.setuptools.package-data]
-fly_creature = ["data/*.json"]
+fly_creature = ["data/*.json", "data/*.npz"]

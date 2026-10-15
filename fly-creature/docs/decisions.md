@@ -626,3 +626,19 @@ the game. The body is a 2D cartoon with the game's rules (8 Hz threshold,
 first headless run showed the fly could stall against the arena wall. That fix
 changed walking only. When a device cannot keep up, the page runs in slow
 motion and says so instead of skipping brain time.
+
+## 2026-10-14: a neuron map in the game, drawn at real cell bodies
+
+The game's `N` panel draws every neuron of the three packaged subsets (28,584)
+at its cell body from the release, as a 3D point cloud, and colours each by
+the sense whose copy fired it. One shared map, rather than one per copy, keeps
+the picture of the fly's nervous system whole while staying honest about the
+copies: the colour says which copy did the firing. 1,407 sensory neurons have
+no recorded cell body (it lies outside the scan), so `tools/export_brain_map.py`
+places them at the average position of their partners and the panel says so.
+At up to ~14,000 firing neurons per 50 ms step, a per-neuron loop in GDScript
+would cost frame time, so the service keeps "steps since each neuron last
+fired" with NumPy and sends it as a ready-made 256-wide image that Godot
+uploads as a texture; the glow fades on the GPU. The map is display only: no
+brain, threshold or action rule reads it, and turning it off (`N`) stops the
+service sending it.

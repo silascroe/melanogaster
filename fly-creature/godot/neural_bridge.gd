@@ -4,11 +4,15 @@ extends Node
 signal session_ready(payload: Dictionary)
 signal step_ready(payload: Dictionary)
 signal bridge_failed(message: String)
+signal map_ready(payload: Dictionary)
 
 const DEFAULT_ENDPOINT := "http://127.0.0.1:8768"
 
 var endpoint := DEFAULT_ENDPOINT
 var request: HTTPRequest
+var map_request: HTTPRequest
+# Ask each step for the neurons that fired (display only, for the neuron map).
+var include_neuron_map := false
 var pending_kind := ""
 var queued_condition := ""
 var queued_model := "lif"
@@ -22,6 +26,24 @@ func _ready() -> void:
 	request.timeout = 10.0
 	add_child(request)
 	request.request_completed.connect(_on_request_completed)
+	map_request = HTTPRequest.new()
+	map_request.timeout = 20.0
+	add_child(map_request)
+	map_request.request_completed.connect(_on_map_completed)
+
+
+## One-time download of the neuron map positions; failures leave the map empty.
+func fetch_brain_map() -> void:
+	map_request.cancel_request()
+	map_request.request(endpoint + "/brain_map")
+
+
+func _on_map_completed(result: int, response_code: int, _headers: PackedStringArray, body: PackedByteArray) -> void:
+	if result != HTTPRequest.RESULT_SUCCESS or response_code != 200:
+		return
+	var parsed: Variant = JSON.parse_string(body.get_string_from_utf8())
+	if typeof(parsed) == TYPE_DICTIONARY:
+		map_ready.emit(parsed)
 
 
 func start_session(condition: String, steering_model: String = "lif") -> void:
@@ -43,6 +65,7 @@ func step(session_id: String, fly: Dictionary, object_state: Dictionary, target_
 		"sugar": sugar_state if not sugar_state.is_empty() else {"active": false},
 		"touch": touch_state if not touch_state.is_empty() else {"active": false},
 		"obstacle": obstacle_state if not obstacle_state.is_empty() else {"active": false},
+		"neuron_map": include_neuron_map,
 	}, "step")
 
 

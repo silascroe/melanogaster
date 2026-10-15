@@ -4,9 +4,9 @@
 reactions run on the recorded wiring of a real fly's brain and nerve cord: the
 FlyEM Male CNS connectome, 211,577 neurons.
 
-**[Website](https://silascroe.github.io/melanogaster/):** replay six reactions on
+**[Website](https://fly.clankclub.site/):** replay six reactions on
 a 3D map of 28,584 real neurons and cut the wiring to watch each one vanish, or
-[touch a cartoon fly's feet](https://silascroe.github.io/melanogaster/backing-up/)
+[touch a cartoon fly's feet](https://fly.clankclub.site/backing-up/)
 while 4,871 neurons of that wiring run live in your browser.
 
 ![The fly backing away from a sugar cube while the brain panel shows its backing-up neurons firing](fly-creature/site/media/backing_up.jpg)

@@ -5,8 +5,9 @@ Updated 2026-10-14. Read `AGENTS.md` first; it sets the direction and the rules.
 ## Where things stand
 
 `main` has the playable creature in `fly-creature/` and its website, published
-from `fly-creature/site/` to https://silascroe.github.io/melanogaster/ by
-`.github/workflows/pages.yml`: recorded replays on a 3D neuron map (home), the
+from `fly-creature/site/` to https://fly.clankclub.site/ by
+`.github/workflows/pages.yml` (GitHub Pages custom domain; the CNAME record
+lives in the Vercel DNS for `clankclub.site`): recorded replays on a 3D neuron map (home), the
 live obstacle demo (`backing-up/`) and an explainer (`how-it-works/`).
 
 The creature runs a reimplementation of the Shiu et al. (2024) whole-brain LIF

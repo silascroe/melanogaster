@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Touch its feet · FlyTest</title>
+  <meta name="description" content="4,871 neurons of recorded fruit-fly wiring, running live in your browser: touch the forelegs and watch the backing-up neurons decide.">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <div class="wrap">
+    <nav class="site" aria-label="Site">
+      <a class="home" href="../">FlyTest</a>
+      <a href="../">Replays</a>
+      <a href="./" aria-current="page">Live: touch its feet</a>
+      <a href="../how-it-works/">How it works</a>
+      <a href="https://github.com/silascroe/melanogaster">GitHub</a>
+    </nav>
+    <header class="masthead">
+      <div class="side">
+        <div class="label">Live demo</div>
+        <div class="label">Male CNS v1.0</div>
+        <div class="label">Live in this page</div>
+      </div>
+      <div>
+        <h1>Touch its feet.</h1>
+        <p class="lede">4,871 neurons of recorded fruit-fly wiring are running live in this page, one
+          tenth of a millisecond at a time. When the cartoon fly walks into the sugar cube, its foreleg
+          touch neurons fire into that wiring. Whether it backs away is decided by four
+          “moonwalker” neurons (MDN) at the far end.</p>
+        <div class="status-pill loading" id="status">Loading wiring…</div>
+      </div>
+    </header>
+
+    <section class="panel" aria-labelledby="live-title">
+      <div class="panel-head">
+        <h2 id="live-title"><span class="num">01</span>Live brain copy</h2>
+        <span class="note" id="speed">—</span>
+      </div>
+      <div class="demo">
+        <div>
+          <div class="figure-label"><span>Neurons at their real positions</span><span>flattened, head up</span></div>
+          <canvas id="brain" aria-label="All 4,871 neurons drawn at their cell-body positions; firing neurons light up"></canvas>
+          <div class="legend">
+            <span style="--c: var(--blue)">foreleg touch (input)</span>
+            <span style="--c: var(--magenta)">MDN (back up)</span>
+            <span style="--c: var(--amber)">other descending</span>
+            <span style="--c: var(--teal)">everything else</span>
+          </div>
+        </div>
+        <div>
+          <div class="figure-label"><span>Body and world</span><span>engineered</span></div>
+          <canvas id="arena" aria-label="Top view of a cartoon fly walking into a sugar cube"></canvas>
+          <div class="controls">
+            <button id="touch" aria-pressed="false">Hold to touch the forelegs</button>
+            <button id="cut" class="warn" aria-pressed="false">Cut wiring onto MDN</button>
+            <button id="pause" aria-pressed="false">Pause</button>
+          </div>
+          <div class="readout">
+            <div class="l"><div class="k">Foreleg input</div><div class="v" id="input">off</div></div>
+            <div><div class="k">Body</div><div class="v" id="action">walking</div></div>
+            <div class="wide">
+              <div class="k">MDN, smoothed · backs up at 8 Hz</div>
+              <div class="v" id="mdn">0.0 Hz</div>
+              <div class="meter" aria-hidden="true"><i id="mdn-bar"></i><b id="mdn-threshold"></b></div>
+              <canvas id="trace" aria-label="MDN rate over the last six seconds"></canvas>
+            </div>
+            <div class="l end"><div class="k">Neurons firing / 50 ms</div><div class="v" id="firing">0</div></div>
+            <div class="end"><div class="k">Wiring</div><div class="v" id="wiring">intact</div></div>
+          </div>
+        </div>
+      </div>
+      <p class="callout"><strong>Try this</strong>Cut the wiring onto MDN. The touch neurons still fire and
+        most of the network still lights up, but the four MDN cells go dark, and the fly only
+        gives up and turns away when a timer runs out. That difference is the wiring’s doing.</p>
+      <noscript><p>This demo needs JavaScript: the brain runs in your browser.</p></noscript>
+    </section>
+
+    <section class="panel" aria-labelledby="ledger-title">
+      <div class="panel-head">
+        <h2 id="ledger-title"><span class="num">02</span>What is real here</h2>
+        <span class="note">and what is ours</span>
+      </div>
+      <div class="ledger">
+        <div>
+          <div class="tag real">From the connectome</div>
+          <h3>The wiring</h3>
+          <ul>
+            <li>Which neuron connects to which, and how many synapses: FlyEM’s Male CNS v1.0 reconstruction of one male fly.</li>
+            <li>Excitatory or inhibitory, from each neuron’s predicted transmitter.</li>
+            <li>Cell-body positions in the picture (except 333 leg sensory neurons, whose bodies sit in the legs; those are drawn near the foreleg nerve).</li>
+          </ul>
+        </div>
+        <div>
+          <div class="tag ours">Our assumptions</div>
+          <h3>The simplifications</h3>
+          <ul>
+            <li>Every neuron is the same simple leaky integrate-and-fire unit (Shiu et al. 2024 settings).</li>
+            <li>“Touching” means 150 Hz random input to 288 foreleg bristle neurons.</li>
+            <li>The 8 Hz threshold, the 0.8 s minimum back-up, the turn away and the whole cartoon body.</li>
+            <li>This 4,871-neuron copy was cut out of the 211,577-neuron brain because those neurons were active under foreleg touch.</li>
+          </ul>
+        </div>
+        <div>
+          <div class="tag checked">Checked</div>
+          <h3>The tests</h3>
+          <ul>
+            <li>Whole brain: foreleg touch drives MDN at 16–17 Hz; zero without input; zero from hind-leg touch; beats 20 of 20 randomly rewired brains.</li>
+            <li>Under the same touch, this copy drives MDN at 14.3 Hz; the whole brain, 13.9 Hz (three runs each).</li>
+            <li>This page’s engine gives the same spikes, bit for bit, as the Python engine on a recorded input.</li>
+            <li>Known limit: held down for over a second, the copy can drift into a state where MDN falls silent.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>Wiring: <a href="https://male-cns.janelia.org/download/">FlyEM Male CNS v1.0</a>, a collaboration
+        between FlyEM at HHMI Janelia, the University of Cambridge Department of Zoology, the MRC Laboratory of
+        Molecular Biology and Google Research, licensed CC-BY. Neuron model: settings from Shiu et al. (2024),
+        <a href="https://github.com/philshiu/Drosophila_brain_model">Drosophila_brain_model</a>, reimplemented
+        here; not the authors’ code.</p>
+      <p>This is a toy built on real data, not a validated model of fly behaviour. Firing rates, the body and
+        every action rule are simplifications; the records of what was tested live in the repository.</p>
+    </footer>
+  </div>
+  <script type="module" src="app.js"></script>
+</body>
+</html>

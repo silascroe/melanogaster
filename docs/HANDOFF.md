@@ -4,9 +4,10 @@ Updated 2026-10-14. Read `AGENTS.md` first; it sets the direction and the rules.
 
 ## Where things stand
 
-`main` has the playable creature in `fly-creature/` and the live demo page,
-published from `fly-creature/site/` to https://silascroe.github.io/melanogaster/
-by `.github/workflows/pages.yml`.
+`main` has the playable creature in `fly-creature/` and its website, published
+from `fly-creature/site/` to https://silascroe.github.io/melanogaster/ by
+`.github/workflows/pages.yml`: recorded replays on a 3D neuron map (home), the
+live obstacle demo (`backing-up/`) and an explainer (`how-it-works/`).
 
 The creature runs a reimplementation of the Shiu et al. (2024) whole-brain LIF
 model on MaleCNS v1.0. Each reaction passed a pre-declared whole-brain test
@@ -37,6 +38,9 @@ an intact-versus-cut check before anything is credited to the wiring.
   workaround. This is an open problem; do not promise a fix.
 - Holding the forelegs on an obstacle for over a second can drift the obstacle
   copy into a state where MDN falls silent (7 of 12 seeds within 3 s).
+- After sugar laced with bitter, the taste copy's MN9 rises to 34-39 Hz in the
+  0.5 s before reset (6 of 6 seeds), which the 20 Hz rule counts as feeding.
+  Found 2026-10-14 while recording the website replays; not fixed.
 - Song depends on the female's path: the target encoder drives LC10a only when
   she is off-centre, so a female straight ahead gets no song.
 - Courtship through foreleg pheromone taste failed its test; the ppk25 channel

@@ -642,3 +642,25 @@ fired" with NumPy and sends it as a ready-made 256-wide image that Godot
 uploads as a texture; the glow fades on the GPU. The map is display only: no
 brain, threshold or action rule reads it, and turning it off (`N`) stops the
 service sending it.
+
+## 2026-10-14: a three-page website, with recorded replays beside the live demo
+
+The site grew from one page to three: a home page of replays, the live
+obstacle demo (moved to `backing-up/`) and a plain-language explainer. The
+2026-10-13 page ran a live copy instead of recordings; that still holds for
+the one copy small enough. The other copies (25,151 and 27,956 neurons, about
+4 million connections, up to ~13,000 neurons firing per 25 ms) would run far
+slower than real time in a browser, and new small per-sense subsets were not
+derived because the runaway activity makes "neurons active under the
+stimulus" nearly the whole copy for those senses. So the home page replays
+recordings and says so on the page. Each replay is one run (seed 3) of the
+game's own package for that sense, from rest, with the game's 150 Hz input,
+the game's 0.5 s reset and the game's action rules applied frame by frame in
+the export tool; intact and cut get the same seed, so the input is identical.
+They add no new claim: the multi-seed tests stay the evidence, and the page
+quotes them. Recording surfaced one new flaw, now in the result record: after
+sugar laced with bitter, MN9 rises to 34-39 Hz in the half second before the
+taste copy resets (6 of 6 seeds), which the game's 20 Hz rule would count as
+feeding. Map positions, cell types and body IDs shown on hover come from the
+same brain map and release annotations; positions of 1,407 neurons are
+approximate and the page says so.

@@ -8,7 +8,7 @@ antennae, sings to a female, and backs away when its forelegs hit an obstacle.
 Each reaction passed a whole-brain test against shuffled wiring before it went
 into the game. Walking, animation, sensing and action thresholds are
 engineered, and each sense runs its own brief brain copy, so this is not one
-integrated neural fly. The website at https://silascroe.github.io/melanogaster/
+integrated neural fly. The website at https://fly.clankclub.site/
 replays six reactions on a 3D neuron map and runs one of them live.
 
 Everything needed to run it is inside this folder: copy `fly-creature/`

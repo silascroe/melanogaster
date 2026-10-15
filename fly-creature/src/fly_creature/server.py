@@ -12,7 +12,7 @@ from .controller import CreatureSession
 from .steering_diagnostic import load_candidate
 from .steering_diagnostic import condition_circuit
 from .playground import PlaygroundSession
-from .brain_session import BrainSession
+from .brain_session import BrainSession, load_map
 
 
 def main() -> None:
@@ -35,6 +35,10 @@ def main() -> None:
             self.wfile.write(body)
 
         def do_GET(self) -> None:
+            if self.path == "/brain_map":
+                # Display positions for the game's neuron map; drawing only.
+                self._reply(200, load_map().payload())
+                return
             if self.path != "/health":
                 self._reply(404, {"error": "Unknown route"})
                 return

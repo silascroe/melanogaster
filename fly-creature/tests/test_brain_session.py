@@ -1,8 +1,11 @@
 """Game-level checks for the per-sense brain copies (whole_brain_protocol.md, last addendum)."""
 
+import base64
 import math
 
-from fly_creature.brain_session import BrainSession
+import numpy as np
+
+from fly_creature.brain_session import SENSES, BrainSession, load_map, load_package
 
 FLY = {"x": 0.0, "z": 0.0, "heading_rad": 0.0}
 NO_OBJECT = {"x": 0.0, "z": -20.0, "radius": 0.45, "active": False}
@@ -117,3 +120,30 @@ def test_g8_forelegs_pressed_drive_backing_up_then_stops():
     assert any(f["backing"] for f in pressed)
     assert not after[-1]["backing"]
     assert not any(f["feeding"] or f["grooming"] or f["singing"] for f in pressed + after)
+
+
+def test_neuron_map_places_every_packaged_neuron():
+    brain_map = load_map()
+    payload = brain_map.payload()
+    xyz = np.frombuffer(base64.b64decode(payload["xyz"]), dtype="<f4").reshape(-1, 3)
+    assert len(xyz) == payload["n"] == brain_map.n
+    assert np.isfinite(xyz).all() and np.abs(xyz).max() < 1.2
+    for version in ("v1", "v3", "v4"):
+        brain_map.index_of(load_package(version))  # raises if any neuron is missing
+    labelled = {entry["sense"] for entry in payload["labels"] if entry["kind"] == "readout"}
+    assert labelled == set(SENSES)
+
+
+def test_neuron_map_marks_the_cells_that_fired():
+    session = BrainSession("intact")
+    quiet = _frames(session, 0.1)
+    assert all("neuron_map" not in f for f in quiet)  # not requested
+    step = {"dt_ms": 50.0, "fly": FLY, "object": NO_OBJECT, "target": NO_TARGET,
+            "sugar": SUGAR_AT_MOUTH, "touch": NO_DUST, "obstacle": NOT_PRESSED, "neuron_map": True}
+    frames = [session.step(step) for _ in range(6)]
+    pixels = np.frombuffer(base64.b64decode(frames[-1]["neuron_map"]), dtype=np.uint8).reshape(-1, 2)
+    assert len(pixels) % 256 == 0 and len(pixels) >= load_map().n
+    fired_now = pixels[:, 0] == 0
+    # Only the taste copy runs, so this step's firing is all taste and matches the count.
+    assert fired_now.sum() == frames[-1]["active_neurons"] > 0
+    assert (pixels[fired_now, 1] == list(SENSES).index("taste")).all()

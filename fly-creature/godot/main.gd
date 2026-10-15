@@ -63,8 +63,11 @@ var roam_rng := RandomNumberGenerator.new()
 var pursuit_enabled := false
 var pursuit_demo := false
 const BrainViewScript := preload("res://brain_view.gd")
+const BrainMapScript := preload("res://brain_map.gd")
 const KitchenWorldScript := preload("res://kitchen_world.gd")
 var brain_view: Control
+# Neuron map (N toggles): every neuron of the brain copies at its cell body.
+var brain_map: Control
 # Click-placed target: the fly approaches it on its own, steering by DNa02.
 var beacon_mode := false
 # Sugar drop (right-click). Tasting and the decision to feed come from the brain;
@@ -169,6 +172,7 @@ func _ready() -> void:
 	bridge.session_ready.connect(_on_session_ready)
 	bridge.step_ready.connect(_on_step_ready)
 	bridge.bridge_failed.connect(_on_bridge_failed)
+	bridge.map_ready.connect(func(payload: Dictionary) -> void: brain_map.load_map(payload))
 	_start_session()
 
 
@@ -326,6 +330,11 @@ func _unhandled_key_input(event: InputEvent) -> void:
 			_start_session()
 		KEY_F:
 			close_camera = not close_camera
+		KEY_N:
+			if brain_map == null:
+				return
+			brain_map.visible = not brain_map.visible
+			bridge.include_neuron_map = brain_map.visible
 		KEY_G:
 			if pursuit_enabled:
 				return
@@ -711,12 +720,16 @@ func _start_session() -> void:
 func _on_session_ready(payload: Dictionary) -> void:
 	session_id = str(payload.get("session_id", ""))
 	service_message = "Neural session ready: %s" % condition
+	if brain_map != null and not brain_map.loaded:
+		bridge.fetch_brain_map()
 
 
 func _on_step_ready(payload: Dictionary) -> void:
 	last_trace = payload
 	if brain_view != null:
 		brain_view.update_trace(payload)
+	if brain_map != null and brain_map.visible:
+		brain_map.update_trace(payload)
 	var steering: Dictionary = payload.get("steering", {})
 	steering_turn_rate = float(steering.get("turn_rate_rad_s", 0.0)) if pursuit_enabled else 0.0
 	if bool(payload.get("jump", false)):
@@ -769,7 +782,7 @@ func _update_hud() -> void:
 		line += "   |   brain step %s ms per 50 ms" % last_trace.get("compute_ms", "--")
 	detail_label.text = "Fly roams on its own  |  LEFT-CLICK: target  |  RIGHT-CLICK: sugar drop (SHIFT: bitter)  |  SPACE: throw object\n" \
 		+ "E: dust antennae  |  O: obstacle  |  C: cut wiring  |  WASD take over  |  V moving target  |  B brain model\n" \
-		+ "M female fly  |  G roam  |  T fly  |  F camera  |  R reset  |  P playground\n" \
+		+ "M female fly  |  N neuron map  |  G roam  |  T fly  |  F camera  |  R reset  |  P playground\n" \
 		+ line + "\n" \
 		+ "Senses, action rules, walking and animation are engineered; wiring is MaleCNS data."
 
@@ -925,3 +938,7 @@ func _build_hud() -> void:
 		brain_view.position = Vector2(get_viewport().get_visible_rect().size.x - BrainViewScript.PANEL_WIDTH - 22.0, 20.0)
 	place_brain.call()
 	get_viewport().size_changed.connect(place_brain)
+	brain_map = BrainMapScript.new()
+	brain_map.position = Vector2(22.0, 122.0)
+	layer.add_child(brain_map)
+	bridge.include_neuron_map = true

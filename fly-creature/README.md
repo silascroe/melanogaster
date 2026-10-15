@@ -46,6 +46,7 @@ you change the port.
 | `O` | put a sugar cube in its path; foreleg touch makes it back up |
 | `M` | add a wandering female; the male follows and courts her |
 | `C` | cut the wiring onto the action neurons (control); press again to restore |
+| `N` | show or hide the neuron map; drag on it to turn it |
 | `R` | reset the brain and world |
 | `WASD` | walk the fly yourself while held |
 | `G` / `T` / `F` | roaming on/off, take off or land (animation only), close/wide camera |
@@ -53,7 +54,17 @@ you change the port.
 | `V` / `P` | older moving-target pursuit demo / comparison playground |
 
 A brain panel at the top right shows the input and action neurons for every
-circuit, and which actions are on.
+circuit, and which actions are on. The neuron map on the left draws all 28,584
+neurons of the packaged subsets in 3D, each at its cell body in the MaleCNS
+release, and lights the ones that fired in the last fraction of a second in the colour of
+the sense whose brain copy fired them. The action neurons are ringed and
+labelled. 1,407 sensory neurons (taste, antenna, leg bristles) have their cell
+bodies outside the scanned tissue; they are drawn near the neurons they connect
+to, and that position is approximate (`tools/export_brain_map.py`). Glow time,
+colours and dot sizes are display choices. When many thousands of neurons light
+up at once, that is the published model's runaway firing
+([about 13,500 neurons](docs/whole_brain_result.md#problem-found-in-live-use-and-two-failed-fixes)),
+not a display effect.
 
 ## What each reaction uses
 
@@ -81,7 +92,8 @@ sense drives its own copy, which resets after 500 ms without input.
   (`godot/capture_backup.gd` compares intact and cut wiring).
 
 `godot/capture_autonomy.gd` is a scripted check of roaming, jumping, target
-approach, feeding, grooming and bitter refusal in the scene. What was tested,
+approach, feeding, grooming and bitter refusal in the scene;
+`godot/capture_map.gd` takes neuron-map screenshots for each sense. What was tested,
 what failed and what is engineered, reaction by reaction:
 [the whole-brain result](docs/whole_brain_result.md), written against
 [the protocol](docs/whole_brain_protocol.md). Design choices are in

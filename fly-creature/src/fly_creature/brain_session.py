@@ -36,6 +36,7 @@ actions, is an engineered choice made here, not connectome data:
 
 from __future__ import annotations
 
+import base64
 from importlib.resources import files
 import math
 from pathlib import Path
@@ -69,6 +70,7 @@ DISPLAY_SOURCE = {"LB3": "taste", "MN9": "taste", "LC4": "loom", "LPLC2": "loom"
 READOUT_GROUPS = ("gf", "dna02_R", "dna02_L", "mn9", "adn", "pip10", "mdn")
 # Subset that passed the whole-brain comparison for each sense (engineering choice).
 SENSE_PACKAGE = {"taste": "v3", "loom": "v3", "touch": "v3", "target": "v1", "obstacle": "v4"}
+MAP_TEXTURE_WIDTH = 256  # neuron map image width (display only)
 
 
 class BrainPackage:
@@ -129,6 +131,76 @@ def load_package(version: str = "v3") -> BrainPackage:
     return _PACKAGES[version]
 
 
+class BrainMap:
+    """Display positions for every packaged neuron (tools/export_brain_map.py).
+
+    Positions are for drawing only: the cell body from the release where it was
+    scanned, otherwise an approximate spot near the neuron's partners.
+    """
+
+    # Named cells on the map: (label, sense copy, kind, package groups).
+    LABELS = (("sugar taste LB3", "taste", "input", ("sugar",)),
+              ("bitter LB1", "taste", "input", ("bitter",)),
+              ("MN9", "taste", "readout", ("mn9",)),
+              ("LC4 + LPLC2", "loom", "input", ("loom",)),
+              ("giant fibre", "loom", "readout", ("gf",)),
+              ("LC10a", "target", "input", ("lc10a_L", "lc10a_R")),
+              ("DNa02", "target", "readout", ("dna02_L", "dna02_R")),
+              ("pIP10", "target", "readout", ("pip10",)),
+              ("Johnston's organ", "touch", "input", ("jo_ce",)),
+              ("aDN", "touch", "readout", ("adn",)),
+              ("foreleg bristles", "obstacle", "input", ("foreleg",)),
+              ("MDN", "obstacle", "readout", ("mdn",)))
+
+    def __init__(self, path: Path | None = None) -> None:
+        if path is None:
+            path = Path(str(files("fly_creature").joinpath("data/brain_map_v1.npz")))
+        with np.load(path) as data:
+            self.body_ids = data["body_ids"]
+            self.xyz = data["xyz"].astype(np.float32)
+            self.source = data["source"]
+        self.n = len(self.body_ids)
+        if self.n >= 65536:
+            raise ValueError("map indices are sent as 16-bit numbers")
+
+    def index_of(self, package: BrainPackage) -> np.ndarray:
+        """Map position of each neuron in a package."""
+        index = np.searchsorted(self.body_ids, package.body_ids)
+        if index.max() >= self.n or not np.array_equal(self.body_ids[index], package.body_ids):
+            raise ValueError(f"brain map does not cover package {package.version}")
+        return index
+
+    def payload(self) -> dict:
+        """Everything the game needs to draw the map, sent once per session."""
+        labels = []
+        for name, sense, kind, groups in self.LABELS:
+            package = load_package(SENSE_PACKAGE[sense])
+            local = np.concatenate([package.groups[g] for g in groups if g in package.groups])
+            labels.append({"name": name, "sense": sense, "kind": kind,
+                           "cells": _b64(self.index_of(package)[local], "<u2")})
+        # Which way the fly's left points on the map's x axis (recorded side labels).
+        v3 = load_package("v3")
+        left = float(self.xyz[self.index_of(v3)[v3.side == "L"], 0].mean())
+        return {"n": self.n, "senses": list(SENSES), "xyz": _b64(self.xyz, "<f4"),
+                "left_x_sign": 1.0 if left > 0 else -1.0, "texture_width": MAP_TEXTURE_WIDTH,
+                "approximate": _b64(self.source == 2, "u1"),
+                "approximate_count": int((self.source == 2).sum()), "labels": labels}
+
+
+_MAP: BrainMap | None = None
+
+
+def load_map() -> BrainMap:
+    global _MAP
+    if _MAP is None:
+        _MAP = BrainMap()
+    return _MAP
+
+
+def _b64(array: np.ndarray, dtype: str) -> str:
+    return base64.b64encode(np.ascontiguousarray(array, dtype=dtype).tobytes()).decode("ascii")
+
+
 def _clamp01(value: float) -> float:
     return max(0.0, min(1.0, value))
 
@@ -150,6 +222,7 @@ class BrainSession:
         self.adn_hz = 0.0
         self.pip10_hz = 0.0
         self.mdn_hz = 0.0
+        self.map_index: dict[str, np.ndarray] | None = None
 
     def step(self, payload: dict) -> dict:
         fly, obj = payload["fly"], payload["object"]
@@ -220,6 +293,11 @@ class BrainSession:
             self.cooldown_ms = JUMP_COOLDOWN_MS
         spikes = {k: int(counts[sense][self.packages[sense].display[k]].sum())
                   for k, sense in DISPLAY_SOURCE.items()}
+        extra = {}
+        if payload.get("neuron_map", False) or self.map_index is not None:
+            sent = self._update_map(counts)
+            if payload.get("neuron_map", False) and sent is not None:
+                extra["neuron_map"] = sent
         return {
             "condition": self.condition, "model": "brain",
             "brain_neurons": self.packages["taste"].n,
@@ -255,7 +333,35 @@ class BrainSession:
             "obstacle": {"forelegs_pressed": pressing},
             "backing": self.mdn_hz >= BACKUP_THRESHOLD_HZ,
             "mdn_rate_hz": round(self.mdn_hz, 1),
+            **extra,
         }
+
+    def _update_map(self, counts: dict[str, np.ndarray]) -> str | None:
+        """Display only: steps since each map neuron last fired, and in which copy.
+
+        Returned as a 256-wide two-byte-per-neuron image (age in steps, capped
+        at 255 = not recently; sense index), base64, so the game can upload it
+        as a texture without looping over neurons. None when nothing fired in
+        the last 255 steps (the game's glow has long faded by then).
+        """
+        if self.map_index is None:
+            brain_map = load_map()
+            self.map_index = {s: brain_map.index_of(p) for s, p in self.packages.items()}
+            padded = -(-brain_map.n // MAP_TEXTURE_WIDTH) * MAP_TEXTURE_WIDTH
+            self.map_last = np.full(padded, -(1 << 20), dtype=np.int64)
+            self.map_sense = np.zeros(padded, dtype=np.uint8)
+            self.map_step = 0
+        self.map_step += 1
+        for sense, c in counts.items():
+            if self.copies[sense] is None:
+                continue
+            fired = self.map_index[sense][np.flatnonzero(c)]
+            self.map_last[fired] = self.map_step
+            self.map_sense[fired] = list(SENSES).index(sense)
+        age = np.minimum(self.map_step - self.map_last, 255).astype(np.uint8)
+        if age.min() == 255:
+            return None
+        return _b64(np.stack([age, self.map_sense], axis=1), "u1")
 
     def _advance_copy(self, sense: str, dt_ms: float, rates: dict[str, float]) -> np.ndarray:
         """Advance one sense's brain copy; start it on input, reset it after quiet."""

@@ -121,7 +121,8 @@ func _ready() -> void:
 		})
 	if legs.size() != 6:
 		push_warning("Imported fly leg rig is incomplete.")
-	var nub := model_root.find_child("proboscis", true, false) as MeshInstance3D
+	_apply_look()
+	var nub :=model_root.find_child("proboscis", true, false) as MeshInstance3D
 	# Real labella are a pale, fleshy pad; the model's are dark like the rostrum.
 	var pad_material := StandardMaterial3D.new()
 	pad_material.albedo_color = Color(0.66, 0.50, 0.34)
@@ -132,14 +133,15 @@ func _ready() -> void:
 			(node as MeshInstance3D).material_override = pad_material
 		mouth_parts.append({"node": node, "position": node.position, "scale": node.scale})
 	# Two tapered segments (rostrum, then haustellum) grown while feeding, plus a
-	# cap over the elbow. The nub shares their warm brown so it all reads as one organ.
+	# cap over the elbow. The nub shares their colour so it all reads as one organ:
+	# a pale, fleshy tan, thicker than a leg, so it is not mistaken for one.
 	var proboscis_material := StandardMaterial3D.new()
-	proboscis_material.albedo_color = Color(0.40, 0.25, 0.14)
-	proboscis_material.roughness = 0.5
+	proboscis_material.albedo_color = Color(0.60, 0.44, 0.30)
+	proboscis_material.roughness = 0.45
 	if nub != null:
 		nub.material_override = proboscis_material
 		proboscis_base = model_root.to_local(nub.to_global(nub.get_aabb().get_center())) 			+ Vector3(0.0, 0.02, 0.0)
-	for radii in [[0.042, 0.034], [0.034, 0.026]]:
+	for radii in [[0.056, 0.046], [0.046, 0.036]]:
 		var segment := MeshInstance3D.new()
 		var mesh := CylinderMesh.new()
 		mesh.top_radius = radii[0]
@@ -153,8 +155,8 @@ func _ready() -> void:
 		proboscis_segments.append(segment)
 	proboscis_elbow = MeshInstance3D.new()
 	var elbow_mesh := SphereMesh.new()
-	elbow_mesh.radius = 0.036
-	elbow_mesh.height = 0.072
+	elbow_mesh.radius = 0.048
+	elbow_mesh.height = 0.096
 	proboscis_elbow.mesh = elbow_mesh
 	proboscis_elbow.material_override = proboscis_material
 	proboscis_elbow.visible = false
@@ -163,6 +165,45 @@ func _ready() -> void:
 		push_warning("Labella parts were not found.")
 	_find_antennae()
 	_reset_leg_anchors()
+
+
+## Presentation only: retune the imported materials toward a living D.
+## melanogaster (tan, faintly glossy cuticle; bright brick-red eyes). The
+## exported textures stay as they are; each material named below (full name,
+## else the family before " | ") gets a tint multiplier and a roughness. Shared
+## materials are copied once, so every part using one material keeps matching.
+## The wing membrane's alpha multiplier makes the clear wing visible at all.
+const LOOK := {
+	"thorax": [Color(1.32, 1.22, 1.08), 0.76],
+	"head": [Color(1.30, 1.20, 1.06), 0.76],
+	"abdomen": [Color(1.22, 1.14, 1.04), 0.72],
+	"legs": [Color(1.18, 1.12, 1.04), 0.6],
+	"eye": [Color(1.55, 0.95, 0.85), 0.46],
+	"eye facet": [Color(1.55, 0.95, 0.85), 0.46],
+	"wing | translucent membrane": [Color(1.0, 1.0, 1.0, 2.2), 0.25],
+	"wing | brown veins": [Color(0.75, 0.70, 0.65), 0.46],
+}
+
+
+func _apply_look() -> void:
+	var copies := {}
+	for node in model_root.find_children("*", "MeshInstance3D", true, false):
+		var part := node as MeshInstance3D
+		for surface in range(part.mesh.get_surface_count()):
+			var source := part.get_active_material(surface) as StandardMaterial3D
+			if source == null:
+				continue
+			var key := source.resource_name
+			if not LOOK.has(key):
+				key = key.get_slice(" | ", 0)
+			if not LOOK.has(key):
+				continue
+			if not copies.has(source):
+				var copy := source.duplicate() as StandardMaterial3D
+				copy.albedo_color = LOOK[key][0]
+				copy.roughness = LOOK[key][1]
+				copies[source] = copy
+			part.set_surface_override_material(surface, copies[source])
 
 
 ## Extend or retract the proboscis. When a food drop is given (world-space

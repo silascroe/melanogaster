@@ -27,7 +27,9 @@ actions, is an engineered choice made here, not connectome data:
   foreleg mechanosensory bristles (both legs) at 150 Hz;
 - jump: any giant-fiber (DNp01) spike outside a 1.2 s cooldown;
 - turn: smoothed DNa02 right-minus-left firing rate x TURN_GAIN, capped;
-- feed: smoothed MN9 firing rate above FEED_THRESHOLD_HZ;
+- feed: smoothed MN9 firing rate above FEED_THRESHOLD_HZ while the mouth touches
+  the drop (no drop, nothing to eat: after bitter, leftover activity lifts MN9
+  past the threshold for ~0.5 s once contact ends, see whole_brain_result.md);
 - groom: smoothed aDN1/aDN2 (DNg62, DNge078) rate above GROOM_THRESHOLD_HZ;
 - sing: smoothed pIP10 rate (target copy) above SING_THRESHOLD_HZ; the wing on
   the target's side is the one extended;
@@ -322,7 +324,7 @@ class BrainSession:
                 "readout": "engineered: smoothed DNa02 right-minus-left rate to turn rate",
             },
             "taste": {"contact": contact, "bitter": bitter},
-            "feeding": self.mn9_hz >= FEED_THRESHOLD_HZ,
+            "feeding": contact and self.mn9_hz >= FEED_THRESHOLD_HZ,
             "mn9_rate_hz": round(self.mn9_hz, 1),
             "touch": {"dust": dusty},
             "grooming": self.adn_hz >= GROOM_THRESHOLD_HZ,

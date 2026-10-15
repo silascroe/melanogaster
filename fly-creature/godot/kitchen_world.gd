@@ -25,6 +25,9 @@ func _build_lighting() -> void:
 	sun.light_energy = 1.0
 	sun.shadow_enabled = true
 	sun.shadow_blur = 1.6
+	# Cascades spend most of the shadow map near the camera, so leg shadows get
+	# clean edges while the giant props far off still cast theirs.
+	sun.directional_shadow_mode = DirectionalLight3D.SHADOW_PARALLEL_4_SPLITS
 	sun.directional_shadow_max_distance = 60.0
 	add_child(sun)
 	var fill := DirectionalLight3D.new()
@@ -44,7 +47,7 @@ func _build_lighting() -> void:
 	environment.background_mode = Environment.BG_SKY
 	environment.sky = sky
 	environment.ambient_light_source = Environment.AMBIENT_SOURCE_SKY
-	environment.ambient_light_energy = 0.35
+	environment.ambient_light_energy = 0.55  # lifts shadows from black to shade
 	environment.tonemap_mode = Environment.TONE_MAPPER_FILMIC
 	environment.tonemap_exposure = 0.9
 	environment.glow_enabled = false
@@ -104,9 +107,10 @@ func _build_table() -> void:
 func _build_placemat() -> void:
 	# Red-and-white gingham: overlapping stripes give three tones.
 	var image := Image.create(64, 64, true, Image.FORMAT_RGB8)
-	var white := Color(0.80, 0.77, 0.72)
-	var pink := Color(0.74, 0.42, 0.40)
-	var red := Color(0.60, 0.16, 0.15)
+	# Muted, washed-linen tones: the cloth is backdrop, the fly is the subject.
+	var white := Color(0.58, 0.55, 0.50)
+	var pink := Color(0.52, 0.37, 0.34)
+	var red := Color(0.40, 0.16, 0.14)
 	for y in range(64):
 		for x in range(64):
 			var stripe_x := x < 32

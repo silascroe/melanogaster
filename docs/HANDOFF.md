@@ -40,8 +40,8 @@ an intact-versus-cut check before anything is credited to the wiring.
 - Holding the forelegs on an obstacle for over a second can drift the obstacle
   copy into a state where MDN falls silent (7 of 12 seeds within 3 s).
 - After sugar laced with bitter, the taste copy's MN9 rises to 34-39 Hz in the
-  0.5 s before reset (6 of 6 seeds), which the 20 Hz rule counts as feeding.
-  Found 2026-10-14 while recording the website replays; not fixed.
+  0.5 s before reset (6 of 6 seeds). Found 2026-10-14; the game now feeds only
+  while the mouth touches the drop, which hides it. The cause is not traced.
 - Song depends on the female's path: the target encoder drives LC10a only when
   she is off-centre, so a female straight ahead gets no song.
 - Courtship through foreleg pheromone taste failed its test; the ppk25 channel
@@ -50,8 +50,9 @@ an intact-versus-cut check before anything is credited to the wiring.
 
 ## Possible next steps
 
-None is authorized by this note; ask the owner. Ideas so far: a proboscis that
-visibly reaches the sugar drop, props from Blender, and new reactions taken
+None is authorized by this note; ask the owner. Ideas so far: reshaping the
+fly model in Blender (faceted eyes, a slimmer body; the 2026-10-14 looks pass
+only retuned materials and lighting), props from Blender, and new reactions taken
 from whole-brain screens like the MDN one (`tools/screen_mdn_inputs.py`).
 
 ## Checks

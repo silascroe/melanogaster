@@ -229,14 +229,18 @@ on while a plain drop is. The Godot capture (`godot/capture_autonomy.gd`)
 confirms the same in the scene: grooming at ~45 Hz smoothed aDN, stopping once
 the dust is gone, and bitter contact with no feeding.
 
-**Found later (2026-10-14), not fixed.** While recording the website's replays:
+**Found later (2026-10-14); covered by a game rule, not explained.** While
+recording the website's replays:
 in the v3 taste copy, after 1 s of sugar plus bitter, MN9 fires at 34–39 Hz in
 the 0.5 s after the input stops (6 of 6 seeds; during the input 0–1.5 Hz).
 After sugar alone it fires at 1–6 Hz in the same window. The game's 20 Hz
 feeding rule would count the bitter case as feeding until the copy resets. It
 has not been traced; it is consistent with the runaway activity described above
 leaking into MN9. The game checks above (g6 and the Godot capture) stop when
-contact ends, so they did not catch it.
+contact ends, so they did not catch it. The game now feeds only while the mouth
+touches the drop (engineered, `decisions.md` 2026-10-14), and g6 runs on for a
+second after contact. The rebound itself is unchanged: MN9 still reaches ~38 Hz
+in that test, it just no longer counts as a meal.
 
 Speed at the time: a running v3 copy cost ~82–90 ms per 50 ms frame (about
 0.55× real time); the parallel engine has since brought it to real time.

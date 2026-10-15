@@ -83,7 +83,9 @@ sense drives its own copy, which resets after 500 ms without input.
   presentation only (`godot/capture_female.gd` compares intact and cut wiring).
 - **Feed and refuse bitter:** contact with a drop drives the LB3 sugar neurons,
   plus the LB1 bitter neurons for a bitter drop. A smoothed MN9 (proboscis motor
-  neuron) rate of 20 Hz or more means feeding; bitter input suppresses it.
+  neuron) rate of 20 Hz or more while the mouth is on the drop means feeding;
+  bitter input suppresses it. The contact requirement is engineered: it stops a
+  leftover MN9 rebound after bitter from counting once the fly has moved off.
 - **Groom:** dust drives Johnston's organ zones C and E; smoothed aDN activity
   above 30 Hz plays the foreleg sweep until the engineered dust timer clears.
 - **Back up:** foreleg contact with the cube drives the foreleg touch bristles;
@@ -93,7 +95,9 @@ sense drives its own copy, which resets after 500 ms without input.
 
 `godot/capture_autonomy.gd` is a scripted check of roaming, jumping, target
 approach, feeding, grooming and bitter refusal in the scene;
-`godot/capture_map.gd` takes neuron-map screenshots for each sense. What was tested,
+`godot/capture_map.gd` takes neuron-map screenshots for each sense;
+`godot/capture_looks.gd` renders fixed HUD-free shots of the fly (no brain
+service needed) for comparing appearance changes. What was tested,
 what failed and what is engineered, reaction by reaction:
 [the whole-brain result](docs/whole_brain_result.md), written against
 [the protocol](docs/whole_brain_protocol.md). Design choices are in
